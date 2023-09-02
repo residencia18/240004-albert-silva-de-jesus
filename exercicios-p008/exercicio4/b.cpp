@@ -1,0 +1,3 @@
+/*Exercício 4: Manipulando arrays multidimensionais
+● A seguinte expressão em C++ gera um valor inteiro aleatório entre 0 e 255:rand()%256. Utilizando esta expressão desenvolva uma aplicação que:
+b. Um histograma permite analisar a distribuição de frequências de cada intensidade em uma imagem. Pesquise mais sobre histogramas e implemente o código para construir o histograma da imagem que foi gerada;*/
