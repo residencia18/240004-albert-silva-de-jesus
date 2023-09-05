@@ -23,7 +23,7 @@ int main()
         cout << " nome = " << alunos.at(i) << endl;
     }
 
-    cout << "Digite o númnero do aluno: ";
+    cout << "Digite o número do aluno: ";
     cin >> x;
 
     for (int i = 0; i < 5; i++)
