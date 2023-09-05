@@ -30,7 +30,7 @@ int main()
     {
         if (x == i)
         {
-            cout << nome[i];
+            cout << alunos.at(i);
         }
     }
     cout << endl;
