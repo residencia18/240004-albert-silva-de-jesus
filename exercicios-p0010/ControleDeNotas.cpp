@@ -188,8 +188,11 @@ void inserir(Aluno &aluno, vector<Aluno> &listaDeAlunos)
 
 bool limiteDeAlunos(vector<Aluno> &listaDeAlunos)
 {
+    std::vector<Aluno>::iterator it;
+    it = listaDeAlunos.begin();
     bool limite;
-    if (listaDeAlunos[0].totalDeAlunos > listaDeAlunos.size())
+
+    if (it->totalDeAlunos > listaDeAlunos.size())
     {
         limite = true;
     }
@@ -203,6 +206,8 @@ bool limiteDeAlunos(vector<Aluno> &listaDeAlunos)
 void inserirAlunosNovos(Aluno &aluno, vector<Aluno> &listaDeAlunos)
 {
     system("cls");
+    std::vector<Aluno>::iterator it;
+    it = listaDeAlunos.begin();
     char opcao = 's';
 
     if (listaDeAlunos.empty())
@@ -222,15 +227,15 @@ void inserirAlunosNovos(Aluno &aluno, vector<Aluno> &listaDeAlunos)
                          << endl;
                     cin.get();
                     cout << "Informe o nome do aluno: ";
-                    getline(cin, aluno.nome);
+                    getline(cin, it->nome);
 
                     cout << "\nInforme a 1º nota do aluno: ";
-                    cin >> aluno.nota1;
+                    cin >> it->nota1;
 
                     cout << "\nInforme a 2º nota do aluno: ";
-                    cin >> aluno.nota2;
+                    cin >> it->nota2;
 
-                    aluno.media = (aluno.nota1 + aluno.nota2) / 2;
+                    it->media = (it->nota1 + it->nota2) / 2;
 
                     listaDeAlunos.push_back(aluno);
 
@@ -276,15 +281,16 @@ void inserirAlunosNovos(Aluno &aluno, vector<Aluno> &listaDeAlunos)
 
 void listar(vector<Aluno> listaDeAlunos)
 {
+    int i = 0;
     cout << "\n==============LISTA DE ALUNOS ORDENADOS EM ORDEM ALFABETICA==============\n";
-    for (int i = 0; i < listaDeAlunos.size(); i++)
+    for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
     {
         cout << "\n"
-             << i + 1 << "º Aluno:" << endl;
-        cout << "\nNome: " << listaDeAlunos[i].nome
-             << "| 1º Nota = " << listaDeAlunos[i].nota1
-             << "| 2º Nota = " << listaDeAlunos[i].nota2
-             << "| Media = " << listaDeAlunos[i].media << endl;
+             << ++i << "º Aluno:" << endl;
+        cout << "\nNome: " << it->nome
+             << "| 1º Nota = " << it->nota1
+             << "| 2º Nota = " << it->nota2
+             << "| Media = " << it->media << endl;
         cout << "=========================================================================\n";
     }
 }
@@ -337,11 +343,11 @@ void excluir(vector<Aluno> &listaDeAlunos)
             cout << "\nInforme o nome do aluno, para exclusão:  ";
             cin >> nome;
 
-            for (int i = 0; i < listaDeAlunos.size(); i++)
+            for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
             {
-                if (listaDeAlunos[i].nome == nome)
+                if (it->nome == nome)
                 {
-                    listaDeAlunos.erase(listaDeAlunos.begin() + i);
+                    listaDeAlunos.erase(it);
                     nome = "null";
                 }
             }
@@ -381,34 +387,34 @@ void excluir(vector<Aluno> &listaDeAlunos)
 }
 void listaDeAprovados(vector<Aluno> &listaDeAlunos)
 {
-
+    int i = 0;
     system("cls");
     cout << "\n================LISTA DE APROVADOS================\n";
-    for (int i = 0; i < listaDeAlunos.size(); i++)
+    for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
     {
-        if (listaDeAlunos[i].media >= 7)
+        if (it->media >= 7)
         {
             cout << "\n"
-                 << i + 1 << "º Aluno:" << endl;
-            cout << "\nNome: " << listaDeAlunos[i].nome
-                 << "| 1º Nota = " << listaDeAlunos[i].nota1
-                 << "| 2º Nota = " << listaDeAlunos[i].nota2
-                 << "| Media = " << listaDeAlunos[i].media << endl;
+                 << ++i << "º Aluno:" << endl;
+            cout << "\nNome: " << it->nome
+                 << "| 1º Nota = " << it->nota1
+                 << "| 2º Nota = " << it->nota2
+                 << "| Media = " << it->media << endl;
             cout << "===============================================\n";
         }
     }
     cout << "\n================LISTA DE REPROVADOS================\n";
-    for (int i = 0; i < listaDeAlunos.size(); i++)
+    for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
     {
-        if (listaDeAlunos[i].media < 7)
+        if (it->media < 7)
         {
             cout << "\n"
-                 << i + 1 << "º Aluno:" << endl;
-            cout << "\nNome: " << listaDeAlunos[i].nome
-                 << "| 1º Nota = " << listaDeAlunos[i].nota1
-                 << "| 2º Nota = " << listaDeAlunos[i].nota2
-                 << "| Media = " << listaDeAlunos[i].media << endl;
-            cout << "================================================\n";
+                 << ++i << "º Aluno:" << endl;
+            cout << "\nNome: " << it->nome
+                 << "| 1º Nota = " << it->nota1
+                 << "| 2º Nota = " << it->nota2
+                 << "| Media = " << it->media << endl;
+            cout << "===============================================\n";
         }
     }
     system("pause");
@@ -586,6 +592,7 @@ void gerarClassificacao(vector<Aluno> &listaDeAlunos)
 
     system("cls");
     int n = listaDeAlunos.size();
+    int i = 0;
     bool trocou;
     Aluno aux;
 
@@ -609,30 +616,30 @@ void gerarClassificacao(vector<Aluno> &listaDeAlunos)
 
     system("cls");
     cout << "\n================LISTA DE APROVADOS================\n";
-    for (int i = 0; i < listaDeAlunos.size(); i++)
+    for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
     {
-        if (listaDeAlunos[i].media >= 7)
+        if (it->media >= 7)
         {
             cout << "\n"
-                 << i + 1 << "º Aluno:" << endl;
-            cout << "\nNome: " << listaDeAlunos[i].nome
-                 << "| 1º Nota = " << listaDeAlunos[i].nota1
-                 << "| 2º Nota = " << listaDeAlunos[i].nota2
-                 << "| Media = " << listaDeAlunos[i].media << endl;
+                 << ++i << "º Aluno:" << endl;
+            cout << "\nNome: " << it->nome
+                 << "| 1º Nota = " << it->nota1
+                 << "| 2º Nota = " << it->nota2
+                 << "| Media = " << it->media << endl;
             cout << "===============================================\n";
         }
     }
     cout << "\n================LISTA DE REPROVADOS================\n";
-    for (int i = 0; i < listaDeAlunos.size(); i++)
+    for (auto it = listaDeAlunos.begin(); it != listaDeAlunos.end(); it++)
     {
-        if (listaDeAlunos[i].media < 7)
+        if (it->media < 7)
         {
             cout << "\n"
-                 << i + 1 << "º Aluno:" << endl;
-            cout << "\nNome: " << listaDeAlunos[i].nome
-                 << "| 1º Nota = " << listaDeAlunos[i].nota1
-                 << "| 2º Nota = " << listaDeAlunos[i].nota2
-                 << "| Media = " << listaDeAlunos[i].media << endl;
+                 << ++i << "º Aluno:" << endl;
+            cout << "\nNome: " << it->nome
+                 << "| 1º Nota = " << it->nota1
+                 << "| 2º Nota = " << it->nota2
+                 << "| Media = " << it->media << endl;
             cout << "================================================\n";
         }
     }
