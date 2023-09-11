@@ -1,72 +1,73 @@
 /*Exercício 2: Trabalhando com arrays
-● A seguinte expressão em C++ gera um valor inteiro aleatório entre 1 e 20: 1 + rand()%20. Utilizando esta expressão desenvolva uma aplicação que:
-b. Utilize um array de 20 posições para determinar quantas vezes se repete cada um dos possíveis valores gerados no array;*/
+● A seguinte expressão em C++ gera um valor de ponto flutuante aleatório entre 10 e 40: 1 + 30.0*(rand()%100)/3000.0. Supondo que se deseja simular uma rede de estações meteorológicas, implemente uma aplicação que:
+
+a. Armazene num array as temperaturas reportadas por 250 estações meteorológicas.
+
+b. Determine a temperatura máxima e mínima reportadas;
+
+c. Determine a temperatura média entre as 250 estações;
+
+d. Um modelo de predição estima que, dentro de uma hora, as estações que estão marcando temperatura acima da média vão ficar 1 grau mais quente. Já as que estão marcando abaixo da média vão ficar 2 graus mais frias. Atualize o array com as temperaturas das estações, de acordo com a previsão do modelo.*/
 
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
 using namespace std;
-constexpr int Max = 20;
 
 int main()
 {
+    srand(time(NULL));
+    float temperatura[250];
+    float soma = 0;
+    float media = 0;
+    float max = 0;
+    float min = 0;
 
-    srand(time(nullptr));
-
-    // Array para rastrear a contagem de ocorrências de cada valor
-    int contagem[Max] = {0}; // Inicializa todas as contagens como zero
-    int vect[Max] = {0};
-    int copia[Max];
-    int contador = 0, valorAtual, x = 0;
-
-    for (int i = 0; i < Max; i++)
+    for (int i = 0; i < 250; i++)
     {
-        vect[i] = rand() % 20;
-    }
-    
-    cout << "\nValores gerados:\n";
-    for (int i = 0; i < Max; i++)
-    {
-        cout << "Valor: " << vect[i] << endl;
-    }
-
-    // Contagem de ocorrências
-    for (int i = 0; i < Max; ++i)
-    {
-        valorAtual = vect[i];
-        contador = 0;
-
-        for (int j = 0; j < Max; ++j)
+        temperatura[i] = 1 + 30.0 * (rand() % 100) / 3000.0;
+        soma += temperatura[i];
+        if (i == 0)
         {
-            if (vect[j] == valorAtual)
+            max = temperatura[i];
+            min = temperatura[i];
+        }
+        else
+        {
+            if (temperatura[i] > max)
             {
-                contador++;
+                max = temperatura[i];
+            }
+            if (temperatura[i] < min)
+            {
+                min = temperatura[i];
             }
         }
-
-        // Verifica se o valor já existe no array
-        for (int j = 0; j < x; j++)
-        {
-            if (valorAtual == copia[j])
-            {
-                contador = 0;
-            }
-        }
-        // Atualiza a contagem para o valor atual
-        if (contador > 1 && valorAtual != copia[x - 1])
-        {
-            contagem[x] = contador;
-            copia[x] = valorAtual;
-            x++;
-        }
     }
-
-    cout << "\n"
+    media = soma / 250;
+    cout << "\n**********TEMPERATURAS*********\n"
          << endl;
+    cout << "Temperatura maxima: " << max << endl;
+    cout << "Temperatura minima: " << min << endl;
+    cout << "Temperatura media: " << media << endl;
 
-    for (int i = 0; i < x; i++)
+    for (int i = 0; i < 250; i++)
     {
-        cout << "Valor: " << copia[i] << ": se repeti: " << contagem[i] << endl;
+        if (temperatura[i] > media)
+        {
+            temperatura[i] += 1;
+        }
+        else
+        {
+            temperatura[i] -= 2;
+        }
     }
+    cout << "\n*****TEMPERATURAS ATUALIZADAS****\n"
+         << endl;
+    for (int i = 0; i < 250; i++)
+    {
+        cout << "Temperatura = " << temperatura[i] << endl;
+    }
+    return 0;
 }

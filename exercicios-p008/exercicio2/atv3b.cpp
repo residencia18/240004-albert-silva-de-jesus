@@ -1,8 +1,5 @@
-
 /*Exercício 2: Trabalhando com arrays
 ● A seguinte expressão em C++ gera um valor inteiro aleatório entre 1 e 20: 1 + rand()%20. Utilizando esta expressão desenvolva uma aplicação que:
-a. Preencha um array com 100 elementos de tipo int, com valores aleatoriamente gerados entre 1 e 20;
-b. Utilize um array de 20 posições para determinar quantas vezes se repete cada um dos possíveis valores gerados no array;
 c. Determine qual ou quais os números que mais vezes aparecem no array;*/
 
 #include <iostream>
@@ -10,8 +7,7 @@ c. Determine qual ou quais os números que mais vezes aparecem no array;*/
 #include <ctime>
 
 using namespace std;
-
-constexpr int Max = 100;
+constexpr int Max = 20;
 
 int main()
 {
@@ -63,11 +59,9 @@ int main()
         }
     }
 
-    cout << "\nValores que mais se repetem:\n";
-    for (int i = 0; i < cont; i++)
+    cout << "\n\n";
+    for (int i = 0; i < cont; ++i)
     {
-        cout << "Valor = " << num[i] << " - Repeticoes = " << contagem[i] << endl;
+        cout << "Número = " << num[i] << " número de vezes = " << contagem[i] << "\n";
     }
-
 }
-

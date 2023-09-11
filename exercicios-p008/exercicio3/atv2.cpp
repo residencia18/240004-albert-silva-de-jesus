@@ -1,75 +1,114 @@
 /*Exercício 3: Manipulação de strings tipo C
-● Implemente uma aplicação em C que:
-b. Modifique o exemplo anterior de forma a verificar se a data fornecida é uma data válida (Ex. 31/02/1990 e 24/15/2002 não são datas válidas);*/
+● A seguinte expressão em C++ gera caracteres aleatórios no intervalo das letras minúsculas: ‘a’ + rand()%(‘z’ - ‘a’). Utilizando esta expressão implemente uma aplicação em que:
+
+a. Gere duas strings de forma aleatória com 10 caracteres;
+
+b. Transforme o primeiro caractere de cada string em maiúscula;
+
+c. Imprima as strings em ordem alfabética;*/
 
 #include <iostream>
 #include <cstring>
-#include <cstdlib>
 #include <ctime>
 
 using namespace std;
 
-int main(void)
+int main()
 {
-    char data[11];
-    int dia, mes, ano;
 
-    cout << "\nDigite uma data no formato dd/mm/aaaa: ";
-    cin >> data;
+    srand(time(nullptr));
 
-    dia = atoi(strtok(data, "/"));
-    mes = atoi(strtok(NULL, "/"));
-    ano = atoi(strtok(NULL, "/"));
+    char string1[10];
+    char string2[10];
+    int tam = 0;
+    bool trocou;
 
-    if (dia > 31 || dia < 1 || mes > 12 || mes < 1 || ano < 1)
+    for (int i = 0; i < sizeof(string1); i++)
     {
-        cout << "\nData invalida!" << endl;
-        return 0;
+        string1[i] = 'a' + rand() % ('z' - 'a');
     }
 
-    if (mes == 2)
+    for (int i = 0; i < sizeof(string2); i++)
     {
-        if (dia > 29)
+        string2[i] = 'a' + rand() % ('z' - 'a');
+    }
+
+    cout << "\nStrings geradas:\n";
+    cout << "\nString1: ";
+    for (int i = 0; i < sizeof(string1); i++)
+    {
+        cout << string1[i] << ", ";
+    }
+    cout << endl;
+
+    cout << "String2: ";
+    for (int i = 0; i < sizeof(string2); i++)
+    {
+        cout << string2[i] << ", ";
+    }
+
+    string1[0] = toupper(string1[0]);
+    string2[0] = toupper(string2[0]);
+
+    cout << "\n\n1º Letra de cada String em maiuscula:\n";
+    cout << "\nString1: ";
+    for (int i = 0; i < sizeof(string1); i++)
+    {
+        cout << string1[i] << ", ";
+    }
+    cout << endl;
+
+    cout << "String2: ";
+    for (int i = 0; i < sizeof(string2); i++)
+    {
+        cout << string2[i] << ", ";
+    }
+
+    tam = sizeof(string1);
+    do
+    {
+        trocou = false;
+        for (int i = 0; i < tam - 1; i++)
         {
-            cout << "\nData invalida!" << endl;
-            return 0;
-        }
-        else if (dia == 29)
-        {
-            if (ano % 4 != 0)
+            if (string1[i] > string1[i + 1])
             {
-                cout << "\nData invalida!" << endl;
-                return 0;
-            }
-            else if (ano % 100 == 0 && ano % 400 != 0)
-            {
-                cout << "\nData invalida!" << endl;
-                return 0;
+                // Troca os caracteres manualmente sem usar swap
+                char temp1 = string1[i];
+                string1[i] = string1[i + 1];
+                string1[i + 1] = temp1;
+                trocou = true;
             }
         }
-    }
+    } while (trocou);
 
-    if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
+    do
     {
-        if (dia > 30)
+        trocou = false;
+        for (int i = 0; i < tam - 1; i++)
         {
-            cout << "\nData invalida!" << endl;
-            return 0;
+            if (string2[i] > string2[i + 1])
+            {
+                // Troca os caracteres manualmente sem usar swap
+                char temp = string2[i];
+                string2[i] = string2[i + 1];
+                string2[i + 1] = temp;
+                trocou = true;
+            }
         }
+    } while (trocou);
+
+    cout << "\n\nString1 em ordem alfabetica:\n";
+    cout << "\nString1: ";
+    for (int i = 0; i < sizeof(string1); i++)
+    {
+        cout << string1[i] << ", ";
     }
+    cout << endl;
 
-    cout << "\nUtilizando variáveis inteiras, formato (Ex. 5/12/2022) " << endl;
-    cout << "Dia: " << dia << endl;
-    cout << "Mes: " << mes << endl;
-    cout << "Ano: " << ano << endl;
-
-    cout << "\nUtilizando acesso direto aos caracteres da string, formato (Ex. 05/02/23) " << endl;
-    cout << "Dia: " << data[0] << data[1] << endl;
-    cout << "Mes: " << data[3] << data[4] << endl;
-    cout << "Ano: " << data[6] << data[7] << data[8] << data[9] << endl;
-
-    cout << "\nUtilizando acesso direto aos caracteres da string, formato (Ex.07/5/2024) " << endl;
-    cout << "Dia: " << data[0] << data[1] << endl;
-    cout << "Mes: " << data[4] << endl;
-    cout << "Ano: " << data[6] << data[7] << data[8] << data[9] << endl;
+    cout << "String2: ";
+    for (int i = 0; i < sizeof(string2); i++)
+    {
+        cout << string2[i] << ", ";
+    }
+    cout << endl;
 }
