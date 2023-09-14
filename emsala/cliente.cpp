@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -24,12 +25,13 @@ struct MinhaData
 
             cout << "\nInforme o ano: ";
             cin >> ano;
-        } while (!validaData(dia, mes, ano));
+        } while (!validaData());
     }
 
     void mostraData()
     {
-        printf("%02d/%02d/%4d\n", dia, mes, ano);
+        printf("%02d/%02d/%4d  ", dia, mes, ano);
+        cout << diaDaSemana() << endl;
     }
 
     int anosCompletos()
@@ -54,27 +56,91 @@ struct MinhaData
         return x;
     }
 
-    bool validaData(int dia, int mes, int ano){
+    bool validaData()
+    {
 
-        int meses[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+        int meses[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if(ano%4 == 0 || (ano%100==0 && ano%400==0)){
-            meses[1]=29;
+        if (ano % 4 == 0 || (ano % 100 == 0 && ano % 400 == 0))
+        {
+            meses[1] = 29;
         }
 
         {
             if (dia > 31 || dia < 1 || mes > 12 || mes < 1 || ano < 1)
             {
+                limparTela();
                 cout << "\nData invalida!" << endl;
                 return false;
             }
 
-            if(dia > meses[mes-1]){
+            if (dia > meses[mes - 1])
+            {
+                limparTela();
                 cout << "\nData invalida!" << endl;
                 return false;
             }
-            
+
             return true;
+        }
+    }
+    string diaDaSemana()
+    {
+
+        int ds;
+        int g;
+        int f;
+        int delta;
+        int n;
+        float frac;
+        float intpart;
+
+        if (mes > 2)
+        {
+            g = ano;
+            f = mes + 1;
+        }
+        else if (mes <= 2)
+        {
+            g = ano - 1;
+            f = mes + 13;
+        }
+
+        n = int(365.25 * g) + int(30.6 * f) - 621049 + dia;
+
+        if (n < 36523)
+        {
+            delta = 2;
+        }
+        else if (36523 <= n and n < 73048)
+        {
+            delta = 1;
+        }
+        else if (n >= 73048)
+        {
+            delta = 0;
+        }
+
+        frac = modf((float)n / 7, &intpart);
+
+        ds = round(frac * 7) + delta + 1;
+
+        switch (ds)
+        {
+        case 1:
+            return "domingo";
+        case 2:
+            return "segunda-feira";
+        case 3:
+            return "terca-feira";
+        case 4:
+            return "quarta-feira";
+        case 5:
+            return "quinta-feira";
+        case 6:
+            return "sexta-feira";
+        case 7:
+            return "sabado";
         }
     }
 };
@@ -133,24 +199,24 @@ typedef struct
         cin >> cpf;
     }
 
-    void mostraDadosCliente()
+    void mostraDadosCliente(int j)
     {
-        limparTela();
         int i = 1;
 
-        cout << "\n======================================";
+        cout << "\n"
+             << j << "º CLIENTE";
         cout << "\nNome do Cliente: " << nome << endl;
-        cout << "\nSobrenome: " << sobrenome << endl;
-        cout << "\nCPF do Cliente: " << cpf << endl;
+        cout << "Sobrenome: " << sobrenome << endl;
+        cout << "CPF do Cliente: " << cpf << endl;
 
         for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
         {
             cout << "\n"
                  << i << "º VEICULO";
             cout << "\nModelo do Carro: " << it->modelo << endl;
-            cout << "\nCor do veiculo: " << it->cor << endl;
-            cout << "\nPlaca do veiculo: " << it->placa << endl;
-            cout << "\nData de Registro: ";
+            cout << "Cor do veiculo: " << it->cor << endl;
+            cout << "Placa do veiculo: " << it->placa << endl;
+            cout << "Data de Registro: ";
             it->dataRegistro.mostraData();
         }
     }
@@ -282,7 +348,7 @@ int menu()
 
 void pause()
 {
-    cout << "Digite enter para continuar!";
+    cout << "\nDigite enter para continuar!...\n";
     cin.get();
     limparTela();
 }
@@ -311,13 +377,7 @@ void listarClientes(vector<Cliente> &listCliente)
 
     for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
     {
-        cout << "\n"
-             << i << "º Cliente";
-        cout << "\n======================================";
-        cout << "\nNome do Cliente: " << it->nome << endl;
-        cout << "\nSobrenome: " << it->sobrenome << endl;
-        cout << "\nCPF do Cliente: " << it->cpf << endl;
-        it->mostraDadosCliente();
+        it->mostraDadosCliente(i);
         cout << "======================================\n";
     }
     pause();
@@ -336,7 +396,7 @@ void buscarCliente(vector<Cliente> &listCliente)
     {
         if (it->cpf == cpf)
         {
-            it->mostraDadosCliente();
+            it->mostraDadosCliente(i);
             pause();
             return;
         }
