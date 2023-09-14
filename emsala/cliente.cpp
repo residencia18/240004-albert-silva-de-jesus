@@ -12,16 +12,19 @@ struct MinhaData
 
     void lerData()
     {
-        cout << "\n==========DATA DE REGISTRO==========\n";
+        do
+        {
+            cout << "\n==========DATA DE REGISTRO==========\n";
 
-        cout << "\nInforme o dia: ";
-        cin >> dia;
+            cout << "\nInforme o dia: ";
+            cin >> dia;
 
-        cout << "\nInforme o mes: ";
-        cin >> mes;
+            cout << "\nInforme o mes: ";
+            cin >> mes;
 
-        cout << "\nInforme o ano: ";
-        cin >> ano;
+            cout << "\nInforme o ano: ";
+            cin >> ano;
+        } while (!validaData(dia, mes, ano));
     }
 
     void mostraData()
@@ -49,6 +52,30 @@ struct MinhaData
             }
         }
         return x;
+    }
+
+    bool validaData(int dia, int mes, int ano){
+
+        int meses[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+
+        if(ano%4 == 0 || (ano%100==0 && ano%400==0)){
+            meses[1]=29;
+        }
+
+        {
+            if (dia > 31 || dia < 1 || mes > 12 || mes < 1 || ano < 1)
+            {
+                cout << "\nData invalida!" << endl;
+                return false;
+            }
+
+            if(dia > meses[mes-1]){
+                cout << "\nData invalida!" << endl;
+                return false;
+            }
+            
+            return true;
+        }
     }
 };
 
