@@ -2,9 +2,8 @@
 #include <vector>
 #include<ctime>
 
-
-
 using namespace std;
+
 typedef struct
 {
     string placa;
@@ -16,6 +15,7 @@ typedef struct
 typedef struct
 {
     string nome;
+    string sobrenome;
     string cpf;
     vector<Veiculo> veiculos;
 
@@ -30,6 +30,8 @@ void limparTela();
 void lerCliente(Cliente &cliente);
 
 void lerNome(Cliente &cliente);
+
+void lerSobrenome(Cliente &cliente);
 
 void lerCpf(Cliente &cliente);
 
@@ -140,6 +142,8 @@ void lerCliente(Cliente &cliente)
 
     lerNome(cliente);
 
+    lerSobrenome(cliente);
+
     lerCpf(cliente);
 
     cout << "\nInforme quantos carros você tem? ";
@@ -148,7 +152,6 @@ void lerCliente(Cliente &cliente)
 
     for (int i = 0; i < quantidadeDeCarros; i++)
     {
-
         cadastraCarro(veiculo, i + 1);
 
         cliente.veiculos.push_back(veiculo);
@@ -222,6 +225,7 @@ void listarClientes(vector<Cliente> &listCliente)
         cout << "\n" << i << "º Cliente";
         cout << "\n======================================";
         cout << "\nNome do Cliente: " << it->nome << endl;
+        cout << "\nSobrenome: " << it->sobrenome << endl;
         cout << "\nCPF do Cliente: " << it->cpf << endl;
         mostraDadosCliente(*it);
         cout << "======================================\n";
@@ -283,6 +287,12 @@ void lerNome(Cliente &cliente)
 {
     cout << "\nInforme o nome do cliente: ";
     getline(cin, cliente.nome);
+}
+
+void lerSobrenome(Cliente &cliente){
+
+    cout << "\nInforme o sobrenome: ";
+    getline(cin, cliente.sobrenome);
 }
 
 void lerCpf(Cliente &cliente)

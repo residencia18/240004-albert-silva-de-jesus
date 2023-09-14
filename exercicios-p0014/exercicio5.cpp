@@ -45,7 +45,6 @@ int menu();
 int main()
 {
     vector<Veiculo> veiculos;
-    Veiculo veiculo;
 
     sistemaDeGestaoConsercionariaIlheus(veiculos);
 
