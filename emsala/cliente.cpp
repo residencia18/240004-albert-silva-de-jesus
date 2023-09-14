@@ -34,7 +34,6 @@ struct MinhaData
 
     int anosCompletos()
     {
-
         time_t now;
         time(&now);
         struct tm *local = localtime(&now);
@@ -85,6 +84,7 @@ struct MinhaData
             return true;
         }
     }
+    
     string diaDaSemana()
     {
 
@@ -143,6 +143,8 @@ struct MinhaData
         case 7:
             return "sabado";
         }
+
+        return "dia invalido";
     }
 };
 
@@ -239,12 +241,13 @@ typedef struct
         lerCpf();
 
         lerDataNascimento();
-        
-        limparTela();
 
-        if(dataNascimento.anosCompletos() >= 18){
-            
-            cout << "\nInforme quantos carros você tem? ";
+        if (dataNascimento.anosCompletos() >= 18)
+        {
+            limparTela();
+            cout << "\n==========CADASTRO DE VEICULO==========\n";
+
+            cout << "\nInforme a quantidade de veiculos: ";
             cin >> quantidadeDeCarros;
             cin.get();
 
@@ -255,11 +258,11 @@ typedef struct
                 limparTela();
             }
         }
-
     }
 
-    void lerDataNascimento(){
-
+    void lerDataNascimento()
+    {
+        limparTela();
         cout << "\n==========DATA DE NASCIMENTO==========\n";
 
         dataNascimento.lerData();
