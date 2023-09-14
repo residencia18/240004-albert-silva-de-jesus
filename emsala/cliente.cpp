@@ -4,11 +4,17 @@
 
 using namespace std;
 
+struct MinhaData
+{
+    int dia, mes, ano;
+};
+
 typedef struct
 {
     string placa;
     string modelo;
     string cor;
+    MinhaData dataRegistro;
 
 } Veiculo;
 
@@ -39,7 +45,7 @@ void mostraDadosCliente(Cliente cliente);
 
 void cadastraCliente(vector<Cliente> &listCliente);
 
-void cadastraCarro(Veiculo &veiculo, int i);
+void cadastraVeiculo(Veiculo &veiculo, int i);
 
 void listarClientes(vector<Cliente> &listCliente);
 
@@ -48,6 +54,12 @@ void buscarCliente(vector<Cliente> &listCliente);
 void removerCliente(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
+
+void lerData(MinhaData &minhadata);
+
+void mostraData(MinhaData minhadata);
+
+int anosCompletos(MinhaData novaData);
 
 int main()
 {
@@ -152,7 +164,7 @@ void lerCliente(Cliente &cliente)
 
     for (int i = 0; i < quantidadeDeCarros; i++)
     {
-        cadastraCarro(veiculo, i + 1);
+        cadastraVeiculo(veiculo, i + 1);
 
         cliente.veiculos.push_back(veiculo);
         limparTela();
@@ -170,6 +182,8 @@ void mostraDadosCliente(Cliente cliente)
         cout << "\nModelo do Carro: " << it->modelo << endl;
         cout << "\nCor do veiculo: " << it->cor << endl;
         cout << "\nPlaca do veiculo: " << it->placa << endl;
+        cout << "\nData de Registro: ";
+        mostraData(it->dataRegistro);
     }
     
 }
@@ -190,7 +204,7 @@ void limparTela()
     #endif
 }
 
-void cadastraCarro(Veiculo &veiculo, int i)
+void cadastraVeiculo(Veiculo &veiculo, int i)
 {
     limparTela();
     cout << "\n==========CADASTRO DE VEICULO==========\n"
@@ -205,6 +219,9 @@ void cadastraCarro(Veiculo &veiculo, int i)
 
     cout << "\nInforme a placa do veiculo:";
     cin >> veiculo.placa;
+
+    lerData(veiculo.dataRegistro);    
+    
 }
 
 void cadastraCliente(vector<Cliente> &listCliente)
@@ -299,4 +316,41 @@ void lerCpf(Cliente &cliente)
 {
     cout << "\nInforme o cpf: ";
     cin >> cliente.cpf;
+}
+
+void lerData(MinhaData &novaData)
+{
+    cout <<"\n==========DATA DE REGISTRO==========";
+    
+    cout << "\nInforme o dia: ";
+    cin >> novaData.dia;
+
+    cout << "\nInforme o mes: ";
+    cin >> novaData.mes;
+
+    cout << "\nInforme o ano: ";
+    cin >> novaData.ano;
+
+}
+
+void mostraData(MinhaData minhadata)
+{
+    printf("%02d/%02d/%4d\n", minhadata.dia, minhadata.mes, minhadata.ano);
+}
+
+int anosCompletos(MinhaData novaData){
+
+    int anoAtual = 2023;
+    int mesAtual = 9;
+    int diaAtual = 11;
+    int x = anoAtual - novaData.ano;
+
+    if(mesAtual < novaData.mes){
+        x--;
+    }else{
+        if(novaData.mes == mesAtual && novaData.dia < diaAtual){
+            x--;
+        }
+    }
+    return x;
 }
