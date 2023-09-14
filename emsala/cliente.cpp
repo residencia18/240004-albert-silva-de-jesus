@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
+#include<ctime>
+
+
 
 using namespace std;
-
 typedef struct
 {
     string placa;
@@ -97,7 +99,15 @@ int menu()
     int opcao = 0;
 
     do
-    {
+    {   
+        time_t now;
+        time(&now);
+        struct tm *local = localtime(&now);
+        int dia = local->tm_mday;
+        int mes = local->tm_mon + 1;
+        int ano = local->tm_year + 1900;
+        
+        printf("Hoje é dia %2d/%02d/%2d",dia,mes,ano);
         cout << "\n===============MENU===============";
         cout << "\n[1] - NOVO CLIENTE:";
         cout << "\n[2] - ENCONTRAR CLIENTE:";
