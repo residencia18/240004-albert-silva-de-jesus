@@ -15,8 +15,6 @@ struct MinhaData
     {
         do
         {
-            cout << "\n==========DATA DE REGISTRO==========\n";
-
             cout << "\nInforme o dia: ";
             cin >> dia;
 
@@ -37,9 +35,12 @@ struct MinhaData
     int anosCompletos()
     {
 
-        int anoAtual = 2023;
-        int mesAtual = 9;
-        int diaAtual = 11;
+        time_t now;
+        time(&now);
+        struct tm *local = localtime(&now);
+        int diaAtual = local->tm_mday;
+        int mesAtual = local->tm_mon + 1;
+        int anoAtual = local->tm_year + 1900;
         int x = anoAtual - ano;
 
         if (mesAtual < mes)
@@ -179,6 +180,7 @@ typedef struct
     string sobrenome;
     string cpf;
     vector<Veiculo> veiculos;
+    MinhaData dataNascimento;
 
     void lerNome()
     {
@@ -207,6 +209,8 @@ typedef struct
         cout << "\nNome do Cliente: " << nome << endl;
         cout << "Sobrenome: " << sobrenome << endl;
         cout << "CPF do Cliente: " << cpf << endl;
+        cout << "Data de Nascimento: ";
+        dataNascimento.mostraData();
 
         for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
         {
@@ -234,16 +238,31 @@ typedef struct
 
         lerCpf();
 
-        cout << "\nInforme quantos carros você tem? ";
-        cin >> quantidadeDeCarros;
-        cin.get();
+        lerDataNascimento();
+        
+        limparTela();
 
-        for (int i = 0; i < quantidadeDeCarros; i++)
-        {
-            veiculo.cadastraVeiculo(i + 1);
-            veiculos.push_back(veiculo);
-            limparTela();
+        if(dataNascimento.anosCompletos() >= 18){
+            
+            cout << "\nInforme quantos carros você tem? ";
+            cin >> quantidadeDeCarros;
+            cin.get();
+
+            for (int i = 0; i < quantidadeDeCarros; i++)
+            {
+                veiculo.cadastraVeiculo(i + 1);
+                veiculos.push_back(veiculo);
+                limparTela();
+            }
         }
+
+    }
+
+    void lerDataNascimento(){
+
+        cout << "\n==========DATA DE NASCIMENTO==========\n";
+
+        dataNascimento.lerData();
     }
 
 } Cliente;
