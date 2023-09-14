@@ -34,7 +34,7 @@ void veiculoComportamentos(vector<Veiculo> &veiculos);
 
 void sistemaDeGestaoConsercionariaIlheus(vector<Veiculo> &veiculos);
 
-Veiculo retornarVeiculo(vector<Veiculo> *veiculos, int id);
+Veiculo retornarVeiculo(vector<Veiculo> &veiculos, int id);
 
 void limparTela();
 
@@ -177,13 +177,13 @@ void editar(vector<Veiculo> &veiculos)
     pause();
 }
 
-void remover(vector<Veiculo> *veiculos)
+void remover(vector<Veiculo> &veiculos)
 {
     limparTela();
     int id = 0;
-    auto it = veiculos->begin();
+    auto it = veiculos.begin();
 
-    if (veiculos->empty())
+    if (veiculos.empty())
     {
         cout << "\nNenhum veiculo cadastrado!\n";
         pause();
@@ -197,12 +197,14 @@ void remover(vector<Veiculo> *veiculos)
     cin.get();
     limparTela();
 
-    retornarVeiculo(veiculos, id);
+    *it  = retornarVeiculo(veiculos, id);
 
-    veiculos->erase(it + id - 1);   
-
-    cout << "\nVeiculo removido com sucesso!\n";
-    pause();
+    if(it->id == id){
+        veiculos.erase(it);
+        cout << "\nVeiculo removido com sucesso!\n";
+        pause();
+        return;
+    }
 
     // for (auto it = veiculos.begin(); it != veiculos.end(); it++)
     // {
@@ -274,7 +276,7 @@ void sistemaDeGestaoConsercionariaIlheus(vector<Veiculo> &veiculos)
 
         case 4:
 
-            remover(&veiculos);
+            remover(veiculos);
 
             break;
 
@@ -302,9 +304,9 @@ void sistemaDeGestaoConsercionariaIlheus(vector<Veiculo> &veiculos)
     } while (opcao != 0);
 }
 
-Veiculo retornarVeiculo(vector<Veiculo> *veiculos, int id)
+Veiculo retornarVeiculo(vector<Veiculo> &veiculos, int id)
 {
-    if (id > veiculos->size())
+    if (id > veiculos.size())
     {
         cout << "\nVeiculo não encontrado!\n";
         pause();
@@ -314,7 +316,7 @@ Veiculo retornarVeiculo(vector<Veiculo> *veiculos, int id)
         cout << "\nVeiculo não encontrado!\n";
         pause();
     }
-    for (auto it = veiculos->begin(); it != veiculos->end(); it++)
+    for (auto it = veiculos.begin(); it != veiculos.end(); it++)
     {
 
         if (it->id == id)
@@ -327,7 +329,7 @@ Veiculo retornarVeiculo(vector<Veiculo> *veiculos, int id)
             cout << "\nCor do Veiculo: " << it->cor << endl;
             cout << "\nPlaca do Veiculo: " << it->placa << endl;
             cout << "======================================\n";
-            return *it;
+            return *it; // retorna o veiculo
         }
     }
 }
