@@ -188,7 +188,6 @@ typedef struct
 
     void lerSobrenome()
     {
-
         cout << "\nInforme o sobrenome: ";
         getline(cin, sobrenome);
     }
