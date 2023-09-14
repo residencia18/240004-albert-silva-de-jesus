@@ -87,21 +87,78 @@ typedef struct
     string cpf;
     vector<Veiculo> veiculos;
 
+    void lerNome()
+    {
+        cout << "\nInforme o nome do cliente: ";
+        getline(cin, nome);
+    }
+
+    void lerSobrenome()
+    {
+
+        cout << "\nInforme o sobrenome: ";
+        getline(cin, sobrenome);
+    }
+
+    void lerCpf()
+    {
+        cout << "\nInforme o cpf: ";
+        cin >> cpf;
+    }
+
+    void mostraDadosCliente()
+    {
+        limparTela();
+        int i = 1;
+
+        cout << "\n======================================";
+        cout << "\nNome do Cliente: " << nome << endl;
+        cout << "\nSobrenome: " << sobrenome << endl;
+        cout << "\nCPF do Cliente: " << cpf << endl;
+
+        for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
+        {
+            cout << "\n"
+                 << i << "º VEICULO";
+            cout << "\nModelo do Carro: " << it->modelo << endl;
+            cout << "\nCor do veiculo: " << it->cor << endl;
+            cout << "\nPlaca do veiculo: " << it->placa << endl;
+            cout << "\nData de Registro: ";
+            it->dataRegistro.mostraData();
+        }
+    }
+
+    void lerCliente()
+    {
+        limparTela();
+        Veiculo veiculo;
+        int quantidadeDeCarros = 0;
+
+        cout << "\n================CLIENTE=================\n";
+
+        lerNome();
+
+        lerSobrenome();
+
+        lerCpf();
+
+        cout << "\nInforme quantos carros você tem? ";
+        cin >> quantidadeDeCarros;
+        cin.get();
+
+        for (int i = 0; i < quantidadeDeCarros; i++)
+        {
+            veiculo.cadastraVeiculo(i + 1);
+            veiculos.push_back(veiculo);
+            limparTela();
+        }
+    }
+
 } Cliente;
 
 int menu();
 
 void pause();
-
-void lerCliente(Cliente &cliente);
-
-void lerNome(Cliente &cliente);
-
-void lerSobrenome(Cliente &cliente);
-
-void lerCpf(Cliente &cliente);
-
-void mostraDadosCliente(Cliente cliente);
 
 void cadastraCliente(vector<Cliente> &listCliente);
 
@@ -196,54 +253,6 @@ int menu()
     return opcao;
 }
 
-void lerCliente(Cliente &cliente)
-{
-    limparTela();
-    Veiculo veiculo;
-    int quantidadeDeCarros = 0;
-
-    cout << "\n================CLIENTE=================\n";
-
-    lerNome(cliente);
-
-    lerSobrenome(cliente);
-
-    lerCpf(cliente);
-
-    cout << "\nInforme quantos carros você tem? ";
-    cin >> quantidadeDeCarros;
-    cin.get();
-
-    for (int i = 0; i < quantidadeDeCarros; i++)
-    {
-        veiculo.cadastraVeiculo(i + 1);
-        cliente.veiculos.push_back(veiculo);
-        limparTela();
-    }
-}
-
-void mostraDadosCliente(Cliente cliente)
-{
-    // limparTela();
-    int i = 1;
-
-    cout << "\n======================================";
-    cout << "\nNome do Cliente: " << cliente.nome << endl;
-    cout << "\nSobrenome: " << cliente.sobrenome << endl;
-    cout << "\nCPF do Cliente: " << cliente.cpf << endl;
-    
-    for (auto it = cliente.veiculos.begin(); it != cliente.veiculos.end(); it++, i++)
-    {
-        cout << "\n"
-             << i << "º VEICULO";
-        cout << "\nModelo do Carro: " << it->modelo << endl;
-        cout << "\nCor do veiculo: " << it->cor << endl;
-        cout << "\nPlaca do veiculo: " << it->placa << endl;
-        cout << "\nData de Registro: ";
-        it->dataRegistro.mostraData();
-    }
-}
-
 void pause()
 {
     cout << "Digite enter para continuar!";
@@ -263,7 +272,7 @@ void limparTela()
 void cadastraCliente(vector<Cliente> &listCliente)
 {
     Cliente cliente;
-    lerCliente(cliente);
+    cliente.lerCliente();
     listCliente.push_back(cliente);
 }
 
@@ -281,7 +290,7 @@ void listarClientes(vector<Cliente> &listCliente)
         cout << "\nNome do Cliente: " << it->nome << endl;
         cout << "\nSobrenome: " << it->sobrenome << endl;
         cout << "\nCPF do Cliente: " << it->cpf << endl;
-        mostraDadosCliente(*it);
+        it->mostraDadosCliente();
         cout << "======================================\n";
     }
     pause();
@@ -300,7 +309,7 @@ void buscarCliente(vector<Cliente> &listCliente)
     {
         if (it->cpf == cpf)
         {
-            mostraDadosCliente(*it);
+            it->mostraDadosCliente();
             pause();
             return;
         }
@@ -335,23 +344,4 @@ void removerCliente(vector<Cliente> &listCliente)
     limparTela();
     cout << "\nCliente não encontrado!...\n";
     pause();
-}
-
-void lerNome(Cliente &cliente)
-{
-    cout << "\nInforme o nome do cliente: ";
-    getline(cin, cliente.nome);
-}
-
-void lerSobrenome(Cliente &cliente)
-{
-
-    cout << "\nInforme o sobrenome: ";
-    getline(cin, cliente.sobrenome);
-}
-
-void lerCpf(Cliente &cliente)
-{
-    cout << "\nInforme o cpf: ";
-    cin >> cliente.cpf;
 }
