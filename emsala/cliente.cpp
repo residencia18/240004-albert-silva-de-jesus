@@ -1,12 +1,55 @@
 #include <iostream>
 #include <vector>
-#include<ctime>
+#include <ctime>
 
 using namespace std;
+
+void limparTela();
 
 struct MinhaData
 {
     int dia, mes, ano;
+
+    void lerData()
+    {
+        cout << "\n==========DATA DE REGISTRO==========\n";
+
+        cout << "\nInforme o dia: ";
+        cin >> dia;
+
+        cout << "\nInforme o mes: ";
+        cin >> mes;
+
+        cout << "\nInforme o ano: ";
+        cin >> ano;
+    }
+
+    void mostraData()
+    {
+        printf("%02d/%02d/%4d\n", dia, mes, ano);
+    }
+
+    int anosCompletos()
+    {
+
+        int anoAtual = 2023;
+        int mesAtual = 9;
+        int diaAtual = 11;
+        int x = anoAtual - ano;
+
+        if (mesAtual < mes)
+        {
+            x--;
+        }
+        else
+        {
+            if (mes == mesAtual && dia < diaAtual)
+            {
+                x--;
+            }
+        }
+        return x;
+    }
 };
 
 typedef struct
@@ -15,6 +58,25 @@ typedef struct
     string modelo;
     string cor;
     MinhaData dataRegistro;
+
+    void cadastraVeiculo(int i)
+    {
+        limparTela();
+        cout << "\n==========CADASTRO DE VEICULO==========\n"
+             << endl;
+
+        cout << i << "º Veiculo";
+        cout << "\nInforme o modelo do veículo: ";
+        cin >> modelo;
+
+        cout << "\nInforme a cor do veículo: ";
+        cin >> cor;
+
+        cout << "\nInforme a placa do veiculo: ";
+        cin >> placa;
+
+        dataRegistro.lerData();
+    }
 
 } Veiculo;
 
@@ -31,8 +93,6 @@ int menu();
 
 void pause();
 
-void limparTela();
-
 void lerCliente(Cliente &cliente);
 
 void lerNome(Cliente &cliente);
@@ -45,8 +105,6 @@ void mostraDadosCliente(Cliente cliente);
 
 void cadastraCliente(vector<Cliente> &listCliente);
 
-void cadastraVeiculo(Veiculo &veiculo, int i);
-
 void listarClientes(vector<Cliente> &listCliente);
 
 void buscarCliente(vector<Cliente> &listCliente);
@@ -54,12 +112,6 @@ void buscarCliente(vector<Cliente> &listCliente);
 void removerCliente(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
-
-void lerData(MinhaData &minhadata);
-
-void mostraData(MinhaData minhadata);
-
-int anosCompletos(MinhaData novaData);
 
 int main()
 {
@@ -104,7 +156,7 @@ int main()
             cout << "Opção invalida!";
         }
 
-    }while (escolha != 0);
+    } while (escolha != 0);
 }
 
 int menu()
@@ -113,15 +165,15 @@ int menu()
     int opcao = 0;
 
     do
-    {   
+    {
         time_t now;
         time(&now);
         struct tm *local = localtime(&now);
         int dia = local->tm_mday;
         int mes = local->tm_mon + 1;
         int ano = local->tm_year + 1900;
-        
-        printf("Hoje é dia %2d/%02d/%2d",dia,mes,ano);
+
+        printf("Hoje é dia %2d/%02d/%2d", dia, mes, ano);
         cout << "\n===============MENU===============";
         cout << "\n[1] - NOVO CLIENTE:";
         cout << "\n[2] - ENCONTRAR CLIENTE:";
@@ -164,8 +216,7 @@ void lerCliente(Cliente &cliente)
 
     for (int i = 0; i < quantidadeDeCarros; i++)
     {
-        cadastraVeiculo(veiculo, i + 1);
-
+        veiculo.cadastraVeiculo(i + 1);
         cliente.veiculos.push_back(veiculo);
         limparTela();
     }
@@ -175,17 +226,22 @@ void mostraDadosCliente(Cliente cliente)
 {
     // limparTela();
     int i = 1;
+
+    cout << "\n======================================";
+    cout << "\nNome do Cliente: " << cliente.nome << endl;
+    cout << "\nSobrenome: " << cliente.sobrenome << endl;
+    cout << "\nCPF do Cliente: " << cliente.cpf << endl;
     
     for (auto it = cliente.veiculos.begin(); it != cliente.veiculos.end(); it++, i++)
     {
-        cout << "\n" << i << "º VEICULO";
+        cout << "\n"
+             << i << "º VEICULO";
         cout << "\nModelo do Carro: " << it->modelo << endl;
         cout << "\nCor do veiculo: " << it->cor << endl;
         cout << "\nPlaca do veiculo: " << it->placa << endl;
         cout << "\nData de Registro: ";
-        mostraData(it->dataRegistro);
+        it->dataRegistro.mostraData();
     }
-    
 }
 
 void pause()
@@ -197,31 +253,11 @@ void pause()
 
 void limparTela()
 {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
-}
-
-void cadastraVeiculo(Veiculo &veiculo, int i)
-{
-    limparTela();
-    cout << "\n==========CADASTRO DE VEICULO==========\n"
-         << endl;
-
-    cout << i << "º Veiculo";
-    cout << "\nInforme o modelo do veículo:";
-    cin >> veiculo.modelo;
-
-    cout << "\nInforme a cor do veículo:";
-    cin >> veiculo.cor;
-
-    cout << "\nInforme a placa do veiculo:";
-    cin >> veiculo.placa;
-
-    lerData(veiculo.dataRegistro);    
-    
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 void cadastraCliente(vector<Cliente> &listCliente)
@@ -239,7 +275,8 @@ void listarClientes(vector<Cliente> &listCliente)
 
     for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
     {
-        cout << "\n" << i << "º Cliente";
+        cout << "\n"
+             << i << "º Cliente";
         cout << "\n======================================";
         cout << "\nNome do Cliente: " << it->nome << endl;
         cout << "\nSobrenome: " << it->sobrenome << endl;
@@ -306,7 +343,8 @@ void lerNome(Cliente &cliente)
     getline(cin, cliente.nome);
 }
 
-void lerSobrenome(Cliente &cliente){
+void lerSobrenome(Cliente &cliente)
+{
 
     cout << "\nInforme o sobrenome: ";
     getline(cin, cliente.sobrenome);
@@ -316,41 +354,4 @@ void lerCpf(Cliente &cliente)
 {
     cout << "\nInforme o cpf: ";
     cin >> cliente.cpf;
-}
-
-void lerData(MinhaData &novaData)
-{
-    cout <<"\n==========DATA DE REGISTRO==========";
-    
-    cout << "\nInforme o dia: ";
-    cin >> novaData.dia;
-
-    cout << "\nInforme o mes: ";
-    cin >> novaData.mes;
-
-    cout << "\nInforme o ano: ";
-    cin >> novaData.ano;
-
-}
-
-void mostraData(MinhaData minhadata)
-{
-    printf("%02d/%02d/%4d\n", minhadata.dia, minhadata.mes, minhadata.ano);
-}
-
-int anosCompletos(MinhaData novaData){
-
-    int anoAtual = 2023;
-    int mesAtual = 9;
-    int diaAtual = 11;
-    int x = anoAtual - novaData.ano;
-
-    if(mesAtual < novaData.mes){
-        x--;
-    }else{
-        if(novaData.mes == mesAtual && novaData.dia < diaAtual){
-            x--;
-        }
-    }
-    return x;
 }
