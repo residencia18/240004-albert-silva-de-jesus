@@ -21,6 +21,10 @@ typedef struct
 
 int menu();
 
+void pause();
+
+void limparTela();
+
 void lerCliente(Cliente &cliente);
 
 void lerNome(Cliente &cliente);
@@ -41,20 +45,15 @@ void removerCliente(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
 
-void pause();
-
-void limparTela();
-
 int main()
 {
 
     vector<Cliente> listCliente;
+    int escolha = 0;
 
-    while (1)
+    do
     {
-        int escolha = menu();
-
-        switch (escolha)
+        switch (escolha = menu())
         {
 
         case 1:
@@ -89,11 +88,13 @@ int main()
         default:
             cout << "Opção invalida!";
         }
-    }
+
+    }while (escolha != 0);
 }
 
 int menu()
 {
+    limparTela();
     int opcao = 0;
 
     do
@@ -106,11 +107,11 @@ int menu()
         cout << "\n[0] - SAIR";
         cout << "\nENTRADA ->  ";
         cin >> opcao;
-        system("clear");
+        cin.get();
 
         if (opcao > 4 || opcao < 0)
         {
-
+            limparTela();
             cout << "Ops, escolha invalida!...\n";
             pause();
         }
@@ -122,6 +123,7 @@ int menu()
 
 void lerCliente(Cliente &cliente)
 {
+    limparTela();
     Veiculo veiculo;
     int quantidadeDeCarros = 0;
 
@@ -133,6 +135,7 @@ void lerCliente(Cliente &cliente)
 
     cout << "\nInforme quantos carros você tem? ";
     cin >> quantidadeDeCarros;
+    cin.get();
 
     for (int i = 0; i < quantidadeDeCarros; i++)
     {
@@ -146,39 +149,38 @@ void lerCliente(Cliente &cliente)
 
 void mostraDadosCliente(Cliente cliente)
 {
-    cout << "\nNome: " << cliente.nome << endl;
-    cout << "CPF: " << cliente.cpf << endl;
-
-    for (auto it = cliente.veiculos.begin(); it != cliente.veiculos.end(); it++)
+    // limparTela();
+    int i = 1;
+    
+    for (auto it = cliente.veiculos.begin(); it != cliente.veiculos.end(); it++, i++)
     {
-
+        cout << "\n" << i << "º VEICULO";
         cout << "\nModelo do Carro: " << it->modelo << endl;
         cout << "\nCor do veiculo: " << it->cor << endl;
         cout << "\nPlaca do veiculo: " << it->placa << endl;
     }
-    cout << "\n======================================\n";
+    
 }
 
 void pause()
 {
     cout << "Digite enter para continuar!";
     cin.get();
-    getchar();
     limparTela();
 }
 
 void limparTela()
 {
-
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
 
 void cadastraCarro(Veiculo &veiculo, int i)
 {
+    limparTela();
     cout << "\n==========CADASTRO DE VEICULO==========\n"
          << endl;
 
@@ -202,54 +204,55 @@ void cadastraCliente(vector<Cliente> &listCliente)
 
 void listarClientes(vector<Cliente> &listCliente)
 {
-
+    limparTela();
     int i = 1;
-    cout << "\n===============LISTA DE CLIENTES============\n";
+    cout << "\n==========LISTA DE CLIENTES===========\n";
 
-    for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+    for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
     {
+        cout << "\n" << i << "º Cliente";
+        cout << "\n======================================";
+        cout << "\nNome do Cliente: " << it->nome << endl;
+        cout << "\nCPF do Cliente: " << it->cpf << endl;
         mostraDadosCliente(*it);
+        cout << "======================================\n";
     }
     pause();
 }
 
 void buscarCliente(vector<Cliente> &listCliente)
 {
-
+    limparTela();
     string cpf;
     int i = 1;
 
     cout << "Informe o CPF para consulta: ";
-    cin.get();
     getline(cin, cpf);
-    limparTela();
 
     for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
     {
         if (it->cpf == cpf)
         {
             mostraDadosCliente(*it);
-            cout << "\n======================================\n";
             pause();
             return;
         }
     }
 
-    cout << "\nCliente não encontrado!...";
+    limparTela();
+    cout << "\nCliente não encontrado!...\n";
     pause();
 }
 
 void removerCliente(vector<Cliente> &listCliente)
 {
-
+    limparTela();
     string cpf;
     int i = 1;
 
     cout << "\n===============REMOVER CLIENTE============\n";
     cout << "\nInforme o CPF para remoção: ";
-    cin.get();
     getline(cin, cpf);
-    limparTela();
 
     for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
     {
@@ -262,21 +265,19 @@ void removerCliente(vector<Cliente> &listCliente)
         }
     }
 
+    limparTela();
     cout << "\nCliente não encontrado!...\n";
     pause();
 }
 
 void lerNome(Cliente &cliente)
 {
-
     cout << "\nInforme o nome do cliente: ";
-    cin.get();
     getline(cin, cliente.nome);
 }
 
 void lerCpf(Cliente &cliente)
 {
-
     cout << "\nInforme o cpf: ";
     cin >> cliente.cpf;
 }
