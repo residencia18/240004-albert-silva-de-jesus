@@ -47,7 +47,6 @@ Cliente retornarCliente(vector<Cliente> &listCliente);
 
 int main()
 {
-
     vector<Cliente> listCliente;
     int escolha = 0;
 
