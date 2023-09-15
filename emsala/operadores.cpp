@@ -2,7 +2,8 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
 
     float pi = 3 + 0.1415;
     int teste = pi;
@@ -19,16 +20,14 @@ int main(){
     char f = z;
     cout << f << endl;
 
-    //int k = 99;
+    // int k = 99;
     char c = 97.14;
     cout << c << endl;
 
-    int v =( 3 < 4) ? true : false;
+    int v = (3 < 4) ? true : false;
     cout << v << endl;
 
     int tipo = 5;
     tipo = float(tipo) / 2;
     cout << tipo << endl;
-
-
 }

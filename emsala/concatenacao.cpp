@@ -20,8 +20,10 @@ int main()
     if (nome.at(ultimoElemento) == ' ')
     {
         nome.append(sobrenome);
-    }else{
-        nome.append(" " + sobrenome);  
+    }
+    else
+    {
+        nome.append(" " + sobrenome);
     }
 
     cout << nome << endl;

@@ -34,6 +34,7 @@ int main()
         }
     }
     cout << endl;
+
     // for(string nome : alunos) cout << nome << endl;
 
     // for(auto it = alunos.begin(); it != alunos.end(); it++){
