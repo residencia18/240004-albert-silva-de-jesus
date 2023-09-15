@@ -4,7 +4,6 @@
 • Juntem as structs criadas por cada membro para formar uma representação completa do objeto.*/
 
 #include <iostream>
-#include <string>
 #include <cstdlib>
 #include <vector>
 
@@ -47,14 +46,6 @@ int main()
     vector<Veiculo> veiculos;
 
     sistemaDeGestaoConsercionariaIlheus(veiculos);
-
-    // cadastrar(veiculo, veiculos);
-
-    // listar(veiculos);
-
-    // editar(veiculos);
-
-    // listar(veiculos);
 }
 
 int menu()
@@ -139,6 +130,7 @@ void listar(vector<Veiculo> &veiculos)
 void editar(vector<Veiculo> &veiculos)
 {
     limparTela();
+    auto it = veiculos.begin();
 
     if (veiculos.empty())
     {
@@ -156,24 +148,31 @@ void editar(vector<Veiculo> &veiculos)
     cin.get();
     limparTela();
 
-    auto it = veiculos.begin();
+    *it = retornarVeiculo(veiculos, id);
 
-    // retornarVeiculo(veiculos, id);
+    if (it->id == id)
+    {
+        cout << "\n==========EDITAR VEICULOS==========\n";
+        cout << "\nInforme a marca do veículo: ";
+        getline(cin, it->marca.assign(it->marca));
 
-    cout << "\n==========EDITAR VEICULOS==========\n";
-    cout << "\nInforme a marca do veículo: ";
-    getline(cin, it->marca.assign(it->marca));
+        cout << "\nInforme o modelo do veiculo: ";
+        getline(cin, it->modelo.assign(it->modelo));
 
-    cout << "\nInforme o modelo do veiculo: ";
-    getline(cin, it->modelo.assign(it->modelo));
+        cout << "\nInforme a cor do veiculo: ";
+        getline(cin, it->cor.assign(it->cor));
 
-    cout << "\nInforme a cor do veiculo: ";
-    getline(cin, it->cor.assign(it->cor));
+        cout << "\nInforme a placa do veiculo: ";
+        getline(cin, it->placa.assign(it->placa));
 
-    cout << "\nInforme a placa do veiculo: ";
-    getline(cin, it->placa.assign(it->placa));
-
-    pause();
+        pause();
+    }
+    else
+    {
+        cout << "\nVeiculo não encontrado!\n";
+        pause();
+        return;
+    }
 }
 
 void remover(vector<Veiculo> &veiculos)
@@ -196,25 +195,15 @@ void remover(vector<Veiculo> &veiculos)
     cin.get();
     limparTela();
 
-    *it  = retornarVeiculo(veiculos, id);
+    *it = retornarVeiculo(veiculos, id);
 
-    if(it->id == id){
+    if (it->id == id)
+    {
         veiculos.erase(it);
         cout << "\nVeiculo removido com sucesso!\n";
         pause();
         return;
     }
-
-    // for (auto it = veiculos.begin(); it != veiculos.end(); it++)
-    // {
-    //     if (it->id == id)
-    //     {
-    //         veiculos.erase(it);
-    //         cout << "\nVeiculo removido com sucesso!\n";
-    //         pause();
-    //         return;
-    //     }
-    // }
 }
 
 void veiculoComportamentos(vector<Veiculo> &veiculos)
@@ -290,7 +279,7 @@ void sistemaDeGestaoConsercionariaIlheus(vector<Veiculo> &veiculos)
             limparTela();
             cout << "Saindo do sistema...\n";
             pause();
-            // return;
+
             break;
 
         default:
@@ -317,7 +306,6 @@ Veiculo retornarVeiculo(vector<Veiculo> &veiculos, int id)
     }
     for (auto it = veiculos.begin(); it != veiculos.end(); it++)
     {
-
         if (it->id == id)
         {
             cout << "\n"
@@ -331,6 +319,9 @@ Veiculo retornarVeiculo(vector<Veiculo> &veiculos, int id)
             return *it; // retorna o veiculo
         }
     }
+
+    cout << "\nVeiculo não encontrado!\n";
+    pause();
 }
 
 bool ligarMotor()
