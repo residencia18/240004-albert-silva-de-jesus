@@ -33,7 +33,7 @@ struct MinhaData
         int segundos = local->tm_sec;
 
         cout << "\n\tDATA: " << dia << "/" << mes << "/" << ano << " " << diaDaSemana() << endl;
-        cout << "\tHORÁRIO: "<< hora << ":" << minutos << ":" << segundos << endl;
+        cout << "\tHORÁRIO: " << hora << ":" << minutos << ":" << segundos << endl;
         cout << endl;
         // cout << "Dia do ano: " << diaAno << endl;
     }
@@ -152,7 +152,8 @@ struct MinhaData
 
     string diaDaSemana()
     {
-        struct tm *data = getTempo();; 
+        struct tm *data = getTempo();
+        ;
         int diaDaSemana = data->tm_wday;
 
         switch (diaDaSemana)
@@ -319,7 +320,61 @@ void removerCliente(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
 
+void sistemaDeLocacao();
+
 int main()
+{
+    sistemaDeLocacao();
+}
+
+int menu()
+{
+    limparTela();
+    MinhaData dataAtual;
+    int opcao = 0;
+
+    do
+    {
+        dataAtual.mostraDataAtual();
+        cout << "\t===============MENU===============";
+        cout << "\n\t[1] - NOVO CLIENTE:";
+        cout << "\n\t[2] - ENCONTRAR CLIENTE:";
+        cout << "\n\t[3] - EXCLUIR CLIENTE:";
+        cout << "\n\t[4] - LISTAR TODOS OS CLIENTES:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
+        cin >> opcao;
+        cin.get();
+
+        if (opcao > 4 || opcao < 0)
+        {
+            limparTela();
+            cout << "Ops, escolha invalida!...\n";
+            pause();
+        }
+
+    } while (opcao > 4 || opcao < 0);
+
+    return opcao;
+}
+
+void pause()
+{
+    cout << "\n\tDigite enter para continuar!...\n";
+    cin.get();
+    limparTela();
+}
+
+void limparTela()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void sistemaDeLocacao()
 {
     vector<Cliente> listCliente;
     int escolha = 0;
@@ -363,53 +418,6 @@ int main()
         }
 
     } while (escolha != 0);
-}
-
-int menu()
-{
-    limparTela();
-    MinhaData dataAtual;
-    int opcao = 0;
-
-    do
-    {   
-        dataAtual.mostraDataAtual();
-        cout << "\t===============MENU===============";
-        cout << "\n\t[1] - NOVO CLIENTE:";
-        cout << "\n\t[2] - ENCONTRAR CLIENTE:";
-        cout << "\n\t[3] - EXCLUIR CLIENTE:";
-        cout << "\n\t[4] - LISTAR TODOS OS CLIENTES:";
-        cout << "\n\t[0] - SAIR";
-        cout << "\n\tENTRADA ->  ";
-        cin >> opcao;
-        cin.get();
-
-        if (opcao > 4 || opcao < 0)
-        {
-            limparTela();
-            cout << "Ops, escolha invalida!...\n";
-            pause();
-        }
-
-    } while (opcao > 4 || opcao < 0);
-
-    return opcao;
-}
-
-void pause()
-{
-    cout << "\nDigite enter para continuar!...\n";
-    cin.get();
-    limparTela();
-}
-
-void limparTela()
-{
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
 }
 
 void cadastraCliente(vector<Cliente> &listCliente)
