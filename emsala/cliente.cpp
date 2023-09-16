@@ -177,7 +177,7 @@ struct MinhaData
     }
 };
 
-typedef struct
+struct Veiculo
 {
     string placa;
     string modelo;
@@ -205,9 +205,9 @@ typedef struct
         dataRegistro.lerData();
     }
 
-} Veiculo;
+};
 
-typedef struct
+struct Cliente
 {
     string nome;
     string sobrenome;
@@ -254,6 +254,7 @@ typedef struct
             cout << "\tPlaca do veiculo: " << it->placa << endl;
             cout << "\tData de Registro: ";
             it->dataRegistro.mostraData();
+            cout <<"\t========================================\n";
         }
     }
 
@@ -304,7 +305,7 @@ typedef struct
         dataNascimento.lerData();
     }
 
-} Cliente;
+} ;
 
 int menu();
 
@@ -434,12 +435,11 @@ void listarClientes(vector<Cliente> &listCliente)
     dataAtual.mostraDataAtual();
 
     int i = 1;
-    cout << "\n\t==========LISTA DE CLIENTES===========\n";
+    cout << "\t==========LISTA DE CLIENTES===========\n";
 
     for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
     {
         it->mostraDadosCliente(i);
-        cout << "\t======================================\n";
     }
     pause();
 }
@@ -447,6 +447,7 @@ void listarClientes(vector<Cliente> &listCliente)
 void buscarCliente(vector<Cliente> &listCliente)
 {
     limparTela();
+    MinhaData dataAtual;
     string cpf;
     int i = 1;
 
@@ -457,6 +458,8 @@ void buscarCliente(vector<Cliente> &listCliente)
     {
         if (it->cpf == cpf)
         {
+            dataAtual.mostraDataAtual();
+            cout << "\t==========CLIENTE ENCONTRADO===========\n";
             it->mostraDadosCliente(i);
             pause();
             return;
@@ -464,6 +467,7 @@ void buscarCliente(vector<Cliente> &listCliente)
     }
 
     limparTela();
+    dataAtual.mostraDataAtual();
     cout << "\n\tOps, Cliente não encontrado!...\n";
     pause();
 }
@@ -476,7 +480,7 @@ void removerCliente(vector<Cliente> &listCliente)
     string cpf;
     int i = 1;
 
-    cout << "\n\t===============REMOVER CLIENTE============\n";
+    cout << "\t===============REMOVER CLIENTE============\n";
     cout << "\n\tInforme o CPF para remoção: ";
     getline(cin, cpf);
 
