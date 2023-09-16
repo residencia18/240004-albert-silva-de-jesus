@@ -32,9 +32,9 @@ struct MinhaData
         int minutos = local->tm_min;
         int segundos = local->tm_sec;
 
-        cout << "\n\tDATA: " << dia << "/" << mes << "/" << ano << " " << diaDaSemana() << endl;
-        cout << "\tHORÁRIO: " << hora << ":" << minutos << ":" << segundos << endl;
-        cout << endl;
+        printf("\n\tDATA: %02d/%02d/%4d, %s\n ", dia, mes, ano, diaDaSemana().c_str());
+        printf("\tHORÁRIO: %02d:%02d:%02d\n", hora, minutos, segundos);
+        printf("\n");
         // cout << "Dia do ano: " << diaAno << endl;
     }
 
@@ -468,7 +468,7 @@ void buscarCliente(vector<Cliente> &listCliente)
 
     limparTela();
     dataAtual.mostraDataAtual();
-    cout << "\n\tOps, Cliente não encontrado!...\n";
+    cout << "\tOps, Cliente não encontrado!...\n";
     pause();
 }
 
@@ -496,6 +496,6 @@ void removerCliente(vector<Cliente> &listCliente)
     }
 
     limparTela();
-    cout << "\n\tOps, Cliente não encontrado!...\n";
+    cout << "\tOps, Cliente não encontrado!...\n";
     pause();
 }
