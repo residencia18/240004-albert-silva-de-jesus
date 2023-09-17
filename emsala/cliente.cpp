@@ -192,7 +192,8 @@ struct Veiculo
         limparTela();
         dataRegistro.mostraDataAtual();
 
-        cout << "\t==========CADASTRO DE VEICULO==========\n" << endl;
+        cout << "\t==========CADASTRO DE VEICULO==========\n"
+             << endl;
 
         cout << "\t" << i << "º Veiculo";
         cout << "\n\tInforme o modelo do veículo: ";
@@ -222,7 +223,7 @@ struct Veiculo
         cout << "\tPlaca do veiculo: " << placa << endl;
         cout << "\tData de Registro: ";
         dataRegistro.mostraData();
-        cout << "\t========================================\n";
+        cout << "\n\t========================================\n";
     }
 };
 
@@ -254,6 +255,8 @@ struct Cliente
 
     void mostraDadosCliente(int j)
     {
+        int i = 1;
+
         cout << "\n\t" << j << "º CLIENTE";
         cout << "\n\tNome do Cliente: " << nome << endl;
         cout << "\tSobrenome: " << sobrenome << endl;
@@ -262,17 +265,17 @@ struct Cliente
         dataNascimento.mostraData();
         cout << "\n\t========================================\n";
 
-        // for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
-        // {
-        //     cout << "\n\t"
-        //          << i << "º VEICULO";
-        //     cout << "\n\tModelo do Carro: " << it->modelo << endl;
-        //     cout << "\tCor do veiculo: " << it->cor << endl;
-        //     cout << "\tPlaca do veiculo: " << it->placa << endl;
-        //     cout << "\tData de Registro: ";
-        //     it->dataRegistro.mostraData();
-        //     cout << "\t========================================\n";
-        // }
+        for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
+        {
+            cout << "\n\t"
+                 << i << "º VEICULO";
+            cout << "\n\tModelo do Carro: " << it->modelo << endl;
+            cout << "\tCor do veiculo: " << it->cor << endl;
+            cout << "\tPlaca do veiculo: " << it->placa << endl;
+            cout << "\tData de Registro: ";
+            it->dataRegistro.mostraData();
+            cout << "\n\t========================================\n";
+        }
     }
 
     void lerCliente(int i)
@@ -308,6 +311,90 @@ struct Cliente
 
         dataNascimento.lerData();
     }
+
+    void locarVeiculo(vector<Cliente> &listCliente)
+    {
+        limparTela();
+        string cpf;
+        string placa;
+        int i = 1;
+
+        dataNascimento.mostraDataAtual();
+        cout << "\t===============LOCAR VEICULO============\n";
+
+        do
+        {
+            cout << "\n\tInforme o CPF para locação: ";
+            getline(cin, cpf);
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+            {
+                if (it->cpf == cpf)
+                {
+                    limparTela();
+                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    cout << "\n\tNome: " << it->nome << endl;
+                    cout << "\tCpf: " << it->cpf << endl;
+                    cout << "\n\tCliente encontrado!...\n";
+                    pause();
+
+                    cout << "\n\t==========VEICULOS DISPONIVEIS==========\n";
+
+                    for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
+                    {
+                        it->mostraDadosVeiculo(i);
+                    }
+
+                    do
+                    {
+                        pause();
+                        cout << "\n\tInforme a placa do veiculo: ";
+                        cin >> placa;
+                        cin.get();
+
+                        for (auto itVeiculo = veiculos.begin(); itVeiculo != veiculos.end(); ++itVeiculo, i++)
+                        {
+                            if (itVeiculo->placa == placa)
+                            {
+                                limparTela();
+                                cout << "\t==========VEICULO ENCONTRADO===========\n";
+                                cout << "\n\tModelo: " << itVeiculo->modelo << endl;
+                                cout << "\tPlaca: " << itVeiculo->placa << endl;
+                                cout << "\n\tVeiculo encontrado!...\n";
+                                pause();
+                                placa = "0";
+
+                                 for (auto itCliente = listCliente.begin(); it != listCliente.end(); ++itCliente, i++){
+                                    if(itCliente->cpf == cpf){
+                                        itCliente->veiculos.push_back(*itVeiculo);
+                                        cout << "\n\tVeiculo locado com sucesso!...\n";
+                                        pause();
+                                        return;
+                                    }
+                                 }
+                            }
+                        }
+
+                        if (placa != "0")
+                        {
+                            limparTela();
+                            cout << "\tOps, Veiculo não encontrado!...\n";
+                            pause();
+                        }
+
+                    } while (placa != "0");
+                }
+            }
+
+            if (placa != "0")
+            {
+                limparTela();
+                cout << "\tOps, Cliente não encontrado!...\n";
+                pause();
+            }
+
+        } while (placa != "0");
+    }
 };
 
 int menu();
@@ -325,6 +412,8 @@ void listarVeiculos(Cliente listVeiculos);
 void buscarCliente(vector<Cliente> &listCliente);
 
 void removerCliente(vector<Cliente> &listCliente);
+
+void locarVeiculo(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
 
@@ -349,19 +438,20 @@ int menu()
         cout << "\n\t[4] - EXCLUIR CLIENTE:";
         cout << "\n\t[5] - LISTAR CLIENTES:";
         cout << "\n\t[6] - LISTAR VEICULOS:";
+        cout << "\n\t[7] - LOCAR VEICULO:";
         cout << "\n\t[0] - SAIR";
         cout << "\n\tENTRADA ->  ";
         cin >> opcao;
         cin.get();
 
-        if (opcao > 6 || opcao < 0)
+        if (opcao > 7 || opcao < 0)
         {
             limparTela();
             cout << "Ops, escolha invalida!...\n";
             pause();
         }
 
-    } while (opcao > 6 || opcao < 0);
+    } while (opcao > 7 || opcao < 0);
 
     return opcao;
 }
@@ -429,6 +519,12 @@ void sistemaDeLocacao()
 
             break;
 
+        case 7:
+
+            cliente.locarVeiculo(listCliente);
+
+            break;
+
         case 0:
 
             cout << "\n\tPrograma encerrado com sucesso!..." << endl;
@@ -456,23 +552,6 @@ void cadastraVeiculo(Cliente &cliente)
     Veiculo veiculo;
     veiculo.lerVeiculo(i = cliente.veiculos.size() + 1);
     cliente.veiculos.push_back(veiculo);
-
-    // cout << "\t==========CADASTRO DE VEICULO==========\n";
-
-    // cout << "\n\tInforme o CPF para cadastro: ";
-    // getline(cin, cpf);
-
-    // for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
-    // {
-    //     if (it->cpf == cpf)
-    //     {
-    //         veiculo.lerVeiculo(i);
-    //         it->veiculos.push_back(veiculo);
-    //         cout << "\n\tVeiculo cadastrado com sucesso!...\n";
-    //         pause();
-    //         return;
-    //     }
-    // }
 }
 
 void listarClientes(vector<Cliente> &listCliente)
