@@ -6,6 +6,8 @@ using namespace std;
 
 void limparTela();
 
+void pause();
+
 struct MinhaData
 {
     int dia, mes, ano;
@@ -49,6 +51,7 @@ struct MinhaData
 
             cout << "\n\tInforme o ano: ";
             cin >> ano;
+            cin.get();
 
         } while (!validaData());
     }
@@ -200,6 +203,13 @@ struct Veiculo
 
         cout << "\n\tInforme a placa do veiculo: ";
         cin >> placa;
+        cin.get();
+
+        limparTela();
+        cout << "\n\tVeiculo cadastrado com sucesso!...\n";
+        pause();
+
+        cout << "\n\t==========DATA DE REGISTRO==========\n";
 
         dataRegistro.lerData();
     }
@@ -280,8 +290,13 @@ struct Cliente
 
         lerCpf();
 
+        limparTela();
+        cout << "\n\t==========DATA DE NASCIMENTO==========\n";
+
         lerDataNascimento();
 
+        cout << "\n\tCliente cadastrado com sucesso!...\n";
+        pause();
     }
 
     void lerDataNascimento()
@@ -296,8 +311,6 @@ struct Cliente
 };
 
 int menu();
-
-void pause();
 
 void sistemaDeLocacao();
 
