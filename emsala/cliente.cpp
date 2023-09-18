@@ -250,10 +250,22 @@ struct Cliente
     void lerCpf()
     {
         cout << "\n\tInforme o cpf: ";
-        cin >> cpf;
+        getline(cin, cpf);
     }
 
     void mostraDadosCliente(int j)
+    {
+        cout << "\n\t" << j << "º CLIENTE";
+        cout << "\n\tNome do Cliente: " << nome << endl;
+        cout << "\tSobrenome: " << sobrenome << endl;
+        cout << "\tCPF do Cliente: " << cpf << endl;
+        cout << "\tData de Nascimento: ";
+        dataNascimento.mostraData();
+        cout << "\n\tIdade do cliente: " << dataNascimento.anosCompletos() << endl;
+        cout << "\n\t========================================\n";
+    }
+
+    void listarClientesComCarroLocado(int j)
     {
         int i = 1;
 
@@ -267,8 +279,7 @@ struct Cliente
 
         for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
         {
-            cout << "\n\t"
-                 << i << "º VEICULO";
+            cout << "\n\t" << i << "º VEICULO";
             cout << "\n\tModelo do Carro: " << it->modelo << endl;
             cout << "\tCor do veiculo: " << it->cor << endl;
             cout << "\tPlaca do veiculo: " << it->placa << endl;
@@ -322,6 +333,11 @@ struct Cliente
         dataNascimento.mostraDataAtual();
         cout << "\t===============LOCAR VEICULO============\n";
 
+        if(veiculos.empty()){
+            cout << "\n\tNão há veiculos cadastrados!...\n";
+            pause();
+            return;
+        }
         do
         {
             cout << "\n\tInforme o CPF para locação: ";
@@ -329,12 +345,13 @@ struct Cliente
 
             for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
             {
-                if (it->cpf == cpf)
+                if (it->cpf == cpf && it->dataNascimento.anosCompletos() >= 18)
                 {
                     limparTela();
                     cout << "\t==========CLIENTE ENCONTRADO===========\n";
                     cout << "\n\tNome: " << it->nome << endl;
                     cout << "\tCpf: " << it->cpf << endl;
+                    cout << "\tIdade: " << it->dataNascimento.anosCompletos() << endl;
                     cout << "\n\tCliente encontrado!...\n";
                     pause();
 
@@ -364,14 +381,16 @@ struct Cliente
                                 pause();
                                 placa = "0";
 
-                                 for (auto itCliente = listCliente.begin(); it != listCliente.end(); ++itCliente, i++){
-                                    if(itCliente->cpf == cpf){
+                                for (auto itCliente = listCliente.begin(); it != listCliente.end(); ++itCliente, i++)
+                                {
+                                    if (itCliente->cpf == cpf)
+                                    {
                                         itCliente->veiculos.push_back(*itVeiculo);
                                         cout << "\n\tVeiculo locado com sucesso!...\n";
                                         pause();
                                         return;
                                     }
-                                 }
+                                }
                             }
                         }
 
@@ -383,6 +402,19 @@ struct Cliente
                         }
 
                     } while (placa != "0");
+                }
+                if(it->cpf == cpf && it->dataNascimento.anosCompletos() < 18){
+                    
+                    limparTela();
+                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    cout << "\n\tNome: " << it->nome << endl;
+                    cout << "\tCpf: " << it->cpf << endl;
+                    cout << "\tIdade: " << it->dataNascimento.anosCompletos() << endl;
+                    cout << "\tCliente encontrado!...\n";
+                    pause();
+                    cout << "\n\tOps, Cliente menor de idade!...\n";
+                    pause();
+                    return;
                 }
             }
 
@@ -412,8 +444,6 @@ void listarVeiculos(Cliente listVeiculos);
 void buscarCliente(vector<Cliente> &listCliente);
 
 void removerCliente(vector<Cliente> &listCliente);
-
-void locarVeiculo(vector<Cliente> &listCliente);
 
 Cliente retornarCliente(vector<Cliente> &listCliente);
 
@@ -558,16 +588,106 @@ void listarClientes(vector<Cliente> &listCliente)
 {
     limparTela();
     MinhaData dataAtual;
-    dataAtual.mostraDataAtual();
-
+    int opcao = 0;
+    int opcaoIdade = 0;
     int i = 1;
-    cout << "\t==========LISTA DE CLIENTES===========\n";
 
-    for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
+    do
     {
-        it->mostraDadosCliente(i);
-    }
-    pause();
+        limparTela();
+        dataAtual.mostraDataAtual();
+        cout << "\t==========LISTA DE CLIENTES===========\n";
+        cout << "\n\t[1] - LISTAR TODOS OS CLIENTES:";
+        cout << "\n\t[2] - LISTAR CLIENTES POR IDADE:";
+        cout << "\n\t[3] - LISTAR CLIENTES COM CARRO LOCADO:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
+        cin >> opcao;
+        cin.get();
+        i = 1;
+
+        limparTela();
+        dataAtual.mostraDataAtual();
+        cout << "\t==========LISTA DE CLIENTES===========\n";
+        if (opcao == 0)
+        {
+            return;
+        }
+        if (opcao == 1)
+        {
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
+            {
+                it->mostraDadosCliente(i);
+            }
+            pause();
+        }
+        if (opcao == 2)
+        {
+            do
+            {
+                limparTela();
+                dataAtual.mostraDataAtual();
+                cout << "\t=======LISTA DE CLIENTES========\n";
+                cout << "\n\t[1] - MAIOR DE IDADE:";
+                cout << "\n\t[2] - MENOR DE IDADE:";
+                cout << "\n\t[0] - SAIR";
+                cout << "\n\tENTRADA ->  ";
+                cin >> opcaoIdade;
+                cin.get();
+                i = 1;  
+
+                if (opcaoIdade == 1)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========LISTA DE CLIENTES POR IDADE===========\n";
+
+                    for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
+                    {
+                        if (it->dataNascimento.anosCompletos() >= 18)
+                        {
+                            it->mostraDadosCliente(i);
+                        }
+                    }
+                    pause();
+                }
+                if (opcaoIdade == 2)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========LISTA DE CLIENTES POR IDADE===========\n";
+
+                    for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
+                    {
+                        if (it->dataNascimento.anosCompletos() < 18)
+                        {
+                            it->mostraDadosCliente(i);
+                        }
+                    }
+                    pause();
+                }
+
+            } while (opcaoIdade != 0);
+        }
+        if (opcao == 3)
+        {
+
+            limparTela();
+            dataAtual.mostraDataAtual();
+            cout << "\t==========LISTA DE CLIENTES COM CARRO LOCADO===========\n";
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
+            {
+                if (it->veiculos.size() > 0)
+                {
+                    it->listarClientesComCarroLocado(i);
+                }
+            }
+            pause();
+        }
+
+    } while (opcao != 0);
 }
 
 void listarVeiculos(Cliente listVeiculos)
