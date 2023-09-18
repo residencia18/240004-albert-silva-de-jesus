@@ -84,7 +84,7 @@ struct MinhaData
             x--;
         }
         else
-        {       // getTempo()->tm_mday siguinifica o dia atual
+        { // getTempo()->tm_mday siguinifica o dia atual
             if (getTempo()->tm_mon == mes && getTempo()->tm_mday < dia)
             {
                 x--;
@@ -190,15 +190,18 @@ struct MinhaData
 
 struct Veiculo
 {
+    string renavan;
     string placa;
     string modelo;
     string cor;
-    MinhaData dataRegistro;
+    MinhaData dataHoraRetirada;
+    MinhaData dataHoraEntrega;
+    string lojaRetirada;
 
     void lerVeiculo(int i)
     {
         limparTela();
-        dataRegistro.mostraDataAtual();
+        dataHoraRetirada.mostraDataAtual();
 
         cout << "\t==========CADASTRO DE VEICULO==========\n"
              << endl;
@@ -220,7 +223,7 @@ struct Veiculo
 
         cout << "\n\t==========DATA DE REGISTRO==========\n";
 
-        dataRegistro.lerData();
+        dataHoraRetirada.lerData();
     }
 
     void mostraDadosVeiculo(int i)
@@ -230,7 +233,7 @@ struct Veiculo
         cout << "\tCor do veiculo: " << cor << endl;
         cout << "\tPlaca do veiculo: " << placa << endl;
         cout << "\tData de Registro: ";
-        dataRegistro.mostraData();
+        dataHoraRetirada.mostraData();
         cout << "\n\t========================================\n";
     }
 };
@@ -238,8 +241,8 @@ struct Veiculo
 struct Cliente
 {
     string nome;
-    string sobrenome;
     string cpf;
+    string cnh;
     vector<Veiculo> veiculos;
     MinhaData dataNascimento;
 
@@ -249,23 +252,23 @@ struct Cliente
         getline(cin, nome);
     }
 
-    void lerSobrenome()
-    {
-        cout << "\n\tInforme o sobrenome: ";
-        getline(cin, sobrenome);
-    }
-
     void lerCpf()
     {
         cout << "\n\tInforme o cpf: ";
         getline(cin, cpf);
     }
 
+    void lerCNH()
+    {
+        cout << "\n\tInforme a CNH: ";
+        getline(cin, cnh);
+    }
+
     void mostraDadosCliente(int j)
     {
         cout << "\n\t" << j << "º CLIENTE";
         cout << "\n\tNome do Cliente: " << nome << endl;
-        cout << "\tSobrenome: " << sobrenome << endl;
+        cout << "\tCNH do Cliente: " << cnh << endl;
         cout << "\tCPF do Cliente: " << cpf << endl;
         cout << "\tData de Nascimento: ";
         dataNascimento.mostraData();
@@ -279,7 +282,7 @@ struct Cliente
 
         cout << "\n\t" << j << "º CLIENTE";
         cout << "\n\tNome do Cliente: " << nome << endl;
-        cout << "\tSobrenome: " << sobrenome << endl;
+        cout << "\tCNH do Cliente: " << cnh << endl;
         cout << "\tCPF do Cliente: " << cpf << endl;
         cout << "\tData de Nascimento: ";
         dataNascimento.mostraData();
@@ -292,7 +295,7 @@ struct Cliente
             cout << "\tCor do veiculo: " << it->cor << endl;
             cout << "\tPlaca do veiculo: " << it->placa << endl;
             cout << "\tData de Registro: ";
-            it->dataRegistro.mostraData();
+            it->dataHoraRetirada.mostraData();
             cout << "\n\t========================================\n";
         }
     }
@@ -308,7 +311,7 @@ struct Cliente
         cout << "\n\t" << i << "º Cliente";
         lerNome();
 
-        lerSobrenome();
+        lerCNH();
 
         lerCpf();
 
@@ -451,11 +454,11 @@ void listarClientes(vector<Cliente> &listCliente);
 
 void listarVeiculos(Cliente listVeiculos);
 
-void buscarCliente(vector<Cliente> &listCliente);
+void alterarAndBucarCliente(vector<Cliente> &listCliente);
 
 void removerCliente(vector<Cliente> &listCliente);
 
-Cliente retornarCliente(vector<Cliente> &listCliente);
+void localizarCliente(vector<Cliente> &listCliente);
 
 int main()
 {
@@ -472,11 +475,11 @@ int menu()
     {
         dataAtual.mostraDataAtual();
         cout << "\t===========MENU===========";
-        cout << "\n\t[1] - CADASTRAR CLIENTE:";
-        cout << "\n\t[2] - CADASTRAR VEICULO:";
-        cout << "\n\t[3] - ENCONTRAR CLIENTE:";
-        cout << "\n\t[4] - EXCLUIR CLIENTE:";
-        cout << "\n\t[5] - LISTAR CLIENTES:";
+        cout << "\n\t[1] - INCLUIR:";
+        cout << "\n\t[2] - EXCLUIR:";
+        cout << "\n\t[3] - ALTERAR:";
+        cout << "\n\t[4] - LISTAR:";
+        cout << "\n\t[5] - LOCALIZAR:";
         cout << "\n\t[6] - LISTAR VEICULOS:";
         cout << "\n\t[7] - LOCAR VEICULO:";
         cout << "\n\t[0] - SAIR";
@@ -531,25 +534,26 @@ void sistemaDeLocacao()
 
         case 2:
 
-            cadastraVeiculo(cliente);
+            // cadastraVeiculo(cliente);
+            removerCliente(listCliente);
 
             break;
 
         case 3:
 
-            buscarCliente(listCliente);
+            alterarAndBucarCliente(listCliente);
 
             break;
 
         case 4:
 
-            removerCliente(listCliente);
+            listarClientes(listCliente);
 
             break;
 
         case 5:
 
-            listarClientes(listCliente);
+            localizarCliente(listCliente);
 
             break;
 
@@ -709,7 +713,8 @@ void listarVeiculos(Cliente listVeiculos)
     int i = 1;
     cout << "\t==========LISTA DE VEICULOS===========\n";
 
-    if(listVeiculos.veiculos.empty()){
+    if (listVeiculos.veiculos.empty())
+    {
         cout << "\n\tNão há veiculos cadastrados!...\n";
         pause();
         return;
@@ -722,7 +727,158 @@ void listarVeiculos(Cliente listVeiculos)
     pause();
 }
 
-void buscarCliente(vector<Cliente> &listCliente)
+void alterarAndBucarCliente(vector<Cliente> &listCliente)
+{
+    limparTela();
+    MinhaData dataAtual;
+    string cpf;
+    int opcao = 0;
+    int i = 1;
+
+    if (listCliente.empty())
+    {
+        cout << "\t==========PESQUISAR CLIENTE===========\n";
+        cout << "\n\tNão há clientes cadastrados!...\n";
+        pause();
+        return;
+    }
+
+    do
+    {
+        cout << "\n\t[1] - ALTERAR NOME:";
+        cout << "\n\t[2] - ALTERAR CNH:";
+        cout << "\n\t[3] - ALTERAR CPF:";
+        cout << "\n\t[4] - ALTERAR IDADE DE NASCIMENTO:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
+        cin >> opcao;
+        cin.get();
+
+        if (opcao == 1)
+        {
+            limparTela();
+            cout << "\tInforme o CPF para consulta: ";
+            getline(cin, cpf);
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+            {
+                if (it->cpf == cpf)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    it->mostraDadosCliente(i);
+                    pause();
+
+                    do
+                    {
+                        cout << "\n\tDeseja alterar o nome desse cliente?\n\t[1] SIM\n\t[0] NÃO\n\tENTRADA ->  ";
+                        cin >> opcao;
+                        cin.get();
+
+                    } while (opcao < 0 && opcao > 1);
+
+                    if (opcao == 1)
+                    {
+
+                        cout << "\n\tInforme o nome do cliente para correção: ";
+                        cin >> it->nome;
+                        cin.get();
+
+                        limparTela();
+                        it->mostraDadosCliente(i);
+                        cout << "\n\tNome alterado com sucesso!...";
+                        pause();
+                        opcao = 5;
+                    }
+                }
+            }
+        }
+        if (opcao == 2)
+        {
+            limparTela();
+            cout << "\tInforme o CPF para consulta: ";
+            getline(cin, cpf);
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+            {
+                if (it->cpf == cpf)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    it->mostraDadosCliente(i);
+                    pause();
+
+                    do
+                    {
+                        cout << "\n\tDeseja alterar CNH desse cliente?\n\t[1] SIM\n\t[0] NÃO\n\tENTRADA ->  ";
+                        cin >> opcao;
+                        cin.get();
+
+                    } while (opcao < 0 && opcao > 1);
+
+                    if (opcao == 1)
+                    {
+
+                        cout << "\n\tInforme a CNH do cliente para correção: ";
+                        cin >> it->cnh;
+                        cin.get();
+
+                        limparTela();
+                        it->mostraDadosCliente(i);
+                        cout << "\n\tCNH alterada com sucesso!...";
+                        pause();
+                        opcao = 5;
+                    }
+                }
+            }
+        }
+
+    } while (opcao < 0 && opcao > 4);
+
+    limparTela();
+    dataAtual.mostraDataAtual();
+    cout << "\tOps, Cliente não encontrado!...\n";
+    pause();
+}
+
+void removerCliente(vector<Cliente> &listCliente)
+{
+    limparTela();
+    MinhaData dataAtual;
+    dataAtual.mostraDataAtual();
+    string cpf;
+    int i = 1;
+
+    cout << "\t===============REMOVER CLIENTE============\n";
+
+    if (listCliente.empty())
+    {
+        cout << "\n\tNão há clientes cadastrados!...\n";
+        pause();
+        return;
+    }
+    cout << "\n\tInforme o CPF para remoção: ";
+    getline(cin, cpf);
+
+    for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+    {
+        if (it->cpf == cpf)
+        {
+            listCliente.erase(it);
+            cout << "\n\tCliente removido com sucesso!...\n";
+            pause();
+            return;
+        }
+    }
+
+    limparTela();
+    cout << "\tOps, Cliente não encontrado!...\n";
+    pause();
+}
+
+void localizarCliente(vector<Cliente> &listCliente)
 {
     limparTela();
     MinhaData dataAtual;
@@ -754,40 +910,6 @@ void buscarCliente(vector<Cliente> &listCliente)
 
     limparTela();
     dataAtual.mostraDataAtual();
-    cout << "\tOps, Cliente não encontrado!...\n";
-    pause();
-}
-
-void removerCliente(vector<Cliente> &listCliente)
-{
-    limparTela();
-    MinhaData dataAtual;
-    dataAtual.mostraDataAtual();
-    string cpf;
-    int i = 1;
-
-    cout << "\t===============REMOVER CLIENTE============\n";
-
-    if(listCliente.empty()){
-        cout << "\n\tNão há clientes cadastrados!...\n";
-        pause();
-        return;
-    }
-    cout << "\n\tInforme o CPF para remoção: ";
-    getline(cin, cpf);
-
-    for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
-    {
-        if (it->cpf == cpf)
-        {
-            listCliente.erase(it);
-            cout << "\n\tCliente removido com sucesso!...\n";
-            pause();
-            return;
-        }
-    }
-
-    limparTela();
     cout << "\tOps, Cliente não encontrado!...\n";
     pause();
 }
