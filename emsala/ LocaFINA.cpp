@@ -273,7 +273,7 @@ struct Cliente
         cout << "\tData de Nascimento: ";
         dataNascimento.mostraData();
         cout << "\n\tIdade do cliente: " << dataNascimento.anosCompletos() << endl;
-        cout << "\n\t========================================\n";
+        cout << "\t========================================\n";
     }
 
     void listarClientesComCarroLocado(int j)
@@ -444,6 +444,8 @@ struct Cliente
 
 int menu();
 
+int menuEscolha();
+
 void sistemaDeLocacao();
 
 void cadastraCliente(vector<Cliente> &listCliente);
@@ -454,7 +456,7 @@ void listarClientes(vector<Cliente> &listCliente);
 
 void listarVeiculos(Cliente listVeiculos);
 
-void alterarAndBucarCliente(vector<Cliente> &listCliente);
+void alterarCliente(vector<Cliente> &listCliente);
 
 void removerCliente(vector<Cliente> &listCliente);
 
@@ -463,40 +465,6 @@ void localizarCliente(vector<Cliente> &listCliente);
 int main()
 {
     sistemaDeLocacao();
-}
-
-int menu()
-{
-    limparTela();
-    MinhaData dataAtual;
-    int opcao = 0;
-
-    do
-    {
-        dataAtual.mostraDataAtual();
-        cout << "\t===========MENU===========";
-        cout << "\n\t[1] - INCLUIR:";
-        cout << "\n\t[2] - EXCLUIR:";
-        cout << "\n\t[3] - ALTERAR:";
-        cout << "\n\t[4] - LISTAR:";
-        cout << "\n\t[5] - LOCALIZAR:";
-        cout << "\n\t[6] - LISTAR VEICULOS:";
-        cout << "\n\t[7] - LOCAR VEICULO:";
-        cout << "\n\t[0] - SAIR";
-        cout << "\n\tENTRADA ->  ";
-        cin >> opcao;
-        cin.get();
-
-        if (opcao > 7 || opcao < 0)
-        {
-            limparTela();
-            cout << "Ops, escolha invalida!...\n";
-            pause();
-        }
-
-    } while (opcao > 7 || opcao < 0);
-
-    return opcao;
 }
 
 void pause()
@@ -515,55 +483,205 @@ void limparTela()
 #endif
 }
 
+int menuPrincipal()
+{
+    limparTela();
+    MinhaData dataAtual;
+    int opcao = 0;
+
+    do
+    {
+        dataAtual.mostraDataAtual();
+        cout << "\t===========MENU===========";
+        cout << "\n\t[1] - INCLUIR:";
+        cout << "\n\t[2] - EXCLUIR:";
+        cout << "\n\t[3] - ALTERAR:";
+        cout << "\n\t[4] - LISTAR:";
+        cout << "\n\t[5] - LOCALIZAR:";
+        cout << "\n\t[6] - LOCAR VEICULO:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
+        cin >> opcao;
+        cin.get();
+
+        if (opcao > 6 || opcao < 0)
+        {
+            limparTela();
+            cout << "Ops, escolha invalida!...\n";
+            pause();
+        }
+
+    } while (opcao > 6 || opcao < 0);
+
+    return opcao;
+}
+
+int menuEscolha()
+{
+    MinhaData dataAtual;
+    int opcao = 0;
+
+    do
+    {
+        limparTela();
+        dataAtual.mostraDataAtual();
+        cout << "\t======MENU DE ESCOLHA======";
+        cout << "\n\t[1] - CLIENTE:";
+        cout << "\n\t[2] - VEICULO:";
+        cout << "\n\t[0] - SAIR";
+        cout << "\n\tENTRADA ->  ";
+        cin >> opcao;
+        cin.get();
+
+        if (opcao > 2 || opcao < 0)
+        {
+            limparTela();
+            cout << "Ops, escolha invalida!...\n";
+            pause();
+        }
+
+    } while (opcao > 2 || opcao < 0);
+
+    if (opcao == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        if (opcao == 1)
+        {
+            return 1;
+        }
+        if (opcao == 2)
+        {
+            return 2;
+        }
+    }
+}
+
 void sistemaDeLocacao()
 {
     vector<Cliente> listCliente;
     Cliente cliente;
     int escolha = 1;
+    int clienteOuVeiculo = 0;
 
     do
     {
-        switch (menu())
+        switch (menuPrincipal())
         {
 
         case 1:
 
-            cadastraCliente(listCliente);
-
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                cadastraCliente(listCliente);
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    cadastraVeiculo(cliente);
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
             break;
 
         case 2:
 
-            // cadastraVeiculo(cliente);
-            removerCliente(listCliente);
-
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                removerCliente(listCliente);
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    //    removerVeiculo(cliente);
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
             break;
 
         case 3:
 
-            alterarAndBucarCliente(listCliente);
-
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                alterarCliente(listCliente);
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    //    alterarVeiculo(cliente);
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
             break;
 
         case 4:
 
-            listarClientes(listCliente);
-
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                listarClientes(listCliente);
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    //    listarVeiculos(cliente);
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
             break;
 
         case 5:
 
-            localizarCliente(listCliente);
-
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                localizarCliente(listCliente);
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    //    localizarVeiculo(cliente);
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
             break;
 
         case 6:
-
-            listarVeiculos(cliente);
-
-            break;
-
-        case 7:
 
             cliente.locarVeiculo(listCliente);
 
@@ -596,6 +714,41 @@ void cadastraVeiculo(Cliente &cliente)
     Veiculo veiculo;
     veiculo.lerVeiculo(i = cliente.veiculos.size() + 1);
     cliente.veiculos.push_back(veiculo);
+}
+
+void removerCliente(vector<Cliente> &listCliente)
+{
+    limparTela();
+    MinhaData dataAtual;
+    dataAtual.mostraDataAtual();
+    string cpf;
+    int i = 1;
+
+    cout << "\t===============REMOVER CLIENTE============\n";
+
+    if (listCliente.empty())
+    {
+        cout << "\n\tNão há clientes cadastrados!...\n";
+        pause();
+        return;
+    }
+    cout << "\n\tInforme o CPF para remoção: ";
+    getline(cin, cpf);
+
+    for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+    {
+        if (it->cpf == cpf)
+        {
+            listCliente.erase(it);
+            cout << "\n\tCliente removido com sucesso!...\n";
+            pause();
+            return;
+        }
+    }
+
+    limparTela();
+    cout << "\tOps, Cliente não encontrado!...\n";
+    pause();
 }
 
 void listarClientes(vector<Cliente> &listCliente)
@@ -727,13 +880,13 @@ void listarVeiculos(Cliente listVeiculos)
     pause();
 }
 
-void alterarAndBucarCliente(vector<Cliente> &listCliente)
+void alterarCliente(vector<Cliente> &listCliente)
 {
     limparTela();
     MinhaData dataAtual;
     string cpf;
     int opcao = 0;
-    int i = 1;
+    int escolha = 0;
 
     if (listCliente.empty())
     {
@@ -745,6 +898,10 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
 
     do
     {
+        int i = 1;
+        limparTela();
+        dataAtual.mostraDataAtual();
+        cout << "\t==========MENU ALTERAR===========\n";
         cout << "\n\t[1] - ALTERAR NOME:";
         cout << "\n\t[2] - ALTERAR CNH:";
         cout << "\n\t[3] - ALTERAR CPF:";
@@ -752,6 +909,7 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
         cout << "\n\t[0] - SAIR";
         cout << "\n\tENTRADA ->  ";
         cin >> opcao;
+        escolha = opcao;
         cin.get();
 
         if (opcao == 1)
@@ -766,7 +924,7 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
                 {
                     limparTela();
                     dataAtual.mostraDataAtual();
-                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    cout << "\t==========CLIENTE ENCONTRADO===========";
                     it->mostraDadosCliente(i);
                     pause();
 
@@ -786,12 +944,20 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
                         cin.get();
 
                         limparTela();
+                        dataAtual.mostraDataAtual();
+                        cout << "\t=========CLIENTE ALTERADO (NOME)==========";
                         it->mostraDadosCliente(i);
                         cout << "\n\tNome alterado com sucesso!...";
+                        cpf = "0";
                         pause();
-                        opcao = 5;
                     }
                 }
+            }
+            if (cpf != "0")
+            {
+                limparTela();
+                cout << "\tOps, Cliente não encontrado!...\n";
+                pause();
             }
         }
         if (opcao == 2)
@@ -806,7 +972,7 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
                 {
                     limparTela();
                     dataAtual.mostraDataAtual();
-                    cout << "\t==========CLIENTE ENCONTRADO===========\n";
+                    cout << "\t==========CLIENTE ENCONTRADO===========";
                     it->mostraDadosCliente(i);
                     pause();
 
@@ -826,56 +992,129 @@ void alterarAndBucarCliente(vector<Cliente> &listCliente)
                         cin.get();
 
                         limparTela();
+                        dataAtual.mostraDataAtual();
+                        cout << "\n\t=========CLIENTE ALTERADO (CNH)=========\n";
                         it->mostraDadosCliente(i);
                         cout << "\n\tCNH alterada com sucesso!...";
+                        cpf = "0";
                         pause();
-                        opcao = 5;
                     }
                 }
             }
+            if (cpf != "0")
+            {
+                limparTela();
+                cout << "\tOps, Cliente não encontrado!...\n";
+                pause();
+            }
         }
 
-    } while (opcao < 0 && opcao > 4);
-
-    limparTela();
-    dataAtual.mostraDataAtual();
-    cout << "\tOps, Cliente não encontrado!...\n";
-    pause();
-}
-
-void removerCliente(vector<Cliente> &listCliente)
-{
-    limparTela();
-    MinhaData dataAtual;
-    dataAtual.mostraDataAtual();
-    string cpf;
-    int i = 1;
-
-    cout << "\t===============REMOVER CLIENTE============\n";
-
-    if (listCliente.empty())
-    {
-        cout << "\n\tNão há clientes cadastrados!...\n";
-        pause();
-        return;
-    }
-    cout << "\n\tInforme o CPF para remoção: ";
-    getline(cin, cpf);
-
-    for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
-    {
-        if (it->cpf == cpf)
+        if (opcao == 3)
         {
-            listCliente.erase(it);
-            cout << "\n\tCliente removido com sucesso!...\n";
-            pause();
-            return;
-        }
-    }
+            limparTela();
+            cout << "\tInforme o CPF para consulta: ";
+            getline(cin, cpf);
 
-    limparTela();
-    cout << "\tOps, Cliente não encontrado!...\n";
-    pause();
+            for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+            {
+                if (it->cpf == cpf)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========CLIENTE ENCONTRADO===========";
+                    it->mostraDadosCliente(i);
+                    pause();
+
+                    do
+                    {
+                        cout << "\n\tDeseja alterar CPF desse cliente?\n\t[1] SIM\n\t[0] NÃO\n\tENTRADA ->  ";
+                        cin >> opcao;
+                        cin.get();
+
+                    } while (opcao < 0 && opcao > 1);
+
+                    if (opcao == 1)
+                    {
+
+                        cout << "\n\tInforme o CPF do cliente para correção: ";
+                        cin >> it->cpf;
+                        cin.get();
+
+                        limparTela();
+                        dataAtual.mostraDataAtual();
+                        cout << "\t==========CLIENTE ALTERADO (CPF)==========";
+                        it->mostraDadosCliente(i);
+                        cout << "\n\tCPF alterado com sucesso!...";
+                        cpf = "0";
+                        pause();
+                    }
+                }
+            }
+            if (cpf != "0")
+            {
+                limparTela();
+                cout << "\tOps, Cliente não encontrado!...\n";
+                pause();
+            }
+        }
+
+        if (opcao == 4)
+        {
+
+            limparTela();
+            cout << "\tInforme o CPF para consulta: ";
+            getline(cin, cpf);
+
+            for (auto it = listCliente.begin(); it != listCliente.end(); ++it, i++)
+            {
+                if (it->cpf == cpf)
+                {
+                    limparTela();
+                    dataAtual.mostraDataAtual();
+                    cout << "\t==========CLIENTE ENCONTRADO===========";
+                    it->mostraDadosCliente(i);
+                    pause();
+
+                    do
+                    {
+                        cout << "\n\tDeseja alterar a idade de nascimento desse cliente?\n\t[1] SIM\n\t[0] NÃO\n\tENTRADA ->  ";
+                        cin >> opcao;
+                        cin.get();
+
+                    } while (opcao < 0 && opcao > 1);
+
+                    if (opcao == 1)
+                    {
+
+                        cout << "\n\tInforme a idade de nascimento do cliente para correção:\n";
+                        it->dataNascimento.lerData();
+
+                        limparTela();
+                        dataAtual.mostraDataAtual();
+                        cout << "\t========CLIENTE ALTERADO (DATA NASCIMENTO)=========";
+                        it->mostraDadosCliente(i);
+                        cout << "\n\tIdade de nascimento alterada com sucesso!...";
+                        cpf = "0";
+                        pause();
+                    }
+                }
+            }
+            if (cpf != "0")
+            {
+                limparTela();
+                cout << "\tOps, Cliente não encontrado!...\n";
+                pause();
+            }
+        }
+        if (escolha > 4 || escolha < 0)
+        {
+
+            limparTela();
+            cout << "\tOps, opção invalida!...\n";
+            pause();
+        }
+
+    } while (escolha != 0);
 }
 
 void localizarCliente(vector<Cliente> &listCliente)
@@ -885,7 +1124,8 @@ void localizarCliente(vector<Cliente> &listCliente)
     string cpf;
     int i = 1;
 
-    if(listCliente.empty()){
+    if (listCliente.empty())
+    {
 
         cout << "\t==========PESQUISAR CLIENTE===========\n";
         cout << "\n\tNão há clientes cadastrados!...\n";
