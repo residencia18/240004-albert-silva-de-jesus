@@ -23,20 +23,33 @@ struct MinhaData
 
     void mostraDataAtual()
     {
-        struct tm *local = getTempo();
-        int dia = local->tm_mday;
-        int mes = local->tm_mon + 1;
-        int ano = local->tm_year + 1900;
-        // int diaSemana = local->tm_wday;
-        // int diaAno = local->tm_yday;
-        int hora = local->tm_hour;
-        int minutos = local->tm_min;
-        int segundos = local->tm_sec;
+        // int diaSemana = getTempo()->tm_wday;
 
-        printf("\n\tDATA: %02d/%02d/%4d, %s\n ", dia, mes, ano, diaDaSemana().c_str());
-        printf("\tHORÁRIO: %02d:%02d:%02d\n", hora, minutos, segundos);
+        printf("\n\tDATA ATUAL: %02d/%02d/%4d, %s\n ", getTempo()->tm_mday, getTempo()->tm_mon + 1, getTempo()->tm_year + 1900, diaDaSemana().c_str());
+        printf("\tHORA ATUAL: %02d:%02d:%02d\n", getTempo()->tm_hour, getTempo()->tm_min, getTempo()->tm_sec);
+
+        if (bissexto())
+        {
+            printf("\tANO BISSEXTO, FALTA %i PARA TERMINAR O ANO!...\n", 366 - getTempo()->tm_yday);
+        }
+        else
+        {
+            printf("\tANO NÃO BISSEXTO, FALTA %i PARA TERMINAR O ANO!...\n", 365 - getTempo()->tm_yday);
+        }
+        if (getTempo()->tm_hour >= 0 && getTempo()->tm_hour < 12)
+        {
+            printf("\tBOM DIA!...\n");
+        }
+        else if (getTempo()->tm_hour >= 12 && getTempo()->tm_hour < 18)
+        {
+            printf("\tBOA TARDE!...\n");
+        }
+        else
+        {
+            printf("\tBOA NOITE!...\n");
+        }
+
         printf("\n");
-        // cout << "Dia do ano: " << diaAno << endl;
     }
 
     void lerData()
@@ -59,23 +72,20 @@ struct MinhaData
     void mostraData()
     {
         printf("%02d/%02d/%4d ", dia, mes, ano);
-        // cout << diaDaSemana() <<  endl;
     }
 
     int anosCompletos()
     {
-        struct tm *local = getTempo();
-        int diaAtual = local->tm_mday;
-        int mesAtual = local->tm_mon + 1;
-        int x = (local->tm_year + 1900) - ano;
+        int x = (getTempo()->tm_year + 1900) - ano;
 
-        if (mesAtual < mes)
+        // getTempo()->tm_mon siguinifica o mes atual
+        if (getTempo()->tm_mon < mes)
         {
             x--;
         }
         else
-        {
-            if (mes == mesAtual && dia < diaAtual)
+        {       // getTempo()->tm_mday siguinifica o dia atual
+            if (getTempo()->tm_mon == mes && getTempo()->tm_mday < dia)
             {
                 x--;
             }
@@ -85,13 +95,14 @@ struct MinhaData
 
     bool bissexto()
     {
-        if (ano % 4 == 0 && ano % 100 != 0)
+        // getTempo()->tm_year + 1900 siguinifica o ano atual
+        if (getTempo()->tm_year + 1900 % 4 == 0 && getTempo()->tm_year + 1900 % 100 != 0)
         {
             return true;
         }
         else
         {
-            if (ano % 400 == 0)
+            if (getTempo()->tm_year + 1900 % 400 == 0)
             {
                 return true;
             }
@@ -155,11 +166,8 @@ struct MinhaData
 
     string diaDaSemana()
     {
-        struct tm *data = getTempo();
-        ;
-        int diaDaSemana = data->tm_wday;
 
-        switch (diaDaSemana)
+        switch (getTempo()->tm_wday)
         {
         case 0:
             return "DOMINGO";
@@ -333,7 +341,8 @@ struct Cliente
         dataNascimento.mostraDataAtual();
         cout << "\t===============LOCAR VEICULO============\n";
 
-        if(veiculos.empty()){
+        if (veiculos.empty())
+        {
             cout << "\n\tNão há veiculos cadastrados!...\n";
             pause();
             return;
@@ -403,8 +412,9 @@ struct Cliente
 
                     } while (placa != "0");
                 }
-                if(it->cpf == cpf && it->dataNascimento.anosCompletos() < 18){
-                    
+                if (it->cpf == cpf && it->dataNascimento.anosCompletos() < 18)
+                {
+
                     limparTela();
                     cout << "\t==========CLIENTE ENCONTRADO===========\n";
                     cout << "\n\tNome: " << it->nome << endl;
@@ -635,7 +645,7 @@ void listarClientes(vector<Cliente> &listCliente)
                 cout << "\n\tENTRADA ->  ";
                 cin >> opcaoIdade;
                 cin.get();
-                i = 1;  
+                i = 1;
 
                 if (opcaoIdade == 1)
                 {
