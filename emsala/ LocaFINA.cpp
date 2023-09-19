@@ -340,7 +340,7 @@ struct Cliente
         cout << "\tCPF do Cliente: " << cpf << endl;
         cout << "\tData de Nascimento: ";
         dataNascimento.mostraData();
-        cout << "\n\t========================================\n";
+        cout << "\n\tIdade do cliente: " << dataNascimento.anosCompletos() << endl;
 
         for (auto it = veiculos.begin(); it != veiculos.end(); it++, i++)
         {
@@ -478,7 +478,7 @@ struct Cliente
                     cout << "\tCpf: " << it->cpf << endl;
                     cout << "\tIdade: " << it->dataNascimento.anosCompletos() << endl;
                     cout << "\tCliente encontrado!...\n";
-                    pause();
+
                     cout << "\n\tOps, Cliente menor de idade!...\n";
                     pause();
                     return;
@@ -506,21 +506,31 @@ void cadastrarCliente(vector<Cliente> &listCliente);
 
 void cadastrarVeiculo(Cliente &cliente);
 
+void listarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos);
+
 void listarClientes(vector<Cliente> &listCliente);
 
 void listarVeiculos(Cliente listVeiculos);
+
+void alterarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos);
 
 void alterarCliente(vector<Cliente> &listCliente);
 
 void alterarVeiculo(Cliente &listVeiculos);
 
+void removerClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos);
+
 void removerCliente(vector<Cliente> &listCliente);
 
 void removerVeiculo(Cliente &listVeiculos);
 
+void localizarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos);
+
 void localizarCliente(vector<Cliente> &listCliente);
 
 void localizarVeiculo(Cliente &listVeiculos);
+
+void locarVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos);
 
 int main()
 {
@@ -656,206 +666,27 @@ void sistemaDeGestaoLocacaoDeVeiculos()
 
         case 2:
 
-            clienteOuVeiculo = menuEscolha();
-            if (clienteOuVeiculo == 1)
-            {
-                if (listCliente.empty())
-                {
-                    cout << "\n\tNão há clientes cadastrados!...\n";
-                    pause();
-                    break;
-                }
-                else
-                {
-                    removerCliente(listCliente);
-                }
-            }
-            else
-            {
-                if (clienteOuVeiculo == 2)
-                {
-                    if (cliente.veiculos.empty())
-                    {
-                        cout << "\n\tNão há veiculos cadastrados!...\n";
-                        pause();
-                        break;
-                    }
-                    else
-                    {
-                        removerVeiculo(cliente);
-                    }
-                }
-                else
-                {
-                    limparTela();
-                    cout << "\n\tMenu encerrado com sucesso!...";
-                    pause();
-                }
-            }
+            removerClienteOuVeiculo(listCliente, cliente);
             break;
 
         case 3:
 
-            clienteOuVeiculo = menuEscolha();
-            if (clienteOuVeiculo == 1)
-            {
-                if (listCliente.empty())
-                {
-                    cout << "\n\tNão há clientes cadastrados!...\n";
-                    pause();
-                    break;
-                }
-                else
-                {
-                    alterarCliente(listCliente);
-                }
-            }
-            else
-            {
-                if (clienteOuVeiculo == 2)
-                {
-                    if (cliente.veiculos.empty())
-                    {
-                        cout << "\n\tNão há veiculos cadastrados!...\n";
-                        pause();
-                        break;
-                    }
-                    else
-                    {
-                        alterarVeiculo(cliente);
-                    }
-                }
-                else
-                {
-                    limparTela();
-                    cout << "\n\tMenu encerrado com sucesso!...";
-                    pause();
-                }
-            }
+            alterarClienteOuVeiculo(listCliente, cliente);
             break;
 
         case 4:
 
-            clienteOuVeiculo = menuEscolha();
-            if (clienteOuVeiculo == 1)
-            {
-                if (listCliente.empty())
-                {
-                    cout << "\n\tNão há clientes cadastrados!...\n";
-                    pause();
-                    break;
-                }
-                else
-                {
-                    listarClientes(listCliente);
-                }
-            }
-            else
-            {
-                if (clienteOuVeiculo == 2)
-                {
-                    if (cliente.veiculos.empty())
-                    {
-                        cout << "\n\tNão há veiculos cadastrados!...\n";
-                        pause();
-                        break;
-                    }
-                    else
-                    {
-                        listarVeiculos(cliente);
-                    }
-                }
-                else
-                {
-                    limparTela();
-                    cout << "\n\tMenu encerrado com sucesso!...";
-                    pause();
-                }
-            }
+            listarClienteOuVeiculo(listCliente, cliente);
             break;
 
         case 5:
 
-            clienteOuVeiculo = menuEscolha();
-            if (clienteOuVeiculo == 1)
-            {
-                if (listCliente.empty())
-                {
-                    cout << "\n\tNão há clientes cadastrados!...\n";
-                    pause();
-                    break;
-                }
-                else
-                {
-                    localizarCliente(listCliente);
-                }
-            }
-            else
-            {
-                if (clienteOuVeiculo == 2)
-                {
-                    if (cliente.veiculos.empty())
-                    {
-                        cout << "\n\tNão há veiculos cadastrados!...\n";
-                        pause();
-                        break;
-                    }
-                    else
-                    {
-                        localizarVeiculo(cliente);
-                    }
-                }
-                else
-                {
-                    limparTela();
-                    cout << "\n\tMenu encerrado com sucesso!...";
-                    pause();
-                }
-            }
+            localizarClienteOuVeiculo(listCliente, cliente);
             break;
 
         case 6:
 
-            clienteOuVeiculo = menuEscolha();
-            if (clienteOuVeiculo == 1)
-            {
-                if (listCliente.empty())
-                {
-                    cout << "\n\tNão há clientes cadastrados!...\n";
-                    pause();
-                    break;
-                }
-                else
-                {
-                    cliente.locarVeiculo(listCliente);
-                }
-            }
-            else
-            {
-                if (clienteOuVeiculo == 2)
-                {
-                    if (cliente.veiculos.empty())
-                    {
-                        cout << "\n\tNão há veiculos cadastrados!...\n";
-                        pause();
-                        break;
-                    }
-                    else
-                    {
-
-                        // Esta por enquanto pretendo listar veiculos disponiveis para locação...
-                        cout << "\n\tOps, Não é possivel locar um veiculo!...\n";
-                        pause();
-                    }
-                }
-                else
-                {
-                    limparTela();
-                    cout << "\n\tMenu encerrado com sucesso!...";
-                    pause();
-                }
-            }
-
+            locarVeiculo(listCliente, cliente);
             break;
 
         case 0:
@@ -885,6 +716,45 @@ void cadastrarVeiculo(Cliente &cliente)
     Veiculo veiculo;
     veiculo.lerVeiculo(i = cliente.veiculos.size() + 1);
     cliente.veiculos.push_back(veiculo);
+}
+
+void removerClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos)
+{
+    int clienteOuVeiculo = menuEscolha();
+
+    if (clienteOuVeiculo == 1)
+    {
+        if (listCliente.empty())
+        {
+            cout << "\n\tNão há clientes cadastrados!...\n";
+            pause();
+        }
+        else
+        {
+            removerCliente(listCliente);
+        }
+    }
+    else
+    {
+        if (clienteOuVeiculo == 2)
+        {
+            if (listVeiculos.veiculos.empty())
+            {
+                cout << "\n\tNão há veiculos cadastrados!...\n";
+                pause();
+            }
+            else
+            {
+                removerVeiculo(listVeiculos);
+            }
+        }
+        else
+        {
+            limparTela();
+            cout << "\n\tMenu encerrado com sucesso!...";
+            pause();
+        }
+    }
 }
 
 void removerCliente(vector<Cliente> &listCliente)
@@ -957,6 +827,46 @@ void removerVeiculo(Cliente &listVeiculos)
     limparTela();
     cout << "\tOps, Cliente não encontrado!...\n";
     pause();
+}
+
+void listarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos)
+{
+    int clienteOuVeiculo = 0;
+
+    clienteOuVeiculo = menuEscolha();
+    if (clienteOuVeiculo == 1)
+    {
+        if (listCliente.empty())
+        {
+            cout << "\n\tNão há clientes cadastrados!...\n";
+            pause();
+        }
+        else
+        {
+            listarClientes(listCliente);
+        }
+    }
+    else
+    {
+        if (clienteOuVeiculo == 2)
+        {
+            if (listVeiculos.veiculos.empty())
+            {
+                cout << "\n\tNão há veiculos cadastrados!...\n";
+                pause();
+            }
+            else
+            {
+                listarVeiculos(listVeiculos);
+            }
+        }
+        else
+        {
+            limparTela();
+            cout << "\n\tMenu encerrado com sucesso!...";
+            pause();
+        }
+    }
 }
 
 void listarClientes(vector<Cliente> &listCliente)
@@ -1050,7 +960,7 @@ void listarClientes(vector<Cliente> &listCliente)
 
             limparTela();
             dataAtual.mostraDataAtual();
-            cout << "\t==========LISTA DE CLIENTES COM CARRO LOCADO===========\n";
+            cout << "\t=========LISTA DE CLIENTES COM CARRO LOCADO==========";
 
             for (auto it = listCliente.begin(); it != listCliente.end(); it++, i++)
             {
@@ -1086,6 +996,45 @@ void listarVeiculos(Cliente listVeiculos)
         it->mostraDadosVeiculo(i);
     }
     pause();
+}
+
+void alterarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos)
+{
+    int clienteOuVeiculo = menuEscolha();
+
+    if (clienteOuVeiculo == 1)
+    {
+        if (listCliente.empty())
+        {
+            cout << "\n\tNão há clientes cadastrados!...\n";
+            pause();
+        }
+        else
+        {
+            alterarCliente(listCliente);
+        }
+    }
+    else
+    {
+        if (clienteOuVeiculo == 2)
+        {
+            if (listVeiculos.veiculos.empty())
+            {
+                cout << "\n\tNão há veiculos cadastrados!...\n";
+                pause();
+            }
+            else
+            {
+                alterarVeiculo(listVeiculos);
+            }
+        }
+        else
+        {
+            limparTela();
+            cout << "\n\tMenu encerrado com sucesso!...";
+            pause();
+        }
+    }
 }
 
 void alterarCliente(vector<Cliente> &listCliente)
@@ -1704,6 +1653,45 @@ void alterarVeiculo(Cliente &listVeiculos)
     } while (escolha != 0);
 }
 
+void localizarClienteOuVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos)
+{
+    int clienteOuVeiculo = menuEscolha();
+
+    if (clienteOuVeiculo == 1)
+    {
+        if (listCliente.empty())
+        {
+            cout << "\n\tNão há clientes cadastrados!...\n";
+            pause();
+        }
+        else
+        {
+            localizarCliente(listCliente);
+        }
+    }
+    else
+    {
+        if (clienteOuVeiculo == 2)
+        {
+            if (listVeiculos.veiculos.empty())
+            {
+                cout << "\n\tNão há veiculos cadastrados!...\n";
+                pause();
+            }
+            else
+            {
+                localizarVeiculo(listVeiculos);
+            }
+        }
+        else
+        {
+            limparTela();
+            cout << "\n\tMenu encerrado com sucesso!...";
+            pause();
+        }
+    }
+}
+
 void localizarCliente(vector<Cliente> &listCliente)
 {
     limparTela();
@@ -1778,4 +1766,46 @@ void localizarVeiculo(Cliente &listVeiculos)
     dataAtual.mostraDataAtual();
     cout << "\tOps, Veiculo não encontrado!...\n";
     pause();
+}
+
+void locarVeiculo(vector<Cliente> &listCliente, Cliente &listVeiculos)
+{
+    int clienteOuVeiculo = menuEscolha();
+
+    if (clienteOuVeiculo == 1)
+    {
+        if (listCliente.empty())
+        {
+            cout << "\n\tNão há clientes cadastrados!...\n";
+            pause();
+        }
+        else
+        {
+            listVeiculos.locarVeiculo(listCliente);
+        }
+    }
+    else
+    {
+        if (clienteOuVeiculo == 2)
+        {
+            if (listVeiculos.veiculos.empty())
+            {
+                cout << "\n\tNão há veiculos cadastrados!...\n";
+                pause();
+            }
+            else
+            {
+
+                // Esta por enquanto pretendo listar veiculos disponiveis para locação...
+                cout << "\n\tOps, Não é possivel locar um veiculo!...\n";
+                pause();
+            }
+        }
+        else
+        {
+            limparTela();
+            cout << "\n\tMenu encerrado com sucesso!...";
+            pause();
+        }
+    }
 }
