@@ -200,6 +200,79 @@ struct MinhaData
         return true;
     }
 
+    bool validaDataDeEntrega(MinhaData dataHoraRetirada, MinhaData dataHoraEntrega)
+    {
+        // Data de retirada
+        struct tm retirada = {0};
+        retirada.tm_year = dataHoraRetirada.ano; // Ano - 1900
+        retirada.tm_mon = dataHoraRetirada.mes;  // Mês (0-11)
+        retirada.tm_mday = dataHoraRetirada.dia; // Dia
+        retirada.tm_hour = 10;                   // Hora
+        retirada.tm_min = 0;                     // Minuto
+        retirada.tm_sec = 0;                     // Segundo
+
+        // Data de entrega
+        struct tm entrega = {0};
+        entrega.tm_year = dataHoraEntrega.ano; // Ano - 1900
+        entrega.tm_mon = dataHoraEntrega.mes;  // Mês (0-11)
+        entrega.tm_mday = dataHoraEntrega.dia; // Dia
+        entrega.tm_hour = 11;                  // Hora
+        entrega.tm_min = 30;                   // Minuto
+        entrega.tm_sec = 0;                    // Segundo
+
+        // Converte as datas em timestamps
+        time_t retiradaTimestamp = mktime(&retirada);
+        time_t entregaTimestamp = mktime(&entrega);
+
+        // Verifica se a data de entrega é anterior à data de retirada
+       if(retirada.tm_year > entrega.tm_year)
+       {
+           cout << "\n\tOps, Data de entrega invalida!...\n";
+           pause();
+           return false;
+       }
+       else
+       {
+           if(retirada.tm_mon > entrega.tm_mon)
+           {
+               cout << "\n\tOps, Data de entrega invalida!...\n";
+               pause();
+               return false;
+           }
+           else
+           {
+               if(retirada.tm_mday > entrega.tm_mday)
+               {
+                   cout << "\n\tOps, Data de entrega invalida!...\n";
+                   pause();
+                   return false;
+               }
+           }
+       }
+
+        // Calcula a diferença entre as datas
+        double diff = difftime(entregaTimestamp, retiradaTimestamp);
+
+        // Converte a diferença de segundos para dias
+        diff = diff / (60 * 60 * 24);
+
+        // Mostra a diferença em dias
+        cout << "\n\tDiferença em dias: " << diff << endl;
+        pause();
+
+        if(diff > 30)
+        {
+            cout << "\n\tOps, Data de entrega invalida!...\n";
+            pause();
+            return false;
+        }
+
+        cout << "\n\tData de entrega valida!...\n";
+        pause();
+        return true;
+
+    }
+
     string diaDaSemana()
     {
 
@@ -260,10 +333,14 @@ struct Veiculo
 
         dataHoraRetirada.lerDataRetirada();
 
-        limparTela();
-        cout << "\n\t==========DATA DE ENTREGA==========\n";
+        do
+        {
+            limparTela();
+            cout << "\n\t==========DATA DE ENTREGA==========\n";
 
-        dataHoraEntrega.lerDataEntrega();
+            dataHoraEntrega.lerDataEntrega();
+
+        } while (!dataHoraEntrega.validaDataDeEntrega(dataHoraRetirada, dataHoraEntrega));
 
         limparTela();
         cout << "\n\t==========LOJA DE RETIRADA==========\n";

@@ -19,8 +19,10 @@ int main()
     int minutos = data->tm_min;
     int segundos = data->tm_sec;
 
-    cout << dia << " de " << mes << " de " << ano << endl;
-    cout << hora << ":" << minutos << ":" << segundos << endl;
-    cout << "Dia da semana: " << diaSemana << endl;
-    cout << "Dia do ano: " << diaAno << endl;
+    // cout << dia << " de " << mes << " de " << ano << endl;
+    // cout << hora << ":" << minutos << ":" << segundos << endl;
+    // cout << "Dia da semana: " << diaSemana << endl;
+    // cout << "Dia do ano: " << diaAno << endl;
+
+    cout << "\nhora: " << (data->tm_hour + 1)  << endl;
 }
