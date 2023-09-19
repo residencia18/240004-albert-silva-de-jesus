@@ -617,6 +617,7 @@ int menuEscolha()
             return 2;
         }
     }
+    return 0;
 }
 
 void sistemaDeGestaoLocacaoDeVeiculos()
@@ -658,13 +659,31 @@ void sistemaDeGestaoLocacaoDeVeiculos()
             clienteOuVeiculo = menuEscolha();
             if (clienteOuVeiculo == 1)
             {
-                removerCliente(listCliente);
+                if (listCliente.empty())
+                {
+                    cout << "\n\tNão há clientes cadastrados!...\n";
+                    pause();
+                    break;
+                }
+                else
+                {
+                    removerCliente(listCliente);
+                }
             }
             else
             {
                 if (clienteOuVeiculo == 2)
                 {
-                    removerVeiculo(cliente);
+                    if (cliente.veiculos.empty())
+                    {
+                        cout << "\n\tNão há veiculos cadastrados!...\n";
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        removerVeiculo(cliente);
+                    }
                 }
                 else
                 {
@@ -680,13 +699,31 @@ void sistemaDeGestaoLocacaoDeVeiculos()
             clienteOuVeiculo = menuEscolha();
             if (clienteOuVeiculo == 1)
             {
-                alterarCliente(listCliente);
+                if (listCliente.empty())
+                {
+                    cout << "\n\tNão há clientes cadastrados!...\n";
+                    pause();
+                    break;
+                }
+                else
+                {
+                    alterarCliente(listCliente);
+                }
             }
             else
             {
                 if (clienteOuVeiculo == 2)
                 {
-                    alterarVeiculo(cliente);
+                    if (cliente.veiculos.empty())
+                    {
+                        cout << "\n\tNão há veiculos cadastrados!...\n";
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        alterarVeiculo(cliente);
+                    }
                 }
                 else
                 {
@@ -702,13 +739,31 @@ void sistemaDeGestaoLocacaoDeVeiculos()
             clienteOuVeiculo = menuEscolha();
             if (clienteOuVeiculo == 1)
             {
-                listarClientes(listCliente);
+                if (listCliente.empty())
+                {
+                    cout << "\n\tNão há clientes cadastrados!...\n";
+                    pause();
+                    break;
+                }
+                else
+                {
+                    listarClientes(listCliente);
+                }
             }
             else
             {
                 if (clienteOuVeiculo == 2)
                 {
-                    listarVeiculos(cliente);
+                    if (cliente.veiculos.empty())
+                    {
+                        cout << "\n\tNão há veiculos cadastrados!...\n";
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        listarVeiculos(cliente);
+                    }
                 }
                 else
                 {
@@ -724,13 +779,31 @@ void sistemaDeGestaoLocacaoDeVeiculos()
             clienteOuVeiculo = menuEscolha();
             if (clienteOuVeiculo == 1)
             {
-                localizarCliente(listCliente);
+                if (listCliente.empty())
+                {
+                    cout << "\n\tNão há clientes cadastrados!...\n";
+                    pause();
+                    break;
+                }
+                else
+                {
+                    localizarCliente(listCliente);
+                }
             }
             else
             {
                 if (clienteOuVeiculo == 2)
                 {
-                    localizarVeiculo(cliente);
+                    if (cliente.veiculos.empty())
+                    {
+                        cout << "\n\tNão há veiculos cadastrados!...\n";
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        localizarVeiculo(cliente);
+                    }
                 }
                 else
                 {
@@ -743,7 +816,45 @@ void sistemaDeGestaoLocacaoDeVeiculos()
 
         case 6:
 
-            cliente.locarVeiculo(listCliente);
+            clienteOuVeiculo = menuEscolha();
+            if (clienteOuVeiculo == 1)
+            {
+                if (listCliente.empty())
+                {
+                    cout << "\n\tNão há clientes cadastrados!...\n";
+                    pause();
+                    break;
+                }
+                else
+                {
+                    cliente.locarVeiculo(listCliente);
+                }
+            }
+            else
+            {
+                if (clienteOuVeiculo == 2)
+                {
+                    if (cliente.veiculos.empty())
+                    {
+                        cout << "\n\tNão há veiculos cadastrados!...\n";
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+
+                        // Esta por enquanto pretendo listar veiculos disponiveis para locação...
+                        cout << "\n\tOps, Não é possivel locar um veiculo!...\n";
+                        pause();
+                    }
+                }
+                else
+                {
+                    limparTela();
+                    cout << "\n\tMenu encerrado com sucesso!...";
+                    pause();
+                }
+            }
 
             break;
 
