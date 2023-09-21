@@ -10,7 +10,7 @@ void insereLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     int escolha;
     bool clienteExiste, veiculoExiste;
 
-    if(listasVazias(listaClientes,listaVeiculos)){
+    if(listasVaziasLocacao(listaClientes,listaVeiculos)){
         return;
     }
 
@@ -123,7 +123,7 @@ void excluiLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     string placa;
     bool clienteExiste, veiculoExiste;
 
-    if(listasVazias(listaClientes,listaVeiculos)){
+    if(listasVaziasLocacao(listaClientes,listaVeiculos)){
         return;
     }
 
@@ -187,7 +187,7 @@ void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     int escolha;
     bool clienteExiste, veiculoExiste;
 
-    if(listasVazias(listaClientes,listaVeiculos)){
+    if(listasVaziasLocacao(listaClientes,listaVeiculos)){
         return;
     }
 
@@ -265,33 +265,36 @@ void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     pause();
 }
 
-bool listasVazias(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo){
+bool listasVaziasLocacao(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo){
 
      if(listaCliente.empty() && listaVeiculo.empty()){
-        cout << "Não há clientes e veiculos cadastrados" << endl;
+        limpaTela();
+        cout << "\tNão há clientes e veiculos cadastrados" << endl;
         pause();
         return true;
     }else{
         if(listaCliente.empty()){
-            cout << "Não há clientes cadastrados" << endl;
+            limpaTela();
+            cout << "\tNão há clientes cadastrados" << endl;
             pause();
             return true;
         }else{
             if(listaVeiculo.empty()){
-                cout << "Não há veiculos cadastrados" << endl;
+                limpaTela();
+                cout << "\tNão há veiculos cadastrados" << endl;
                 pause();
                 return true;
             }
         }
     }
-
+    return false;
 }
 
 void listarLocacao(vector<Locacao> &listaLocacao, vector<Cliente> &listaCliente , vector<Veiculo> &listaVeiculo)
 {
     limpaTela();
 
-    if(listasVazias(listaCliente,listaVeiculo)){
+    if(listasVaziasLocacao(listaCliente,listaVeiculo)){
         return;
     }
 

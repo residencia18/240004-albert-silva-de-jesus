@@ -13,7 +13,9 @@ void excluiLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
 
 void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao);
 
-bool listasVazias(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo);
+bool listasVaziasLocacao(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo);
+
+void listarLocacao(vector<Locacao> &listaLocacao, vector<Cliente> &listaCliente , vector<Veiculo> &listaVeiculo);
 
 bool verificaCliente(Locacao &locacao, vector<Cliente> &listaClientes, string cpf);
 

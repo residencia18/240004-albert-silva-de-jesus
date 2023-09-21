@@ -33,9 +33,23 @@ void insereVeiculo(vector<Veiculo> &listaVeiculos)
     }
 }
 
+bool listasVaziasVeiculo(vector<Veiculo> &listaVeiculos){
+    if(listaVeiculos.empty()){
+        limpaTela();
+        cout << "Nenhum veiculo cadastrado" << endl;
+        pause();
+        return true;
+    }
+    return false;
+}
+
 void excluiVeiculo(vector<Veiculo> &listaVeiculos)
 {
     string placaParaBusca;
+
+    if(listasVaziasVeiculo(listaVeiculos)){
+        return;
+    }
 
     do
     {
@@ -63,6 +77,11 @@ void excluiVeiculo(vector<Veiculo> &listaVeiculos)
 
 void listarVeiculos(vector<Veiculo> &listaVeiculos)
 {
+
+    if(listasVaziasVeiculo(listaVeiculos)){
+        return;
+    }
+
     limpaTela();
     cout << "\n\t===============LISTA DE VEICULOS============\n";
     int i=0;
@@ -76,6 +95,10 @@ void listarVeiculos(vector<Veiculo> &listaVeiculos)
 void localizaVeiculo(vector<Veiculo> &listaVeiculos)
 {
     string placaParaBusca;
+
+    if(listasVaziasVeiculo(listaVeiculos)){
+        return;
+    }
 
     do
     {
@@ -104,6 +127,10 @@ void alteraVeiculo(vector<Veiculo> &listaVeiculos)
     limpaTela();
     string placaParaAlteracao;
     Data data;
+
+    if(listasVaziasVeiculo(listaVeiculos)){
+        return;
+    }
 
     do
     {

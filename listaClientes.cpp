@@ -5,6 +5,7 @@ void insereCliente(vector<Cliente> &listaClientes)
     limpaTela();
     Cliente cliente;
 
+
     if (cliente.preencheCliente())
     {
         for (auto it = listaClientes.begin(); it != listaClientes.end(); ++it)
@@ -41,6 +42,10 @@ void excluiCliente(vector<Cliente> &listaClientes)
     string cpfParaBusca;
     string nomeDoExcluido;
 
+    if(listasVaziasCliente(listaClientes)){
+        return;
+    }
+
     do
     {
         limpaTela();
@@ -74,6 +79,10 @@ void alteraCliente(vector<Cliente> &listaClientes)
     Data data;
     string cpfParaAlteracao;
     string nomeDoExcluido;
+
+    if(listasVaziasCliente(listaClientes)){
+        return;
+    }
 
     cout << "\t==========PESQUISAR CLIENTE===========\n";
     do
@@ -192,6 +201,10 @@ void alteraCliente(vector<Cliente> &listaClientes)
 void listarClientes(vector<Cliente> &listaClientes)
 {
     limpaTela();
+
+    if(listasVaziasCliente(listaClientes)){
+        return;
+    }
     cout << "\t==========LISTA DE CLIENTES===========\n";
     for (auto it = listaClientes.begin(); it != listaClientes.end(); ++it)
     {
@@ -230,4 +243,15 @@ void localizaCliente(vector<Cliente> &listaClientes)
     cout << "\t==========CLIENTE NÃO ENCONTRADO===========\n";
     pause();
     return;
+}
+
+
+bool listasVaziasCliente(vector<Cliente> &listaClientes){
+    if(listaClientes.empty()){
+        limpaTela();
+        cout << "Nenhum cliente cadastrado" << endl;
+        pause();
+        return true;
+    }
+    return false;
 }

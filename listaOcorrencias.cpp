@@ -9,6 +9,10 @@ void insereOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
     Locacao temp; // utilizada para extrair dados da locacao
     bool locacaoEncontrada;
 
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
+
     limpaTela();
     cout << "\n\t===========INCLUIR OCORRÊNCIA===========" << endl
          << endl;
@@ -75,6 +79,10 @@ void excluiOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
     string cpfOcorrencia;
     string placaOcorrencia;
 
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
+
     do
     {
         cout << "Entre com a cpf valida de cliente para registro da ocorrencia : ";
@@ -130,6 +138,10 @@ void alteraOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
     string placaOcorrencia;
     Data data;
     bool locacaoEncontrada = false;
+
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
 
     cout << "\n\t===============ALTERAR OCORRÊNCIA============\n";
     do
@@ -249,12 +261,27 @@ void alteraOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
     }
 }
 
+bool listasVaziasOcorrencia(vector<Locacao> &listaLocacoes){
+
+     if(listaLocacoes.empty()){
+        limpaTela();
+        cout << "\tNão há locações cadastrados" << endl;
+        pause();
+        return true;
+    }
+    return false;
+}
+
 void  registrarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao){
     Ocorrencia ocorrencia;
     string cpfOcorrencia;
     string placaOcorrencia;
     Locacao temp; // utilizada para extrair dados da locacao
     bool locacaoEncontrada;
+
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
 
     limpaTela();
     cout << "\n\t===========INCLUIR OCORRÊNCIA===========" << endl
@@ -361,6 +388,10 @@ void listarOcorrenciaPorCliente(vector<Locacao> &listaLocacao)
 {
     string cpfOcorrencia;
 
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
+
     cout << "\n\t===============LISTA OCORRÊNCIA POR CLIENTE============\n";
     do
     {
@@ -392,6 +423,10 @@ void listarOcorrenciaPorCliente(vector<Locacao> &listaLocacao)
 void listarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao)
 {
     string placaOcorrencia;
+
+    if(listasVaziasOcorrencia(listaLocacao)){
+        return;
+    }
 
     cout << "\n\t===============LISTA OCORRÊNCIA POR VEICULO============\n";
     do

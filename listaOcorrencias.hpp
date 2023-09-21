@@ -25,5 +25,6 @@ bool insereDataRetirada(Locacao temp , Ocorrencia &ocorrencia);
 
 void registrarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao);
 
+bool listasVaziasOcorrencia(vector<Locacao> &listaLocacoes);
 
 #endif

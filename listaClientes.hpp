@@ -13,4 +13,6 @@ void listarClientes(vector<Cliente> &listaClientes);
 
 void localizaCliente(vector<Cliente> &listaClientes);
 
+bool listasVaziasCliente(vector<Cliente> &listaClientes);
+
 #endif

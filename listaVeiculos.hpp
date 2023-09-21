@@ -17,4 +17,6 @@ void listarVeiculos(vector<Veiculo> &listaVeiculos);
 
 void localizaVeiculo(vector<Veiculo> &listaVeiculos);
 
+bool listasVaziasVeiculo(vector<Veiculo> &listaVeiculos);
+
 #endif

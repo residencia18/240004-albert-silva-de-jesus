@@ -73,7 +73,7 @@ void realizaEscolhaLocacao(const int &escolha, vector<Cliente> &listaClientes, v
 
     case 4:
 
-        listarLocacao(listaLocacao);
+        listarLocacao(listaLocacao,listaClientes,listaVeiculos);
         break;
 
     case 0:
