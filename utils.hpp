@@ -41,4 +41,6 @@ int separaHora(const int &pos2, const string &data);
 
 bool verificaHorario(const int &segundo, const int &minuto, const int &hora);
 
+
+
 #endif
