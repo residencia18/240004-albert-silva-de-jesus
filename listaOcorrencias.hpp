@@ -19,7 +19,7 @@ void listarOcorrenciaPorCliente(vector<Locacao> &listaLocacao);
 
 void listarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao);
 
-int segundaMaiorQuePrimeira(DataHora umaData , DataHora outraData);
+bool segundaMaiorQuePrimeira(DataHora umaData , DataHora outraData);
 
 bool insereDataRetirada(Locacao temp , Ocorrencia &ocorrencia);
 

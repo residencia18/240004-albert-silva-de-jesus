@@ -10,12 +10,12 @@ void mostraMenuOcorrencia()
 
     limpaTela();
     data.mostraDataAtual();
-    cout << "\t=========MENU OCORRENCIA=========";
+    cout << "\t=======MENU OCORRENCIA=======";
     cout << "\n\t[1] - INCLUIR:";
     cout << "\n\t[2] - EXCLUIR:";
     cout << "\n\t[3] - ALTERAR INFORMAÇÕES:";
-    cout << "\n\t[4] - LISTAR:";
-    cout << "\n\t[5] - LOCALIZAR:";
+    cout << "\n\t[4] - LISTAR POR CLIENTE:";
+    cout << "\n\t[5] - LISTAR POR VEICULO:";
     cout << "\n\t[0] - SAIR";
     cout << "\n\tENTRADA ->  ";
 }
@@ -27,7 +27,7 @@ void menuOcorrencia(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo
     do
     {
         escolha = recebeEscolhaOcorrencia();
-        realizaEscolhaOcorrencia(escolha, listaCliente,listaVeiculo,listaLocacao);
+        realizaEscolhaOcorrencia(escolha, listaCliente, listaVeiculo, listaLocacao);
 
     } while (escolha != 0);
 }
@@ -64,7 +64,7 @@ void realizaEscolhaOcorrencia(const int &escolha, vector<Cliente> &listaCliente,
     switch (escolha)
     {
     case 1:
-    
+
         insereOcorrencia(listaCliente, listaVeiculo, listaLocacao);
         break;
 
@@ -81,6 +81,10 @@ void realizaEscolhaOcorrencia(const int &escolha, vector<Cliente> &listaCliente,
     case 4:
 
         listarOcorrenciaPorCliente(listaLocacao);
+        break;
+    case 5:
+
+        listarOcorrenciaPorVeiculo(listaLocacao);
         break;
 
     case 0:

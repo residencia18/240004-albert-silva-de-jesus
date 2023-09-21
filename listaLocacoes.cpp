@@ -15,11 +15,18 @@ void insereLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         limpaTela();
         cout << "\n\t===========INCLUIR LOCAÇÃO===========" << endl;
 
-        cout << "\n\tDigite o CPF do cliente: ";
-        getline(cin, cpf);
+        do
+        {
+            cout << "\n\tDigite o CPF do cliente: ";
+            getline(cin, cpf);
+        } while (!verificaCPF(cpf));
 
-        cout << "\n\tDigite a placa do veículo: ";
-        getline(cin, placa);
+        do
+        {
+            cout << "\n\tDigite a placa do veículo: ";
+            getline(cin, placa);
+        } while (!verificaPlaca(placa));
+
         limpaTela();
 
         clienteExiste = verificaCliente(locacao, listaClientes, cpf);
@@ -45,21 +52,29 @@ void insereLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
 
     if (clienteExiste && veiculoExiste)
     {
-        cout << "\n\tDigite a data de retirada: ";
-        getline(cin, data);
-        locacao.retirada.data.preencheData(data);
+        do
+        {
+            cout << "\n\tDigite a data de retirada: ";
+            getline(cin, data);
+        } while (!locacao.retirada.data.preencheData(data));
 
-        cout << "\n\tDigite a hora de retirada: ";
-        getline(cin, hora);
-        locacao.retirada.hora.preencheHorario(hora);
+        do
+        {
+            cout << "\n\tDigite a hora de retirada: ";
+            getline(cin, hora);
+        } while (!locacao.retirada.hora.preencheHorario(hora));
 
-        cout << "\n\tDigite a data de entrega: ";
-        getline(cin, data);
-        locacao.entrega.data.preencheData(data);
+        do
+        {
+            cout << "\n\tDigite a data de entrega: ";
+            getline(cin, data);
+        } while (!locacao.entrega.data.preencheData(data));
 
-        cout << "\n\tDigite a hora de entrega: ";
-        getline(cin, hora);
-        locacao.entrega.hora.preencheHorario(hora);
+        do
+        {
+            cout << "\n\tDigite a hora de entrega: ";
+            getline(cin, hora);
+        } while (!locacao.entrega.hora.preencheHorario(hora));
 
         do
         {
@@ -109,11 +124,18 @@ void excluiLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         limpaTela();
         cout << "\n\t===========EXCLUIR LOCAÇÃO===========" << endl;
 
-        cout << "\n\tDigite o CPF do cliente: ";
-        getline(cin, cpf);
+        do
+        {
+            cout << "\n\tDigite o CPF do cliente: ";
+            getline(cin, cpf);
+        } while (!verificaCPF(cpf));
 
-        cout << "\n\tDigite a placa do veículo: ";
-        getline(cin, placa);
+        do
+        {
+            cout << "\n\tDigite a placa do veículo: ";
+            getline(cin, placa);
+        } while (!verificaPlaca(placa));
+
         limpaTela();
 
         clienteExiste = verificaCliente(locacao, listaClientes, cpf);

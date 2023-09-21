@@ -5,19 +5,20 @@ void menuLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos,
 {
     int escolha;
 
-    mostraMenuLocacao();
-    
-    escolha = recebeEscolhaLocacao();
-    realizaEscolhaLocacao(escolha, listaClientes, listaVeiculos, listaLocacao);
+    do
+    {
+        escolha = recebeEscolhaLocacao();
+        realizaEscolhaLocacao(escolha, listaClientes, listaVeiculos, listaLocacao);
+    } while (escolha != 0);
 }
 
 void mostraMenuLocacao()
 {
     Data data;
-    
+
     limpaTela();
     data.mostraDataAtual();
-    cout << "\t===========MENU===========";
+    cout << "\t===========MENU LOCAÇÃO===========";
     cout << "\n\t[1] - INCLUIR LOCAÇÃO:";
     cout << "\n\t[2] - EXCLUIR LOCAÇÃO:";
     cout << "\n\t[3] - ALTERAR LOCAÇÃO:";

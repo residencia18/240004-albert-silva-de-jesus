@@ -1,14 +1,13 @@
 #include "verificacoesOcorrencia.hpp"
-#include<regex>
+#include <regex>
 
-bool verificaApolice(string apolice){
+bool verificaApolice(string apolice)
+{
 
-    if (regex_match(apolice, regex("^[0-9]+$")))
+    for (char c : apolice)
     {
-        return true;
+        if (!isdigit(c))
+            return false;
     }
-    return false;
+    return true;
 }
-
-
-

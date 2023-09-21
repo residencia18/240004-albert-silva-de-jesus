@@ -1,6 +1,5 @@
 #include "menuPrincipal.hpp"
 
-
 void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao)
 {
     int escolha;
@@ -18,7 +17,7 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         cout << "\n\t[0] - SAIR";
         cout << "\n\tENTRADA ->  ";
         cin >> escolha;
-        cin.get();  
+        cin.get();
 
         if (escolha > 4 || escolha < 0)
         {
@@ -30,7 +29,7 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
         switch (escolha)
         {
         case 1:
-    
+
             menuCliente(listaClientes);
             break;
 
@@ -43,9 +42,9 @@ void menuPrincipal(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
 
             menuLocacao(listaClientes, listaVeiculos, listaLocacao);
             break;
-        
+
         case 4:
-            menuOcorrencia(listaClientes,listaVeiculos,listaLocacao);
+            menuOcorrencia(listaClientes, listaVeiculos, listaLocacao);
             break;
 
         default:

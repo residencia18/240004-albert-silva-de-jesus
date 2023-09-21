@@ -16,8 +16,6 @@ typedef struct
     bool realizada;
     DataHora retirada;
     DataHora entrega;
-    Cliente cliente;
-    Veiculo veiculo;
     Ocorrencia ocorrencia;
 } Locacao;
 

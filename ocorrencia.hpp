@@ -2,32 +2,35 @@
 #define OCORRENCIA_HPP
 
 #include "dataHora.hpp"
-#include<iostream>
+#include <iostream>
 #include "verificacoesOcorrencia.hpp"
 
 using namespace std;
 
-typedef struct{
+typedef struct
+{
     string descricao;
     DataHora horario;
     string numeroApolice;
     bool ativa = false;
 
-    void imprimeOcorrencia(){
-        cout << "Descrição da ocorrencia : " << descricao << endl;
-        cout << "Horario : " ;
+    void imprimeOcorrencia()
+    {
+        cout << "\tDescrição da ocorrencia : " << descricao << endl;
+        cout << "\tHorario : ";
         horario.data.mostraData();
+        cout << endl;
         horario.hora.mostraHorario();
-        cout << "Numero de Apolice : " << numeroApolice << endl;
+        cout << "\tNumero de Apolice : " << numeroApolice << endl;
+        cout << "\t========================================\n";
     }
 
     bool inserirDescricao()
     {
         string descricaoInserida;
-        
 
         cout << "\n\tInsira a descrição do ocorrido : ";
-        getline(cin,descricaoInserida);
+        getline(cin, descricaoInserida);
 
         descricao = descricaoInserida;
         return true;
@@ -36,21 +39,17 @@ typedef struct{
     bool inserirApolice()
     {
         string apoliceInserida;
-        
-        do{
+
+        do
+        {
             cout << "\n\tInsira a apolice de seguro : ";
-            getline(cin,apoliceInserida);
-        }while(verificaApolice(apoliceInserida));
+            getline(cin, apoliceInserida);
+        } while (!verificaApolice(apoliceInserida));
 
         numeroApolice = apoliceInserida;
         return true;
     }
 
-    
-
- 
-
-
-}Ocorrencia;
+} Ocorrencia;
 
 #endif

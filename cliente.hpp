@@ -73,11 +73,13 @@ typedef struct
         bool dataNascValida;
 
         do
-        {
-            cout << "\n\tInsira uma data de nascimento válida : ";
-            getline(cin, data);
+        {   
+            do{
 
-            dataNascInserida.preencheData(data);
+                cout << "\n\tInsira uma data de nascimento válida : ";
+                getline(cin, data);
+
+            } while (!dataNascInserida.preencheData(data));
 
             dataNascValida = verificaDataNascimento(dataNascInserida);
 
