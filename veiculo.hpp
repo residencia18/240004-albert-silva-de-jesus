@@ -13,6 +13,7 @@ typedef struct
     DataHora retirada;
     DataHora entrega;
     string lojaRetirada;
+    string lojaEntrega;
 
     bool inserirRenavan()
     {
@@ -186,6 +187,32 @@ typedef struct
         return true;
     }
 
+    bool inserirLojaEntrega()
+    {
+        string lojaInserido;
+        bool lojaValida;
+
+        do
+        {
+            cout << "\n\tInsira uma loja de entrega : ";
+            getline(cin, lojaInserido);
+
+            lojaValida = verificaLoja(lojaInserido);
+
+            if (!lojaValida)
+            {
+                if (!verificaProsseguimento())
+                {
+                    return false;
+                }
+                limpaTela();
+            }
+        } while (!lojaValida);
+
+        lojaEntrega = lojaInserido;
+        return true;
+    }
+
     bool preencheVeiculo()
     {
         if (inserirRenavan())
@@ -198,7 +225,10 @@ typedef struct
                     {
                         if (inserirLoja())
                         {
-                            return true;
+                            if(inserirLojaEntrega()){
+
+                                return true;
+                            }
                         }
                     }
                 }
@@ -218,12 +248,13 @@ typedef struct
         cout << "\n\tEntrega : "; entrega.data.mostraData();
         cout << "\n\tHorário : "; entrega.hora.mostraHorario();
         cout << "\tLoja de retirada : " << lojaRetirada << endl;
+        cout << "\tLoja de entrega : " << lojaEntrega << endl;
         cout << "\t========================================\n";
     }
     
     void mostraVeiculo(int posicao)
     {
-        cout << (posicao+1) <<  "\tVeiculo" << endl;
+        cout << "\t" << (posicao+1) <<  "° Veiculo" << endl;
         cout << "\tRenavan : " << renavan << endl;
         cout << "\tPlaca : " << placa << endl;
         cout << "\n\tRetirada : "; retirada.data.mostraData();
@@ -231,6 +262,7 @@ typedef struct
         cout << "\n\tEntrega : "; entrega.data.mostraData();
         cout << "\n\tHorário : "; entrega.hora.mostraHorario();
         cout << "\tLoja de retirada : " << lojaRetirada << endl;
+        cout << "\tLoja de entrega : " << lojaEntrega << endl;
         cout << "\t========================================\n";
     }
 
