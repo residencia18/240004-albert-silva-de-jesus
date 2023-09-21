@@ -10,6 +10,10 @@ void insereLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     int escolha;
     bool clienteExiste, veiculoExiste;
 
+    if(listasVazias(listaClientes,listaVeiculos)){
+        return;
+    }
+
     do
     {
         limpaTela();
@@ -119,6 +123,10 @@ void excluiLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     string placa;
     bool clienteExiste, veiculoExiste;
 
+    if(listasVazias(listaClientes,listaVeiculos)){
+        return;
+    }
+
     do
     {
         limpaTela();
@@ -178,6 +186,10 @@ void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     string hora;
     int escolha;
     bool clienteExiste, veiculoExiste;
+
+    if(listasVazias(listaClientes,listaVeiculos)){
+        return;
+    }
 
     do
     {
@@ -253,9 +265,36 @@ void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
     pause();
 }
 
-void listarLocacao(vector<Locacao> &listaLocacao)
+bool listasVazias(vector<Cliente> &listaCliente, vector<Veiculo> &listaVeiculo){
+
+     if(listaCliente.empty() && listaVeiculo.empty()){
+        cout << "Não há clientes e veiculos cadastrados" << endl;
+        pause();
+        return true;
+    }else{
+        if(listaCliente.empty()){
+            cout << "Não há clientes cadastrados" << endl;
+            pause();
+            return true;
+        }else{
+            if(listaVeiculo.empty()){
+                cout << "Não há veiculos cadastrados" << endl;
+                pause();
+                return true;
+            }
+        }
+    }
+
+}
+
+void listarLocacao(vector<Locacao> &listaLocacao, vector<Cliente> &listaCliente , vector<Veiculo> &listaVeiculo)
 {
     limpaTela();
+
+    if(listasVazias(listaCliente,listaVeiculo)){
+        return;
+    }
+
     cout << "\n\t===========LISTAR LOCAÇÕES===========" << endl;
 
     for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
