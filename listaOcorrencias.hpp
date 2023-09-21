@@ -23,4 +23,7 @@ bool segundaMaiorQuePrimeira(DataHora umaData , DataHora outraData);
 
 bool insereDataRetirada(Locacao temp , Ocorrencia &ocorrencia);
 
+void registrarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao);
+
+
 #endif

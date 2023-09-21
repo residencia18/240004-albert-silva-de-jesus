@@ -31,11 +31,6 @@ void insereOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
         {
             if (it->realizada)
             {
-                if (it->ocorrencia.ativa)
-                {
-                    cout << "Já possui uma ocorrencia cadastrada nessa locação" << endl;
-                    return;
-                }
                 locacaoEncontrada = true;
                 temp = *it;
             }
@@ -56,13 +51,18 @@ void insereOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
     }
 
     ocorrencia.inserirApolice();
-    ocorrencia.ativa = true;
 
     for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
     {
         if (it->cliente.cpf == cpfOcorrencia && it->veiculo.placa == placaOcorrencia)
-        {
-            it->ocorrencia = ocorrencia;
+        {    
+            if(it->ocorrencias.empty()){
+                ocorrencia.id = 1;
+            }else{
+                ocorrencia.id = it->ocorrencias.size()+1;
+            }
+            it->ocorrencias.push_back(ocorrencia);
+            break;
         }
     }
     limpaTela();
@@ -87,21 +87,37 @@ void excluiOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
         getline(cin, placaOcorrencia);
     } while (!verificaPlaca(placaOcorrencia));
 
-    for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
-    {
+    cout << "=======LISTA DE OCORRÊNCIAS=======" << endl;
+    int numeroDaOcorrencia;
+    for(auto it=listaLocacao.begin(); it!=listaLocacao.end();it++){
         if (it->cliente.cpf == cpfOcorrencia && it->veiculo.placa == placaOcorrencia)
-        {
-            if (it->realizada)
-            {
-                if (it->ocorrencia.ativa == true)
-                {
-                    it->ocorrencia.ativa = false;
-                    cout << "Ocorrencia excluida com sucesso " << endl;
-                    return;
-                }
+        {   
+            int cont = 1;
+            for(auto itera=it->ocorrencias.begin();itera!=it->ocorrencias.end();itera++){
+                    cout << "\tCliente : " << endl;
+                    it->cliente.mostraCliente();
+                    cout << "\tVeiculo : " << endl;
+                    it->veiculo.mostraVeiculo();
+                    cout << cont << "\tOcorrência : " << endl;
+                    itera->imprimeOcorrencia();
+                    cout << endl
+                    << endl;
+                    cont++;
             }
+            
+            do{
+                cout << "Qual ocorrencia deseja excluir? ";
+                cin >> numeroDaOcorrencia;
+                cin.get();
+            }while(numeroDaOcorrencia>0 && (numeroDaOcorrencia<= it->ocorrencias.size()));
+
+            it->ocorrencias.erase(it->ocorrencias.begin()+numeroDaOcorrencia-1);
+            cout << "Remoção realizada com sucesso" << endl;
+            return;
         }
     }
+
+
     cout << "Locação não encontrada" << endl;
     return;
 }
@@ -128,91 +144,161 @@ void alteraOcorrencia(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeic
         getline(cin, placaOcorrencia);
     } while (!verificaPlaca(placaOcorrencia));
 
-    for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
-    {
-        if (it->cliente.cpf == cpfOcorrencia && it->veiculo.placa == placaOcorrencia)
-        {
-            if (it->realizada)
-            {
-                locacaoEncontrada = true;
+    limpaTela();
 
+    cout << "=======LISTA DE OCORRÊNCIAS=======" << endl;
+    int numeroDaOcorrencia;
+    for(auto it=listaLocacao.begin(); it!=listaLocacao.end();it++){
+        if (it->cliente.cpf == cpfOcorrencia && it->veiculo.placa == placaOcorrencia)
+        {   
+            int cont = 1;
+            for(auto itera=it->ocorrencias.begin();itera!=it->ocorrencias.end();itera++){
+                    cout << "\tCliente : " << endl;
+                    it->cliente.mostraCliente();
+                    cout << "\tVeiculo : " << endl;
+                    it->veiculo.mostraVeiculo();
+                    cout << cont << "\tOcorrência : " << endl;
+                    itera->imprimeOcorrencia();
+                    cout << endl
+                    << endl;
+                    cont++;
+            }
+            
+            do{
+                cout << "Qual ocorrencia deseja alterar? ";
+                cin >> numeroDaOcorrencia;
+                cin.get();
+            }while(numeroDaOcorrencia>0 && (numeroDaOcorrencia<= it->ocorrencias.size()));
+            
+            int escolha;
+
+            do{
                 cout << "\n\t===============OCORRÊNCIA ENCONTRADA============\n";
-                it->ocorrencia.imprimeOcorrencia();
+                it->ocorrencias.at(numeroDaOcorrencia-1).imprimeOcorrencia();
                 pause();
 
-                int escolha;
-                do
+
+                data.mostraDataAtual();
+                cout << "\t========MENU ALTERAR OCORRÊNCIA=========\n";
+                cout << "\n\t[1] - ALTERAR DESCRIÇÃO:";
+                cout << "\n\t[2] - ALTERAR DATA:";
+                cout << "\n\t[3] - ALTERAR APOLICE:";
+                cout << "\n\t[0] - SAIR";
+                cout << "\n\tENTRADA ->  ";
+                cin >> escolha;
+                limpaBuffer();
+
+                switch (escolha)
                 {
-                    data.mostraDataAtual();
-                    cout << "\t========MENU ALTERAR OCORRÊNCIA=========\n";
-                    cout << "\n\t[1] - ALTERAR DESCRIÇÃO:";
-                    cout << "\n\t[2] - ALTERAR DATA:";
-                    cout << "\n\t[3] - ALTERAR APOLICE:";
-                    cout << "\n\t[0] - SAIR";
-                    cout << "\n\tENTRADA ->  ";
-                    cin >> escolha;
-                    limpaBuffer();
-
-                    switch (escolha)
+                case 1:
+                    if (it->ocorrencias.at(numeroDaOcorrencia-1).inserirDescricao())
                     {
-                    case 1:
-                        if (it->ocorrencia.inserirDescricao())
-                        {
-                            limpaTela();
-                            cout << "\n\t===============DESCRIÇÃO ALTERADO============\n";
-                            it->ocorrencia.imprimeOcorrencia();
-                            pause();
-                            break;
-                        }
-                        else
-                        {
-                            cout << "\n\tAlteração de descrição cancelada" << endl;
-                            pause();
-                            break;
-                        }
-                    case 2:
-                        if (insereDataRetirada(*it, it->ocorrencia))
-                        {
-                            limpaTela();
-                            cout << "\n\t===============PLACA ALTERADA============\n";
-                            it->ocorrencia.imprimeOcorrencia();
-                            pause();
-                            break;
-                        }
-                        else
-                        {
-                            cout << "\n\tAlteração data De Retirada cancelada" << endl;
-                            pause();
-                            break;
-                        }
-                    case 3:
-                        if (it->ocorrencia.inserirApolice())
-                        {
-                            limpaTela();
-                            cout << "\n\t===============APOLICE DE SEGURO ALTERADA============\n";
-                            it->ocorrencia.imprimeOcorrencia();
-                            pause();
-                            break;
-                        }
-                        else
-                        {
-                            cout << "\n\tAlteração de apolice de seguro cancelada" << endl;
-                            pause();
-                            break;
-                        }
-                    case 0:
-
+                        limpaTela();
+                        cout << "\n\t===============DESCRIÇÃO ALTERADO============\n";
+                        it->ocorrencias.at(numeroDaOcorrencia-1).imprimeOcorrencia();
                         pause();
                         break;
-
-                    default:
+                    }
+                    else
+                    {
+                        cout << "\n\tAlteração de descrição cancelada" << endl;
+                        pause();
                         break;
                     }
+                case 2:
+                    if (insereDataRetirada(*it, it->ocorrencias.at(numeroDaOcorrencia-1)))
+                    {
+                        limpaTela();
+                        cout << "\n\t===============PLACA ALTERADA============\n";
+                        it->ocorrencias.at(numeroDaOcorrencia-1).imprimeOcorrencia();
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        cout << "\n\tAlteração data De Retirada cancelada" << endl;
+                        pause();
+                        break;
+                    }
+                case 3:
+                    if (it->ocorrencias.at(numeroDaOcorrencia-1).inserirApolice())
+                    {
+                        limpaTela();
+                        cout << "\n\t===============APOLICE DE SEGURO ALTERADA============\n";
+                        it->ocorrencias.at(numeroDaOcorrencia-1).imprimeOcorrencia();
+                        pause();
+                        break;
+                    }
+                    else
+                    {
+                        cout << "\n\tAlteração de apolice de seguro cancelada" << endl;
+                        pause();
+                        break;
+                    }
+                case 0:
 
-                } while (escolha != 0);
-            }
+                    pause();
+                    break;
+
+                default:
+                    break;
+                }
+
+            } while (escolha != 0);   
         }
     }
+}
+
+void  registrarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao){
+    Ocorrencia ocorrencia;
+    string cpfOcorrencia;
+    string placaOcorrencia;
+    Locacao temp; // utilizada para extrair dados da locacao
+    bool locacaoEncontrada;
+
+    limpaTela();
+    cout << "\n\t===========INCLUIR OCORRÊNCIA===========" << endl
+         << endl;
+
+    do
+    {
+        cout << "\tEntre com a placa valida do carro para registro da ocorrencia : ";
+        getline(cin, placaOcorrencia);
+    } while (!verificaPlaca(placaOcorrencia));
+
+    for(auto it=listaLocacao.begin() ; it!=listaLocacao.end() ;it++){
+        if(it->veiculo.placa==placaOcorrencia){
+            locacaoEncontrada=true;
+        }
+    }
+
+    if (!locacaoEncontrada)
+    {
+        cout << "Não foi encontrada uma locação realizada, não foi possivel inserir ocorrência " << endl;
+        pause();
+        return;
+    }
+    ocorrencia.inserirDescricao();
+
+    bool dataValida;
+    string data;
+    do
+    {
+        cout << "\n\tInsira a data da ocorrencia (dd/mm/aaaa) : ";
+        getline(cin, data);
+        dataValida = (ocorrencia.horario.data.preencheData(data));
+
+    } while (!dataValida);
+
+
+    ocorrencia.inserirApolice();
+
+        for(auto it=listaLocacao.begin() ; it!=listaLocacao.end() ;it++){
+            if(it->veiculo.placa==placaOcorrencia){
+                ocorrencia.id = it->ocorrencias.size()+1;
+                it->ocorrencias.push_back(ocorrencia);
+            }
+        }
 }
 
 bool insereDataRetirada(Locacao temp, Ocorrencia &ocorrencia)
@@ -285,17 +371,18 @@ void listarOcorrenciaPorCliente(vector<Locacao> &listaLocacao)
     for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
     {
 
-        if ((it->cliente.cpf == cpfOcorrencia && it->ocorrencia.ativa == true))
+        if (it->cliente.cpf == cpfOcorrencia)
         {
             cout << "----------------------------------" << endl;
             cout << "Cliente : " << endl;
             it->cliente.mostraCliente();
             cout << "Veiculo : " << endl;
             it->veiculo.mostraVeiculo();
+            cout << "----------------------------------" << endl;
             cout << "Ocorrência : " << endl;
-            it->ocorrencia.imprimeOcorrencia();
-            cout << endl
-                 << endl;
+            for(auto itera=it->ocorrencias.begin();itera!=it->ocorrencias.end();itera++){
+                itera->imprimeOcorrencia();
+            }
         }
         cout << "----------------------------------" << endl;
     }
@@ -316,16 +403,21 @@ void listarOcorrenciaPorVeiculo(vector<Locacao> &listaLocacao)
     for (auto it = listaLocacao.begin(); it != listaLocacao.end(); it++)
     {
 
-        if ((it->veiculo.placa == placaOcorrencia && it->ocorrencia.ativa == true))
+        if (it->veiculo.placa == placaOcorrencia)
         {
+        {   
             cout << "----------------------------------" << endl;
             cout << "Cliente : " << endl;
             it->cliente.mostraCliente();
+            cout << "----------------------------------" << endl;
             cout << "Veiculo : " << endl;
             it->veiculo.mostraVeiculo();
+            cout << "----------------------------------" << endl;
             cout << "Ocorrência : " << endl;
-            it->ocorrencia.imprimeOcorrencia();
-            cout << endl;
+            for(auto itera=it->ocorrencias.begin();itera!=it->ocorrencias.end();itera++){
+                itera->imprimeOcorrencia();
+            }
+        }
         }
         cout << "----------------------------------" << endl;
     }

@@ -16,6 +16,7 @@ void mostraMenuOcorrencia()
     cout << "\n\t[3] - ALTERAR INFORMAÇÕES:";
     cout << "\n\t[4] - LISTAR POR CLIENTE:";
     cout << "\n\t[5] - LISTAR POR VEICULO:";
+    cout << "\n\t[6] - REGISTRAR OCORRÊNCIA POR VEICULO";
     cout << "\n\t[0] - SAIR";
     cout << "\n\tENTRADA ->  ";
 }
@@ -43,7 +44,7 @@ int recebeEscolhaOcorrencia()
         cin >> escolha;
         cin.get();
 
-        escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5);
+        escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4 || escolha == 5 || escolha==6);
 
         if (!escolhaValida)
         {
@@ -85,6 +86,10 @@ void realizaEscolhaOcorrencia(const int &escolha, vector<Cliente> &listaCliente,
     case 5:
 
         listarOcorrenciaPorVeiculo(listaLocacao);
+        break;
+
+    case 6:
+        registrarOcorrenciaPorVeiculo(listaLocacao);
         break;
 
     case 0:

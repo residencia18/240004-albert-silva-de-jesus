@@ -6,6 +6,7 @@
 #include "ocorrencia.hpp"
 #include "veiculo.hpp"
 #include "cliente.hpp"
+#include<vector>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ typedef struct
     bool realizada;
     DataHora retirada;
     DataHora entrega;
-    Ocorrencia ocorrencia;
+    vector<Ocorrencia> ocorrencias;
 } Locacao;
 
 #endif

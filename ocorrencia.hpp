@@ -12,7 +12,7 @@ typedef struct
     string descricao;
     DataHora horario;
     string numeroApolice;
-    bool ativa = false;
+    int id;
 
     void imprimeOcorrencia()
     {
