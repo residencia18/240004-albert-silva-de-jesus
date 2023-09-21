@@ -35,6 +35,7 @@ int recebeEscolhaLocacao()
     {
         mostraMenuLocacao();
         cin >> escolha;
+        limpaBuffer();
 
         escolhaValida = (escolha == 0 || escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4);
 
@@ -71,7 +72,7 @@ void realizaEscolhaLocacao(const int &escolha, vector<Cliente> &listaClientes, v
 
     case 4:
 
-        listarLocacao(listaClientes, listaVeiculos, listaLocacao);
+        listarLocacao(listaLocacao);
         break;
 
     case 0:

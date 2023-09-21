@@ -4,8 +4,6 @@
 #include <iostream>
 #include <vector>
 #include "locacao.hpp"
-#include "cliente.hpp"
-#include "veiculo.hpp"
 
 using namespace std;
 
@@ -15,6 +13,10 @@ void excluiLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculo
 
 void alteraLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao);
 
-void listarLocacao(vector<Cliente> &listaClientes, vector<Veiculo> &listaVeiculos, vector<Locacao> &listaLocacao);
+void listarLocacao(vector<Locacao> &listaLocacao);
+
+bool verificaCliente(Locacao &locacao, vector<Cliente> &listaClientes, string cpf);
+
+bool verificaVeiculo(Locacao &locacao, vector<Veiculo> &listaVeiculos, string placa);
 
 #endif
