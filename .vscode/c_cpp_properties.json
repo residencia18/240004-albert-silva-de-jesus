@@ -12,7 +12,7 @@
             ],
             "cStandard": "c11",
             "cppStandard": "gnu++14",
-            "compilerPath": "E:/MinGW/bin/g++.exe"
+            "compilerPath": "E:\\MinGW\\bin\\cpp.exe"
         }
     ],
     "version": 4
