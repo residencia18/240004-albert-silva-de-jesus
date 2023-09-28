@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <vector>
 #ifndef UTILS_H
-#define UTILS_H
+#define UTILS_H   
+// #include "Estoque.h" 
 
 using namespace std;
 
@@ -12,6 +14,8 @@ class Utils
 {
 public:
 
+    Utils() {}
+    ~Utils() {}
     void limpaBuffer()
     {
         cin.get();
@@ -42,9 +46,9 @@ public:
             limpaTela();
             mostraDataAtual();
             cout << "\t======MENU PRINCIPAL======";
-            cout << "\n\t[1] - GESTÃO CLIENTE:";
-            cout << "\n\t[2] - GESTÃO VEICULO:";
-            cout << "\n\t[3] - GESTÃO LOCAÇÃO:";
+            cout << "\n\t[1] - GESTÃO PRODUTO:";
+            cout << "\n\t[2] - GESTÃO ESTOQUE:";
+            cout << "\n\t[3] - GESTÃO COMPRAR PRODUTO:";
             cout << "\n\t[0] - SAIR";
             cout << "\n\tENTRADA ->  ";
             cin >> opcao;
