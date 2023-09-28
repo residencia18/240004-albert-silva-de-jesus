@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+//g++ -o sistema *.cpp
+//./sistema
 
 using namespace std;
 
