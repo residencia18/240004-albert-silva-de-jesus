@@ -15,7 +15,7 @@ int main()
     if (arquivo_saida.is_open())
     {
         arquivo_saida << "Escrevendo no arquivo." << endl;
-        arquivo_saida << 20 + 30 << endl;
+        arquivo_saida << 20 + 60 << endl;
         arquivo_saida.close();
     }
     else
@@ -35,7 +35,6 @@ int main()
 
         while (arquivo_entrada.eof() == false)
         {
-
             getline(arquivo_entrada, linha);
             cout << linha << endl;
         }

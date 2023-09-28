@@ -9,6 +9,7 @@ public:
     Mausoleu();
     ~Mausoleu();
 
+
 private:
 
 };

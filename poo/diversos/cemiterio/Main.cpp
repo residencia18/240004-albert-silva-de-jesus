@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string.h>
 #include <vector>
 
@@ -100,7 +101,6 @@ private:
     int id;
 
 public:
-
     mausoleu()
     {
         setContador(getContador() + 1);
@@ -178,7 +178,33 @@ int mausoleu::contador = 0;
 int main()
 {
     vector<mausoleu> mausoleus;
-    limpaTela();
+    // limpaTela();
+
+    ifstream inMausoleus;
+    inMausoleus.open("mausoleus.txt", ios_base::in);
+
+    if (inMausoleus.is_open())
+    {
+
+        while (inMausoleus.eof() == false)
+        {
+
+            mausoleu mauso;
+            string id;
+            string localizacao;
+            getline(inMausoleus, id);
+            getline(inMausoleus, localizacao);
+
+            if (id.length() > 0)
+            {
+                int idd = stoi(id);
+                mauso.setId(idd);
+                mauso.setLocalizacao(localizacao);
+                mausoleus.push_back(mauso);
+            }
+        }
+        inMausoleus.close();
+    }
     int op;
     do
     {
@@ -195,6 +221,15 @@ int main()
         {
             mausoleu novo = mausoleu::leNovo();
             mausoleus.push_back(novo);
+
+            ofstream outMausoleus;
+            outMausoleus.open("mausoleus.txt", ios_base::app);
+            if (outMausoleus.is_open())
+            {
+                outMausoleus << novo.getId() << endl;
+                outMausoleus << novo.getLocalizacao() << endl;
+                outMausoleus.close();
+            }
         }
         if (op == 2)
         {
