@@ -1,16 +1,17 @@
 #include <iostream>
+#include <string>
+#include <vector>
 #include "Produto.h"
+#include "Estoque.h"
 
 using namespace std;
 
 int main(){
+  
+    Estoque estoque;
+    vector<Estoque> listEstoque;
 
-    Produto produto1("Maça", 2.5);
-    produto1.codigoDoProduto();
-    Produto produto2("Arroz", 10.0);
-    produto2.codigoDoProduto();
-    Produto produto3("Leite", 4.0);
+    estoque.cadastrarProduto(listEstoque);
 
-    cout << "Produto 1: " << produto1.getNome() << " - " << produto1.getPreco() << endl;
-    
+    estoque.listarProdutos(listEstoque);
 }

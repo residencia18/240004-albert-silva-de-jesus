@@ -1,18 +1,20 @@
 #include <iostream>
+#include <string>
+#include <vector>
 #ifndef PRODUTO_H
 #define PRODUTO_H
+#include "Utils.h"
 
 using namespace std;
 
 #pragma once
 
-static auto codigo = 0;
-
-class Produto
+class Produto : public Utils
 {
-    
+
 public:
 
+    int codigo = 0;
     string nome;
     double preco;
 
@@ -51,9 +53,9 @@ public:
         this->preco = preco;
     }
 
-    void codigoDoProduto()
+    int codigoDoProduto()
     {
-       codigo++;
+        return codigo++;
     }
 
 private:

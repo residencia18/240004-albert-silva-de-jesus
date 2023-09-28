@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <Produto.h>
+#include "Produto.h"
 #ifndef ESTOQUE_H
 #define ESTOQUE_H
 
@@ -9,16 +9,16 @@ using namespace std;
 
 #pragma once
 
-class Estoque
+class Estoque : public Produto
 {
-public:
-    int quantidade;
-    vector<Produto> produtos;
 
-    Estoque(int quantidade, vector<Produto> produtos)
+public:
+    int quantidade = 0;
+    vector<Estoque> listEstoque;
+
+    Estoque(vector<Estoque> listEstoque)
     {
-        this->quantidade = quantidade;
-        this->produtos = produtos;
+        this->listEstoque = listEstoque;
     }
 
     Estoque() {}
@@ -35,45 +35,53 @@ public:
         this->quantidade = quantidade;
     }
 
-    void adicionarProduto(Produto produto)
+    void cadastrarProduto(vector<Estoque> &listEstoque)
     {
+        Estoque estoque;
         char resposta;
         cout << "\n\t===========ADICIONANDO PRODUTO AO ESTOQUE===========\n";
 
         do
         {
-
             cout << "\n\tInforme o nome do produto: ";
-            cin >> produto.nome;
+            getline(cin, estoque.nome);
 
             cout << "\n\tInforme o preço do produto: ";
-            cin >> produto.preco;
+            cin >> estoque.preco;
 
             cout << "\n\tInforme a quantidade do produto: ";
-            cin >> this->quantidade;
+            cin >> estoque.quantidade;
+            limpaBuffer();
 
-            cout << "Deseja adicionar mais produtos? (s/n): ";
-            cin >> resposta;
+            estoque.codigoDoProduto();
 
-            if (quantidade <= 0)
+            if (estoque.getQuantidade() <= 0)
             {
                 cout << "\n\tQuantidade inválida, tente novamente!\n";
             }
+            else
+            {
+                estoque.limpaTela();
+                listEstoque.push_back(estoque);
+                cout << "\n\tProduto adicionado com sucesso!\n";
+                pause();
+            }
 
-        } while (this->quantidade <= 0 && resposta == 's');
+            cout << "\n\tDeseja adicionar mais produtos? (s/n): ";
+            cin >> resposta;
+            estoque.limpaBuffer();
 
-        this->produtos.push_back(produto);
-        cout << "\n\tProduto adicionado com sucesso!\n";
+        } while (resposta != 'n');
     }
 
-    void removerProduto(Produto produto)
+    void listarProdutos(vector<Estoque> &listEstoque)
     {
-        for (int i = 0; i < this->produtos.size(); i++)
+        limpaTela();
+        cout << "\n\t==============LISTANDO PRODUTOS DO ESTOQUE==============\n";
+        cout << "\n\tCODIGO\t\tNOME\t\tPREÇO\t\tQUANTIDADE\n";
+        for (auto it = listEstoque.begin(); it != listEstoque.end(); it++)
         {
-            if (this->produtos[i].getNome() == produto.getNome())
-            {
-                this->produtos.erase(this->produtos.begin() + i);
-            }
+            cout << "\n\t" << it->getCodigo() << "\t\t" << it->getNome() << "\t\t" << it->getPreco() << "\t\t" << it->getQuantidade() << "\n";
         }
     }
 

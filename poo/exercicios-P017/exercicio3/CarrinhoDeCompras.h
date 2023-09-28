@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <Produto.h>
+#include <Estoque.h>
 #ifndef CARRINHODECOMPRAS_H
 #define CARRINHODECOMPRAS_H
 
@@ -8,7 +9,7 @@ using namespace std;
 
 #pragma once
 
-class CarrinhoDeCompras
+class CarrinhoDeCompras : public Estoque
 {
 public:
 
