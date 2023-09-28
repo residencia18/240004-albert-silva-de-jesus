@@ -1,9 +1,9 @@
+#ifndef ESTOQUE_H
+#define ESTOQUE_H
+#include "Produto.h"
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Produto.h"
-#ifndef ESTOQUE_H
-#define ESTOQUE_H
 
 using namespace std;
 

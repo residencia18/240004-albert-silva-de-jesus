@@ -1,8 +1,7 @@
-#include <iostream>
-#include <string>
-#include <vector>
 #ifndef PRODUTO_H
 #define PRODUTO_H
+#include <iostream>
+#include <vector>
 #include "Utils.h"
 
 using namespace std;
