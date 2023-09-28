@@ -1,16 +1,14 @@
 #ifndef CARRINHODECOMPRAS_H
 #define CARRINHODECOMPRAS_H
-#include <Produto.h>
-#include <Estoque.h>
 #include <iostream>
 #include <vector>
-
+#include "Produto.h"
 
 using namespace std;
 
 #pragma once
 
-class CarrinhoDeCompras : public Estoque
+class CarrinhoDeCompras
 {
 public:
 
@@ -21,18 +19,13 @@ public:
     CarrinhoDeCompras(Produto produto, double valorTotal)
     {
         this->produto = produto;
+        this->produtosDoCarinho.push_back(produto);
         this->valorTotal = valorTotal;
     }
 
-    CarrinhoDeCompras(Produto produto, vector<Produto> produtosDoCarinho)
-    {
-        this->produto = produto;
-        this->produtosDoCarinho = produtosDoCarinho;
-    }
+    CarrinhoDeCompras() {}
 
-    CarrinhoDeCompras();
-
-    ~CarrinhoDeCompras();
+    ~CarrinhoDeCompras() {}
 
     double getValorTotal()
     {
@@ -51,7 +44,6 @@ public:
     }
 
 private:
-
 };
 
 #endif

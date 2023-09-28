@@ -1,16 +1,15 @@
 #ifndef PRODUTO_H
 #define PRODUTO_H
 #include <iostream>
-#include <vector>
-#include "Utils.h"
+#include <string>
+#include "Estoque.h"
 
 using namespace std;
 
 #pragma once
 
-class Produto : public Utils
+class Produto : public Estoque
 {
-
 public:
 
     int codigo = 0;
@@ -58,6 +57,7 @@ public:
     }
 
 private:
+
 };
 
 #endif

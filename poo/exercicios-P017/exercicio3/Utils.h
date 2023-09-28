@@ -1,6 +1,7 @@
 #ifndef UTILS_H
-#define UTILS_H   
+#define UTILS_H
 #include <iostream>
+#include "Estoque.h"
 #include <string>
 #include <ctime>
 #include <vector>
@@ -13,8 +14,12 @@ class Utils
 {
 public:
 
+    Estoque estoque;
+
     Utils() {}
+
     ~Utils() {}
+
     void limpaBuffer()
     {
         cin.get();
@@ -22,11 +27,11 @@ public:
 
     void limpaTela()
     {
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
+#ifdef _WIN32
+        system("cls");
+#else
+        system("clear");
+#endif
     }
 
     void pause()
@@ -94,6 +99,108 @@ public:
         } while (opcao > 5 || opcao < 0);
 
         return opcao;
+    }
+
+    void gestaoDeVendas(Utils utils, vector<Estoque> &listEstoque)
+    {
+        int escolha = 0;
+        int cliente = 0;
+
+        do
+        {
+            switch (cliente = utils.menuPrincipal())
+            {
+
+            case 1:
+
+                do
+                {
+                    escolha = utils.menuEscolha();
+                    if (escolha == 1)
+                    {
+                    }
+                    if (escolha == 2)
+                    {
+                        if (listEstoque.empty())
+                        {
+                            cout << "\n\tNão há clientes cadastrados!...\n";
+                            utils.pause();
+                        }
+                        else
+                        {
+                        }
+                    }
+                    if (escolha == 3)
+                    {
+                        if (listEstoque.empty())
+                        {
+                            cout << "\n\tNão há clientes cadastrados!...\n";
+                            utils.pause();
+                        }
+                        else
+                        {
+                        }
+                    }
+                    if (escolha == 4)
+                    {
+                        if (listEstoque.empty())
+                        {
+                            cout << "\n\tNão há clientes cadastrados!...\n";
+                            utils.pause();
+                        }
+                        else
+                        {
+                        }
+                    }
+                    if (escolha == 5)
+                    {
+                        if (listEstoque.empty())
+                        {
+                            cout << "\n\tNão há clientes cadastrados!...\n";
+                            utils.pause();
+                        }
+                        else
+                        {
+                        }
+                    }
+                    if (escolha > 5 && escolha < 0)
+                    {
+                        utils.limpaTela();
+                        cout << "\n\tOps, opção invalida!";
+                        utils.pause();
+                    }
+
+                } while (escolha != 0);
+
+                break;
+
+            case 2:
+
+                do
+                {
+                    escolha = utils.menuEscolha();
+                    if (escolha == 1)
+                    {
+                    }
+
+                } while (escolha != 0);
+
+                break;
+
+            case 3:
+
+                break;
+
+            case 0:
+
+                cout << "\n\tPrograma encerrado com sucesso!..." << endl;
+                cliente = 0;
+                exit(0);
+
+            default:
+                cout << "\tOps, Opção invalida!";
+            }
+        } while (cliente != 0);
     }
 
     tm *getTempo()
