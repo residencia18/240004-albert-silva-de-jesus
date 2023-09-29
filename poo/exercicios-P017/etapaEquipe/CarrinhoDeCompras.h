@@ -101,11 +101,11 @@ public:
 
     void limpaTela()
     {
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
+#ifdef _WIN32
+        system("cls");
+#else
+        system("clear");
+#endif
     }
 
 private:
