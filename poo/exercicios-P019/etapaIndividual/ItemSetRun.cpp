@@ -1,10 +1,10 @@
-#include "ItemSet.h"
 #include <iostream>
 #include <string>
 #include <vector>
+#include "ItemSet.h"
 
 using namespace std;
 
-ItemSet::ItemSet(){}
-
-ItemSet::~ItemSet(){}
+int main()
+{
+}
