@@ -11,7 +11,6 @@ using namespace std;
 class CarrinhoDeCompras
 {
 public:
-
     Produto produto;
     vector<pair<Produto, int>> itens_no_carrinho;
     double valorTotal = 0;
@@ -75,6 +74,38 @@ public:
     void esvaziarCarrinho()
     {
         itens_no_carrinho.clear();
+    }
+
+    void exibirCarrinho()
+    {
+        int i = 0;
+        pause();
+        cout << "\t\t=======CARINHO DE COMPRAS=======\n\n";
+        for (auto it = itens_no_carrinho.begin(); it != itens_no_carrinho.end(); it++, i++)
+        {
+            cout << "\tItem " << i + 1 << ":\n";
+            printf("\tProduto: %s\n", it->first.getNome().c_str());
+            printf("\tQuantidade: %d\n", it->second);
+            printf("\tPreço: %.1f\n", it->first.getPreco());
+            printf("\tTotal: %.1f\n", it->first.getPreco() * it->second);
+            cout << "\t====================\n";
+        }
+    }
+
+    void pause()
+    {
+        cout << "\n\tDigite enter para continuar!...\n";
+        cin.get();
+        limpaTela();
+    }
+
+    void limpaTela()
+    {
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
     }
 
 private:

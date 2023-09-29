@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Utils.h"
 #include "Produto.h"
-#include "Estoque.h"
 #include "CarrinhoDeCompras.h"
 
 using namespace std;
@@ -32,4 +30,15 @@ int main()
   Produto produto4("Chocolate", 3.0);
   carrinho.adicionarProduto(produto4, 10);
   cout << "\n\tQuantidade de chocolates no carinho: " << carrinho.getQuantidadeDeProdutos(produto4) << "\n" << endl;
+
+  carrinho.esvaziarCarrinho();
+
+  carrinho.adicionarProduto(produto1, 2);
+  carrinho.adicionarProduto(produto2, 3);
+  carrinho.adicionarProduto(produto3, 1);
+  carrinho.adicionarProduto(produto4, 2);
+
+  carrinho.exibirCarrinho();
+
+  printf("\n\tValor total da compra: %.2f\n\n", carrinho.calcularValorTotal());
 }
