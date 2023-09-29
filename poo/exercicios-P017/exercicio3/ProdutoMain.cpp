@@ -24,4 +24,12 @@ int main()
   carrinho.removerProduto(produto2, 1);
   valorTotal = carrinho.calcularValorTotal();
   cout << "\n\tValor total após remoção: " << valorTotal << "\n" << endl;
+
+  carrinho.esvaziarCarrinho();
+  valorTotal = carrinho.calcularValorTotal();
+  cout << "\n\tValor total após esvaziar o carrinho: " << valorTotal << "\n" << endl;
+
+  Produto produto4("Chocolate", 3.0);
+  carrinho.adicionarProduto(produto4, 10);
+  cout << "\n\tQuantidade de chocolates no carinho: " << carrinho.getQuantidadeDeProdutos(produto4) << "\n" << endl;
 }

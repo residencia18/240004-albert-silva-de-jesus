@@ -2,24 +2,32 @@
 #define PRODUTO_H
 #include <iostream>
 #include <string>
-#include "Estoque.h"
 
 using namespace std;
 
 #pragma once
 
-class Produto : public Estoque
+class Produto
 {
 public:
 
     int codigo = 0;
     string nome;
     double preco;
+    int quantidadeEmEstoque;
+    vector<Produto> produtos;
 
     Produto(string nome, double preco)
     {
         this->nome = nome;
         this->preco = preco;
+    }
+
+    Produto(string nome, double preco, int quantidadeEmEstoque)
+    {
+        this->nome = nome;
+        this->preco = preco;
+        this->quantidadeEmEstoque = quantidadeEmEstoque;
     }
 
     Produto() {}
@@ -49,6 +57,16 @@ public:
     void setPreco(double preco)
     {
         this->preco = preco;
+    }
+
+    int getQuantidadeEmEstoque()
+    {
+        return this->quantidadeEmEstoque;
+    }
+
+    void setQuantidadeEmEstoque(int quantidadeEmEstoque)
+    {
+        this->quantidadeEmEstoque = quantidadeEmEstoque;
     }
 
     int codigoDoProduto()

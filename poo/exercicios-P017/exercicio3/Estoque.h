@@ -1,6 +1,8 @@
 #ifndef ESTOQUE_H
 #define ESTOQUE_H
 #include <iostream>
+#include <vector>
+#include "Produto.h"
 #include <string>
 
 using namespace std;
@@ -11,60 +13,50 @@ class Estoque
 {
 public:
 
-    int codigo = 0;
-    string nome;
-    double preco;
-    int quantidade;
-
-    Estoque(string nome, double preco, int quantidade)
-    {
-        this->nome = nome;
-        this->preco = preco;
-        this->quantidade = quantidade;
-    }
+    vector<Produto> produtosEmEstoque;
 
     Estoque() {}
 
     ~Estoque() {}
 
-    int getCodigo()
+    void cadastrarProduto(Produto &produto)
     {
-        return codigo;
-    }   
+        Estoque estoque;
+        cout << "\n\tDigite o nome do produto: ";
+        getline(cin, produto.nome);
 
-    string getNome()
-    {
-        return this->nome;
+        cout << "\n\tDigite o preço do produto: ";
+        cin >> produto.preco;
+
+        cout << "\n\tDigite a quantidade do produto: ";
+        cin >> produto.quantidadeEmEstoque;
+
+        produto.codigoDoProduto();
+        this->produtosEmEstoque.push_back(produto);
     }
 
-    void setNome(string nome)
+    void removerProduto(Produto &produto)
     {
-        this->nome = nome;
+        for (auto it = produtosEmEstoque.begin(); it != produtosEmEstoque.end(); it++)
+        {
+            if (it->getNome() == produto.getNome())
+            {
+                produtosEmEstoque.erase(it);
+                break;
+            }
+        }
     }
 
-    double getPreco()
+    void listarProdutos()
     {
-        return this->preco;
-    }
-
-    void setPreco(double preco)
-    {
-        this->preco = preco;
-    }
-
-    int getQuantidade()
-    {
-        return this->quantidade;
-    }
-
-    void setQuantidade(int quantidade)
-    {
-        this->quantidade = quantidade;
-    }
-
-    int codigoDoProduto()
-    {
-        return codigo++;
+        cout << "\n\tProdutos cadastrados: " << endl;
+        for (auto it = produtosEmEstoque.begin(); it != produtosEmEstoque.end(); it++)
+        {
+            cout << "\n\tNome: " << it->getNome() << endl;
+            cout << "\n\tPreço: " << it->getPreco() << endl;
+            cout << "\n\tQuantidade: " << it->getQuantidadeEmEstoque() << endl;
+            cout << "\n\tCódigo: " << it->getCodigo() << endl;
+        }
     }
 
 private:

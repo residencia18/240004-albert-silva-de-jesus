@@ -11,25 +11,14 @@ using namespace std;
 class CarrinhoDeCompras
 {
 public:
+
     Produto produto;
-    vector<Produto> produtosDoCarinho;
-    vector<CarrinhoDeCompras> carrinho;
-    double quantidade;
+    vector<pair<Produto, int>> itens_no_carrinho;
     double valorTotal = 0;
 
     CarrinhoDeCompras() {}
 
     ~CarrinhoDeCompras() {}
-
-    double getQuantidade()
-    {
-        return this->quantidade;
-    }
-
-    void setQuantidade(double quantidade)
-    {
-        this->quantidade = quantidade;
-    }
 
     double getValorTotal()
     {
@@ -43,21 +32,16 @@ public:
 
     void adicionarProduto(Produto produto, double quantidade)
     {
-        CarrinhoDeCompras carrinho;
-        carrinho.valorTotal = (produto.getPreco() * quantidade);
-        carrinho.quantidade = quantidade;
-        this->produtosDoCarinho.push_back(produto);
-        this->carrinho.push_back(carrinho);
+        itens_no_carrinho.push_back(make_pair(produto, quantidade));
     }
 
     void removerProduto(Produto produto, double quantidade)
     {
-        for (auto it = produtosDoCarinho.begin(); it != produtosDoCarinho.end(); it++)
+        for (auto it = itens_no_carrinho.begin(); it != itens_no_carrinho.end(); it++)
         {
-            if (it->getNome() == produto.getNome())
+            if (it->first.getNome() == produto.getNome())
             {
-                carrinho.at(it - produtosDoCarinho.begin()).quantidade -= quantidade;
-                carrinho.at(it - produtosDoCarinho.begin()).valorTotal -= (produto.getPreco() * quantidade);
+                itens_no_carrinho.at(it - itens_no_carrinho.begin()).second -= quantidade;
 
                 break;
             }
@@ -66,12 +50,31 @@ public:
 
     double calcularValorTotal()
     {
-        double valorTotal = 0;
-        for (auto it = carrinho.begin(); it != carrinho.end(); it++)
+        valorTotal = 0;
+        for (auto it = itens_no_carrinho.begin(); it != itens_no_carrinho.end(); it++)
         {
-            valorTotal += it->valorTotal;
+            valorTotal += (it->first.getPreco() * it->second);
         }
         return valorTotal;
+    }
+
+    int getQuantidadeDeProdutos(Produto produto)
+    {
+        int quantidade = 0;
+        for (auto it = itens_no_carrinho.begin(); it != itens_no_carrinho.end(); it++)
+        {
+            if (it->second > 5)
+            {
+                quantidade = 5;
+                break;
+            }
+        }
+        return quantidade;
+    }
+
+    void esvaziarCarrinho()
+    {
+        itens_no_carrinho.clear();
     }
 
 private:
