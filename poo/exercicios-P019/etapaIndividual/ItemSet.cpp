@@ -6,14 +6,14 @@
 
 using namespace std;
 
-    ItemSet::ItemSet() {}
+ItemSet::ItemSet() {}
 
-    ItemSet::~ItemSet() {}
+ItemSet::~ItemSet() {}
 
-    ItemSet::ItemSet(vector<string> items)
-    {
-        this->items = items;
-    }
+ItemSet::ItemSet(vector<string> items)
+{
+  this->items = items;
+}
 
 void ItemSet::limpaBuffer()
 {

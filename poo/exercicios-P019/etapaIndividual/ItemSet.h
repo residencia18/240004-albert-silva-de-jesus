@@ -14,9 +14,9 @@ class ItemSet
 public:
     vector<string> items;
 
-    ItemSet() {}
+    ItemSet(){}
 
-    ~ItemSet() {}
+    ~ItemSet(){}
 
     ItemSet(vector<string> items)
     {
