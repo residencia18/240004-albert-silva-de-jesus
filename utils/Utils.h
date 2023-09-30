@@ -13,7 +13,6 @@ using namespace std;
 class Utils
 {
 public:
-
     Estoque estoque;
 
     Utils() {}
@@ -27,11 +26,11 @@ public:
 
     void limpaTela()
     {
-#ifdef _WIN32
+    #ifdef _WIN32
         system("cls");
-#else
+    #else
         system("clear");
-#endif
+    #endif
     }
 
     void pause()

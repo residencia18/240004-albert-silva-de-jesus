@@ -7,4 +7,6 @@ using namespace std;
 
 int main()
 {
+  ItemSet itemSet;
+  itemSet.gestaoDeStrings();
 }
