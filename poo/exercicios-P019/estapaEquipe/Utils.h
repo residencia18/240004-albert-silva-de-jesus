@@ -11,7 +11,6 @@ using namespace std;
 class Utils
 {
 public:
-
     Utils() {}
 
     ~Utils() {}
@@ -53,19 +52,20 @@ public:
             cout << "\n\t[4] - A = B - C:";
             cout << "\n\t[5] - A = B <> C:";
             cout << "\n\t[6] - A == B:";
+            cout << "\n\t[7] - LISTAR B E C:";
             cout << "\n\t[0] - SAIR";
             cout << "\n\tENTRADA ->  ";
             cin >> opcao;
             limpaBuffer();
 
-            if (opcao > 5 || opcao < 0)
+            if (opcao > 7 || opcao < 0)
             {
                 limpaTela();
                 cout << "Ops, escolha invalida!...\n";
                 pause();
             }
 
-        } while (opcao > 5 || opcao < 0);
+        } while (opcao > 7 || opcao < 0);
 
         return opcao;
     }

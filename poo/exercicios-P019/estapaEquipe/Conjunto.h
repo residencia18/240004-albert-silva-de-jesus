@@ -12,10 +12,10 @@ Crie a sobrecarga do operador - para calcular a diferença entre dois conjuntos
 A = B-C; //A recebe os itens que estão em B mas não estão em C
 
 Crie a sobrecarga do operador <> para calcular o delta entre dois conjuntos
-A = B<>C; //A recebe a união entre os itens que estão em B mas não em C, além dos elementos que estão em C mas não em B
+A = B<>C; //A recebe a união entre os itens que estão em B mas não em C, além dos conjunto que estão em C mas não em B
 
 Crie a sobrecarga do operador == para permitir a comparação entre dois conjuntos
-A==B dá true se todos os elementos de A estão em B e vice versa. Retorna false caso contrário.*/
+A==B dá true se todos os conjunto de A estão em B e vice versa. Retorna false caso contrário.*/
 
 #ifndef CONJUNTO_H
 #define CONJUNTO_H
@@ -111,6 +111,29 @@ public:
     //     return C;
     // }
 
+    Conjunto calcularDelta(const Conjunto &B) const
+    {
+        Conjunto C;
+
+        for (auto it = this->conjunto.begin(); it != this->conjunto.end(); it++)
+        {
+            if (find(B.conjunto.begin(), B.conjunto.end(), *it) == B.conjunto.end())
+            {
+                C.conjunto.push_back(*it);
+            }
+        }
+
+        for (auto it = B.conjunto.begin(); it != B.conjunto.end(); it++)
+        {
+            if (find(this->conjunto.begin(), this->conjunto.end(), *it) == this->conjunto.end())
+            {
+                C.conjunto.push_back(*it);
+            }
+        }
+
+        return C;
+    }
+
     Conjunto operator==(const Conjunto &B)
     {
         Conjunto C;
@@ -133,21 +156,38 @@ public:
 
     void imprimirConjunto()
     {
-        utils.limpaTela();
+        Conjunto B({3, 4, 5});
+        Conjunto C({2, 3, 6});
+
         cout << "\n\tA = {";
         for (auto it = conjunto.begin(); it != conjunto.end(); it++)
         {
             cout << "\t" << *it << ", ";
         }
-        cout << "}\n\n"
-             << endl;
+        cout << "}\n\n" << endl;
+
+        cout << "\n\tB = {"; 
+        for (auto it = B.conjunto.begin(); it != B.conjunto.end(); it++)
+        {
+            cout << "\t" << *it << ", ";
+        }
+        cout << "}\n\n" << endl;
+
+        cout << "\n\tC = {";
+        for (auto it = C.conjunto.begin(); it != C.conjunto.end(); it++)
+        {
+            cout << "\t" << *it << ", ";
+        }
+        cout << "}\n\n" << endl;
+
+        utils.pause();
     }
 
     void menuConjunto()
     {
+        Conjunto A;
         Conjunto B({3, 4, 5});
         Conjunto C({2, 3, 6});
-
         int escolha = 0;
 
         do
@@ -157,42 +197,60 @@ public:
 
             case 1:
 
-                // Conjunto A = B;
-                // A.imprimirConjunto();
+                utils.limpaTela();
+                cout << "\n\t==========A RECEBE B========";
+                A = B;
+                A.imprimirConjunto();
 
                 break;
 
             case 2:
 
-                // A = B + C;
-                // A.imprimirConjunto();
+                utils.limpaTela();
+                cout << "\n\t==========A RECEBE B + C========";
+                A = B + C;
+                A.imprimirConjunto();
 
                 break;
 
             case 3:
 
-                // A = B * C;
-                // A.imprimirConjunto();
+                utils.limpaTela();
+                cout << "\n\t==========A RECEBE B * C========";
+                A = B * C;
+                A.imprimirConjunto();
 
                 break;
 
             case 4:
 
-                // A = B - C;
-                // A.imprimirConjunto();
+                utils.limpaTela();
+                cout << "\n\t==========A RECEBE B - C========";
+                A = B - C;
+                A.imprimirConjunto();
 
                 break;
 
             case 5:
 
+                utils.limpaTela();
+                cout << "\n\t==========A RECEBE B <> C========";
                 // A = B <> C;
-                // A.imprimirConjunto();
+                A.imprimirConjunto();
                 break;
 
             case 6:
 
-                // A == B;
-                // A.imprimirConjunto();
+                utils.limpaTela();
+                cout << "\n\t==========A == B========";
+                A == B;
+                A.imprimirConjunto();
+
+                break;
+
+            case 7:
+
+                imprimirConjunto();
 
                 break;
 
@@ -205,6 +263,7 @@ public:
             default:
                 cout << "\tOps, Opção invalida!";
             }
+
         } while (escolha != 0);
     }
 
