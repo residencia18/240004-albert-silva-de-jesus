@@ -19,7 +19,7 @@ public:
 
     ~Turma();
 
-    void adicionarAlunos(vector<Aluno> alunos){
+    void adicionarAlunos(){
         alunos.push_back(alunos);
     }
 
