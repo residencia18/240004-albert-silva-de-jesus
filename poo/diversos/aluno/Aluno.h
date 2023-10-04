@@ -9,41 +9,45 @@ using namespace std;
 class Aluno
 {
 private:
-        
-        string nome;
-        int identificacao;
-public:
+    string nome;
+    int identificacao;
 
-    Aluno(string nome, int identificacao){
+public:
+    Aluno(string nome, int identificacao)
+    {
         this->nome = nome;
         this->identificacao = identificacao;
     }
 
-    Aluno(){}
+    Aluno() {}
 
-    ~Aluno(){}
+    ~Aluno() {}
 
-    string getNome(){
+    string getNome()
+    {
         return this->nome;
     }
 
-    void setNome(string nome){
+    void setNome(string nome)
+    {
         this->nome = nome;
     }
 
-    int getIdentificacao(){
+    int getIdentificacao()
+    {
         return this->identificacao;
     }
 
-    void setIdentificacao(int identificacao){
+    void setIdentificacao(int identificacao)
+    {
         this->identificacao = identificacao;
     }
 
-    void exibirDetalhes(){
+    void exibirDetalhes()
+    {
         cout << "\n\tNome do Aluno: " << this->nome;
-        cout << "\n\tIdentificação: " << this->identificacao;
+        cout << "\n\tIdentificação: " << this->identificacao << endl;
     }
-
 };
 
 #endif
