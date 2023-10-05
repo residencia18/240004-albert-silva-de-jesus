@@ -94,7 +94,7 @@ public:
     {
 
         string cpf;
-        bool encontrou = true;
+        bool encontrou = false;
 
         do
         {
@@ -121,12 +121,12 @@ public:
                     cout << "\n\tInforme o telefone: ";
                     getline(cin, it->telefone);
 
-                    encontrou = false;
+                    encontrou = true;
                     break;
                 }
             }
 
-            if (encontrou)
+            if (!encontrou)
             {
                 limpaTela();
                 cout << "\n\tOps, cliente não encontrado!..." << endl;
@@ -136,10 +136,11 @@ public:
             {
                 limpaTela();
                 cout << "\n\tCliente editado com sucesso!..." << endl;
+                pause();
                 listar();
             }
 
-        } while (encontrou);
+        } while (!encontrou);
     }
 
     void excluir()
@@ -187,6 +188,7 @@ public:
         do
         {
             limpaTela();
+            cout << "\n\t==========LOCALIZAR CLIENTE==========\n";
             cout << "\n\tInforme o cpf do cliente, para localizar: ";
             getline(cin, cpf);
 
@@ -194,6 +196,7 @@ public:
             {
                 if (it->cpf == cpf)
                 {
+                    limpaTela();
                     cout << "\n\t==========CLIENTE ENCONTRADO==========\n";
                     cout << "\n\tNome: " << it->getNome();
                     cout << "\n\tCPF: " << it->getCPF();

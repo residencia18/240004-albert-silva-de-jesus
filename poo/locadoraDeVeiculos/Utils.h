@@ -158,12 +158,12 @@ public:
 
                     if (escolha == 2)
                     {
-                        // funcionario.excluir();
+                        funcionario.excluir();
                     }
 
                     if (escolha == 3)
                     {
-                        // funcionario.editar();
+                        funcionario.editar();
                     }
 
                     if (escolha == 4)
@@ -173,7 +173,7 @@ public:
 
                     if (escolha == 5)
                     {
-                        // funcionario.localizar();
+                        funcionario.localizar();
                     }
 
                     if (escolha > 5 && escolha < 0)
