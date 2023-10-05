@@ -89,24 +89,36 @@ public:
     {
         string cpf;
         bool encontrou = true;
-    
+
         do
         {
             cout << "\n\tInforme o cpf do cliente, para exclusão: ";
             getline(cin, cpf);
 
-            for(auto it = clientes.begin(); it != clientes.end(); it++){
-                
-                if(it->cpf == cpf){
+            for (auto it = clientes.begin(); it != clientes.end(); it++)
+            {
+                if (it->cpf == cpf)
+                {
                     clientes.erase(it);
-                    return;
                     encontrou = false;
+                    break;
                 }
             }
 
-            cout << "\n\tCliente não encontrado!..." << endl;
+            if (encontrou)
+            {
+                // utils.limpaTela();
+                cout << "\n\tOps, cliente não encontrado!..." << endl;
+                // utils.pause();
+            }
+            else
+            {
+                // utils.limpaTela();
+                cout << "\n\tCliente excluido com sucesso!...";
+                // utils.pause();
+            }
 
-        } while(encontrou);
+        } while (encontrou);
     }
 
 private:
