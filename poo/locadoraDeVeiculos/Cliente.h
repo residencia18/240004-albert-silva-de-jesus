@@ -83,6 +83,28 @@ public:
         }
     }
 
+    void editar() {}
+
+    void excluir()
+    {
+
+        string cpf = 0;
+    
+        do
+        {
+            cout << "\n\tInforme o cpf do cliente, para exclusão: ";
+            getline(cin, cpf);
+
+            for(auto it = clientes.begin(); it != clientes.end(); it++){
+                
+                if(it->cpf == cpf){
+                    clientes.erase(it);
+                }
+            }
+
+        } while ();
+    }
+
 private:
 };
 
