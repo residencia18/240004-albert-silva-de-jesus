@@ -87,8 +87,8 @@ public:
 
     void excluir()
     {
-
-        string cpf = 0;
+        string cpf;
+        bool encontrou = true;
     
         do
         {
@@ -99,10 +99,14 @@ public:
                 
                 if(it->cpf == cpf){
                     clientes.erase(it);
+                    return;
+                    encontrou = false;
                 }
             }
 
-        } while ();
+            cout << "\n\tCliente não encontrado!..." << endl;
+
+        } while(encontrou);
     }
 
 private:

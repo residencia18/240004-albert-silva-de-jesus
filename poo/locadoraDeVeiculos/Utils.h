@@ -121,14 +121,15 @@ public:
                     }
                     if (escolha == 2)
                     {
-                        if (cliente.clientes.empty())
-                        {
-                            cout << "\n\tNão há clientes cadastrados!...\n";
-                            pause();
-                        }
-                        else
-                        {
-                        }
+                        cliente.excluir();
+                        // if (cliente.clientes.empty())
+                        // {
+                        //     cout << "\n\tNão há clientes cadastrados!...\n";
+                        //     pause();
+                        // }
+                        // else
+                        // {
+                        // }
                     }
                     if (escolha == 3)
                     {
