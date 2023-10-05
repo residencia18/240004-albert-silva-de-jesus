@@ -19,7 +19,7 @@ public:
 
     void setCPF(string cpf)
     {
-        this->cpf = cpf;
+         this->cpf = cpf;
     }
 
     string getCPF()
