@@ -1,7 +1,6 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 #include <iostream>
-#include <string>
 using namespace std;
 
 #pragma once
@@ -9,22 +8,14 @@ using namespace std;
 class Usuario
 {
 public:
-    string cpf;
     string nome;
+    string cpf;
     string endereco;
     string telefone;
 
-    Usuario(string cpf, string nome, string endereco, string telefone)
-    {
-        this->cpf = cpf;
-        this->nome = nome;
-        this->endereco = endereco;
-        this->telefone = telefone;
-    }
+    Usuario(){}
 
-    Usuario() {}
-
-    ~Usuario() {}
+    ~Usuario(){}
 
     void setCPF(string cpf)
     {

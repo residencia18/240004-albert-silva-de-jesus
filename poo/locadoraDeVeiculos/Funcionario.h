@@ -3,10 +3,7 @@
 #include <iostream>
 #include "Usuario.h"
 #include "Aluguel.h"
-#include "Cliente.h"
-#include "Veiculo.h"
 #include <vector>
-#include <string>
 using namespace std;
 
 #pragma once
@@ -15,36 +12,63 @@ class Funcionario : public Usuario
 {
 public:
 
-    // vector<Aluguel> listHistoricoAlugueis;
+    vector<Aluguel> listHistoricoAlugueis;
 
-    // Funcionario(string cpf, string nome, string endereco, string telefone, vector<Aluguel> listHistoricoAlugueis) : Usuario(cpf, nome, endereco, telefone) {
-    //     this->cpf = cpf;
-    //     this->nome = nome;
-    //     this->endereco = endereco;
-    //     this->telefone = telefone;
-    //     this->listHistoricoAlugueis = listHistoricoAlugueis;
-    // }
+    vector<Funcionario> funcionarios;
 
-    // Funcionario(){}
+    Funcionario(){}
 
-    // ~Funcionario(){}
+    ~Funcionario(){}
 
-    // void setAluguel(Aluguel aluguel)
-    // {
-    //     this->listHistoricoAlugueis.push_back(aluguel);
-    // }
+    void setAluguel(Aluguel aluguel)
+    {
+        this->listHistoricoAlugueis.push_back(aluguel);
+    }
 
-    // vector<Aluguel> getAluguel()
-    // {
-    //     return this->listHistoricoAlugueis;
-    // }
+    vector<Aluguel> getAluguel()
+    {
+        return this->listHistoricoAlugueis;
+    }
 
-    // Aluguel alugarVeiculo(Cliente cliente, Veiculo veiculo, string dataInicio, string dataTermino){}
+    void setFuncionario(Funcionario funcionario)
+    {
+        this->funcionarios.push_back(funcionario);
+    }
 
-    // void finalizarAluguel(Aluguel dataDevolucao){}
+    vector<Funcionario> getFuncionario()
+    {
+        return this->funcionarios;
+    }
+
+    void cadastrar(Funcionario &funcionario){
+
+        cout << "\n\tInforme o nome do Funcionario: ";
+        getline(cin, nome);
+
+        cout << "\n\tInforme o cpf do Funcionario: ";
+        getline(cin, cpf);
+
+        cout << "\n\tInforme o Longradouro do Funcionario: ";
+        getline(cin, endereco);
+
+        cout << "\n\tInforme o telefone do Usuário: ";
+        getline(cin, telefone);
+
+        setFuncionario(funcionario);
+    }
+
+    void listar(){
+
+        for(auto it = funcionarios.begin(); it != funcionarios.end(); it++){
+
+            cout << "\n\tNome: " << it->getNome();
+            cout << "\n\tCPF: " << it->getCPF();
+            cout << "\n\tEndereço: " << it->getEndereco();
+            cout << "\n\tTelefone: " << it->getTelefone();
+        }
+    }
 
 private:
-
 };
 
 #endif
