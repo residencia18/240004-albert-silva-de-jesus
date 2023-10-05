@@ -107,7 +107,7 @@ public:
 
         do
         {
-            switch (op= menuPrincipal())
+            switch (op = menuPrincipal())
             {
 
             case 1:
@@ -122,50 +122,18 @@ public:
                     if (escolha == 2)
                     {
                         cliente.excluir();
-                        // if (cliente.clientes.empty())
-                        // {
-                        //     cout << "\n\tNão há clientes cadastrados!...\n";
-                        //     pause();
-                        // }
-                        // else
-                        // {
-                        // }
                     }
                     if (escolha == 3)
                     {
-                        if (cliente.clientes.empty())
-                        {
-                            cout << "\n\tNão há clientes cadastrados!...\n";
-                            pause();
-                        }
-                        else
-                        {
-                        }
+                        cliente.editar();
                     }
                     if (escolha == 4)
                     {
-                        limpaTela();
                         cliente.listar();
-                        pause();
-                        // if (cliente.clientes.empty())
-                        // {
-                        //     cout << "\n\tNão há clientes cadastrados!...\n";
-                        //     pause();
-                        // }
-                        // else
-                        // {
-                        // }
                     }
                     if (escolha == 5)
                     {
-                        if (cliente.clientes.empty())
-                        {
-                            cout << "\n\tNão há clientes cadastrados!...\n";
-                            pause();
-                        }
-                        else
-                        {
-                        }
+                        cliente.localizar();
                     }
                     if (escolha > 5 && escolha < 0)
                     {
@@ -187,65 +155,75 @@ public:
                     {
                         funcionario.cadastrar(funcionario);
                     }
-                    else
+
+                    if (escolha == 2)
                     {
-                        if (escolha == 2)
-                        {
-                            if (funcionario.funcionarios.empty())
-                            {
-                                cout << "\n\tOps, não a funcionarios cadastrados!...";
-                            }
-                            else
-                            {
-                            }
-                        }
-                        else
-                        {
-                            if (escolha == 3)
-                            {
-                                if (funcionario.funcionarios.empty())
-                                {
-                                    cout << "\n\tOps, não a funcionarios cadastrados!...";
-                                }
-                                else
-                                {
-                                }
-                            }
-                            else
-                            {
-                                if (escolha == 4)
-                                {
-                                    limpaTela();
-                                    funcionario.listar();
-                                    pause();
-                                    // if (funcionarios.empty())
-                                    // {
-                                    //     cout << "\n\tOps, não a funcionarios cadastrados!...";
-                                    // }
-                                    // else
-                                    // {
-                                    //     funcionario.listar();
-                                    // }
-                                }
-                                else
-                                {
-                                    if (funcionario.funcionarios.empty())
-                                    {
-                                        cout << "\n\tOps, não a funcionarios cadastrados!...";
-                                    }
-                                    else
-                                    {
-                                    }
-                                }
-                            }
-                        }
+                        // funcionario.excluir();
                     }
 
+                    if (escolha == 3)
+                    {
+                        // funcionario.editar();
+                    }
+
+                    if (escolha == 4)
+                    {
+                        funcionario.listar();
+                    }
+
+                    if (escolha == 5)
+                    {
+                        // funcionario.localizar();
+                    }
+
+                    if (escolha > 5 && escolha < 0)
+                    {
+                        limpaTela();
+                        cout << "\n\tOps, opção invalida!";
+                        pause();
+                    }
                 } while (escolha != 0);
 
                 break;
 
             case 3:
+
+                do
+                {
+                    escolha = menuEscolha();
+                    if (escolha == 1)
+                    {
+                        // veiculo.cadastrar();
+                    }
+
+                    if (escolha == 2)
+                    {
+                        // veiculo.excluir();
+                    }
+
+                    if (escolha == 3)
+                    {
+                        // veiculo.editar();
+                    }
+
+                    if (escolha == 4)
+                    {
+                        // veiculo.listar();
+                    }
+
+                    if (escolha == 5)
+                    {
+                        // veiculo.localizar();
+                    }
+
+                    if (escolha > 5 && escolha < 0)
+                    {
+                        limpaTela();
+                        cout << "\n\tOps, opção invalida!";
+                        pause();
+                    }
+
+                } while (escolha != 0);
 
                 break;
 
@@ -263,7 +241,8 @@ public:
         } while (op != 0);
     }
 
-    tm *getTempo()
+    tm *
+    getTempo()
     {
         time_t t;
         time(&t);
