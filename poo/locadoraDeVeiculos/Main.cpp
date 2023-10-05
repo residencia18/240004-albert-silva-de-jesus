@@ -11,6 +11,7 @@ int main()
     Utils utils;
     Funcionario funcionario;
     Cliente cliente;
+    Veiculo veiculo;
 
-    utils.gestaoLocadoraDeVeiculos(cliente, funcionario);
+    utils.gestaoLocadoraDeVeiculos(cliente, funcionario, veiculo);
 }

@@ -1,0 +1,275 @@
+#ifndef VEICULO_H
+#define VEICULO_H
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+#pragma once
+
+class Veiculo
+{
+public:
+    string identificador;
+    string modelo;
+    string marca;
+    int anoFabricacao;
+    float valorDiaria;
+    vector<Veiculo> veiculos;
+
+    Veiculo() {}
+
+    ~Veiculo() {}
+
+    void setIdentificador(string identificador)
+    {
+        this->identificador = identificador;
+    }
+
+    string getIdentificador()
+    {
+        return this->identificador;
+    }
+
+    void setModelo(string modelo)
+    {
+        this->modelo = modelo;
+    }
+
+    string getModelo()
+    {
+        return this->modelo;
+    }
+
+    void setMarca(string marca)
+    {
+        this->marca = marca;
+    }
+
+    string getMarca()
+    {
+        return this->marca;
+    }
+
+    void setAnoFabricacao(int anoFabricacao)
+    {
+        this->anoFabricacao = anoFabricacao;
+    }
+
+    int getAnoFabricacao()
+    {
+        return this->anoFabricacao;
+    }
+
+    void setValorDiaria(float valorDiaria)
+    {
+        this->valorDiaria = valorDiaria;
+    }
+
+    float getValorDiaria()
+    {
+        return this->valorDiaria;
+    }
+
+    void setVeiculo(Veiculo veiculo)
+    {
+        this->veiculos.push_back(veiculo);
+    }
+
+    vector<Veiculo> getVeiculo()
+    {
+        return this->veiculos;
+    }
+
+    void cadastrar(Veiculo &veiculo)
+    {
+        limpaTela();
+        cout << "\n\t==========CADASTRO DE VEICULO==========\n";
+        cout << "\n\tInforme o identificador do veiculo: ";
+        getline(cin, identificador);
+
+        cout << "\n\tInforme o modelo do veiculo: ";
+        getline(cin, modelo);
+
+        cout << "\n\tInforme a marca do veiculo: ";
+        getline(cin, marca);
+
+        cout << "\n\tInforme o ano de fabricação do veiculo: ";
+        cin >> anoFabricacao;
+
+        cout << "\n\tInforme o valor da diaria do veiculo: ";
+        cin >> valorDiaria;
+
+        setVeiculo(veiculo);
+    }
+
+    void listar()
+    {
+        limpaTela();
+        cout << "\n\t==========LISTAGEM DE VEICULOS==========\n";
+        for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+        {
+            cout << "\n\tIdentificador: " << it->identificador;
+            cout << "\n\tModelo: " << it->modelo;
+            cout << "\n\tMarca: " << it->marca;
+            cout << "\n\tAno de fabricação: " << it->anoFabricacao;
+            cout << "\n\tValor da diaria: " << it->valorDiaria;
+            cout << "\n\t========================================\n";
+        }
+        pause();
+    }
+
+    void excluir()
+    {
+        string identificador;
+        bool encontrou = true;
+
+        do
+        {
+            limpaTela();
+            cout << "\n\t==========EXCLUSÃO DE VEICULO==========\n";
+            cout << "\n\tInforme o identificador do veiculo: ";
+            getline(cin, identificador);
+
+            for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+            {
+                if (it->identificador == identificador)
+                {
+                    veiculos.erase(it);
+                    encontrou = true;
+                    break;
+                }
+            }
+
+            if (!encontrou)
+            {
+                cout << "\n\tVeiculo não encontrado!...\n";
+                pause();
+            }
+            else
+            {
+                cout << "\n\tVeiculo excluido com sucesso!...\n";
+                pause();
+                listar();
+            }
+
+        } while (!encontrou);
+    }
+
+    void editar()
+    {
+        string identificador;
+        bool encontrou = false;
+
+        do
+        {
+            limpaTela();
+            cout << "\n\t==========EDIÇÃO DE VEICULO==========\n";
+            cout << "\n\tInforme o identificador do veiculo: ";
+            getline(cin, identificador);
+
+            for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+            {
+                if (it->identificador == identificador)
+                {
+                    cout << "\n\tInforme o novo identificador do veiculo: ";
+                    getline(cin, it->identificador);
+
+                    cout << "\n\tInforme o novo modelo do veiculo: ";
+                    getline(cin, it->modelo);
+
+                    cout << "\n\tInforme a nova marca do veiculo: ";
+                    getline(cin, it->marca);
+
+                    cout << "\n\tInforme o novo ano de fabricação do veiculo: ";
+                    cin >> it->anoFabricacao;
+                    limpaBuffer();
+
+                    cout << "\n\tInforme o novo valor da diaria do veiculo: ";
+                    cin >> it->valorDiaria;
+                    limpaBuffer();
+
+                    encontrou = true;
+                    break;
+                }
+            }
+
+            if (!encontrou)
+            {
+                cout << "\n\tVeiculo não encontrado!...\n";
+                pause();
+            }
+            else
+            {
+                cout << "\n\tVeiculo editado com sucesso!...\n";
+                pause();
+                listar();
+            }
+
+        } while (!encontrou);
+    }
+
+    void localizar()
+    {
+        string identificador;
+        bool encontrou = true;
+
+        do
+        {
+            limpaTela();
+            cout << "\n\t==========LOCALIZAÇÃO DE VEICULO==========\n";
+            cout << "\n\tInforme o identificador do veiculo: ";
+            getline(cin, identificador);
+
+            for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+            {
+                if (it->identificador == identificador)
+                {
+                    limpaTela();
+                    cout << "\n\t==========VEICULO ENCONTRADO==========\n";
+                    cout << "\n\tIdentificador: " << it->identificador;
+                    cout << "\n\tModelo: " << it->modelo;
+                    cout << "\n\tMarca: " << it->marca;
+                    cout << "\n\tAno de fabricação: " << it->anoFabricacao;
+                    cout << "\n\tValor da diaria: " << it->valorDiaria;
+                    cout << "\n\t========================================\n";
+                    pause();
+                    encontrou = false;
+                    break;
+                }
+            }
+
+            if (encontrou)
+            {
+                cout << "\n\tVeiculo não encontrado!...\n";
+                pause();
+            }
+
+        } while (encontrou);
+    }
+
+    void limpaBuffer()
+    {
+        cin.get();
+    }
+
+    void limpaTela()
+    {
+#ifdef _WIN32
+        system("cls");
+#else
+        system("clear");
+#endif
+    }
+
+    void pause()
+    {
+        cout << "\n\tDigite enter para continuar!...\n";
+        cin.get();
+        limpaTela();
+    }
+
+private:
+};
+
+#endif

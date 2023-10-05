@@ -53,7 +53,7 @@ public:
 
     void cadastrar(Cliente &cliente)
     {
-        limpaTela();    
+        limpaTela();
         cout << "\n\t==========CADASTRO DE CLIENTE==========\n";
         cout << "\n\tInforme o nome do Cliente: ";
         getline(cin, nome);

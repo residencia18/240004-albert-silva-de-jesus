@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Funcionario.h"
 #include "Cliente.h"
+#include "Veiculo.h"
 #include <string>
 #include <ctime>
 #include <vector>
@@ -100,7 +101,7 @@ public:
         return opcao;
     }
 
-    void gestaoLocadoraDeVeiculos(Cliente &cliente, Funcionario &funcionario)
+    void gestaoLocadoraDeVeiculos(Cliente &cliente, Funcionario &funcionario, Veiculo &veiculo)
     {
         int escolha = 0;
         int op = 0;
@@ -193,27 +194,27 @@ public:
                     escolha = menuEscolha();
                     if (escolha == 1)
                     {
-                        // veiculo.cadastrar();
+                        veiculo.cadastrar(veiculo);
                     }
 
                     if (escolha == 2)
                     {
-                        // veiculo.excluir();
+                        veiculo.excluir();
                     }
 
                     if (escolha == 3)
                     {
-                        // veiculo.editar();
+                        veiculo.editar();
                     }
 
                     if (escolha == 4)
                     {
-                        // veiculo.listar();
+                        veiculo.listar();
                     }
 
                     if (escolha == 5)
                     {
-                        // veiculo.localizar();
+                        veiculo.localizar();
                     }
 
                     if (escolha > 5 && escolha < 0)
