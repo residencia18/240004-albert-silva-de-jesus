@@ -1,7 +1,8 @@
 #ifndef UTILS_H
 #define UTILS_H
 #include <iostream>
-#include "Estoque.h"
+#include "Funcionario.h"
+#include "Cliente.h"
 #include <string>
 #include <ctime>
 #include <vector>
@@ -13,8 +14,6 @@ using namespace std;
 class Utils
 {
 public:
-    Estoque estoque;
-
     Utils() {}
 
     ~Utils() {}
@@ -26,11 +25,11 @@ public:
 
     void limpaTela()
     {
-    #ifdef _WIN32
+#ifdef _WIN32
         system("cls");
-    #else
+#else
         system("clear");
-    #endif
+#endif
     }
 
     void pause()
@@ -49,9 +48,10 @@ public:
             limpaTela();
             mostraDataAtual();
             cout << "\t======MENU PRINCIPAL======";
-            cout << "\n\t[1] - PRODUTO:";
-            cout << "\n\t[2] - ESTOQUE:";
-            cout << "\n\t[3] - COMPRAR PRODUTO:";
+            cout << "\n\t[1] - CLIENTE:";
+            cout << "\n\t[2] - FUNCIONARIO:";
+            cout << "\n\t[3] - VEICULO:";
+            cout << "\n\t[4] - ALUGAR VEÍCULO:";
             cout << "\n\t[0] - SAIR";
             cout << "\n\tENTRADA ->  ";
             cin >> opcao;
@@ -100,30 +100,31 @@ public:
         return opcao;
     }
 
-    void gestaoDeVendas(Utils utils, vector<Estoque> &listEstoque)
+    void gestaoLocadoraDeVeiculos(Cliente &cliente, Funcionario &funcionario)
     {
         int escolha = 0;
-        int cliente = 0;
+        int op = 0;
 
         do
         {
-            switch (cliente = utils.menuPrincipal())
+            switch (op= menuPrincipal())
             {
 
             case 1:
 
                 do
                 {
-                    escolha = utils.menuEscolha();
+                    escolha = menuEscolha();
                     if (escolha == 1)
                     {
+                        cliente.cadastrar(cliente);
                     }
                     if (escolha == 2)
                     {
-                        if (listEstoque.empty())
+                        if (cliente.clientes.empty())
                         {
                             cout << "\n\tNão há clientes cadastrados!...\n";
-                            utils.pause();
+                            pause();
                         }
                         else
                         {
@@ -131,10 +132,10 @@ public:
                     }
                     if (escolha == 3)
                     {
-                        if (listEstoque.empty())
+                        if (cliente.clientes.empty())
                         {
                             cout << "\n\tNão há clientes cadastrados!...\n";
-                            utils.pause();
+                            pause();
                         }
                         else
                         {
@@ -142,21 +143,24 @@ public:
                     }
                     if (escolha == 4)
                     {
-                        if (listEstoque.empty())
-                        {
-                            cout << "\n\tNão há clientes cadastrados!...\n";
-                            utils.pause();
-                        }
-                        else
-                        {
-                        }
+                        limpaTela();
+                        cliente.listar();
+                        pause();
+                        // if (cliente.clientes.empty())
+                        // {
+                        //     cout << "\n\tNão há clientes cadastrados!...\n";
+                        //     pause();
+                        // }
+                        // else
+                        // {
+                        // }
                     }
                     if (escolha == 5)
                     {
-                        if (listEstoque.empty())
+                        if (cliente.clientes.empty())
                         {
                             cout << "\n\tNão há clientes cadastrados!...\n";
-                            utils.pause();
+                            pause();
                         }
                         else
                         {
@@ -164,9 +168,9 @@ public:
                     }
                     if (escolha > 5 && escolha < 0)
                     {
-                        utils.limpaTela();
+                        limpaTela();
                         cout << "\n\tOps, opção invalida!";
-                        utils.pause();
+                        pause();
                     }
 
                 } while (escolha != 0);
@@ -177,9 +181,63 @@ public:
 
                 do
                 {
-                    escolha = utils.menuEscolha();
+                    escolha = menuEscolha();
                     if (escolha == 1)
                     {
+                        funcionario.cadastrar(funcionario);
+                    }
+                    else
+                    {
+                        if (escolha == 2)
+                        {
+                            if (funcionario.funcionarios.empty())
+                            {
+                                cout << "\n\tOps, não a funcionarios cadastrados!...";
+                            }
+                            else
+                            {
+                            }
+                        }
+                        else
+                        {
+                            if (escolha == 3)
+                            {
+                                if (funcionario.funcionarios.empty())
+                                {
+                                    cout << "\n\tOps, não a funcionarios cadastrados!...";
+                                }
+                                else
+                                {
+                                }
+                            }
+                            else
+                            {
+                                if (escolha == 4)
+                                {
+                                    limpaTela();
+                                    funcionario.listar();
+                                    pause();
+                                    // if (funcionarios.empty())
+                                    // {
+                                    //     cout << "\n\tOps, não a funcionarios cadastrados!...";
+                                    // }
+                                    // else
+                                    // {
+                                    //     funcionario.listar();
+                                    // }
+                                }
+                                else
+                                {
+                                    if (funcionario.funcionarios.empty())
+                                    {
+                                        cout << "\n\tOps, não a funcionarios cadastrados!...";
+                                    }
+                                    else
+                                    {
+                                    }
+                                }
+                            }
+                        }
                     }
 
                 } while (escolha != 0);
@@ -193,13 +251,15 @@ public:
             case 0:
 
                 cout << "\n\tPrograma encerrado com sucesso!..." << endl;
-                cliente = 0;
+                op = 0;
                 exit(0);
+
+                break;
 
             default:
                 cout << "\tOps, Opção invalida!";
             }
-        } while (cliente != 0);
+        } while (op != 0);
     }
 
     tm *getTempo()

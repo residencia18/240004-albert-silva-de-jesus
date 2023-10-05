@@ -1,14 +1,16 @@
 #include <iostream>
-#include <vector>
+#include "Utils.h"
+#include "Cliente.h"
 #include "Funcionario.h"
+#include <vector>
 using namespace std;
 
+int main()
+{
 
-int main(){
-
+    Utils utils;
     Funcionario funcionario;
+    Cliente cliente;
 
-    funcionario.cadastrar(funcionario);
-    funcionario.listar();
-
+    utils.gestaoLocadoraDeVeiculos(cliente, funcionario);
 }
