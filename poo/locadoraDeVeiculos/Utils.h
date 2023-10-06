@@ -4,6 +4,7 @@
 #include "Funcionario.h"
 #include "Cliente.h"
 #include "Veiculo.h"
+#include "Persistencia.h"
 #include <string>
 #include <ctime>
 #include <vector>
@@ -105,6 +106,9 @@ public:
     {
         int escolha = 0;
         int op = 0;
+        Persistencia::recuperarCliente(cliente.clientes);
+        Persistencia::recuperarFuncionario(funcionario.funcionarios);
+        // Persistencia::recuperarVeiculo(veiculo.veiculos);
 
         do
         {
@@ -119,10 +123,11 @@ public:
                     if (escolha == 1)
                     {
                         cliente.cadastrar(cliente);
+                        Persistencia::salvarCliente(cliente);
                     }
                     if (escolha == 2)
                     {
-                        cliente.excluir();
+                        cliente.excluir(cliente);
                     }
                     if (escolha == 3)
                     {
@@ -155,6 +160,7 @@ public:
                     if (escolha == 1)
                     {
                         funcionario.cadastrar(funcionario);
+                        Persistencia::salvarFuncionario(funcionario);
                     }
 
                     if (escolha == 2)
@@ -195,11 +201,13 @@ public:
                     if (escolha == 1)
                     {
                         veiculo.cadastrar(veiculo);
+                        Persistencia::salvarVeiculo(veiculo);
                     }
 
                     if (escolha == 2)
                     {
                         veiculo.excluir();
+                        Persistencia::salvarVeiculo(veiculo);
                     }
 
                     if (escolha == 3)

@@ -143,7 +143,7 @@ public:
         } while (!encontrou);
     }
 
-    void excluir()
+    void excluir(Cliente &cliente)
     {
         string cpf;
         bool encontrou = true;
@@ -154,13 +154,13 @@ public:
             cout << "\n\tInforme o cpf do cliente, para exclusão: ";
             getline(cin, cpf);
 
-            for (auto it = clientes.begin(); it != clientes.end(); it++)
+            for (auto it = cliente.clientes.begin(); it != cliente.clientes.end(); it++)
             {
                 if (it->cpf == cpf)
                 {
                     cout << "\n\tCliente: " << it->nome << " excluido com sucesso!..." << endl;
                     pause();
-                    clientes.erase(it);
+                    cliente.clientes.erase(it);
                     encontrou = false;
                     break;
                 }
