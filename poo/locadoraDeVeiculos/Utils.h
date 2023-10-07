@@ -122,16 +122,16 @@ public:
                     escolha = menuEscolha();
                     if (escolha == 1)
                     {
-                        cliente.cadastrar(cliente);
+                        // cliente.cadastrar(cliente);
                         Persistencia::salvarCliente(cliente);
                     }
                     if (escolha == 2)
                     {
-                        cliente.excluir(cliente);
+                        Persistencia::excluirCliente(cliente.excluir(cliente));
                     }
                     if (escolha == 3)
                     {
-                        cliente.editar();
+                        Persistencia::editarCliente(cliente);
                     }
                     if (escolha == 4)
                     {

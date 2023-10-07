@@ -2,6 +2,7 @@
 #define CLIENTE_H
 #include <iostream>
 #include "Usuario.h"
+// #include "Persistencia.h"
 #include "Aluguel.h"
 #include "Utils.h"
 #include <vector>
@@ -51,7 +52,7 @@ public:
         return this->clientes;
     }
 
-    void cadastrar(Cliente &cliente)
+    Cliente cadastrar(Cliente &cliente)
     {
         limpaTela();
         cout << "\n\t==========CADASTRO DE CLIENTE==========\n";
@@ -71,6 +72,8 @@ public:
         getline(cin, telefone);
 
         setCliente(cliente);
+
+        return cliente;
     }
 
     void listar()
@@ -90,9 +93,8 @@ public:
         pause();
     }
 
-    void editar()
+    const string editar(Cliente &cliente)
     {
-
         string cpf;
         bool encontrou = false;
 
@@ -102,10 +104,11 @@ public:
             cout << "\n\tInforme o cpf do cliente, para edição: ";
             getline(cin, cpf);
 
-            for (auto it = clientes.begin(); it != clientes.end(); it++)
+            for (auto it = cliente.clientes.begin(); it != cliente.clientes.end(); it++)
             {
                 if (it->cpf == cpf)
                 {
+                    cout << "\n\t==========EDITAR CLIENTE==========\n";
                     cout << "\n\tInforme o nome do Cliente: ";
                     getline(cin, it->nome);
 
@@ -121,6 +124,7 @@ public:
                     cout << "\n\tInforme o telefone: ";
                     getline(cin, it->telefone);
 
+                    cliente.clientes.push_back(cliente);
                     encontrou = true;
                     break;
                 }
@@ -138,12 +142,15 @@ public:
                 cout << "\n\tCliente editado com sucesso!..." << endl;
                 pause();
                 listar();
+                return cpf;
             }
 
         } while (!encontrou);
+
+        return cpf;
     }
 
-    void excluir(Cliente &cliente)
+    string excluir(Cliente &cliente)
     {
         string cpf;
         bool encontrou = true;
@@ -175,9 +182,68 @@ public:
             else
             {
                 listar();
+                return cpf;
             }
 
         } while (encontrou);
+
+        return cpf;
+    }
+
+    string verificaCliente(string cpf)
+    {
+        bool existe = false;
+        char opcao;
+
+        do
+        {
+
+            limpaTela();
+            cout << "\n\t==========EDITAR CLIENTE==========\n";
+            cout << "\n\tInforme o cpf do cliente, para edição: ";
+            getline(cin, cpf);
+
+            for (auto it = clientes.begin(); it != clientes.end(); it++)
+            {
+                if (it->cpf == cpf)
+                {
+                    return cpf;
+                }
+            }
+            if (!existe)
+            {
+                limpaTela();
+                cout << "\n\tOps, cliente não encontrado!..." << endl;
+                pause();
+
+                do
+                {
+                    cout << "\n\tDeseja continuar? (s/n): ";
+                    cout << "\n\tEntrada -> ";
+                    cin >> opcao;
+                    limpaBuffer();
+
+                    if (opcao != 's' && opcao != 'S' && opcao != 'n' && opcao != 'N')
+                    {
+                        limpaTela();
+                        cout << "\n\tOps, opção invalida!..." << endl;
+                        pause();
+                    }
+                    if (opcao == 'n' || opcao == 'N')
+                    {
+                        return cpf;
+                    }
+
+                } while (opcao != 's' && opcao != 'S' && opcao != 'n' && opcao != 'N');
+            }
+            else
+            {
+                listar();
+            }
+
+        } while (!existe || opcao != 'n' || opcao != 'N');
+
+        return cpf;
     }
 
     void localizar()

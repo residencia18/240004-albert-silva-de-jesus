@@ -21,6 +21,8 @@ public:
 
     static void salvarCliente(Cliente &cliente)
     {
+        cliente.cadastrar(cliente);
+        
         ofstream arquivo;
         arquivo.open("clientes.txt", ios::app);
         if (arquivo.is_open())
@@ -69,6 +71,132 @@ public:
             cout << "Erro ao abrir o arquivo" << endl;
         }
         arquivo.close();
+    }
+
+    static void editarCliente(Cliente &cliente)
+    {
+        string cpf;
+        auto it = cliente.clientes.begin();
+        ifstream arquivoIn("clientes.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        bool clienteEncontrado = false;
+        string nome, cpfLido, endereco, telefone, habilitacao;
+        cpf = cliente.verificaCliente(cpf);
+
+        while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
+               getline(arquivoIn, endereco) && getline(arquivoIn, telefone) &&
+               getline(arquivoIn, habilitacao) && it != cliente.clientes.end())
+        {
+            if (cpfLido == cpf)
+            {
+                clienteEncontrado = true;
+                cout << "\n\t==========EDITAR CLIENTE==========\n";
+                cout << "\n\tInforme o nome do Cliente: ";
+                getline(cin, it->nome);
+
+                cout << "\n\tInforme o CPF: ";
+                getline(cin, it->cpf);
+
+                cout << "\n\tInforme o número da habilitação: ";
+                getline(cin, it->habilitacao);
+
+                cout << "\n\tInforme o endereço: ";
+                getline(cin, it->endereco);
+
+                cout << "\n\tInforme o telefone: ";
+                getline(cin, it->telefone);
+
+                arquivoTemp << it->nome << endl;
+                arquivoTemp << it->cpf << endl;
+                arquivoTemp << it->endereco << endl;
+                arquivoTemp << it->telefone << endl;
+                arquivoTemp << it->habilitacao << endl;
+            }
+            else
+            {
+                arquivoTemp << nome << endl;
+                arquivoTemp << cpfLido << endl;
+                arquivoTemp << endereco << endl;
+                arquivoTemp << telefone << endl;
+                arquivoTemp << habilitacao << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (clienteEncontrado)
+        {
+            // Substitui o arquivo original pelo arquivo temporário
+            remove("clientes.txt");
+            rename("temp.txt", "clientes.txt");
+            cliente.limpaTela();
+            cout << "\n\tCliente editado com sucesso!..." << endl;
+            cliente.pause();
+            cliente.listar();
+        }
+        else
+        {
+            cout << "Ops, Cliente com CPF " << cpf << " não encontrado." << endl;
+            remove("temp.txt"); // Exclui o arquivo temporário, pois não houve alterações
+        }
+    }
+
+    static void excluirCliente(const string &cpf)
+    {
+        ifstream arquivoIn("clientes.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        string nome, cpfLido, endereco, telefone, habilitacao;
+
+        bool clienteEncontrado = false;
+
+        while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
+               getline(arquivoIn, endereco) && getline(arquivoIn, telefone) &&
+               getline(arquivoIn, habilitacao))
+        {
+            if (cpfLido == cpf) // Verifique se o CPF do cliente coincide com o CPF fornecido
+            {
+                clienteEncontrado = true;
+            }
+            else
+            {
+                arquivoTemp << nome << endl;
+                arquivoTemp << cpfLido << endl;
+                arquivoTemp << endereco << endl;
+                arquivoTemp << telefone << endl;
+                arquivoTemp << habilitacao << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (clienteEncontrado)
+        {
+            // Substitua o arquivo original pelo arquivo temporário
+            remove("clientes.txt");
+            rename("temp.txt", "clientes.txt");
+            cout << "Cliente excluído com sucesso" << endl;
+        }
+        else
+        {
+            cout << "Cliente não encontrado" << endl;
+            remove("temp.txt"); // Exclua o arquivo temporário, pois não houve alterações
+        }
     }
 
     static void salvarFuncionario(Funcionario &funcionario)
@@ -155,7 +283,7 @@ public:
                 getline(arquivo, marca);
                 getline(arquivo, modelo);
                 // getline(arquivo, ano);
-                arquivo >> valorDiaria; 
+                arquivo >> valorDiaria;
 
                 if (identificador != "")
                 {
