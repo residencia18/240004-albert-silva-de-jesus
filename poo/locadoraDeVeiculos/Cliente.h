@@ -2,7 +2,6 @@
 #define CLIENTE_H
 #include <iostream>
 #include "Usuario.h"
-// #include "Persistencia.h"
 #include "Aluguel.h"
 #include "Utils.h"
 #include <vector>
@@ -15,7 +14,7 @@ class Cliente : public Usuario
 {
 public:
     string habilitacao;
-    vector<Aluguel> listHistoricoAlugueis;
+    // vector<Aluguel> listHistoricoAlugueis;
     vector<Cliente> clientes;
 
     Cliente() {}
@@ -32,15 +31,15 @@ public:
         return this->habilitacao;
     }
 
-    void setAluguel(Aluguel aluguel)
-    {
-        this->listHistoricoAlugueis.push_back(aluguel);
-    }
+    // void setAluguel(Aluguel aluguel)
+    // {
+    //     this->listHistoricoAlugueis.push_back(aluguel);
+    // }
 
-    vector<Aluguel> getAluguel()
-    {
-        return this->listHistoricoAlugueis;
-    }
+    // vector<Aluguel> getAluguel()
+    // {
+    //     return this->listHistoricoAlugueis;
+    // }
 
     void setCliente(Cliente cliente)
     {
