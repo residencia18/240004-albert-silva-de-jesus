@@ -14,6 +14,7 @@ public:
     string modelo;
     string marca;
     int anoFabricacao;
+    // string anoFabricacao;
     float valorDiaria;
     vector<Veiculo> veiculos;
 
@@ -119,7 +120,7 @@ public:
         pause();
     }
 
-    void excluir()
+    string excluir(Veiculo &veiculo)
     {
         string identificador;
         bool encontrou = true;
@@ -131,29 +132,33 @@ public:
             cout << "\n\tInforme o identificador do veiculo: ";
             getline(cin, identificador);
 
-            for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+            for (auto it = veiculo.veiculos.begin(); it != veiculo.veiculos.end(); it++)
             {
                 if (it->identificador == identificador)
                 {
+                    cout << "\n\tVeiculo com o identificador: " << it->identificador << " excluido com sucesso!...\n";
+                    pause();
                     veiculos.erase(it);
-                    encontrou = true;
+                    encontrou = false;
                     break;
                 }
             }
 
-            if (!encontrou)
+            if (encontrou)
             {
+                limpaTela();
                 cout << "\n\tVeiculo não encontrado!...\n";
                 pause();
             }
             else
             {
-                cout << "\n\tVeiculo excluido com sucesso!...\n";
-                pause();
                 listar();
+                return identificador;
             }
 
-        } while (!encontrou);
+        } while (encontrou);
+
+        return identificador;
     }
 
     void editar()
@@ -246,6 +251,62 @@ public:
             }
 
         } while (encontrou);
+    }
+
+    string verificaVeiculo(string identificador)
+    {
+        bool existe = false;
+        char opcao;
+
+        do
+        {
+            limpaTela();
+            cout << "\n\t==========VERIFICAÇÃO DE VEICULO==========\n";
+            cout << "\n\tInforme o identificador do veiculo: ";
+            getline(cin, identificador);
+
+            for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+            {
+                if (it->identificador == identificador)
+                {
+                    return identificador;
+                }
+            }
+
+            if (!existe)
+            {
+                limpaTela();
+                cout << "\n\tOps, veiculo não encontrado!..." << endl;
+                pause();
+
+                do
+                {
+                    cout << "\n\tDeseja continuar? (s/n): ";
+                    cout << "\n\tEntrada -> ";
+                    cin >> opcao;
+                    limpaBuffer();
+
+                    if (opcao != 's' && opcao != 'S' && opcao != 'n' && opcao != 'N')
+                    {
+                        limpaTela();
+                        cout << "\n\tOps, opção invalida!..." << endl;
+                        pause();
+                    }
+                    if (opcao == 'n' || opcao == 'N')
+                    {
+                        return identificador;
+                    }
+
+                } while (opcao != 's' && opcao != 'S' && opcao != 'n' && opcao != 'N');
+            }
+            else
+            {
+                listar();
+            }
+
+        } while (existe);
+
+        return identificador;
     }
 
     void limpaBuffer()

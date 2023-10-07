@@ -16,6 +16,7 @@ using namespace std;
 class Utils
 {
 public:
+
     Utils() {}
 
     ~Utils() {}
@@ -108,7 +109,7 @@ public:
         int op = 0;
         Persistencia::recuperarCliente(cliente.clientes);
         Persistencia::recuperarFuncionario(funcionario.funcionarios);
-        // Persistencia::recuperarVeiculo(veiculo.veiculos);
+        Persistencia::recuperarVeiculo(veiculo.veiculos);
 
         do
         {
@@ -198,19 +199,17 @@ public:
                     escolha = menuEscolha();
                     if (escolha == 1)
                     {
-                        veiculo.cadastrar(veiculo);
                         Persistencia::salvarVeiculo(veiculo);
                     }
 
                     if (escolha == 2)
                     {
-                        veiculo.excluir();
-                        Persistencia::salvarVeiculo(veiculo);
+                        Persistencia::excluirVeiculo(veiculo.excluir(veiculo));
                     }
 
                     if (escolha == 3)
                     {
-                        veiculo.editar();
+                        Persistencia::editarVeiculo(veiculo);
                     }
 
                     if (escolha == 4)

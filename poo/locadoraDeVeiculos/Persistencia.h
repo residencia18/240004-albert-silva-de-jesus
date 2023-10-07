@@ -15,9 +15,12 @@ using namespace std;
 class Persistencia
 {
 public:
+
     Persistencia() {}
 
     ~Persistencia() {}
+
+    // Cliente
 
     static void salvarCliente(Cliente &cliente)
     {
@@ -197,6 +200,8 @@ public:
         }
     }
 
+    // Funcionario
+
     static void salvarFuncionario(Funcionario &funcionario)
     {
         funcionario.cadastrar(funcionario);
@@ -365,8 +370,12 @@ public:
         }
     }
 
+    // Veiculo
+
     static void salvarVeiculo(Veiculo &veiculo)
     {
+        veiculo.cadastrar(veiculo);
+
         ofstream arquivo;
         arquivo.open("veiculos.txt", ios::app);
         if (arquivo.is_open())
@@ -374,7 +383,7 @@ public:
             arquivo << veiculo.getIdentificador() << endl;
             arquivo << veiculo.getMarca() << endl;
             arquivo << veiculo.getModelo() << endl;
-            // arquivo << veiculo.getAnoFabricacao() << endl;
+            arquivo << veiculo.getAnoFabricacao() << endl;
             arquivo << veiculo.getValorDiaria() << endl;
         }
         else
@@ -390,27 +399,34 @@ public:
         arquivo.open("veiculos.txt", ios::in);
         if (arquivo.is_open())
         {
-            string identificador, marca, modelo, ano;
-            float valorDiaria;
-            int anoFabricacao = 0;
 
-            while (!arquivo.eof())
+            string identificador, marca, modelo, anoFabricacao, valorDiariaStr;
+
+            while (getline(arquivo, identificador) &&
+                   getline(arquivo, marca) &&
+                   getline(arquivo, modelo) &&
+                   getline(arquivo, anoFabricacao) &&
+                   getline(arquivo, valorDiariaStr))
             {
-                getline(arquivo, identificador);
-                getline(arquivo, marca);
-                getline(arquivo, modelo);
-                // getline(arquivo, ano);
-                arquivo >> valorDiaria;
-
-                if (identificador != "")
+                if (!identificador.empty() && !valorDiariaStr.empty())
                 {
                     Veiculo veiculo;
-                    // anoFabricacao = stoi(ano);
                     veiculo.setIdentificador(identificador);
                     veiculo.setMarca(marca);
                     veiculo.setModelo(modelo);
-                    // veiculo.setAnoFabricacao(anoFabricacao);
-                    veiculo.setValorDiaria(valorDiaria);
+
+                    try
+                    {
+                        float valorDiaria = stof(valorDiariaStr);
+                        veiculo.setAnoFabricacao(stoi(anoFabricacao));
+                        veiculo.setValorDiaria(valorDiaria);
+                    }
+                    catch (const exception &e)
+                    {
+                        cout << "Erro ao converter valor: " << e.what() << endl;
+                        continue; // Pular este registro e continuar com o próximo
+                    }
+
                     veiculos.push_back(veiculo);
                 }
             }
@@ -419,7 +435,142 @@ public:
         {
             cout << "Erro ao abrir o arquivo" << endl;
         }
+
         arquivo.close();
+    }
+
+    static void editarVeiculo(Veiculo &veiculo)
+    {
+        string identificador;
+        auto it = veiculo.veiculos.begin();
+        ifstream arquivoIn("veiculos.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        bool veiculoEncontrado = false;
+        string identificadorLido, marca, modelo, anoFabricacao, valorDiariaStr;
+        identificador = veiculo.verificaVeiculo(identificador);
+
+        while (getline(arquivoIn, identificadorLido) &&
+               getline(arquivoIn, marca) &&
+               getline(arquivoIn, modelo) &&
+               getline(arquivoIn, anoFabricacao) &&
+               getline(arquivoIn, valorDiariaStr) &&
+               it != veiculo.veiculos.end())
+        {
+            if (identificadorLido == identificador)
+            {
+                veiculo.limpaTela();
+                veiculoEncontrado = true;
+                cout << "\n\t==========EDITAR VEICULO==========\n";
+                cout << "\n\tInforme o identificador do Veiculo: ";
+                getline(cin, it->identificador);
+
+                cout << "\n\tInforme a marca: ";
+                getline(cin, it->marca);
+
+                cout << "\n\tInforme o modelo: ";
+                getline(cin, it->modelo);
+
+                cout << "\n\tInforme o ano de fabricação: ";
+                getline(cin, anoFabricacao);
+
+                cout << "\n\tInforme o valor da diária: ";
+                getline(cin, valorDiariaStr);
+
+                arquivoTemp << it->identificador << endl;
+                arquivoTemp << it->marca << endl;
+                arquivoTemp << it->modelo << endl;
+                arquivoTemp << anoFabricacao << endl;
+                arquivoTemp << valorDiariaStr << endl;
+            }
+            else
+            {
+                arquivoTemp << identificadorLido << endl;
+                arquivoTemp << marca << endl;
+                arquivoTemp << modelo << endl;
+                arquivoTemp << anoFabricacao << endl;
+                arquivoTemp << valorDiariaStr << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (veiculoEncontrado)
+        {
+            // Substitui o arquivo original pelo arquivo temporário
+            remove("veiculos.txt");
+            rename("temp.txt", "veiculos.txt");
+            veiculo.limpaTela();
+            cout << "\n\tVeiculo editado com sucesso!..." << endl;
+            veiculo.pause();
+            veiculo.listar();
+        }
+        else
+        {
+            cout << "Ops, Veiculo com identificador " << identificador << " não encontrado." << endl;
+            remove("temp.txt"); // Exclui o arquivo temporário, pois não houve alterações
+        }
+    }
+
+    static void excluirVeiculo(const string &identificador)
+    {
+        Veiculo veiculo;
+        ifstream arquivoIn("veiculos.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        string identificadorLido, marca, modelo, anoFabricacao, valorDiariaStr;
+
+        bool veiculoEncontrado = false;
+
+        while (getline(arquivoIn, identificadorLido) &&
+               getline(arquivoIn, marca) &&
+               getline(arquivoIn, modelo) &&
+               getline(arquivoIn, anoFabricacao) &&
+               getline(arquivoIn, valorDiariaStr))
+        {
+            if (identificadorLido == identificador) // Verifique se o identificador do veiculo coincide com o identificador fornecido
+            {
+                veiculoEncontrado = true;
+            }
+            else
+            {
+                arquivoTemp << identificadorLido << endl;
+                arquivoTemp << marca << endl;
+                arquivoTemp << modelo << endl;
+                arquivoTemp << anoFabricacao << endl;
+                arquivoTemp << valorDiariaStr << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (veiculoEncontrado)
+        {
+            // Substitua o arquivo original pelo arquivo temporário
+            remove("veiculos.txt");
+            rename("temp.txt", "veiculos.txt");
+            cout << "Veiculo excluído com sucesso" << endl;
+        }
+        else
+        {
+            cout << "Veiculo não encontrado" << endl;
+            veiculo.pause();
+            remove("temp.txt"); // Exclua o arquivo temporário, pois não houve alterações
+        }
     }
 
 private:
