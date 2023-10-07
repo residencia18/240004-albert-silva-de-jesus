@@ -122,7 +122,6 @@ public:
                     escolha = menuEscolha();
                     if (escolha == 1)
                     {
-                        // cliente.cadastrar(cliente);
                         Persistencia::salvarCliente(cliente);
                     }
                     if (escolha == 2)
@@ -159,18 +158,17 @@ public:
                     escolha = menuEscolha();
                     if (escolha == 1)
                     {
-                        funcionario.cadastrar(funcionario);
                         Persistencia::salvarFuncionario(funcionario);
                     }
 
                     if (escolha == 2)
                     {
-                        funcionario.excluir();
+                        Persistencia::excluirFuncionario(funcionario.excluir(funcionario));
                     }
 
                     if (escolha == 3)
                     {
-                        funcionario.editar();
+                        Persistencia::editarFuncionario(funcionario);
                     }
 
                     if (escolha == 4)

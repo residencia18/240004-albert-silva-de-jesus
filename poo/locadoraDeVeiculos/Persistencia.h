@@ -22,7 +22,7 @@ public:
     static void salvarCliente(Cliente &cliente)
     {
         cliente.cadastrar(cliente);
-        
+
         ofstream arquivo;
         arquivo.open("clientes.txt", ios::app);
         if (arquivo.is_open())
@@ -96,13 +96,11 @@ public:
         {
             if (cpfLido == cpf)
             {
+                cliente.limpaTela();
                 clienteEncontrado = true;
                 cout << "\n\t==========EDITAR CLIENTE==========\n";
                 cout << "\n\tInforme o nome do Cliente: ";
                 getline(cin, it->nome);
-
-                cout << "\n\tInforme o CPF: ";
-                getline(cin, it->cpf);
 
                 cout << "\n\tInforme o número da habilitação: ";
                 getline(cin, it->habilitacao);
@@ -114,7 +112,7 @@ public:
                 getline(cin, it->telefone);
 
                 arquivoTemp << it->nome << endl;
-                arquivoTemp << it->cpf << endl;
+                arquivoTemp << cpf << endl;
                 arquivoTemp << it->endereco << endl;
                 arquivoTemp << it->telefone << endl;
                 arquivoTemp << it->habilitacao << endl;
@@ -201,6 +199,8 @@ public:
 
     static void salvarFuncionario(Funcionario &funcionario)
     {
+        funcionario.cadastrar(funcionario);
+
         ofstream arquivo;
         arquivo.open("funcionarios.txt", ios::app);
         if (arquivo.is_open())
@@ -246,6 +246,123 @@ public:
             cout << "Erro ao abrir o arquivo" << endl;
         }
         arquivo.close();
+    }
+
+    static void editarFuncionario(Funcionario &funcionario)
+    {
+        string cpf;
+        auto it = funcionario.funcionarios.begin();
+        ifstream arquivoIn("funcionarios.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        bool funcionarioEncontrado = false;
+        string nome, cpfLido, endereco, telefone;
+        cpf = funcionario.verificaFuncionario(cpf);
+
+        while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
+               getline(arquivoIn, endereco) && getline(arquivoIn, telefone) &&
+               it != funcionario.funcionarios.end())
+        {
+            if (cpfLido == cpf)
+            {
+                funcionario.limpaTela();
+                funcionarioEncontrado = true;
+                cout << "\n\t==========EDITAR FUNCIONARIO==========\n";
+                cout << "\n\tInforme o nome do Funcionario: ";
+                getline(cin, it->nome);
+
+                cout << "\n\tInforme o endereço: ";
+                getline(cin, it->endereco);
+
+                cout << "\n\tInforme o telefone: ";
+                getline(cin, it->telefone);
+
+                arquivoTemp << it->nome << endl;
+                arquivoTemp << cpf << endl;
+                arquivoTemp << it->endereco << endl;
+                arquivoTemp << it->telefone << endl;
+            }
+            else
+            {
+                arquivoTemp << nome << endl;
+                arquivoTemp << cpfLido << endl;
+                arquivoTemp << endereco << endl;
+                arquivoTemp << telefone << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (funcionarioEncontrado)
+        {
+            // Substitui o arquivo original pelo arquivo temporário
+            remove("funcionarios.txt");
+            rename("temp.txt", "funcionarios.txt");
+            funcionario.limpaTela();
+            cout << "\n\tFuncionario editado com sucesso!..." << endl;
+            funcionario.pause();
+            funcionario.listar();
+        }
+        else
+        {
+            cout << "Ops, Funcionario com CPF " << cpf << " não encontrado." << endl;
+            remove("temp.txt"); // Exclui o arquivo temporário, pois não houve alterações
+        }
+    }
+
+    static void excluirFuncionario(const string &cpf)
+    {
+        ifstream arquivoIn("funcionarios.txt");
+        ofstream arquivoTemp("temp.txt");
+
+        if (!arquivoIn.is_open() || !arquivoTemp.is_open())
+        {
+            cout << "Erro ao abrir os arquivos" << endl;
+            return;
+        }
+
+        string nome, cpfLido, endereco, telefone;
+
+        bool funcionarioEncontrado = false;
+
+        while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
+               getline(arquivoIn, endereco) && getline(arquivoIn, telefone))
+        {
+            if (cpfLido == cpf) // Verifique se o CPF do funcionario coincide com o CPF fornecido
+            {
+                funcionarioEncontrado = true;
+            }
+            else
+            {
+                arquivoTemp << nome << endl;
+                arquivoTemp << cpfLido << endl;
+                arquivoTemp << endereco << endl;
+                arquivoTemp << telefone << endl;
+            }
+        }
+
+        arquivoIn.close();
+        arquivoTemp.close();
+
+        if (funcionarioEncontrado)
+        {
+            // Substitua o arquivo original pelo arquivo temporário
+            remove("funcionarios.txt");
+            rename("temp.txt", "funcionarios.txt");
+            cout << "Funcionario excluído com sucesso" << endl;
+        }
+        else
+        {
+            cout << "Funcionario não encontrado" << endl;
+            remove("temp.txt"); // Exclua o arquivo temporário, pois não houve alterações
+        }
     }
 
     static void salvarVeiculo(Veiculo &veiculo)

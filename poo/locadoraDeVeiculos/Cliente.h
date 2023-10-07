@@ -158,6 +158,7 @@ public:
         do
         {
             limpaTela();
+            cout << "\n\t==========EXCLUIR CLIENTE==========\n";
             cout << "\n\tInforme o cpf do cliente, para exclusão: ";
             getline(cin, cpf);
 

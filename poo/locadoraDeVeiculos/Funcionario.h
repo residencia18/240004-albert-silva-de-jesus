@@ -119,7 +119,7 @@ public:
         } while (!encontrou);
     }
 
-    void excluir()
+    string excluir(Funcionario &funcionario)
     {
         string cpf;
         bool encontrou = false;
@@ -131,12 +131,13 @@ public:
             cout << "\n\tInforme o CPF do Funcionario: ";
             getline(cin, cpf);
 
-            for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
+            for (auto it = funcionario.funcionarios.begin(); it != funcionario.funcionarios.end(); it++)
             {
                 if (cpf == it->getCPF())
                 {
                     cout << "\n\tFuncionario: " << it->getNome() << " excluido com sucesso!..." << endl;
-                    it = funcionarios.erase(it);
+                    pause();
+                    funcionario.funcionarios.erase(it);
                     encontrou = true;
                     break;
                 }
@@ -144,6 +145,7 @@ public:
             if (encontrou)
             {
                 listar();
+                return cpf;
             }
             else
             {
@@ -152,6 +154,7 @@ public:
             }
 
         } while (encontrou);
+        return cpf;
     }
 
     void localizar()
@@ -189,6 +192,51 @@ public:
             }
 
         } while (!encontrou);
+    }
+
+    string verificaFuncionario(string cpf)
+    {
+        bool existe = false;
+        char opcao;
+        Funcionario funcionario;
+
+        do
+        {
+            limpaTela();
+            cout << "\n\t==========VERIFICAR FUNCIONARIO==========\n";
+            cout << "\n\tInforme o CPF do Funcionario: ";
+            getline(cin, cpf);
+
+            for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
+            {
+                if (cpf == it->getCPF())
+                {
+                    return cpf;
+                }
+            }
+            if (!existe)
+            {
+                cout << "\n\tFuncionario não encontrado!..." << endl;
+                cout << "\n\tDeseja cadastrar? (s/n): ";
+                cin >> opcao;
+                cin.get();
+
+                if (opcao == 's' || opcao == 'S')
+                {
+                    cadastrar(funcionario);
+                }
+                else
+                {
+                    if (opcao == 'n' || opcao == 'N')
+                    {
+                        return cpf;
+                    }
+                }
+            }
+
+        } while (!existe || opcao != 'n' || opcao != 'N');
+
+        return cpf;
     }
 
     void limpaBuffer()
