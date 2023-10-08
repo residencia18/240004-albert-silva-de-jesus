@@ -89,18 +89,23 @@ public:
         cout << "\n\t==========CADASTRO DE VEICULO==========\n";
         cout << "\n\tInforme o identificador do veiculo: ";
         getline(cin, identificador);
+        veiculo.setIdentificador(identificador);
 
         cout << "\n\tInforme o modelo do veiculo: ";
         getline(cin, modelo);
+        veiculo.setModelo(modelo);
 
         cout << "\n\tInforme a marca do veiculo: ";
         getline(cin, marca);
+        veiculo.setMarca(marca);
 
         cout << "\n\tInforme o ano de fabricação do veiculo: ";
         cin >> anoFabricacao;
+        veiculo.setAnoFabricacao(anoFabricacao);
 
         cout << "\n\tInforme o valor da diaria do veiculo: ";
         cin >> valorDiaria;
+        veiculo.setValorDiaria(valorDiaria);
 
         setVeiculo(veiculo);
 
