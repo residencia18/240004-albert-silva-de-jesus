@@ -9,13 +9,14 @@ using namespace std;
 
 class Veiculo
 {
-public:
+private:
     string identificador;
     string modelo;
     string marca;
     int anoFabricacao;
-    // string anoFabricacao;
     float valorDiaria;
+
+public:
     vector<Veiculo> veiculos;
 
     Veiculo() {}
@@ -82,7 +83,7 @@ public:
         return this->veiculos;
     }
 
-    void cadastrar(Veiculo &veiculo)
+    Veiculo cadastrar(Veiculo &veiculo)
     {
         limpaTela();
         cout << "\n\t==========CADASTRO DE VEICULO==========\n";
@@ -102,6 +103,8 @@ public:
         cin >> valorDiaria;
 
         setVeiculo(veiculo);
+
+        return veiculo;
     }
 
     void listar()
@@ -307,6 +310,18 @@ public:
         } while (existe);
 
         return identificador;
+    }
+
+    vector<Veiculo>::iterator localizarVeiculo(string identificador)
+    {
+        for (auto it = veiculos.begin(); it != veiculos.end(); it++)
+        {
+            if (it->identificador == identificador)
+            {
+                return it;
+            }
+        }
+        return veiculos.end();
     }
 
     void limpaBuffer()

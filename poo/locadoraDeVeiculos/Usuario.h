@@ -7,19 +7,28 @@ using namespace std;
 
 class Usuario
 {
-public:
+private:
     string nome;
     string cpf;
     string endereco;
     string telefone;
 
-    Usuario(){}
+public:
+    Usuario() {}
 
-    ~Usuario(){}
+    ~Usuario() {}
+
+    Usuario(string nome, string cpf, string endereco, string telefone)
+    {
+        this->nome = nome;
+        this->cpf = cpf;
+        this->endereco = endereco;
+        this->telefone = telefone;
+    }
 
     void setCPF(string cpf)
     {
-         this->cpf = cpf;
+        this->cpf = cpf;
     }
 
     string getCPF()
@@ -64,8 +73,6 @@ public:
         cout << "Endereco: " << this->endereco << endl;
         cout << "Telefone: " << this->telefone << endl;
     }
-
-private:
 };
 
 #endif

@@ -247,8 +247,7 @@ public:
         } while (op != 0);
     }
 
-    tm *
-    getTempo()
+    tm *getTempo()
     {
         time_t t;
         time(&t);

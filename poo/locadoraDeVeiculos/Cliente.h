@@ -12,14 +12,22 @@ using namespace std;
 
 class Cliente : public Usuario
 {
-public:
+private:
     string habilitacao;
+
+public:
     // vector<Aluguel> listHistoricoAlugueis;
     vector<Cliente> clientes;
 
     Cliente() {}
 
     ~Cliente() {}
+
+    Cliente(string nome, string cpf, string endereco, string telefone, string habilitacao)
+    {
+        Usuario(nome, cpf, endereco, telefone);
+        this->habilitacao = habilitacao;
+    }
 
     void setHabilitacao(string habilitacao)
     {
@@ -53,22 +61,37 @@ public:
 
     Cliente cadastrar(Cliente &cliente)
     {
-        limpaTela();
+        string nome;
+        string cpf;
+        string endereco;
+        string telefone;
+        string habilitacao;
+
+        cliente.limpaTela();
         cout << "\n\t==========CADASTRO DE CLIENTE==========\n";
         cout << "\n\tInforme o nome do Cliente: ";
         getline(cin, nome);
+        cliente.setNome(nome);
 
         cout << "\n\tInforme o CPF: ";
         getline(cin, cpf);
+        cliente.setCPF(cpf);
 
         cout << "\n\tInforme o número da habilitação: ";
-        getline(cin, this->habilitacao);
+        getline(cin, habilitacao);
+        cliente.setHabilitacao(habilitacao);
 
         cout << "\n\tInforme o endereço: ";
         getline(cin, endereco);
+        cliente.setEndereco(endereco);
 
         cout << "\n\tInforme o telefone: ";
         getline(cin, telefone);
+        cliente.setTelefone(telefone);
+
+        // cliente.setCliente(cliente);
+
+        // cliente(nome, cpf, endereco, telefone, habilitacao);
 
         setCliente(cliente);
 
@@ -94,7 +117,10 @@ public:
 
     const string editar(Cliente &cliente)
     {
+        string nome;
         string cpf;
+        string endereco;
+        string telefone;
         bool encontrou = false;
 
         do
@@ -105,25 +131,28 @@ public:
 
             for (auto it = cliente.clientes.begin(); it != cliente.clientes.end(); it++)
             {
-                if (it->cpf == cpf)
+                if (it->localizarCpf(cpf) == cpf)
                 {
                     cout << "\n\t==========EDITAR CLIENTE==========\n";
                     cout << "\n\tInforme o nome do Cliente: ";
-                    getline(cin, it->nome);
+                    getline(cin, nome);
+                    it->setNome(nome);
 
                     cout << "\n\tInforme o CPF: ";
-                    getline(cin, it->cpf);
+                    getline(cin, cpf);
+                    it->setCPF(cpf);
 
                     cout << "\n\tInforme o número da habilitação: ";
                     getline(cin, it->habilitacao);
 
                     cout << "\n\tInforme o endereço: ";
-                    getline(cin, it->endereco);
+                    getline(cin, endereco);
+                    it->setEndereco(endereco);
 
                     cout << "\n\tInforme o telefone: ";
-                    getline(cin, it->telefone);
+                    getline(cin, telefone);
+                    it->setTelefone(telefone);
 
-                    cliente.clientes.push_back(cliente);
                     encontrou = true;
                     break;
                 }
@@ -151,7 +180,10 @@ public:
 
     string excluir(Cliente &cliente)
     {
+        string nome;
         string cpf;
+        string endereco;
+        string telefone;
         bool encontrou = true;
 
         do
@@ -163,9 +195,9 @@ public:
 
             for (auto it = cliente.clientes.begin(); it != cliente.clientes.end(); it++)
             {
-                if (it->cpf == cpf)
+                if (it->getCPF() == cpf)
                 {
-                    cout << "\n\tCliente: " << it->nome << " excluido com sucesso!..." << endl;
+                    cout << "\n\tCliente: " << it->getNome() << " excluido com sucesso!..." << endl;
                     pause();
                     cliente.clientes.erase(it);
                     encontrou = false;
@@ -205,7 +237,7 @@ public:
 
             for (auto it = clientes.begin(); it != clientes.end(); it++)
             {
-                if (it->cpf == cpf)
+                if (it->getCPF() == cpf)
                 {
                     return cpf;
                 }
@@ -246,6 +278,31 @@ public:
         return cpf;
     }
 
+    string localizarCpf(string cpf)
+    {
+        for (auto it = clientes.begin(); it != clientes.end(); it++)
+        {
+            if (it->getCPF() == cpf)
+            {
+                return cpf;
+            }
+        }
+        return cpf;
+    }
+
+    vector<Cliente>::iterator localizarCliente(string cpf)
+    {
+        for (auto it = clientes.begin(); it != clientes.end(); it++)
+        {
+            if (it->getCPF() == cpf)
+            {
+                return it;
+            }
+        }
+        // retorna um iterador inválido (clientes.end())
+        return clientes.end();
+    }
+
     void localizar()
     {
         string cpf;
@@ -260,7 +317,7 @@ public:
 
             for (auto it = clientes.begin(); it != clientes.end(); it++)
             {
-                if (it->cpf == cpf)
+                if (it->getCPF() == cpf)
                 {
                     limpaTela();
                     cout << "\n\t==========CLIENTE ENCONTRADO==========\n";

@@ -10,10 +10,13 @@ using namespace std;
 
 class Funcionario : public Usuario
 {
-public:
-    vector<Aluguel> listHistoricoAlugueis;
+private:
+    // vector<Funcionario> funcionarios;
 
+public:
     vector<Funcionario> funcionarios;
+
+    vector<Aluguel> listHistoricoAlugueis;
 
     Funcionario() {}
 
@@ -34,28 +37,39 @@ public:
         this->funcionarios.push_back(funcionario);
     }
 
-    vector<Funcionario> getFuncionario()
+    vector<Funcionario> getFuncionarios()
     {
         return this->funcionarios;
     }
 
-    void cadastrar(Funcionario &funcionario)
+    Funcionario cadastrar(Funcionario &funcionario)
     {
+        string nome;
+        string cpf;
+        string endereco;
+        string telefone;
+
         limpaTela();
         cout << "\n\t==========CADASTRO DE FUNCIONARIO==========\n";
         cout << "\n\tInforme o nome do Funcionario: ";
         getline(cin, nome);
+        funcionario.setNome(nome);
 
         cout << "\n\tInforme o cpf do Funcionario: ";
         getline(cin, cpf);
+        funcionario.setCPF(cpf);
 
         cout << "\n\tInforme o Longradouro do Funcionario: ";
         getline(cin, endereco);
+        funcionario.setEndereco(endereco);
 
         cout << "\n\tInforme o telefone do Funcionario: ";
         getline(cin, telefone);
+        funcionario.setTelefone(telefone);
 
         setFuncionario(funcionario);
+
+        return funcionario;
     }
 
     void listar()
@@ -77,7 +91,10 @@ public:
 
     void editar()
     {
+        string nome;
         string cpf;
+        string endereco;
+        string telefone;
         bool encontrou = true;
 
         do
@@ -89,19 +106,23 @@ public:
 
             for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
             {
-                if (cpf == it->getCPF())
+                if (it->getCPF() == cpf)
                 {
                     cout << "\n\tInforme o nome do Funcionario: ";
                     getline(cin, nome);
+                    setNome(nome);
 
                     cout << "\n\tInforme o cpf do Funcionario: ";
                     getline(cin, cpf);
+                    setCPF(cpf);
 
                     cout << "\n\tInforme o Longradouro do Funcionario: ";
                     getline(cin, endereco);
+                    setEndereco(endereco);
 
                     cout << "\n\tInforme o telefone do Funcionario: ";
                     getline(cin, telefone);
+                    setTelefone(telefone);
 
                     encontrou = true;
                     break;
@@ -209,7 +230,7 @@ public:
 
             for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
             {
-                if (cpf == it->getCPF())
+                if (it->getCPF() == cpf)
                 {
                     return cpf;
                 }
@@ -237,6 +258,19 @@ public:
         } while (!existe || opcao != 'n' || opcao != 'N');
 
         return cpf;
+    }
+
+    vector<Funcionario>::iterator localizarFuncionario(string cpf)
+    {
+        for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
+        {
+            if (it->getCPF() == cpf)
+            {
+                return it;
+            }
+        }
+        // retorna um iterador inválido (funcionarios.end())
+        return funcionarios.end();
     }
 
     void limpaBuffer()

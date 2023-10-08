@@ -15,7 +15,6 @@ using namespace std;
 class Persistencia
 {
 public:
-
     Persistencia() {}
 
     ~Persistencia() {}
@@ -79,7 +78,6 @@ public:
     static void editarCliente(Cliente &cliente)
     {
         string cpf;
-        auto it = cliente.clientes.begin();
         ifstream arquivoIn("clientes.txt");
         ofstream arquivoTemp("temp.txt");
 
@@ -95,7 +93,7 @@ public:
 
         while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
                getline(arquivoIn, endereco) && getline(arquivoIn, telefone) &&
-               getline(arquivoIn, habilitacao) && it != cliente.clientes.end())
+               getline(arquivoIn, habilitacao))
         {
             if (cpfLido == cpf)
             {
@@ -103,22 +101,26 @@ public:
                 clienteEncontrado = true;
                 cout << "\n\t==========EDITAR CLIENTE==========\n";
                 cout << "\n\tInforme o nome do Cliente: ";
-                getline(cin, it->nome);
+                getline(cin, nome);
+                cliente.localizarCliente(cpf)->setNome(nome);
 
                 cout << "\n\tInforme o número da habilitação: ";
-                getline(cin, it->habilitacao);
+                getline(cin, habilitacao);
+                cliente.localizarCliente(cpf)->setHabilitacao(habilitacao);
 
                 cout << "\n\tInforme o endereço: ";
-                getline(cin, it->endereco);
+                getline(cin, endereco);
+                cliente.localizarCliente(cpf)->setEndereco(endereco);
 
                 cout << "\n\tInforme o telefone: ";
-                getline(cin, it->telefone);
+                getline(cin, telefone);
+                cliente.localizarCliente(cpf)->setTelefone(telefone);
 
-                arquivoTemp << it->nome << endl;
+                arquivoTemp << cliente.localizarCliente(cpf)->getNome() << endl;
                 arquivoTemp << cpf << endl;
-                arquivoTemp << it->endereco << endl;
-                arquivoTemp << it->telefone << endl;
-                arquivoTemp << it->habilitacao << endl;
+                arquivoTemp << cliente.localizarCliente(cpf)->getEndereco() << endl;
+                arquivoTemp << cliente.localizarCliente(cpf)->getTelefone() << endl;
+                arquivoTemp << cliente.localizarCliente(cpf)->getHabilitacao() << endl;
             }
             else
             {
@@ -192,6 +194,7 @@ public:
             remove("clientes.txt");
             rename("temp.txt", "clientes.txt");
             cout << "Cliente excluído com sucesso" << endl;
+            // cliente.listar();
         }
         else
         {
@@ -256,7 +259,6 @@ public:
     static void editarFuncionario(Funcionario &funcionario)
     {
         string cpf;
-        auto it = funcionario.funcionarios.begin();
         ifstream arquivoIn("funcionarios.txt");
         ofstream arquivoTemp("temp.txt");
 
@@ -271,8 +273,7 @@ public:
         cpf = funcionario.verificaFuncionario(cpf);
 
         while (getline(arquivoIn, nome) && getline(arquivoIn, cpfLido) &&
-               getline(arquivoIn, endereco) && getline(arquivoIn, telefone) &&
-               it != funcionario.funcionarios.end())
+               getline(arquivoIn, endereco) && getline(arquivoIn, telefone))
         {
             if (cpfLido == cpf)
             {
@@ -280,18 +281,21 @@ public:
                 funcionarioEncontrado = true;
                 cout << "\n\t==========EDITAR FUNCIONARIO==========\n";
                 cout << "\n\tInforme o nome do Funcionario: ";
-                getline(cin, it->nome);
+                getline(cin, nome);
+                funcionario.localizarFuncionario(cpf)->setNome(nome);
 
                 cout << "\n\tInforme o endereço: ";
-                getline(cin, it->endereco);
+                getline(cin, endereco);
+                funcionario.localizarFuncionario(cpf)->setEndereco(endereco);
 
                 cout << "\n\tInforme o telefone: ";
-                getline(cin, it->telefone);
+                getline(cin, telefone);
+                funcionario.localizarFuncionario(cpf)->setTelefone(telefone);
 
-                arquivoTemp << it->nome << endl;
+                arquivoTemp << funcionario.localizarFuncionario(cpf)->getNome() << endl;
                 arquivoTemp << cpf << endl;
-                arquivoTemp << it->endereco << endl;
-                arquivoTemp << it->telefone << endl;
+                arquivoTemp << funcionario.localizarFuncionario(cpf)->getEndereco() << endl;
+                arquivoTemp << funcionario.localizarFuncionario(cpf)->getTelefone() << endl;
             }
             else
             {
@@ -442,7 +446,6 @@ public:
     static void editarVeiculo(Veiculo &veiculo)
     {
         string identificador;
-        auto it = veiculo.veiculos.begin();
         ifstream arquivoIn("veiculos.txt");
         ofstream arquivoTemp("temp.txt");
 
@@ -460,8 +463,7 @@ public:
                getline(arquivoIn, marca) &&
                getline(arquivoIn, modelo) &&
                getline(arquivoIn, anoFabricacao) &&
-               getline(arquivoIn, valorDiariaStr) &&
-               it != veiculo.veiculos.end())
+               getline(arquivoIn, valorDiariaStr))
         {
             if (identificadorLido == identificador)
             {
@@ -469,25 +471,30 @@ public:
                 veiculoEncontrado = true;
                 cout << "\n\t==========EDITAR VEICULO==========\n";
                 cout << "\n\tInforme o identificador do Veiculo: ";
-                getline(cin, it->identificador);
+                getline(cin, identificador);
+                veiculo.localizarVeiculo(identificador)->setIdentificador(identificador);
 
                 cout << "\n\tInforme a marca: ";
-                getline(cin, it->marca);
+                getline(cin, marca);
+                veiculo.localizarVeiculo(identificador)->setMarca(marca);
 
                 cout << "\n\tInforme o modelo: ";
-                getline(cin, it->modelo);
+                getline(cin, modelo);
+                veiculo.localizarVeiculo(identificador)->setModelo(modelo);
 
                 cout << "\n\tInforme o ano de fabricação: ";
                 getline(cin, anoFabricacao);
+                veiculo.localizarVeiculo(identificador)->setAnoFabricacao(stoi(anoFabricacao));
 
                 cout << "\n\tInforme o valor da diária: ";
                 getline(cin, valorDiariaStr);
+                veiculo.localizarVeiculo(identificador)->setValorDiaria(stof(valorDiariaStr));
 
-                arquivoTemp << it->identificador << endl;
-                arquivoTemp << it->marca << endl;
-                arquivoTemp << it->modelo << endl;
-                arquivoTemp << anoFabricacao << endl;
-                arquivoTemp << valorDiariaStr << endl;
+                arquivoTemp << veiculo.localizarVeiculo(identificador)->getIdentificador() << endl;
+                arquivoTemp << veiculo.localizarVeiculo(identificador)->getMarca() << endl;
+                arquivoTemp << veiculo.localizarVeiculo(identificador)->getModelo() << endl;
+                arquivoTemp << veiculo.localizarVeiculo(identificador)->getAnoFabricacao() << endl;
+                arquivoTemp << veiculo.localizarVeiculo(identificador)->getValorDiaria() << endl;
             }
             else
             {
