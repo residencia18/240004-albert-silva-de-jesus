@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Utils.h"
+#include "ControlerLocadora.h"
 #include "Aluguel.h"
 #include "Cliente.h"
 #include "Funcionario.h"
@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    Utils gestao;
+    ControlerLocadora gestao;
     Funcionario funcionario;
     Cliente cliente;
     Veiculo veiculo;

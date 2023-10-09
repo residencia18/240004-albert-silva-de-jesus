@@ -5,7 +5,6 @@
 #include "Usuario.h"
 #include "Aluguel.h"
 #include "Veiculo.h"
-#include "Utils.h"
 
 using namespace std;
 

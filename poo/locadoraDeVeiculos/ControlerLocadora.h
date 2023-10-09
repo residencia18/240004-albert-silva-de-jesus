@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef CONTROLERLOCADORA_H
+#define CONTROLERLOCADORA_H
 #include <iostream>
 #include "Funcionario.h"
 #include "Cliente.h"
@@ -14,13 +14,13 @@ using namespace std;
 
 #pragma once
 
-class Utils
+class ControlerLocadora
 {
 public:
 
-    Utils() {}
+    ControlerLocadora() {}
 
-    ~Utils() {}
+    ~ControlerLocadora() {}
 
     void limpaBuffer()
     {
