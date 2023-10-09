@@ -42,7 +42,7 @@ public:
         arquivo.close();
     }
 
-    static void recuperarCliente(vector<Cliente> &clientes)
+    static void recuperarCliente(Cliente &clientes)
     {
         ifstream arquivo;
         arquivo.open("clientes.txt", ios::in);
@@ -64,7 +64,7 @@ public:
                     cliente.setEndereco(endereco);
                     cliente.setTelefone(telefone);
                     cliente.setHabilitacao(habilitacao);
-                    clientes.push_back(cliente);
+                    clientes.setCliente(cliente);
                 }
             }
         }
@@ -225,7 +225,7 @@ public:
         arquivo.close();
     }
 
-    static void recuperarFuncionario(vector<Funcionario> &funcionarios)
+    static void recuperarFuncionario(Funcionario &funcionarios)
     {
         ifstream arquivo;
         arquivo.open("funcionarios.txt", ios::in);
@@ -245,7 +245,7 @@ public:
                     funcionario.setCPF(cpf);
                     funcionario.setEndereco(endereco);
                     funcionario.setTelefone(telefone);
-                    funcionarios.push_back(funcionario);
+                    funcionarios.setFuncionario(funcionario);
                 }
             }
         }
@@ -397,7 +397,7 @@ public:
         arquivo.close();
     }
 
-    static void recuperarVeiculo(vector<Veiculo> &veiculos)
+    static void recuperarVeiculo(Veiculo &veiculos)
     {
         ifstream arquivo;
         arquivo.open("veiculos.txt", ios::in);
@@ -431,7 +431,7 @@ public:
                         continue; // Pular este registro e continuar com o próximo
                     }
 
-                    veiculos.push_back(veiculo);
+                    veiculos.setVeiculo(veiculo);
                 }
             }
         }
@@ -578,6 +578,70 @@ public:
             veiculo.pause();
             remove("temp.txt"); // Exclua o arquivo temporário, pois não houve alterações
         }
+    }
+
+    // Aluguel
+
+    static void salvarAluguel(Aluguel &aluguel)
+    {
+        aluguel.cadastrar(aluguel);
+
+        ofstream arquivo;
+        arquivo.open("alugueis.txt", ios::app);
+        if (arquivo.is_open())
+        {
+            arquivo << aluguel.getCliente().getNome() << endl;
+            arquivo << aluguel.getCliente().getCPF() << endl;
+            arquivo << aluguel.getVeiculo().getIdentificador() << endl;
+            // arquivo << aluguel.getFuncionario().getNome() << endl;
+            // arquivo << aluguel.getFuncionario().getCPF() << endl;
+            // arquivo << aluguel.getDataInicio() << endl;
+            // arquivo << aluguel.getDataFim() << endl;
+            // arquivo << aluguel.getValorTotal() << endl;
+        }
+        else
+        {
+            cout << "Erro ao abrir o arquivo" << endl;
+        }
+        arquivo.close();
+    }
+
+    static void recuperarAluguel(Aluguel &alugueis)
+    {
+        ifstream arquivo;
+        arquivo.open("alugueis.txt", ios::in);
+        if (arquivo.is_open())
+        {
+            string nomeCliente, cpfCliente, identificadorVeiculo, nomeFuncionario, cpfFuncionario, dataInicio, dataFim, valorTotalStr;
+
+            while (getline(arquivo, nomeCliente) &&
+                   getline(arquivo, cpfCliente) &&
+                   getline(arquivo, identificadorVeiculo) &&
+                   getline(arquivo, nomeFuncionario) &&
+                   getline(arquivo, cpfFuncionario) &&
+                   getline(arquivo, dataInicio) &&
+                   getline(arquivo, dataFim) &&
+                   getline(arquivo, valorTotalStr))
+            {
+                if (!nomeCliente.empty() && !cpfCliente.empty() && !identificadorVeiculo.empty() && !nomeFuncionario.empty() && !cpfFuncionario.empty() && !dataInicio.empty() && !dataFim.empty() && !valorTotalStr.empty())
+                {
+                    Aluguel aluguel;
+                    // aluguel.setCliente(nomeCliente, cpfCliente);
+                    // aluguel.setVeiculo(identificadorVeiculo);
+                    // aluguel.setFuncionario(nomeFuncionario, cpfFuncionario);
+                    // aluguel.setDataInicio(dataInicio);
+                    // aluguel.setDataFim(dataFim);
+                    // aluguel.setValorTotal(stof(valorTotalStr));
+                    alugueis.setAluguel(aluguel);
+                }
+            }
+        }
+        else
+        {
+            cout << "Erro ao abrir o arquivo" << endl;
+        }
+
+        arquivo.close();
     }
 
 private:

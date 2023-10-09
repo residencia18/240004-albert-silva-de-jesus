@@ -1,10 +1,11 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 #include <iostream>
+#include <vector>
 #include "Usuario.h"
 #include "Aluguel.h"
+#include "Veiculo.h"
 #include "Utils.h"
-#include <vector>
 
 using namespace std;
 
@@ -12,21 +13,30 @@ using namespace std;
 
 class Cliente : public Usuario
 {
+    
 private:
     string habilitacao;
 
-public:
-    // vector<Aluguel> listHistoricoAlugueis;
     vector<Cliente> clientes;
+
+    // Aluguel aluguel;
+
+    // vector<Aluguel> listHistoricoAlugueis;
+
+public:
 
     Cliente() {}
 
     ~Cliente() {}
 
-    Cliente(string nome, string cpf, string endereco, string telefone, string habilitacao)
+    Cliente(string nome, string cpf, string endereco, string telefone, string habilitacao) : Usuario(nome, cpf, endereco, telefone)
     {
-        Usuario(nome, cpf, endereco, telefone);
         this->habilitacao = habilitacao;
+        this->setNome(nome);
+        this->setCPF(cpf);
+        this->setEndereco(endereco);
+        this->setTelefone(telefone);
+        // this->aluguel = aluguel;
     }
 
     void setHabilitacao(string habilitacao)
@@ -57,6 +67,11 @@ public:
     vector<Cliente> getCliente()
     {
         return this->clientes;
+    }
+
+    vector<Cliente> clientesCadastrados(Cliente &cliente)
+    {
+        return cliente.clientes;
     }
 
     Cliente cadastrar(Cliente &cliente)
@@ -143,7 +158,8 @@ public:
                     it->setCPF(cpf);
 
                     cout << "\n\tInforme o número da habilitação: ";
-                    getline(cin, it->habilitacao);
+                    getline(cin, habilitacao);
+                    it->setHabilitacao(habilitacao);
 
                     cout << "\n\tInforme o endereço: ";
                     getline(cin, endereco);
@@ -290,6 +306,166 @@ public:
         return cpf;
     }
 
+    float cotarAluguel(Veiculo veiculo, string dataInicio, string dataFim)
+    {
+        float valor = 0;
+        int dias = 0;
+        float valorTotal = 0;
+
+        // dias = Utils::calcularDias(dataInicio, dataFim);
+
+        valor = veiculo.getValorDiaria();
+
+        valorTotal = dias * valor;
+
+        return valorTotal;  
+
+    }
+    
+    // Aluguel solicitarAluguel(Veiculo veiculo, string dataIncio, string dataFim)
+    // {
+        // Aluguel aluguel;
+        // string cpf;
+        // string nome;
+        // string endereco;
+        // string telefone;
+        // string habilitacao;
+        // string placa;
+        // string modelo;
+        // string cor;
+        // string ano;
+        // string valorDiaria;
+        // string valorTotal;
+        // string dataInicio;
+        // string dataTermino;
+
+        // limpaTela();
+        // cout << "\n\t==========SOLICITAR ALUGUEL==========\n";
+        // cout << "\n\tInforme o nome do Cliente: ";
+        // getline(cin, nome);
+        // aluguel.setNome(nome);
+
+        // cout << "\n\tInforme o CPF: ";
+        // getline(cin, cpf);
+        // aluguel.setCPF(cpf);
+
+        // cout << "\n\tInforme o número da habilitação: ";
+        // getline(cin, habilitacao);
+        // aluguel.setHabilitacao(habilitacao);
+
+        // cout << "\n\tInforme o endereço: ";
+        // getline(cin, endereco);
+        // aluguel.setEndereco(endereco);
+
+        // cout << "\n\tInforme o telefone: ";
+        // getline(cin, telefone);
+        // aluguel.setTelefone(telefone);
+
+        // cout << "\n\tInforme a placa do veículo: ";
+        // getline(cin, placa);
+        // aluguel.setPlaca(placa);
+
+        // cout << "\n\tInforme o modelo do veículo: ";
+        // getline(cin, modelo);
+        // aluguel.setModelo(modelo);
+
+        // cout << "\n\tInforme a cor do veículo: ";
+        // getline(cin, cor);
+        // aluguel.setCor(cor);
+
+        // cout << "\n\tInforme o ano do veículo: ";
+        // getline(cin, ano);
+        // aluguel.setAno(ano);
+
+        // cout << "\n\tInforme o valor da diária: ";
+        // getline(cin, valorDiaria);
+        // aluguel.setValorDiaria(valorDiaria);
+
+        // cout << "\n\tInforme o valor total: ";
+        // getline(cin, valorTotal);
+        // aluguel.setValorTotal(valorTotal);
+
+        // cout << "\n\tInforme a data de inicio: ";
+        // getline(cin, dataInicio);
+        // aluguel.setDataInicio(dataInicio);
+
+        // cout << "\n\tInforme a data de fim: ";
+        // getline(cin, dataFim);
+        // aluguel.setDataFim(dataFim);
+
+        // return aluguel;
+    // }
+
+    // void devolverVeiculo(Aluguel aluguel, string dataDevolucao)
+    // {
+    //     string cpf;
+    //     string nome;
+    //     string endereco;
+    //     string telefone;
+    //     string habilitacao;
+    //     string placa;
+    //     string modelo;
+    //     string cor;
+    //     string ano;
+    //     string valorDiaria;
+    //     string valorTotal;
+    //     string dataInicio;
+    //     string dataFim;
+
+        // limpaTela();
+        // cout << "\n\t==========DEVOLVER VEÍCULO==========\n";
+        // cout << "\n\tInforme o nome do Cliente: ";
+        // getline(cin, nome);
+        // aluguel.setNome(nome);
+
+        // cout << "\n\tInforme o CPF: ";
+        // getline(cin, cpf);
+        // aluguel.setCPF(cpf);
+
+        // cout << "\n\tInforme o número da habilitação: ";
+        // getline(cin, habilitacao);
+        // aluguel.setHabilitacao(habilitacao);
+
+        // cout << "\n\tInforme o endereço: ";
+        // getline(cin, endereco);
+        // aluguel.setEndereco(endereco);
+
+        // cout << "\n\tInforme o telefone: ";
+        // getline(cin, telefone);
+        // aluguel.setTelefone(telefone);
+
+        // cout << "\n\tInforme a placa do veículo: ";
+        // getline(cin, placa);
+        // aluguel.setPlaca(placa);
+
+        // cout << "\n\tInforme o modelo do veículo: ";
+        // getline(cin, modelo);
+        // aluguel.setModelo(modelo);
+
+        // cout << "\n\tInforme a cor do veículo: ";
+        // getline(cin, cor);
+        // aluguel.setCor(cor);
+
+        // cout << "\n\tInforme o ano do veículo: ";
+        // getline(cin, ano);
+        // aluguel.setAno(ano);
+
+        // cout << "\n\tInforme o valor da diária: ";
+        // getline(cin, valorDiaria);
+        // aluguel.setValorDiaria(valorDiaria);
+
+        // cout << "\n\tInforme o valor total: ";
+        // getline(cin, valorTotal);
+        // aluguel.setValorTotal(valorTotal);
+
+        // cout << "\n\tInforme a data de inicio: ";
+        // getline(cin, dataInicio);
+        // aluguel.setDataInicio(dataInicio);
+
+        // cout << "\n\tInforme a data de fim: ";
+        // getline(cin, dataFim);
+    // }
+
     vector<Cliente>::iterator localizarCliente(string cpf)
     {
         for (auto it = clientes.begin(); it != clientes.end(); it++)
@@ -363,8 +539,6 @@ public:
         cin.get();
         limpaTela();
     }
-
-private:
 };
 
 #endif

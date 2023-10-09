@@ -3,7 +3,10 @@
 #include <iostream>
 #include "Usuario.h"
 #include "Aluguel.h"
+#include "Cliente.h"
+#include "Veiculo.h"
 #include <vector>
+
 using namespace std;
 
 #pragma once
@@ -11,16 +14,15 @@ using namespace std;
 class Funcionario : public Usuario
 {
 private:
-    // vector<Funcionario> funcionarios;
-
-public:
     vector<Funcionario> funcionarios;
 
-    vector<Aluguel> listHistoricoAlugueis;
+     vector<Aluguel> listHistoricoAlugueis;
 
-    Funcionario() {}
+public:
 
-    ~Funcionario() {}
+    Funcionario(){}
+
+    ~Funcionario(){}
 
     void setAluguel(Aluguel aluguel)
     {
@@ -213,6 +215,50 @@ public:
             }
 
         } while (!encontrou);
+    }
+
+    Aluguel alugarVeiculo(Cliente &cliente, Veiculo &veiculo, string &dataInicio, string &dataTermino)
+    {
+        Aluguel aluguel;
+        aluguel.setCliente(cliente);
+        aluguel.setVeiculo(veiculo);
+        aluguel.setDataInicio(dataInicio);
+        aluguel.setDataTermino(dataTermino);
+        listHistoricoAlugueis.push_back(aluguel);
+
+        return aluguel;
+    }
+
+    void finalizarAluguel(Aluguel aluguel, string dataDevolucao)
+    {
+        aluguel.setDataDevolucao(dataDevolucao);
+        Veiculo veiculo;
+        Cliente cliente;
+
+        for (auto it = funcionarios.begin(); it != funcionarios.end(); it++)
+        {
+            if (it->getCPF() == aluguel.getCliente().getCPF())
+            {
+                it->setAluguel(aluguel);
+            }
+        }
+
+        for (auto it = veiculo.veiculos.begin(); it != veiculo.veiculos.end(); it++)
+        {
+           if(it->getIdentificador() == aluguel.getVeiculo().getIdentificador())
+            {
+                it->setVeiculo(veiculo);
+            }
+        }
+
+        for (auto it = cliente.clientesCadastrados(cliente).begin(); it != cliente.clientesCadastrados(cliente).end(); it++)
+        {
+            if (it->getCPF() == aluguel.getCliente().getCPF())
+            {
+                it->setCliente(cliente);
+            }
+        }
+
     }
 
     string verificaFuncionario(string cpf)

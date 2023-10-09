@@ -1,17 +1,19 @@
 #include <iostream>
 #include "Utils.h"
+#include "Aluguel.h"
 #include "Cliente.h"
 #include "Funcionario.h"
-#include <vector>
+#include "Veiculo.h"
+
 using namespace std;
 
 int main()
 {
-
-    Utils utils;
+    Utils gestao;
     Funcionario funcionario;
     Cliente cliente;
     Veiculo veiculo;
-
-    utils.gestaoLocadoraDeVeiculos(cliente, funcionario, veiculo);
+    Aluguel aluguel;
+   
+    gestao.LocadoraDeVeiculos(cliente, funcionario, veiculo, aluguel);
 }

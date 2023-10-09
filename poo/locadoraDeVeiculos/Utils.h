@@ -4,6 +4,7 @@
 #include "Funcionario.h"
 #include "Cliente.h"
 #include "Veiculo.h"
+#include "Aluguel.h"
 #include "Persistencia.h"
 #include <string>
 #include <ctime>
@@ -63,7 +64,7 @@ public:
             if (opcao > 3 || opcao < 0)
             {
                 limpaTela();
-                cout << "Ops, escolha invalida!...\n";
+                cout << "\n\n\tOps, escolha invalida!";
                 pause();
             }
 
@@ -94,7 +95,7 @@ public:
             if (opcao > 5 || opcao < 0)
             {
                 limpaTela();
-                cout << "Ops, escolha invalida!...\n";
+                cout << "\n\n\tOps, escolha invalida!...";
                 pause();
             }
 
@@ -103,13 +104,15 @@ public:
         return opcao;
     }
 
-    void gestaoLocadoraDeVeiculos(Cliente &cliente, Funcionario &funcionario, Veiculo &veiculo)
+    void LocadoraDeVeiculos(Cliente &cliente, Funcionario &funcionario, Veiculo &veiculo, Aluguel &aluguel)
     {
         int escolha = 0;
         int op = 0;
-        Persistencia::recuperarCliente(cliente.clientes);
-        Persistencia::recuperarFuncionario(funcionario.funcionarios);
-        Persistencia::recuperarVeiculo(veiculo.veiculos);
+        
+        Persistencia::recuperarCliente(cliente);
+        Persistencia::recuperarFuncionario(funcionario);
+        Persistencia::recuperarVeiculo(veiculo);
+        Persistencia::recuperarAluguel(aluguel);
 
         do
         {

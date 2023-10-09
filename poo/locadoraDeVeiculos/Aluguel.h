@@ -1,11 +1,9 @@
 #ifndef ALUGUEL_H
 #define ALUGUEL_H
 #include <iostream>
-#include "Veiculo.h"
 #include "Cliente.h"
+#include "Veiculo.h"
 #include "Funcionario.h"
-#include <string>
-#include <ctime>
 #include <vector>
 
 using namespace std;
@@ -18,19 +16,34 @@ private:
     string identificador;
     Veiculo veiculo;
     Cliente cliente;
-    //Funcionario funcionario;
+    // Funcionario funcionario;
     string dataInicio;
     string dataTermino;
     string dataDevolucao;
     float desconto;
     float adicional;
     float valorTotal;
-    vector<Aluguel> alugueis;
 
 public:
+    vector<Aluguel> alugueis;
+
     Aluguel() {}
 
     ~Aluguel() {}
+
+    Aluguel(string identificador, Veiculo veiculo, Cliente cliente, string dataInicio, string dataTermino, string dataDevolucao, float desconto, float adicional, float valorTotal)
+    {
+        this->identificador = identificador;
+        this->veiculo = veiculo;
+        this->cliente = cliente;
+        // this->funcionario = funcionario;
+        this->dataInicio = dataInicio;
+        this->dataTermino = dataTermino;
+        this->dataDevolucao = dataDevolucao;
+        this->desconto = desconto;
+        this->adicional = adicional;
+        this->valorTotal = valorTotal;
+    }
 
     void setIdentificador(string identificador)
     {
@@ -144,91 +157,91 @@ public:
 
     void imprime()
     {
-        cout << "Identificador: " << this->identificador << endl;
-        cout << "Veiculo: " << this->veiculo.getIdentificador() << endl;
-        cout << "Cliente: " << this->cliente.getCPF() << endl;
-        // cout << "Funcionario: " << this->funcionario.getCPF() << endl;
-        cout << "Data Inicio: " << this->dataInicio << endl;
-        cout << "Data Termino: " << this->dataTermino << endl;
-        cout << "Data Devolucao: " << this->dataDevolucao << endl;
-        cout << "Desconto: " << this->desconto << endl;
-        cout << "Adicional: " << this->adicional << endl;
-        cout << "Valor Total: " << this->valorTotal << endl;
+        // cout << "Identificador: " << this->identificador << endl;
+        // cout << "Veiculo: " << this->veiculo.getIdentificador() << endl;
+        // cout << "Cliente: " << this->cliente.getCPF() << endl;
+        // // cout << "Funcionario: " << this->funcionario.getCPF() << endl;
+        // cout << "Data Inicio: " << this->dataInicio << endl;
+        // cout << "Data Termino: " << this->dataTermino << endl;
+        // cout << "Data Devolucao: " << this->dataDevolucao << endl;
+        // cout << "Desconto: " << this->desconto << endl;
+        // cout << "Adicional: " << this->adicional << endl;
+        // cout << "Valor Total: " << this->valorTotal << endl;
     }
 
     void listar()
     {
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-            cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-            cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-            // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-            cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-            cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-            cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-            cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-            cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-            cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
-        }
+        // for (auto it = alugueis.begin(); it != alugueis.end(); it++)
+        // {
+        //     cout << "Identificador: " << it->getIdentificador() << endl;
+        //     cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+        //     cout << "Cliente: " << it->getCliente().getCPF() << endl;
+        //     // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+        //     cout << "Data Inicio: " << it->getDataInicio() << endl;
+        //     cout << "Data Termino: " << it->getDataTermino() << endl;
+        //     cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+        //     cout << "Desconto: " << it->getDesconto() << endl;
+        //     cout << "Adicional: " << it->getAdicional() << endl;
+        //     cout << "Valor Total: " << it->getValorTotal() << endl;
+        // }
     }
 
-    void localizar()
+    void localizar(Cliente &cliente)
     {
         string identificador;
-        cout << "\n\tDigite o identificador do aluguel: ";
+        // cout << "\n\tDigite o identificador do aluguel: ";
         cin >> identificador;
-        for (int i = 0; i < alugueis.size(); i++)
+        for (auto it = cliente.clientesCadastrados(cliente).begin(); it != cliente.clientesCadastrados(cliente).end(); it++)
         {
-            if (alugueis[i].getIdentificador() == identificador)
+            if (it->getCPF() == identificador)
             {
-                cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-                cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-                cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-                // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-                cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-                cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-                cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-                cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-                cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-                cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
+                // cout << "Identificador: " << it->getIdentificador() << endl;
+                // cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+                // cout << "Cliente: " << it->getCliente().getCPF() << endl;
+                // // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+                // cout << "Data Inicio: " << it->getDataInicio() << endl;
+                // cout << "Data Termino: " << it->getDataTermino() << endl;
+                // cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+                // cout << "Desconto: " << it->getDesconto() << endl;
+                // cout << "Adicional: " << it->getAdicional() << endl;
+                // cout << "Valor Total: " << it->getValorTotal() << endl;
             }
         }
     }
 
     void cadastrar(Aluguel &aluguel)
     {
-        cliente.limpaTela();
-        cout << "\n\t==========CADASTRO DE ALUGUEL==========\n";
-        cout << "\n\tInforme o identificador do aluguel: ";
+        // cliente.limpaTela();
+        // cout << "\n\t==========CADASTRO DE ALUGUEL==========\n";
+        // cout << "\n\tInforme o identificador do aluguel: ";
         getline(cin, identificador);
 
         // cout << "\n\tInforme o identificador do veiculo: ";
         // getline(cin, veiculo);
 
         // cout << "\n\tInforme o CPF do cliente: ";
-        // getline(cin, cliente);
+        // getline(cin, cl);
 
         // cout << "\n\tInforme o CPF do funcionario: ";
         // getline(cin, funcionario);
 
-        cout << "\n\tInforme a data de inicio do aluguel: ";
-        getline(cin, dataInicio);
+        // cout << "\n\tInforme a data de inicio do aluguel: ";
+        // getline(cin, dataInicio);
 
-        cout << "\n\tInforme a data de termino do aluguel: ";
-        getline(cin, dataTermino);
+        // cout << "\n\tInforme a data de termino do aluguel: ";
+        // getline(cin, dataTermino);
 
-        cout << "\n\tInforme a data de devolucao do aluguel: ";
-        getline(cin, dataDevolucao);
+        // cout << "\n\tInforme a data de devolucao do aluguel: ";
+        // getline(cin, dataDevolucao);
 
-        cout << "\n\tInforme o desconto do aluguel: ";
-        cin >> desconto;
+        // cout << "\n\tInforme o desconto do aluguel: ";
+        // cin >> desconto;
 
-        cout << "\n\tInforme o adicional do aluguel: ";
-        cin >> adicional;
+        // cout << "\n\tInforme o adicional do aluguel: ";
+        // cin >> adicional;
 
-        cout << "\n\tInforme o valor total do aluguel: ";
-        cin >> valorTotal;
+        // cout << "\n\tInforme o valor total do aluguel: ";
+        // cin >> valorTotal;
 
         setAluguel(aluguel);
     }
@@ -236,22 +249,21 @@ public:
     void editar(Aluguel &aluguel)
     {
         string identificador;
-        cout << "\n\tDigite o identificador do aluguel: ";
+        // cout << "\n\tDigite o identificador do aluguel: ";
         cin >> identificador;
-        for (int i = 0; i < alugueis.size(); i++)
+        for (auto it = alugueis.begin(); it != alugueis.end(); it++)
         {
-            if (alugueis[i].getIdentificador() == identificador)
+            if (it->getIdentificador() == identificador)
             {
-                cout << "\n\t==========EDITAR ALUGUEL==========\n";
-                cout << "\n\tInforme o identificador do aluguel: ";
+                // cout << "\n\t==========EDITAR ALUGUEL==========\n";
+                // cout << "\n\tInforme o identificador do aluguel: ";
                 getline(cin, identificador);
 
                 // cout << "\n\tInforme o identificador do veiculo: ";
                 // getline(cin, veiculo);
 
                 // cout << "\n\tInforme o CPF do cliente: ";
-                // string nome;
-                // getline(cin, cliente.setCPF(nome));
+                // getline(cin, cliente);
 
                 // cout << "\n\tInforme o CPF do funcionario: ";
                 // getline(cin, funcionario);
@@ -279,21 +291,67 @@ public:
         }
     }
 
-    void excluir(Aluguel &aluguel)
+    void excluir()
     {
         string identificador;
-        cout << "\n\tDigite o identificador do aluguel: ";
+        // cout << "\n\tDigite o identificador do aluguel: ";
         cin >> identificador;
-        for (int i = 0; i < alugueis.size(); i++)
+
+        for (auto it = alugueis.begin(); it != alugueis.end(); it++)
         {
-            if (alugueis[i].getIdentificador() == identificador)
+            if (it->getIdentificador() == identificador)
             {
-                alugueis.erase(alugueis.begin() + i);
+                alugueis.erase(it);
             }
         }
     }
 
-    //void alugar(Aluguel &aluguel, Veiculo &veiculo, Cliente &cliente, Funcionario &funcionario)
+    // void alugar(Aluguel &aluguel, Veiculo &veiculo, Cliente &cliente, Funcionario &funcionario)
+    //  {
+    //      string identificador;
+    //      cout << "\n\tDigite o identificador do veiculo: ";
+    //      cin >> identificador;
+    //      for (int i = 0; i < veiculo.getVeiculo().size(); i++)
+    //      {
+    //          if (veiculo.getVeiculo()[i].getIdentificador() == identificador)
+    //          {
+    //              cout << "\n\t==========ALUGAR VEICULO==========\n";
+    //              cout << "\n\tInforme o identificador do aluguel: ";
+    //              getline(cin, identificador);
+
+    //             // cout << "\n\tInforme o identificador do veiculo: ";
+    //             // getline(cin, veiculo);
+
+    //             // cout << "\n\tInforme o CPF do cliente: ";
+    //             // getline(cin, cliente);
+
+    //             // cout << "\n\tInforme o CPF do funcionario: ";
+    //             // getline(cin, funcionario);
+
+    //             cout << "\n\tInforme a data de inicio do aluguel: ";
+    //             getline(cin, dataInicio);
+
+    //             cout << "\n\tInforme a data de termino do aluguel: ";
+    //             getline(cin, dataTermino);
+
+    //             cout << "\n\tInforme a data de devolucao do aluguel: ";
+    //             getline(cin, dataDevolucao);
+
+    //             cout << "\n\tInforme o desconto do aluguel: ";
+    //             cin >> desconto;
+
+    //             cout << "\n\tInforme o adicional do aluguel: ";
+    //             cin >> adicional;
+
+    //             cout << "\n\tInforme o valor total do aluguel: ";
+    //             cin >> valorTotal;
+
+    //             setAluguel(aluguel);
+    //         }
+    //     }
+    // }
+
+    // void devolver(Aluguel &aluguel, Veiculo &veiculo, Cliente &cliente, Funcionario &funcionario)
     // {
     //     string identificador;
     //     cout << "\n\tDigite o identificador do veiculo: ";
@@ -302,7 +360,7 @@ public:
     //     {
     //         if (veiculo.getVeiculo()[i].getIdentificador() == identificador)
     //         {
-    //             cout << "\n\t==========ALUGAR VEICULO==========\n";
+    //             cout << "\n\t==========DEVOLVER VEICULO==========\n";
     //             cout << "\n\tInforme o identificador do aluguel: ";
     //             getline(cin, identificador);
 
@@ -338,159 +396,114 @@ public:
     //     }
     // }
 
-    //void devolver(Aluguel &aluguel, Veiculo &veiculo, Cliente &cliente, Funcionario &funcionario)
-    // {
-        // string identificador;
-        // cout << "\n\tDigite o identificador do veiculo: ";
-        // cin >> identificador;
-        // for (int i = 0; i < veiculo.getVeiculo().size(); i++)
-        // {
-        //     if (veiculo.getVeiculo()[i].getIdentificador() == identificador)
-        //     {
-        //         cout << "\n\t==========DEVOLVER VEICULO==========\n";
-        //         cout << "\n\tInforme o identificador do aluguel: ";
-        //         getline(cin, identificador);
+//     void listarAlugueis(Aluguel &aluguel)
+//     {
+//         for (auto it = aluguel.alugueis.begin(); it != aluguel.alugueis.end(); it++)
+//         {
+//             cout << "Identificador: " << it->getIdentificador() << endl;
+//             cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+//             cout << "Cliente: " << it->getCliente().getCPF() << endl;
+//             // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+//             cout << "Data Inicio: " << it->getDataInicio() << endl;
+//             cout << "Data Termino: " << it->getDataTermino() << endl;
+//             cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+//             cout << "Desconto: " << it->getDesconto() << endl;
+//             cout << "Adicional: " << it->getAdicional() << endl;
+//             cout << "Valor Total: " << it->getValorTotal() << endl;
+//         }
+//     }
 
-        //         cout << "\n\tInforme o identificador do veiculo: ";
-        //         getline(cin, veiculo);
+//     float calcularValorTotal()
+//     {
+//         float valorTotal = 0;
+//         for (auto it = alugueis.begin(); it != alugueis.end(); it++)
+//         {
+//             valorTotal += it->getValorTotal();
+//         }
+//         return valorTotal;
+//     }
 
-        //         cout << "\n\tInforme o CPF do cliente: ";
-        //         getline(cin, cliente);
+//     void gerarRelatorio()
+//     {
+//         cout << "\n\t==========RELATORIO DE ALUGUEIS==========\n";
+//         cout << "\n\tQuantidade de alugueis: " << alugueis.size() << endl;
+//         cout << "\n\tValor total de alugueis: " << calcularValorTotal() << endl;
+//     }
 
-        //         cout << "\n\tInforme o CPF do funcionario: ";
-        //         getline(cin, funcionario);
+//     void gerarRelatorioPorData()
+//     {
+//         string dataInicio;
+//         string dataTermino;
+//         cout << "\n\t==========RELATORIO DE ALUGUEIS POR DATA==========\n";
+//         cout << "\n\tInforme a data de inicio: ";
+//         getline(cin, dataInicio);
+//         cout << "\n\tInforme a data de termino: ";
+//         getline(cin, dataTermino);
+//         for (auto it = alugueis.begin(); it != alugueis.end(); it++)
+//         {
+//             if (it->getDataInicio() == dataInicio && it->getDataTermino() == dataTermino)
+//             {
+//                 cout << "Identificador: " << it->getIdentificador() << endl;
+//                 cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+//                 cout << "Cliente: " << it->getCliente().getCPF() << endl;
+//                 // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+//                 cout << "Data Inicio: " << it->getDataInicio() << endl;
+//                 cout << "Data Termino: " << it->getDataTermino() << endl;
+//                 cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+//                 cout << "Desconto: " << it->getDesconto() << endl;
+//                 cout << "Adicional: " << it->getAdicional() << endl;
+//                 cout << "Valor Total: " << it->getValorTotal() << endl;
+//             }
+//         }
+//     }
 
-        //         cout << "\n\tInforme a data de inicio do aluguel: ";
-        //         getline(cin, dataInicio);
+//     void gerarRelatorioPorVeiculo()
+//     {
+//         string identificador;
+//         cout << "\n\t==========RELATORIO DE ALUGUEIS POR VEICULO==========\n";
+//         cout << "\n\tInforme o identificador do veiculo: ";
+//         getline(cin, identificador);
+//         for (auto it = alugueis.begin(); it != alugueis.end(); it++)
+//         {
+//             if (it->getVeiculo().getIdentificador() == identificador)
+//             {
+//                 cout << "Identificador: " << it->getIdentificador() << endl;
+//                 cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+//                 cout << "Cliente: " << it->getCliente().getCPF() << endl;
+//                 // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+//                 cout << "Data Inicio: " << it->getDataInicio() << endl;
+//                 cout << "Data Termino: " << it->getDataTermino() << endl;
+//                 cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+//                 cout << "Desconto: " << it->getDesconto() << endl;
+//                 cout << "Adicional: " << it->getAdicional() << endl;
+//                 cout << "Valor Total: " << it->getValorTotal() << endl;
+//             }
+//         }
+//     }
 
-        //         cout << "\n\tInforme a data de termino do aluguel: ";
-        //         getline(cin, dataTermino);
-
-        //         cout << "\n\tInforme a data de devolucao do aluguel: ";
-        //         getline(cin, dataDevolucao);
-
-        //         cout << "\n\tInforme o desconto do aluguel: ";
-        //         cin >> desconto;
-
-        //         cout << "\n\tInforme o adicional do aluguel: ";
-        //         cin >> adicional;
-
-        //         cout << "\n\tInforme o valor total do aluguel: ";
-        //         cin >> valorTotal;
-
-        //         setAluguel(aluguel);
-        //     }
-        // }
-    // }
-
-    void listarAlugueis()
-    {
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-            cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-            cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-            // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-            cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-            cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-            cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-            cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-            cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-            cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
-        }
-    }
-
-    float calcularValorTotal()
-    {
-        float valorTotal = 0;
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            valorTotal += alugueis[i].getValorTotal();
-        }
-        return valorTotal;
-    }
-
-    void gerarRelatorio()
-    {
-        cout << "\n\t==========RELATORIO DE ALUGUEIS==========\n";
-        cout << "\n\tQuantidade de alugueis: " << alugueis.size() << endl;
-        cout << "\n\tValor total de alugueis: " << calcularValorTotal() << endl;
-    }
-
-    void gerarRelatorioPorData()
-    {
-        string dataInicio;
-        string dataTermino;
-        cout << "\n\t==========RELATORIO DE ALUGUEIS POR DATA==========\n";
-        cout << "\n\tInforme a data de inicio: ";
-        getline(cin, dataInicio);
-        cout << "\n\tInforme a data de termino: ";
-        getline(cin, dataTermino);
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            if (alugueis[i].getDataInicio() >= dataInicio && alugueis[i].getDataTermino() <= dataTermino)
-            {
-                cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-                cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-                cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-                // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-                cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-                cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-                cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-                cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-                cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-                cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
-            }
-        }
-    }
-
-    void gerarRelatorioPorVeiculo()
-    {
-        string identificador;
-        cout << "\n\t==========RELATORIO DE ALUGUEIS POR VEICULO==========\n";
-        cout << "\n\tInforme o identificador do veiculo: ";
-        getline(cin, identificador);
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            if (alugueis[i].getVeiculo().getIdentificador() == identificador)
-            {
-                cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-                cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-                cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-                // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-                cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-                cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-                cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-                cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-                cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-                cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
-            }
-        }
-    }
-
-    void gerarRelatorioPorCliente()
-    {
-        string cpf;
-        cout << "\n\t==========RELATORIO DE ALUGUEIS POR CLIENTE==========\n";
-        cout << "\n\tInforme o CPF do cliente: ";
-        getline(cin, cpf);
-        for (int i = 0; i < alugueis.size(); i++)
-        {
-            if (alugueis[i].getCliente().getCPF() == cpf)
-            {
-                cout << "Identificador: " << alugueis[i].getIdentificador() << endl;
-                cout << "Veiculo: " << alugueis[i].getVeiculo().getIdentificador() << endl;
-                cout << "Cliente: " << alugueis[i].getCliente().getCPF() << endl;
-                // cout << "Funcionario: " << alugueis[i].getFuncionario().getCPF() << endl;
-                cout << "Data Inicio: " << alugueis[i].getDataInicio() << endl;
-                cout << "Data Termino: " << alugueis[i].getDataTermino() << endl;
-                cout << "Data Devolucao: " << alugueis[i].getDataDevolucao() << endl;
-                cout << "Desconto: " << alugueis[i].getDesconto() << endl;
-                cout << "Adicional: " << alugueis[i].getAdicional() << endl;
-                cout << "Valor Total: " << alugueis[i].getValorTotal() << endl;
-            }
-        }
-    }
+//     void gerarRelatorioPorCliente()
+//     {
+//         string cpf;
+//         cout << "\n\t==========RELATORIO DE ALUGUEIS POR CLIENTE==========\n";
+//         cout << "\n\tInforme o CPF do cliente: ";
+//         getline(cin, cpf);
+//         for (auto it = alugueis.begin(); it != alugueis.end(); it++)
+//         {
+//             if (it->getCliente().getCPF() == cpf)
+//             {
+//                 cout << "Identificador: " << it->getIdentificador() << endl;
+//                 cout << "Veiculo: " << it->getVeiculo().getIdentificador() << endl;
+//                 cout << "Cliente: " << it->getCliente().getCPF() << endl;
+//                 // cout << "Funcionario: " << it->getFuncionario().getCPF() << endl;
+//                 cout << "Data Inicio: " << it->getDataInicio() << endl;
+//                 cout << "Data Termino: " << it->getDataTermino() << endl;
+//                 cout << "Data Devolucao: " << it->getDataDevolucao() << endl;
+//                 cout << "Desconto: " << it->getDesconto() << endl;
+//                 cout << "Adicional: " << it->getAdicional() << endl;
+//                 cout << "Valor Total: " << it->getValorTotal() << endl;
+//             }
+//         }
+//     }
 };
 
 #endif
