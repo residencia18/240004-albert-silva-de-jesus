@@ -1,8 +1,8 @@
 #include <iostream>
 #include "ControlerLocadora.h"
 #include "Aluguel.h"
-#include "Cliente.h"
 #include "Funcionario.h"
+#include "Cliente.h"
 #include "Veiculo.h"
 
 using namespace std;
