@@ -5,107 +5,298 @@
 
 using namespace std;
 
-class Data
-{
-	int dia, mes, ano;
+class Data {
+    int dia, mes, ano;
 
 public:
-	/*
-	O metodo abaixo retornar -1 se d1 anterior a d2
-	Retornar 0 se d1 = d2
-	Retornar +1 se d1 posterior a d2
-	*/
-	static int compara(Data d1, Data d2)
-	{
-		return 0;
+    Data(int _dia, int _mes, int _ano) : dia(_dia), mes(_mes), ano(_ano) {}
+    Data(){
+
+    }
+
+	static int compara(Data d1, Data d2) {
+		if (d1.getAno() != d2.getAno() ) {
+			return d1.getAno() < d2.getAno() ;
+		}
+		if (d1.getMes() != d2.getMes()) {
+			return d1.getMes() < d2.getMes();
+		}
+		return d1.getDia() < d2.getDia();
 	}
 
-	Data(int _dia, int _mes, int _ano)
-	{
-		dia = _dia;
-		mes = _mes;
-		ano = _ano;
+    Data& operator=(const Data& outra) {
+        if (this != &outra) { 
+            dia = outra.dia;
+            mes = outra.mes;
+            ano = outra.ano;
+        }
+        return *this;  
+    }
+
+	int getDia(){
+		return this->dia;
 	}
-	string toString()
-	{
-		string ret = "";
-		ret.append(to_string(dia));
-		ret.append("/");
-		ret.append(to_string(mes));
-		ret.append("/");
-		ret.append(to_string(ano));
-		return ret;
+
+	int getMes(){
+		return this->mes;
 	}
+
+	int getAno(){
+		return this->ano;
+	}
+
+    static bool ehAnoBissexto(int ano) {
+        return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+    }
+
+    static bool ehDataValida(int dia, int mes, int ano) {
+        if (ano >= 1900 && ano <= 9999) {
+            if (mes >= 1 && mes <= 12) {
+                int diasNoMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+                if (mes == 2 && ehAnoBissexto(ano)) {
+                    diasNoMes[2] = 29;
+                }
+                return (dia >= 1 && dia <= diasNoMes[mes]);
+            }
+        }
+    return false;
+    }
+
+    string toString() const {
+        return to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);
+    }
 };
 
-class Lista
-{
+class Lista {
 public:
-	virtual void listarEmOrdem() = 0;
-	virtual void listarEmQuantidade(int quant) = 0;
-	virtual void entradaDeDados() = 0;
-	virtual void mostraMediana() = 0;
-	virtual void mostraMenor() = 0;
-	virtual void mostraMaior() = 0;
+    virtual void entradaDeDados() = 0;
+    virtual void mostraMediana() = 0;
+    virtual void mostraMenor() = 0;
+    virtual void mostraMaior() = 0;
+	virtual void listarEmOrdem()= 0;
+	virtual void listarEmQuantidade(int n)= 0;
+
 };
 
-class ListaNomes : public Lista
-{
-	vector<string> lista;
+class ListaNomes : public Lista {
+    vector<string> lista;
+
+private:
+
+    static bool ehNomeValido(const string& nome) {
+        for (char c : nome) {
+            if (!isalpha(c) && c != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
+    static bool compararStrings(const string& a, const string& b) {
+        string aSemEspacos;
+        string bSemEspacos;
+
+        for (char ch : a) {
+            if (!isspace(ch)) {
+                aSemEspacos += tolower(ch);
+            }
+        }
+
+        for (char ch : b) {
+            if (!isspace(ch)) {
+                bSemEspacos += tolower(ch);
+            }
+        }
+
+        return aSemEspacos < bSemEspacos;
+    }
 
 public:
-	/*
-	O metodo abaixo pergunta ao usuarios quantos
-	elementos vo existir na lista e depois
-	solicita a digitar o de cada um deles
-	*/
-	void entradaDeDados()
-	{
-		lista.push_back("Teste");
+
+	vector<string>* getLista(){
+		return &(this->lista);
 	}
 
-	void mostraMediana()
-	{
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+    void entradaDeDados() override {
+        cout << "\n----LISTA DE NOMES----\n" << endl;
+        int qtd;
+        do{
+            cout << "\tInforme o numero de elementos da lista: ";
+            cin >> qtd;
+            cin.ignore(); 
+            if(qtd<1){
+				cout << "\n\tOps, quantidade de elementos do vetor incorreto!...";
+				cout << "\n\tPressione qualquer tecla para continuar...";
+				cin.get();
+            }
+        }while(qtd<1);
+        string nome;
+        for (int i = 0; i < qtd; i++) {
+            do{
+				cout << "\n\tInforme a " << i + 1 << "º nome: ";
+                getline(cin, nome);
+                if(!ehNomeValido(nome)){
+                    cout << "Nome inválido" << endl;
+                }
+                }while(!ehNomeValido(nome));
+            getLista()->push_back(nome);
+        }
+    }
+
+    void mostraMediana() override {
+        vector<string> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), compararStrings);
+        string nomeMediana;
+        if(listaParaOrdenar.size()%2==0){
+            nomeMediana = listaParaOrdenar.at(listaParaOrdenar.size() / 2 -1);
+        }else{
+            nomeMediana = listaParaOrdenar.at(listaParaOrdenar.size() / 2 );
+        }
+		cout << "\n\tMediana de nomes : " << nomeMediana << endl;
+		cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();    
+    }
+
+    void mostraMenor() override {
+        vector<string> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), compararStrings);
+        string primeiroNome = listaParaOrdenar.front();
+		cout << "\nPrimeiro dos nomes : " << primeiroNome << endl;
+		cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
+    }
+
+    void mostraMaior() override {
+        vector<string> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), compararStrings);
+        string ultimoNome = listaParaOrdenar.back();
+		cout << "\nUltimo dos nomes : " << ultimoNome << endl;
+		cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();   
+    }
+
+	void listarEmOrdem() override{
+        vector<string> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), compararStrings);
+        cout << "\nLista de Nomes ordenada : " << endl;
+		for(auto it=listaParaOrdenar.begin() ; it!=listaParaOrdenar.end() ; it++){
+			cout << *it << endl;
+		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 
-	void mostraMenor()
-	{
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+	void listarEmQuantidade(int quant) override{
+		int i = 0;
+        cout << endl << quant << " primeiros nomes do vetor" << endl;
+		for(auto it=getLista()->begin() ; i < quant && it!=getLista()->end() ; it++){
+			cout << *it << endl;
+			i++;
+		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
-	void mostraMaior()
-	{
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
-	}
+
 };
 
-class ListaDatas : public Lista
-{
-	vector<Data> lista;
+class ListaDatas : public Lista {
+    vector<Data> lista;
 
 public:
-	/*
-	O metodo abaixo pergunta ao usuarios quantos
-	elementos, existir na lista e depois
-	solicita a digitar de cada um deles
-	*/
-	void entradaDeDados()
-	{
+
+	vector<Data>* getLista(){
+		return &(this->lista);
 	}
 
-	void mostraMediana()
-	{
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+    void entradaDeDados() override {
+        cout << "\n----LISTA DE DATAS----\n" << endl;
+        int qtd;
+        do{
+            cout << "\n\tInforme o numero de elementos da lista: ";
+            cin >> qtd;
+            cin.get(); 
+            if(qtd<1){
+				cout << "\n\tOps, quantidade de elementos do vetor incorreto!...";
+				cout << "\n\tPressione qualquer tecla para continuar...";
+				cin.get();
+            }
+        }while(qtd<1);
+        int dia, mes, ano;
+        for (int i = 0; i < qtd; i++) {
+            do{
+				cout << "\n\tInforme a " << i + 1 << "º data: \n";
+                cout << "\tDigite o dia: ";
+                cin >> dia;
+                cin.get(); 
+                cout << "\tDigite o mes: ";
+                cin >> mes;
+                cin.get(); 
+                cout << "\tDigite o ano: ";
+                cin >> ano;
+                cin.get(); 
+                if(!Data::ehDataValida(dia,mes,ano)){
+                    cout << "Data inválida" << endl;
+                }
+            }while(!Data::ehDataValida(dia,mes,ano));
+            Data data(dia, mes, ano);
+            lista.push_back(data);
+        }
+    }
+
+    void mostraMediana() override {
+        vector<Data> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), Data::compara);
+        Data dataMediana;
+
+        if(listaParaOrdenar.size() % 2 == 0) {
+            int posMediana = listaParaOrdenar.size() / 2 - 1;
+            dataMediana = listaParaOrdenar[posMediana];
+        } else {
+            int posMediana = listaParaOrdenar.size() / 2;
+            dataMediana = listaParaOrdenar[posMediana];
+        }
+        cout << "\n\tMediana de datas: " << dataMediana.toString() << endl;
+        cout << "\n\tPressione qualquer tecla para continuar...";
+        cin.get();
+    }
+
+    void mostraMenor() override {
+        vector<Data> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), Data::compara);
+		cout << "\n\tMenor das datas : " << (listaParaOrdenar.front()).toString() << endl;
+		cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
+    }
+
+    void mostraMaior() override {
+        vector<Data> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), Data::compara);
+		cout << "\n\tMaior das datas : " << (listaParaOrdenar.back()).toString() << endl;
+		cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
+    }
+
+	void listarEmOrdem() override{
+        vector<Data> listaParaOrdenar = *getLista();
+        sort(listaParaOrdenar.begin(), listaParaOrdenar.end(), Data::compara);
+        cout << "\nLista de datas ordenada : " << endl;
+		for(auto it=listaParaOrdenar.begin() ; it!=listaParaOrdenar.end() ; it++){
+			cout << it->toString() << endl;
+		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 
-	void mostraMenor()
-	{
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
+	void listarEmQuantidade(int quant) override{
+		int i = 0;
+        cout << endl << quant << " primeiras datas do vetor" << endl;
+		for(auto it=getLista()->begin() ; i < quant && it!=getLista()->end() ; it++){
+			cout << it->toString() << endl;
+			i++;
+		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
-	void mostraMaior()
-	{
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
-	}
+
 };
 
 class ListaSalarios : public Lista
@@ -131,6 +322,7 @@ public:
 	*/
 	void entradaDeDados() override
 	{
+        cout << "\n----LISTA DE SALARIOS----\n" << endl;
 		int n = 0;
 		float salario = 0;
 
@@ -192,8 +384,7 @@ public:
 			float pos = aux.size() / 2;
 			mediana = aux.at(pos);
 		}
-		cout << "\n\tAqui vai mostrar a mediana da lista de salários" << endl;
-		cout << "\n\tMediana: " << mediana << endl;
+		cout << "\n\tMediana salários: " << mediana << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -207,8 +398,7 @@ public:
 
 		menor = auxMenor.front();
 
-		cout << "\n\tAqui vai mostrar o menor dos salarios" << endl;
-		cout << "\n\tMenor: " << menor << endl;
+		cout << "\n\tMenor salário: " << menor << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -221,8 +411,7 @@ public:
 		float maior;
 
 		maior = auxMaior.back();
-		cout << "\n\tAqui vai mostrar o maior dos salários" << endl;
-		cout << "\n\tMaior: " << maior << endl;
+		cout << "\n\tMaior salário: " << maior << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -232,21 +421,27 @@ public:
 		vector<float> salarioOrdenado;
 		salarioOrdenado = *getLista();
 		sort(salarioOrdenado.begin(), salarioOrdenado.end(), compara);
-
+        cout << "\nLista de Salarios ordenada : " << endl;
 		for (auto it = salarioOrdenado.begin(); it != salarioOrdenado.end(); it++)
 		{
 			cout << "\n\t" << *it;
 		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 
 	void listarEmQuantidade(int quant) override
 	{
 		int i = 0;
+        cout << endl << quant << " primeiros salarios do vetor" << endl;
+
 		for (auto it = getLista()->begin(); i < quant && it != getLista()->end(); it++)
 		{
 			cout << "\n\t" << *it;
 			i++;
 		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 };
 
@@ -274,6 +469,7 @@ solicita a digitar de cada um deles
 */
 	void entradaDeDados() override
 	{
+        cout << "\n----LISTA DE IDADES----\n" << endl;
 		int n = 0;
 		int idade = 0;
 
@@ -336,8 +532,7 @@ solicita a digitar de cada um deles
 			int pos = aux.size() / 2;
 			mediana = aux.at(pos);
 		}
-		cout << "\n\tAqui vai mostrar a mediana da lista de idades" << endl;
-		cout << "\n\tMediana: " << mediana << endl;
+		cout << "\n\tMediana de idades : " << mediana << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -351,8 +546,7 @@ solicita a digitar de cada um deles
 
 		menor = auxMenor.front();
 
-		cout << "\n\tAqui vai mostrar a menor das idades" << endl;
-		cout << "\n\tMenor: " << menor << endl;
+		cout << "\n\tMenor idade: " << menor << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -365,8 +559,7 @@ solicita a digitar de cada um deles
 		int maior;
 
 		maior = auxMaior.back();
-		cout << "\n\tAqui vai mostrar a maior das idades" << endl;
-		cout << "\n\tMaior: " << maior << endl;
+		cout << "\n\tMaior idade: " << maior << endl;
 		cout << "\n\tPressione qualquer tecla para continuar...";
 		cin.get();
 	}
@@ -376,21 +569,26 @@ solicita a digitar de cada um deles
 		vector<int> ordenado;
 		ordenado = *getLista();
 		sort(ordenado.begin(), ordenado.end(), compara);
-
+        cout << "\nLista de Idades ordenada : " << endl;
 		for (auto it = ordenado.begin(); it != ordenado.end(); it++)
 		{
 			cout << "\n\t" << *it;
 		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 
 	void listarEmQuantidade(int quant) override
 	{
 		int i = 0;
+        cout << endl << quant << " primeiras idades do vetor" << endl;
 		for (auto it = getLista()->begin(); i < quant && it != getLista()->end(); it++)
 		{
 			cout << "\n\t" << *it;
 			i++;
 		}
+        cout << "\n\tPressione qualquer tecla para continuar...";
+		cin.get();
 	}
 };
 
@@ -407,8 +605,17 @@ int main()
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
 
+    ListaNomes listaNomes;
+    listaNomes.entradaDeDados();
+    listaDeListas.push_back(&listaNomes);
+
+    ListaDatas ListaDatas;
+    ListaDatas.entradaDeDados();
+    listaDeListas.push_back(&ListaDatas);
+
 	for (Lista *l : listaDeListas)
-	{
+	{   
+        system("clear || cls");
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
