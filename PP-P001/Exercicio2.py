@@ -75,19 +75,48 @@ print('\tPrincipais diferenças em relação a C/C++:\n'
 print('\n\n\tCálculo do Fatorial em Python:\n')
 
 resultFatorial = 1
-numMultiplicados = []
 
 for i in range(1, 30 + 1):
     resultFatorial *= i
     print('\t', resultFatorial)
-    # numMultiplicados.append(resultFatorial)
-    
-# print('\tNúmeros multiplicados -> {}'.format(numMultiplicados))
 
 print('\n\tResultado do fatorial de 30 = {}'.format(resultFatorial))
 
 print('\n\t='+'=' *100)
-print('\n\tEm C/C++, o tamanho do inteiro é geralmente de 4 bytes para int e 8 bytes para long long int. \n\n\tO valor máximo representável depende da arquitetura do sistema.'
+print('\tEm C/C++, o tamanho do inteiro é geralmente de 4 bytes para int e 8 bytes para long long int. \n\n\tO valor máximo representável depende da arquitetura do sistema.'
       'um int de 4 bytes, o valor máximo seria 2^31 - 1 (2147483647). \n\tSe considerarmos um long long int de 8 bytes, o valor máximo seria 2^63 - 1.'
       '\n\n\tO valor do fatorial de 30 em Python, que é um número significativamente grande, não teria problemas em ser representado em Python. \n\tPython automaticamente usa uma quantidade de memória suficiente para lidar com números grandes'
       '\n\t='+'=' *100)
+
+print('\n\n\tImutabilidade Númerica em Python:')
+
+# Atribuição de um valor inteiro
+numImult_1 = 100
+numImult_2 = numImult_1
+print('\n\tValores das variaveis:\n\tnumImult_1 = {} e numImult_2 = {}'.format(numImult_1, numImult_2))
+
+numImult_1 += 1
+print('\n\tApós a variavel numImult_1 ser incrementada: {}'
+      '\n\tEnquanto a variavel numImult_2 continua igual a {}'.format(numImult_1, numImult_2))
+
+print('\n\t='+'=' *100)
+print('\tMetodos disponiveis em variaveis inteiras:')
+
+print('\n\ttype(): Retorna o tipo do objeto: {}'.format(type(numImult_1)))
+print('\t.real e .imag: Números complexos {} e número imaginario {}'.format(numImult_1.real, numImult_1.imag))
+print('\tid(): Retorna o identificador do objeto: {}'.format(id(numImult_1)))
+print('\thex(): Retorna o valor hexadecimal do objeto: {}'.format(hex(numImult_1)))
+print('\tbin(): Retorna o valor binario do objeto: {}'.format(bin(numImult_1)))
+print('\tint(): Retorna o valor inteiro do objeto: {}'.format(int(numImult_1)))
+print('\tfloat(): Retorna o valor float do objeto: {}'.format(float(numImult_1)))
+print('\tcomplex(): Retorna o valor complexo do objeto: {}'.format(complex(numImult_1)))
+print('\tbool(): Retorna o valor booleano do objeto: {}'.format(bool(numImult_1)))
+print('\tstr(): Retorna o valor string do objeto: {}'.format(str(numImult_1)))
+print('\tabs(): Retorna o valor absoluto do objeto: {}'.format(abs(numImult_1)))
+print('\tpow(): Retorna o valor do objeto elevado a um valor: {}'.format(pow(numImult_1, 2)))
+print('\tdivmod(): Retorna o valor da divisão e o resto da divisão do objeto: {}'.format(divmod(numImult_1, 2)))
+numImult_1 = 100.0
+print('\tnumImult é um valor inteiro? {}'.format(numImult_1.is_integer()))
+numImult_1 = 100.05
+print('\tnumImult é um valor inteiro? {}'.format(numImult_1.is_integer()))
+print('\t='+'=' *100)
