@@ -102,6 +102,7 @@ print('\n\tApós a variavel numImult_1 ser incrementada: {}'
       '\n\tEnquanto a variavel numImult_2 continua igual a {}'.format(numImult_1, numImult_2))
 
 print('\n\t='+'=' *100)
+
 print('\tMetodos disponiveis em variaveis inteiras:')
 
 print('\n\ttype(): Retorna o tipo do objeto: {}'.format(type(numImult_1)))
@@ -117,8 +118,11 @@ print('\tstr(): Retorna o valor string do objeto: {}'.format(str(numImult_1)))
 print('\tabs(): Retorna o valor absoluto do objeto: {}'.format(abs(numImult_1)))
 print('\tpow(): Retorna o valor do objeto elevado a um valor: {}'.format(pow(numImult_1, 2)))
 print('\tdivmod(): Retorna o valor da divisão e o resto da divisão do objeto: {}'.format(divmod(numImult_1, 2)))
+
 numImult_1 = 100.0
 print('\tnumImult é um valor inteiro? {}'.format(numImult_1.is_integer()))
+
 numImult_1 = 100.05
 print('\tnumImult é um valor inteiro? {}'.format(numImult_1.is_integer()))
+
 print('\t='+'=' *100)
