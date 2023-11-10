@@ -14,8 +14,8 @@ C/C++;
 ● Verifique quais métodos estão disponíveis para as variáveis inteiras; 
 
 '''
-
-print('\n\n\t+ - * // % Operadores Aritméticos em Python + - * // %')
+print('\n\t='+'=' *60)
+print('\t+ - * // % Operadores Aritméticos em Python + - * // %')
 
 # Adição
 a = 5
@@ -40,31 +40,33 @@ print('\tDivisão inteira: {} // {} = {}'.format(a, b, a // b))
 # Resto da divisão
 print('\tResto da divisão: {} % {} = {}'.format(a, b, a % b))
 
-print('\n\t+= -= *= /= Operadores Aritméticos Compostos em Python += -= *= /=')
+print('\t='+'=' *60)
+
+print('\t+= -= *= /= Operadores Aritméticos Compostos em Python += -= *= /=')
 
 # Adição com atribuição
 x = 10
 y = 3
-print('\n\tx{} += y{}'.format(x, y))
+print('\n\tx = {}\n\ty = {}\n\tx += y'.format(x, y))
 x += y
 print('\tAdição com atribuição {}'.format(x))
 
 # Subtração com atribuição
-print('\n\tx{} -= y{}'.format(x, y))
+print('\n\tx = {}\n\ty = {}\n\tx -= y'.format(x, y))
 x -= y
 print('\tSubtração com atribuição {}'.format(x))
 
 # Multiplicação com atribuição
-print('\n\tx{} *= y{}'.format(x, y))
+print('\n\tx = {}\n\ty = {}\n\tx *= y'.format(x, y))
 x *= y
 print('\tMultiplicação com atribuição {}'.format(x))
 
 # Divisão com atribuição
-print('\n\tx{} /= y{}'.format(x, y))
+print('\n\tx = {}\n\ty = {}\n\tx /= y'.format(x, y))
 x /= y
 print('\tDivisão com atribuição {:.0f}'.format(x))
 
-print('\n\t='+'=' *100)
+print('\t='+'=' *100)
 print('\tPrincipais diferenças em relação a C/C++:\n'
       '\n\tDivisão padrão retorna float: Em Python, a divisão de dois inteiros resulta em um número de ponto flutuante, \n\ta menos que você use o operador de divisão inteira //. Em C/C++, a divisão de inteiros resulta em um número inteiro, \n\te se você quiser um resultado de ponto flutuante, pelo menos um dos operandos deve ser do tipo float.\n'
       '\n\tSem restrições de tamanho em inteiros: Em Python, os inteiros não têm um tamanho fixo, \n\to que significa que você pode trabalhar com inteiros de qualquer tamanho, sem preocupações com estouro. Em C/C++, \n\to tamanho dos inteiros é limitado pela arquitetura do sistema.\n'

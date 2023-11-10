@@ -12,4 +12,58 @@ flutuante.
 ● As variáveis numéricas são imutáveis. Demonstre com exemplos as implicações desta afirmação;
 
 ● Verifique quais métodos estão disponíveis para as variáveis de ponto flutuante;
+
 '''
+print('\n\t='+'=' *60)
+print('\t+ - * // % Operadores Aritméticos em Python + - * // %')
+
+# Adição
+a = 5.5
+b = 3.5
+print('\n\tAdição: {} + {} = {}'.format(a, b, a + b))
+
+# Subtração
+print('\tSubtração: {} - {} = {}'.format(a, b, a - b))
+
+# Multiplicação
+print('\tMultiplicação: {} x {} = {}'.format(a, b, a * b))
+
+# Divisão
+print('\tDivisão: {} / {} = {:.2f}'.format(a, b, a / b))
+
+# Exponenciação
+print('\tExponenciação: {} ^ {} = {}'.format(a, b, a**b))
+
+# Divisão inteira
+print('\tDivisão inteira: {} // {} = {}'.format(a, b, a // b))
+
+# Resto da divisão
+print('\tResto da divisão: {} % {} = {}'.format(a, b, a % b))
+
+print('\t='+'=' *60)
+
+print('\t+= -= *= /= Operadores Aritméticos Compostos em Python += -= *= /=')
+
+# Adição com atribuição
+x = 10.5
+y = 3.5
+print('\n\tx = {}\n\ty = {}\n\tx += y'.format(x, y))
+x += y
+print('\tAdição com atribuição {}'.format(x))
+
+# Subtração com atribuição
+print('\n\tx = {}\n\ty = {}\n\tx -= y'.format(x, y))
+x -= y
+print('\tSubtração com atribuição {}'.format(x))
+
+# Multiplicação com atribuição
+print('\n\tx = {}\n\ty = {}\n\tx *= y'.format(x, y))
+x *= y
+print('\tMultiplicação com atribuição {}'.format(x))
+
+# Divisão com atribuição
+print('\n\tx = {}\n\ty = {}\n\tx /= y'.format(x, y))
+x /= y
+print('\tDivisão com atribuição {:.1f}'.format(x))
+
+print('\t='+'=' *60)
