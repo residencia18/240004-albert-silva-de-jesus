@@ -1,9 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
 // Estudar exceções
 
-#region Teste de tipo de dados
+using System;
 
-#region Operadores
+namespace MeuPrimeiroProjeto
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
 
-#endregion
+      Console.WriteLine("Digite seu nome: ");
+
+      var nome = Console.ReadLine();
+      Console.WriteLine($"Hello {nome}!");
+    }
+  }
+}
