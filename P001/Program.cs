@@ -121,35 +121,29 @@ namespace P001
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES LÓGICOS DO C#");
 
-      bool a = true;
-      bool b = false;
+      bool condicao1 = true;
+      bool condicao2 = false;
 
       Console.WriteLine("\n\tbool a = true;\n\tbool b = false;\n\n\tOperador AND (&&):");
-      Console.WriteLine("\ta && b = " + (a && b));
+      Console.WriteLine("\ta && b = " + (condicao1 && condicao2));
 
       Console.WriteLine("\n\tOperador OR (||):");
-      Console.WriteLine("\ta || b = " + (a || b));
+      Console.WriteLine("\ta || b = " + (condicao1 || condicao2));
 
       Console.WriteLine("\n\tOperador NOT (!):");
-      Console.WriteLine("\t!a = " + (!a));
+      Console.WriteLine("\t!a = " + (!condicao1));
 
       Console.WriteLine("\n\tOperador XOR (^):");
-      Console.WriteLine("\ta ^ b = " + (a ^ b));
+      Console.WriteLine("\ta ^ b = " + (condicao1 ^ condicao2));
 
       Console.WriteLine("\n\tOperador de negação lógica (!):");
-      Console.WriteLine("\t!(a && b) = " + !(a && b));
+      Console.WriteLine("\t!(a && b) = " + !(condicao1 && condicao2));
 
       Console.WriteLine("\n\tOperador de negação lógica (!):");
-      Console.WriteLine("\t!(a || b) = " + !(a || b));
+      Console.WriteLine("\t!(a || b) = " + !(condicao1 || condicao2));
 
       Console.WriteLine("\n\tOperador de negação lógica (!):");
-      Console.WriteLine("\t!(a ^ b) = " + !(a ^ b));
-      Console.WriteLine("\t================================================================================================");
-
-      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
-      Console.ReadKey();
-      Console.Clear();
-
+      Console.WriteLine("\t!(a ^ b) = " + !(condicao1 ^ condicao2));
       Console.WriteLine("\t================================================================================================");
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
@@ -159,6 +153,12 @@ namespace P001
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tDESAFIO DE MISTURA DE OPERADORES DO C#");
 
+      int num1 = 7;
+      int num2 = 3;
+      int num3 = 10;
+
+      Console.WriteLine("\n\tint num1 = 7;\n\tint num2 = 3;\n\tint num3 = 10;\n\n\tnum1 > num2 && num3 == (num1 + num2) = " + (num1 > num2 && num3 == (num1 + num2)));
+      
       Console.WriteLine("\t================================================================================================\n\n");
 
       // NcursesDriver.NcursesEnd();
