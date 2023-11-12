@@ -17,4 +17,5 @@
 ### 6. Publique seu site no repositório github (hƩps://github.com/) e disponibilize o endereço.
 ## Observações: Use apenas HTML para criar seu website mesmo que você tenha experiência com CSS e JavaScript.
 
+### Site publicado no github pages: https://albertinesilva.github.io/ResidenciaFrontRnd/
 #### Autor: [Albert Silva]
