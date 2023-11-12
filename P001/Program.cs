@@ -37,12 +37,15 @@ namespace P001
       ulong valor8 = 18000000000000000000;
       Console.WriteLine("\tRepresenta números inteiros de 64 bits sem sinal. (ulong) = " + valor8);
 
-      // Pausa a execução do programa até que uma tecla seja pressionada
+      Console.WriteLine("\t================================================================================================");
+
+       // Pausa a execução do programa até que uma tecla seja pressionada
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
       // Limpa a tela
       Console.Clear();
 
-      Console.WriteLine("\n\t================================================================================================");
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tCONVERSÃO DE TIPOS DE DADOS DO C#");
 
       double valorDouble = 10.75;
@@ -51,33 +54,79 @@ namespace P001
       Console.WriteLine("\n\tNeste exemplo, valorDouble é uma variável do tipo double com a parte fracionária representando .75. \n\tAo converter para int usando (int)valorDouble, a parte decimal será truncada, resultando em 10 como valor inteiro");
       Console.WriteLine("\n\tA função Math.Round é usada para arredondar um número para o inteiro mais próximo ou para um número especificado de casas decimais. \n\tO método Math.Round é estático, portanto, você não precisa criar uma instância de Math para usá-lo. \n\tO método Math.Round tem vários sobrecargas. \n\tAqui, usamos o método Math.Round (double, int) para arredondar o valorDouble para o inteiro mais próximo. \n\tO valor de retorno é do tipo double, portanto, precisamos converter para int usando (int). \n\t(int)Math.Round(valorDouble) = " + (int)Math.Round(valorDouble));
 
-      Console.ReadKey();
+      Console.WriteLine("\t================================================================================================");
 
-      Console.WriteLine("\n\t================================================================================================");
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES ARITMÉTICOS DO C#");
 
       int x = 10;
       int y = 3;
-      
-      Console.WriteLine("\n\tint x = 10;\n\tint y = 3;\n\n\tSOMA:\n\tx + y = "+ (x + y) + " ou pode ser escrito como x += y = " + (x += y));
-      Console.WriteLine("\n\tSUBTRAÇÃO:\n\tx - y = "+ (x - y) + " ou pode ser escrito como x -= y = " + (x -= y));
-      Console.WriteLine("\n\tMULTIPLICAÇÃO:\n\tx * y = "+ (x * y) + " ou pode ser escrito como x *= y = " + (x *= y));
-      Console.WriteLine("\n\tDIVISÃO:\n\tx / y = "+ (x / y) + " ou pode ser escrito como x /= y = " + (x /= y));
-      Console.WriteLine("\n\tRESTO DA DIVISÃO:\n\tx % y = "+ (x % y) + " ou pode ser escrito como x %= y = " + (x %= y));
-    
-      Console.WriteLine("\n\t================================================================================================");
+
+      Console.WriteLine("\n\tint x = 10;\n\tint y = 3;\n\n\tSOMA:\n\tx + y = " + (x + y) + " ou pode ser escrito como x += y = " + (x += y));
+      Console.WriteLine("\n\tSUBTRAÇÃO:\n\tx - y = " + (x - y) + " ou pode ser escrito como x -= y = " + (x -= y));
+      Console.WriteLine("\n\tMULTIPLICAÇÃO:\n\tx * y = " + (x * y) + " ou pode ser escrito como x *= y = " + (x *= y));
+      Console.WriteLine("\n\tDIVISÃO:\n\tx / y = " + (x / y) + " ou pode ser escrito como x /= y = " + (x /= y));
+      Console.WriteLine("\n\tRESTO DA DIVISÃO:\n\tx % y = " + (x % y) + " ou pode ser escrito como x %= y = " + (x %= y));
+
+      Console.WriteLine("\t================================================================================================");
+
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES DE COMPARAÇÃO DO C#");
 
-      Console.WriteLine("\n\t================================================================================================");
+      Console.WriteLine("\n\tx = " + x + "\n\ty = " + y + "\n\n\tOperador de igualdade (==):");
+      Console.WriteLine("\tx == y = " + (x == y));
+
+      Console.WriteLine("\n\tOperador de desigualdade (!=):");
+      Console.WriteLine("\tx != y = " + (x != y));
+
+      Console.WriteLine("\n\tOperador maior que (>):");
+      Console.WriteLine("\tx > y = " + (x > y));
+
+      Console.WriteLine("\n\tOperador menor que (<):");
+      Console.WriteLine("\tx < y = " + (x < y));
+
+      Console.WriteLine("\n\tOperador maior ou igual que (>=):");
+      Console.WriteLine("\tx >= y = " + (x >= y));
+
+      Console.WriteLine("\n\tOperador menor ou igual que (<=):");
+      Console.WriteLine("\tx <= y = " + (x <= y));
+
+      Console.WriteLine("\t================================================================================================");
+
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES DE IGUALDADE DO C#");
 
-      Console.WriteLine("\n\t================================================================================================");
+      string str1 = "Hello";
+      string str2 = "World";
+
+      Console.WriteLine("\n\tstring str1 = \"Hello\";\n\tstring str2 = \"World\";\n\n\tOperador de igualdade (==):");
+      Console.WriteLine("\tstr1 == str2 = " + (str1 == str2) + " ou pode ser escrito como str1.Equals(str2) = " + str1.Equals(str2));
+
+      Console.WriteLine("\t================================================================================================");
+
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES LÓGICOS DO C#");
 
-      Console.WriteLine("\n\t================================================================================================");
+      Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tDESAFIO DE MISTURA DE OPERADORES DO C#");
 
-      Console.WriteLine("\n\t================================================================================================\n\n");
+      Console.WriteLine("\t================================================================================================\n\n");
 
       // NcursesDriver.NcursesEnd();
     }
