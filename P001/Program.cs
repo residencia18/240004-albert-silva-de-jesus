@@ -38,11 +38,11 @@ namespace P001
       Console.WriteLine("\tRepresenta números inteiros de 64 bits sem sinal. (ulong) = " + valor8);
       Console.WriteLine("\t================================================================================================");
 
-       // Pausa a execução do programa até que uma tecla seja pressionada
+      // Pausa a execução do programa até que uma tecla seja pressionada
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
       // Limpa a tela
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tCONVERSÃO DE TIPOS DE DADOS DO C#");
@@ -56,7 +56,7 @@ namespace P001
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES ARITMÉTICOS DO C#");
@@ -73,7 +73,7 @@ namespace P001
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES DE COMPARAÇÃO DO C#");
@@ -99,7 +99,7 @@ namespace P001
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES DE IGUALDADE DO C#");
@@ -116,7 +116,7 @@ namespace P001
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES LÓGICOS DO C#");
@@ -148,7 +148,7 @@ namespace P001
 
       Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
       Console.ReadKey();
-      Console.Clear();
+      LimparTela();
 
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tDESAFIO DE MISTURA DE OPERADORES DO C#");
@@ -158,10 +158,23 @@ namespace P001
       int num3 = 10;
 
       Console.WriteLine("\n\tint num1 = 7;\n\tint num2 = 3;\n\tint num3 = 10;\n\n\tnum1 > num2 && num3 == (num1 + num2) = " + (num1 > num2 && num3 == (num1 + num2)));
-      
+
       Console.WriteLine("\t================================================================================================\n\n");
 
       // NcursesDriver.NcursesEnd();
+    }
+
+    static void LimparTela()
+    {
+      // Limpar a tela no Windows ou Linux
+      if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+      {
+        Console.Clear(); // Windows
+      }
+      else
+      {
+        Console.Write("\u001b[2J\u001b[1;1H"); // Linux
+      }
     }
   }
 }
