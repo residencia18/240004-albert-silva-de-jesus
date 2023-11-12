@@ -1,7 +1,7 @@
 <h1 align="center">ResidenciaFrontRnd</h1>
 
 ## OBJETIVO DA ATIVIDADE
-### Desenvolvimento de um site da web básico, estruturando o conteúdo das páginas uƟlizando as tags HTML vistas em sala de aula, como headings, navegação entre páginas, listas, parágrafos, quebra de linhas, mudanças temáƟcas de conteúdo. Publicar o site na Internet (repositório github) para que fique disponível para todo o mundo.
+### Desenvolvimento de um site da web básico, estruturando o conteúdo das páginas utilizando as tags HTML vistas em sala de aula, como headings, navegação entre páginas, listas, parágrafos, quebra de linhas, mudanças temáticas de conteúdo. Publicar o site na Internet (repositório github) para que fique disponível para todo o mundo.
 
 ## DESCRIÇÃO DA ATIVIDADE
 
@@ -12,7 +12,7 @@
 ### a. Informações pessoais para que a recrutadora possa entrar em contato (Nome, sobrenome, email, telefone, endereço do linkedln);
 ### b. Carta de apresentação onde você deve descrever suas experiências acadêmicas e profissionais, mostre como você pode contribuir com a empresa e por fim, despedida e assinatura;
 ### c. Um link para uma outra página (porƟfolio.html) onde será apresentado todas as suas páginas web que foram criadas durante o período em sala de aula com seus respecƟvos links.
-### 4. UƟlize as tags HTML aprendidas em sala para formatar o seu conteúdo (<p>, <h1>a<h6>, <hr/>, <br/>, <ul>, <ol>, <a>, <img>, etc);
+### 4. Utilize as tags HTML aprendidas em sala para formatar o seu conteúdo (p, h1 a h6, hr, br/, ul, ol, a, img, etc);
 ### 5. Teste seu site em pelo menos dois navegadores web para verificar se está tudo correto;
 ### 6. Publique seu site no repositório github (hƩps://github.com/) e disponibilize o endereço.
 ## Observações: Use apenas HTML para criar seu website mesmo que você tenha experiência com CSS e JavaScript.
