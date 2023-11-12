@@ -1,4 +1,6 @@
-# Comandos DotNet
+<p align="center">
+  <h1>Comandos DotNet</h1>
+</p>
 
 ```bash
 Verifica a versão do .NET SDK:
