@@ -56,6 +56,15 @@ namespace P001
       Console.WriteLine("\n\t================================================================================================");
       Console.WriteLine("\tOPERADORES ARITMÉTICOS DO C#");
 
+      int x = 10;
+      int y = 3;
+      
+      Console.WriteLine("\n\tint x = 10;\n\tint y = 3;\n\n\tSOMA:\n\tx + y = "+ (x + y) + " ou pode ser escrito como x += y = " + (x += y));
+      Console.WriteLine("\n\tSUBTRAÇÃO:\n\tx - y = "+ (x - y) + " ou pode ser escrito como x -= y = " + (x -= y));
+      Console.WriteLine("\n\tMULTIPLICAÇÃO:\n\tx * y = "+ (x * y) + " ou pode ser escrito como x *= y = " + (x *= y));
+      Console.WriteLine("\n\tDIVISÃO:\n\tx / y = "+ (x / y) + " ou pode ser escrito como x /= y = " + (x /= y));
+      Console.WriteLine("\n\tRESTO DA DIVISÃO:\n\tx % y = "+ (x % y) + " ou pode ser escrito como x %= y = " + (x %= y));
+    
       Console.WriteLine("\n\t================================================================================================");
       Console.WriteLine("\tOPERADORES DE COMPARAÇÃO DO C#");
 
