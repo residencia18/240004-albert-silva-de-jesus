@@ -121,6 +121,41 @@ namespace P001
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tOPERADORES LÓGICOS DO C#");
 
+      bool a = true;
+      bool b = false;
+
+      Console.WriteLine("\n\tbool a = true;\n\tbool b = false;\n\n\tOperador AND (&&):");
+      Console.WriteLine("\ta && b = " + (a && b));
+
+      Console.WriteLine("\n\tOperador OR (||):");
+      Console.WriteLine("\ta || b = " + (a || b));
+
+      Console.WriteLine("\n\tOperador NOT (!):");
+      Console.WriteLine("\t!a = " + (!a));
+
+      Console.WriteLine("\n\tOperador XOR (^):");
+      Console.WriteLine("\ta ^ b = " + (a ^ b));
+
+      Console.WriteLine("\n\tOperador de negação lógica (!):");
+      Console.WriteLine("\t!(a && b) = " + !(a && b));
+
+      Console.WriteLine("\n\tOperador de negação lógica (!):");
+      Console.WriteLine("\t!(a || b) = " + !(a || b));
+
+      Console.WriteLine("\n\tOperador de negação lógica (!):");
+      Console.WriteLine("\t!(a ^ b) = " + !(a ^ b));
+      Console.WriteLine("\t================================================================================================");
+
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
+      Console.WriteLine("\t================================================================================================");
+
+      Console.WriteLine("\n\tPressione qualquer tecla para continuar...");
+      Console.ReadKey();
+      Console.Clear();
+
       Console.WriteLine("\t================================================================================================");
       Console.WriteLine("\tDESAFIO DE MISTURA DE OPERADORES DO C#");
 
