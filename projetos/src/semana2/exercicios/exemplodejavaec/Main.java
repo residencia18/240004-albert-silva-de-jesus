@@ -1,4 +1,4 @@
-package semana2.exemplodejavaec;
+package semana2.exercicios.exemplodejavaec;
 
 public class Main {
     

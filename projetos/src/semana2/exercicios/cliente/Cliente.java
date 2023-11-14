@@ -1,4 +1,4 @@
-package semana2.exercicio;
+package semana2.exercicios.cliente;
 
 public class Cliente {
     

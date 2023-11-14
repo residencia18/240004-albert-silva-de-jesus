@@ -1,4 +1,4 @@
-package semana2.redesocial;
+package semana2.exercicios.redesocial;
 
 import java.util.Scanner;
 
