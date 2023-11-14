@@ -68,10 +68,13 @@ public class Conta {
     this.saldo += valor;
   }
 
+  double saque(double valor) {
+    return this.saldo -= valor;
+  }
+
   @Override
   public String toString() {
     return String.format("\n\tNome da conta: %s\n\tNúmero: %d\n\tSaldo: %.2f", this.nome, this.numero, this.saldo);
   }
 
- 
 }
