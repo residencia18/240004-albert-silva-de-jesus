@@ -94,6 +94,8 @@ public class Calculadora {
 
     }
 
+    scan.close();
+
   }
 
   public static int menuCalculadora(Scanner scan) {
