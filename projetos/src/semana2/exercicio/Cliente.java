@@ -9,9 +9,9 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, int idade, String cpf) {
+    public Cliente(String nome, String cpf) {
         this.nome = nome;
-        this.idade = idade;
+        this.idade = 0;
         this.cpf = cpf;
     }
 
