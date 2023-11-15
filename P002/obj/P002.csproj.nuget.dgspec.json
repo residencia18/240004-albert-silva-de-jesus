@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana1\\MeuPrimeiroProjeto\\MeuPrimeiroProjeto.csproj": {}
+    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P002\\P002.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana1\\MeuPrimeiroProjeto\\MeuPrimeiroProjeto.csproj": {
+    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P002\\P002.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana1\\MeuPrimeiroProjeto\\MeuPrimeiroProjeto.csproj",
-        "projectName": "MeuPrimeiroProjeto",
-        "projectPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana1\\MeuPrimeiroProjeto\\MeuPrimeiroProjeto.csproj",
+        "projectUniqueName": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P002\\P002.csproj",
+        "projectName": "P002",
+        "projectPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P002\\P002.csproj",
         "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana1\\MeuPrimeiroProjeto\\obj\\",
+        "outputPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P002\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config"
