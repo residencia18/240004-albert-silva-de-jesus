@@ -1,9 +1,12 @@
 package semana2.exercicios.redesocial;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Usuario {
 
+    private static final AtomicLong contador = new AtomicLong(1);
+    private long id;
     private String nome;
     private String email;
     private String nacionalidade;
@@ -22,6 +25,7 @@ public class Usuario {
         this.quantidadeDePostagens = 0;
         this.pontuacao = 0;
         postagens = new ArrayList<String>();
+        id = gerarID();
     }
 
     public String getNome() {
@@ -77,6 +81,14 @@ public class Usuario {
         this.quantidadeDePostagens++;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public static long gerarID() {
+        return contador.getAndIncrement();
+    }
+
     public void imprimePostagens() {
         System.out.println("\n\t==========Postagens==========\n");
         System.out.print("\t");
@@ -84,6 +96,13 @@ public class Usuario {
             System.out.print("," + postagens.get(i));
         }
         System.out.println("\n\t==============================");
+    }
+
+    public void imprimeUsuario() {
+        System.out.println("\n\t==========Usuário==========\n");
+        for (int i = 0; i < postagens.size(); i++) {
+            System.out.println("\t" + postagens.get(i));
+        }
     }
 
     public void alteraPontuacao(int delta) {
@@ -98,7 +117,7 @@ public class Usuario {
     @Override
     public String toString() {
         return String.format(
-                "\n\tNome: %s\n\tEmail: %s\n\tNacionalidade: %s\n\tQuantidade de postagens: %d\n\tPontuação: %d", nome,
+                "\n\tId: %d\n\tNome: %s\n\tEmail: %s\n\tNacionalidade: %s\n\tQuantidade de postagens: %d\n\tPontuação: %d",id, nome,
                 email, nacionalidade, quantidadeDePostagens, pontuacao);
     }
 

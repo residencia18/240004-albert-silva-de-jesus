@@ -1,5 +1,6 @@
 package semana2.exercicios.redesocial;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,43 +8,122 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 
-        limparTela();
-        System.out.printf("\n\tDigite seu nome: ");
-        String nome = scan.nextLine();
+        cadastrarUsuario(scan, listaUsuarios);
 
-        System.out.printf("\n\tDigite seu email: ");
-        String email = scan.nextLine();
+        listarUsuarios(scan, listaUsuarios);
 
-        System.out.printf("\n\tDigite sua nacionalidade: ");
-        String nacionalidade = scan.nextLine();
+        editarUsuario(scan, listaUsuarios);
 
-        Usuario usuario = new Usuario(nome, email, nacionalidade);
+        listarUsuarios(scan, listaUsuarios);
 
-        limparTela();
-        System.out.println(usuario.toString());
+        excluiUsuario(scan, listaUsuarios);
 
-        pausa(scan);
-        limparTela();
-        for (int i = 0; i < 5; i++) {
-            System.out.printf("\n\tDigite a %dº postagem: ", i + 1);
-            String postagem = scan.nextLine();
-
-            usuario.adicionaPostagem(postagem);
-        }
-
-        limparTela();
-        usuario.imprimePostagens();
-
-        System.out.println(usuario.toString());
-
-        usuario.alteraPontuacao(10);
-        System.out.println(usuario.toString());
-
-        usuario.alteraPontuacao(-10);
-        System.out.println(usuario.toString());
+        listarUsuarios(scan, listaUsuarios);
 
         scan.close();
+
+    }
+
+    public static void cadastrarUsuario(Scanner scan, ArrayList<Usuario> listaUsuarios) {
+
+        String opcao;
+
+        do {
+
+            limparTela();
+            System.out.println("\n\t==============CADASTRAR USUÁRIO==============");
+
+            System.out.printf("\n\tDigite seu nome: ");
+            String nome = scan.nextLine();
+
+            System.out.printf("\n\tDigite seu email: ");
+            String email = scan.nextLine();
+
+            System.out.printf("\n\tDigite sua nacionalidade: ");
+            String nacionalidade = scan.nextLine();
+
+            Usuario usuario = new Usuario(nome, email, nacionalidade);
+            listaUsuarios.add(usuario);
+
+            System.out.printf("\n\tDeseja cadastrar outro usuário? (S/N): ");
+            opcao = scan.nextLine();
+
+            if (opcao.equalsIgnoreCase("n")) {
+                break;
+            }
+
+        } while (opcao != "n");
+
+    }
+
+    public static void listarUsuarios(Scanner scan, ArrayList<Usuario> listaUsuarios) {
+
+        limparTela();
+        System.out.println("\n\t==============LISTAR USUÁRIOS==============");
+
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+            System.out.println(listaUsuarios.get(i));
+        }
+        pausa(scan);
+
+    }
+
+    public static void editarUsuario(Scanner scan, ArrayList<Usuario> listaUsuarios) {
+
+        limparTela();
+        System.out.println("\n\t==============EDITAR USUÁRIO==============");
+
+        System.out.printf("\n\tDigite o ID do usuário que deseja editar: ");
+        long id = scan.nextLong();
+        scan.nextLine();
+
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+
+            if (listaUsuarios.get(i).getId() == id) {
+
+                System.out.printf("\n\tDigite o novo nome: ");
+                String nome = scan.nextLine();
+
+                System.out.printf("\n\tDigite o novo email: ");
+                String email = scan.nextLine();
+
+                System.out.printf("\n\tDigite a nova nacionalidade: ");
+                String nacionalidade = scan.nextLine();
+
+                listaUsuarios.get(i).setNome(nome);
+                listaUsuarios.get(i).setEmail(email);
+                listaUsuarios.get(i).setNacionalidade(nacionalidade);
+
+                System.out.println("\n\tUsuário editado com sucesso!");
+                pausa(scan);
+                break;
+            }
+        }
+
+    }
+
+    public static void excluiUsuario(Scanner scan, ArrayList<Usuario> listaUsuarios) {
+
+        limparTela();
+        System.out.println("\n\t==============EXCLUIR USUÁRIO==============");
+
+        System.out.printf("\n\tDigite o ID do usuário que deseja excluir: ");
+        long id = scan.nextLong();
+        scan.nextLine();
+
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+
+            if (listaUsuarios.get(i).getId() == id) {
+
+                listaUsuarios.remove(i);
+
+                System.out.println("\n\tUsuário excluído com sucesso!");
+                pausa(scan);
+                break;
+            }
+        }
 
     }
 
