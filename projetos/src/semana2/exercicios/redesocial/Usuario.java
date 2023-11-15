@@ -7,6 +7,8 @@ public class Usuario {
     private String nome;
     private String email;
     private String nacionalidade;
+    private int quantidadeDePostagens;
+    private int pontuacao;
     private ArrayList<String> postagens;
 
     public Usuario() {
@@ -17,6 +19,8 @@ public class Usuario {
         this.nome = nome;
         this.email = email;
         this.nacionalidade = nacionalidade;
+        this.quantidadeDePostagens = 0;
+        this.pontuacao = 0;
         postagens = new ArrayList<String>();
     }
 
@@ -44,6 +48,22 @@ public class Usuario {
         this.nacionalidade = nacionalidade;
     }
 
+    public int getQuantidadeDePostagens() {
+        return quantidadeDePostagens;
+    }
+
+    public void setQuantidadeDePostagens(int quantidadeDePostagens) {
+        this.quantidadeDePostagens = quantidadeDePostagens;
+    }
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
     public ArrayList<String> getPostagens() {
         return postagens;
     }
@@ -52,20 +72,34 @@ public class Usuario {
         this.postagens = postagens;
     }
 
-    public void adicionaPostagem(String postagem){
+    public void adicionaPostagem(String postagem) {
         this.postagens.add(postagem);
+        this.quantidadeDePostagens++;
     }
 
-    public void imprimePostagens(){
-        for(int i = 0; i < postagens.size(); i++){
+    public void imprimePostagens() {
+        System.out.println("\n\t==========Postagens==========\n");
+        System.out.print("\t");
+        for (int i = 0; i < postagens.size(); i++) {
+            System.out.print("," + postagens.get(i));
+        }
+        System.out.println("\n\t==============================");
+    }
 
-            System.out.println("Postagens: "+ postagens.get(i));
+    public void alteraPontuacao(int delta) {
+
+        if ((pontuacao + delta) <= 0) {
+            System.out.println("\n\tOps, pontuação não pode ser igual ou menor que zero!");
+        } else {
+            this.pontuacao += delta;
         }
     }
 
     @Override
     public String toString() {
-        return String.format("\n\tNome: %s\n\tEmail: %s\n\tNacionalidade: %s\n", nome, email, nacionalidade);
+        return String.format(
+                "\n\tNome: %s\n\tEmail: %s\n\tNacionalidade: %s\n\tQuantidade de postagens: %d\n\tPontuação: %d", nome,
+                email, nacionalidade, quantidadeDePostagens, pontuacao);
     }
 
 }
