@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\semana2.csproj": {}
+    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\data\\data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\semana2.csproj": {
+    "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\data\\data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\semana2.csproj",
-        "projectName": "semana2",
-        "projectPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\semana2.csproj",
+        "projectUniqueName": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\data\\data.csproj",
+        "projectName": "data",
+        "projectPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\data\\data.csproj",
         "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\obj\\",
+        "outputPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\semana2\\data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config"
