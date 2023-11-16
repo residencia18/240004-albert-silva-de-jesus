@@ -8,23 +8,26 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\alber\\.nuget\\packages\\": {}
+    "/home/albert-silva-jesus/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P001\\P001.csproj",
+      "projectUniqueName": "/home/albert-silva-jesus/Documentos/ResidenciaDotNet/P001/P001.csproj",
       "projectName": "P001",
-      "projectPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P001\\P001.csproj",
-      "packagesPath": "C:\\Users\\alber\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alber\\OneDrive\\Documentos\\ProjetosResidencia\\residenciaDotNet\\P001\\obj\\",
+      "projectPath": "/home/albert-silva-jesus/Documentos/ResidenciaDotNet/P001/P001.csproj",
+      "packagesPath": "/home/albert-silva-jesus/.nuget/packages/",
+      "outputPath": "/home/albert-silva-jesus/Documentos/ResidenciaDotNet/P001/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alber\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/albert-silva-jesus/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
@@ -56,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.113/RuntimeIdentifierGraph.json"
       }
     }
   }

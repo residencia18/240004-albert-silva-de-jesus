@@ -47,7 +47,7 @@ namespace semana2
 
       // Imprime a data atual do sistema operacional formatada em português usando ToString.
       Console.WriteLine(DateTime.Now.ToString("D", en));
-       Console.WriteLine(DateTime.Now.ToString("D", atual));
+      Console.WriteLine(DateTime.Now.ToString("D", atual));
 
       Console.WriteLine(data.AddDays(2));
       Console.WriteLine(data.AddMonths(2));
