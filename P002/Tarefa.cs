@@ -102,8 +102,8 @@ namespace P002
 
         public void listar()
         {
+            int opcao = 0;
 
-            Console.WriteLine("\n\t========== LISTAR TAREFAS ==========");
             if (tarefas.Count == 0)
             {
                 Console.WriteLine("\n\tOps, nenhuma tarefa cadastrada!");
@@ -112,25 +112,79 @@ namespace P002
             }
             else
             {
-                foreach (Tarefa tarefa in tarefas)
-                {
-                    Console.WriteLine("\n\tID: " + tarefa.getId());
-                    Console.WriteLine("\tTítulo: " + tarefa.getTitulo());
-                    Console.WriteLine("\tDescrição: " + tarefa.getDescricao());
-                    Console.WriteLine("\tData de Criação: " + tarefa.getDataCriacao());
+                Console.Write("\n\tDeseja listar as tarefas concluídas ou não concluídas?\n\n\t[1] - CONCLUÍDAS\n\t[2] - NÃO CONCLUÍDAS\n\t[0] - VOLTAR\n\tENTRADA -> ");
+                opcao = Int32.Parse(Console.ReadLine());
+                LimparTela();
 
-                    if (tarefa.getConcluida())
+                if (opcao == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    if (opcao != 1 && opcao != 2)
                     {
-                        Console.WriteLine("\tConcluída: Sim");
+                        Console.WriteLine("\n\tOpção inválida, pressione Enter para continuar... ");
+                        Console.ReadLine();
+                        return;
                     }
                     else
                     {
-                        Console.WriteLine("\tConcluída: Não");
+                        if (opcao == 1)
+                        {
+                            // Verificar se há pelo menos uma tarefa concluída na lista
+                            bool temTarefaConcluida = tarefas.Any(tarefa => tarefa.concluida);
+
+                            if (temTarefaConcluida == false)
+                            {
+                                Console.WriteLine("\n\tOps, nenhuma tarefa concluída!");
+                                Console.Write("\n\tPressione Enter para continuar... ");
+                                Console.ReadLine();
+                                return;
+                            }
+
+                            Console.WriteLine("\n\t========== LISTAR TAREFAS CONCLUÍDAS ==========");
+
+                            foreach (Tarefa tarefa in tarefas)
+                            {
+                                if (tarefa.getConcluida())
+                                {
+                                    Console.WriteLine("\n\tID: " + tarefa.getId());
+                                    Console.WriteLine("\tTítulo: " + tarefa.getTitulo());
+                                    Console.WriteLine("\tDescrição: " + tarefa.getDescricao());
+                                    Console.WriteLine("\tData de Criação: " + tarefa.getDataCriacao());
+                                    Console.WriteLine("\tConcluída: Sim");
+                                }
+                            }
+                            Console.WriteLine("\t====================================");
+                            Console.Write("\tPressione Enter para continuar... ");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+
+                            if (opcao == 2)
+                            {
+                                Console.WriteLine("\n\t========== LISTAR TAREFAS NÃO CONCLUÍDAS ==========");
+
+                                foreach (Tarefa tarefa in tarefas)
+                                {
+                                    if (!tarefa.getConcluida())
+                                    {
+                                        Console.WriteLine("\n\tID: " + tarefa.getId());
+                                        Console.WriteLine("\tTítulo: " + tarefa.getTitulo());
+                                        Console.WriteLine("\tDescrição: " + tarefa.getDescricao());
+                                        Console.WriteLine("\tData de Criação: " + tarefa.getDataCriacao());
+                                        Console.WriteLine("\tConcluída: Não");
+                                    }
+                                }
+                                Console.WriteLine("\t====================================");
+                                Console.Write("\tPressione Enter para continuar... ");
+                                Console.ReadLine();
+                            }
+                        }
                     }
                 }
-                Console.WriteLine("\n\t====================================");
-                Console.Write("\n\tPressione Enter para continuar... ");
-                Console.ReadLine();
             }
         }
 
@@ -158,6 +212,19 @@ namespace P002
                 Console.WriteLine("\n\tOps, nenhuma tarefa encontrada com o ID informado!");
                 Console.Write("\n\tPressione Enter para continuar... ");
                 Console.ReadLine();
+            }
+        }
+
+        static void LimparTela()
+        {
+            // Limpar a tela no Windows ou Linux
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                Console.Clear(); // Windows
+            }
+            else
+            {
+                Console.Write("\u001b[2J\u001b[1;1H"); // Linux
             }
         }
 
