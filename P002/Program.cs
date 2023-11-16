@@ -71,7 +71,8 @@ namespace P002
             break;
 
           case 4:
-            // removerTarefa();
+            LimparTela();
+            tarefa.excluir();
             break;
 
           case 5:

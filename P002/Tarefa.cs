@@ -188,6 +188,30 @@ namespace P002
             }
         }
 
+        public void excluir(){
+
+            Console.WriteLine("\n\t========== EXCLUIR TAREFA ==========");
+            
+            Console.Write("\n\tInforme o ID da tarefa que deseja excluir: ");
+            int id = Int32.Parse(Console.ReadLine());
+
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+
+            if (tarefa != null)
+            {
+                tarefas.Remove(tarefa);
+                Console.WriteLine("\n\tTarefa excluída com sucesso!");
+                Console.Write("\n\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("\n\tOps, nenhuma tarefa encontrada com o ID informado!");
+                Console.Write("\n\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+        }
+
         public void marcarTarefaComoConcluida()
         {
 
