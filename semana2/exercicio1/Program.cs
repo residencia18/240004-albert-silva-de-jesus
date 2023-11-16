@@ -39,6 +39,7 @@ namespace exercicio1
             int anterior = 0;
             int atual = 1;
 
+            Console.Write(anterior);
             while (atual <= 100)
             {
                 serieFibonacci += atual + " ";
@@ -47,6 +48,7 @@ namespace exercicio1
                 atual = proximo;
             }
             Console.WriteLine("A série de Fibonacci até 100: " + serieFibonacci);
+
 
         }
         static void LimparTela()

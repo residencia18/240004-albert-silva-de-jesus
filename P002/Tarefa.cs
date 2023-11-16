@@ -88,10 +88,10 @@ namespace P002
 
             Console.WriteLine("\n\t========== CADASTRAR TAREFA ==========");
             Console.Write("\n\tInforme o Título: ");
-            string titulo = Console.ReadLine();
+            string? titulo = Console.ReadLine();
 
             Console.Write("\n\tInforme a Descrição: ");
-            string descricao = Console.ReadLine();
+            string? descricao = Console.ReadLine();
 
             Tarefa tarefa = new Tarefa(titulo, descricao);
 
@@ -201,10 +201,10 @@ namespace P002
             if (tarefa != null)
             {
                 Console.Write("\n\tInforme o novo Título: ");
-                string titulo = Console.ReadLine();
+                string? titulo = Console.ReadLine();
 
                 Console.Write("\n\tInforme a nova Descrição: ");
-                string descricao = Console.ReadLine();
+                string? descricao = Console.ReadLine();
 
                 tarefa.setTitulo(titulo);
                 tarefa.setDescricao(descricao);
