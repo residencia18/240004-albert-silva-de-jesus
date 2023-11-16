@@ -67,7 +67,8 @@ namespace P002
             break;
 
           case 3:
-            // editarTarefa();
+            LimparTela();
+            tarefa.editar();
             break;
 
           case 4:
@@ -76,7 +77,8 @@ namespace P002
             break;
 
           case 5:
-            // pesquisarTarefa();
+            LimparTela();
+            tarefa.pesquisar();
             break;
 
           case 6:

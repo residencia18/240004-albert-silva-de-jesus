@@ -188,10 +188,45 @@ namespace P002
             }
         }
 
-        public void excluir(){
+        public void editar()
+        {
+
+            Console.WriteLine("\n\t========== EDITAR TAREFA ==========");
+
+            Console.Write("\n\tInforme o ID da tarefa que deseja editar: ");
+            int id = Int32.Parse(Console.ReadLine());
+
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+
+            if (tarefa != null)
+            {
+                Console.Write("\n\tInforme o novo Título: ");
+                string titulo = Console.ReadLine();
+
+                Console.Write("\n\tInforme a nova Descrição: ");
+                string descricao = Console.ReadLine();
+
+                tarefa.setTitulo(titulo);
+                tarefa.setDescricao(descricao);
+
+                Console.WriteLine("\n\tTarefa editada com sucesso!");
+                Console.Write("\n\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("\n\tOps, nenhuma tarefa encontrada com o ID informado!");
+                Console.Write("\n\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+        }
+
+
+        public void excluir()
+        {
 
             Console.WriteLine("\n\t========== EXCLUIR TAREFA ==========");
-            
+
             Console.Write("\n\tInforme o ID da tarefa que deseja excluir: ");
             int id = Int32.Parse(Console.ReadLine());
 
@@ -234,6 +269,38 @@ namespace P002
             {
 
                 Console.WriteLine("\n\tOps, nenhuma tarefa encontrada com o ID informado!");
+                Console.Write("\n\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+        }
+
+        public void pesquisar()
+        {
+
+            Console.WriteLine("\n\t========== PESQUISAR TAREFA ==========");
+
+            Console.Write("\n\tInforme o id da tarefa que deseja pesquisar: ");
+            int id = Int32.Parse(Console.ReadLine());
+
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+
+            if (tarefa != null)
+            {
+                LimparTela();
+                Console.WriteLine("\n\t========== TAREFA ENCONTRADA ==========");
+                Console.WriteLine("\n\tID: " + tarefa.getId());
+                Console.WriteLine("\tTítulo: " + tarefa.getTitulo());
+                Console.WriteLine("\tDescrição: " + tarefa.getDescricao());
+                Console.WriteLine("\tData de Criação: " + tarefa.getDataCriacao());
+                Console.WriteLine("\tConcluída: " + tarefa.getConcluida());
+                Console.WriteLine("\t====================================");
+                Console.Write("\tPressione Enter para continuar... ");
+                Console.ReadLine();
+            }
+            else
+            {
+                LimparTela();
+                Console.WriteLine("\n\tOps, nenhuma tarefa encontrada com o Título informado!");
                 Console.Write("\n\tPressione Enter para continuar... ");
                 Console.ReadLine();
             }
