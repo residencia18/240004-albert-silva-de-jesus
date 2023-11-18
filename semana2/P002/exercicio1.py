@@ -41,45 +41,82 @@ import locale
 from datetime import datetime
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 data_e_hora_atual = datetime.now()
-
-def cadastrar(tarefas, descricao, id_tarefa):
-
-    tarefas[id_tarefa] = [descricao.capitalize(), False]
-    print("\n\tTarefa registrada!!!")
-    pause()
-    
-def listar(tarefas):
-
-    print("\n\t======= TAREFAS =======")
-    for id_tarefa, tarefa in tarefas.items():
-        if tarefa[1]:
-          print(f"\t{id_tarefa}. {tarefa[0]} [x]")
-        else:
-          print(f"\t{id_tarefa}. {tarefa[0]} [ ]") 
-    print("\t=======================") 
-    pause()
-
-def pause():
-    input("\tPressione Enter para continuar...")
-
-def limpaTela():
-    sistema_operacional = platform.system().lower()
-
-    if sistema_operacional == "windows":
-      os.system("cls")
-    elif sistema_operacional == "linux":
-      os.system("clear")
-    else:
-      print("Sistema operacional não suportado para limpar a tela.")
-
-# Dicionário para armazenar as tarefas (ID: (descricao, concluida))
 tarefas = {}
 proximo_id = 1
 
-while True:
+def cadastrar():
+  
+    print("\n\t======= CADASTRAR TAREFA =======")
+    global proximo_id
+    descricao = input("\n\tDigite a descrição da tarefa: ")
+    tarefas[proximo_id] = [descricao.capitalize(), False]
+    proximo_id += 1
+    print("\n\tTarefa registrada!!!")
+    pause()
+    
+def listar():
+  
+  print("\n\t======= TAREFAS =======")
+  for id_tarefa, tarefa in tarefas.items():
+    if tarefa[1]:
+      print(f"\t{id_tarefa}. {tarefa[0]} [x]")
+    else:
+      print(f"\t{id_tarefa}. {tarefa[0]} [ ]") 
+  print("\t=======================") 
+
+def marcarTarefaComoRealizada():
+  
+  print("\n\t======= MARCAR TAREFA COMO REALIZADA =======")
+  listar()  # Mostra a lista de tarefas para que o usuário escolha qual marcar como realizada
+  id_tarefa = int(input("\tDigite o ID da tarefa a ser marcada como realizada: "))
+
+  if id_tarefa in tarefas:
+    limpaTela()
+    tarefas[id_tarefa][1] = True
+    listar()
+    print("\n\tTarefa marcada como realizada!")
+    pause()
+  else:
+    print("\n\tID de tarefa inválido. Tente novamente.")
+    pause()
+
+def editarTarefa():
+  
+  print("\n\t======= EDITAR TAREFA =======")
+  listar()  # Mostra a lista de tarefas para que o usuário escolha qual editar
+  id_tarefa = int(input("\n\tDigite o ID da tarefa a ser editada: "))
+  limpaTela()
+
+  if id_tarefa in tarefas:
+    nova_descricao = input("\n\tDigite a nova descrição da tarefa: ")
+    tarefas[id_tarefa][0] = nova_descricao.capitalize()
+    limpaTela()
+    listar()
+    print("\n\tTarefa editada com sucesso!")
+    pause()
+  else:
+    print("\n\tID de tarefa inválido. Tente novamente.")
+    pause()
+
+def pause():
+  input("\tPressione Enter para continuar...")
+
+def limpaTela():
+  sistema_operacional = platform.system().lower()
+
+  if sistema_operacional == "windows":
+    os.system("cls")
+  elif sistema_operacional == "linux":
+    os.system("clear")
+  else:
+    print("Sistema operacional não suportado para limpar a tela.")
+      
+def menu():
+  
+  while True:
     
     limpaTela()
-    formato_personalizado = "\t%A, %d de %B de %Y %H:%M:%S"
+    formato_personalizado = "\n\t%A, %d de %B de %Y %H:%M:%S"
     data_e_hora_formatada = data_e_hora_atual.strftime(formato_personalizado)
     print(data_e_hora_formatada)
 
@@ -89,32 +126,44 @@ while True:
     print("\t[3] - MARCAR TAREFA COMO REALIZADA")
     print("\t[4] - EDITAR TAREFA")
     print("\t[0] - SAIR")
-    escolha = input("\tENTRADA -> ")
-
-    if escolha == "1":
-      
-      limpaTela()
-      descricao = input("\tDigite a descrição da tarefa: ")
-      cadastrar(tarefas, descricao, proximo_id)
-      proximo_id += 1
-      
-    elif escolha == "2":
-      
-      limpaTela()
-      listar(tarefas)
-       
-    elif escolha == "3":
-      
-      id_tarefa = int(input("\tDigite o ID da tarefa a ser marcada como realizada: "))
-      marcar_tarefa_como_realizada(tarefas, id_tarefa)
-      
-    elif escolha == "4":
-      
-      id_tarefa = int(input("\tDigite o ID da tarefa a ser editada: "))
-      nova_descricao = input("\tDigite a nova descrição da tarefa: ")
-      editar_tarefa(tarefas, id_tarefa, nova_descricao)
-      
-    elif escolha == "0":
-      break
+    opcao = input("\tENTRADA -> ")
+    
+    if(opcao == "1" or opcao == "2" or opcao == "3" or opcao == "4" or opcao == "0"):
+      return opcao
     else:
-      print("\tOpção inválida. Tente novamente.")
+      print("\tOps, opção inválida. Tente novamente.")
+      pause()
+    
+def main(): 
+      
+  while True:
+        
+    opcao = menu()
+        
+    match opcao:
+          
+      case "1":
+        limpaTela()
+        cadastrar()
+              
+      case "2":
+        limpaTela()
+        listar()
+        pause()
+            
+      case "3":
+        limpaTela()
+        marcarTarefaComoRealizada()
+                
+      case "4":
+        limpaTela()
+        editarTarefa()
+                
+      case "0": 
+        return 
+              
+      case _:
+        print("\tOps, Opção inválida. Tente novamente!")
+        pause()
+          
+main()
