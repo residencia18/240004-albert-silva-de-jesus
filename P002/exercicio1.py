@@ -41,16 +41,21 @@ from datetime import datetime
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 data_e_hora_atual = datetime.now()
 
-def registrar_tarefa(tarefas, descricao, id_tarefa):
+def cadastrar(tarefas, descricao, id_tarefa):
+
     tarefas[id_tarefa] = [descricao.capitalize(), False]
     print("\n\tTarefa registrada!!!")
     pause()
     
-def listar_tarefas(tarefas):
+def listar(tarefas):
+
     print("\n\t======= TAREFAS =======")
     for id_tarefa, tarefa in tarefas.items():
-      concluida = "x" if tarefa[1] else " "
-      print(f"\t{id_tarefa}. {tarefa[0]} [{concluida}]")
+        if tarefa[1]:
+          print(f"\t{id_tarefa}. {tarefa[0]} [x]")
+        else:
+          print(f"\t{id_tarefa}. {tarefa[0]} [ ]") 
+    print("\t=======================") 
     pause()
 
 def pause():
@@ -72,8 +77,7 @@ proximo_id = 1
 
 while True:
     
-    limpaTela() 
-    
+    limpaTela()
     formato_personalizado = "\t%A, %d de %B de %Y %H:%M:%S"
     data_e_hora_formatada = data_e_hora_atual.strftime(formato_personalizado)
     print(data_e_hora_formatada)
@@ -87,18 +91,28 @@ while True:
     escolha = input("\tENTRADA -> ")
 
     if escolha == "1":
+      
+      limpaTela()
       descricao = input("\tDigite a descrição da tarefa: ")
-      registrar_tarefa(tarefas, descricao, proximo_id)
+      cadastrar(tarefas, descricao, proximo_id)
       proximo_id += 1
+      
     elif escolha == "2":
-       listar_tarefas(tarefas)
+      
+      limpaTela()
+      listar(tarefas)
+       
     elif escolha == "3":
+      
       id_tarefa = int(input("\tDigite o ID da tarefa a ser marcada como realizada: "))
       marcar_tarefa_como_realizada(tarefas, id_tarefa)
+      
     elif escolha == "4":
+      
       id_tarefa = int(input("\tDigite o ID da tarefa a ser editada: "))
       nova_descricao = input("\tDigite a nova descrição da tarefa: ")
       editar_tarefa(tarefas, id_tarefa, nova_descricao)
+      
     elif escolha == "0":
       break
     else:
