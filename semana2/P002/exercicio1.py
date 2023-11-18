@@ -97,6 +97,33 @@ def editarTarefa():
   else:
     print("\n\tID de tarefa inválido. Tente novamente.")
     pause()
+    
+def salvarTarefasEmArquivo():
+  with open("semana2/P002/tarefas.txt", "w") as arquivo:
+    
+      for id_tarefa, tarefa in tarefas.items():
+          arquivo.write(f"{id_tarefa},{tarefa[0]},{tarefa[1]}\n")
+
+def carregarTarefasDeArquivo():
+  try:
+    with open("semana2/P002/tarefas.txt", "r") as arquivo:
+      linhas = arquivo.readlines()
+      if not linhas:
+        print("O arquivo está vazio.")
+        return
+      for linha in linhas:
+        partes = linha.strip().split(',')
+        if len(partes) == 3:
+          try:
+            id_tarefa, descricao, realizada = map(str, partes)
+            tarefas[id_tarefa] = [descricao, bool(realizada)]
+          except ValueError as e:
+            print(f"Erro ao processar a linha: {linha}")
+            print(f"Mensagem de erro: {e}")  
+        else:
+          print(f"Formato inválido na linha: {linha}")            
+  except FileNotFoundError:
+    print("O arquivo não foi encontrado.")
 
 def pause():
   input("\tPressione Enter para continuar...")
@@ -135,7 +162,9 @@ def menu():
       pause()
     
 def main(): 
-      
+ 
+  carregarTarefasDeArquivo()
+  
   while True:
         
     opcao = menu()
@@ -145,6 +174,7 @@ def main():
       case "1":
         limpaTela()
         cadastrar()
+        salvarTarefasEmArquivo()
               
       case "2":
         limpaTela()
@@ -166,4 +196,7 @@ def main():
         print("\tOps, Opção inválida. Tente novamente!")
         pause()
           
-main()
+try:
+  main()
+except Exception as e:
+  print("Erro não tratado:", e)
