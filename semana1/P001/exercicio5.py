@@ -15,7 +15,24 @@ flutuante.
 
 '''
 import sys
+import os
+import platform
 
+def pause():
+      input("\tPressione Enter para continuar...")
+
+def limpaTela():
+    sistema_operacional = platform.system().lower()
+
+    if sistema_operacional == "windows":
+      os.system("cls")
+    elif sistema_operacional == "linux":
+      os.system("clear")
+    else:
+      print("Sistema operacional não suportado para limpar a tela.")
+      
+
+limpaTela()
 print('\n\t='+'=' *70)
 print('\t+ - * // % Operadores Aritméticos em Python + - * // %')
 
@@ -44,6 +61,8 @@ print('\tResto da divisão: {} % {} = {}'.format(a, b, a % b))
 
 print('\t='+'=' *70)
 
+pause()
+limpaTela()
 print('\t+= -= *= /= Operadores Aritméticos Compostos em Python += -= *= /=')
 
 # Adição com atribuição
@@ -69,6 +88,8 @@ x /= y
 print('\tDivisão com atribuição {:.1f}'.format(x))
 print('\t='+'=' *70)
 
+pause()
+limpaTela()
 print('\tMaior e menor potência de 2 representável com variáveis de ponto flutuante:\n')
 menor_potencia = 2.0 ** sys.float_info.min_exp  # Retorna o menor expoente que pode ser representado
 maior_potencia = 2.0 ** sys.float_info.max_10_exp  # Maior expoente base 10 representável
@@ -77,6 +98,8 @@ print(f"\tA menor potência de 2 representável: {menor_potencia}")
 print(f"\tA maior potência de 2 representável: {maior_potencia}")
 print('\t='+'=' *70)
 
+pause()
+limpaTela()
 print('\tImutabilidade Númerica em Python:')
 
 # Atribuição de um valor float a uma variavel
@@ -89,6 +112,8 @@ print('\n\tApós a variavel numImult_1 ser incrementada: {}'
       '\n\tEnquanto a variavel numImult_2 continua igual a {}'.format(numImult_1, numImult_2))
 print('\t='+'=' *70)
 
+pause()
+limpaTela() 
 print('\tMetodos disponiveis em variaveis inteiras:')
 
 print('\n\ttype(): Retorna o tipo do objeto: {}'.format(type(numImult_1)))

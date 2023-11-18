@@ -4,7 +4,7 @@ Exercício 4: Manipulação de variáveis de tipo string e explorando os método
 ● As variáveis de tipo string possuem uma série de funcionalidades já implementadas e seus caracteres e substrings podem ser acessados 
 usando indexação e slicing. Crie um exemplo onde:
 
-● Declare uma variável nome atribuindo a ela seu nome comp2leto12;
+● Declare uma variável nome atribuindo a ela seu nome completo;
 
 ● Pesquise por funcionalidades já implementadas nas strings e separe em duas variáveis novas seu nome do seu sobrenome;
 
@@ -12,7 +12,7 @@ usando indexação e slicing. Crie um exemplo onde:
 
 ● Verifique a quantidade de caracteres de cada uma das novas variáveis;
 
-● Verifique se seu nome é uma palíndromo;
+● Verifique se seu nome é um palíndromo;
 '''
 
 nome = 'Albert Silva de Jesus'

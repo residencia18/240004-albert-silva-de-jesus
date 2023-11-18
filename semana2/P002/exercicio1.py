@@ -34,6 +34,7 @@ Exercício 2: Pesquisa sobre persistência de dados.
 Python e proponha as modificações necessárias para que o aplicativo do exercício anterior utilize um arquivo para armazenar a lista 
 de tarefas.
 '''
+
 import os
 import platform
 import locale

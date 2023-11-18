@@ -30,6 +30,23 @@ ano do nascimento % 12 | signo
 ● Descubra qual o signo de um usuário de acordo com seu ano de nascimento.
 
 '''
+import os
+import platform
+
+def pause():
+      input("\tPressione Enter para continuar...")
+
+def limpaTela():
+    sistema_operacional = platform.system().lower()
+
+    if sistema_operacional == "windows":
+      os.system("cls")
+    elif sistema_operacional == "linux":
+      os.system("clear")
+    else:
+      print("Sistema operacional não suportado para limpar a tela.")
+      
+limpaTela()
 print('\n\t='+'=' *30)
 print('\tManipulando listas:\n')
 
@@ -40,6 +57,8 @@ print('\t{}'.format(L[:-1:]))
 print('\t{}'.format(L[::-2]))
 print('\t{}'.format(L[-2::]))
 print('\t{}'.format(L[:-2:]))
+pause()
+limpaTela() 
 
 print('\n\t='+'=' *50)
 print('\tSigno de um usuário de acordo com seu ano de nascimento:\n')

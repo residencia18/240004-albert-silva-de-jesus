@@ -29,7 +29,8 @@ def limpaTela():
       os.system("clear")
     else:
       print("Sistema operacional não suportado para limpar a tela.")
-        
+
+limpaTela()      
 print('\n\t='+'=' *60)
 print('\t+ - * // % Operadores Aritméticos em Python + - * // %')
 
@@ -133,7 +134,7 @@ numImult_2 = numImult_1
 print('\n\tValores das variaveis:\n\tnumImult_1 = {} e numImult_2 = {}'.format(numImult_1, numImult_2))
 
 numImult_1 += 1
-print('\n\tApós a variavel numImult_1 ser incrementada: {}'
+print('\n\tnumImult_1 += 1\n\tApós a variavel numImult_1 ser incrementada: {}'
       '\n\tEnquanto a variavel numImult_2 continua igual a {}'.format(numImult_1, numImult_2))
 
 print('\n\t='+'=' *50)
