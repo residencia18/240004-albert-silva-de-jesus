@@ -24,9 +24,7 @@ O sistema deve listar os produtos na tela, 10 produtos de cada vez em ordem cres
 
 '''
 
-
 import os
-import uuid
 import platform
 import locale
 from datetime import datetime
