@@ -11,7 +11,6 @@ cada empregado em 10%.
 
 ''' 
 
-
 import os
 import platform
 import locale
@@ -49,12 +48,15 @@ def menu():
 
 def gestaoFuncionario():
   
+    carregarFuncionariosDeArquivo()
+  
     while True:
       
       opcao = menu()
         
       if opcao == "1":
         cadastrar()
+        salvarFuncionariosEmArquivo()
             
       elif opcao == "2":
         limpaTela()
@@ -63,15 +65,18 @@ def gestaoFuncionario():
             
       elif opcao == "3":
         editar()
+        salvarFuncionariosEmArquivo()
             
       elif opcao == "4":
         excluir()
+        salvarFuncionariosEmArquivo()
             
       elif opcao == "5":
         consultar()
         
       elif opcao == "6":
-        Reajusta_dez_porcento(funcionarios)
+        Reajusta_dez_porcento()
+        salvarFuncionariosEmArquivo()
             
       elif opcao == "0":
         print("\n\tSaindo do sistema...")
@@ -79,6 +84,7 @@ def gestaoFuncionario():
       
 def cadastrar():
   
+    global funcionarios
     limpaTela()
     global proximo_id
     
@@ -100,19 +106,21 @@ def cadastrar():
     pause()
 
 def listar():
-  
+  limpaTela()
   print("\n\t======= LISTAR FUNCIONÁRIOS =======")
-    
+
   if len(funcionarios) > 0:
-    for id_funcionario in funcionarios:
-      print("\tID: ", id_funcionario)
-      print("\tNome: ", funcionarios[id_funcionario][0])
-      print("\tSobrenome: ", funcionarios[id_funcionario][1])
-      print("\tAno de nascimento: ", funcionarios[id_funcionario][2])
-      print("\tRG: ", funcionarios[id_funcionario][3])
-      print("\tAno de admissão: ", funcionarios[id_funcionario][4])
-      print("\tSalário: R$ {:.2f}".format(funcionarios[id_funcionario][5]))
-      print("\t====================================")
+    
+      funcionarios_ordenados = sorted(funcionarios.items(), key=lambda x: x[1][5])  # Ordena pelo salário (índice 5)
+      for id_funcionario, dados_funcionario in funcionarios_ordenados:
+        print("\tID: ", id_funcionario)
+        print("\tNome: ", dados_funcionario[0])
+        print("\tSobrenome: ", dados_funcionario[1])
+        print("\tAno de nascimento: ", dados_funcionario[2])
+        print("\tRG: ", dados_funcionario[3])
+        print("\tAno de admissão: ", dados_funcionario[4])
+        print("\tSalário: R$ {:.2f}".format(dados_funcionario[5]))
+        print("\t====================================")
   else:
     print("\n\tNão há funcionários cadastrados.")
     
@@ -234,7 +242,7 @@ def consultar():
     print("\n\tNão há funcionários cadastrados.")
     pause()
 
-def Reajusta_dez_porcento(funcionarios):
+def Reajusta_dez_porcento():
     
     limpaTela()
     print("\n\t========== REAJUSTE DE 10% =========")
@@ -332,7 +340,48 @@ def excluir():
   else:
     print("\n\tNão há funcionários cadastrados.")
     pause()
-      
+    
+def salvarFuncionariosEmArquivo():
+  
+  global funcionarios
+  with open("semana3/exercicio2/arquivo.txt", "w") as arquivo:
+    for id_funcionario, dados_funcionario in funcionarios.items():
+         arquivo.write(f"{id_funcionario},{dados_funcionario[0]},{dados_funcionario[1]},{dados_funcionario[2]},{dados_funcionario[3]},{dados_funcionario[4]},{dados_funcionario[5]}\n")
+
+def carregarFuncionariosDeArquivo():
+  
+    global funcionarios
+
+    try:
+        with open("semana3/exercicio2/arquivo.txt", "r") as arquivo:
+            linhas = arquivo.readlines()
+            
+            if not linhas:
+                print("O arquivo está vazio.")
+                return
+
+            for linha in linhas:
+                partes = linha.strip().split(',')
+                if len(partes) == 7:
+                    try:
+                        id_funcionario, nome, sobrenome, ano_nascimento, rg, ano_admissao, salario = map(str, partes)
+                        funcionarios[int(id_funcionario)] = [
+                            nome,
+                            sobrenome,
+                            ano_nascimento,
+                            rg,
+                            ano_admissao,
+                            float(salario)
+                        ]
+                    except ValueError as e:
+                        print(f"Erro ao processar a linha: {linha}")
+                        print(f"Mensagem de erro: {e}")
+                else:
+                    print(f"Formato inválido na linha: {linha}")
+
+    except FileNotFoundError:
+        print("O arquivo não foi encontrado.")
+
 def pause():
   input("\tPressione Enter para continuar...")
   

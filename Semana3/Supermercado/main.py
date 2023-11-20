@@ -276,8 +276,7 @@ def carregarProdutosDeArquivo():
 
     except FileNotFoundError:
         print("O arquivo não foi encontrado.")
-    
-      
+         
 def pause():
   input("\tPressione Enter para continuar...")
   
