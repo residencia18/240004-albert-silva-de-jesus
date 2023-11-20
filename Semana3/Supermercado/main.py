@@ -35,6 +35,8 @@ def menu():
 
 def supermercadoEmPython():
     
+    carregarProdutosDeArquivo()  
+    
     while True:
         
         opcao = menu()
@@ -44,7 +46,7 @@ def supermercadoEmPython():
             case "1":
                 limpaTela()
                 cadastrar()
-                # salvarProdutosEmArquivo()
+                salvarProdutosEmArquivo()
                 
             case "2":
                 limpaTela()
@@ -211,7 +213,46 @@ def consultarProduto():
 
     print("\n\tProduto não encontrado.")
     pause()
-               
+             
+def salvarProdutosEmArquivo():
+    
+    with open("semana3/Supermercado/arquivo.txt", "w") as arquivo:
+        
+        for id_produto, produto in produtos.items():
+            arquivo.write(f"{id_produto},{produto['codigo']},{produto['nome']},{produto['preco']},{produto['quantidade']}\n")
+
+def carregarProdutosDeArquivo():
+    
+    try:
+        with open("semana3/Supermercado/arquivo.txt", "r") as arquivo:
+            
+            linhas = arquivo.readlines()
+            if not linhas:
+                print("O arquivo está vazio.")
+                return
+
+            for linha in linhas:
+                partes = linha.strip().split(',')
+                if len(partes) == 5:
+                    
+                    try:
+                        id_produto, codigo, nome, preco, quantidade = map(str, partes)
+                        produtos[id_produto] = {
+                            'codigo': codigo,
+                            'nome': nome,
+                            'preco': float(preco),
+                            'quantidade': int(quantidade)
+                        }
+                    except ValueError as e:
+                        print(f"Erro ao processar a linha: {linha}")
+                        print(f"Mensagem de erro: {e}")
+                else:
+                    print(f"Formato inválido na linha: {linha}")
+
+    except FileNotFoundError:
+        print("O arquivo não foi encontrado.")
+    
+      
 def pause():
   input("\tPressione Enter para continuar...")
   
