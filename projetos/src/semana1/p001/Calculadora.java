@@ -1,6 +1,7 @@
 /*Calculadora Simples: 
 Crie um programa que funcione como uma calculadora simples. O programa deve pedir ao usuário que insira dois números e depois escolha uma 
 operação (adição, subtração, multiplicação ou divisão). Em seguida, o programa deve calcular o resultado e exibi-lo.  */
+
 package p001;
 
 import java.util.Scanner;
@@ -153,10 +154,15 @@ public class Calculadora {
   }
 
   static void calcularDiasRestantes(LocalDateTime dataHora) {
+
     LocalDate hoje = dataHora.toLocalDate();
+    // System.out.println("\tHoje é dia " + hoje.getDayOfMonth() + " do mês " + hoje.getMonth() + " do ano " + hoje.getYear()
+    //     + ", e é o " + (hoje.getDayOfYear() - 1) + "º dia do ano.");
     LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);
-    long diasRestantes = ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno);
-    System.out.println("\tFaltam " + (diasRestantes + 1) + " dias para o final do ano.");
+    long diasRestantes = (ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno)) + 1;
+    System.out.println("\tJá se passaram " + ((dataHora.getDayOfYear()) - 1) + " dias, resta " + (diasRestantes)
+        + " dias para o final do ano.");
+
   }
 
   public static void limparTela() {
