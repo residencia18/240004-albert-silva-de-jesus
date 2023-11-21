@@ -14,7 +14,7 @@ cada empregado em 10%.
 import os
 import platform
 import locale
-from datetime import datetime
+from datetime import datetime, date
 locale.setlocale(locale.LC_TIME, 'pt_BR.UTF-8')
 data_e_hora_atual = datetime.now()
 funcionarios = {}
@@ -93,12 +93,18 @@ def cadastrar():
     
     nome = input("\tNome do Funcionário: ")
     sobrenome = input("\tSobrenome do Funcionário: ")
-    ano_nascimento = input("\tInforme o Ano de nascimento do mesmo: ")
+    
+    print("\tDigite a data de nascimento no formato DD/MM/YYYY: ")
+    ano_nascimento = validarData()  
+    
     rg = input("\tInforme o RG do Funcionário: ")
-    ano_admissao = input("\tAno de admissão na empresa: ")
+    
+    print("\tAno de admissão na empresa: ")
+    ano_admissao = validarData()
+    
     salario = float(input("\tSalário do funcionário: "))
     
-    funcionarios[proximo_id] = [nome, sobrenome, ano_nascimento, rg, ano_admissao, salario]
+    funcionarios[proximo_id] = [nome.capitalize(), sobrenome.capitalize(), ano_nascimento, rg, ano_admissao, salario]
     proximo_id += 1
     
     limpaTela()
@@ -346,6 +352,7 @@ def salvarFuncionariosEmArquivo():
   
   global funcionarios
   with open("semana3/exercicio2/arquivo.txt", "w") as arquivo:
+    funcionarios_ordenados = sorted(funcionarios.items(), key=lambda x: x[1][5])
     for id_funcionario, dados_funcionario in funcionarios.items():
          arquivo.write(f"{id_funcionario},{dados_funcionario[0]},{dados_funcionario[1]},{dados_funcionario[2]},{dados_funcionario[3]},{dados_funcionario[4]},{dados_funcionario[5]}\n")
 
@@ -382,7 +389,42 @@ def carregarFuncionariosDeArquivo():
 
     except FileNotFoundError:
         print("O arquivo não foi encontrado.")
+      
+def validarData():
+  
+    while True:
+      
+        data_nascimento_input = input("\tDATA ENTRADA -> ")
 
+        try:
+          
+            # Tenta criar um objeto datetime a partir da string e do formato fornecidos
+            data_nascimento = datetime.strptime(data_nascimento_input, '%d/%m/%Y')
+            
+           # Extrai apenas a parte da data (ignorando o horário)
+            data_nascimento = data_nascimento.date()
+
+            # Obtém a data atual
+            data_atual = date.today()
+            
+            # Verifica se a data é anterior ou igual à data atual
+            if data_nascimento <= data_atual:
+                
+                print("\tOps, data valida!")
+                return data_nascimento  # Retorna a data de nascimento validada
+            else:
+                limpaTela()
+                print("\tOps, data invalida! Certifique-se de fornecer uma data válida.")
+                pause()
+                limpaTela() 
+                
+        except ValueError:
+            # Se ocorrer um erro ao tentar converter para datetime, ou seja, se não for uma data válida
+            limpaTela() 
+            print("\tOps, data invalida! formato correto: DD/MM/YYYY")
+            pause()
+            limpaTela()
+            
 def pause():
   input("\tPressione Enter para continuar...")
   
