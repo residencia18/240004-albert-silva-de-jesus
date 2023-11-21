@@ -5,6 +5,11 @@ package p001;
 
 import java.util.Scanner;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 public class Calculadora {
 
   public static void main(String[] argas) {
@@ -103,7 +108,31 @@ public class Calculadora {
     limparTela();
     int opcao = 0;
 
+    /*
+     * Obtendo a data e hora atual
+     * LocalDateTime agora = LocalDateTime.now();
+     * 
+     * // Obtendo o dia da semana
+     * String diaDaSemana = agora.getDayOfWeek().getDisplayName(TextStyle.FULL,
+     * Locale.getDefault());
+     * 
+     * // Obtendo a data formatada
+     * String dataFormatada =
+     * agora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+     * 
+     * // Obtendo o horário formatado
+     * String horarioFormatado =
+     * agora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+     * 
+     * System.out.printf(diaDaSemana + ", " + dataFormatada + " - " +
+     * horarioFormatado + "\n\n");
+     */
+
+    imprimirFormatado(LocalDateTime.now());
+    calcularDiasRestantes(LocalDateTime.now());
+
     do {
+
       System.out.print("\n\t========================");
       System.out.print("\n\tESCOLHA UMA OPERAÇÃO: ");
       System.out.print("\n\t[1] - ADIÇÃO");
@@ -117,6 +146,17 @@ public class Calculadora {
     } while (opcao > 5 || opcao < 1);
 
     return opcao;
+  }
+
+  static void imprimirFormatado(LocalDateTime dataHora) {
+    System.out.println("\n\tHoje é " + dataHora.format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
+  }
+
+  static void calcularDiasRestantes(LocalDateTime dataHora) {
+    LocalDate hoje = dataHora.toLocalDate();
+    LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);
+    long diasRestantes = ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno);
+    System.out.println("\tFaltam " + diasRestantes + " dias para o final do ano.");
   }
 
   public static void limparTela() {
