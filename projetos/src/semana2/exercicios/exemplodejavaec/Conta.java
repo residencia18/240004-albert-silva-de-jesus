@@ -1,4 +1,4 @@
-package semana2.exercicios.exemplodejavaec;
+package exercicios.exemplodejavaec;
 
 /*#include <iostream>
 using namespace std;

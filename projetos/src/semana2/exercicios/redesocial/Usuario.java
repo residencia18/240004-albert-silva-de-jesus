@@ -1,4 +1,4 @@
-package semana2.exercicios.redesocial;
+package exercicios.redesocial;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;

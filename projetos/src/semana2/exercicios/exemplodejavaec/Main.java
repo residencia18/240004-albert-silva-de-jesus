@@ -1,4 +1,4 @@
-package semana2.exercicios.exemplodejavaec;
+package exercicios.exemplodejavaec;
 
 import java.util.Scanner;
 
