@@ -16,16 +16,17 @@ public class Calculadora {
   public static void main(String[] argas) {
 
     Scanner scan = new Scanner(System.in);
+
     int x = 0;
     int y = 0;
 
-    while (x != 5) {
+    while (true) {
 
       switch (menuCalculadora(scan)) {
 
         case 1:
           limparTela();
-          System.out.print("\n\t==========ADIÇÃO==========");
+          System.out.print("\n\t==========ADIÇÃO==========\n");
 
           System.out.print("\n\tDigite o primeiro número: ");
           x = scan.nextInt();
@@ -41,7 +42,7 @@ public class Calculadora {
 
         case 2:
           limparTela();
-          System.out.print("\n\t==========SUBTRAÇÃO==========");
+          System.out.print("\n\t==========SUBTRAÇÃO==========\n");
 
           System.out.print("\n\tDigite o primeiro número: ");
           x = scan.nextInt();
@@ -57,7 +58,7 @@ public class Calculadora {
 
         case 3:
           limparTela();
-          System.out.print("\n\t==========MULTIPLICAÇÃO==========");
+          System.out.print("\n\t==========MULTIPLICAÇÃO==========\n");
 
           System.out.print("\n\tDigite o primeiro número: ");
           x = scan.nextInt();
@@ -73,7 +74,7 @@ public class Calculadora {
 
         case 4:
           limparTela();
-          System.out.print("\n\t==========DIVISÃO==========");
+          System.out.print("\n\t==========DIVISÃO==========\n");
 
           System.out.print("\n\tDigite o primeiro número: ");
           x = scan.nextInt();
@@ -87,10 +88,9 @@ public class Calculadora {
 
           break;
 
-        case 5:
+        case 0:
           System.out.print("\n\tSair");
           pausa(scan);
-          x = 5;
           break;
 
         default:
@@ -98,39 +98,18 @@ public class Calculadora {
           break;
       }
 
-    }
+      
 
-    scan.close();
+    }
 
   }
 
   public static int menuCalculadora(Scanner scan) {
 
     limparTela();
-    int opcao = 0;
-
-    /*
-     * Obtendo a data e hora atual
-     * LocalDateTime agora = LocalDateTime.now();
-     * 
-     * // Obtendo o dia da semana
-     * String diaDaSemana = agora.getDayOfWeek().getDisplayName(TextStyle.FULL,
-     * Locale.getDefault());
-     * 
-     * // Obtendo a data formatada
-     * String dataFormatada =
-     * agora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-     * 
-     * // Obtendo o horário formatado
-     * String horarioFormatado =
-     * agora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-     * 
-     * System.out.printf(diaDaSemana + ", " + dataFormatada + " - " +
-     * horarioFormatado + "\n\n");
-     */
-
     imprimirFormatado(LocalDateTime.now());
     calcularDiasRestantes(LocalDateTime.now());
+    int opcao = 0;
 
     do {
 
@@ -140,11 +119,27 @@ public class Calculadora {
       System.out.print("\n\t[2] - SUBTRAÇÃO");
       System.out.print("\n\t[3] - MULTIPLICAÇÃO");
       System.out.print("\n\t[4] - DIVISÃO");
-      System.out.print("\n\t[5] - SAIR");
+      System.out.print("\n\t[0] - SAIR");
       System.out.print("\n\tENTRADA -> ");
       opcao = scan.nextInt();
 
-    } while (opcao > 5 || opcao < 1);
+      if (opcao == 0) {
+        System.out.println("\n\tSaindo...");
+        scan.close();
+        System.exit(opcao);
+
+      } else {
+
+        if (opcao > 4 || opcao < 0) {
+
+          System.out.println("\n\tOps, opção inválida");
+          pausa(scan);
+          limparTela();
+
+        }
+      }
+
+    } while (opcao > 4 || opcao < 0);
 
     return opcao;
   }
@@ -156,8 +151,6 @@ public class Calculadora {
   static void calcularDiasRestantes(LocalDateTime dataHora) {
 
     LocalDate hoje = dataHora.toLocalDate();
-    // System.out.println("\tHoje é dia " + hoje.getDayOfMonth() + " do mês " + hoje.getMonth() + " do ano " + hoje.getYear()
-    //     + ", e é o " + (hoje.getDayOfYear() - 1) + "º dia do ano.");
     LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);
     long diasRestantes = (ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno)) + 1;
     System.out.println("\tJá se passaram " + ((dataHora.getDayOfYear()) - 1) + " dias, resta " + (diasRestantes)
