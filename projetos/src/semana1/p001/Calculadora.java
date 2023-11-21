@@ -156,7 +156,7 @@ public class Calculadora {
     LocalDate hoje = dataHora.toLocalDate();
     LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);
     long diasRestantes = ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno);
-    System.out.println("\tFaltam " + diasRestantes + " dias para o final do ano.");
+    System.out.println("\tFaltam " + (diasRestantes + 1) + " dias para o final do ano.");
   }
 
   public static void limparTela() {
