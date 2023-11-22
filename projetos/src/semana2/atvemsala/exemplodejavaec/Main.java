@@ -1,4 +1,4 @@
-package exercicios.exemplodejavaec;
+package atvemsala.exemplodejavaec;
 
 import java.util.Scanner;
 

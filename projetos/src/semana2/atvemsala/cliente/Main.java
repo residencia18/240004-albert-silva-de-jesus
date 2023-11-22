@@ -1,4 +1,4 @@
-package exercicios.cliente;
+package atvemsala.cliente;
 
 import java.util.Scanner;
 

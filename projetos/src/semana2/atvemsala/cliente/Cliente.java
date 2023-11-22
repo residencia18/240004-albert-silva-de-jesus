@@ -1,4 +1,4 @@
-package exercicios.cliente;
+package atvemsala.cliente;
 
 public class Cliente {
     
