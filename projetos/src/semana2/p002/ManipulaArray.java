@@ -19,7 +19,7 @@ public class ManipulaArray {
     int[] vector2 = new int[5];
 
     usuarioCriaArray(vector1, scan);
-    
+
     limparTela();
     System.out.println("\n\t========================================");
     System.out.println("\tVetor criado pelo usuário:");
@@ -30,6 +30,39 @@ public class ManipulaArray {
     criaArrayAleatorio(vector2, random);
     imprimeArray(vector2);
     System.out.println("\n\t========================================");
+    pausa(scan);
+    scan.nextLine();
+    limparTela();
+
+    System.out.println("\n\tSoma dos elementos do vetor do usuário:");
+    System.out.printf("\n\tSoma = %d", somaElementos(vector1));
+    System.out.println("\n\t========================================");
+
+    System.out.println("\tSoma dos elementos do vetor aleatório:");
+    System.out.printf("\n\tSoma = %d", somaElementos(vector2));
+    System.out.println("\n\t========================================");
+    pausa(scan);
+    limparTela();
+
+    System.out.println("\tMaior elemento do vetor do usuário:");
+    System.out.printf("\n\tMaior = %d", maiorElemento(vector1));
+    System.out.println("\n\t========================================");
+
+    System.out.println("\tMaior elemento do vetor aleatório:");
+    System.out.printf("\n\tMaior = %d", maiorElemento(vector2));
+    System.out.println("\n\t========================================");
+    pausa(scan);
+    limparTela();
+
+    System.out.println("\tMenor elemento do vetor do usuário:");
+    System.out.printf("\n\tMenor = %d", menorElemento(vector1));
+    System.out.println("\n\t========================================");
+
+    System.out.println("\tMenor elemento do vetor aleatório:");
+    System.out.printf("\n\tMenor = %d", menorElemento(vector2));
+    System.out.println("\n\t========================================");
+
+    scan.close();
   }
 
   public static void usuarioCriaArray(int[] vetor, Scanner scan) {
@@ -49,12 +82,43 @@ public class ManipulaArray {
     }
   }
 
+  public static int somaElementos(int[] vetor) {
+
+    int soma = 0;
+    for (int elemento : vetor) {
+      soma += elemento;
+    }
+    return soma;
+  }
+
+  public static int maiorElemento(int[] vetor) {
+
+    int maior = vetor[0];
+    for (int elemento : vetor) {
+      if (elemento > maior) {
+        maior = elemento;
+      }
+    }
+    return maior;
+  }
+
+  public static int menorElemento(int[] vetor) {
+
+    int menor = vetor[0];
+    for (int elemento : vetor) {
+      if (elemento < menor) {
+        menor = elemento;
+      }
+    }
+    return menor;
+  }
+
   public static void imprimeArray(int[] vetor) {
 
     System.out.printf("\n\t");
     for (int elemento : vetor) {
       System.out.printf(",%d", elemento);
-     
+
     }
   }
 
@@ -76,7 +140,6 @@ public class ManipulaArray {
 
   public static void pausa(Scanner scan) {
     System.out.print("\n\tPressione ENTER para continuar...");
-    scan.nextLine();
     scan.nextLine();
   }
 }

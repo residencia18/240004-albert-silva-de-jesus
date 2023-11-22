@@ -104,6 +104,5 @@ public class Data {
   public static void pausa(Scanner scan) {
     System.out.print("\n\tPressione ENTER para continuar...");
     scan.nextLine();
-    scan.nextLine();
   }
 }
