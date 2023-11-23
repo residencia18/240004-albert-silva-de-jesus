@@ -1,45 +1,16 @@
-package semana3.atvemsala.data;
+package semana4.estudo.produto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-// import java.time.format.TextStyle;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
-// import java.util.Locale;
+import java.util.Locale;
 import java.util.Scanner;
 
-public class Data {
+public class Utils {
 
-  public static void main(String[] args) {
-
-    Scanner scan = new Scanner(System.in);
-
-    menu(scan);
-
-    // // Obtendo a data e hora atual
-    LocalDateTime agora = LocalDateTime.now();
-
-    // // Obtendo o dia da semana
-    // String diaDaSemana = agora.getDayOfWeek().getDisplayName(TextStyle.FULL,
-    // Locale.getDefault());
-
-    // // Obtendo a data formatada
-    // String dataFormatada =
-    // agora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-    // // Obtendo o horário formatado
-    // String horarioFormatado =
-    // agora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-
-    // System.out.printf("\t" + diaDaSemana + ", " + dataFormatada + " - " +
-    // horarioFormatado + "\n\n");
-
-    System.out.println(
-        "\n\tHoje é dia " + agora.getDayOfMonth() + " do mês " + agora.getMonth() + " do ano " + agora.getYear()
-            + ", e é o " + (agora.getDayOfYear() - 1) + "º dia do ano.\n");
-    // pausa(scan);
-
-  }
+  LocalDateTime agora = LocalDateTime.now();
 
   public static int menu(Scanner scan) {
 
@@ -59,6 +30,7 @@ public class Data {
       System.out.print("\n\t[0] - SAIR");
       System.out.print("\n\tENTRADA -> ");
       opcao = scan.nextInt();
+      scan.nextLine();
 
       if (opcao > 5 || opcao < 0) {
         System.out.println("\n\tOps, opção inválida");
@@ -71,11 +43,11 @@ public class Data {
     return opcao;
   }
 
-  static void imprimirFormatado(LocalDateTime dataHora) {
+  public static void imprimirFormatado(LocalDateTime dataHora) {
     System.out.println("\n\tHoje é " + dataHora.format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
   }
 
-  static void calcularDiasRestantes(LocalDateTime dataHora) {
+  public static void calcularDiasRestantes(LocalDateTime dataHora) {
 
     LocalDate hoje = dataHora.toLocalDate();
     LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);

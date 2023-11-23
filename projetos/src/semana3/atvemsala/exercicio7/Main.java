@@ -20,6 +20,8 @@ public class Main {
         System.out.printf(primo.ePrimo(x) ? "\n\tO número %d é primo" : "\n\tO número %d não é primo", x);
 
         primo.numerosPrimos(x);
+
+        scan.close();
     }
 
     public static void limparTela() {
