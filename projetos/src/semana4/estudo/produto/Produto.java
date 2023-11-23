@@ -1,5 +1,10 @@
 package semana4.estudo.produto;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -81,21 +86,16 @@ public class Produto {
     this.produtos.add(produto);
   }
 
-  public void cadastrar(Scanner scan ) {
+  public void cadastrar(Scanner scan) {
 
     Utils.limparTela();
     System.out.println("\n\t========== CADASTRAR ==========");
 
-    System.out.print("\n\tInforme o nome do Produto: ");
-    String nome = scan.nextLine();
+    String nome = Validation.validarNome(scan);
 
-    System.out.print("\n\tInforme o preço do Produto: ");
-    double preco = scan.nextDouble();
-    scan.nextLine();
+    double preco = Validation.validarNumero(scan);
 
-    System.out.print("\n\tInforme a quantidade do Produto: ");
-    int quantidade = scan.nextInt();
-    scan.nextLine();
+    int quantidade = Validation.validarQuantidade(scan);
 
     Produto produto = new Produto(nome, preco, quantidade);
 
@@ -125,6 +125,54 @@ public class Produto {
     } else {
       System.out.println("\n\tNão há produtos cadastrados!");
       Utils.pausar(new Scanner(System.in));
+    }
+  }
+
+  public void carregarDeArquivo(String nomeArquivo) {
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+
+      String linha;
+
+      while ((linha = reader.readLine()) != null) {
+
+        String[] partes = linha.split(";");
+
+        if (partes.length == 5) {
+          int id = Integer.parseInt(partes[0]);
+          String nome = partes[1];
+          double preco = Double.parseDouble(partes[2]);
+          int quantidade = Integer.parseInt(partes[3]);
+          boolean disponivel = Boolean.parseBoolean(partes[4]);
+          Produto produto = new Produto(nome, preco, quantidade);
+          produto.setId(id);
+          produto.setDisponivel(disponivel);
+          produtos.add(produto);
+        }
+      }
+      System.out.println("Produtos carregados do arquivo: " + nomeArquivo);
+
+    } catch (IOException e) {
+      System.err.println("Erro ao carregar do arquivo: " + e.getMessage());
+    }
+  }
+
+  public void salvarEmArquivo(String nomeArquivo) {
+
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+
+      for (Produto produto : produtos) {
+        writer.write(produto.getId() + ";" +
+            produto.getNome() + ";" +
+            produto.getPreco() + ";" +
+            produto.getQuantidade() + ";" +
+            produto.isDisponivel());
+        writer.newLine();
+      }
+      System.out.println("Produtos salvos com sucesso no arquivo: " + nomeArquivo);
+
+    } catch (IOException e) {
+      System.err.println("Erro ao salvar no arquivo: " + e.getMessage());
     }
   }
 

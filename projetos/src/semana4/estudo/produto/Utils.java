@@ -57,6 +57,19 @@ public class Utils {
 
   }
 
+  // public static void calcularDiasRestantes(LocalDateTime dataHora) {
+  // LocalDate hoje = dataHora.toLocalDate();
+  // LocalDate ultimoDiaDoAno = LocalDate.of(hoje.getYear(), 12, 31);
+  // long diasRestantes = ChronoUnit.DAYS.between(hoje, ultimoDiaDoAno) + 1;
+
+  // System.out.println("\tJá se passaram " + (dataHora.getDayOfYear() - 1) + "
+  // dias.");
+  // System.out.println("\tRestam " + diasRestantes + " dias para o final do
+  // ano.");
+  // System.out.println("\tHoje é " +
+  // hoje.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault()));
+  // }
+
   public static void limparTela() {
     try {
       final String os = System.getProperty("os.name");

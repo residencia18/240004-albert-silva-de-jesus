@@ -17,6 +17,7 @@ public class Main {
 
     int opcao = 0;
     Produto produto = new Produto();
+    produto.carregarDeArquivo("produtos.txt");
 
     do {
 
@@ -25,6 +26,7 @@ public class Main {
       switch (opcao) {
         case 1:
           produto.cadastrar(scan);
+          produto.salvarEmArquivo("produtos.txt");
           break;
 
         case 2:
