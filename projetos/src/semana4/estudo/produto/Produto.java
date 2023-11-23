@@ -102,7 +102,8 @@ public class Produto {
     cadastrarProduto(produto);
 
     Utils.limparTela();
-    System.out.println("\n\tProduto cadastrado com sucesso!");
+    listar();
+    System.out.print("\n\tProduto cadastrado com sucesso!");
     Utils.pausar(scan);
   }
 
@@ -116,8 +117,8 @@ public class Produto {
       for (Produto produto : this.produtos) {
         System.out.println("\tID: " + produto.getId());
         System.out.println("\tNome: " + produto.getNome());
-        System.out.println("\tPreço: " + produto.getPreco());
-        System.out.println("\tQuantidade: " + produto.getQuantidade());
+        System.out.printf("\tPreço: R$ %.2f", produto.getPreco());
+        System.out.println("\n\tQuantidade: " + produto.getQuantidade());
         System.out.println("\tDisponível: " + (produto.isDisponivel() ? "Sim" : "Não"));
         System.out.println("\t============================");
       }
@@ -126,6 +127,116 @@ public class Produto {
       System.out.println("\n\tNão há produtos cadastrados!");
       Utils.pausar(new Scanner(System.in));
     }
+  }
+
+  public void editar(Scanner scan) {
+
+    Utils.limparTela();
+    System.out.println("\n\t========== EDITAR ==========");
+
+    if (this.produtos.size() > 0) {
+
+      System.out.printf("\n\tDigite o ID do produto que deseja editar: ");
+      int id = scan.nextInt();
+      scan.nextLine();
+
+      for (Produto produto : this.produtos) {
+
+        if (produto.getId() == id) {
+
+          System.out.printf("\n\tNOME: ");
+          String nome = Validation.validarNome(scan);
+
+          System.out.printf("\n\tPREÇO: ");
+          double preco = Validation.validarNumero(scan);
+
+          System.out.printf("\n\tQUANTIDADE: ");
+          int quantidade = Validation.validarQuantidade(scan);
+
+          produto.setNome(nome);
+          produto.setPreco(preco);
+          produto.setQuantidade(quantidade);
+
+          Utils.limparTela();
+          listar();
+          System.out.println("\n\tProduto editado com sucesso!");
+          Utils.pausar(scan);
+          break;
+        }
+      }
+
+    } else {
+      System.out.println("\n\tNão há produtos cadastrados!");
+      Utils.pausar(scan);
+    }
+  }
+
+  public void excluir(Scanner scan) {
+
+    Utils.limparTela();
+    System.out.println("\n\t========== EXCLUIR ==========");
+
+    if (this.produtos.size() > 0) {
+
+      System.out.printf("\n\tDigite o ID do produto que deseja excluir: ");
+      int id = scan.nextInt();
+      scan.nextLine();
+
+      for (Produto produto : this.produtos) {
+
+        if (produto.getId() == id) {
+
+          this.produtos.remove(produto);
+
+          Utils.limparTela();
+          listar();
+          System.out.println("\n\tProduto excluído com sucesso!");
+          Utils.pausar(scan);
+          break;
+        }
+      }
+
+    } else {
+      System.out.println("\n\tNão há produtos cadastrados!");
+      Utils.pausar(scan);
+    }
+  }
+
+  public void pesquisarProduto(Scanner scan) {
+
+    Utils.limparTela();
+    System.out.println("\n\t========== PESQUISAR ==========");
+
+    if (this.produtos.size() > 0) {
+
+      System.out.printf("\n\tDigite o ID do produto que deseja pesquisar: ");
+      int id = scan.nextInt();
+      scan.nextLine();
+
+      for (Produto produto : this.produtos) {
+
+        if (produto.getId() == id) {
+
+          Utils.limparTela();
+          System.out.println("\n\t========== PRODUTO ENCONTRADO ==========");
+          System.out.println("\tID: " + produto.getId());
+          System.out.println("\tNome: " + produto.getNome());
+          System.out.printf("\tPreço: R$ %.2f", produto.getPreco());
+          System.out.println("\n\tQuantidade: " + produto.getQuantidade());
+          System.out.println("\tDisponível: " + (produto.isDisponivel() ? "Sim" : "Não"));
+          System.out.println("\t========================================");
+          Utils.pausar(scan);
+          break;
+        }
+      }
+
+    } else {
+      System.out.println("\n\tNão há produtos cadastrados!");
+      Utils.pausar(scan);
+    }
+
+    System.out.println("\n\tProduto não encontrado!");
+    Utils.pausar(scan);
   }
 
   public void carregarDeArquivo(String nomeArquivo) {

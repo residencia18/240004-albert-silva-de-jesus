@@ -35,15 +35,17 @@ public class Main {
           break;
 
         case 3:
-          // editar(scan);
+          produto.editar(scan);
+          produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 4:
-          // excluir(scan);
+          produto.excluir(scan);
+          produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 5:
-          // pesquisarProduto(scan);
+          produto.pesquisarProduto(scan);
           break;
 
         case 0:
