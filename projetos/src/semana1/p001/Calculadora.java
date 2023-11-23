@@ -13,7 +13,7 @@ import java.time.temporal.ChronoUnit;
 
 public class Calculadora {
 
-  public static void main(String[] argas) {
+  public static void main(String[] argas) throws Exception {
 
     Scanner scan = new Scanner(System.in);
 

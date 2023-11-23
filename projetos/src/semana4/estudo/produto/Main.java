@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
     Scanner sc = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ public class Main {
 
     int opcao = 0;
     Produto produto = new Produto();
-    produto.carregarDeArquivo("produtos.txt");
+    produto.carregarDeArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
 
     do {
 
@@ -26,7 +26,7 @@ public class Main {
       switch (opcao) {
         case 1:
           produto.cadastrar(scan);
-          produto.salvarEmArquivo("produtos.txt");
+          produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 2:
