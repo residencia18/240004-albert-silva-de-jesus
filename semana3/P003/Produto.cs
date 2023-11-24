@@ -5,57 +5,40 @@ using System.Threading.Tasks;
 
 namespace P003
 {
-    public class Produto
+    public class Produto : ProdutoRepository
     {
-        // Tupla privada representando os elementos do produto
-        private (int Codigo, string Nome, int Quantidade, double PrecoUnitario) dadosProduto;
+        // Tupla representando os elementos do produto
+        private (int id, int Codigo, string Nome, int Quantidade, double Preco) dadosProduto;
 
-        // Construtor da classe Produto que aceita os parâmetros da tupla
-        public Produto(int codigo, string nome, int quantidade, double precoUnitario)
+        public Produto(int codigo, string nome, int quantidade, double preco)
         {
-            // Inicializando a tupla com os parâmetros recebidos
-            dadosProduto = (codigo, nome, quantidade, precoUnitario);
+            PeopleID++;
+            dadosProduto = (PeopleID, codigo, nome, quantidade, preco);
         }
 
-        public int GetCodigo()
+        private static int PeopleID { get; set; } = 2023000;
+
+        public int id { get => dadosProduto.id; }
+
+        public int codigo { get => dadosProduto.Codigo; }
+
+        public string nome { get => dadosProduto.Nome; }
+
+        public int quantidade { get => dadosProduto.Quantidade; }
+
+        public double preco { get => dadosProduto.Preco; }  
+
+        public void cadastrar()
         {
-            return dadosProduto.Codigo;
+            Console.WriteLine("Cadastrando produto...");
         }
 
-        public void SetCodigo(int codigo)
-        {
-            dadosProduto = (codigo, dadosProduto.Nome, dadosProduto.Quantidade, dadosProduto.PrecoUnitario);
-        }
+        public void listar(){}
 
-        public string GetNome()
-        {
-            return dadosProduto.Nome;
-        }
+        public void editar(){}
 
-        public void SetNome(string nome)
-        {
-            dadosProduto = (dadosProduto.Codigo, nome, dadosProduto.Quantidade, dadosProduto.PrecoUnitario);
-        }
+        public void excluir(){}
 
-        public int GetQuantidade()
-        {
-            return dadosProduto.Quantidade;
-        }
-
-        public void SetQuantidade(int quantidade)
-        {
-            dadosProduto = (dadosProduto.Codigo, dadosProduto.Nome, quantidade, dadosProduto.PrecoUnitario);
-        }
-
-        public double GetPrecoUnitario()
-        {
-            return dadosProduto.PrecoUnitario;
-        }
-
-        public void SetPrecoUnitario(double precoUnitario)
-        {
-            dadosProduto = (dadosProduto.Codigo, dadosProduto.Nome, dadosProduto.Quantidade, precoUnitario);
-        }
-
+        public void pesquisar(){}
     }
 }
