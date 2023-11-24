@@ -7,7 +7,8 @@ namespace P003
   {
     static void Main(string[] args)
     {
-        ProdutoRepository.menupPrincipal();
+      Produto produto = new Produto();
+      ProdutoRepository.MenuProduto(produto);
     }
   }
 }

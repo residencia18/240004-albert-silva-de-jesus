@@ -113,7 +113,7 @@ namespace P002
             else
             {
                 Console.Write("\n\tDeseja listar as tarefas concluídas ou não concluídas?\n\n\t[1] - CONCLUÍDAS\n\t[2] - NÃO CONCLUÍDAS\n\t[0] - VOLTAR\n\tENTRADA -> ");
-                opcao = Int32.Parse(Console.ReadLine());
+                opcao = Int32.Parse(Console.ReadLine()!);
                 LimparTela();
 
                 if (opcao == 0)
@@ -194,9 +194,9 @@ namespace P002
             Console.WriteLine("\n\t========== EDITAR TAREFA ==========");
 
             Console.Write("\n\tInforme o ID da tarefa que deseja editar: ");
-            int id = Int32.Parse(Console.ReadLine());
+            int id = Int32.Parse(Console.ReadLine()!);
 
-            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id)!;
 
             if (tarefa != null)
             {
@@ -227,9 +227,9 @@ namespace P002
             Console.WriteLine("\n\t========== EXCLUIR TAREFA ==========");
 
             Console.Write("\n\tInforme o ID da tarefa que deseja excluir: ");
-            int id = Int32.Parse(Console.ReadLine());
+            int id = Int32.Parse(Console.ReadLine()!);
 
-            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id)!;
 
             if (tarefa != null)
             {
@@ -252,9 +252,9 @@ namespace P002
             Console.WriteLine("\n\t========== MARCAR TAREFA COMO CONCLUÍDA ==========");
 
             Console.Write("\n\tInforme o ID da tarefa que deseja marcar como concluída: ");
-            int id = Int32.Parse(Console.ReadLine());
+            int id = Int32.Parse(Console.ReadLine()!);
 
-            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id)!;
 
             if (tarefa != null)
             {
@@ -279,9 +279,9 @@ namespace P002
             Console.WriteLine("\n\t========== PESQUISAR TAREFA ==========");
 
             Console.Write("\n\tInforme o id da tarefa que deseja pesquisar: ");
-            int id = Int32.Parse(Console.ReadLine());
+            int id = Int32.Parse(Console.ReadLine()!);
 
-            Tarefa tarefa = tarefas.Find(t => t.getId() == id);
+            Tarefa tarefa = tarefas.Find(t => t.getId() == id)!;
 
             if (tarefa != null)
             {

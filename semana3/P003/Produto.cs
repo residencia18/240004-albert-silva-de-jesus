@@ -10,6 +10,9 @@ namespace P003
         // Tupla representando os elementos do produto
         private (int id, int Codigo, string Nome, int Quantidade, double Preco) dadosProduto;
 
+        public Produto(){
+
+        }
         public Produto(int codigo, string nome, int quantidade, double preco)
         {
             PeopleID++;
@@ -28,17 +31,27 @@ namespace P003
 
         public double preco { get => dadosProduto.Preco; }  
 
-        public void cadastrar()
+        public void Cadastrar()
         {
-            Console.WriteLine("Cadastrando produto...");
+            Console.WriteLine("\n\t========== CADASTRAR PRODUTO ==========");
+            Console.Write("\n\tInforme o Código do Produto: ");
+            int codigo = Console.Read();
         }
 
-        public void listar(){}
+        public void Listar(){
+            Console.WriteLine("");
+        }
 
-        public void editar(){}
+        public void Editar(){
+            Console.WriteLine("");
+        }
 
-        public void excluir(){}
+        public void Excluir(){
+            Console.WriteLine("");
+        }
 
-        public void pesquisar(){}
+        public void Pesquisar(){
+            Console.WriteLine("");
+        }
     }
 }

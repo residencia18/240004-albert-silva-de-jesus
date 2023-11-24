@@ -26,7 +26,7 @@ namespace P002
         Console.WriteLine("\t[6] - CONCLUIR TAREFA");
         Console.WriteLine("\t[0] - SAIR");
         Console.Write("\tENTRADA -> ");
-        string userInput = Console.ReadLine();
+        string userInput = Console.ReadLine()!;
 
         if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
         {
