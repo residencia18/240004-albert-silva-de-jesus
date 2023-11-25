@@ -1,14 +1,11 @@
-﻿using System;
-using System.Globalization;
-
-namespace P003
+﻿namespace P003
 {
   class Program
   {
     static void Main(string[] args)
     {
-      Produto produto = new Produto();
-      ProdutoRepository.MenuProduto(produto);
+      EstoqueService estoque = new EstoqueService();
+      App.MenuEstoque(estoque);
     }
   }
 }

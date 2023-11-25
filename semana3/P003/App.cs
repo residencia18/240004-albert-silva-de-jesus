@@ -1,24 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Globalization;
-
 namespace P003
 {
-    public interface ProdutoRepository
+    public static class App
     {
-        void Cadastrar();
-
-        void Listar();
-
-        void Editar();
-
-        void Excluir();
-
-        void Pesquisar();
-
-        static int ObterOpcaoMenuPrincipal()
+        public static int ObterOpcaoMenuPrincipal()
         {
             int opcao = -1;
             do
@@ -31,10 +15,11 @@ namespace P003
                 Console.WriteLine("\t[3] - EDITAR");
                 Console.WriteLine("\t[4] - REMOVER");
                 Console.WriteLine("\t[5] - PESQUISAR");
-                Console.WriteLine("\t[6] - ESTATÍSTICAS");
+                Console.WriteLine("\t[6] - ATUALIZAR ESTOQUE");
                 Console.WriteLine("\t[0] - SAIR");
                 Console.Write("\tENTRADA -> ");
                 string userInput = Console.ReadLine()!;
+
 
                 if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
                 {
@@ -55,9 +40,9 @@ namespace P003
 
             return opcao;
         }
-
-        static void MenuProduto(Produto produto)
+        public static void MenuEstoque(EstoqueService estoqueService)
         {
+            estoqueService.CarregarArquivo();
             int opcao = 0;
             do
             {
@@ -66,32 +51,35 @@ namespace P003
                 {
                     case 1:
                         LimparTela();
-                        produto.Cadastrar();
+                        estoqueService.Cadastrar();
+                        estoqueService.SalvarArquivo();
                         break;
 
                     case 2:
                         LimparTela();
-                        produto.Listar();
+                        estoqueService.Listar();
+                        Pause();
                         break;
 
                     case 3:
                         LimparTela();
-                        produto.Editar();
+                        estoqueService.Editar();
+                        Pause();
                         break;
 
                     case 4:
                         LimparTela();
-                        produto.Excluir();
+                        estoqueService.Excluir();
                         break;
 
                     case 5:
                         LimparTela();
-                        produto.Pesquisar();
+                        estoqueService.Pesquisar();
                         break;
 
                     case 6:
                         LimparTela();
-                        // produto.Estatisticas();
+                        estoqueService.AtualizarEstoque();
                         break;
 
                     case 0:
@@ -104,8 +92,7 @@ namespace P003
                 }
             } while (opcao != 0);
         }
-
-        static void DataHoraAtual()
+        public static void DataHoraAtual()
         {
 
             var data = DateTime.Now;
@@ -113,7 +100,7 @@ namespace P003
             Console.WriteLine(formatada);
             Console.WriteLine("\tFalta " + (365 - data.DayOfYear) + " dias para o fim do ano.\n");
         }
-        static void LimparTela()
+        public static void LimparTela()
         {
             // Limpar a tela no Windows ou Linux
             if (Environment.OSVersion.Platform == PlatformID.Win32NT)
@@ -125,7 +112,7 @@ namespace P003
                 Console.Write("\u001b[2J\u001b[1;1H"); // Linux
             }
         }
-        static void Pause()
+        public static void Pause()
         {
             Console.Write("\n\tPressione Enter para continuar...");
             Console.ReadLine();
