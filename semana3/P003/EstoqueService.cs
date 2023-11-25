@@ -246,9 +246,9 @@ namespace P003
                 App.Pause();
             }
         }
-
         public void AtualizarEstoque()
         {
+            
             Console.WriteLine("\n\t========== ATUALIZAR ESTOQUE ==========");
 
             if (ListaDeTuplas.Count == 0)
@@ -258,146 +258,97 @@ namespace P003
                 return;
             }
 
-            int codigo = ValidarEntrada("\n\tInforme o Código do Produto");
-
-            // Encontre o índice da tupla a ser atualizada
-            int indiceParaAtualizacao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
-
-            try
+            do
             {
+                bool opcao = true;
+                Console.WriteLine("\n\tInforme o Código do Produto (ou digite 0 para sair): ");
+                int codigo = ValidarEntrada("\n\tCódigo -> ");
+
+                if (codigo == 0)
+                {
+                    Console.WriteLine("\n\tVoltando ao Menu Principal...");
+                    App.Pause();
+                    break;
+                }
+
+                int indiceParaAtualizacao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
+
                 if (indiceParaAtualizacao != -1)
                 {
-                    var itemParaAtualizacao = ListaDeTuplas[indiceParaAtualizacao];
-
-                    App.LimparTela();
-                    Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
-                    Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                    Console.WriteLine($"\n\tID: {itemParaAtualizacao.Id}");
-                    Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
-                    Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
-                    Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
-                    Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
-                    Console.WriteLine("\t======================================");
-
                     do
                     {
+                        var itemParaAtualizacao = ListaDeTuplas[indiceParaAtualizacao];
+                        ExibirDadosDoProduto(itemParaAtualizacao);
+
                         Console.WriteLine("\n\tDeseja dar entrada ou saída no estoque?");
                         Console.WriteLine("\n\t[1] - ENTRADA");
                         Console.WriteLine("\t[2] - SAÍDA");
-                        Console.WriteLine("\t[3] - VOLTAR");
+                        Console.WriteLine("\t[3] - ESCOLHER OUTRO PRODUTO ");
+                        Console.WriteLine("\t[4] - MENU PRINCIPAL");
                         Console.Write("\tENTRADA -> ");
-                        string userInput = Console.ReadLine()!;
 
-                        if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out int opcao))
+                        string userInput = Console.ReadLine() ?? "";
+
+                        switch (userInput)
                         {
-                            // A conversão foi bem-sucedida
-                            if (opcao == 1)
-                            {
-                                int novaQuantidade = ValidarEntrada($"\n\tInforme a entrada da quantidade do produto, {itemParaAtualizacao.Nome}: ");
+                            case "1":
+                                AtualizarQuantidadeEstoque(indiceParaAtualizacao, true);
+                                break;
 
-                                // Verifica se a entrada é maior que a quantidade atual
-                                if (ListaDeTuplas.Any(item => (item.Quantidade + novaQuantidade) < 0))
-                                {
-                                    throw new QuantidadeInvalidaException("A entrada não pode ser maior que a quantidade atual do produto.");
-                                }
-                                else
-                                {
-                                    if (novaQuantidade < 0)
-                                    {
-                                        throw new QuantidadeInvalidaException("A entrada não pode ser menor que zero.");
-                                    }
-                                }
+                            case "2":
+                                AtualizarQuantidadeEstoque(indiceParaAtualizacao, false);
+                                break;
 
-                                // Atualize a quantidade na tupla existente
-                                var produto = ListaDeTuplas[indiceParaAtualizacao];
-                                novaQuantidade = produto.Quantidade + novaQuantidade;
+                            case "3":
+                                opcao = false;
+                                break;
 
-                                // Garante que a quantidade não seja negativa
-                                novaQuantidade = Math.Max(0, novaQuantidade);
+                            case "4":
+                                Console.WriteLine("\n\tVoltando ao Menu Principal...");
+                                App.Pause();
+                                return;
 
-                                // Substitua a tupla antiga pela nova na lista
-                                ListaDeTuplas[indiceParaAtualizacao] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
-
-                                App.LimparTela();
-                                Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
-                                Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                                Console.WriteLine($"\tID: {itemParaAtualizacao.Id}");
-                                Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
-                                Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
-                                Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
-                                Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
-                                Console.WriteLine("\t======================================");
-                                Console.WriteLine("\n\tEstoque atualizado com sucesso!");
-                                Console.WriteLine("\n\tEstoque atualizado com sucesso!");
-                            }
-                            else
-                            {
-                                if (opcao == 2)
-                                {
-                                    int novaQuantidade = ValidarEntrada($"\n\tInforme a saída da quantidade do produto, {itemParaAtualizacao.Nome}: ");
-
-                                    // Verifica se a saída é maior que a quantidade atual
-                                    if ((itemParaAtualizacao.Quantidade - novaQuantidade) < 0)
-                                    {
-                                        throw new QuantidadeInvalidaException("A saída não pode ser maior que a quantidade atual do produto.");
-                                    }
-                                    else
-                                    {
-                                        if (novaQuantidade < 0)
-                                        {
-                                            throw new QuantidadeInvalidaException("A saída não pode ser menor que zero.");
-                                        }
-                                    }
-
-                                    // Atualize a quantidade na tupla existente
-                                    var produto = ListaDeTuplas[indiceParaAtualizacao];
-                                    novaQuantidade = produto.Quantidade - novaQuantidade;
-
-                                    // Garante que a quantidade não seja negativa
-                                    novaQuantidade = Math.Max(0, novaQuantidade);
-
-                                    // Substitua a tupla antiga pela nova na lista
-                                    ListaDeTuplas[indiceParaAtualizacao] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
-
-                                    App.LimparTela();
-                                    Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
-                                    Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                                    Console.WriteLine($"\tID: {itemParaAtualizacao.Id}");
-                                    Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
-                                    Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
-                                    Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
-                                    Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
-                                    Console.WriteLine("\t======================================");
-                                    Console.WriteLine("\n\tEstoque atualizado com sucesso!");
-                                }
-                                else
-                                {
-                                    if (opcao == 3)
-                                    {
-                                        App.LimparTela();
-                                        Listar();
-                                        return;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 1 a 3.");
-                                    }
-                                }
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("\n\tEntrada inválida. Por favor, insira um número válido.");
+                            default:
+                                Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 1 a 3.");
+                                break;
                         }
 
-
-                    } while (true);
+                    } while (opcao);
                 }
                 else
                 {
-                    throw new ProdutoNaoEncontradoException();
+                    Console.WriteLine("\n\tProduto não encontrado. Tente novamente.");
                 }
+
+            } while (true);
+        }
+
+        private void AtualizarQuantidadeEstoque(int indice, bool isEntrada)
+        {
+            try
+            {
+                int novaQuantidade = ValidarEntrada($"\n\tInforme a {(isEntrada ? "entrada" : "saída")} da quantidade do produto: ");
+
+                if (isEntrada && ListaDeTuplas.Any(item => (item.Quantidade + novaQuantidade) < 0))
+                {
+                    throw new QuantidadeInvalidaException("A entrada não pode ser maior que a quantidade atual do produto.");
+                }
+
+                if (!isEntrada && (ListaDeTuplas[indice].Quantidade - novaQuantidade) < 0)
+                {
+                    throw new QuantidadeInvalidaException("A saída não pode ser maior que a quantidade atual do produto.");
+                }
+
+                var produto = ListaDeTuplas[indice];
+                novaQuantidade = isEntrada ? (produto.Quantidade + novaQuantidade) : (produto.Quantidade - novaQuantidade);
+                novaQuantidade = Math.Max(0, novaQuantidade);
+
+                ListaDeTuplas[indice] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
+
+                App.LimparTela();
+                ExibirDadosDoProduto(ListaDeTuplas[indice]);
+                Console.WriteLine($"\n\tEstoque {(isEntrada ? "atualizado com entrada" : "atualizado com saída")} de sucesso!");
+                App.Pause();
             }
             catch (QuantidadeInvalidaException ex)
             {
@@ -409,6 +360,19 @@ namespace P003
                 Console.WriteLine($"\tOps, {ex.Message}");
                 App.Pause();
             }
+        }
+
+        public void ExibirDadosDoProduto((int Id, int Codigo, string Nome, int Quantidade, double Preco) produto)
+        {
+            App.LimparTela();
+            Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
+            Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
+            Console.WriteLine($"\tID: {produto.Id}");
+            Console.WriteLine($"\tCódigo: {produto.Codigo}");
+            Console.WriteLine($"\tNome: {produto.Nome}");
+            Console.WriteLine($"\tQuantidade: {produto.Quantidade}");
+            Console.WriteLine($"\tPreço: {produto.Preco}");
+            Console.WriteLine("\t======================================");
         }
 
         public void Estatisticas()
