@@ -64,7 +64,7 @@ namespace P003
                 Console.WriteLine($"\tCódigo: {item.Codigo}");
                 Console.WriteLine($"\tNome: {item.Nome}");
                 Console.WriteLine($"\tQuantidade: {item.Quantidade}");
-                Console.WriteLine($"\tPreço: {item.Preco}");
+                Console.WriteLine($"\tPreço: R$ {item.Preco:F2}");
                 Console.WriteLine("\t======================================");
             }
 
@@ -84,7 +84,7 @@ namespace P003
                 App.LimparTela();
                 Console.WriteLine("\n\t           EDITAR PRODUTO           ");
                 Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                Console.WriteLine($"\n\tID: {itemParaEdicao.Id}");
+                Console.WriteLine($"\tID: {itemParaEdicao.Id}");
                 Console.WriteLine($"\tCódigo: {itemParaEdicao.Codigo}");
                 Console.WriteLine($"\tNome: {itemParaEdicao.Nome}");
                 Console.WriteLine($"\tQuantidade: {itemParaEdicao.Quantidade}");
@@ -145,7 +145,7 @@ namespace P003
                 App.LimparTela();
                 Console.WriteLine("\n\t           EXCLUIR PRODUTO           ");
                 Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                Console.WriteLine($"\n\tID: {itemParaExclusao.Id}");
+                Console.WriteLine($"\tID: {itemParaExclusao.Id}");
                 Console.WriteLine($"\tCódigo: {itemParaExclusao.Codigo}");
                 Console.WriteLine($"\tNome: {itemParaExclusao.Nome}");
                 Console.WriteLine($"\tQuantidade: {itemParaExclusao.Quantidade}");
@@ -226,7 +226,7 @@ namespace P003
                     App.LimparTela();
                     Console.WriteLine("\n\t           PESQUISAR PRODUTO           ");
                     Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                    Console.WriteLine($"\n\tID: {itemParaPesquisa.Id}");
+                    Console.WriteLine($"\tID: {itemParaPesquisa.Id}");
                     Console.WriteLine($"\tCódigo: {itemParaPesquisa.Codigo}");
                     Console.WriteLine($"\tNome: {itemParaPesquisa.Nome}");
                     Console.WriteLine($"\tQuantidade: {itemParaPesquisa.Quantidade}");
@@ -248,8 +248,6 @@ namespace P003
         }
         public void AtualizarEstoque()
         {
-            
-            Console.WriteLine("\n\t========== ATUALIZAR ESTOQUE ==========");
 
             if (ListaDeTuplas.Count == 0)
             {
@@ -260,70 +258,99 @@ namespace P003
 
             do
             {
-                bool opcao = true;
-                Console.WriteLine("\n\tInforme o Código do Produto (ou digite 0 para sair): ");
-                int codigo = ValidarEntrada("\n\tCódigo -> ");
+                App.LimparTela();
+                Console.WriteLine("\n\t========== ATUALIZAR ESTOQUE ==========");
+                Console.WriteLine("\t[1] - ATUALIZAR PRODUTO");
+                Console.WriteLine("\t[0] - MENU PRINCIPAL");
+                Console.Write("\tENTRADA -> ");
+                int atualizarOuMenu;
 
-                if (codigo == 0)
+                // Tenta converter a entrada do usuário para um número inteiro
+                if (int.TryParse(Console.ReadLine(), out atualizarOuMenu))
                 {
-                    Console.WriteLine("\n\tVoltando ao Menu Principal...");
-                    App.Pause();
-                    break;
-                }
-
-                int indiceParaAtualizacao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
-
-                if (indiceParaAtualizacao != -1)
-                {
-                    do
+                    if (atualizarOuMenu == 0)
                     {
-                        var itemParaAtualizacao = ListaDeTuplas[indiceParaAtualizacao];
-                        ExibirDadosDoProduto(itemParaAtualizacao);
-
-                        Console.WriteLine("\n\tDeseja dar entrada ou saída no estoque?");
-                        Console.WriteLine("\n\t[1] - ENTRADA");
-                        Console.WriteLine("\t[2] - SAÍDA");
-                        Console.WriteLine("\t[3] - ESCOLHER OUTRO PRODUTO ");
-                        Console.WriteLine("\t[4] - MENU PRINCIPAL");
-                        Console.Write("\tENTRADA -> ");
-
-                        string userInput = Console.ReadLine() ?? "";
-
-                        switch (userInput)
+                        Console.WriteLine("\n\tVoltando ao Menu Principal...");
+                        App.Pause();
+                        return;
+                    }
+                    else
+                    {
+                        if (atualizarOuMenu == 1)
                         {
-                            case "1":
-                                AtualizarQuantidadeEstoque(indiceParaAtualizacao, true);
-                                break;
 
-                            case "2":
-                                AtualizarQuantidadeEstoque(indiceParaAtualizacao, false);
-                                break;
+                            int codigo = ValidarEntrada("\n\tCódigo -> ");
+                            int indiceParaAtualizacao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
+                            bool atualizarOutroProduto = true;
 
-                            case "3":
-                                opcao = false;
-                                break;
+                            if (indiceParaAtualizacao != -1)
+                            {
 
-                            case "4":
-                                Console.WriteLine("\n\tVoltando ao Menu Principal...");
+                                do
+                                {
+                                    var itemParaAtualizacao = ListaDeTuplas[indiceParaAtualizacao];
+                                    ExibirDadosDoProduto(itemParaAtualizacao);
+
+                                    Console.WriteLine("\n\tDeseja dar entrada ou saída no estoque?");
+                                    Console.WriteLine("\n\t[1] - ENTRADA");
+                                    Console.WriteLine("\t[2] - SAÍDA");
+                                    Console.WriteLine("\t[3] - ESCOLHER OUTRO PRODUTO ");
+                                    Console.WriteLine("\t[4] - MENU PRINCIPAL");
+                                    Console.Write("\tENTRADA -> ");
+
+                                    string userInput = Console.ReadLine() ?? "";
+
+                                    switch (userInput)
+                                    {
+                                        case "1":
+                                            AtualizarQuantidadeEstoque(indiceParaAtualizacao, true);
+                                            break;
+
+                                        case "2":
+                                            AtualizarQuantidadeEstoque(indiceParaAtualizacao, false);
+                                            break;
+
+                                        case "3":
+                                            atualizarOutroProduto = true;
+                                            break;
+
+                                        case "4":
+                                            Console.WriteLine("\n\tVoltando ao Menu Principal...");
+                                            App.Pause();
+                                            return;
+
+                                        default:
+                                            Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 1 a 3.");
+                                            break;
+                                    }
+
+                                } while (!atualizarOutroProduto);
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n\tOps, não há produtos cadastrados com esse código.");
                                 App.Pause();
-                                return;
+                            }
 
-                            default:
-                                Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 1 a 3.");
-                                break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 1.");
+                            App.Pause();
                         }
 
-                    } while (opcao);
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("\n\tProduto não encontrado. Tente novamente.");
+                    Console.WriteLine("\n\tPor favor, insira um valor numérico válido.");
                 }
 
             } while (true);
+
         }
 
-        private void AtualizarQuantidadeEstoque(int indice, bool isEntrada)
+        public void AtualizarQuantidadeEstoque(int indice, bool isEntrada)
         {
             try
             {
@@ -371,13 +398,145 @@ namespace P003
             Console.WriteLine($"\tCódigo: {produto.Codigo}");
             Console.WriteLine($"\tNome: {produto.Nome}");
             Console.WriteLine($"\tQuantidade: {produto.Quantidade}");
-            Console.WriteLine($"\tPreço: {produto.Preco}");
+            Console.WriteLine($"\tPreço: R$ {produto.Preco:F2}");
             Console.WriteLine("\t======================================");
         }
 
-        public void Estatisticas()
+        public void GerarRelatorio()
         {
-            throw new System.NotImplementedException();
+            do
+            {
+                App.LimparTela();
+                Console.WriteLine("\n\t========== RELATÓRIOS ==========");
+                Console.WriteLine("\t[1] - LISTA DE PRODUTOS COM QUANTIDADE ABAIXO DO LIMITE");
+                Console.WriteLine("\t[2] - LISTA DE PRODUTOS COM VALOR ENTRE MIN E MAX");
+                Console.WriteLine("\t[3] - INFORMAR O VALOR TOTAL DE ESTOQUE E DE CADA PRODUTO");
+                Console.WriteLine("\t[0] - MENU PRINCIPAL");
+                Console.Write("\tENTRADA -> ");
+
+                if (int.TryParse(Console.ReadLine(), out int opcao))
+                {
+                    switch (opcao)
+                    {
+                        case 1:
+                            RelatorioQuantidadeAbaixoLimite();
+                            break;
+
+                        case 2:
+                            RelatorioValorEntreMinMax();
+                            break;
+
+                        case 3:
+                            RelatorioValorTotalEstoque();
+                            break;
+
+                        case 0:
+                            Console.WriteLine("\n\tOps, retornando ao menu prncipal!...");
+                            App.Pause();
+                            return;
+
+                        default:
+                            Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção válida.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n\tPor favor, insira um valor numérico válido.");
+                }
+
+            } while (true);
+        }
+
+        public void RelatorioQuantidadeAbaixoLimite()
+        {
+            Console.Write("\n\tInforme o limite de quantidade em estoque: ");
+
+            if (int.TryParse(Console.ReadLine(), out int limite))
+            {
+                var produtosAbaixoLimite = ListaDeTuplas.Where(p => decimal.TryParse(p.Quantidade.ToString(), out decimal quantidade) && quantidade < limite).ToList();
+
+                if (produtosAbaixoLimite.Any())
+                {
+                    App.LimparTela();
+                    Console.WriteLine("\n\tProdutos com quantidade em estoque abaixo do limite:");
+                    foreach (var produto in produtosAbaixoLimite)
+                    {
+                        App.Pause();
+                        ExibirDadosDoProduto(produto);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"\n\tNão há produtos com quantidade em estoque abaixo de {limite}.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n\tPor favor, insira um valor numérico válido.");
+            }
+
+            App.Pause();
+        }
+
+        public void RelatorioValorEntreMinMax()
+        {
+            Console.Write("\n\tInforme o valor mínimo: ");
+
+            if (decimal.TryParse(Console.ReadLine(), out decimal precoMin))
+            {
+                Console.Write("\n\tInforme o valor máximo: ");
+
+                if (decimal.TryParse(Console.ReadLine(), out decimal precoMax))
+                {
+
+                    var produtosEntreMinMax = ListaDeTuplas.Where(p => (decimal)p.Preco >= precoMin && (decimal)p.Preco <= precoMax).ToList();
+
+                    if (produtosEntreMinMax.Any())
+                    {
+                        App.LimparTela();
+                        Console.WriteLine("\n\tProdutos com valor entre o mínimo e o máximo informados:");
+                        foreach (var produto in produtosEntreMinMax)
+                        {
+                            App.Pause();
+                            ExibirDadosDoProduto(produto);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\n\tNão há produtos com valor entre {precoMin} e {precoMax}.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n\tPor favor, insira um valor numérico válido para o valor máximo.");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n\tPor favor, insira um valor numérico válido para o valor mínimo.");
+
+            }
+            App.Pause();
+        }
+
+        public void RelatorioValorTotalEstoque()
+        {
+            App.LimparTela();
+            Console.WriteLine("\n\t           RELATÓRIOS        ");
+            decimal valorTotalEstoque = ListaDeTuplas.Sum(p => (decimal)p.Preco * p.Quantidade);
+
+            Console.WriteLine($"\n\tValor total do estoque: {valorTotalEstoque:C}");
+
+            Console.WriteLine("\n\tValor total de cada produto de acordo com seu estoque:");
+            foreach (var produto in ListaDeTuplas)
+            {
+                decimal valorProduto = (decimal)produto.Preco * produto.Quantidade;
+                Console.WriteLine($"\tProduto: {produto.Nome} - Valor Total: {valorProduto:C}");
+            }
+
+            App.Pause();
         }
 
         public bool IsCodigoIgual(int codigo)
@@ -399,7 +558,7 @@ namespace P003
                 App.LimparTela();
                 Console.WriteLine("\n\t      CODIGO JÁ ESTA CADASTRADO        ");
                 Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
-                Console.WriteLine($"\n\tID: {itemParaAtualizacao.Id}");
+                Console.WriteLine($"\tID: {itemParaAtualizacao.Id}");
                 Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
                 Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
                 Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
@@ -496,11 +655,11 @@ namespace P003
                     }
                 }
 
-                Console.WriteLine("Dados salvos com sucesso.");
+                // Console.WriteLine("\n\tDados salvos com sucesso.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ocorreu um erro ao salvar o arquivo: {ex.Message}");
+                Console.WriteLine($"\n\tOcorreu um erro ao salvar o arquivo: {ex.Message}");
             }
         }
 

@@ -1,4 +1,4 @@
-using System;  
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -93,7 +93,7 @@ namespace P003
 
                     case 7:
                         LimparTela();
-                        // estoqueService.Relatorios();
+                        estoqueService.GerarRelatorio();
                         break;
 
                     case 0:

@@ -12,8 +12,6 @@ namespace P003
 
         void Pesquisar();
 
-        void Estatisticas();
-
         int ValidarEntrada(string mensagem);
 
         String convertePrimeiraLetraParaMaiuscula(string palavra);
@@ -22,7 +20,19 @@ namespace P003
 
         void AtualizarEstoque();
 
-        bool  IsCodigoIgual(int codigo);
+        void ExibirDadosDoProduto((int Id, int Codigo, string Nome, int Quantidade, double Preco) produto);
+
+        void AtualizarQuantidadeEstoque(int indice, bool isEntrada);
+
+        void GerarRelatorio();
+
+        void RelatorioQuantidadeAbaixoLimite();
+
+        void RelatorioValorEntreMinMax();
+
+        void RelatorioValorTotalEstoque();
+
+        bool IsCodigoIgual(int codigo);
 
         void CarregarArquivo();
 
