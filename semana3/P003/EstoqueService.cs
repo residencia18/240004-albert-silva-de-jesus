@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 namespace P003
 {
     public class EstoqueService : EstoqueRepository
@@ -275,41 +279,125 @@ namespace P003
                     Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
                     Console.WriteLine("\t======================================");
 
-                    int novaQuantidade = ValidarEntrada($"\n\tInforme a entrada da quantidade do produto, {itemParaAtualizacao.Nome}: ");
+                    do
+                    {
+                        Console.WriteLine("\n\tDeseja dar entrada ou saída no estoque?");
+                        Console.WriteLine("\n\t[1] - ENTRADA");
+                        Console.WriteLine("\t[2] - SAÍDA");
+                        Console.WriteLine("\t[3] - VOLTAR");
+                        Console.Write("\tENTRADA -> ");
+                        string userInput = Console.ReadLine()!;
 
-                    // Verifica se a entrada é maior que a quantidade atual
-                    if (ListaDeTuplas.Any(item => (item.Quantidade + novaQuantidade) < 0))
-                    {
-                        throw new QuantidadeInvalidaException("A entrada não pode ser maior que a quantidade atual do produto.");
-                    }
-                    else
-                    {
-                        if (novaQuantidade < 0)
+                        if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out int opcao))
                         {
-                            throw new QuantidadeInvalidaException("A entrada não pode ser menor que zero.");
+                            // A conversão foi bem-sucedida
+                            if (opcao == 1)
+                            {
+                                int novaQuantidade = ValidarEntrada($"\n\tInforme a entrada da quantidade do produto, {itemParaAtualizacao.Nome}: ");
+
+                                // Verifica se a entrada é maior que a quantidade atual
+                                if (ListaDeTuplas.Any(item => (item.Quantidade + novaQuantidade) < 0))
+                                {
+                                    throw new QuantidadeInvalidaException("A entrada não pode ser maior que a quantidade atual do produto.");
+                                }
+                                else
+                                {
+                                    if (novaQuantidade < 0)
+                                    {
+                                        throw new QuantidadeInvalidaException("A entrada não pode ser menor que zero.");
+                                    }
+                                }
+
+                                // Atualize a quantidade na tupla existente
+                                var produto = ListaDeTuplas[indiceParaAtualizacao];
+                                novaQuantidade = produto.Quantidade + novaQuantidade;
+
+                                // Garante que a quantidade não seja negativa
+                                novaQuantidade = Math.Max(0, novaQuantidade);
+
+                                // Substitua a tupla antiga pela nova na lista
+                                ListaDeTuplas[indiceParaAtualizacao] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
+
+                                App.LimparTela();
+                                Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
+                                Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
+                                Console.WriteLine($"\tID: {itemParaAtualizacao.Id}");
+                                Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
+                                Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
+                                Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
+                                Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
+                                Console.WriteLine("\t======================================");
+                                Console.WriteLine("\n\tEstoque atualizado com sucesso!");
+                                Console.WriteLine("\n\tEstoque atualizado com sucesso!");
+                            }
+                            else
+                            {
+                                if (opcao == 2)
+                                {
+                                    int novaQuantidade = ValidarEntrada($"\n\tInforme a saída da quantidade do produto, {itemParaAtualizacao.Nome}: ");
+
+                                    // Verifica se a saída é maior que a quantidade atual
+                                    if ((itemParaAtualizacao.Quantidade - novaQuantidade) < 0)
+                                    {
+                                        throw new QuantidadeInvalidaException("A saída não pode ser maior que a quantidade atual do produto.");
+                                    }
+                                    else
+                                    {
+                                        if (novaQuantidade < 0)
+                                        {
+                                            throw new QuantidadeInvalidaException("A saída não pode ser menor que zero.");
+                                        }
+                                    }
+
+                                    // Atualize a quantidade na tupla existente
+                                    var produto = ListaDeTuplas[indiceParaAtualizacao];
+                                    novaQuantidade = produto.Quantidade - novaQuantidade;
+
+                                    // Garante que a quantidade não seja negativa
+                                    novaQuantidade = Math.Max(0, novaQuantidade);
+
+                                    // Substitua a tupla antiga pela nova na lista
+                                    ListaDeTuplas[indiceParaAtualizacao] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
+
+                                    App.LimparTela();
+                                    Console.WriteLine("\n\t           ATUALIZAR ESTOQUE           ");
+                                    Console.WriteLine("\n\t========== DADOS DO PRODUTO ==========");
+                                    Console.WriteLine($"\tID: {itemParaAtualizacao.Id}");
+                                    Console.WriteLine($"\tCódigo: {itemParaAtualizacao.Codigo}");
+                                    Console.WriteLine($"\tNome: {itemParaAtualizacao.Nome}");
+                                    Console.WriteLine($"\tQuantidade: {itemParaAtualizacao.Quantidade}");
+                                    Console.WriteLine($"\tPreço: {itemParaAtualizacao.Preco}");
+                                    Console.WriteLine("\t======================================");
+                                    Console.WriteLine("\n\tEstoque atualizado com sucesso!");
+                                }
+                                else
+                                {
+                                    if (opcao == 3)
+                                    {
+                                        App.LimparTela();
+                                        Listar();
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 1 a 3.");
+                                    }
+                                }
+                            }
+
                         }
-                    }
+                        else
+                        {
+                            Console.WriteLine("\n\tEntrada inválida. Por favor, insira um número válido.");
+                        }
 
-                    // Atualize a quantidade na tupla existente
-                    var produto = ListaDeTuplas[indiceParaAtualizacao];
-                    novaQuantidade = produto.Quantidade + novaQuantidade;
 
-                    // Garante que a quantidade não seja negativa
-                    novaQuantidade = Math.Max(0, novaQuantidade);
-
-                    // Substitua a tupla antiga pela nova na lista
-                    ListaDeTuplas[indiceParaAtualizacao] = (produto.Id, produto.Codigo, produto.Nome, novaQuantidade, produto.Preco);
-
-                    App.LimparTela();
-                    Listar();
-                    Console.WriteLine("\n\tEstoque atualizado com sucesso!");
+                    } while (true);
                 }
                 else
                 {
                     throw new ProdutoNaoEncontradoException();
                 }
-
-                App.Pause();
             }
             catch (QuantidadeInvalidaException ex)
             {
@@ -428,9 +516,9 @@ namespace P003
             return palavraComMaiuscula;
         }
 
-         public void SalvarArquivo()
+        public void SalvarArquivo()
         {
-            string caminhoArquivo = "semana3/P003/dados.txt"; // Nome do arquivo no diretório do projeto
+            string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/semana3/P003/BancoDeDados/dados.txt"); // Nome do arquivo no diretório do projeto
 
             try
             {
@@ -454,7 +542,7 @@ namespace P003
 
         public void CarregarArquivo()
         {
-            string caminhoArquivo = "semana3/P003/dados.txt"; // Nome do arquivo no diretório do projeto
+            string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/semana3/P003/BancoDeDados/dados.txt"); // Nome do arquivo no diretório do projeto
 
             try
             {
@@ -464,7 +552,7 @@ namespace P003
                 {
                     while (!reader.EndOfStream)
                     {
-                        string linha = reader.ReadLine();
+                        string linha = reader.ReadLine()!;
                         string[] dados = linha.Split(',');
 
                         // Certifique-se de que existam dados suficientes na linha

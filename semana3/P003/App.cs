@@ -1,3 +1,7 @@
+using System;  
+using System.Collections.Generic;
+using System.IO;
+
 namespace P003
 {
     public static class App
@@ -16,6 +20,7 @@ namespace P003
                 Console.WriteLine("\t[4] - REMOVER");
                 Console.WriteLine("\t[5] - PESQUISAR");
                 Console.WriteLine("\t[6] - ATUALIZAR ESTOQUE");
+                Console.WriteLine("\t[7] - RELATÓRIOS");
                 Console.WriteLine("\t[0] - SAIR");
                 Console.Write("\tENTRADA -> ");
                 string userInput = Console.ReadLine()!;
@@ -24,9 +29,9 @@ namespace P003
                 if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
                 {
                     // A conversão foi bem-sucedida
-                    if (opcao < 0 || opcao > 6)
+                    if (opcao < 0 || opcao > 7)
                     {
-                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 6.");
+                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
                         Pause();
                     }
                 }
@@ -36,13 +41,14 @@ namespace P003
                     Pause();
                 }
 
-            } while (opcao > 6 || opcao < 0);
+            } while (opcao > 7 || opcao < 0);
 
             return opcao;
         }
         public static void MenuEstoque(EstoqueService estoqueService)
         {
             estoqueService.CarregarArquivo();
+
             int opcao = 0;
             do
             {
@@ -64,12 +70,14 @@ namespace P003
                     case 3:
                         LimparTela();
                         estoqueService.Editar();
+                        estoqueService.SalvarArquivo();
                         Pause();
                         break;
 
                     case 4:
                         LimparTela();
                         estoqueService.Excluir();
+                        estoqueService.SalvarArquivo();
                         break;
 
                     case 5:
@@ -80,6 +88,12 @@ namespace P003
                     case 6:
                         LimparTela();
                         estoqueService.AtualizarEstoque();
+                        estoqueService.SalvarArquivo();
+                        break;
+
+                    case 7:
+                        LimparTela();
+                        // estoqueService.Relatorios();
                         break;
 
                     case 0:
