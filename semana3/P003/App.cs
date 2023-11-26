@@ -116,12 +116,9 @@ namespace P003
         }
         public static void LimparTela()
         {
-            // Limpar a tela no Windows ou Linux
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-            {
-                Console.Clear(); // Windows
-            }
-            else
+            Console.Clear(); // Windows
+
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {
                 Console.Write("\u001b[2J\u001b[1;1H"); // Linux
             }
