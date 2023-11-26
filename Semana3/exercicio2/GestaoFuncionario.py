@@ -398,25 +398,30 @@ def validarData():
 
         try:
           
-            # Tenta criar um objeto datetime a partir da string e do formato fornecidos
-            data_nascimento = datetime.strptime(data_nascimento_input, '%d/%m/%Y')
-            
-           # Extrai apenas a parte da data (ignorando o horário)
-            data_nascimento = data_nascimento.date()
+          # Tenta criar um objeto datetime a partir da string e do formato fornecidos
+          data_nascimento = datetime.strptime(data_nascimento_input, '%d/%m/%Y')
 
-            # Obtém a data atual
-            data_atual = date.today()
-            
-            # Verifica se a data é anterior ou igual à data atual
-            if data_nascimento <= data_atual:
-                
-                print("\tOps, data valida!")
-                return data_nascimento  # Retorna a data de nascimento validada
-            else:
-                limpaTela()
-                print("\tOps, data invalida! Certifique-se de fornecer uma data válida.")
-                pause()
-                limpaTela() 
+          # Obtém o ano do nascimento
+          ano_nascimento = data_nascimento.date().year
+
+          # Obtém o ano atual
+          ano_atual = date.today().year
+
+          # Verifica se o ano de nascimento é menor ou igual ao ano atual
+          if ano_nascimento <= ano_atual:
+            print("\tOps, data válida!")
+
+            # Formata a data no formato desejado
+            formato_personalizado = "%d/%m/%Y"
+            data_nascimento_formatada_str = data_nascimento.strftime(formato_personalizado)
+
+            return data_nascimento_formatada_str  # Retorna a data de nascimento validada e formatada
+
+          else:
+            limpaTela()
+            print("\tOps, data invalida! Certifique-se de fornecer uma data válida.")
+            pause()
+            limpaTela() 
                 
         except ValueError:
             # Se ocorrer um erro ao tentar converter para datetime, ou seja, se não for uma data válida
