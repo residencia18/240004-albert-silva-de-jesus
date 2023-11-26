@@ -22,30 +22,30 @@ proximo_id = 1
 
 def menu():
     
-    while True:
+  while True:
     
-        limpaTela()
-        formato_personalizado = "\n\t%A, %d de %B de %Y %H:%M:%S"
-        data_e_hora_formatada = data_e_hora_atual.strftime(formato_personalizado)
-        print(data_e_hora_formatada)
-        print("\tFalta", (datetime(data_e_hora_atual.year, 12, 31) - data_e_hora_atual).days + 1, "dias para o fim do ano")
+    limpaTela()
+    formato_personalizado = "\n\t%A, %d de %B de %Y %H:%M:%S"
+    data_e_hora_formatada = data_e_hora_atual.strftime(formato_personalizado)
+    print(data_e_hora_formatada)
+    print("\tFalta", (datetime(data_e_hora_atual.year, 12, 31) - data_e_hora_atual).days + 1, "dias para o fim do ano")
     
-        print("\n\t======= GESTÃO DE FUNCIONÁRIO =======")
-        print("\t[1] - CADASTRAR")
-        print("\t[2] - LISTAR")
-        print("\t[3] - EDITAR")
-        print("\t[4] - EXCLUIR")
-        print("\t[5] - CONSULTAR")
-        print("\t[6] - REAJUSTE DE 10%")
-        print("\t[0] - SAIR")
-        opcao = input("\tENTRADA -> ")
+    print("\n\t======= GESTÃO DE FUNCIONÁRIO =======")
+    print("\t[1] - CADASTRAR")
+    print("\t[2] - LISTAR")
+    print("\t[3] - EDITAR")
+    print("\t[4] - EXCLUIR")
+    print("\t[5] - CONSULTAR")
+    print("\t[6] - REAJUSTE DE 10%")
+    print("\t[0] - SAIR")
+    opcao = input("\tENTRADA -> ")
 
-        if(opcao == "1" or opcao == "2" or opcao == "3" or opcao == "4" or opcao == "5" or opcao == "6" or opcao == "0"):
-            return opcao
-        else:
-            limpaTela()
-            print("\n\tOps, opção inválida! Tente novamente.")
-            pause()
+    if(opcao == "1" or opcao == "2" or opcao == "3" or opcao == "4" or opcao == "5" or opcao == "6" or opcao == "0"):
+      return opcao
+    else:
+      limpaTela()
+      print("\n\tOps, opção inválida! Tente novamente.")
+      pause()
 
 def gestaoFuncionario():
   
@@ -118,16 +118,16 @@ def listar():
 
   if len(funcionarios) > 0:
     
-      funcionarios_ordenados = sorted(funcionarios.items(), key=lambda x: x[1][5])  # Ordena pelo salário (índice 5)
-      for id_funcionario, dados_funcionario in funcionarios_ordenados:
-        print("\tID: ", id_funcionario)
-        print("\tNome: ", dados_funcionario[0])
-        print("\tSobrenome: ", dados_funcionario[1])
-        print("\tAno de nascimento: ", dados_funcionario[2])
-        print("\tRG: ", dados_funcionario[3])
-        print("\tAno de admissão: ", dados_funcionario[4])
-        print("\tSalário: R$ {:.2f}".format(dados_funcionario[5]))
-        print("\t====================================")
+    funcionarios_ordenados = sorted(funcionarios.items(), key=lambda x: x[1][5])  # Ordena pelo salário (índice 5)
+    for id_funcionario, dados_funcionario in funcionarios_ordenados:
+      print("\tID: ", id_funcionario)
+      print("\tNome: ", dados_funcionario[0])
+      print("\tSobrenome: ", dados_funcionario[1])
+      print("\tAno de nascimento: ", dados_funcionario[2])
+      print("\tRG: ", dados_funcionario[3])
+      print("\tAno de admissão: ", dados_funcionario[4])
+      print("\tSalário: R$ {:.2f}".format(dados_funcionario[5]))
+      print("\t====================================")
   else:
     print("\n\tNão há funcionários cadastrados.")
     
@@ -251,21 +251,21 @@ def consultar():
 
 def Reajusta_dez_porcento():
     
-    limpaTela()
-    print("\n\t========== REAJUSTE DE 10% =========")
-    for id_funcionario in funcionarios:
-      funcionarios[id_funcionario][5] = funcionarios[id_funcionario][5] * 1.1
-      print("\tID: ", id_funcionario)
-      print("\tNome: ", funcionarios[id_funcionario][0])
-      print("\tSobrenome: ", funcionarios[id_funcionario][1])
-      print("\tAno de nascimento: ", funcionarios[id_funcionario][2])
-      print("\tRG: ", funcionarios[id_funcionario][3])
-      print("\tAno de admissão: ", funcionarios[id_funcionario][4])
-      print("\tSalário: R$ {:.2f}".format(funcionarios[id_funcionario][5]))
-      print("\t====================================")
+  limpaTela()
+  print("\n\t========== REAJUSTE DE 10% =========")
+  for id_funcionario in funcionarios:
+    funcionarios[id_funcionario][5] = funcionarios[id_funcionario][5] * 1.1
+    print("\tID: ", id_funcionario)
+    print("\tNome: ", funcionarios[id_funcionario][0])
+    print("\tSobrenome: ", funcionarios[id_funcionario][1])
+    print("\tAno de nascimento: ", funcionarios[id_funcionario][2])
+    print("\tRG: ", funcionarios[id_funcionario][3])
+    print("\tAno de admissão: ", funcionarios[id_funcionario][4])
+    print("\tSalário: R$ {:.2f}".format(funcionarios[id_funcionario][5]))
+    print("\t====================================")
       
-    print("\n\tFuncionários reajustados com sucesso!")
-    pause() 
+  print("\n\tFuncionários reajustados com sucesso!")
+  pause() 
       
 def excluir():
   
@@ -354,81 +354,81 @@ def salvarFuncionariosEmArquivo():
   with open("semana3/exercicio2/arquivo.txt", "w") as arquivo:
     funcionarios_ordenados = sorted(funcionarios.items(), key=lambda x: x[1][5])
     for id_funcionario, dados_funcionario in funcionarios.items():
-         arquivo.write(f"{id_funcionario},{dados_funcionario[0]},{dados_funcionario[1]},{dados_funcionario[2]},{dados_funcionario[3]},{dados_funcionario[4]},{dados_funcionario[5]}\n")
+        arquivo.write(f"{id_funcionario},{dados_funcionario[0]},{dados_funcionario[1]},{dados_funcionario[2]},{dados_funcionario[3]},{dados_funcionario[4]},{dados_funcionario[5]}\n")
 
 def carregarFuncionariosDeArquivo():
   
-    global funcionarios
+  global funcionarios
 
-    try:
-        with open("semana3/exercicio2/arquivo.txt", "r") as arquivo:
-            linhas = arquivo.readlines()
+  try:
+    with open("semana3/exercicio2/arquivo.txt", "r") as arquivo:
+      linhas = arquivo.readlines()
             
-            if not linhas:
-                print("O arquivo está vazio.")
-                return
+      if not linhas:
+        print("O arquivo está vazio.")
+        return
 
-            for linha in linhas:
-                partes = linha.strip().split(',')
-                if len(partes) == 7:
-                    try:
-                        id_funcionario, nome, sobrenome, ano_nascimento, rg, ano_admissao, salario = map(str, partes)
-                        funcionarios[int(id_funcionario)] = [
-                            nome,
-                            sobrenome,
-                            ano_nascimento,
-                            rg,
-                            ano_admissao,
-                            float(salario)
-                        ]
-                    except ValueError as e:
-                        print(f"Erro ao processar a linha: {linha}")
-                        print(f"Mensagem de erro: {e}")
-                else:
-                    print(f"Formato inválido na linha: {linha}")
+        for linha in linhas:
+          partes = linha.strip().split(',')
+          if len(partes) == 7:
+            try:
+              id_funcionario, nome, sobrenome, ano_nascimento, rg, ano_admissao, salario = map(str, partes)
+              funcionarios[int(id_funcionario)] = [
+              nome,
+              sobrenome,
+              ano_nascimento,
+              rg,
+              ano_admissao,
+              float(salario) ]
+              
+            except ValueError as e:
+              print(f"Erro ao processar a linha: {linha}")
+              print(f"Mensagem de erro: {e}")
+          else:
+            print(f"Formato inválido na linha: {linha}")
 
-    except FileNotFoundError:
-        print("O arquivo não foi encontrado.")
+  except FileNotFoundError:
+    print("O arquivo não foi encontrado.")
       
 def validarData():
   
-    while True:
+  while True:
       
-        data_nascimento_input = input("\tDATA ENTRADA -> ")
+    data_nascimento_input = input("\tDATA ENTRADA -> ")
 
-        try:
+    try:
           
-          # Tenta criar um objeto datetime a partir da string e do formato fornecidos
-          data_nascimento = datetime.strptime(data_nascimento_input, '%d/%m/%Y')
+      # Tenta criar um objeto datetime a partir da string e do formato fornecidos
+      data_nascimento = datetime.strptime(data_nascimento_input, '%d/%m/%Y')
 
-          # Obtém o ano do nascimento
-          ano_nascimento = data_nascimento.date().year
+      # Obtém o ano do nascimento
+      ano_nascimento = data_nascimento.date().year
 
-          # Obtém o ano atual
-          ano_atual = date.today().year
+      # Obtém o ano atual
+      ano_atual = date.today().year
 
-          # Verifica se o ano de nascimento é menor ou igual ao ano atual
-          if ano_nascimento <= ano_atual:
-            print("\tOps, data válida!")
+      # Verifica se o ano de nascimento é menor ou igual ao ano atual
+      if ano_nascimento <= ano_atual:
+        print("\tOps, data válida!")
 
-            # Formata a data no formato desejado
-            formato_personalizado = "%d/%m/%Y"
-            data_nascimento_formatada_str = data_nascimento.strftime(formato_personalizado)
+        # Formata a data no formato desejado
+        formato_personalizado = "%d/%m/%Y"
+        data_nascimento_formatada_str = data_nascimento.strftime(formato_personalizado)
 
-            return data_nascimento_formatada_str  # Retorna a data de nascimento validada e formatada
+        return data_nascimento_formatada_str  # Retorna a data de nascimento validada e formatada
 
-          else:
-            limpaTela()
-            print("\tOps, data invalida! Certifique-se de fornecer uma data válida.")
-            pause()
-            limpaTela() 
+      else:
+        limpaTela()
+        print("\tOps, data invalida! Certifique-se de fornecer uma data válida.")
+        pause()
+        limpaTela() 
                 
-        except ValueError:
-            # Se ocorrer um erro ao tentar converter para datetime, ou seja, se não for uma data válida
-            limpaTela() 
-            print("\tOps, data invalida! formato correto: DD/MM/YYYY")
-            pause()
-            limpaTela()
+    except ValueError:
+      # Se ocorrer um erro ao tentar converter para datetime, ou seja, se não for uma data válida
+      limpaTela() 
+      print("\tOps, data invalida! formato correto: DD/MM/YYYY")
+      pause()
+      limpaTela()
             
 def pause():
   input("\tPressione Enter para continuar...")
@@ -444,7 +444,7 @@ def limpaTela():
     print("Sistema operacional não suportado para limpar a tela.")
 
 def main():
-    gestaoFuncionario()
+  gestaoFuncionario()
 
 if __name__ == "__main__":
     main()  
