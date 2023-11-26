@@ -12,7 +12,9 @@ namespace P003
 
         void Pesquisar();
 
-        int ValidarEntrada(string mensagem);
+        int ValidarEntradaInt(string mensagem);
+
+        double ValidarEntradaDouble(string mensagem);
 
         String convertePrimeiraLetraParaMaiuscula(string palavra);
 

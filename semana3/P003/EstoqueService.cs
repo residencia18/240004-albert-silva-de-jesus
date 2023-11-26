@@ -26,7 +26,7 @@ namespace P003
 
             do
             {
-                codigo = ValidarEntrada("\n\tInforme o Código do Produto");
+                codigo = ValidarEntradaInt("\n\tInforme o Código do Produto");
 
             } while (IsCodigoIgual(codigo));
 
@@ -34,9 +34,9 @@ namespace P003
             string nome = Console.ReadLine()!;
             nome = convertePrimeiraLetraParaMaiuscula(nome);
 
-            int quantidade = ValidarEntrada("\n\tInforme a quantidade do Produto");
+            int quantidade = ValidarEntradaInt("\n\tInforme a quantidade do Produto");
 
-            double preco = ValidarEntrada("\n\tInforme o preço do Produto");
+            double preco = ValidarEntradaDouble("\n\tInforme o preço do Produto");
 
             AdcionarTupla(new Estoque(codigo, nome, quantidade, preco).DadosEstoque);
 
@@ -72,7 +72,7 @@ namespace P003
 
         public void Editar()
         {
-            int codigo = ValidarEntrada("\n\tInforme o CÓDIGO do Produto");
+            int codigo = ValidarEntradaInt("\n\tInforme o CÓDIGO do Produto");
 
             // Encontre o índice da tupla a ser editada
             int indiceParaEdicao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
@@ -95,15 +95,15 @@ namespace P003
                 App.Pause();
                 App.LimparTela();
 
-                int novoCodigo = ValidarEntrada("\n\tInforme o Código do Produto");
+                int novoCodigo = ValidarEntradaInt("\n\tInforme o Código do Produto");
 
                 Console.Write("\n\tInforme o nome do Produto: ");
                 string novoNome = Console.ReadLine()!;
                 novoNome = convertePrimeiraLetraParaMaiuscula(novoNome);
 
-                int novaQuantidade = ValidarEntrada("\n\tInforme a quantidade do Produto");
+                int novaQuantidade = ValidarEntradaInt("\n\tInforme a quantidade do Produto");
 
-                double novoPreco = ValidarEntrada("\n\tInforme o preço do Produto");
+                double novoPreco = ValidarEntradaDouble("\n\tInforme o preço do Produto");
 
                 // // Crie uma nova tupla com os dados atualizados
                 // var novaTupla = (itemParaEdicao.Id, novoCodigo, novoNome, novaQuantidade, novoPreco);
@@ -133,7 +133,7 @@ namespace P003
         public void Excluir()
         {
             string userInput;
-            int codigo = ValidarEntrada("\n\tInforme o CÓDIGO do Produto");
+            int codigo = ValidarEntradaInt("\n\tInforme o CÓDIGO do Produto");
 
             // Encontra o índice da tupla a ser excluída
             int indiceParaExclusao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
@@ -212,7 +212,7 @@ namespace P003
                 return;
             }
 
-            int codigo = ValidarEntrada("\n\tInforme o Código do Produto");
+            int codigo = ValidarEntradaInt("\n\tInforme o Código do Produto");
 
             // Encontre o índice da tupla a ser pesquisada
             int indiceParaPesquisa = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
@@ -246,6 +246,7 @@ namespace P003
                 App.Pause();
             }
         }
+
         public void AtualizarEstoque()
         {
 
@@ -279,7 +280,7 @@ namespace P003
                         if (atualizarOuMenu == 1)
                         {
 
-                            int codigo = ValidarEntrada("\n\tCódigo -> ");
+                            int codigo = ValidarEntradaInt("\n\tCódigo -> ");
                             int indiceParaAtualizacao = ListaDeTuplas.FindIndex(item => item.Codigo == codigo);
                             bool atualizarOutroProduto = true;
 
@@ -354,7 +355,7 @@ namespace P003
         {
             try
             {
-                int novaQuantidade = ValidarEntrada($"\n\tInforme a {(isEntrada ? "entrada" : "saída")} da quantidade do produto: ");
+                int novaQuantidade = ValidarEntradaInt($"\n\tInforme a {(isEntrada ? "entrada" : "saída")} da quantidade do produto: ");
 
                 if (isEntrada && ListaDeTuplas.Any(item => (item.Quantidade + novaQuantidade) < 0))
                 {
@@ -572,7 +573,7 @@ namespace P003
             return false;
         }
 
-        public int ValidarEntrada(string mensagem)
+        public int ValidarEntradaInt(string mensagem)
         {
             int valor;
 
@@ -593,6 +594,47 @@ namespace P003
                         throw new OverflowException($"\n\tOps, entrada inválida! O valor não pode ser menor ou igual a zero.");
                     }
                     return valor;
+                }
+                catch (FormatException)
+                {
+                    App.LimparTela();
+                    Console.WriteLine($"\n\tOps, entrada inválida. Por favor, insira um número válido.");
+                    App.Pause();
+                }
+                catch (OverflowException ex)
+                {
+                    App.LimparTela();
+                    Console.WriteLine(ex.Message);
+                    App.Pause();
+                }
+
+            } while (true);
+        }
+
+        public double ValidarEntradaDouble(string mensagem)
+        {
+            do
+            {
+                App.LimparTela();
+                Console.WriteLine("\n\t========== SISTEMA DE GERENCIAMENTO DE PRODUTOS ========== ");
+                Console.Write($"\t{mensagem}: ");
+
+                string input = Console.ReadLine()!;
+
+                try
+                {
+                    if (double.TryParse(input, out double doubleValue))
+                    {
+                        if (doubleValue <= 0)
+                        {
+                            throw new OverflowException($"\n\tOps, entrada inválida! O valor não pode ser menor ou igual a zero.");
+                        }
+                        return doubleValue;
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
                 }
                 catch (FormatException)
                 {

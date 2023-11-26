@@ -13,7 +13,7 @@ namespace P003
             {
                 LimparTela();
                 DataHoraAtual();
-                Console.WriteLine("\t===== MENU PRINCIPAL =====");
+                Console.WriteLine("\t===== CONTROLE DE ESTOQUE =====");
                 Console.WriteLine("\t[1] - CADASTRAR");
                 Console.WriteLine("\t[2] - LISTAR");
                 Console.WriteLine("\t[3] - EDITAR");
