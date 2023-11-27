@@ -113,7 +113,7 @@ def cadastrar():
     pause()
 
 def listar():
-  limpaTela()
+  
   print("\n\t======= LISTAR FUNCIONÁRIOS =======")
 
   if len(funcionarios) > 0:
@@ -359,33 +359,38 @@ def salvarFuncionariosEmArquivo():
 def carregarFuncionariosDeArquivo():
   
   global funcionarios
-
+ 
   try:
     with open("semana3/exercicio2/arquivo.txt", "r") as arquivo:
-      linhas = arquivo.readlines()
-            
+      
+      linhas = arquivo.readlines() 
+     
       if not linhas:
+        print("\n\tCarregando funcionários...")
         print("O arquivo está vazio.")
         return
+      
+      for linha in linhas:
+        partes = linha.strip().split(',')
 
-        for linha in linhas:
-          partes = linha.strip().split(',')
-          if len(partes) == 7:
-            try:
-              id_funcionario, nome, sobrenome, ano_nascimento, rg, ano_admissao, salario = map(str, partes)
-              funcionarios[int(id_funcionario)] = [
+        if len(partes) == 7:
+          try:
+            id_funcionario, nome, sobrenome, ano_nascimento, rg, ano_admissao, salario = map(str, partes)
+            
+            funcionarios[int(id_funcionario)] = [
               nome,
               sobrenome,
               ano_nascimento,
               rg,
               ano_admissao,
-              float(salario) ]
-              
-            except ValueError as e:
-              print(f"Erro ao processar a linha: {linha}")
-              print(f"Mensagem de erro: {e}")
-          else:
-            print(f"Formato inválido na linha: {linha}")
+              float(salario) 
+            ]
+            
+          except ValueError as e:
+            print(f"Erro ao processar a linha: {linha}")
+            print(f"Mensagem de erro: {e}")
+        else:
+          print(f"Formato inválido na linha: {linha}")
 
   except FileNotFoundError:
     print("O arquivo não foi encontrado.")
