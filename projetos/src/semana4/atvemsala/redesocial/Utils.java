@@ -39,11 +39,39 @@ public class Utils {
     return opcao;
   }
 
+  public static int MenuSessao() {
+    Scanner scan = new Scanner(System.in);
+    int opcao = 0;
+
+    do {
+
+      System.out.print("\n\t========== INSTADEGAS ==========");
+      System.out.print("\n\t[1] - LISTAR POSTAGENS");
+      System.out.print("\n\t[2] - CRIAR POSTAGEM");
+      System.out.print("\n\t[3] - CRIAR AMIZADE");
+      System.out.print("\n\t[4] - DESFAZER AMIZADE");
+      System.out.print("\n\t[0] - MENU ANTERIOR");
+      System.out.print("\n\tENTRADA -> ");
+      opcao = scan.nextInt();
+      scan.nextLine();
+
+      if (opcao > 4 || opcao < 0) {
+        System.out.println("\n\tOps, opção inválida");
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao > 4 || opcao < 0);
+
+    return opcao;
+  }
+
   public static void redeSocial() {
 
     int opcao = 0;
     Scanner scan = new Scanner(System.in);
     ListaUsuarios usuarios = new ListaUsuarios();
+    Usuario usuario = new Usuario();
 
     usuarios.carregarDeArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
 
@@ -63,15 +91,40 @@ public class Utils {
           break;
 
         case 3:
-          
-          break;
 
-        case 4:
-         
-          break;
+          usuario.logar();
 
-        case 5:
-          
+          do {
+
+            opcao = MenuSessao();
+
+            switch (opcao) {
+
+              case 1:
+                // usuario..listarPostagens();
+                break;
+
+              case 2:
+                // usuario.novaPostagem();
+                break;
+
+              case 3:
+                // usuario.criarAmizade();
+                break;
+
+              case 4:
+                // usuario.desfazerAmizade();
+                break;
+
+              case 0:
+                System.out.println("\n\tSaindo...");
+                System.out.println("\tObrigado por usar o sistema!");
+                System.exit(opcao);
+                break;
+            }
+
+          } while (opcao != 0);
+
           break;
 
         case 0:

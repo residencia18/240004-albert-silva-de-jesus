@@ -3,6 +3,7 @@ package semana4.atvemsala.redesocial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Usuario implements Serializable {
@@ -63,6 +64,39 @@ public class Usuario implements Serializable {
 
   public void setPostagens(List<String> postagens) {
     this.postagens = postagens;
+  }
+
+  public void adicionarPostagem(String postagem) {
+    postagens.add(postagem);
+  }
+
+  public void logar() {
+
+    Scanner scan = new Scanner(System.in);
+
+    System.out.println("\n\t========== LOGIN ==========");
+
+    System.out.print("\n\tEmail: ");
+    String email = scan.nextLine();
+
+    System.out.print("\n\tSenha: ");
+    String senha = scan.nextLine();
+
+    if (this.email.equals(email) && this.senha.equals(senha)) {
+
+      System.out.println("\n\tLogin realizado com sucesso!");
+      Utils.pausar(scan);
+      Utils.limparTela();
+    } else {
+      System.out.println("\n\tOps, e-mail ou senha incorretos.");
+      Utils.pausar(scan);
+    }
+  }
+
+  @Override
+  public String toString() {
+    return "Usuario [email=" + email + ", id=" + id + ", nome=" + nome + ", postagens=" + postagens + ", senha="
+        + senha + "]";
   }
 
 }

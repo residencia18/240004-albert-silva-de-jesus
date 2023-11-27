@@ -59,8 +59,8 @@ public class ListaUsuarios {
     }
   }
 
-  public void carregarDeArquivo(String nomeArquivo) {
-
+  public void carregarDeArquivo(String nomeArquivo) 
+  {
     List<Usuario> usuariosCarregados = ArquivoUsuarios.carregarDeArquivo(nomeArquivo);
 
     if (usuariosCarregados != null) {
@@ -68,55 +68,8 @@ public class ListaUsuarios {
     }
   }
 
-  public void salvarEmArquivo(String nomeArquivo) {
+  public void salvarEmArquivo(String nomeArquivo) 
+  {
     ArquivoUsuarios.salvarEmArquivo(usuarios, nomeArquivo);
   }
-
-  // public void carregarDeArquivo(String nomeArquivo) {
-
-  // try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo)))
-  // {
-
-  // String linha;
-
-  // while ((linha = reader.readLine()) != null) {
-
-  // String[] partes = linha.split(";");
-
-  // if (partes.length == 5) {
-  // int id = Integer.parseInt(partes[0]);
-  // String nome = partes[1];
-  // String email = partes[2];
-  // String senha = partes[3];
-
-  // Usuario usuario = new Usuario(nome, email, senha);
-  // usuario.setId(id);
-  // usuarios.add(usuario);
-  // }
-  // }
-  // System.out.println("Produtos carregados do arquivo: " + nomeArquivo);
-
-  // } catch (IOException e) {
-  // System.err.println("Erro ao carregar do arquivo: " + e.getMessage());
-  // }
-  // }
-
-  // public void salvarEmArquivo(String nomeArquivo) {
-
-  // try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo)))
-  // {
-
-  // for (Usuario usuario : usuarios) {
-  // writer.write(usuario.getId() + ";" +
-  // usuario.getNome() + ";" +
-  // usuario.getEmail() + ";" +
-  // usuario.getSenha() + ";" );
-  // writer.newLine();
-  // }
-  // System.out.println("Produtos salvos com sucesso no arquivo: " + nomeArquivo);
-
-  // } catch (IOException e) {
-  // System.err.println("Erro ao salvar no arquivo: " + e.getMessage());
-  // }
-  // }
 }
