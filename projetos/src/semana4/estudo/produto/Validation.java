@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Validation {
 
-
   public static String validarNome(Scanner scan) {
 
     String nome = "";
