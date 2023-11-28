@@ -1,6 +1,8 @@
 package semana4.atvemsala.redesocial;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Sessao {
@@ -40,9 +42,6 @@ public class Sessao {
 
     for (Usuario usuario : usuarios.getUsuarios()) {
       if (usuario.solicitarAutenticacao(email, senha)) {
-        System.out.println("\n\tOps, usuário logado com sucesso!");
-        Utils.pausar();
-        Utils.limparTela();
         return usuario;
       }
     }
@@ -52,7 +51,7 @@ public class Sessao {
     return null;
   }
 
-  public void criarAmizade(ListaUsuarios usuarios){
+  public void criarAmizade(ListaUsuarios usuarios) {
 
     Scanner scan = new Scanner(System.in);
 
@@ -63,11 +62,32 @@ public class Sessao {
     String emailAmigo = scan.nextLine();
 
     for (Usuario usuario : usuarios.getUsuarios()) {
-      
-      if(usuario.getEmail().equals(emailAmigo)){
-        
+
+      if (usuario.getEmail().equals(emailAmigo)) {
+
+        int idAmigo = usuario.getId();
+        usuario.adicionarAmigo("\tID: " + idAmigo + "\tEmail: " + emailAmigo);
+        listarAmigos(usuario.getAmigos());
+        System.out.println("\n\tOps, amizade criada com sucesso!");
+        Utils.pausar();
+        Utils.limparTela();
+        return;
       }
     }
-    
+    System.out.println("\n\tOps, usuário não encontrado!");
+    Utils.pausar();
+    Utils.limparTela();
   }
+
+  public void listarAmigos(List<String> amigos) {
+
+    Utils.limparTela();
+    System.out.println("\n\t========== AMIGOS ==========");
+
+    for (String amigo : amigos) {
+      System.out.print(amigo);
+      System.out.println("\t===========================");
+    }
+  }
+
 }

@@ -11,11 +11,13 @@ public class ListaSessoes {
     this.sessoes = new ArrayList<>();
   }
 
-  public List<Sessao> getSessoes() {
+  public List<Sessao> getSessoes() 
+  {
     return sessoes;
   }
 
-  public void adicionarSessao(Sessao sessao) {
+  public void adicionarSessao(Sessao sessao) 
+  {
     sessoes.add(sessao);
   }
 }

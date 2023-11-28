@@ -22,16 +22,15 @@ public class ArquivoUsuarios {
 
         String[] partes = linha.split(";");
 
-        if (partes.length == 5) {
+        if (partes.length == 4) {
           int id = Integer.parseInt(partes[0]);
           String nome = partes[1];
           String email = partes[2];
           String senha = partes[3];
-          String postagem = partes[4];
+
           Usuario usuario = new Usuario(nome, email, senha);
           usuario.setId(id);
           usuarios.add(usuario);
-          usuario.adicionarPostagem(postagem);
         }
       }
       Utils.limparTela();
@@ -53,8 +52,7 @@ public class ArquivoUsuarios {
         writer.write(usuario.getId() + ";" +
             usuario.getNome() + ";" +
             usuario.getEmail() + ";" +
-            usuario.getSenha() + ";" +
-            usuario.getPostagens());
+            usuario.getSenha());
         writer.newLine();
       }
       Utils.limparTela();

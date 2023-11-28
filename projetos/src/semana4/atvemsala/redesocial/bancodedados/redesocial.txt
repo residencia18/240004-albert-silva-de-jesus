@@ -1,2 +1,2 @@
-1;aaa;aaa@mm.;111;[[]]
-2;aaaass;www@xx.;222;[]
+1;aaa;aaa@mm.;111
+2;bbb;bbb@mm.;222

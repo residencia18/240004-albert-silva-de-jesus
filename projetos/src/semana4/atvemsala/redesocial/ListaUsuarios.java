@@ -8,23 +8,28 @@ public class ListaUsuarios {
 
   private List<Usuario> usuarios;
 
-  public ListaUsuarios() {
+  public ListaUsuarios() 
+  {
     this.usuarios = new ArrayList<>();
   }
 
-  public List<Usuario> getUsuarios() {
+  public List<Usuario> getUsuarios() 
+  {
     return usuarios;
   }
 
-  public void setUsuarios(List<Usuario> usuarios) {
+  public void setUsuarios(List<Usuario> usuarios) 
+  {
     this.usuarios = usuarios;
   }
 
-  public void adicionarUsuario(Usuario usuario) {
+  public void adicionarUsuario(Usuario usuario) 
+  {
     usuarios.add(usuario);
   }
 
-  public void novoUsuario(Scanner scan) {
+  public void novoUsuario(Scanner scan) 
+  {
 
     Utils.limparTela();
     System.out.println("\n\t========== CADASTRAR ==========");
@@ -43,7 +48,8 @@ public class ListaUsuarios {
     Utils.pausar();
   }
 
-  public void listarUsuarios() {
+  public void listarUsuarios() 
+  {
 
     Utils.limparTela();
     System.out.println("\n\t========== USUÁRIOS ==========");
@@ -53,7 +59,6 @@ public class ListaUsuarios {
       System.out.println("\tNome: " + usuario.getNome());
       System.out.println("\tEmail: " + usuario.getEmail());
       System.out.println("\tSenha: " + usuario.getSenha());
-      System.out.println("\tPostagens: " + usuario.getPostagens());
       System.out.println("\t==============================");
     }
   }

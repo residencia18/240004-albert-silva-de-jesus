@@ -14,7 +14,7 @@ public class Utils {
   private Usuario usuarioLogado;
   private Sessao sessaoAtual;
 
-  public static int menu(Scanner scan) {
+  public static int menuPrincipal(Scanner scan) {
 
     int opcao = 0;
 
@@ -26,20 +26,21 @@ public class Utils {
 
       System.out.print("\n\t========== INSTADEGAS ==========");
       System.out.print("\n\t[1] - NOVO USUÁRIO");
-      System.out.print("\n\t[2] - REMOVER USUÁRIO");
-      System.out.print("\n\t[3] - LOGAR");
+      System.out.print("\n\t[2] - LISTAR USUÁRIOS");
+      System.out.print("\n\t[3] - REMOVER USUÁRIO");
+      System.out.print("\n\t[4] - LOGAR");
       System.out.print("\n\t[0] - SAIR");
       System.out.print("\n\tENTRADA -> ");
       opcao = scan.nextInt();
       scan.nextLine();
 
-      if (opcao > 3 || opcao < 0) {
+      if (opcao > 4 || opcao < 0) {
         System.out.println("\n\tOps, opção inválida");
         pausar();
         limparTela();
       }
 
-    } while (opcao > 3 || opcao < 0);
+    } while (opcao > 4 || opcao < 0);
 
     return opcao;
   }
@@ -96,7 +97,7 @@ public class Utils {
 
     do {
 
-      opcao = menu(scan);
+      opcao = menuPrincipal(scan);
 
       switch (opcao) {
 
@@ -111,6 +112,11 @@ public class Utils {
           break;
 
         case 3:
+          // usuarios.removerUsuario(scan);
+          // usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
+          break;
+
+        case 4:
 
           usuarioLogado = Sessao.login(usuarios);
 
@@ -136,8 +142,8 @@ public class Utils {
                 break;
 
               case 3:
-                sessaoAtual.criarAmizade();
-                usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
+                sessaoAtual.criarAmizade(usuarios);
+                // usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 4:
@@ -146,11 +152,13 @@ public class Utils {
                 break;
 
               case 0:
+                limparTela();
                 usuarioLogado.deslogar(sessaoAtual);
+                System.out.println("\n\tUsuário deslogado, " + sessaoAtual.getDataHoraFim().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
                 sessaoAtual = null;
                 usuarioLogado = null;
-                System.out.println("\n\tDeslogando, saindo!...");
-                Utils.pausar();
+                pausar();
+                limparTela(); 
                 break;
 
               default:
@@ -160,7 +168,7 @@ public class Utils {
             }
           } while (opcaoSessao != 0);
           break;
-          
+
         case 0:
           System.out.println("\n\tSaindo...");
           break;

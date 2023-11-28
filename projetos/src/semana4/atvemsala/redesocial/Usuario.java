@@ -32,66 +32,89 @@ public class Usuario implements Serializable {
     this.amigos = new ArrayList<>();
   }
 
-  public int getId() {
+  public int getId() 
+  {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(int id) 
+  {
     this.id = id;
   }
 
-  public String getNome() {
+  public String getNome() 
+  {
     return nome;
   }
 
-  public void setNome(String nome) {
+  public void setNome(String nome) 
+  {
     this.nome = nome;
   }
 
-  public String getEmail() {
+  public String getEmail() 
+  {
     return email;
   }
 
-  public void setEmail(String email) {
+  public void setEmail(String email) 
+  {
     this.email = email;
   }
 
-  public String getSenha() {
+  public String getSenha() 
+  {
     return senha;
   }
 
-  public void setSenha(String senha) {
+  public void setSenha(String senha) 
+  {
     this.senha = senha;
   }
 
-  public List<String> getPostagens() {
+  public List<String> getPostagens() 
+  {
     return postagens;
   }
 
-  public ListaSessoes getListSessoes() {
+  public ListaSessoes getListSessoes() 
+  {
     return listaSessoes;
   }
 
-  public void adicionarPostagem(String postagem) {
+  public List<String> getAmigos() 
+  {
+    return amigos;
+  }
+  
+  public void adicionarPostagem(String postagem) 
+  {
     postagens.add(postagem);
   }
 
-  public Sessao logar() {
+  public void adicionarAmigo(String amigo) 
+  {
+    amigos.add(amigo);
+  }
+
+  public Sessao logar() 
+  {
 
     Sessao sessao = new Sessao();
     listaSessoes.adicionarSessao(sessao);
-    System.out.println("\n\tUsuário logado em "
-        + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
-
+    System.out.println("\n\tUsuário logado com sucesso, na " + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
+    Utils.pausar();
     return sessao;
   }
 
-  public boolean solicitarAutenticacao(String email, String senha) {
+  public boolean solicitarAutenticacao(String email, String senha) 
+  {
 
     return (this.getEmail().equals(email) && this.getSenha().equals(senha));
   }
 
-  public void deslogar(Sessao sessao) {
+  public void deslogar(Sessao sessao) 
+  {
     sessao.setDataHoraFim();
   }
 
