@@ -40,7 +40,7 @@ public class ListaUsuarios {
     adicionarUsuario(usuario);
 
     System.out.println("\n\tUsuário cadastrado com sucesso!");
-    Utils.pausar(scan);
+    Utils.pausar();
   }
 
   public void listarUsuarios() {

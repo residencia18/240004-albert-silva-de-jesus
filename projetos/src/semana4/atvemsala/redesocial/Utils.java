@@ -10,6 +10,9 @@ import java.util.Scanner;
 public class Utils {
 
   LocalDateTime agora = LocalDateTime.now();
+  ListaUsuarios usuarios;
+  private Usuario usuarioLogado;
+  private Sessao sessaoAtual;
 
   public static int menu(Scanner scan) {
 
@@ -32,7 +35,7 @@ public class Utils {
 
       if (opcao > 3 || opcao < 0) {
         System.out.println("\n\tOps, opção inválida");
-        pausar(scan);
+        pausar();
         limparTela();
       }
 
@@ -62,11 +65,10 @@ public class Utils {
       try {
         opcao = scan.nextInt();
         scan.nextLine(); // Limpar o buffer do scanner
-
       } catch (InputMismatchException e) {
         System.out.println("\n\tOps, entrada inválida. Digite um número.");
         scan.nextLine(); // Limpar o buffer do scanner
-        pausar(scan);
+        pausar();
         limparTela();
         continue;
       }
@@ -74,7 +76,7 @@ public class Utils {
       if (opcao > 4 || opcao < 0) {
 
         System.out.println("\n\tOps, opção inválida");
-        pausar(scan);
+        pausar();
         limparTela();
       }
 
@@ -83,13 +85,12 @@ public class Utils {
     return opcao;
   }
 
-  public static void redeSocial() {
+  public void redeSocial() {
 
     int opcao = 0;
     int opcaoSessao = 0;
     Scanner scan = new Scanner(System.in);
-    ListaUsuarios usuarios = new ListaUsuarios();
-    Sessao sessao = new Sessao();
+    usuarios = new ListaUsuarios();
 
     usuarios.carregarDeArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
 
@@ -106,17 +107,24 @@ public class Utils {
 
         case 2:
           usuarios.listarUsuarios();
-          pausar(scan);
+          pausar();
           break;
 
         case 3:
 
+          usuarioLogado = Sessao.login(usuarios);
+
+          if (usuarioLogado == null) {
+            break;
+          }
+
+          sessaoAtual = usuarioLogado.logar();
           do {
 
-            sessao.solicitarAutenticacao(usuarios);
             opcaoSessao = menuSessao();
 
             switch (opcaoSessao) {
+
               case 1:
                 // usuario.listarPostagens();
                 // pausar(scan);
@@ -124,12 +132,12 @@ public class Utils {
 
               case 2:
                 // usuario.novaPostagem(scan);
-                // usuario.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
+                // usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 3:
-                // usuario.criarAmizade(scan);
-                // usuario.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
+                sessaoAtual.criarAmizade();
+                usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 4:
@@ -138,28 +146,32 @@ public class Utils {
                 break;
 
               case 0:
-                System.out.println("\n\tSaindo...");
-                opcao = menu(scan);
+                usuarioLogado.deslogar(sessaoAtual);
+                sessaoAtual = null;
+                usuarioLogado = null;
+                System.out.println("\n\tDeslogando, saindo!...");
+                Utils.pausar();
                 break;
 
               default:
                 System.out.println("\n\tOps, opção inválida");
-                pausar(scan);
+                pausar();
                 break;
             }
           } while (opcaoSessao != 0);
-
+          break;
+          
         case 0:
           System.out.println("\n\tSaindo...");
           break;
 
         default:
           System.out.println("\n\tOps, opção inválida");
-          pausar(scan);
+          pausar();
           break;
 
       }
-    } while (opcao != 0);
+    } while (opcao != 0 || opcaoSessao != 0);
 
   }
 
@@ -193,7 +205,7 @@ public class Utils {
                  // alfanumérico
         } else {
           System.out.println("\n\tOps, o nome de usuário deve ter 3 ou mais caracteres e ser alfanumérico.");
-          pausar(scan);
+          pausar();
           limparTela();
 
         }
@@ -227,7 +239,7 @@ public class Utils {
           break;
         } else {
           System.out.println("\n\tOps, o e-mail deve ter 3 ou mais caracteres e ser válido.");
-          pausar(scan);
+          pausar();
           limparTela();
 
         }
@@ -260,7 +272,7 @@ public class Utils {
           break;
         } else {
           System.out.println("\n\tOps, a senha deve ter 3 ou mais caracteres e ser alfanumérica.");
-          pausar(scan);
+          pausar();
           limparTela();
 
         }
@@ -295,7 +307,8 @@ public class Utils {
     }
   }
 
-  public static void pausar(Scanner scan) {
+  public static void pausar() {
+    Scanner scan = new Scanner(System.in);
     System.out.print("\n\tPressione ENTER para continuar...");
     scan.nextLine();
   }

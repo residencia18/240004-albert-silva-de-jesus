@@ -13,11 +13,13 @@ public class Usuario implements Serializable {
   private String nome;
   private String email;
   private String senha;
-  private Sessao sessao;
+  private ListaSessoes listaSessoes;
   private List<String> postagens;
+  private List<String> amigos;
 
   public Usuario() {
     this.postagens = new ArrayList<>();
+    this.listaSessoes = new ListaSessoes();
   }
 
   public Usuario(String nome, String email, String senha) {
@@ -26,6 +28,8 @@ public class Usuario implements Serializable {
     this.email = email;
     this.senha = senha;
     this.postagens = new ArrayList<>();
+    this.listaSessoes = new ListaSessoes();
+    this.amigos = new ArrayList<>();
   }
 
   public int getId() {
@@ -64,51 +68,31 @@ public class Usuario implements Serializable {
     return postagens;
   }
 
-  public void setPostagens(List<String> postagens) {
-    this.postagens = postagens;
-  }
-
-  public Sessao getSessao() {
-    return sessao;
-  }
-
-  public void setSessao(Sessao sessao) {
-    this.sessao = sessao;
+  public ListaSessoes getListSessoes() {
+    return listaSessoes;
   }
 
   public void adicionarPostagem(String postagem) {
     postagens.add(postagem);
   }
 
-  public void logar() {
+  public Sessao logar() {
 
-    if (this.sessao == null) {
+    Sessao sessao = new Sessao();
+    listaSessoes.adicionarSessao(sessao);
+    System.out.println("\n\tUsuário logado em "
+        + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
 
-      ListaSessoes listaSessoes = new ListaSessoes();
-      this.sessao = new Sessao();
-      sessao.setIdUsuario(this.id);
-      this.sessao.setDataHoraInicio(this.sessao.getDataHoraInicio());
-      listaSessoes.adicionarSessao(this.sessao);
-      System.out.println("\n\tUsuário logado em "
-          + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
-
-    } else {
-      System.out.println("Usuário já está logado.");
-
-    }
+    return sessao;
   }
 
-  public void deslogar() {
+  public boolean solicitarAutenticacao(String email, String senha) {
 
-    if (sessao != null) {
+    return (this.getEmail().equals(email) && this.getSenha().equals(senha));
+  }
 
-      sessao.setDataHoraFim(sessao.getDataHoraFim());
-      System.out.println("Usuário " + nome + " deslogado em " + sessao.getDataHoraFim());
-      sessao = null;
-
-    } else {
-      System.out.println("Usuário não está logado.");
-    }
+  public void deslogar(Sessao sessao) {
+    sessao.setDataHoraFim();
   }
 
 }

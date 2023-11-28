@@ -15,10 +15,6 @@ public class ListaSessoes {
     return sessoes;
   }
 
-  public void setSessoes(List<Sessao> sessoes) {
-    this.sessoes = sessoes;
-  }
-
   public void adicionarSessao(Sessao sessao) {
     sessoes.add(sessao);
   }

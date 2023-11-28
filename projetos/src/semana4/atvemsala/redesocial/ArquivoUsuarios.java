@@ -34,11 +34,12 @@ public class ArquivoUsuarios {
           usuario.adicionarPostagem(postagem);
         }
       }
-
-      System.out.println("Usuários carregados do arquivo: " + nomeArquivo);
+      Utils.limparTela();
+      System.out.println("\n\tUsuários carregados do arquivo: " + nomeArquivo);
 
     } catch (IOException e) {
-      System.err.println("Erro ao carregar do arquivo: " + e.getMessage());
+      Utils.limparTela();
+      System.err.println("\n\tErro ao carregar do arquivo: " + e.getMessage());
     }
 
     return usuarios;
@@ -56,11 +57,12 @@ public class ArquivoUsuarios {
             usuario.getPostagens());
         writer.newLine();
       }
-
-      System.out.println("Usuários salvos com sucesso no arquivo: " + nomeArquivo);
+      Utils.limparTela();
+      System.out.println("\n\tUsuários salvos com sucesso no arquivo: " + nomeArquivo);
 
     } catch (IOException e) {
-      System.err.println("Erro ao salvar no arquivo: " + e.getMessage());
+      Utils.limparTela();
+      System.err.println("\n\nErro ao salvar no arquivo: " + e.getMessage());
     }
   }
 }
