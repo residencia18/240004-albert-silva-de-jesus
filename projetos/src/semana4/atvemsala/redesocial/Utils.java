@@ -12,12 +12,14 @@ public class Utils {
   LocalDateTime agora = LocalDateTime.now();
 
   public static int menu(Scanner scan) {
-    limparTela();
-    imprimirFormatado(LocalDateTime.now());
-    calcularDiasRestantes(LocalDateTime.now());
+
     int opcao = 0;
 
     do {
+
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
 
       System.out.print("\n\t========== INSTADEGAS ==========");
       System.out.print("\n\t[1] - NOVO USUÁRIO");
@@ -40,10 +42,15 @@ public class Utils {
   }
 
   public static int MenuSessao() {
-    Scanner scan = new Scanner(System.in);
+
     int opcao = 0;
+    Scanner scan = new Scanner(System.in);
 
     do {
+
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
 
       System.out.print("\n\t========== INSTADEGAS ==========");
       System.out.print("\n\t[1] - LISTAR POSTAGENS");
@@ -69,6 +76,7 @@ public class Utils {
   public static void redeSocial() {
 
     int opcao = 0;
+    int opcaoSessao = 0;
     Scanner scan = new Scanner(System.in);
     ListaUsuarios usuarios = new ListaUsuarios();
     Usuario usuario = new Usuario();
@@ -80,8 +88,9 @@ public class Utils {
       opcao = menu(scan);
 
       switch (opcao) {
+
         case 1:
-          usuarios.novoUsuario();
+          usuarios.novoUsuario(scan);
           usuarios.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
           break;
 
@@ -91,50 +100,57 @@ public class Utils {
           break;
 
         case 3:
-
           usuario.logar();
 
           do {
 
-            opcao = MenuSessao();
+            opcaoSessao = MenuSessao();
 
             switch (opcao) {
-
               case 1:
-                // usuario..listarPostagens();
+                // usuario.listarPostagens();
+                // pausar(scan);
                 break;
 
               case 2:
-                // usuario.novaPostagem();
+                // usuario.novaPostagem(scan);
+                // usuario.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 3:
-                // usuario.criarAmizade();
+                // usuario.criarAmizade(scan);
+                // usuario.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 4:
-                // usuario.desfazerAmizade();
+                // usuario.desfazerAmizade(scan);
+                // usuario.salvarEmArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
                 break;
 
               case 0:
                 System.out.println("\n\tSaindo...");
-                System.out.println("\tObrigado por usar o sistema!");
-                System.exit(opcao);
+                opcao = menu(scan);
+                break;
+
+              default:
+                System.out.println("\n\tOps, opção inválida");
+                pausar(scan);
                 break;
             }
-
-          } while (opcao != 0);
-
-          break;
+          } while (opcaoSessao != 0);
 
         case 0:
           System.out.println("\n\tSaindo...");
-          System.out.println("\tObrigado por usar o sistema!");
-          System.exit(opcao);
           break;
-      }
 
+        default:
+          System.out.println("\n\tOps, opção inválida");
+          pausar(scan);
+          break;
+
+      }
     } while (opcao != 0);
+
   }
 
   public static void imprimirFormatado(LocalDateTime dataHora) {

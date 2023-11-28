@@ -24,9 +24,8 @@ public class ListaUsuarios {
     usuarios.add(usuario);
   }
 
-  public void novoUsuario() {
+  public void novoUsuario(Scanner scan) {
 
-    Scanner scan = new Scanner(System.in);
     Utils.limparTela();
     System.out.println("\n\t========== CADASTRAR ==========");
 
