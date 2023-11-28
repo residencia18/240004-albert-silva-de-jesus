@@ -1,1 +1,1 @@
-1;aaa;aa@bb.;111;null
+1;aaa;aaa@mm.;111;[]

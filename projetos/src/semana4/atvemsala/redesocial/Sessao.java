@@ -8,7 +8,6 @@ public class Sessao {
   private int idUsuario;
   private LocalDateTime dataHoraInicio;
   private LocalDateTime dataHoraFim;
-  private ListaUsuarios usuarios;
 
   public Sessao() {
     dataHoraInicio = LocalDateTime.now();
@@ -43,26 +42,28 @@ public class Sessao {
     this.dataHoraFim = dataHoraFim;
   }
 
-  public void solicitarAutenticacao() {
+  public void solicitarAutenticacao(ListaUsuarios listaUsuarios) {
 
     Scanner scan = new Scanner(System.in);
-    ListaUsuarios listaUsuarios = new ListaUsuarios();
-    ListaSessoes listaSessoes = new ListaSessoes();
 
+    Utils.limparTela();
     System.out.println("\n\t========== LOGIN ==========");
 
-    System.out.print("\n\tEmail: ");
+    System.out.print("\tEmail: ");
     String email = scan.nextLine();
 
     System.out.print("\n\tSenha: ");
     String senha = scan.nextLine();
+    System.out.println("\t===========================");
 
     Usuario usuarioEncontrado = null;
+
     for (Usuario usuario : listaUsuarios.getUsuarios()) {
+
       if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
-        this.setIdUsuario(usuario.getId());
-        listaSessoes.adicionarSessao(this);
+
         usuarioEncontrado = usuario;
+        usuario.logar();
         System.out.println("\n\tLogin realizado com sucesso!");
         Utils.pausar(scan);
         Utils.limparTela();

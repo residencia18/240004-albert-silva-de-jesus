@@ -86,11 +86,11 @@ public class Usuario implements Serializable {
 
       ListaSessoes listaSessoes = new ListaSessoes();
       this.sessao = new Sessao();
-      sessao.solicitarAutenticacao();
-      this.sessao.setIdUsuario(this.id);
+      sessao.setIdUsuario(this.id);
       this.sessao.setDataHoraInicio(this.sessao.getDataHoraInicio());
       listaSessoes.adicionarSessao(this.sessao);
-      System.out.println("\n\tUsuário logado em " + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
+      System.out.println("\n\tUsuário logado em "
+          + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
 
     } else {
       System.out.println("Usuário já está logado.");
@@ -98,8 +98,7 @@ public class Usuario implements Serializable {
     }
   }
 
-  public void deslogar() 
-  {
+  public void deslogar() {
 
     if (sessao != null) {
 

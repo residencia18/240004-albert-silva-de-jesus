@@ -41,8 +41,7 @@ public class Utils {
     return opcao;
   }
 
-  public static int MenuSessao() {
-
+  public static int menuSessao() {
     int opcao = 0;
     Scanner scan = new Scanner(System.in);
 
@@ -59,10 +58,21 @@ public class Utils {
       System.out.print("\n\t[4] - DESFAZER AMIZADE");
       System.out.print("\n\t[0] - MENU ANTERIOR");
       System.out.print("\n\tENTRADA -> ");
-      opcao = scan.nextInt();
-      scan.nextLine();
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine(); // Limpar o buffer do scanner
+
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número.");
+        scan.nextLine(); // Limpar o buffer do scanner
+        pausar(scan);
+        limparTela();
+        continue;
+      }
 
       if (opcao > 4 || opcao < 0) {
+
         System.out.println("\n\tOps, opção inválida");
         pausar(scan);
         limparTela();
@@ -79,7 +89,7 @@ public class Utils {
     int opcaoSessao = 0;
     Scanner scan = new Scanner(System.in);
     ListaUsuarios usuarios = new ListaUsuarios();
-    Usuario usuario = new Usuario();
+    Sessao sessao = new Sessao();
 
     usuarios.carregarDeArquivo("projetos/src/semana4/atvemsala/redesocial/bancodedados/redesocial.txt");
 
@@ -100,13 +110,13 @@ public class Utils {
           break;
 
         case 3:
-          usuario.logar();
 
           do {
 
-            opcaoSessao = MenuSessao();
+            sessao.solicitarAutenticacao(usuarios);
+            opcaoSessao = menuSessao();
 
-            switch (opcao) {
+            switch (opcaoSessao) {
               case 1:
                 // usuario.listarPostagens();
                 // pausar(scan);
