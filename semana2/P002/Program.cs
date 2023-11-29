@@ -1,5 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
+using System.Globalization;
 
 namespace P002
 {
@@ -17,23 +17,25 @@ namespace P002
       do
       {
         LimparTela();
-        Console.WriteLine("\n\t===== MENU PRINCIPAL =====");
+        dataHoraAtual();
+        Console.WriteLine("\t===== MENU PRINCIPAL =====");
         Console.WriteLine("\t[1] - ADICIONAR TAREFA");
         Console.WriteLine("\t[2] - LISTAR TAREFAS");
         Console.WriteLine("\t[3] - EDITAR TAREFA");
         Console.WriteLine("\t[4] - REMOVER TAREFA");
         Console.WriteLine("\t[5] - PESQUISAR TAREFA");
         Console.WriteLine("\t[6] - CONCLUIR TAREFA");
+        Console.WriteLine("\t[7] - ESTATÍSTICAS COM DATA E TAREFA CONCLUÍDA");
         Console.WriteLine("\t[0] - SAIR");
         Console.Write("\tENTRADA -> ");
-        string userInput = Console.ReadLine()!;
+        string userInput = Console.ReadLine();
 
         if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
         {
           // A conversão foi bem-sucedida
-          if (opcao < 0 || opcao > 6)
+          if (opcao < 0 || opcao > 7)
           {
-            Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 6.");
+            Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
             Pause();
           }
         }
@@ -43,7 +45,7 @@ namespace P002
           Pause();
         }
 
-      } while (opcao > 6 || opcao < 0);
+      } while (opcao > 7 || opcao < 0);
 
       return opcao;
     }
@@ -86,6 +88,11 @@ namespace P002
             tarefa.marcarTarefaComoConcluida();
             break;
 
+          case 7:
+            LimparTela();
+            tarefa.estatisticas();
+            break;
+
           case 0:
             Console.WriteLine("\n\tSaindo...");
             break;
@@ -95,6 +102,15 @@ namespace P002
             break;
         }
       } while (opcao != 0);
+    }
+
+    static void dataHoraAtual()
+    {
+
+      var data = DateTime.Now;
+      var formatada = string.Format("\n\t{0:f}", data);
+      Console.WriteLine(formatada);
+      Console.WriteLine("\tFalta " + (365 - data.DayOfYear) + " dias para o fim do ano.\n");
     }
 
     static void LimparTela()
@@ -109,7 +125,7 @@ namespace P002
         Console.Write("\u001b[2J\u001b[1;1H"); // Linux
       }
     }
-
+    
     static void Pause()
     {
       Console.Write("\n\tPressione Enter para continuar...");
