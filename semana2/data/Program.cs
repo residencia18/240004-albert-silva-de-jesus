@@ -10,6 +10,43 @@ namespace semana2
     {
       Console.Clear();
 
+      Console.WriteLine("Informe a data de nascimento (formato: dd/MM/yyyy):");
+      string inputDataNascimento = Console.ReadLine()!;
+
+      if (DateTime.TryParseExact(inputDataNascimento, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dataNascimento))
+      {
+        // Validar se a data de nascimento é razoável (não no futuro)
+        if (dataNascimento > DateTime.Now)
+        {
+          Console.WriteLine("A data de nascimento não pode estar no futuro.");
+        }
+        else
+        {
+          // Usando uma expressão lambda para calcular a idade
+          Func<int, int> calcularIdade = anoNascimento =>
+          {
+            DateTime dataAtual = DateTime.Now;
+            int idade = dataAtual.Year - anoNascimento;
+
+            // Ajuste se a data de aniversário ainda não ocorreu este ano
+            if (dataAtual.Month < dataNascimento.Month || (dataAtual.Month == dataNascimento.Month && dataAtual.Day < dataNascimento.Day))
+            {
+              idade--;
+            }
+
+            return idade;
+          };
+
+          // Chamar a expressão lambda e exibir a idade
+          int idade = calcularIdade(dataNascimento.Year);
+          Console.WriteLine($"Sua idade é: {idade} anos");
+        }
+      }
+      else
+      {
+        Console.WriteLine("Data de nascimento inválida. Certifique-se de usar o formato dd/MM/yyyy.");
+      }
+
       // Pega a data atual do sistema operacional e armazena na variável data.
       var data = DateTime.Now;
 
