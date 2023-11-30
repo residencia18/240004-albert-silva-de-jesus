@@ -142,6 +142,7 @@ namespace AvaliacaoDotNet
 
             App.Pause();
         }
+        
         public void RelatorioClienteEmOrdemAlfabetica()
         {
             Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES EM ORDEM ALFABÉTICA ==========");
