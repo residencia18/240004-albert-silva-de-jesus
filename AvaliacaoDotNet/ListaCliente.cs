@@ -14,6 +14,10 @@ namespace AvaliacaoDotNet
             clientes.Add(cliente);
         }
 
+        public List<Cliente> GetClientes()
+        {
+            return clientes;
+        }
         public void Cadastrar()
         {
             Console.Write("\n\tDigite o nome do clientes: ");
@@ -42,7 +46,7 @@ namespace AvaliacaoDotNet
             Console.Write("\n\tDigite a profissão do clientes: ");
             string profissão = Console.ReadLine()!;
 
-           AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissão));
+            AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissão));
 
         }
 

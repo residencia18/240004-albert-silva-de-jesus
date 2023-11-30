@@ -7,11 +7,11 @@ namespace AvaliacaoDotNet
 {
     public class Relatorios
     {
-        ListaCliente pacientes;
+        ListaCliente clientes;
 
-        public Relatorios(ListaCliente pacientes)
+        public Relatorios(ListaCliente clientes)
         {
-            this.pacientes = pacientes;
+            this.clientes = clientes;
         }
 
         public void MenuRelatorios()
@@ -35,7 +35,7 @@ namespace AvaliacaoDotNet
                     switch (opcao)
                     {
                         case 1:
-                            RelatorioAdvogadosIdadeEntreDoisValores();
+                            // RelatorioAdvogadosIdadeEntreDoisValores();
                             break;
 
                         case 2:
@@ -43,15 +43,19 @@ namespace AvaliacaoDotNet
                             break;
 
                         case 3:
-                            RelatorioPacienteEmOrdemAlfabetica();
+                            RelatorioEstadoCivilInformadoPeloCliente();
                             break;
 
                         case 4:
-                            RelatorioPacienteCujoSintomaContenhaTexto();
+                            // RelatorioClienteEmOrdemAlfabetica();
                             break;
 
                         case 5:
-                            RelatorioPacienteAniversarioMes();
+                            // RelatorioClientesCujaProfissaoContenhaTexto();
+                            break;
+
+                        case 6:
+                            // RelatorioAdvogadosClientesAniversariantesDoMes();
                             break;
 
                         case 0:
@@ -72,88 +76,89 @@ namespace AvaliacaoDotNet
             } while (true);
         }
 
-        public void RelatorioPacienteIdadeEntreDoisValores()
+        public void RelatorioClientesIdadeEntreDoisValores()
         {
-            Console.WriteLine("\n\t========== RELATÓRIO DE PACIENTES COM IDADE ENTRE DOIS VALORES ==========");
+            Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES COM IDADE ENTRE DOIS VALORES ==========");
             Console.Write("\n\tDigite o valor mínimo: ");
             int valorMinimo = int.Parse(Console.ReadLine()!);
 
             Console.Write("\n\tDigite o valor máximo: ");
             int valorMaximo = int.Parse(Console.ReadLine()!);
 
-            var pacientesFiltrados = pacientes.GetPacientes().Where(paciente => paciente.Idade >= valorMinimo && paciente.Idade <= valorMaximo);
+            var clientesFiltrados = clientes.GetClientes().Where(cliente => cliente.Idade >= valorMinimo && cliente.Idade <= valorMaximo);
 
-            if (pacientesFiltrados.Any())
+            if (clientesFiltrados.Any())
             {
-                Console.WriteLine("\n\tPACIENTES ENCONTRADOS:");
-                foreach (var paciente in pacientesFiltrados)
+                Console.WriteLine("\n\tCLIENTE ENCONTRADOS:");
+                foreach (var cliente in clientesFiltrados)
                 {
-                    Console.WriteLine($"\n\tNome: {paciente.Nome}");
-                    Console.WriteLine($"\tIdade: {paciente.Idade}");
-                    Console.WriteLine($"\tCPF: {paciente.Cpf}");
-                    Console.WriteLine($"\tSexo: {paciente.Sexo}");
-                    Console.WriteLine($"\tSintomas: {paciente.Sintomas}");
+                    Console.WriteLine($"\n\tNome: {cliente.Nome}");
+                    Console.WriteLine($"\tIdade: {cliente.Idade}");
+                    Console.WriteLine($"\tCPF: {cliente.Cpf}");
+                    Console.WriteLine($"\tData de Nascimento: {cliente.DataNascimento.ToString("dd/MM/yyyy")}");
+                    Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
                 }
             }
             else
             {
-                Console.WriteLine("\n\tNenhum paciente encontrado.");
+                Console.WriteLine("\n\tNenhum cliente encontrado.");
             }
 
             App.Pause();
         }
 
-        public void RelatorioPacienteDoSexoInformado()
+        public void RelatorioEstadoCivilInformadoPeloCliente()
         {
-            if (pacientes.GetPacientes() == null)
+            if (clientes.GetClientes() == null)
             {
-                Console.WriteLine("\n\tLista de pacientes não fornecida. Retornando ao menu.");
+                Console.WriteLine("\n\tLista de clientes não fornecida. Retornando ao menu.");
                 App.Pause();
                 return;
             }
 
-            Console.WriteLine("\n\t========== RELATÓRIO DE PACIENTES DO SEXO INFORMADO ==========");
-            Console.Write("\n\tDigite o sexo: ");
-            string sexo = Console.ReadLine()!;
+            Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES COM ESTADO CIVIL ==========");
+            Console.Write("\n\tDigite o estado civil: ");
+            string estadoCivil = Console.ReadLine()!;
 
-            var pacientesFiltrados = pacientes.GetPacientes().Where(paciente => paciente.Sexo == sexo);
+            var clientesFiltrados = clientes.GetClientes().Where(cliente => cliente.EstadoCivil == estadoCivil);
 
-            if (pacientesFiltrados.Any())
+            if (clientesFiltrados.Any())
             {
                 Console.WriteLine("\n\tPACIENTES ENCONTRADOS:");
-                foreach (var paciente in pacientesFiltrados)
+                foreach (var cliente in clientesFiltrados)
                 {
-                    Console.WriteLine($"\n\tNome: {paciente.Nome}");
-                    Console.WriteLine($"\tIdade: {paciente.Idade}");
-                    Console.WriteLine($"\tCPF: {paciente.Cpf}");
-                    Console.WriteLine($"\tSexo: {paciente.Sexo}");
-                    Console.WriteLine($"\tSintomas: {paciente.Sintomas}");
+                    Console.WriteLine($"\n\tNome: {cliente.Nome}");
+                    Console.WriteLine($"\tIdade: {cliente.Idade}");
+                    Console.WriteLine($"\tCPF: {cliente.Cpf}");
+                    Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
                 }
             }
             else
             {
-                Console.WriteLine("\n\tNenhum paciente encontrado.");
+                Console.WriteLine("\n\tNenhum cliente encontrado.");
             }
 
             App.Pause();
         }
         public void RelatorioPacienteEmOrdemAlfabetica()
         {
-            Console.WriteLine("\n\t========== RELATÓRIO DE PACIENTES EM ORDEM ALFABÉTICA ==========");
+            Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES EM ORDEM ALFABÉTICA ==========");
 
 
-            var pacientesOrdenados = pacientes.GetPacientes().OrderBy(paciente => paciente.Nome);
+            var clientesOrdenados = clientes.GetClientes().OrderBy(cliente => cliente.Nome);
 
-            if (pacientesOrdenados.Count() > 0)
+            if (clientesOrdenados.Count() > 0)
             {
-                Console.WriteLine("\n\tPACIENTES ENCONTRADOS:");
-                foreach (var paciente in pacientesOrdenados)
+                Console.WriteLine("\n\tCLIENTES ENCONTRADOS:");
+                foreach (var cliente in clientesOrdenados)
                 {
-                    Console.WriteLine($"\n\tNome: {paciente.Nome}");
-                    Console.WriteLine($"\tIdade: {paciente.Idade}");
-                    Console.WriteLine($"\tCPF: {paciente.Cpf}");
-                    Console.WriteLine($"\tSexo: {paciente.Sexo}");
-                    Console.WriteLine($"\tSintomas: {paciente.Sintomas}");
+                    Console.WriteLine($"\n\tNome: {cliente.Nome}");
+                    Console.WriteLine($"\tIdade: {cliente.Idade}");
+                    Console.WriteLine($"\tCPF: {cliente.Cpf}");
+                    Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
                 }
             }
             else
@@ -166,11 +171,11 @@ namespace AvaliacaoDotNet
 
         public void RelatorioPacienteCujoSintomaContenhaTexto()
         {
-            Console.WriteLine("\n\t========== RELATÓRIO DE PACIENTES CUJO SINTOMA CONTENHA TEXTO ==========");
+            Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES CUJO A PROFISSÃO CONTENHA TEXTO ==========");
             Console.Write("\n\tDigite o texto: ");
             string texto = Console.ReadLine()!;
 
-            var pacientesFiltrados = pacientes.GetPacientes().Where(paciente => paciente.Sintomas.Contains(texto));
+            var pacientesFiltrados = clientes.GetClientes().Where(cliente => cliente.Profissão.Contains(texto));
 
             if (pacientesFiltrados.Count() > 0)
             {
@@ -180,13 +185,13 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\n\tNome: {paciente.Nome}");
                     Console.WriteLine($"\tIdade: {paciente.Idade}");
                     Console.WriteLine($"\tCPF: {paciente.Cpf}");
-                    Console.WriteLine($"\tSexo: {paciente.Sexo}");
-                    Console.WriteLine($"\tSintomas: {paciente.Sintomas}");
+                    Console.WriteLine($"\tEstado Civil: {paciente.EstadoCivil}");
+                    Console.WriteLine($"\tProfissão: {paciente.Profissão}");
                 }
             }
             else
             {
-                Console.WriteLine("\n\tNenhum paciente encontrado.");
+                Console.WriteLine("\n\tNenhum cliente encontrado.");
             }
 
             App.Pause();
@@ -194,20 +199,20 @@ namespace AvaliacaoDotNet
 
         public void RelatorioPacienteAniversarioMes()
         {
-            Console.WriteLine("\n\t========== RELATÓRIO DE PACIENTES ANIVERSARIANTES DO MÊS ==========");
+            Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES ANIVERSARIANTES DO MÊS ==========");
 
-            var pacientesFiltrados = pacientes.GetPacientes().Where(paciente => paciente.DataNascimento.Month == DateTime.Now.Month);
+            var clienteFiltrados = clientes.GetClientes().Where(cliente => cliente.DataNascimento.Month == DateTime.Now.Month);
 
-            if (pacientesFiltrados.Count() > 0)
+            if (clienteFiltrados.Count() > 0)
             {
                 Console.WriteLine("\n\tPACIENTES ENCONTRADOS:");
-                foreach (var paciente in pacientesFiltrados)
+                foreach (var cliente in clienteFiltrados)
                 {
-                    Console.WriteLine($"\n\tNome: {paciente.Nome}");
-                    Console.WriteLine($"\tIdade: {paciente.Idade}");
-                    Console.WriteLine($"\tCPF: {paciente.Cpf}");
-                    Console.WriteLine($"\tSexo: {paciente.Sexo}");
-                    Console.WriteLine($"\tSintomas: {paciente.Sintomas}");
+                    Console.WriteLine($"\n\tNome: {cliente.Nome}");
+                    Console.WriteLine($"\tIdade: {cliente.Idade}");
+                    Console.WriteLine($"\tCPF: {cliente.Cpf}");
+                    Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
                 }
             }
             else
