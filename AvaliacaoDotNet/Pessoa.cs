@@ -6,14 +6,14 @@ namespace AvaliacaoDotNet
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
 
-        private int idade {get; set;}
+        public int Idade {get; set;}
 
         public Pessoa(string nome, DateTime dataNascimento, string cpf, int idade)
         {
             this.Nome = nome;
             this.DataNascimento = dataNascimento;
             this.Cpf = cpf;
-            this.idade = idade;
+            this.Idade = idade;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace AvaliacaoDotNet
         public string Cna { get; set; }
         public string Especialidade { get; set; }
 
-        public Advogado(string nome, DateTime dataNascimento, string cpf, string cna, string especialidade) 
-        : base(nome, dataNascimento, cpf)
+        public Advogado(string nome, DateTime dataNascimento,int idade, string cpf, string cna, string especialidade) 
+        : base(nome, dataNascimento, cpf, idade)
         {
             Cna = cna;
             Especialidade = especialidade;

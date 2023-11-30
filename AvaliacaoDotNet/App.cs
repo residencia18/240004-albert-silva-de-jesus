@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 
 namespace AvaliacaoDotNet
@@ -45,10 +46,9 @@ namespace AvaliacaoDotNet
 
             return opcao;
         }
-
-        public static void MenuGestaoDeEscritorio()
+        public static void MenuGestaoDeEscritorio(ListaCliente clientes)
         {
-            // Relatorios relatorios = new Relatorios(pacientes);
+            // Relatorios relatorios = new Relatorios(clientes);
             int opcao = 0;
             do
             {
@@ -57,12 +57,12 @@ namespace AvaliacaoDotNet
                 {
                     case 1:
                         LimparTela();
-                        
+                        clientes.Cadastrar();
                         break;
 
                     case 2:
                         LimparTela();
-                        
+                        clientes.Listar();
                         Pause();
                         break;
 

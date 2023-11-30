@@ -36,7 +36,13 @@ namespace AvaliacaoDotNet
 
             DateTime dataNascimento = Cliente.ObterDataDeNascimento();
 
-           AdicionarCliente(new Cliente(nome, cpf, dataNascimento));
+            Console.Write("\n\tDigite o estado civil do clientes: ");
+            string estadoCivil = Console.ReadLine()!;
+
+            Console.Write("\n\tDigite a profissão do clientes: ");
+            string profissão = Console.ReadLine()!;
+
+           AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissão));
 
         }
 
@@ -49,6 +55,8 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\tCPF: " + cliente.Cpf);
                 Console.WriteLine("\tData de Nascimento: " + cliente.DataNascimento.ToString("dd/MM/yyyy"));
                 Console.WriteLine("\tIdade: " + cliente.Idade);
+                Console.WriteLine("\tEstado Civil: " + cliente.EstadoCivil);
+                Console.WriteLine("\tProfissão: " + cliente.Profissão);
                 Console.WriteLine("\t==========================\n");
             }
         }

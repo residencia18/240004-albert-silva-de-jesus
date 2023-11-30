@@ -5,7 +5,8 @@
   {
     static void Main(string[] args)
     {
-      App.MenuGestaoDeEscritorio();
+      ListaCliente clientes = new ListaCliente();
+      App.MenuGestaoDeEscritorio(clientes);
     }
   }
 }

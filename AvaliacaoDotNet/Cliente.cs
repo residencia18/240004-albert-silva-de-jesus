@@ -6,17 +6,18 @@ using System.Globalization;
 
 namespace AvaliacaoDotNet
 {
-    public class Cliente
+    public class Cliente : Pessoa
     {
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string DataNascimento { get; set; }
+        public String EstadoCivil { get; set; }
+        public String Profissão { get; set; }
 
-        public Cliente(string nome, string cpf, DateTime dataNascimento)
+        public Cliente(string nome, string cpf, DateTime dataNascimento, string estadoCivil = "Não informado", string profissão = "Não informado")
+        : base(nome, dataNascimento, cpf, idade: 0)
         {
-            Nome = nome;
-            Cpf = cpf;
-            DataNascimento = dataNascimento.ToString("dd/MM/yyyy");
+            this.EstadoCivil = estadoCivil;
+            this.Profissão = profissão;
+            // Calcular a idade ao criar o paciente
+            this.Idade = CalcularIdade(this.DataNascimento);
         }
 
         public static bool IsCpfUnico(string cpf, List<Cliente> clientes)
@@ -128,6 +129,19 @@ namespace AvaliacaoDotNet
             } while (!TentarObterDataValida(inputDataNascimento, out dataNascimento));
 
             return dataNascimento;
+        }
+
+        private int CalcularIdade(DateTime dataNascimento)
+        {
+            int idade = DateTime.Now.Year - dataNascimento.Year;
+
+            // Verificar se o aniversário já ocorreu neste ano
+            if (dataNascimento.Date > DateTime.Now.Date.AddYears(-idade))
+            {
+                idade--;
+            }
+
+            return idade;
         }
 
         public static bool TentarObterDataValida(string input, out DateTime data)
