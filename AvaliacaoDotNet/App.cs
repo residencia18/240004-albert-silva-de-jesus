@@ -48,7 +48,7 @@ namespace AvaliacaoDotNet
         }
         public static void MenuGestaoDeEscritorio(ListaCliente clientes)
         {
-            // Relatorios relatorios = new Relatorios(clientes);
+            Relatorios relatorios = new Relatorios(clientes);
             int opcao = 0;
             do
             {
@@ -68,23 +68,23 @@ namespace AvaliacaoDotNet
 
                     case 3:
                         LimparTela();
-
+                        // clientes.editar();
                         Pause();
                         break;
 
                     case 4:
                         LimparTela();
-
+                        // clientes.excluir();
                         break;
 
                     case 5:
                         LimparTela();
-
+                        // clientes.Pesquisar();
                         break;
 
                     case 6:
                         LimparTela();
-
+                        relatorios.MenuRelatorios();
                         break;
 
                     case 0:

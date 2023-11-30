@@ -26,7 +26,7 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\t[3] - CLIENTES COM ESTADO CIVIL INFORMADO PELO CLIENTE");
                 Console.WriteLine("\t[4] - CLIENTES EM ORDEM ALFABÉTICA");
                 Console.WriteLine("\t[5] - CLIENTES CUJA  PROFISSÃO CONTENHA TEXTO INFORMADO PELO USUÁRIO");
-                Console.WriteLine("\n\t[6] - ADVOGADOS E CLIENTES ANIVERSARIANTES DO MÊS INFORMADO");
+                Console.WriteLine("\t[6] - ADVOGADOS E CLIENTES ANIVERSARIANTES DO MÊS INFORMADO");
                 Console.WriteLine("\t[0] - MENU PRINCIPAL");
                 Console.Write("\tENTRADA -> ");
 
@@ -47,11 +47,11 @@ namespace AvaliacaoDotNet
                             break;
 
                         case 4:
-                            // RelatorioClienteEmOrdemAlfabetica();
+                            RelatorioClienteEmOrdemAlfabetica();
                             break;
 
                         case 5:
-                            // RelatorioClientesCujaProfissaoContenhaTexto();
+                            RelatorioClientesCujaProfissaoContenhaTexto();
                             break;
 
                         case 6:
@@ -142,7 +142,7 @@ namespace AvaliacaoDotNet
 
             App.Pause();
         }
-        public void RelatorioPacienteEmOrdemAlfabetica()
+        public void RelatorioClienteEmOrdemAlfabetica()
         {
             Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES EM ORDEM ALFABÉTICA ==========");
 
@@ -169,7 +169,7 @@ namespace AvaliacaoDotNet
             App.Pause();
         }
 
-        public void RelatorioPacienteCujoSintomaContenhaTexto()
+        public void RelatorioClientesCujaProfissaoContenhaTexto()
         {
             Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES CUJO A PROFISSÃO CONTENHA TEXTO ==========");
             Console.Write("\n\tDigite o texto: ");
@@ -197,7 +197,7 @@ namespace AvaliacaoDotNet
             App.Pause();
         }
 
-        public void RelatorioPacienteAniversarioMes()
+        public void RelatorioClienteAniversarioMes()
         {
             Console.WriteLine("\n\t========== RELATÓRIO DE CLIENTES ANIVERSARIANTES DO MÊS ==========");
 
