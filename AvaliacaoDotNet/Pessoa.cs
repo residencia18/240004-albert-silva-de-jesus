@@ -6,7 +6,7 @@ namespace AvaliacaoDotNet
         public string Cpf { get; set; }
         public DateTime DataNascimento { get; set; }
 
-        public int Idade {get; set;}
+        public int Idade { get; set; }
 
         public Pessoa(string nome, DateTime dataNascimento, string cpf, int idade)
         {
@@ -15,5 +15,6 @@ namespace AvaliacaoDotNet
             this.Cpf = cpf;
             this.Idade = idade;
         }
+
     }
 }

@@ -16,10 +16,34 @@ namespace AvaliacaoDotNet
         {
             this.EstadoCivil = estadoCivil;
             this.Profissão = profissão;
-            // Calcular a idade ao criar o paciente
+            // Calcular a idade ao criar o objeto
             this.Idade = CalcularIdade(this.DataNascimento);
         }
 
+        public static int LerNumeroInteiro(string mensagem)
+        {
+            while (true)
+            {
+                Console.Write(mensagem);
+
+                string input = Console.ReadLine()!;
+
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um valor numérico.");
+                    continue;
+                }
+
+                if (int.TryParse(input, out int valor))
+                {
+                    return valor;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, insira um valor numérico válido.");
+                }
+            }
+        }
         public static bool IsCpfUnico(string cpf, List<Cliente> clientes)
         {
             // Verifica se o CPF é válido antes de proceder
@@ -31,7 +55,7 @@ namespace AvaliacaoDotNet
             // Verifica se o CPF já existe na lista de pacientes
             return !clientes.Any(paciente => paciente.Cpf == cpf);
         }
-        
+
         public static bool IsValidCPF(string cpf)
         {
             // Remover caracteres não numéricos
@@ -73,6 +97,7 @@ namespace AvaliacaoDotNet
             // Verifica se os dígitos calculados correspondem aos dígitos informados no CPF
             return cpfDigits[9] == firstDigit && cpfDigits[10] == secondDigit;
         }
+
         public static string ConvertePrimeiraLetraParaMaiuscula(string palavra)
         {
             string palavraComMaiuscula = "";
@@ -129,6 +154,19 @@ namespace AvaliacaoDotNet
             } while (!TentarObterDataValida(inputDataNascimento, out dataNascimento));
 
             return dataNascimento;
+        }
+
+        public static bool estadoCivil(String estadoCivil)
+        {
+
+            if (estadoCivil == "Solteiro" || estadoCivil == "Casado" || estadoCivil == "Divorciado" || estadoCivil == "Viúvo")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private int CalcularIdade(DateTime dataNascimento)

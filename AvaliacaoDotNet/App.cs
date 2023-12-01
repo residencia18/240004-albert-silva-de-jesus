@@ -1,38 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Threading.Tasks;
-
 namespace AvaliacaoDotNet
 {
     public static class App
     {
-        public static int ObterOpcaoMenuPrincipal()
+        public static bool menuClienteOuAdvogado()
         {
             int opcao = -1;
             do
             {
                 LimparTela();
                 DataHoraAtual();
-                Console.WriteLine("\t===== CONTROLE DE ESTOQUE =====");
-                Console.WriteLine("\t[1] - CADASTRAR");
-                Console.WriteLine("\t[2] - LISTAR");
-                Console.WriteLine("\t[3] - EDITAR");
-                Console.WriteLine("\t[4] - REMOVER");
-                Console.WriteLine("\t[5] - PESQUISAR");
-                Console.WriteLine("\t[6] - RELATÓRIOS");
+                Console.WriteLine("\t===== GESTÃO ESCRITÓRIO DE ADVOCACIA =====");
+                Console.WriteLine("\t[1] - CLIENTE");
+                Console.WriteLine("\t[2] - ADVOGADO");
                 Console.WriteLine("\t[0] - SAIR");
                 Console.Write("\tENTRADA -> ");
                 string userInput = Console.ReadLine()!;
 
-
                 if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
                 {
                     // A conversão foi bem-sucedida
-                    if (opcao < 0 || opcao > 6)
+                    if (opcao < 0 || opcao > 2)
                     {
-                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 6.");
+                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 2.");
                         Pause();
                     }
                 }
@@ -42,60 +31,171 @@ namespace AvaliacaoDotNet
                     Pause();
                 }
 
-            } while (opcao > 6 || opcao < 0);
+            } while (opcao > 2 || opcao < 0);
+
+            if (opcao == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static int ObterOpcaoMenuPrincipal()
+        {
+            int opcao = -1;
+            do
+            {
+                LimparTela();
+                DataHoraAtual();
+                Console.WriteLine("\t===== GESTÃO DO ESCRITÓRIO =====");
+                Console.WriteLine("\t[1] - CADASTRAR");
+                Console.WriteLine("\t[2] - LISTAR");
+                Console.WriteLine("\t[3] - EDITAR");
+                Console.WriteLine("\t[4] - REMOVER");
+                Console.WriteLine("\t[5] - PESQUISAR");
+                Console.WriteLine("\t[6] - RELATÓRIOS");
+                Console.WriteLine("\t[7] - RETORNAR AO MENU PRINCIPAL");
+                Console.WriteLine("\t[0] - SAIR");
+                Console.Write("\tENTRADA -> ");
+                string userInput = Console.ReadLine()!;
+
+
+                if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
+                {
+                    // A conversão foi bem-sucedida
+                    if (opcao < 0 || opcao > 7)
+                    {
+                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
+                        Pause();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n\tEntrada inválida. Por favor, insira um número válido.");
+                    Pause();
+                }
+
+            } while (opcao > 7 || opcao < 0);
 
             return opcao;
         }
-        public static void MenuGestaoDeEscritorio(ListaCliente clientes)
+        public static void MenuGestaoDeEscritorio(ListaCliente clientes, ListaAdvogado advogados)
         {
-            Relatorios relatorios = new Relatorios(clientes);
             int opcao = 0;
-            do
+            Relatorios relatorios = new Relatorios(clientes, advogados);
+
+            if (menuClienteOuAdvogado())
             {
-                opcao = ObterOpcaoMenuPrincipal();
-                switch (opcao)
+                do
                 {
-                    case 1:
-                        LimparTela();
-                        clientes.Cadastrar();
-                        break;
+                    opcao = ObterOpcaoMenuPrincipal();
 
-                    case 2:
-                        LimparTela();
-                        clientes.Listar();
-                        Pause();
-                        break;
+                    switch (opcao)
+                    {
+                        case 1:
+                            LimparTela();
+                            clientes.Cadastrar();
+                            break;
 
-                    case 3:
-                        LimparTela();
-                        // clientes.editar();
-                        Pause();
-                        break;
+                        case 2:
+                            LimparTela();
+                            clientes.Listar();
+                            Pause();
+                            break;
 
-                    case 4:
-                        LimparTela();
-                        // clientes.excluir();
-                        break;
+                        case 3:
+                            LimparTela();
+                            clientes.editar();
+                            break;
 
-                    case 5:
-                        LimparTela();
-                        // clientes.Pesquisar();
-                        break;
+                        case 4:
+                            LimparTela();
+                            clientes.excluir();
+                            break;
 
-                    case 6:
-                        LimparTela();
-                        relatorios.MenuRelatorios();
-                        break;
+                        case 5:
+                            LimparTela();
+                            clientes.Pesquisar();
+                            break;
 
-                    case 0:
-                        Console.WriteLine("\n\tSaindo...");
-                        break;
+                        case 6:
+                            LimparTela();
+                            relatorios.MenuRelatorios();
+                            break;
 
-                    default:
-                        Console.WriteLine("\n\tOpção inválida!");
-                        break;
-                }
-            } while (opcao != 0);
+                        case 7:
+                            LimparTela();
+                            MenuGestaoDeEscritorio(clientes, advogados);
+                            break;
+
+                        case 0:
+                            Console.WriteLine("\n\tSaindo...");
+                            break;
+
+                        default:
+                            Console.WriteLine("\n\tOpção inválida!");
+                            break;
+                    }
+                } while (opcao != 0);
+            }
+            else
+            {
+                do
+                {
+                    opcao = ObterOpcaoMenuPrincipal();
+
+                    switch (opcao)
+                    {
+                        case 1:
+                            LimparTela();
+                            advogados.Cadastrar();
+                            break;
+
+                        case 2:
+                            LimparTela();
+                            advogados.Listar();
+                            Pause();
+                            break;
+
+                        case 3:
+                            LimparTela();
+                            advogados.Editar();
+                            Pause();
+                            break;
+
+                        case 4:
+                            LimparTela();
+                            advogados.Excluir();
+                            break;
+
+                        case 5:
+                            LimparTela();
+                            advogados.Pesquisar();
+                            break;
+
+                        case 6:
+                            LimparTela();
+                            relatorios.MenuRelatorios();
+                            break;
+
+                        case 7:
+                            LimparTela();
+                            MenuGestaoDeEscritorio(clientes, advogados);
+                            break;
+
+                        case 0:
+                            Console.WriteLine("\n\tSaindo...");
+                            break;
+
+                        default:
+                            Console.WriteLine("\n\tOpção inválida!");
+                            break;
+                    }
+                } while (opcao != 0);
+            }
         }
         public static void DataHoraAtual()
         {
