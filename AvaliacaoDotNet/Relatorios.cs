@@ -97,7 +97,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tCPF: {cliente.Cpf}");
                     Console.WriteLine($"\tData de Nascimento: {cliente.DataNascimento.ToString("dd/MM/yyyy")}");
                     Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
             }
@@ -135,7 +135,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tIdade: {cliente.Idade}");
                     Console.WriteLine($"\tCPF: {cliente.Cpf}");
                     Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
             }
@@ -165,7 +165,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tIdade: {cliente.Idade}");
                     Console.WriteLine($"\tCPF: {cliente.Cpf}");
                     Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
             }
@@ -183,7 +183,7 @@ namespace AvaliacaoDotNet
             Console.Write("\n\tDigite o texto: ");
             string texto = Console.ReadLine()!;
 
-            var pacientesFiltrados = clientes.GetClientes().Where(cliente => cliente.Profissão.Contains(texto));
+            var pacientesFiltrados = clientes.GetClientes().Where(cliente => cliente.Profissao.Contains(texto));
 
             if (pacientesFiltrados.Count() > 0)
             {
@@ -196,7 +196,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tIdade: {paciente.Idade}");
                     Console.WriteLine($"\tCPF: {paciente.Cpf}");
                     Console.WriteLine($"\tEstado Civil: {paciente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {paciente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {paciente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
             }
@@ -224,7 +224,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tIdade: {cliente.Idade}");
                     Console.WriteLine($"\tCPF: {cliente.Cpf}");
                     Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
             }
@@ -275,7 +275,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine($"\tIdade: {cliente.Idade}");
                     Console.WriteLine($"\tCPF: {cliente.Cpf}");
                     Console.WriteLine($"\tEstado Civil: {cliente.EstadoCivil}");
-                    Console.WriteLine($"\tProfissão: {cliente.Profissão}");
+                    Console.WriteLine($"\tProfissão: {cliente.Profissao}");
                     Console.WriteLine($"\t==========================\n");
                 }
                 App.Pause();

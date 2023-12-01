@@ -78,7 +78,7 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\tData de Nascimento: " + cliente.DataNascimento.ToString("dd/MM/yyyy"));
                 Console.WriteLine("\tIdade: " + cliente.Idade);
                 Console.WriteLine("\tEstado Civil: " + cliente.EstadoCivil);
-                Console.WriteLine("\tProfissão: " + cliente.Profissão);
+                Console.WriteLine("\tProfissão: " + cliente.Profissao);
                 Console.WriteLine("\t===========================");
             }
         }
@@ -161,7 +161,7 @@ namespace AvaliacaoDotNet
             Console.WriteLine("\tData de Nascimento: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].DataNascimento.ToString("dd/MM/yyyy"));
             Console.WriteLine("\tIdade: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Idade);
             Console.WriteLine("\tEstado Civil: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].EstadoCivil);
-            Console.WriteLine("\tProfissão: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Profissão);
+            Console.WriteLine("\tProfissão: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Profissao);
             Console.WriteLine("\t==========================");
 
         }
@@ -183,6 +183,5 @@ namespace AvaliacaoDotNet
                 App.Pause();
             }
         }
-
     }
 }

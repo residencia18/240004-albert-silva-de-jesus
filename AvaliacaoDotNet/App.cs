@@ -1,3 +1,7 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+
 namespace AvaliacaoDotNet
 {
     public static class App
@@ -86,8 +90,8 @@ namespace AvaliacaoDotNet
         {
             int opcao = 0;
             Relatorios relatorios = new Relatorios(clientes, advogados);
-            persistencia.CarregarArquivosCliente();
-            persistencia.CarregarArquivosAdvogado();
+            persistencia.CarregarArquivosCliente(clientes);
+            // persistencia.CarregarArquivosAdvogado(clientes, advogados);
 
             if (menuClienteOuAdvogado())
             {
@@ -100,7 +104,7 @@ namespace AvaliacaoDotNet
                         case 1:
                             LimparTela();
                             clientes.Cadastrar();
-                            persistencia.SalvarArquivosCliente();
+                            persistencia.SalvarArquivosCliente(clientes);
                             break;
 
                         case 2:
@@ -155,7 +159,7 @@ namespace AvaliacaoDotNet
                         case 1:
                             LimparTela();
                             advogados.Cadastrar();
-                            persistencia.SalvarArquivosAdvogado();
+                            persistencia.SalvarArquivosAdvogado(advogados);
                             break;
 
                         case 2:
@@ -210,7 +214,7 @@ namespace AvaliacaoDotNet
         }
         public static void LimparTela()
         {
-            Console.Clear(); // Windows
+            // Console.Clear(); // Windows
 
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {

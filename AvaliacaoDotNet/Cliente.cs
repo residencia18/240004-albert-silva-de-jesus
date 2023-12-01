@@ -9,13 +9,13 @@ namespace AvaliacaoDotNet
     public class Cliente : Pessoa
     {
         public string EstadoCivil { get; set; }
-        public string Profissão { get; set; }
+        public string Profissao { get; set; }
 
-        public Cliente(string nome, string cpf, DateTime dataNascimento, string estadoCivil = "Não informado", string profissão = "Não informado")
+        public Cliente(string nome, string cpf, DateTime dataNascimento, string estadoCivil = "Não informado", string profissao = "Não informado")
         : base(nome, dataNascimento, cpf, idade: 0)
         {
             this.EstadoCivil = estadoCivil;
-            this.Profissão = profissão;
+            this.Profissao = profissao;
             // Calcular a idade ao criar o objeto
             this.Idade = CalcularIdade(this.DataNascimento);
         }

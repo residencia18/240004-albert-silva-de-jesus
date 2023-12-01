@@ -1,18 +1,15 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+
 namespace AvaliacaoDotNet
 {
     public class Persistencia
     {
-        ListaAdvogado listaAdvogado;
-        ListaCliente listaCliente;
-
-        public Persistencia(ListaAdvogado listaAdvogado, ListaCliente listaCliente)
-        {
-            this.listaAdvogado = listaAdvogado;
-            this.listaCliente = listaCliente;
-        }
 
         public void CarregarArquivosAdvogado()
         {
+            // ListaAdvogados.advogados.Clear();
             string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/AvaliacaoDotNet/BancoDeDados/dadosadvogados.txt");
 
             try
@@ -33,8 +30,8 @@ namespace AvaliacaoDotNet
                             string cpf = dados[2];
                             int cna = int.Parse(dados[3]);
                             string especialidade = dados[4];
+                            // advogados.Add(new Advogado(nome, dataNascimento, cpf, cna, especialidade));
 
-                            listaAdvogado.AdicionarAdvogado(new Advogado(nome, dataNascimento, cpf, cna, especialidade));
                         }
                         else
                         {
@@ -51,8 +48,9 @@ namespace AvaliacaoDotNet
             }
         }
 
-        public void CarregarArquivosCliente()
+        public void CarregarArquivosCliente(ListaCliente listaClientes)
         {
+            listaClientes.clientes.Clear();
             string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/AvaliacaoDotNet/BancoDeDados/dadosclientes.txt");
 
             try
@@ -62,22 +60,30 @@ namespace AvaliacaoDotNet
                     while (!reader.EndOfStream)
                     {
                         string linha = reader.ReadLine()!;
-                        string[] dados = linha.Split(',');
 
-                        // Certifique-se de que existam dados suficientes na linha
-                        if (dados.Length >= 5)
+                        // Verifique se a linha é nula (fim do arquivo)
+                        if (linha != null)
                         {
-                            string nome = dados[0];
-                            string cpf = dados[1];
-                            DateTime dataNascimento = DateTime.Parse(dados[2]);
-                            string estadoCivil = dados[3];
-                            string profissao = dados[4];
+                            string[] dados = linha.Split(',');
 
-                            listaCliente.AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissao));
+                            // Certifique-se de que existam dados suficientes na linha
+                            if (dados.Length >= 5)
+                            {
+                                string nome = dados[0];
+                                string cpf = dados[1];
+                                DateTime dataNascimento = DateTime.Parse(dados[2]);
+                                string estadoCivil = dados[3];
+                                string profissao = dados[4];
+                                listaClientes.AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissao));
+                            }
+                            else
+                            {
+                                Console.WriteLine($"A linha no arquivo não contém dados suficientes para um Cliente. Linha: {linha}");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine($"A linha no arquivo não contém dados suficientes para um Cliente. Linha: {linha}");
+                            Console.WriteLine("A linha lida é nula (fim do arquivo).");
                         }
                     }
                 }
@@ -91,17 +97,19 @@ namespace AvaliacaoDotNet
             App.Pause();
         }
 
-        public void SalvarArquivosCliente()
+        public void SalvarArquivosCliente(ListaCliente listaClientes)
         {
             string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/AvaliacaoDotNet/BancoDeDados/dadosclientes.txt");
 
             try
             {
-                using (StreamWriter arquivo = File.CreateText(caminhoArquivo))
+                using (StreamWriter arquivo = new StreamWriter(caminhoArquivo))
                 {
-                    foreach (Cliente cliente in listaCliente.GetClientes())
+                    foreach (Cliente cliente in listaClientes.clientes)
                     {
-                        arquivo.WriteLine($"{cliente.Nome};{cliente.Cpf};{cliente.DataNascimento.ToShortDateString()};{cliente.EstadoCivil};{cliente.Profissão}");
+                        // Formatando os dados para gravar no arquivo
+                        string linha = $"{cliente.Nome},{cliente.Cpf},{cliente.DataNascimento.ToShortDateString()},{cliente.EstadoCivil},{cliente.Profissao}";
+                        arquivo.WriteLine(linha);
                     }
                 }
 
@@ -111,9 +119,10 @@ namespace AvaliacaoDotNet
             {
                 Console.WriteLine($"\n\tOcorreu um erro ao salvar os dados dos clientes: {ex.Message}");
             }
+            App.Pause();
         }
 
-        public void SalvarArquivosAdvogado()
+        public void SalvarArquivosAdvogado(ListaAdvogado ListaAdvogados)
         {
             string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/AvaliacaoDotNet/BancoDeDados/dadosadvogados.txt");
 
@@ -121,7 +130,7 @@ namespace AvaliacaoDotNet
             {
                 using (StreamWriter arquivo = File.CreateText(caminhoArquivo))
                 {
-                    foreach (Advogado advogado in listaAdvogado.GetAdvogados())
+                    foreach (Advogado advogado in ListaAdvogados.advogados)
                     {
                         arquivo.WriteLine($"{advogado.Nome};{advogado.Cpf};{advogado.DataNascimento.ToShortDateString()};{advogado.Cna};{advogado.Especialidade}");
                     }
