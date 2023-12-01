@@ -8,8 +8,8 @@ namespace AvaliacaoDotNet
 {
     public class Cliente : Pessoa
     {
-        public String EstadoCivil { get; set; }
-        public String Profissão { get; set; }
+        public string EstadoCivil { get; set; }
+        public string Profissão { get; set; }
 
         public Cliente(string nome, string cpf, DateTime dataNascimento, string estadoCivil = "Não informado", string profissão = "Não informado")
         : base(nome, dataNascimento, cpf, idade: 0)

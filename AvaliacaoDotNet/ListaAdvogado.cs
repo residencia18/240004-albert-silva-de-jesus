@@ -50,7 +50,8 @@ namespace AvaliacaoDotNet
 
             AdicionarAdvogado(new Advogado(nome, dataNascimento, cpf, cna, especialidades));
 
-            ExxibirDadosAdvogado(cpf);
+            App.Pause();
+            ExibirDadosAdvogado(cpf);
             Console.WriteLine("\n\tAdvogado cadastrado com sucesso!");
             App.Pause();
 
@@ -71,7 +72,7 @@ namespace AvaliacaoDotNet
             }
         }
 
-        public void ExxibirDadosAdvogado(String cpf)
+        public void ExibirDadosAdvogado(String cpf)
         {
 
             Console.WriteLine("\n\t=== Dados do Advogado ===");
@@ -96,7 +97,7 @@ namespace AvaliacaoDotNet
 
             if (advogado != null)
             {
-                ExxibirDadosAdvogado(cpf);
+                ExibirDadosAdvogado(cpf);
                 App.Pause();
 
                 Console.Write("\n\tDigite o novo nome do advogado: ");
@@ -131,7 +132,7 @@ namespace AvaliacaoDotNet
                 advogado.Cna = cna;
                 advogado.Especialidade = especialidades;
 
-                ExxibirDadosAdvogado(cpfNovo);
+                ExibirDadosAdvogado(cpfNovo);
                 Console.WriteLine("\n\tAdvogado editado com sucesso!");
                 App.Pause();
 
@@ -154,7 +155,7 @@ namespace AvaliacaoDotNet
 
             if (advogado != null)
             {
-                ExxibirDadosAdvogado(cpf);
+                ExibirDadosAdvogado(cpf);
                 App.Pause();
 
                 Console.Write("\n\tTem certeza que deseja excluir este advogado? (S/N): ");
@@ -189,7 +190,7 @@ namespace AvaliacaoDotNet
 
             if (advogado != null)
             {
-                ExxibirDadosAdvogado(cpf);
+                ExibirDadosAdvogado(cpf);
                 Console.WriteLine("\n\tAdvogado encontrado com sucesso!");
                 App.Pause();
             }

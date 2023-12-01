@@ -7,7 +7,7 @@ namespace AvaliacaoDotNet
             int opcao = -1;
             do
             {
-                LimparTela();
+                // LimparTela();
                 DataHoraAtual();
                 Console.WriteLine("\t===== GESTÃO ESCRITÓRIO DE ADVOCACIA =====");
                 Console.WriteLine("\t[1] - CLIENTE");
@@ -82,10 +82,12 @@ namespace AvaliacaoDotNet
 
             return opcao;
         }
-        public static void MenuGestaoDeEscritorio(ListaCliente clientes, ListaAdvogado advogados)
+        public static void MenuGestaoDeEscritorio(ListaCliente clientes, ListaAdvogado advogados, Persistencia persistencia)
         {
             int opcao = 0;
             Relatorios relatorios = new Relatorios(clientes, advogados);
+            persistencia.CarregarArquivosCliente();
+            persistencia.CarregarArquivosAdvogado();
 
             if (menuClienteOuAdvogado())
             {
@@ -98,6 +100,7 @@ namespace AvaliacaoDotNet
                         case 1:
                             LimparTela();
                             clientes.Cadastrar();
+                            persistencia.SalvarArquivosCliente();
                             break;
 
                         case 2:
@@ -128,7 +131,7 @@ namespace AvaliacaoDotNet
 
                         case 7:
                             LimparTela();
-                            MenuGestaoDeEscritorio(clientes, advogados);
+                            MenuGestaoDeEscritorio(clientes, advogados, persistencia);
                             break;
 
                         case 0:
@@ -152,6 +155,7 @@ namespace AvaliacaoDotNet
                         case 1:
                             LimparTela();
                             advogados.Cadastrar();
+                            persistencia.SalvarArquivosAdvogado();
                             break;
 
                         case 2:
@@ -183,7 +187,7 @@ namespace AvaliacaoDotNet
 
                         case 7:
                             LimparTela();
-                            MenuGestaoDeEscritorio(clientes, advogados);
+                            MenuGestaoDeEscritorio(clientes, advogados, persistencia);
                             break;
 
                         case 0:

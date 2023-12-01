@@ -339,6 +339,7 @@ namespace AvaliacaoDotNet
 
             int valorMinimo = Cliente.LerNumeroInteiro("\n\tDigite o valor mínimo: ");
 
+            Console.Write("\n\tDigite a idade máxima: ");
             int valorMaximo = Cliente.LerNumeroInteiro("\n\tDigite o valor máximo: ");
 
             var advogadosFiltrados = advogados.GetAdvogados().Where(advogado => advogado.Idade >= valorMinimo && advogado.Idade <= valorMaximo);
