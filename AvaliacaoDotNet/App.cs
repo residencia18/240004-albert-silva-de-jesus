@@ -6,14 +6,26 @@ namespace AvaliacaoDotNet
 {
     public static class App
     {
+
+        public static void MainTechAdvocacia()
+        { 
+            LimparTela(); 
+            ListaCliente clientes = new ListaCliente();
+            ListaAdvogado advogados = new ListaAdvogado();
+            Persistencia persistencia = new Persistencia();
+            Relatorios relatorios = new Relatorios(clientes, advogados);
+            persistencia.CarregarArquivosCliente(clientes);
+            persistencia.CarregarArquivosAdvogado(advogados);
+            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
+        }
         public static bool menuClienteOuAdvogado()
         {
             int opcao = -1;
             do
             {
-                // LimparTela();
+                LimparTela();
                 DataHoraAtual();
-                Console.WriteLine("\t===== GESTÃO ESCRITÓRIO DE ADVOCACIA =====");
+                Console.WriteLine("\t===== TECH ADVOCACIA =====");
                 Console.WriteLine("\t[1] - CLIENTE");
                 Console.WriteLine("\t[2] - ADVOGADO");
                 Console.WriteLine("\t[0] - SAIR");
@@ -54,7 +66,7 @@ namespace AvaliacaoDotNet
             {
                 LimparTela();
                 DataHoraAtual();
-                Console.WriteLine("\t===== GESTÃO DO ESCRITÓRIO =====");
+                Console.WriteLine("\t===== ESCRITORIO TECH ADVOCACIA =====");
                 Console.WriteLine("\t[1] - CADASTRAR");
                 Console.WriteLine("\t[2] - LISTAR");
                 Console.WriteLine("\t[3] - EDITAR");
@@ -86,12 +98,9 @@ namespace AvaliacaoDotNet
 
             return opcao;
         }
-        public static void MenuGestaoDeEscritorio(ListaCliente clientes, ListaAdvogado advogados, Persistencia persistencia)
+        public static void EscritórioTechAdvocacia(ListaCliente clientes, ListaAdvogado advogados, Persistencia persistencia, Relatorios relatorios)
         {
             int opcao = 0;
-            Relatorios relatorios = new Relatorios(clientes, advogados);
-            persistencia.CarregarArquivosCliente(clientes);
-            persistencia.CarregarArquivosAdvogado(advogados);
 
             if (menuClienteOuAdvogado())
             {
@@ -135,7 +144,7 @@ namespace AvaliacaoDotNet
 
                         case 7:
                             LimparTela();
-                            MenuGestaoDeEscritorio(clientes, advogados, persistencia);
+                            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
                             break;
 
                         case 0:
@@ -191,7 +200,7 @@ namespace AvaliacaoDotNet
 
                         case 7:
                             LimparTela();
-                            MenuGestaoDeEscritorio(clientes, advogados, persistencia);
+                            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
                             break;
 
                         case 0:
@@ -214,7 +223,7 @@ namespace AvaliacaoDotNet
         }
         public static void LimparTela()
         {
-            // Console.Clear(); // Windows
+            Console.Clear(); // Windows
 
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {

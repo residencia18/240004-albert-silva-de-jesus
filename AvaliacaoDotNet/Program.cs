@@ -9,10 +9,7 @@ namespace AvaliacaoDotNet
   {
     static void Main(string[] args)
     {
-      ListaCliente clientes = new ListaCliente();
-      ListaAdvogado advogados = new ListaAdvogado();
-      Persistencia persistencia = new Persistencia();
-      App.MenuGestaoDeEscritorio(clientes, advogados, persistencia);
+      App.MainTechAdvocacia();
     }
   }
 }

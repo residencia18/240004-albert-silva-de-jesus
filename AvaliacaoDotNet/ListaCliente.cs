@@ -27,11 +27,13 @@ namespace AvaliacaoDotNet
             string cpf;
             do
             {
+                App.LimparTela();
                 Console.Write("\n\tDigite o CPF do clientes: ");
                 cpf = Console.ReadLine()!;
 
                 if (!Cliente.IsValidCPF(cpf) || !Cliente.IsCpfUnico(cpf, clientes))
                 {
+                    App.LimparTela();
                     Console.WriteLine("\n\tOps, CPF inválido ou já existe no cadastro. Por favor, digite um CPF válido.");
                     App.Pause();
                 }
@@ -43,12 +45,14 @@ namespace AvaliacaoDotNet
             string estadoCivil;
             do
             {
+                App.LimparTela();
                 Console.Write("\n\tDigite o estado civil do clientes: ");
                 estadoCivil = Console.ReadLine()!;
                 estadoCivil = Cliente.ConvertePrimeiraLetraParaMaiuscula(estadoCivil);
 
                 if (!Cliente.estadoCivil(estadoCivil))
                 {
+                    App.LimparTela();
                     Console.WriteLine("\n\tOps, estado civil inválido. Por favor, digite um estado civil válido.");
                     App.Pause();
                 }
@@ -162,7 +166,7 @@ namespace AvaliacaoDotNet
             Console.WriteLine("\tIdade: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Idade);
             Console.WriteLine("\tEstado Civil: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].EstadoCivil);
             Console.WriteLine("\tProfissão: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Profissao);
-            Console.WriteLine("\t==========================");
+            Console.Write("\t==========================");
 
         }
         public void Pesquisar()

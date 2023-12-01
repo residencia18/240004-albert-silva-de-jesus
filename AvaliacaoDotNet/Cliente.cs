@@ -30,7 +30,8 @@ namespace AvaliacaoDotNet
 
                 if (string.IsNullOrEmpty(input))
                 {
-                    Console.WriteLine("Entrada inválida. Por favor, insira um valor numérico.");
+                    App.LimparTela();
+                    Console.WriteLine("\n\tEntrada inválida. Por favor, insira um valor numérico.");
                     continue;
                 }
 
@@ -40,8 +41,10 @@ namespace AvaliacaoDotNet
                 }
                 else
                 {
-                    Console.WriteLine("Entrada inválida. Por favor, insira um valor numérico válido.");
+                    App.LimparTela();
+                    Console.WriteLine("\n\tEntrada inválida. Por favor, insira um valor numérico válido.");
                 }
+                App.Pause();
             }
         }
         public static bool IsCpfUnico(string cpf, List<Cliente> clientes)

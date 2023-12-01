@@ -73,7 +73,7 @@ namespace AvaliacaoDotNet
         public static int ValidarEntradaCNA(string mensagem)
         {
             int valor;
-
+            
             do
             {
                 App.LimparTela();
@@ -115,6 +115,12 @@ namespace AvaliacaoDotNet
                 }
 
             } while (true);
+        }
+
+        public static bool IsCnaUnico(int cna, List<Advogado> advogados)
+        {
+            // Verifica se o CNA já existe na lista de advogados
+            return !advogados.Any(advogado => advogado.Cna == cna);
         }
 
         public static string ConvertePrimeiraLetraParaMaiuscula(string palavra)

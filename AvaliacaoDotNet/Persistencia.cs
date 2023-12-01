@@ -33,18 +33,23 @@ namespace AvaliacaoDotNet
                         }
                         else
                         {
-                            Console.WriteLine("A linha no arquivo não contém dados suficientes para um Advogado.");
+                            App.LimparTela();
+                            Console.Write("\n\tA linha no arquivo não contém dados suficientes para um Advogado.");
                         }
                     }
                 }
 
-                Console.WriteLine("Dados dos advogados carregados com sucesso.");
+                App.LimparTela();
+                Console.Write("\n\tDados dos advogados carregados com sucesso.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ocorreu um erro ao carregar o arquivo de advogados: {ex.Message}");
+                App.LimparTela();
+                Console.Write($"\n\tOcorreu um erro ao carregar o arquivo de advogados: {ex.Message}");
             }
+            App.Pause();
         }
+        
         public void CarregarArquivosCliente(ListaCliente listaClientes)
         {
             listaClientes.clientes.Clear();
@@ -75,21 +80,21 @@ namespace AvaliacaoDotNet
                             }
                             else
                             {
-                                Console.WriteLine($"A linha no arquivo não contém dados suficientes para um Cliente. Linha: {linha}");
+                                Console.Write($"\n\tA linha no arquivo não contém dados suficientes para um Cliente. Linha: {linha}");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("A linha lida é nula (fim do arquivo).");
+                            Console.Write("\n\tA linha lida é nula (fim do arquivo).");
                         }
                     }
                 }
 
-                Console.WriteLine("Dados dos clientes carregados com sucesso.");
+                Console.Write("\n\tDados dos clientes carregados com sucesso.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ocorreu um erro ao carregar o arquivo de clientes: {ex.Message}");
+                Console.Write($"\n\tOcorreu um erro ao carregar o arquivo de clientes: {ex.Message}");
             }
             App.Pause();
         }
@@ -133,11 +138,11 @@ namespace AvaliacaoDotNet
                     }
                 }
 
-                Console.WriteLine("\n\tDados dos advogados foram salvos com sucesso!");
+                Console.Write("\n\tDados dos advogados foram salvos com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"\n\tOcorreu um erro ao salvar os dados dos advogados: {ex.Message}");
+                Console.Write($"\n\tOcorreu um erro ao salvar os dados dos advogados: {ex.Message}");
             }
         }
 
