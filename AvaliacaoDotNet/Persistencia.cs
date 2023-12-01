@@ -7,14 +7,13 @@ namespace AvaliacaoDotNet
     public class Persistencia
     {
 
-        public void CarregarArquivosAdvogado()
+        public void CarregarArquivosAdvogado(ListaAdvogado listaAdvogados)
         {
-            // ListaAdvogados.advogados.Clear();
+            listaAdvogados.advogados.Clear();
             string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:/Users/alber/OneDrive/Documentos/ProjetosResidencia/residenciaDotNet/AvaliacaoDotNet/BancoDeDados/dadosadvogados.txt");
 
             try
             {
-
                 using (StreamReader reader = new StreamReader(caminhoArquivo))
                 {
                     while (!reader.EndOfStream)
@@ -30,8 +29,7 @@ namespace AvaliacaoDotNet
                             string cpf = dados[2];
                             int cna = int.Parse(dados[3]);
                             string especialidade = dados[4];
-                            // advogados.Add(new Advogado(nome, dataNascimento, cpf, cna, especialidade));
-
+                            listaAdvogados.AdicionarAdvogado(new Advogado(nome, dataNascimento, cpf, cna, especialidade));
                         }
                         else
                         {
@@ -47,7 +45,6 @@ namespace AvaliacaoDotNet
                 Console.WriteLine($"Ocorreu um erro ao carregar o arquivo de advogados: {ex.Message}");
             }
         }
-
         public void CarregarArquivosCliente(ListaCliente listaClientes)
         {
             listaClientes.clientes.Clear();
@@ -132,7 +129,7 @@ namespace AvaliacaoDotNet
                 {
                     foreach (Advogado advogado in ListaAdvogados.advogados)
                     {
-                        arquivo.WriteLine($"{advogado.Nome};{advogado.Cpf};{advogado.DataNascimento.ToShortDateString()};{advogado.Cna};{advogado.Especialidade}");
+                        arquivo.WriteLine($"{advogado.Nome},{advogado.DataNascimento.ToShortDateString()},{advogado.Cpf},{advogado.Cna},{advogado.Especialidade}");
                     }
                 }
 

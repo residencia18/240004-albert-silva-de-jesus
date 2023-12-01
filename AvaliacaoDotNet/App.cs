@@ -91,7 +91,7 @@ namespace AvaliacaoDotNet
             int opcao = 0;
             Relatorios relatorios = new Relatorios(clientes, advogados);
             persistencia.CarregarArquivosCliente(clientes);
-            // persistencia.CarregarArquivosAdvogado(clientes, advogados);
+            persistencia.CarregarArquivosAdvogado(advogados);
 
             if (menuClienteOuAdvogado())
             {
