@@ -8,6 +8,9 @@ namespace AvaliacaoDotNet
 
         public int Idade { get; set; }
 
+        public Pessoa()
+        {
+        }
         public Pessoa(string nome, DateTime dataNascimento, string cpf, int idade)
         {
             this.Nome = nome;

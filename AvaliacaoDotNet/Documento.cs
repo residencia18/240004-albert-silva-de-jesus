@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace AvaliacaoDotNet
 {
-    /*Data e hora de modificação (DateTime)
-    o Código (int)
-    o Tipo (string)
-    o Descrição (string)
-    */
-    
     public class Documento
     {
-
+        public DateTime DataHoraModificacao { get; set; }
+        public int Codigo { get; set; }
+        public string Tipo { get; set; }
+        public string Descricao { get; set; }
     }
 }

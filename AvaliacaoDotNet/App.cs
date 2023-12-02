@@ -8,17 +8,18 @@ namespace AvaliacaoDotNet
     {
 
         public static void MainTechAdvocacia()
-        { 
-            LimparTela(); 
+        {
+            LimparTela();
             ListaCliente clientes = new ListaCliente();
             ListaAdvogado advogados = new ListaAdvogado();
             Persistencia persistencia = new Persistencia();
+            CasoJuridico Juridico = new CasoJuridico();
             Relatorios relatorios = new Relatorios(clientes, advogados);
             persistencia.CarregarArquivosCliente(clientes);
             persistencia.CarregarArquivosAdvogado(advogados);
-            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
+            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios, Juridico);
         }
-        public static bool menuClienteOuAdvogado()
+        public static int MenuClienteOuAdvogado()
         {
             int opcao = -1;
             do
@@ -28,6 +29,7 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\t===== TECH ADVOCACIA =====");
                 Console.WriteLine("\t[1] - CLIENTE");
                 Console.WriteLine("\t[2] - ADVOGADO");
+                Console.WriteLine("\t[3] - JURÍDICO/PROCESSO");
                 Console.WriteLine("\t[0] - SAIR");
                 Console.Write("\tENTRADA -> ");
                 string userInput = Console.ReadLine()!;
@@ -35,9 +37,9 @@ namespace AvaliacaoDotNet
                 if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
                 {
                     // A conversão foi bem-sucedida
-                    if (opcao < 0 || opcao > 2)
+                    if (opcao < 0 || opcao > 3)
                     {
-                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 2.");
+                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 3.");
                         Pause();
                     }
                 }
@@ -47,16 +49,55 @@ namespace AvaliacaoDotNet
                     Pause();
                 }
 
-            } while (opcao > 2 || opcao < 0);
+                if (opcao == 0)
+                {
+                    Console.Write("\n\tSaindo...");
+                    Pause();
+                    Environment.Exit(0);
+                }
 
-            if (opcao == 1)
+            } while (opcao > 3 || opcao < 0);
+
+            return opcao;
+
+        }
+        public static int MenuJuridico()
+        {
+            int opcao = -1;
+            do
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                LimparTela();
+                DataHoraAtual();
+                Console.WriteLine("\t========== TECH ADVOCACIA ==========");
+                Console.WriteLine("\t[1] - CADASTRAR JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[2] - LISTAR JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[3] - CONCLUSÃO DO CASO JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[4] - CUSTO TOTAL DO CASO JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[5] - STATUS DO CASO JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[6] - RELATÓRIOS JURÍDICO/PROCESSO");
+                Console.WriteLine("\t[7] - RETORNAR AO MENU PRINCIPAL");
+                Console.WriteLine("\t[0] - SAIR");
+                Console.Write("\tENTRADA -> ");
+                string userInput = Console.ReadLine()!;
+
+                if (!string.IsNullOrEmpty(userInput) && Int32.TryParse(userInput, out opcao))
+                {
+                    // A conversão foi bem-sucedida
+                    if (opcao < 0 || opcao > 7)
+                    {
+                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
+                        Pause();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\n\tEntrada inválida. Por favor, insira um número válido.");
+                    Pause();
+                }
+
+            } while (opcao > 7 || opcao < 0);
+
+            return opcao;
 
         }
         public static int ObterOpcaoMenuPrincipal()
@@ -94,125 +135,212 @@ namespace AvaliacaoDotNet
                     Pause();
                 }
 
+                if (opcao == 0)
+                {
+                    Console.Write("\n\tSaindo...");
+                    Pause();
+                    Environment.Exit(0);
+                }
+
             } while (opcao > 7 || opcao < 0);
 
             return opcao;
         }
-        public static void EscritórioTechAdvocacia(ListaCliente clientes, ListaAdvogado advogados, Persistencia persistencia, Relatorios relatorios)
+        public static void EscritórioTechAdvocacia(ListaCliente clientes, ListaAdvogado advogados, Persistencia persistencia, Relatorios relatorios, CasoJuridico Juridico)
         {
             int opcao = 0;
 
-            if (menuClienteOuAdvogado())
+            do
             {
-                do
+                opcao = MenuClienteOuAdvogado();
+
+                if (opcao == 1)
                 {
-                    opcao = ObterOpcaoMenuPrincipal();
 
-                    switch (opcao)
+                    do
                     {
-                        case 1:
-                            LimparTela();
-                            clientes.Cadastrar();
-                            persistencia.SalvarArquivosCliente(clientes);
-                            break;
+                        opcao = ObterOpcaoMenuPrincipal();
 
-                        case 2:
-                            LimparTela();
-                            clientes.Listar();
-                            Pause();
-                            break;
+                        switch (opcao)
+                        {
+                            case 1:
+                                LimparTela();
+                                clientes.Cadastrar();
+                                persistencia.SalvarArquivosCliente(clientes);
+                                break;
 
-                        case 3:
-                            LimparTela();
-                            clientes.editar();
-                            break;
+                            case 2:
+                                LimparTela();
+                                clientes.Listar();
+                                Pause();
+                                break;
 
-                        case 4:
-                            LimparTela();
-                            clientes.excluir();
-                            break;
+                            case 3:
+                                LimparTela();
+                                clientes.Editar();
+                                break;
 
-                        case 5:
-                            LimparTela();
-                            clientes.Pesquisar();
-                            break;
+                            case 4:
+                                LimparTela();
+                                clientes.Excluir();
+                                break;
 
-                        case 6:
-                            LimparTela();
-                            relatorios.MenuRelatorios();
-                            break;
+                            case 5:
+                                LimparTela();
+                                clientes.Pesquisar();
+                                break;
 
-                        case 7:
-                            LimparTela();
-                            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
-                            break;
+                            case 6:
+                                LimparTela();
+                                relatorios.MenuRelatorios();
+                                break;
 
-                        case 0:
-                            Console.WriteLine("\n\tSaindo...");
-                            break;
+                            case 7:
+                                LimparTela();
+                                EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios, Juridico);
+                                break;
 
-                        default:
-                            Console.WriteLine("\n\tOpção inválida!");
-                            break;
-                    }
-                } while (opcao != 0);
-            }
-            else
-            {
-                do
+                            case 0:
+                                Console.Write("\n\tSaindo...");
+                                Pause();
+                                Environment.Exit(0);
+                                break;
+
+                            default:
+                                Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
+                                Pause();
+                                break;
+                        }
+
+                    } while (opcao != 0);
+                }
+                else
                 {
-                    opcao = ObterOpcaoMenuPrincipal();
-
-                    switch (opcao)
+                    if (opcao == 2)
                     {
-                        case 1:
-                            LimparTela();
-                            advogados.Cadastrar();
-                            persistencia.SalvarArquivosAdvogado(advogados);
-                            break;
+                        do
+                        {
+                            opcao = ObterOpcaoMenuPrincipal();
 
-                        case 2:
-                            LimparTela();
-                            advogados.Listar();
-                            Pause();
-                            break;
+                            switch (opcao)
+                            {
+                                case 1:
+                                    LimparTela();
+                                    advogados.Cadastrar();
+                                    persistencia.SalvarArquivosAdvogado(advogados);
+                                    break;
 
-                        case 3:
-                            LimparTela();
-                            advogados.Editar();
-                            Pause();
-                            break;
+                                case 2:
+                                    LimparTela();
+                                    advogados.Listar();
+                                    Pause();
+                                    break;
 
-                        case 4:
-                            LimparTela();
-                            advogados.Excluir();
-                            break;
+                                case 3:
+                                    LimparTela();
+                                    advogados.Editar();
+                                    Pause();
+                                    break;
 
-                        case 5:
-                            LimparTela();
-                            advogados.Pesquisar();
-                            break;
+                                case 4:
+                                    LimparTela();
+                                    advogados.Excluir();
+                                    break;
 
-                        case 6:
-                            LimparTela();
-                            relatorios.MenuRelatorios();
-                            break;
+                                case 5:
+                                    LimparTela();
+                                    advogados.Pesquisar();
+                                    break;
 
-                        case 7:
-                            LimparTela();
-                            EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios);
-                            break;
+                                case 6:
+                                    LimparTela();
+                                    relatorios.MenuRelatorios();
+                                    break;
 
-                        case 0:
-                            Console.WriteLine("\n\tSaindo...");
-                            break;
+                                case 7:
+                                    LimparTela();
+                                    EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios, Juridico);
+                                    break;
 
-                        default:
-                            Console.WriteLine("\n\tOpção inválida!");
-                            break;
+                                case 0:
+                                    Console.Write("\n\tSaindo...");
+                                    Pause();
+                                    Environment.Exit(0);
+                                    break;
+
+                                default:
+                                    Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
+                                    Pause();
+                                    break;
+                            }
+
+                        } while (opcao != 0);
+
                     }
-                } while (opcao != 0);
-            }
+                    else
+                    {
+
+                        if (opcao == 3)
+                        {
+
+                            do
+                            {
+
+                                opcao = MenuJuridico();
+
+                                switch (opcao)
+                                {
+                                    case 1:
+                                        LimparTela();
+                                        Juridico.CadastrarCasoInterativo(clientes.GetClientes(), advogados.GetAdvogados());
+                                        break;
+
+                                    case 2:
+                                        LimparTela();
+                                        Juridico.ListarInformacoesCaso(clientes);
+                                        Pause();
+                                        break;
+
+                                    case 3:
+                                        // Juridico.ConclusaoDoCaso();
+                                        break;
+
+                                    case 4:
+                                        // Juridico.CustoTotalDoCaso();
+                                        break;
+
+                                    case 5:
+                                        // Juridico.StatusDoCaso();
+                                        break;
+
+                                    case 6:
+                                        relatorios.MenuRelatorios();
+                                        break;
+
+                                    case 7:
+                                        LimparTela();
+                                        EscritórioTechAdvocacia(clientes, advogados, persistencia, relatorios, Juridico);
+                                        break;
+
+                                    case 0:
+                                        Console.Write("\n\tSaindo...");
+                                        Pause();
+                                        Environment.Exit(0);
+                                        break;
+
+                                    default:
+                                        Console.WriteLine("\n\tOpção inválida. Por favor, escolha uma opção de 0 a 7.");
+                                        Pause();
+                                        break;
+                                }
+
+                            } while (opcao != 0);
+
+                        }
+                    }
+                }
+
+            } while (true);
         }
         public static void DataHoraAtual()
         {

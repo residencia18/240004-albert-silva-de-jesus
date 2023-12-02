@@ -7,6 +7,12 @@ namespace AvaliacaoDotNet
         public int Cna { get; set; }
         public string Especialidade { get; set; }
 
+        public Advogado(string nome, int cna)
+        {
+            this.Nome = nome;
+            this.Cna = cna;
+        }
+
         public Advogado(string nome, DateTime dataNascimento, string cpf, int cna, string especialidade)
         : base(nome, dataNascimento, cpf, idade: 0)
         {
@@ -73,7 +79,7 @@ namespace AvaliacaoDotNet
         public static int ValidarEntradaCNA(string mensagem)
         {
             int valor;
-            
+
             do
             {
                 App.LimparTela();

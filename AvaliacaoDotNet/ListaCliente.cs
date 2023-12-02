@@ -87,7 +87,7 @@ namespace AvaliacaoDotNet
             }
         }
 
-        public void editar()
+        public void Editar()
         {
             Console.WriteLine("\n\t=== Editar cliente ===");
             Console.Write("\n\tDigite o CPF do clientes que deseja editar: ");
@@ -137,7 +137,7 @@ namespace AvaliacaoDotNet
             }
         }
 
-        public void excluir()
+        public void Excluir()
         {
             Console.WriteLine("\n\t=== Excluir cliente ===");
             Console.Write("\n\tDigite o CPF do clientes que deseja excluir: ");
