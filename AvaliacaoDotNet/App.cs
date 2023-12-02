@@ -279,7 +279,6 @@ namespace AvaliacaoDotNet
                     }
                     else
                     {
-
                         if (opcao == 3)
                         {
 
@@ -297,7 +296,7 @@ namespace AvaliacaoDotNet
 
                                     case 2:
                                         LimparTela();
-                                        Juridico.ListarInformacoesCaso(clientes);
+                                        Juridico.ListarTodosOsCasos();
                                         Pause();
                                         break;
 

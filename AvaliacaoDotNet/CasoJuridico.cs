@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Collections;
 
 namespace AvaliacaoDotNet
 {
@@ -10,19 +11,31 @@ namespace AvaliacaoDotNet
     {
         public DateTime DataInicio { get; set; }
         public float ProbabilidadeSucesso { get; set; }
-        public List<Documento> Documentos { get; set; }
+        public string Status { get; set; }
         public List<(float, string)> Custos { get; set; }
         public DateTime? DataEncerramento { get; set; }
-        public List<Advogado> Advogados { get; set; }
         public Cliente Cliente { get; set; }
-        public string Status { get; set; }
+        public List<Documento> Documentos { get; set; }
+        public List<Advogado> Advogados { get; set; }
+        public List<CasoJuridico> casos { get; set; }
 
         public CasoJuridico()
         {
             Documentos = new List<Documento>();
             Custos = new List<(float, string)>();
             Advogados = new List<Advogado>();
+            casos = new List<CasoJuridico>();
             Status = "Em aberto";
+        }
+
+        public void AdicionarCaso(CasoJuridico caso)
+        {
+            casos.Add(caso);
+        }
+
+        public List<CasoJuridico> GetCasos()
+        {
+            return casos;
         }
 
         public void IniciarCaso()
@@ -144,6 +157,9 @@ namespace AvaliacaoDotNet
                     // Cadastrando o caso com as informações fornecidas pelo usuário
                     CadastrarCaso(cliente, probabilidadeSucesso, advogados, documentos, custos);
 
+                    // Adicionando o caso à lista de casos
+                    AdicionarCaso(this);  // "this" refere-se à instância atual da classe CasoJuridico
+
                     App.LimparTela();
                     Console.WriteLine("\n\tCaso cadastrado com sucesso!");
                     App.Pause();
@@ -247,12 +263,12 @@ namespace AvaliacaoDotNet
 
         public void ListarInformacoesCaso(ListaCliente clientes)
         {
-            if (clientes.GetClientes() == null || Advogados == null || Advogados.Count == 0 || Documentos == null || Documentos.Count == 0 || Custos == null || Custos.Count == 0)
+            if (clientes == null || Advogados == null || Advogados.Count == 0 || Documentos == null || Documentos.Count == 0 || Custos == null || Custos.Count == 0)
             {
                 App.LimparTela();
                 string mensagemErro = "\n\n\tO caso não pode ser listado porque:\n";
 
-                if (clientes.GetClientes() == null)
+                if (clientes == null)
                     mensagemErro += "\n\tA lista de clientes não foi inicializada.\n";
 
                 if (Advogados == null || Advogados.Count == 0)
@@ -276,7 +292,7 @@ namespace AvaliacaoDotNet
             Console.WriteLine($"\tData de Abertura: {DataInicio}");
             Console.WriteLine($"\tCliente: {Cliente.Nome}");
             Console.WriteLine($"\tCPF do Cliente: {Cliente.Cpf}");
-            Console.WriteLine($"\tProbabilidade de Sucesso: {ProbabilidadeSucesso:P}");
+            Console.WriteLine($"\tProbabilidade de Sucesso: {ProbabilidadeSucesso * 10:#0}%");
 
             Console.WriteLine("\n\t======= ADVOGADOS ASSOCIADOS AO CASO =======");
             foreach (Advogado advogado in Advogados)
@@ -285,7 +301,7 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\tCNA: " + advogado.Cna);
             }
 
-            Console.WriteLine("\n\t=========== DOCUMENTOS DO CASO ============");
+            Console.WriteLine("\n\t============ DOCUMENTOS DO CASO ============");
             foreach (Documento documento in Documentos)
             {
                 Console.WriteLine("\tData de Modificação: " + documento.DataHoraModificacao);
@@ -294,7 +310,7 @@ namespace AvaliacaoDotNet
                 Console.WriteLine("\tDescrição: " + documento.Descricao);
             }
 
-            Console.WriteLine("\n\t============= CUSTOS DO CASO =============");
+            Console.WriteLine("\n\t============== CUSTOS DO CASO =============");
             foreach ((float valor, string descricao) in Custos)
             {
                 Console.WriteLine($"\tValor: {valor:F2}");
@@ -307,16 +323,36 @@ namespace AvaliacaoDotNet
             {
                 Console.WriteLine($"\tData de Encerramento: {DataEncerramento}");
             }
-            Console.Write("\t==========================================");
+            Console.Write("\t===========================================");
 
         }
 
-        public static void ListarTodosOsCasos(List<CasoJuridico> casos, ListaCliente clientes)
+        public void ListarTodosOsCasos()
         {
+            App.LimparTela();
+            Console.WriteLine("\n\t======= LISTA DE CASOS JURÍDICOS =======");
+
             foreach (CasoJuridico caso in casos)
             {
-                caso.ListarInformacoesCaso(clientes);
-                Console.WriteLine("========================================\n");
+                Console.WriteLine("\n\t========= INFORMAÇÕES DO CASO JURÍDICO =========");
+                Console.WriteLine($"\tData de Abertura: {caso.DataInicio}");
+                Console.WriteLine($"\tCliente: {caso.Cliente.Nome}");
+                Console.WriteLine($"\tCPF do Cliente: {caso.Cliente.Cpf}");
+                Console.WriteLine($"\tProbabilidade de Sucesso: {caso.ProbabilidadeSucesso * 10:#0}%");
+                Console.WriteLine("\n\t======= ADVOGADOS ASSOCIADOS AO CASO =======");
+                Console.WriteLine($"\tAdvogado Principal: {caso.Advogados[0].Nome}");
+                Console.WriteLine($"\tCNA do Advogado Principal: {caso.Advogados[0].Cna}");
+                Console.WriteLine("\n\t============ DOCUMENTOS DO CASO ============");
+                Console.WriteLine($"\tData de Modificação do Documento: {caso.Documentos[0].DataHoraModificacao}");
+                Console.WriteLine($"\tCódigo do Caso: {caso.Documentos[0].Codigo}");
+                Console.WriteLine($"\tTipo do Documento: {caso.Documentos[0].Tipo}");
+                Console.WriteLine($"\tDescrição do Documento: {caso.Documentos[0].Descricao}");
+                Console.WriteLine("\n\t============== CUSTOS DO CASO ==============");
+                Console.WriteLine($"\tValor do Custo: {caso.Custos[0].Item1:F2}");
+                Console.WriteLine($"\tDescrição do Custo: {caso.Custos[0].Item2}");
+                Console.WriteLine($"\tStatus: {caso.Status}");
+                Console.WriteLine($"\tData de Encerramento: {caso.DataEncerramento}");
+                Console.WriteLine("\t============================================");
             }
         }
 
