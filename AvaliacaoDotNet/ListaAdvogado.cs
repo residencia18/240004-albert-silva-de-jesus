@@ -23,11 +23,11 @@ namespace AvaliacaoDotNet
         {
             Console.Write("\n\tDigite o nome do advogado: ");
             string nome = Console.ReadLine()!;
-            nome = Cliente.ConvertePrimeiraLetraParaMaiuscula(nome);
+            nome = Pessoa.ConvertePrimeiraLetraParaMaiuscula(nome);
 
             string cpf;
             do
-            {   
+            {
                 App.LimparTela();
                 Console.Write("\n\tDigite o CPF do advogado: ");
                 cpf = Console.ReadLine()!;
@@ -45,7 +45,8 @@ namespace AvaliacaoDotNet
 
             int cna;
             do
-            {   App.LimparTela();
+            {
+                App.LimparTela();
                 cna = Advogado.ValidarEntradaCNA("\n\tDigite o CNA do advogado: ");
 
                 if (!Advogado.IsCnaUnico(cna, advogados))
@@ -61,12 +62,12 @@ namespace AvaliacaoDotNet
             string especialidades = Console.ReadLine()!;
             especialidades = Cliente.ConvertePrimeiraLetraParaMaiuscula(especialidades);
 
-            AdicionarAdvogado(new Advogado(nome, dataNascimento, cpf, cna, especialidades));
+            // AdicionarAdvogado(new Advogado(nome, dataNascimento, cpf, cna, especialidades));
 
-            App.Pause();
-            ExibirDadosAdvogado(cpf);
-            Console.WriteLine("\n\tAdvogado cadastrado com sucesso!");
-            App.Pause();
+            // App.Pause();
+            // ExibirDadosAdvogado(cpf);
+            // Console.WriteLine("\n\tAdvogado cadastrado com sucesso!");
+            // App.Pause();
 
         }
 
@@ -120,13 +121,13 @@ namespace AvaliacaoDotNet
                     Console.Write("\n\tDigite o novo CPF do advogado: ");
                     cpfNovo = Console.ReadLine()!;
 
-                    if (!Advogado.IsValidCPF(cpfNovo) || !Advogado.IsCpfUnico(cpfNovo, advogados))
+                    if (!Pessoa.IsValidCPF(cpfNovo) || !Advogado.IsCpfUnico(cpfNovo, advogados))
                     {
                         Console.WriteLine("\n\tOps, CPF inválido ou já existe no cadastro. Por favor, digite um CPF válido.");
                         App.Pause();
                     }
 
-                } while (!Advogado.IsValidCPF(cpfNovo) || !Advogado.IsCpfUnico(cpfNovo, advogados));
+                } while (!Pessoa.IsValidCPF(cpfNovo) || !Advogado.IsCpfUnico(cpfNovo, advogados));
 
                 DateTime dataNascimento = Advogado.ObterDataDeNascimento();
 
@@ -138,7 +139,7 @@ namespace AvaliacaoDotNet
                 advogado.Nome = nome;
                 advogado.Cpf = cpfNovo;
                 advogado.DataNascimento = dataNascimento;
-                advogado.Idade = advogado.CalcularIdade(dataNascimento);
+                advogado.Idade = Pessoa.CalcularIdade(dataNascimento);
                 advogado.Cna = cna;
                 advogado.Especialidade = especialidades;
 

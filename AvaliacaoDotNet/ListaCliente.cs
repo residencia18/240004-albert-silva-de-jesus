@@ -18,6 +18,7 @@ namespace AvaliacaoDotNet
         {
             return clientes;
         }
+
         public void Cadastrar()
         {
             Console.Write("\n\tDigite o nome do clientes: ");
@@ -38,7 +39,7 @@ namespace AvaliacaoDotNet
                     App.Pause();
                 }
 
-            } while (!Cliente.IsValidCPF(cpf) || !Cliente.IsCpfUnico(cpf, clientes));
+            } while (!Pessoa.IsValidCPF(cpf) || !Cliente.IsCpfUnico(cpf, clientes));
 
             DateTime dataNascimento = Cliente.ObterDataDeNascimento();
 
@@ -66,7 +67,7 @@ namespace AvaliacaoDotNet
             AdicionarCliente(new Cliente(nome, cpf, dataNascimento, estadoCivil, profissão));
 
             App.LimparTela();
-            ExibirDadosDoCliente(cpf);
+            ExibirDados(cpf);
             Console.WriteLine("\n\tcliente cadastrado com sucesso!");
             App.Pause();
 
@@ -95,7 +96,7 @@ namespace AvaliacaoDotNet
 
             if (clientes.Exists(cliente => cliente.Cpf == cpf))
             {
-                ExibirDadosDoCliente(cpf);
+                ExibirDados(cpf);
                 App.Pause();
                 App.LimparTela();
 
@@ -126,7 +127,7 @@ namespace AvaliacaoDotNet
                 clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)] = new Cliente(nome, cpf, dataNascimento, estadoCivil, profissão);
 
                 App.LimparTela();
-                ExibirDadosDoCliente(cpf);
+                ExibirDados(cpf);
                 Console.WriteLine("\n\tcliente editado com sucesso!");
                 App.Pause();
             }
@@ -145,7 +146,7 @@ namespace AvaliacaoDotNet
 
             if (clientes.Exists(cliente => cliente.Cpf == cpf))
             {
-                ExibirDadosDoCliente(cpf);
+                ExibirDados(cpf);
                 clientes.RemoveAt(clientes.FindIndex(cliente => cliente.Cpf == cpf));
                 Console.WriteLine("\n\tcliente excluído com sucesso!");
                 App.Pause();
@@ -157,7 +158,7 @@ namespace AvaliacaoDotNet
             }
         }
 
-        public void ExibirDadosDoCliente(string cpf)
+        public void ExibirDados(string cpf)
         {
             Console.WriteLine("\n\t=== Dados do cliente ===");
             Console.WriteLine("\tNome: " + clientes[clientes.FindIndex(cliente => cliente.Cpf == cpf)].Nome);
@@ -169,6 +170,7 @@ namespace AvaliacaoDotNet
             Console.Write("\t==========================");
 
         }
+
         public void Pesquisar()
         {
 
@@ -178,7 +180,7 @@ namespace AvaliacaoDotNet
 
             if (clientes.Exists(cliente => cliente.Cpf == cpf))
             {
-                ExibirDadosDoCliente(cpf);
+                ExibirDados(cpf);
                 App.Pause();
             }
             else

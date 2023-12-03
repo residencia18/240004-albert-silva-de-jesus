@@ -49,6 +49,7 @@ namespace AvaliacaoDotNet
 
         public void CadastrarCaso(Cliente cliente, float probabilidadeSucesso, List<Advogado> advogados, List<Documento> documentos, List<(float, string)> custos)
         {
+
             if (cliente == null)
             {
                 throw new ArgumentNullException(nameof(cliente), "O cliente não pode ser nulo.");
@@ -81,6 +82,7 @@ namespace AvaliacaoDotNet
 
         public void CadastrarCasoInterativo(List<Cliente> clientesCadastrados, List<Advogado> advogadosCadastrados)
         {
+
             try
             {
                 Console.WriteLine("\n\t========== CADASTRO DE CASO JURÍDICO ==========");
@@ -164,7 +166,7 @@ namespace AvaliacaoDotNet
                     Console.WriteLine("\n\tCaso cadastrado com sucesso!");
                     App.Pause();
 
-                    ListarInformacoesCaso(new ListaCliente());
+                    ListarInformacoesCaso();
                 }
                 else
                 {
@@ -181,6 +183,7 @@ namespace AvaliacaoDotNet
 
         private List<Documento> SolicitarInformacoesDocumentos()
         {
+
             App.LimparTela();
             List<Documento> documentos = new List<Documento>();
             Console.WriteLine("\n\tSolicitando informações de documentos:");
@@ -219,6 +222,7 @@ namespace AvaliacaoDotNet
 
         private List<(float, string)> SolicitarInformacoesCustos()
         {
+
             App.LimparTela();
             List<(float, string)> custos = new List<(float, string)>();
             Console.WriteLine("\n\tSolicitando informações de custos:");
@@ -241,6 +245,14 @@ namespace AvaliacaoDotNet
 
         public void AtualizarCaso(DateTime? dataEncerramento, List<Advogado> novosAdvogados)
         {
+
+            if (casos == null || casos.Count == 0)
+            {
+                App.LimparTela();
+                Console.WriteLine("\n\tNão há casos cadastrados.");
+                return;
+            }
+
             if (Status == "Em aberto" && dataEncerramento.HasValue)
             {
                 throw new InvalidOperationException("Não é possível definir a data de encerramento enquanto o caso estiver em aberto.");
@@ -261,14 +273,15 @@ namespace AvaliacaoDotNet
             Status = DataEncerramento.HasValue ? "Concluído" : "Em aberto";
         }
 
-        public void ListarInformacoesCaso(ListaCliente clientes)
+        public void ListarInformacoesCaso()
         {
-            if (clientes == null || Advogados == null || Advogados.Count == 0 || Documentos == null || Documentos.Count == 0 || Custos == null || Custos.Count == 0)
+
+            if (Cliente == null || Advogados == null || Advogados.Count == 0 || Documentos == null || Documentos.Count == 0 || Custos == null || Custos.Count == 0)
             {
                 App.LimparTela();
                 string mensagemErro = "\n\n\tO caso não pode ser listado porque:\n";
 
-                if (clientes == null)
+                if (Cliente == null)
                     mensagemErro += "\n\tA lista de clientes não foi inicializada.\n";
 
                 if (Advogados == null || Advogados.Count == 0)
@@ -329,6 +342,14 @@ namespace AvaliacaoDotNet
 
         public void ListarTodosOsCasos()
         {
+            
+            if (casos.Count == 0)
+            {
+                App.LimparTela();
+                Console.WriteLine("\n\tNão há casos cadastrados.");
+                return;
+            }
+
             App.LimparTela();
             Console.WriteLine("\n\t======= LISTA DE CASOS JURÍDICOS =======");
 

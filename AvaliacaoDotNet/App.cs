@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 namespace AvaliacaoDotNet
 {
-    public static class App
+    public class App
     {
-
         public static void MainTechAdvocacia()
         {
             LimparTela();
@@ -100,7 +99,7 @@ namespace AvaliacaoDotNet
             return opcao;
 
         }
-        public static int ObterOpcaoMenuPrincipal()
+        public static int MenuEscritorio()
         {
             int opcao = -1;
             do
@@ -159,7 +158,7 @@ namespace AvaliacaoDotNet
 
                     do
                     {
-                        opcao = ObterOpcaoMenuPrincipal();
+                        opcao = MenuEscritorio();
 
                         switch (opcao)
                         {
@@ -220,7 +219,7 @@ namespace AvaliacaoDotNet
                     {
                         do
                         {
-                            opcao = ObterOpcaoMenuPrincipal();
+                            opcao = MenuEscritorio();
 
                             switch (opcao)
                             {
@@ -238,7 +237,7 @@ namespace AvaliacaoDotNet
 
                                 case 3:
                                     LimparTela();
-                                    advogados.Editar();
+                                    // advogados.Editar();
                                     Pause();
                                     break;
 
@@ -281,10 +280,8 @@ namespace AvaliacaoDotNet
                     {
                         if (opcao == 3)
                         {
-
                             do
                             {
-
                                 opcao = MenuJuridico();
 
                                 switch (opcao)
