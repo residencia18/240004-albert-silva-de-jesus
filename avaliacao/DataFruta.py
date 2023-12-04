@@ -777,8 +777,7 @@ def aplicativo():
                 limpaTela()
                 print("\n\tObrigado por usar o DataFruta!")
                 pause()
-                exit()
-                
+                exit()  
             case _:
                 limpaTela()
                 print("\n\tOps, opção inválida! Tente novamente.")
