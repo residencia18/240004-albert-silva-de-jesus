@@ -32,3 +32,11 @@ body {
     position: relative;
 }
 
+.roteiro-incluso {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+}
+
