@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Kanit:ital,wght@0,200;1,100&family=Quicksand:wght@300&family=Vina+Sans&display=swap');
+
+body {
+    font-family: 'Glass Antiqua', cursive;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container-destinos {
+    width: 60%;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3, 33.33%);
+    justify-items: center;
+}
+
