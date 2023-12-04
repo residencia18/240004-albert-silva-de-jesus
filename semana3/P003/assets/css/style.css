@@ -64,3 +64,33 @@ body {
     margin-top: 10px;
 }
 
+.roteiro-comprar {
+    position: relative;
+    background-color: #8FD429;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px #c1afde;
+    margin-block: 5%;
+    padding: 8px;
+}
+
+.roteiro-comprar:active {
+    background-color: #7cca07;
+}
+
+.roteiro-comprar:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .roteiros-viagens {
+        width: 100%;
+        margin-block: 15px;
+    }
+
+    .container-destinos {
+        grid-template-columns: auto;
+    }
+}
