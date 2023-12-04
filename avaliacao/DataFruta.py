@@ -237,6 +237,12 @@ class ListaNomes(AnaliseDados):
     
     def percorreListaDeNomesESalarios(self, outras_nomes, outras_salarios):
         
+        if not self.__lista:
+            limpaTela() 
+            print("\n\tA lista está vazia. Não é possível percorrer a lista de nomes e salários.")
+            pause()
+            return
+        
         limpaTela()
         print("\n\t=========== LISTA DE NOMES E SALÁRIOS ===========\n")
         for nome, salario in zip(self.__lista, outras_salarios._ListaSalarios__lista):
@@ -381,6 +387,12 @@ class ListaDatas(AnaliseDados):
         pause()
     
     def modificar_datas_anteriores_2019(self):
+        
+        if not self.__lista:
+            limpaTela()
+            print("\n\tA lista está vazia. Não é possível modificar as datas.")
+            pause()
+            return
         
         limpaTela()
         print("\n\t=========== DATAS ANTES E DEPOIS DA MODIFICAÇÃO ===========\n")  
@@ -534,7 +546,9 @@ class ListaSalarios(AnaliseDados):
         
         limpaTela()
         if not self._ListaSalarios__lista:
-            print("A lista de salários está vazia.")
+            limpaTela()
+            print("\n\tA lista de salários está vazia, não é possível reajustar os salários")
+            pause()
             return None
 
         
@@ -578,18 +592,26 @@ class ListaIdades(AnaliseDados):
             self.__lista = []
 
             for i in range(quantElementos):
-                elemento_str = input("\n\tDigite o elemento {}: ".format(i + 1))
+                while True:
+                    elemento_str = input("\n\tDigite o elemento {}: ".format(i + 1))
 
-                # Verifica se a entrada não está vazia
-                if elemento_str.strip():
-                    elemento = int(elemento_str)
-                    self.__lista.append(elemento)
-                else:
-                    print("\n\tValor inválido. Tente novamente.")
-                    pause()
-
+                    # Verifica se a entrada não está vazia
+                    if elemento_str.strip():
+                        try:
+                            elemento = int(elemento_str)
+                            self.__lista.append(elemento)
+                            break  # Sai do loop se a entrada for válida
+                        except ValueError:
+                            limpaTela()
+                            print("\n\tOps, idade inválida. Tente novamente.")
+                            pause()
+                    else:
+                        limpaTela()
+                        print("\n\tOps, idade inválida. Tente novamente.")
+                        pause()
         except ValueError:
-            print("\n\tDigite um valor numérico válido.")
+            print("\n\tOps, digite um valor numérico válido.")
+            pause()
             self.entradaDeDados()
         pass
  
