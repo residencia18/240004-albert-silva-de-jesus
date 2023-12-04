@@ -40,3 +40,19 @@ body {
     padding: 0;
 }
 
+.roteiro-incluso li::before {
+    content: "\2714";
+    margin-right: 8px;
+    color: #742DB7;
+    display: inline-block;
+    text-align: left;
+}
+
+
+
+.roteiro-preco,
+.roteiro-destino {
+    font-weight: bold;
+    padding-block: 5%;
+}
+
