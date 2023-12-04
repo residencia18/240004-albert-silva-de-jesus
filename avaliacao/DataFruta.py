@@ -1,4 +1,5 @@
 import os
+import copy
 import platform
 import locale
 from datetime import datetime
@@ -17,6 +18,16 @@ class Data:
             raise ValueError("Ano inválido")
         self.__dia = dia
         self.__mes = mes
+        self.__ano = ano
+        
+    @property
+    def year(self):
+        return self.__ano
+    
+    @year.setter
+    def year(self, ano):
+        if ano < 2000 or ano > 2100:
+            raise ValueError("Ano inválido")
         self.__ano = ano
 
     @property
@@ -100,13 +111,18 @@ class AnaliseDados(ABC):
     @abstractmethod
     def mostraMaior(self):
         pass
+    
+    @abstractmethod
+    def listarEmOrdem(self):
+        pass
 
-# Métodos ok
 class ListaNomes(AnaliseDados):
     
     def __init__(self):
         super().__init__(type("String"))
-        self.__lista = []        
+        self.__lista = []
+        self.__nomes = []
+        self.__salarios = []        
 
     def entradaDeDados(self):
         '''
@@ -117,20 +133,28 @@ class ListaNomes(AnaliseDados):
         limpaTela() 
         print("\n\t=========== CADASTRO DE NOMES ===========\n")
         
-        quantElementos = int(input("\tQuantos elementos vão existir na lista: "))
+        while True:
+            try:
+                quantElementos = int(input("\n\tQuantos elementos vão existir na lista: "))
+                break  # Se a conversão para int for bem-sucedida, sai do loop
+            except ValueError:
+                print("\tPor favor, digite um número inteiro válido.")
+                pause() 
+                limpaTela() 
         
         for i in range(quantElementos):
-            elemento = input("\n\tDigite o elemento {}: ".format(i + 1))
-            self.__lista.append(elemento)
+            while True:
+                limpaTela()
+                elemento = input("\n\tDigite o elemento {}: ".format(i + 1))
+                if elemento.isalpha():
+                    self.__lista.append(elemento)
+                    break
+                else:
+                    limpaTela()
+                    print("\tPor favor, digite apenas letras.")
+                    pause() 
+                    limpaTela() 
         pass
-        
-        limpaTela()
-        print("\n\t=========== LISTA DE NOMES ===========\n")
-        
-        for i in range(quantElementos):
-            print("\tNome {}: {}".format(i + 1, self.__lista[i]))
-        pass
-        pause()
 
     def mostraMediana(self):
         '''
@@ -193,6 +217,32 @@ class ListaNomes(AnaliseDados):
         
         pass    
 
+    def listarEmOrdem(self):
+        '''
+        Este método ordena a lista e mostra os
+        elementos em ordem crescente
+        '''
+        limpaTela()
+        if not self.__lista:
+            print("A lista está vazia. Não é possível ordenar.")
+            return
+
+        lista_ordenada = sorted(self.__lista)
+        print("\n\t=========== LISTA DE NOMES EM ORDEM ALFABÉTICA ===========\n")
+        for elemento in lista_ordenada:
+            print(f"\tNome: {elemento}")
+        pause()
+        
+        pass
+    
+    def percorreListaDeNomesESalarios(self, outras_nomes, outras_salarios):
+        
+        limpaTela()
+        print("\n\t=========== LISTA DE NOMES E SALÁRIOS ===========\n")
+        for nome, salario in zip(self.__lista, outras_salarios._ListaSalarios__lista):
+            print("\tNome: {}, Salário: {:.2f}".format(nome, salario))
+        pause()
+    
     def __str__(self):
         pass
 	
@@ -211,29 +261,40 @@ class ListaDatas(AnaliseDados):
         limpaTela()
         print("\n\t=========== CADASTRO DE DATAS ===========\n")
         
-        quantElementos = int(input("\tQuantos elementos vão existir na lista: "))
-        
-        for i in range(quantElementos):
+        while True:
             try:
-                print("\n\tDigite o elemento {}:".format(i + 1))
-                dia = int(input("\tDia: "))
-                mes = int(input("\tMês: "))
-                ano = int(input("\tAno: "))
-                data = Data(dia, mes, ano)
-                self.__lista.append(data)
-                print(f"\n\tData válida: {data}")
-            
-            except ValueError as e:
-                print(f"\n\tErro: {e}")
-        pass
-    
-        limpaTela()
-        print("\n\t=========== LISTA DE DATAS ===========\n")
+                quantElementos = int(input("\n\tQuantos elementos vão existir na lista: "))
+                break  # Se a conversão para int for bem-sucedida, sai do loop
+            except ValueError:
+                limpaTela()
+                print("\tPor favor, digite um número inteiro válido.")
+                pause() 
+                limpaTela() 
         
-        for i in range(quantElementos):
-            print("\tData {}: {}".format(i + 1, self.__lista[i]))
+        for i in range(quantElementos):    
+            while True:
+                try:
+                    print("\n\tDigite o elemento {}:".format(i + 1))
+                    dia = int(input("\tDia: "))
+                    mes = int(input("\tMês: "))
+                    ano = int(input("\tAno: "))
+            
+                    # Verifica se a data é válida
+                    data = Data(dia, mes, ano)
+            
+                    # Se chegou aqui, a data é válida, então podemos adicionar à lista
+                    self.__lista.append(data)
+                    print(f"\n\tData válida: {data}")
+            
+                    # Sai do loop se a entrada foi válida
+                    break
+
+                except ValueError as e:
+                    limpaTela() 
+                    print("\n\tOps, data invalida!\n\tPor favor, digite uma data válida.")
+                    pause()
+                    limpaTela() 
         pass
-        pause()
     
     def mostraMediana(self):
         '''
@@ -304,6 +365,38 @@ class ListaDatas(AnaliseDados):
                 print(f"\n\tA lista de datas tem um número par de elementos. A mediana é: {mediana}")
 
         return mediana
+    
+    def listarEmOrdem(self):
+        '''
+        Este método ordena a lista e mostra os
+        elementos em ordem crescente
+        '''
+        lista_ordenada = sorted(self.__lista)
+    
+        limpaTela()
+        print("\n\t=========== LISTA DE DATAS ===========\n")
+    
+        for i, data in enumerate(lista_ordenada, start=1):
+            print(f"\tData {i}: {data}")
+        pause()
+    
+    def modificar_datas_anteriores_2019(self):
+        
+        limpaTela()
+        print("\n\t=========== DATAS ANTES E DEPOIS DA MODIFICAÇÃO ===========\n")  
+
+        datas_modificadas = list(filter(lambda x: x is not None, map(lambda data: self.modificar_data(data), self.__lista.copy())))
+        
+        for data_original, data_modificada in zip(self.__lista, datas_modificadas):
+            print("\tData original: {}, Data modificada: {}".format(data_original, data_modificada))
+        pause()
+
+    def modificar_data(self, data):
+        if data.ano < 2019:
+            # Criar uma cópia do objeto Data para evitar modificar a lista original
+            data = copy.copy(data)
+            data.dia = 1
+        return data
 
     def __str__(self):
         pass
@@ -324,20 +417,35 @@ class ListaSalarios(AnaliseDados):
         limpaTela()
         print("\n\t=========== CADASTRO DE SALÁRIOS ===========\n")
         
-        quantElementos = int(input("\tQuantos elementos vão existir na lista: "))
+        while True:
+            try:
+                quantElementos = int(input("\n\tQuantos elementos vão existir na lista: "))
+                break  # Se a conversão para int for bem-sucedida, sai do loop
+            except ValueError:
+                print("\tPor favor, digite um número inteiro válido.")
+                pause() 
+                limpaTela()
         
         for i in range(quantElementos):
-            elemento = float(input("\n\tDigite o elemento {}: ".format(i + 1)))
-            self.__lista.append(elemento)
+            while True:
+                try:
+                    print("\n\tDigite o elemento {}:".format(i + 1))
+                    elemento = float(input("\tNúmero: "))
             
-        limpaTela()
-        print("\n\t=========== LISTA DE SALÁRIOS ===========\n")
-        
-        for i in range(quantElementos):
-            print("\tSalário {}: {:.2f}".format(i + 1, self.__lista[i]))  
-        pass
-        pause()
+                    # Se chegou aqui, o número é válido, então podemos adicionar à lista
+                    self.__lista.append(elemento)
+                    print(f"\n\tNúmero válido: {elemento}")
+            
+                    # Sai do loop se a entrada foi válida
+                    break
 
+                except ValueError:
+                    limpaTela()
+                    print("\n\tOps, entrada invalida! Por favor, digite um número válido.")
+                    pause()
+                    limpaTela()
+        pass
+            
     def mostraMediana(self):
         '''
         Este método ordena a lista e mostra o
@@ -404,6 +512,52 @@ class ListaSalarios(AnaliseDados):
 
         return mediana
     
+    def listarEmOrdem(self):
+        '''
+        Este método ordena a lista e mostra os
+        elementos em ordem crescente
+        '''
+        limpaTela()
+        if not self.__lista:
+            print("A lista está vazia. Não é possível ordenar.")
+            return
+
+        lista_ordenada = sorted(self.__lista)
+        print("\n\t=========== LISTA DE SALÁRIOS EM ORDEM CRESCENTE ===========\n")
+        for elemento in lista_ordenada:
+            print(f"\tSalário: {elemento:.2f}")
+        pause()
+        
+        pass
+    
+    def reajustar_Salarios(self):
+        
+        limpaTela()
+        if not self._ListaSalarios__lista:
+            print("A lista de salários está vazia.")
+            return None
+
+        
+        def calcular_novo_salario(salario):
+            return salario * 1.1  # Reajuste de 10%
+
+        # Aplicar a função de reajuste a todos os salários usando o iterador map
+        salarios_reajustados = list(map(calcular_novo_salario, self._ListaSalarios__lista))
+
+        print("\n\t=========== SALÁRIOS ANTES E DEPOIS DO REAJUSTE ===========\n")
+        
+        for salario_original, salario_reajustado in zip(self._ListaSalarios__lista, salarios_reajustados):
+            print("\tSalário antes: {:.2f}, Salário reajustado: {:.2f}".format(salario_original, salario_reajustado))
+
+        # Calcular e exibir o custo total da folha de pagamento antes e depois do reajuste
+        custo_folha_anterior = sum(self._ListaSalarios__lista)
+        custo_folha_atual = sum(salarios_reajustados)
+
+        print("\n\tCusto total da folha de pagamento antes do reajuste: {:.2f}".format(custo_folha_anterior))
+        print("\tCusto total da folha de pagamento após o reajuste: {:.2f}".format(custo_folha_atual))
+
+        pause()
+        
     def __str__(self):
         pass
 
@@ -415,28 +569,30 @@ class ListaIdades(AnaliseDados):
     
     def entradaDeDados(self):
         '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
+        Este método realiza a entrada de dados
         '''
-        limpaTela() 
+        limpaTela()
         print("\n\t=========== CADASTRO DE IDADES ===========\n")
-        
-        quantElementos = int(input("\tQuantos elementos vão existir na lista: "))
-        
-        for i in range(quantElementos):
-            elemento = int(input("\n\tDigite o elemento {}: ".format(i + 1)))
-            self.__lista.append(elemento)
+        try:
+            quantElementos = int(input("\n\tDigite a quantidade de elementos da lista: "))
+            self.__lista = []
+
+            for i in range(quantElementos):
+                elemento_str = input("\n\tDigite o elemento {}: ".format(i + 1))
+
+                # Verifica se a entrada não está vazia
+                if elemento_str.strip():
+                    elemento = int(elemento_str)
+                    self.__lista.append(elemento)
+                else:
+                    print("\n\tValor inválido. Tente novamente.")
+                    pause()
+
+        except ValueError:
+            print("\n\tDigite um valor numérico válido.")
+            self.entradaDeDados()
         pass
-        
-        limpaTela() 
-        print("\n\t=========== LISTA DE IDADES ===========\n")
-        
-        for i in range(quantElementos):
-            print("\tIdade {}: {}".format(i + 1, self.__lista[i]))
-        pass
-        pause() 
-    
+ 
     def mostraMediana(self):
         '''
         Este método ordena a lista e mostra o
@@ -501,6 +657,22 @@ class ListaIdades(AnaliseDados):
             print(f"\n\tA lista tem um número par de elementos. A mediana é: {mediana}")
 
         return mediana
+    
+    def listarEmOrdem(self):
+        '''
+        Este método ordena a lista e mostra os
+        elementos em ordem crescente
+        '''
+        limpaTela()     
+        print("\n\t=========== LISTA DE IDADES EM ORDEM CRESCENTE ===========\n")
+
+        lista_ordenada = sorted(self.__lista)
+        
+        for elemento in lista_ordenada:
+            print(f"\tIdade: {elemento}")
+        pause()
+        pass
+
 
     def __str__(self):
      
@@ -519,20 +691,80 @@ def limpaTela():
   else:
     print("Sistema operacional não suportado para limpar a tela.")
 
-def main():
+def menu():
+    
+    while True:
+    
+        limpaTela()
+        formato_personalizado = "\n\t%A, %d de %B de %Y %H:%M:%S"
+        data_e_hora_formatada = data_e_hora_atual.strftime(formato_personalizado)
+        print(data_e_hora_formatada)
+        print("\tFalta", (datetime(data_e_hora_atual.year, 12, 31) - data_e_hora_atual).days + 1, "dias para o fim do ano")
+    
+        print("\n\t======= DATAFRUTA =======")
+        print("\t[1] - INCLUIR UM NOME DA LISTA DE NOMES")
+        print("\t[2] - INCLUIR SALÁRIO NA LISTA DE SALÁRIOS")
+        print("\t[3] - INCLUIR DATA NA LISTA DE DATAS")
+        print("\t[4] - INCLUIR IDADE NA LISTA DE IDADES")
+        print("\t[5] - PERCORRER AS LISTAS DE NOME E SALÁRIOS")
+        print("\t[6] - CALCULAR O VALOR DA FOLHA COM UM REAJUSTE DE 10%")
+        print("\t[7] - MODIFICAR OS DIAS DE DATAS ANTERIORES A 2019")
+        print("\t[0] - SAIR")
+        opcao = input("\tENTRADA -> ")
+
+        if(opcao == "1" or opcao == "2" or opcao == "3" or opcao == "4" or opcao == "5" or opcao == "6" or opcao == "7" or opcao == "0"):
+            return opcao
+        else:
+            limpaTela()
+            print("\n\tOps, opção inválida! Tente novamente.")
+            pause()
+
+def aplicativo():
     
     nomes = ListaNomes()
-    datas = ListaDatas()
     salarios = ListaSalarios()
+    datas = ListaDatas()
     idades = ListaIdades()
-
-    # listaListas = [nomes, datas, salarios, idades]
-
-    # for lista in listaListas:
-    #     lista.entradaDeDados()
-    #     lista.mostraMediana()
-    #     lista.mostraMenor()
-    #     lista.mostraMaior()
-
+    
+    while True:
+        
+        opcao = menu()
+        
+        match opcao:
+           
+            case "1":
+                nomes.entradaDeDados()  
+                nomes.listarEmOrdem()
+            case "2":
+                salarios.entradaDeDados()
+                salarios.listarEmOrdem()    
+            case "3":
+                datas.entradaDeDados()
+                datas.listarEmOrdem()
+            case "4":
+                idades.entradaDeDados()
+                idades.listarEmOrdem()
+                pass   
+            case "5":
+                nomes.percorreListaDeNomesESalarios(nomes, salarios)
+            case "6":
+                salarios.reajustar_Salarios()
+            case "7":
+                datas.modificar_datas_anteriores_2019() 
+            case "0":
+                limpaTela()
+                print("\n\tObrigado por usar o DataFruta!")
+                pause()
+                exit()
+                
+            case _:
+                limpaTela()
+                print("\n\tOps, opção inválida! Tente novamente.")
+                pause()
+    pass
+              
+def main():
+    aplicativo()
+    
 if __name__ == "__main__":
     main()
