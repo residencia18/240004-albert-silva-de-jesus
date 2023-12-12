@@ -2,80 +2,119 @@ package entities;
 
 import java.util.Scanner;
 
-import exception.DivisaoPorZeroException;
+import exception.DivisionByZeroException;
 
 public class Calculadora {
 
     public static Scanner scan = new Scanner(System.in);
-    double num1, num2;
 
-    public static double adicao(double num1, double num2) {
+    public static int adicao(int num1, int num2) {
         return num1 + num2;
     }
 
-    public static double subtracao(double num1, double num2) {
+    public static int subtracao(int num1, int num2) {
         return num1 - num2;
     }
 
-    public static double multiplicacao(double num1, double num2) {
+    public static int multiplicacao(int num1, int num2) {
         return num1 * num2;
     }
 
-    public static double divisao(double num1, double num2) throws DivisaoPorZeroException {
+    public static double divisao(int num1, int num2) throws DivisionByZeroException {
 
         if (num2 == 0) {
-            throw new DivisaoPorZeroException("\n\tOps, não é possível dividir por zero!");
+            throw new DivisionByZeroException("\n\tOps, não é possível dividir por zero!");
+        }
+
+        return ((double) num1) / num2;
+    }
+
+    public static double divisao(double num1, double num2) throws DivisionByZeroException {
+
+        if (num2 == 0) {
+            throw new DivisionByZeroException("\n\tOps, não é possível dividir por zero!");
         }
 
         return num1 / num2;
     }
 
     public static void executar() {
-        
-        limparTela();
-        System.out.println("\n\t====== Calculadora ======");
-        System.out.print("\n\tDigite o primeiro número: ");
-        double num1 = scan.nextDouble();
 
-        System.out.print("\n\tDigite o segundo número: ");
-        double num2 = scan.nextDouble();
+        do {
 
-        limparTela();   
-        System.out.print(
-                "\n\tDigite a operação desejada:\n\t+ para adição\n\t- para subtração\n\t* para multiplicação\n\t/ para divisão\n\tEscolha: ");
-        String operacao = scan.next();
+            limparTela();
+            System.out.println("\n\t====== Calculadora ======");
+            System.out.print("\n\tDigite o primeiro número: ");
+            int num1 = scan.nextInt();
 
-        limparTela();
-        double resultado = 0;
+            System.out.print("\n\tDigite o segundo número: ");
+            int num2 = scan.nextInt();
+            scan.nextLine();
 
-        switch (operacao) {
-            case "+":
-                resultado = adicao(num1, num2);
-                break;
+            limparTela();
+            System.out.print(
+                    "\n\tDigite a operação desejada:\n\t+ para adição\n\t- para subtração\n\t* para multiplicação\n\t/ para divisão\n\tEscolha: ");
+            String operacao = scan.next();
 
-            case "-":
-                resultado = subtracao(num1, num2);
-                break;
+            limparTela();
+            double resultado = 0;
 
-            case "*":
-                resultado = multiplicacao(num1, num2);
-                break;
+            switch (operacao) {
+                case "+":
+                    resultado = adicao(num1, num2);
+                    break;
 
-            case "/":
-                try {
-                    resultado = divisao(num1, num2);
+                case "-":
+                    resultado = subtracao(num1, num2);
+                    break;
 
-                } catch (DivisaoPorZeroException e) {
-                    System.out.println(e.getMessage());
+                case "*":
+                    resultado = multiplicacao(num1, num2);
+                    break;
+
+                case "/":
+                    try {
+                        resultado = divisao(num1, num2);
+
+                    } catch (DivisionByZeroException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+
+                default:
+                    System.out.println("\n\tOps, operação inválida!\n");
+                    break;
+            }
+
+            do {
+
+                if (resultado != 0) {
+                    System.out.printf("\n\tResultado: %.1f", resultado);
+
                 }
-                break;
 
-            default:
-                System.out.println("\n\tOps, operação inválida!");
-                break;
-        }
+                System.out.print("\n\tDeseja realizar outra operação? (s/n): ");
+                String opcao = scan.next();
+                scan.nextLine();
 
-        System.out.println("\n\tO resultado é: " + resultado);
+                if (opcao.equals("n")) {
+                    System.out.println("\n\tAté mais!n\n");
+                    return;
+
+                } else {
+                    if (opcao.equals("s")) {
+                        System.out.println("\n\tOk, vamos lá!\n");
+                        break;
+
+                    } else {
+                        System.out.println("\n\tOpção inválida!\n");
+                    }
+                }
+
+            } while (true);
+
+        } while (true);
+
     }
 
     public static void limparTela() {
