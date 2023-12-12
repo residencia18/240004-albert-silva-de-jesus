@@ -2,20 +2,33 @@ package avaliacao.entities;
 
 import java.time.LocalDate;
 
-public class Reparo {
-  
+  public class Reparo {
   private String descricao;
   private LocalDate previsaoConclusao;
   private LocalDate dataInicio;
   private LocalDate dataFim;
   private boolean concluido;
+  private Reparo reparoAuxiliar;
+  private Falha falha;
 
-  public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim, boolean concluido) {
+  public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim, boolean concluido, Reparo reparoAuxiliar, Falha falha) {
     this.descricao = descricao;
     this.previsaoConclusao = previsaoConclusao;
     this.dataInicio = dataInicio;
     this.dataFim = dataFim;
     this.concluido = concluido;
+    this.reparoAuxiliar = reparoAuxiliar;
+    this.falha = falha;
+  }
+
+    public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, Falha falha) {
+    this.descricao = descricao;
+    this.previsaoConclusao = previsaoConclusao;
+    this.dataInicio = dataInicio;
+    this.falha = falha;
+    this.dataFim = null;
+    this.concluido = false;
+
   }
 
   public String getDescricao() {
@@ -38,6 +51,14 @@ public class Reparo {
     return this.concluido;
   }
 
+  public Reparo getReparoAuxiliar(){
+    return this.reparoAuxiliar;
+  }
+
+  public Falha getFalha(){
+    return this.falha;
+  }
+  
   public void setDescricao(String descricao) {
     this.descricao = descricao;
   }
@@ -56,6 +77,10 @@ public class Reparo {
 
   public void setConcluido(boolean concluido) {
     this.concluido = concluido;
+  }
+
+  public void setReparoAuxiliar(Reparo reparoAuxiliar){
+    this.reparoAuxiliar = reparoAuxiliar;
   }
 
   @Override
@@ -107,7 +132,6 @@ public class Reparo {
   @Override
   public String toString() {
     return "Reparo [descricao=" + descricao + ", previsaoConclusao=" + previsaoConclusao + ", dataInicio=" + dataInicio
-        + ", dataFim=" + dataFim + ", concluido=" + concluido + "]";
-  }
-
+        + ", dataFim=" + dataFim + ", concluido=" + concluido + ", falha=" + falha.toString() + "]";
+      }
 }

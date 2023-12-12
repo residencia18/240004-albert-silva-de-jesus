@@ -1,19 +1,16 @@
 package avaliacao.entities;
 
-import java.time.LocalDate;
-
 public class Imovel {
-  
+
   private String matricula;
   private String endereco;
-  private LocalDate UltimaLeitura;
-  private LocalDate penultimaLeitura;
+  private int ultimaLeitura;
+  private int penultimaLeitura;
 
-  public Imovel(String matricula, String endereco, LocalDate ultimaLeitura, LocalDate penultimaLeitura) {
+  public Imovel(String matricula, String endereco, int ultimaLeitura) {
     this.matricula = matricula;
     this.endereco = endereco;
-    UltimaLeitura = ultimaLeitura;
-    this.penultimaLeitura = penultimaLeitura;
+    this.ultimaLeitura = ultimaLeitura;
   }
 
   public String getMatricula() {
@@ -24,11 +21,11 @@ public class Imovel {
     return this.endereco;
   }
 
-  public LocalDate getUltimaLeitura() {
-    return this.UltimaLeitura;
+  public int getUltimaLeitura() {
+    return this.ultimaLeitura;
   }
 
-  public LocalDate getPenultimaLeitura() {
+  public int getPenultimaLeitura() {
     return this.penultimaLeitura;
   }
 
@@ -40,11 +37,12 @@ public class Imovel {
     this.endereco = endereco;
   }
 
-  public void setUltimaLeitura(LocalDate ultimaLeitura) {
-    UltimaLeitura = ultimaLeitura;
+  public void setUltimaLeitura(int novaLeitura) {
+    this.penultimaLeitura = this.ultimaLeitura;
+    this.ultimaLeitura = novaLeitura;
   }
 
-  public void setPenultimaLeitura(LocalDate penultimaLeitura) {
+  public void setPenultimaLeitura(int penultimaLeitura) {
     this.penultimaLeitura = penultimaLeitura;
   }
 
@@ -54,8 +52,8 @@ public class Imovel {
     int result = 1;
     result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
     result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-    result = prime * result + ((UltimaLeitura == null) ? 0 : UltimaLeitura.hashCode());
-    result = prime * result + ((penultimaLeitura == null) ? 0 : penultimaLeitura.hashCode());
+    result = prime * result + ultimaLeitura;
+    result = prime * result + penultimaLeitura;
     return result;
   }
 
@@ -78,24 +76,17 @@ public class Imovel {
         return false;
     } else if (!endereco.equals(other.endereco))
       return false;
-    if (UltimaLeitura == null) {
-      if (other.UltimaLeitura != null)
-        return false;
-    } else if (!UltimaLeitura.equals(other.UltimaLeitura))
+    if (ultimaLeitura != other.ultimaLeitura)
       return false;
-    if (penultimaLeitura == null) {
-      if (other.penultimaLeitura != null)
-        return false;
-    } else if (!penultimaLeitura.equals(other.penultimaLeitura))
+    if (penultimaLeitura != other.penultimaLeitura)
       return false;
     return true;
   }
 
   @Override
   public String toString() {
-    return "Imovel [matricula=" + matricula + ", endereco=" + endereco + ", UltimaLeitura=" + UltimaLeitura
-        + ", penultimaLeitura=" + penultimaLeitura + "]";
+
+    return "\n\tMatricula: " + matricula + "\n\tEndereco: " + endereco + "\n\tPenultimaLeitura: "
+        + penultimaLeitura + "\n\tUltimaLeitura: " + ultimaLeitura;
   }
-  
-  
 }

@@ -1,19 +1,33 @@
 package avaliacao.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Falha {
 
+  private static int proximoID = 1;
+  private int id;
+  private String matriculaImovel;
   private String descricao;
   private LocalDate previsaoConclusao;
   private LocalDate dataInicio;
   private LocalDate dataFim;
 
-  public Falha(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim) {
+  public Falha(String matriculaImovel, String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim) {
+    this.id = proximoID++;
+    this.matriculaImovel = matriculaImovel;
     this.descricao = descricao;
     this.previsaoConclusao = previsaoConclusao;
     this.dataInicio = dataInicio;
     this.dataFim = dataFim;
+  }
+
+  public int getId() {
+    return this.id;
+  }  
+
+  public String getMatriculaImovel() {
+    return this.matriculaImovel;
   }
 
   public String getDescricao() {
@@ -30,6 +44,10 @@ public class Falha {
 
   public LocalDate getDataFim() {
     return this.dataFim;
+  }
+
+  public void setMatriculaImovel(String matriculaImovel) {
+    this.matriculaImovel = matriculaImovel;
   }
 
   public void setDescricao(String descricao) {
@@ -68,6 +86,11 @@ public class Falha {
     if (getClass() != obj.getClass())
       return false;
     Falha other = (Falha) obj;
+    if (matriculaImovel == null) {
+      if (other.matriculaImovel != null)
+        return false;
+    } else if (!matriculaImovel.equals(other.matriculaImovel))
+      return false;
     if (descricao == null) {
       if (other.descricao != null)
         return false;
@@ -93,8 +116,24 @@ public class Falha {
 
   @Override
   public String toString() {
-    return "Falha [descricao=" + descricao + ", previsaoConclusao=" + previsaoConclusao + ", dataInicio=" + dataInicio
-        + ", dataFim=" + dataFim + "]";
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    StringBuilder sb = new StringBuilder();
+    // sb.append("Falha [");
+    sb.append("\n\tId=").append(id);
+
+    if (matriculaImovel != null) {
+        sb.append("\n\tMatricula do Imovel:").append(matriculaImovel);
+    } else {
+        sb.append("\n\tMatriculaImovel: não fornecida ");
+    }
+
+    sb.append("\n\tDescricao: ").append(descricao)
+      .append("\n\tPrevisao de Conclusao: ").append(previsaoConclusao != null ? previsaoConclusao.format(dateFormatter) : "não especificada")
+      .append("\n\tData Inicio: ").append(dataInicio.format(dateFormatter))
+      .append("\n\tData Fim: ").append(dataFim != null ? dataFim.format(dateFormatter) : "ainda aberta");
+
+    return sb.toString();
   }
 
 }

@@ -1,10 +1,9 @@
-package avaliacao;
-
-import avaliacao.utils.Utils;
+import entities.Calc;
 
 public class Main {
-
   public static void main(String[] args) throws Exception {
-    Utils.MainEnergiaCoelho();  
+    
+    Calc.limparTela();
+    Calc.executar();
   }
 }
