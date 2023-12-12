@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import exception.DivisaoPorZeroException;
 
-public class Calc {
+public class Calculadora {
 
     public static Scanner scan = new Scanner(System.in);
     double num1, num2;
@@ -31,7 +31,9 @@ public class Calc {
     }
 
     public static void executar() {
-
+        
+        limparTela();
+        System.out.println("\n\t====== Calculadora ======");
         System.out.print("\n\tDigite o primeiro número: ");
         double num1 = scan.nextDouble();
 
