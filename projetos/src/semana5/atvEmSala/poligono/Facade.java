@@ -24,7 +24,8 @@ public class Facade {
         sc.close();
     }
 
-    public static void limparTela() {
+    public static void limparTela() 
+    {
         try {
             final String os = System.getProperty("os.name");
 

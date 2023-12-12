@@ -9,22 +9,22 @@ public class Facade {
         limparTela();
         Scanner teclado = new Scanner(System.in);
 
-        System.out.print("Digite o número de pontos do polígono: ");
+        System.out.print("\n\tDigite o número de pontos do polígono: ");
         int n = teclado.nextInt();
 
         Poligono poli = new Poligono();
 
         for (int i = 0; i < n; i++) {
-
             Ponto p = Ponto.solicitaPonto(teclado);
             poli.inserePonto(p);
         }
 
-        System.out.println("O perímetro do polígono é: " + poli.perimetro());
+        System.out.println("\n\tO perímetro do polígono é: " + poli.perimetro());
         teclado.close();
     }
 
-    public static void limparTela() {
+    public static void limparTela() 
+    {
         try {
             final String os = System.getProperty("os.name");
 
@@ -39,5 +39,4 @@ public class Facade {
             e.printStackTrace();
         }
     }
-
 }

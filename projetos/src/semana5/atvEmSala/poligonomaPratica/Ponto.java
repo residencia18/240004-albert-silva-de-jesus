@@ -36,7 +36,7 @@ public class Ponto {
 	}
 	
 	static Ponto solicitaPonto(Scanner teclado) {
-		System.out.println("Digite as coordenadas do ponto: ");
+		System.out.println("\n\tDigite as coordenadas do ponto: ");
 		float x = teclado.nextFloat();
 		float y = teclado.nextFloat();
 		return new Ponto(x,y);
