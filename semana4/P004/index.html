@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="styleshet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-destinos">
+
+        <img class="imagem" src="./assets/imgs/salvador.jpg" alt="">
+
         <div class="roteiros-viagens">
             <img src="./assets/imgs/salvador.jpg" alt="postal de salvador">
             <div class="roteiro-destino">Salvador</div>
@@ -36,7 +39,6 @@
             <div class="roteiro-obs">Taxas Inclusas</div>
             <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
             <button class="roteiro-comprar">Comprar</button>
-
         </div>
         <div class="roteiros-viagens">
             <img src="./assets/imgs/campinas.jpg" alt="universidade de campinas">
@@ -50,11 +52,17 @@
             <div class="roteiro-obs">Taxas Inclusas</div>
             <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
             <button class="roteiro-comprar">Comprar</button>
-
         </div>
-        <a href="./form.html" id="addPacote">Cadastrar pacote</a>
+        <!-- Adicione o botão abaixo das imagens -->
     </div>
-
+    <button class="botao-abaixo-imagens" onclick="redirecionarParaPagina()">Cadastrar</button>
 </body>
+
+<script>
+    function redirecionarParaPagina() {
+        // Altere a URL dentro de window.location.href para a URL desejada
+        window.location.href = "./form.html";
+    }
+</script>
 
 </html>
