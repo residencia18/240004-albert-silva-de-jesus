@@ -63,6 +63,11 @@ ul {
 .noticias a {
   background-color: #9ab1bd;
   text-decoration: none;
+  margin-left: 25px;
+}
+
+.noticias-int li {
+  margin-bottom: 10px;
 }
 
 .noticias-int {
@@ -74,7 +79,6 @@ ul {
   background-color: rgb(5, 11, 95);
   border: 1px solid #0d0d0d;
   border-radius: 5px;
-  font-family: Arial, sans-serif;
   padding-inline: 5px;
 }
 
@@ -89,6 +93,13 @@ ul {
   overflow-x: auto;
   white-space: nowrap;
   max-height: 207px;
+}
+
+.link-text {
+  font-style: italic;
+  font-size: 15px;
+  color: rgb(13, 13, 232);
+  margin-bottom: 5px;
 }
 
 .destaque-int {
@@ -138,6 +149,10 @@ ul {
 
 .servicos-int {
   height: 200px;
+}
+
+#clima_info {
+  margin-left: 25px;
 }
 
 footer {
