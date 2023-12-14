@@ -16,7 +16,7 @@ public class Main {
         System.out.printf("\n\tInforme o cpf: ");
         String cpf = scan.nextLine();
 
-        Usuarios cliente = new Usuarios(nome, cpf);
+        Cliente cliente = new Cliente(nome, cpf);
 
         limparTela();
         System.out.println("\t=========CLIENTE=========");
