@@ -53,83 +53,120 @@
             <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
             <button class="roteiro-comprar">Comprar</button>
         </div>
-        <!-- Adicione o botão abaixo das imagens -->
+
+        <div class="container-salvos"></div>
+        <button class="botao-abaixo-imagens" onclick="redirecionarParaPagina()">Cadastrar</button>
     </div>
-    <button class="botao-abaixo-imagens" onclick="redirecionarParaPagina()">Cadastrar</button>
 </body>
 
 <script>
 
-
     document.querySelector('.roteiro-comprar').addEventListener('click', function (event) {
-        let destino = document.querySelector('.roteiro-destino')
-        let passagem = document.querySelector('.roteiro-passagem')
-        let dias = document.querySelector('.roteiro-dias')
-        let alimentacao = document.querySelector('.roteiro-alimentacao')
-        let preco = document.querySelector('.roteiro-preco')
-        let parcelas = document.querySelector('.roteiro-parcelamento')
+        let destino = document.querySelector('.roteiro-destino').innerText;
+        let passagem = document.querySelector('.roteiro-passagem').innerText;
+        let dias = document.querySelector('.roteiro-dias').innerText;
+        let alimentacao = document.querySelector('.roteiro-alimentacao').innerText;
+        let preco = document.querySelector('.roteiro-preco').innerText;
+        let parcelas = document.querySelector('.roteiro-parcelamento').innerText;
 
         let objeto = {
-            "destino: ": destino.innerHTML,
-            "passagem: ": passagem.innerHTML,
-            "dias: ": dias.innerHTML,
-            "alimentacao: ": alimentacao.innerHTML,
-            "preco: ": preco.innerHTML,
-            "parcelas: ": parcelas.innerHTML,
-        }
+            "destino": destino,
+            "passagem": passagem,
+            "dias": dias,
+            "alimentacao": alimentacao,
+            "preco": preco,
+            "parcelas": parcelas,
+            "urlImg": document.querySelector('.postal').src
+        };
 
-        var jsonObj = JSON.stringify(objeto);
-        console.log("Pacote desejado: ", jsonObj)
-
+        adicionarPacoteAoStorage(objeto);
+        adicionaPacoteDOM(objeto);
     });
 
-    function criarDivPacote() {
-        let listaPacotes = recebePacoteDoStorage()
-        console.log("listaPacotes: ", listaPacotes)
-
-        listaPacotes && listaPacotes.forEach((pacote) => {
-
-            adicionaPacoteDOM(pacote)
-        })
+    function adicionarPacoteAoStorage(pacote) {
+        let listaPacotes = recebePacoteDoStorage() || [];
+        listaPacotes.push(pacote);
+        localStorage.setItem("pacotes", JSON.stringify(listaPacotes));
     }
-    function adicionaPacoteDOM(pacote) {
-        console.log("pacote: ", pacote)
 
-        let container = document.querySelector('.container-destinos');
+    function criarDivPacote() {
+        let listaPacotes = recebePacoteDoStorage();
+        listaPacotes && listaPacotes.forEach((pacote) => {
+            adicionaPacoteDOM(pacote);
+        });
+    }
+
+    function atualizarPacotesSalvos() {
+        let listaPacotes = recebePacoteDoStorage();
+        let containerSalvos = document.querySelector('.container-salvos');
+        containerSalvos.innerHTML = "";
+
+        if (listaPacotes) {
+            listaPacotes.forEach(pacote => {
+                adicionaPacoteSalvoDOM(pacote);
+            });
+        }
+    }
+
+    function adicionaPacoteSalvoDOM(pacote) {
+        let containerSalvos = document.querySelector('.container-salvos');
         var pacoteItem = document.createElement('div');
 
-        pacoteItem.className = "roteiros-viagens"
+        pacoteItem.className = "roteiros-viagens";
 
+        pacoteItem.innerHTML = `
+        <img src="${pacote.urlImg}" class="postal">
+        <h2 class="roteiro-destino">${pacote.destino}</h2>
+        <ul class="roteiro-incluso">
+            <li class="roteiro-passagem">Áereo ${pacote.passagem}</li>
+            <li class="roteiro-dias">${pacote.dias} diarias</li>
+            <li class="roteiro-alimentacao">${pacote.alimentacao}</li>
+        </ul>
+        <p class="roteiro-preco">R$ ${pacote.preco}</p>
+        <p class="roteiro-obs">Taxas Inclusas</p>
+        <p class="roteiro-parcelamento">Em até ${pacote.parcelas}x sem Juros</p>
+        <button class="roteiro-comprar" onclick="comprarPacote('${pacote.destino}')">Comprar</button>
+        <button class="botao-excluir" onclick="excluirPacote('${pacote.destino}')">Excluir</button>
+    `;
 
-        pacoteItem.innerHTML = ` 
-                <img src= ${pacote.urlImg} class="postal">
-                <h2 class="roteiro-destino"> ${pacote.destino}</h2> 
-                <ul class="roteiro-incluso">
-                    <li class="roteiro-passagem">Áereo ${pacote.passagem}</li>
-                    <li class="roteiro-dias"> ${pacote.dias} diarias</li>
-                    <li class="roteiro-alimentacao"> ${pacote.alimentacao}</li>
-                </ul>
-                <p class="roteiro-preco">R$ ${pacote.preco}</p>
-                <p class="roteiro-obs">Taxas Inclusas</p>
-                <p class="roteiro-parcelamento">Em até ${pacote.parcelas}x sem Juros</p>
-                <button class="roteiro-comprar">Comprar</button>
-            `
+        containerSalvos.appendChild(pacoteItem);
+    }
 
-        container.appendChild(pacoteItem);
+    // Chame a função para atualizar os pacotes salvos quando a página carregar
+    window.addEventListener('load', function () {
+        atualizarPacotesSalvos();
+    });
+
+    function excluirPacote(destino) {
+        let listaPacotes = recebePacoteDoStorage();
+        let pacoteIndex = listaPacotes.findIndex(pacote => pacote.destino === destino);
+
+        if (pacoteIndex !== -1) {
+            listaPacotes.splice(pacoteIndex, 1);
+            localStorage.setItem("pacotes", JSON.stringify(listaPacotes));
+            atualizarPacotesNoDOM();
+        }
+    }
+
+    function atualizarPacotesNoDOM() {
+        let listaPacotes = recebePacoteDoStorage();
+        let container = document.querySelector('.container-destinos');
+        container.innerHTML = "";
+
+        if (listaPacotes) {
+            listaPacotes.forEach(pacote => {
+                adicionaPacoteDOM(pacote);
+            });
+        }
     }
 
     function recebePacoteDoStorage() {
-        if (localStorage.getItem("pacotes") != null) {
-            pacotesLocalStorage = JSON.parse(localStorage.getItem("pacotes"))
-            return pacotesLocalStorage
-        }
-        return null
+        return JSON.parse(localStorage.getItem("pacotes")) || [];
     }
 
     criarDivPacote()
 
     function redirecionarParaPagina() {
-        // Altere a URL dentro de window.location.href para a URL desejada
         window.location.href = "./form.html";
     }
 </script>
