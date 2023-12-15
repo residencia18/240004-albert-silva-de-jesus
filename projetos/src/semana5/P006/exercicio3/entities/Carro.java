@@ -1,7 +1,7 @@
-package semana5.P006.exercicio3;
+package semana5.P006.exercicio3.entities;
 
 public class Carro extends Veiculo {
-  
+
   public Carro() {
     super();
   }
