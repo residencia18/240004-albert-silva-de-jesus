@@ -3,7 +3,7 @@ package poligonos;
 import java.util.Scanner;
 
 public class Ponto {
-	
+
 	private float x, y, z;
 
 	public float getX() {
@@ -36,7 +36,7 @@ public class Ponto {
 		this.y = y;
 		this.z = z;
 	};
-	
+
 	public static Ponto solicitaPonto(Scanner sc) {
 		System.out.println("Digite as coordenadas do ponto");
 		float x = sc.nextFloat();
@@ -46,11 +46,11 @@ public class Ponto {
 	}
 
 	public void mostra() {
-		System.out.println("("+x+","+y+"+ "+z+")");
+		System.out.println("(" + x + "," + y + "+ " + z + ")");
 	}
 
 	public double distancia(Ponto p) {
-		return Math.sqrt( Math.pow(x-p.getX(), 2)+ Math.pow(y-p.getY(),2) + Math.pow(z-p.getZ(),2));
+		return Math.sqrt(Math.pow(x - p.getX(), 2) + Math.pow(y - p.getY(), 2) + Math.pow(z - p.getZ(), 2));
 	}
 
 }
