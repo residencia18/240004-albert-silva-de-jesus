@@ -10,7 +10,7 @@ import semana5.P006.exercicio1.entities.Calculator;
 
 public class Main {
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args){
     escolherOperacao();
   }
 
