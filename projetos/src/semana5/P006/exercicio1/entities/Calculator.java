@@ -92,10 +92,17 @@ public class Calculator {
 
   public static int multiplicar(ArrayList<Integer> numeros) {
 
-    int resultado = 1;
-    for (int numero : numeros) {
-      resultado = multiplicar(resultado, numero);
+    if (numeros.isEmpty()) {
+      throw new IllegalArgumentException("Lista de números vazia");
     }
+
+    int resultado = 1;
+
+    for (int i = 0; i < numeros.size(); i++) {
+      int fator = numeros.get(i);
+      resultado = multiplicar(resultado, fator);
+    }
+
     return resultado;
   }
 
@@ -116,10 +123,18 @@ public class Calculator {
     }
 
     int resultado = numeros.get(0);
-    for (int i = 1; i < numeros.size(); i++) {
-      resultado = dividir(resultado, numeros.get(i));
 
+    for (int i = 1; i < numeros.size(); i++) {
+      int denominador = numeros.get(i);
+
+      try {
+        resultado = dividir(resultado, denominador);
+
+      } catch (ArithmeticException e) {
+        System.out.println("\n\tErro ao dividir na posição " + i + " da lista: " + e.getMessage());
+      }
     }
+
     return resultado;
   }
 
@@ -131,7 +146,13 @@ public class Calculator {
 
     float resultado = numeros.get(0);
     for (int i = 1; i < numeros.size(); i++) {
-      resultado = dividir(resultado, numeros.get(i));
+
+      try {
+        resultado = dividir(resultado, numeros.get(i));
+
+      } catch (ArithmeticException e) {
+        System.out.println("\n\tErro ao dividir na posição " + i + " da lista: " + e.getMessage());
+      }
 
     }
     return resultado;
