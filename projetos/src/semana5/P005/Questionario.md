@@ -47,7 +47,7 @@
 
 5. **Quando é apropriado criar suas próprias exceções personalizadas em Java e como você pode fazer isso? Dê um exemplo de quando e por que você criaria uma exceção personalizada.**
   
-        É apropriado criar suas próprias exceções personalizadas em Java quando o programador deseja criar uma exceção que não existe na linguagem. Para fazer isso, o programador deve criar uma classe que herda da classe Exception. 
+      É apropriado criar suas próprias exceções personalizadas em Java quando o programador deseja criar uma exceção que não existe na linguagem. Para fazer isso, o programador deve criar uma classe que herda da classe Exception. 
   
         Exemplo:
   
@@ -59,6 +59,6 @@
         }
         ```
   
-        O programador criaria uma exceção personalizada para que o programa não seja encerrado de forma abrupta quando ocorrer um erro específico. Por exemplo, se o programador deseja que o programa não seja encerrado de forma abrupta quando o usuário digitar um número negativo, ele pode criar uma exceção personalizada para isso. 
+      O programador criaria uma exceção personalizada para que o programa não seja encerrado de forma abrupta quando ocorrer um erro específico. Por exemplo, se o programador deseja que o programa não seja encerrado de forma abrupta quando o usuário digitar um número negativo, ele pode criar uma exceção personalizada para isso. 
 
-Autor: [Albert Silva]
+Aluno: [Albert Silva]
