@@ -10,12 +10,11 @@ import semana5.P006.exercicio1.entities.Calculator;
 
 public class Main {
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
     escolherOperacao();
   }
 
-  public static void escolherOperacao() 
-  {
+  public static void escolherOperacao() {
 
     int opcao = 0;
     ArrayList<Integer> numeros = new ArrayList<Integer>();
@@ -53,8 +52,7 @@ public class Main {
     } while (opcao != 0);
   }
 
-  public static void operacoesComInteiros(ArrayList<Integer> numeros) 
-  {
+  public static void operacoesComInteiros(ArrayList<Integer> numeros) {
 
     int opcao = 0;
 
@@ -137,13 +135,12 @@ public class Main {
     } while (opcao != 0);
   }
 
-  public static void operacoesComFloats(ArrayList<Float> numeros) 
-  {
+  public static void operacoesComFloats(ArrayList<Float> numeros) {
 
     int opcao = 0;
 
     do {
-      
+
       limparTela();
       System.out.println("\n\t=== CALCULADORA ===");
       System.out.println("\t[1] - SOMAR");
@@ -223,8 +220,7 @@ public class Main {
 
   }
 
-  public static void limparTela() 
-  {
+  public static void limparTela() {
 
     try {
       final String os = System.getProperty("os.name");
@@ -241,8 +237,7 @@ public class Main {
     }
   }
 
-  public static void pausar(Scanner scan) 
-  {
+  public static void pausar(Scanner scan) {
     System.out.print("\n\tPressione ENTER para continuar...");
     scan.nextLine();
   }
