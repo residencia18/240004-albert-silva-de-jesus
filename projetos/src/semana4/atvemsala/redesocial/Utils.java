@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Utils {
 
+  public static Scanner scan = new Scanner(System.in);
   LocalDateTime agora = LocalDateTime.now();
   ListaUsuarios usuarios;
   private Usuario usuarioLogado;
@@ -36,7 +37,7 @@ public class Utils {
 
       if (opcao > 4 || opcao < 0) {
         System.out.println("\n\tOps, opção inválida");
-        pausar();
+        pausar(Utils.scan);
         limparTela();
       }
 
@@ -46,8 +47,8 @@ public class Utils {
   }
 
   public static int menuSessao() {
+    
     int opcao = 0;
-    Scanner scan = new Scanner(System.in);
 
     do {
 
@@ -69,7 +70,7 @@ public class Utils {
       } catch (InputMismatchException e) {
         System.out.println("\n\tOps, entrada inválida. Digite um número.");
         scan.nextLine(); // Limpar o buffer do scanner
-        pausar();
+        pausar(Utils.scan);
         limparTela();
         continue;
       }
@@ -77,7 +78,7 @@ public class Utils {
       if (opcao > 4 || opcao < 0) {
 
         System.out.println("\n\tOps, opção inválida");
-        pausar();
+        pausar(Utils.scan);
         limparTela();
       }
 
@@ -108,7 +109,7 @@ public class Utils {
 
         case 2:
           usuarios.listarUsuarios();
-          pausar();
+          pausar(Utils.scan);
           break;
 
         case 3:
@@ -157,13 +158,13 @@ public class Utils {
                 System.out.println("\n\tUsuário deslogado, " + sessaoAtual.getDataHoraFim().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
                 sessaoAtual = null;
                 usuarioLogado = null;
-                pausar();
+                pausar(Utils.scan);
                 limparTela(); 
                 break;
 
               default:
                 System.out.println("\n\tOps, opção inválida");
-                pausar();
+                pausar(Utils.scan);
                 break;
             }
           } while (opcaoSessao != 0);
@@ -175,7 +176,7 @@ public class Utils {
 
         default:
           System.out.println("\n\tOps, opção inválida");
-          pausar();
+          pausar(Utils.scan);
           break;
 
       }
@@ -199,7 +200,6 @@ public class Utils {
 
   public static String validarNomeUsuario() {
 
-    Scanner scan = new Scanner(System.in);
     String nome = "";
 
     while (true) {
@@ -213,7 +213,7 @@ public class Utils {
                  // alfanumérico
         } else {
           System.out.println("\n\tOps, o nome de usuário deve ter 3 ou mais caracteres e ser alfanumérico.");
-          pausar();
+          pausar(Utils.scan);
           limparTela();
 
         }
@@ -234,7 +234,6 @@ public class Utils {
 
   public static String validarEmail() {
 
-    Scanner scan = new Scanner(System.in);
     String email = "";
 
     while (true) {
@@ -247,7 +246,7 @@ public class Utils {
           break;
         } else {
           System.out.println("\n\tOps, o e-mail deve ter 3 ou mais caracteres e ser válido.");
-          pausar();
+          pausar(Utils.scan);
           limparTela();
 
         }
@@ -267,7 +266,7 @@ public class Utils {
   }
 
   public static String validarSenha() {
-    Scanner scan = new Scanner(System.in);
+   
     String senha = "";
 
     while (true) {
@@ -280,7 +279,7 @@ public class Utils {
           break;
         } else {
           System.out.println("\n\tOps, a senha deve ter 3 ou mais caracteres e ser alfanumérica.");
-          pausar();
+          pausar(Utils.scan);
           limparTela();
 
         }
@@ -315,8 +314,7 @@ public class Utils {
     }
   }
 
-  public static void pausar() {
-    Scanner scan = new Scanner(System.in);
+  public static void pausar(Scanner scan) {
     System.out.print("\n\tPressione ENTER para continuar...");
     scan.nextLine();
   }

@@ -1,19 +1,12 @@
 package semana4.estudo.produto;
 
-import java.util.Scanner;
-
 public class Main {
 
   public static void main(String[] args) throws Exception {
-
-    Scanner sc = new Scanner(System.in);
-
-    crudProduto(sc);
-
-    sc.close();
+    crudProduto();
   }
 
-  public static void crudProduto(Scanner scan) {
+  public static void crudProduto() {
 
     int opcao = 0;
     Produto produto = new Produto();
@@ -21,31 +14,31 @@ public class Main {
 
     do {
 
-      opcao = Utils.menu(scan);
+      opcao = Utils.menu(Utils.scan);
 
       switch (opcao) {
         case 1:
-          produto.cadastrar(scan);
+          produto.cadastrar();
           produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 2:
           produto.listar();
-          Utils.pausar(scan);
+          Utils.pausar(Utils.scan);
           break;
 
         case 3:
-          produto.editar(scan);
+          produto.editar();
           produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 4:
-          produto.excluir(scan);
+          produto.excluir();
           produto.salvarEmArquivo("projetos/src/semana4/estudo/produto/bancodedados/produtos.txt");
           break;
 
         case 5:
-          produto.pesquisarProduto(scan);
+          produto.pesquisarProduto();
           break;
 
         case 0:

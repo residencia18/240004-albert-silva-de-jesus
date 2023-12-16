@@ -6,7 +6,7 @@ public class Usuarios {
 
     private String nome;
     private String cpf;
-    private ArrayList<Usuarios> usuarios;  // Change the ArrayList type to Usuario
+    private ArrayList<Usuarios> usuarios; // Change the ArrayList type to Usuario
 
     public Usuarios() {
         usuarios = new ArrayList<>();

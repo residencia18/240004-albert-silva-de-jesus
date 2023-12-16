@@ -3,13 +3,12 @@ package semana4.estudo.produto;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Utils {
 
+  public static Scanner scan = new Scanner(System.in);
   LocalDateTime agora = LocalDateTime.now();
 
   public static int menu(Scanner scan) {

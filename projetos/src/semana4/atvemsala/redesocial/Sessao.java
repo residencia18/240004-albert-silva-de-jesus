@@ -1,9 +1,7 @@
 package semana4.atvemsala.redesocial;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Sessao {
 
@@ -19,7 +17,13 @@ public class Sessao {
   }
 
   public LocalDateTime getDataHoraFim() {
-    return LocalDateTime.now();
+
+    // Maneira de fazer a mesma coisa, porem tira o warning
+    dataHoraFim = LocalDateTime.now();
+    return dataHoraFim;
+
+    //Maneira alternativa de fazer a mesma coisa
+    // return LocalDateTime.now();
   }
 
   public void setDataHoraFim() {
@@ -28,16 +32,14 @@ public class Sessao {
 
   public static Usuario login(ListaUsuarios usuarios) {
 
-    Scanner scan = new Scanner(System.in);
-
     Utils.limparTela();
     System.out.println("\n\t========== LOGIN ==========");
 
     System.out.print("\tEmail: ");
-    String email = scan.nextLine();
+    String email = Utils.scan.nextLine();
 
     System.out.print("\n\tSenha: ");
-    String senha = scan.nextLine();
+    String senha = Utils.scan.nextLine();
     System.out.println("\t===========================");
 
     for (Usuario usuario : usuarios.getUsuarios()) {
@@ -46,20 +48,18 @@ public class Sessao {
       }
     }
     System.out.println("\n\tOps, usuário não encontrado, ou senha incorreta!");
-    Utils.pausar();
+    Utils.pausar(Utils.scan);
     Utils.limparTela();
     return null;
   }
 
   public void criarAmizade(ListaUsuarios usuarios) {
 
-    Scanner scan = new Scanner(System.in);
-
     Utils.limparTela();
     System.out.println("\n\t========== CRIAR AMIZADE ==========");
 
     System.out.print("\n\tInforme o e-mail do usuário: ");
-    String emailAmigo = scan.nextLine();
+    String emailAmigo = Utils.scan.nextLine();
 
     for (Usuario usuario : usuarios.getUsuarios()) {
 
@@ -69,13 +69,13 @@ public class Sessao {
         usuario.adicionarAmigo("\tID: " + idAmigo + "\tEmail: " + emailAmigo);
         listarAmigos(usuario.getAmigos());
         System.out.println("\n\tOps, amizade criada com sucesso!");
-        Utils.pausar();
+        Utils.pausar(Utils.scan);
         Utils.limparTela();
         return;
       }
     }
     System.out.println("\n\tOps, usuário não encontrado!");
-    Utils.pausar();
+    Utils.pausar(Utils.scan);
     Utils.limparTela();
   }
 
