@@ -6,8 +6,8 @@ public class Moto extends Veiculo {
     super();
   }
 
-  public Moto(String modelo, String cor, int ano) {
-    super(modelo, cor, ano);
+  public Moto(String modelo, String cor, int ano, boolean isEletrico) {
+    super(modelo, cor, ano, isEletrico);
   }
 
   @Override
