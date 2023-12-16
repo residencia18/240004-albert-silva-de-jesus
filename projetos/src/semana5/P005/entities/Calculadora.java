@@ -1,8 +1,8 @@
-package entities;
+package semana5.P005.entities;
 
 import java.util.Scanner;
 
-import exception.DivisionByZeroException;
+import semana5.P005.exception.DivisionByZeroException;
 
 public class Calculadora {
 
@@ -132,5 +132,4 @@ public class Calculadora {
       e.printStackTrace();
     }
   }
-
 }
