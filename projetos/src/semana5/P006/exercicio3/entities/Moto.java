@@ -1,7 +1,7 @@
 package semana5.P006.exercicio3.entities;
 
 public class Moto extends Veiculo {
-  
+
   public Moto() {
     super();
   }
@@ -12,16 +12,16 @@ public class Moto extends Veiculo {
 
   @Override
   public void acelerar() {
-    System.out.println("Moto acelerando");
+    System.out.println("\tMoto acelerando");
   }
 
   @Override
   public void ligar() {
-    System.out.println("Moto ligada");
+    System.out.println("\tMoto ligada");
   }
 
   @Override
   public void parar() {
-    System.out.println("Moto parada");
+    System.out.println("\tMoto parada");
   }
 }

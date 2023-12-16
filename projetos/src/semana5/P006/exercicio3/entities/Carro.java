@@ -12,17 +12,17 @@ public class Carro extends Veiculo {
 
   @Override
   public void acelerar() {
-    System.out.println("Carro acelerando");
+    System.out.println("\tCarro acelerando");
   }
 
   @Override
   public void ligar() {
-    System.out.println("Carro ligado");
+    System.out.println("\tCarro ligado");
   }
 
   @Override
   public void parar() {
-    System.out.println("Carro parado");
+    System.out.println("\tCarro parado");
   }
 
 }

@@ -19,15 +19,15 @@ public class Veiculo {
   }
 
   public void acelerar() {
-    System.out.println("Veículo acelerando");
+    System.out.println("\tVeículo acelerando");
   }
 
   public void ligar() {
-    System.out.println("Veículo ligado");
+    System.out.println("\tVeículo ligado");
   }
 
   public void parar() {
-    System.out.println("Veículo parado");
+    System.out.println("\tVeículo parado");
   }
 
   public String getModelo() {
@@ -54,4 +54,8 @@ public class Veiculo {
     this.ano = ano;
   }
 
+  @Override
+  public String toString() {
+    return "\tVeiculo:\n\tModelo: " + modelo + "\n\tCor: " + cor + "\n\tAno: " + ano;
+  }
 }
