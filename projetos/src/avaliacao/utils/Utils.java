@@ -87,7 +87,6 @@ public class Utils {
     return opcao;
   }
 
-
   private static int dispMenuClientes() {
 
     int opcao = -1;
@@ -165,7 +164,6 @@ public class Utils {
       }
     } while (opcao != 0);
   }
-
 
   public static int dispMenuImoveis() {
 
@@ -245,7 +243,6 @@ public class Utils {
     } while (opcao != 0);
   }
 
-
   private static int dispMenuFaturas() {
 
     int opcao = -1;
@@ -315,7 +312,6 @@ public class Utils {
       }
     } while (opcao != 0);
   }
-
 
   private static int dispMenuPagamentos() {
 
@@ -434,7 +430,6 @@ public class Utils {
     return opcao;
   }
 
-
   public static int dispMenuTipoFalhas(){
     int opcao = -1;
 
@@ -470,7 +465,6 @@ public class Utils {
     return opcao;
   }
   
-
   public static void menuTipoFalhas(){
     int opcao = -1;
     do {
@@ -533,7 +527,6 @@ public class Utils {
     return opcao;
   }
 
-
   public static void menuReparos(){
     int opcao = -1;
     do{
@@ -555,7 +548,6 @@ public class Utils {
       }
     } while (opcao != 0);
   }
-
 
   public static void menuFalhas(){
     int opcao = -1;

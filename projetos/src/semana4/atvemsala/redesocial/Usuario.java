@@ -103,7 +103,7 @@ public class Usuario implements Serializable {
     Sessao sessao = new Sessao();
     listaSessoes.adicionarSessao(sessao);
     System.out.println("\n\tUsuário logado com sucesso, na " + sessao.getDataHoraInicio().format(DateTimeFormatter.ofPattern("EEEE, dd/MM/yyyy HH:mm:ss")));
-    Utils.pausar();
+    Utils.pausar(Utils.scan);
     return sessao;
   }
 

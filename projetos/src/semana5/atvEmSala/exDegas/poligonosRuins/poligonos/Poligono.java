@@ -37,4 +37,7 @@ public class Poligono {
 		return per;
 	}
 
+  public void inserePonto(Ponto p) {
+  }
+
 }

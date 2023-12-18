@@ -1,24 +1,22 @@
 package semana4.estudo.produto;
 
-import java.util.Scanner;
-
 public class Validation {
 
-  public static String validarNome(Scanner scan) {
+  public static String validarNome() {
 
     String nome = "";
 
     while (true) {
 
       System.out.print("\n\tInforme o nome do Produto: ");
-      nome = scan.nextLine();
+      nome = Utils.scan.nextLine();
 
       if (nome.length() >= 3) {
         break; // Sai do loop se o nome tiver 3 ou mais caracteres
 
       } else {
         System.out.println("\n\tOps, o nome do produto deve ter 3 ou mais caracteres.");
-        Utils.pausar(scan);
+        Utils.pausar(Utils.scan);
         Utils.limparTela();
       }
     }
@@ -26,13 +24,13 @@ public class Validation {
     return nome;
   }
 
-  public static double validarNumero(Scanner scan) {
+  public static double validarNumero() {
     double preco = 0;
 
     while (true) {
 
       System.out.print("\n\tInforme o preço do Produto: ");
-      String precoStr = scan.nextLine();
+      String precoStr = Utils.scan.nextLine();
 
       try {
         preco = Double.parseDouble(precoStr);
@@ -42,12 +40,12 @@ public class Validation {
 
         } else {
           System.out.println("\n\tOps, preço do produto deve ser maior que zero.");
-          Utils.pausar(scan);
+          Utils.pausar(Utils.scan);
           Utils.limparTela();
         }
       } catch (NumberFormatException e) {
         System.out.println("\n\tOps, entrada inválida! O preço deve ser um número.");
-        Utils.pausar(scan);
+        Utils.pausar(Utils.scan);
         Utils.limparTela(); 
       }
     }
@@ -55,14 +53,14 @@ public class Validation {
     return preco;
   }
 
-  public static int validarQuantidade(Scanner scan) {
+  public static int validarQuantidade() {
 
     int quantidade = 0;
 
     while (true) {
 
       System.out.print("\n\tInforme a quantidade do Produto: ");
-      String quantidadeStr = scan.nextLine();
+      String quantidadeStr = Utils.scan.nextLine();
 
       try {
 
@@ -73,12 +71,12 @@ public class Validation {
 
         } else {
           System.out.println("\n\tOps, a quantidade do produto deve ser maior que zero.");
-          Utils.pausar(scan);
+          Utils.pausar(Utils.scan);
           Utils.limparTela();
         }
       } catch (NumberFormatException e) {
         System.out.println("\n\tOps, entrada inválida! A quantidade deve ser um número inteiro.");
-        Utils.pausar(scan);
+        Utils.pausar(Utils.scan);
         Utils.limparTela();
       }
     }
