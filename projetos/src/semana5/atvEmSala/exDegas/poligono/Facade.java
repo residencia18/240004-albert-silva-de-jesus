@@ -1,4 +1,4 @@
-package semana5.atvEmSala.poligono;
+package semana5.atvEmSala.exDegas.poligono;
 
 import java.util.Scanner;
 
