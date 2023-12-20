@@ -7,6 +7,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { DestaqueComponent } from './destaque/destaque.component';
 import { ServicoComponent } from './servico/servico.component';
 import { ResultadoComponent } from './resultado/resultado.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ResultadoComponent } from './resultado/resultado.component';
     NoticiasComponent,
     DestaqueComponent,
     ServicoComponent,
-    ResultadoComponent
+    ResultadoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
