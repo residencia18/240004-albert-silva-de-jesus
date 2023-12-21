@@ -8,6 +8,7 @@ import { DestaqueComponent } from './destaque/destaque.component';
 import { ServicoComponent } from './servico/servico.component';
 import { ResultadoComponent } from './resultado/resultado.component';
 import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MenuComponent } from './menu/menu.component';
     DestaqueComponent,
     ServicoComponent,
     ResultadoComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
