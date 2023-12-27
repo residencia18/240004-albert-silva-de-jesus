@@ -3,37 +3,37 @@ package semana6.atvEmSala.P005.entities;
 public class Cobrador {
 
   private String nome;
-  private String cpf;
+  private String matricula;
 
   public Cobrador() {
   }
 
-  public Cobrador(String nome, String cpf) {
+  public Cobrador(String nome, String matricula) {
     this.nome = nome;
-    this.cpf = cpf;
+    this.matricula = matricula;
   }
 
   public String getNome() {
     return this.nome;
   }
 
-  public String getCpf() {
-    return this.cpf;
+  public String getmatricula() {
+    return this.matricula;
   }
 
   public void setNome(String nome) {
     this.nome = nome;
   }
 
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
+  public void setmatricula(String matricula) {
+    this.matricula = matricula;
   }
 
   @Override
   public String toString() {
     return "{" +
         " nome='" + getNome() + "'" +
-        ", cpf='" + getCpf() + "'" +
+        ", matricula='" + getmatricula() + "'" +
         "}";
   }
 
