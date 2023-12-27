@@ -1,4 +1,4 @@
-package semana6.atvEmSala.P005.Repositories;
+package semana6.atvEmSala.P005.repositories;
 
 public interface MotoristaRepository {
   
