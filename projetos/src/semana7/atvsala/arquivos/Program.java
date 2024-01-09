@@ -14,12 +14,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import semana7.atvsala.arquivos.entities.Arquivo;
+
 public class Program {
 
     public static void main(String[] args) {
 
         limparTela();
         Scanner sc = new Scanner(System.in);
+        Arquivo arquivo = new Arquivo();
 
         System.out.print("Digite o nome do arquivo: ");
         String nomeArquivo = sc.nextLine();
