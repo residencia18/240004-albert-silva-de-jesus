@@ -7,6 +7,8 @@
 */
 package semana7.atvsala.arquivos.entities;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +22,11 @@ public class Arquivo {
     private String conteudo;
 
     public Arquivo() {
+    }
+
+    public Arquivo(String nome, String caminho) {
+        this.nome = nome;
+        this.caminho = caminho;
     }
 
     public Arquivo(String nome, String caminho, String conteudo) {
@@ -69,15 +76,15 @@ public class Arquivo {
             // Loop para receber linhas de texto até que uma linha vazia seja inserida
             while (true) {
                 System.out.print("Digite uma linha de texto (ou pressione Enter para sair): ");
-                String linha = sc.nextLine();
+                conteudo = sc.nextLine();
 
                 // Verifica se a linha está vazia
-                if (linha.isEmpty()) {
+                if (conteudo.isEmpty()) {
                     break;
                 }
 
                 // Escreve a linha no arquivo
-                writer.println(linha);
+                writer.println(conteudo);
             }
 
             System.out.println("Arquivo '" + nomeArquivo + "' criado com sucesso!");
@@ -88,6 +95,26 @@ public class Arquivo {
             System.err.println("Erro ao criar o arquivo: " + e.getMessage());
         } finally {
             sc.close();
+        }
+    }
+
+    public void lerArquivo(String nomeArquivo) {
+
+        try {
+            // Abre o arquivo em modo de leitura
+            BufferedReader reader = new BufferedReader(new FileReader(concatenarCaminhoNome()));
+
+            // Lê e imprime cada linha do arquivo
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                System.out.println(linha);
+            }
+
+            // Fecha o leitor
+            reader.close();
+
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         }
     }
 }

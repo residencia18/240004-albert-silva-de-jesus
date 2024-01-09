@@ -7,11 +7,6 @@
 */
 package semana7.atvsala.arquivos;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 import semana7.atvsala.arquivos.entities.Arquivo;
@@ -22,60 +17,21 @@ public class Program {
 
         limparTela();
         Scanner sc = new Scanner(System.in);
-        Arquivo arquivo = new Arquivo();
 
         System.out.print("Digite o nome do arquivo: ");
         String nomeArquivo = sc.nextLine();
         String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/bancodedados/";
-        String nomeArquivoConcatenado = caminhoArquivo.concat(nomeArquivo);
+        String conteudo = null;
+        // String nomeArquivoConcatenado = caminhoArquivo.concat(nomeArquivo);
 
         // Forma simples de concatenar strings.
         // String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/" + nomeArquivo;
 
-        try {
-            // Abre o arquivo em modo de escrita
-            PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivoConcatenado));
+        Arquivo arquivo = new Arquivo(nomeArquivo, caminhoArquivo);
+        arquivo.salvarEmArquivo(nomeArquivo, conteudo);
+        arquivo.lerArquivo(nomeArquivo);
 
-            // Loop para receber linhas de texto até que uma linha vazia seja inserida
-            while (true) {
-                System.out.print("Digite uma linha de texto (ou pressione Enter para sair): ");
-                String linha = sc.nextLine();
-
-                // Verifica se a linha está vazia
-                if (linha.isEmpty()) {
-                    break;
-                }
-
-                // Escreve a linha no arquivo
-                writer.println(linha);
-            }
-
-            System.out.println("Arquivo '" + nomeArquivo + "' criado com sucesso!");
-
-            writer.close();
-
-        } catch (IOException e) {
-            System.err.println("Erro ao criar o arquivo: " + e.getMessage());
-        } finally {
-            sc.close();
-        }
-
-        try {
-            // Abre o arquivo em modo de leitura
-            BufferedReader reader = new BufferedReader(new FileReader(nomeArquivoConcatenado));
-
-            // Lê e imprime cada linha do arquivo
-            String linha;
-            while ((linha = reader.readLine()) != null) {
-                System.out.println(linha);
-            }
-
-            // Fecha o leitor
-            reader.close();
-
-        } catch (IOException e) {
-            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-        }
+        sc.close();
     }
 
     public static void limparTela() {
