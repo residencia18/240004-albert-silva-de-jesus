@@ -7,6 +7,8 @@
 */
 package semana7.atvsala.arquivos;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,8 +26,9 @@ public class Program {
         String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/bancodedados/";
         String nomeArquivoConcatenado = caminhoArquivo.concat(nomeArquivo);
 
-        //Forma simples de concatenar strings.
-        // String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/" + nomeArquivo;
+        // Forma simples de concatenar strings.
+        // String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/" +
+        // nomeArquivo;
 
         try {
             // Abre o arquivo em modo de escrita
@@ -54,9 +57,27 @@ public class Program {
         } finally {
             sc.close();
         }
+
+        try {
+            // Abre o arquivo em modo de leitura
+            BufferedReader reader = new BufferedReader(new FileReader(nomeArquivoConcatenado));
+
+            // Lê e imprime cada linha do arquivo
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                System.out.println(linha);
+            }
+
+            // Fecha o leitor
+            reader.close();
+
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
     }
 
     public static void limparTela() {
+
         try {
             final String os = System.getProperty("os.name");
 
