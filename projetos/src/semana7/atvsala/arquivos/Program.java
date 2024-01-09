@@ -27,8 +27,7 @@ public class Program {
         String nomeArquivoConcatenado = caminhoArquivo.concat(nomeArquivo);
 
         // Forma simples de concatenar strings.
-        // String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/" +
-        // nomeArquivo;
+        // String caminhoArquivo = "projetos/src/semana7/atvsala/arquivos/" + nomeArquivo;
 
         try {
             // Abre o arquivo em modo de escrita
