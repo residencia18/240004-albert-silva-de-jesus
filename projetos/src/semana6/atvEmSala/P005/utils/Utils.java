@@ -61,7 +61,12 @@ public class Utils {
       System.out.print("\n\t[2] - GESTÃO MOTORISTAS");
       System.out.print("\n\t[3] - GESTÃO COBRADORES");
       System.out.print("\n\t[4] - GESTÃO PASSAGEIROS");
-      System.out.print("\n\t[5] - GESTÃO TRAJETOS");
+      System.out.print("\n\t[5] - GESTÃO DE PONTO DE PARADA");
+      System.out.print("\n\t[6] - GESTÃO TRAJETOS");
+      System.out.print("\n\t[7] - REGISTRO DE JORNADA");
+      System.out.print("\n\t[8] - REGISTRO DE INICIO DE TRAJETO");
+      System.out.print("\n\t[9] - REGISTRO DE PASSAGEIROS COM CARTÃO");
+      System.out.print("\n\t[10] - REGISTRO DE CHECKPOINT");
       System.out.print("\n\t[0] - SAIR");
       System.out.print("\n\tENTRADA -> ");
 
@@ -138,13 +143,13 @@ public class Utils {
           CobradorService.listarCobradores();
           break;
         case 3:
-      
+
           break;
         case 4:
-         
+
           break;
         case 5:
-          
+
           break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");

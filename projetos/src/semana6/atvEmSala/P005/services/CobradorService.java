@@ -3,8 +3,8 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.Repositories.CobradorRepository;
 import semana6.atvEmSala.P005.entities.Cobrador;
+import semana6.atvEmSala.P005.repositories.CobradorRepository;
 import semana6.atvEmSala.P005.utils.Utils;
 
 public class CobradorService implements CobradorRepository {
