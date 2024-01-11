@@ -3,8 +3,8 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import semana6.atvEmSala.P005.Repositories.CobradorRepository;
 import semana6.atvEmSala.P005.entities.Cobrador;
-import semana6.atvEmSala.P005.repositories.CobradorRepository;
 import semana6.atvEmSala.P005.utils.Utils;
 
 public class CobradorService implements CobradorRepository {
@@ -15,7 +15,6 @@ public class CobradorService implements CobradorRepository {
     cobradores.add(cobrador);
   }
 
-  
   public static void cadastrarCobrador() {
 
     System.out.println("\n\t===== CADASTRO DE COBRADOR =====");
@@ -34,7 +33,7 @@ public class CobradorService implements CobradorRepository {
     System.out.println("\n\t===== LISTA DE COBRADORES =====");
 
     for (Cobrador cobrador : cobradores) {
-      System.out.println("\n\tNome: " + cobrador.getNome() + "\n\tMatricula: " + cobrador.getmatricula());
+      System.out.println(cobrador.toString());
     }
     Utils.pausar(Utils.scan);
   }

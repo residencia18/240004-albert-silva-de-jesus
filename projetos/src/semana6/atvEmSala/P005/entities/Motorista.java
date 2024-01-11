@@ -31,6 +31,6 @@ public class Motorista {
 
   @Override
   public String toString() {
-    return "Motoristas [cnh=" + cnh + ", nome=" + nome + "]";
+    return ("\tNome: " + this.nome + "\n\tCNH: " + this.cnh);
   }
 }

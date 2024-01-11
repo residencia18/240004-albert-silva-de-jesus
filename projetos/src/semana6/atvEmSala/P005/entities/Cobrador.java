@@ -31,10 +31,7 @@ public class Cobrador {
 
   @Override
   public String toString() {
-    return "{" +
-        " nome='" + getNome() + "'" +
-        ", matricula='" + getmatricula() + "'" +
-        "}";
+    return ("\tNome: " + getNome() + "\n\tMatricula: " + getmatricula());
   }
 
 }
