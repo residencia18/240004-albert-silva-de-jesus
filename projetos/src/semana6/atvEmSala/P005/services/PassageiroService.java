@@ -18,7 +18,6 @@ public class PassageiroService implements PassageiroRepository {
   public static void cadastrarPassageiro() {
 
     int tipoCartao = 0;
-    int opcaoEmbarque = 0;
 
     System.out.println("\n\t===== CADASTRO DE PASSAGEIRO =====");
 
@@ -28,8 +27,7 @@ public class PassageiroService implements PassageiroRepository {
     System.out.print("\tCPF do Passageiro: ");
     String cpf = Utils.scan.nextLine();
 
-    passageiros
-        .add(new Passageiro(nome, cpf, tipoCartaoPassageiro(tipoCartao), localDeEmbarquePassageiro(opcaoEmbarque)));
+    passageiros.add(new Passageiro(nome, cpf, tipoCartaoPassageiro(tipoCartao)));
 
     System.out.println("\n\tPassageiro cadastrado com sucesso!");
     Utils.pausar(Utils.scan);
@@ -41,6 +39,7 @@ public class PassageiroService implements PassageiroRepository {
 
     for (Passageiro passageiro : passageiros) {
       System.out.println(passageiro.toString());
+      System.out.println("\t============================");
     }
     Utils.pausar(Utils.scan);
   }
@@ -50,6 +49,7 @@ public class PassageiroService implements PassageiroRepository {
     String tipoCartao = "";
     opcao = opcaoCartaoPassageiro();
 
+    Utils.limparTela(); 
     switch (opcao) {
       case 1:
         tipoCartao = "Estudante";
@@ -63,32 +63,6 @@ public class PassageiroService implements PassageiroRepository {
     }
 
     return tipoCartao;
-  }
-
-  public static String localDeEmbarquePassageiro(int opcao) {
-
-    String pontoEmbarque = "";
-    opcao = localEmbarquePassageiro();
-
-    switch (opcao) {
-      case 1:
-        pontoEmbarque = "Ponto A";
-        break;
-      case 2:
-        pontoEmbarque = "Ponto B";
-        break;
-      case 3:
-        pontoEmbarque = "Ponto C";
-        break;
-      case 4:
-        pontoEmbarque = "Ponto D";
-        break;
-      case 5:
-        pontoEmbarque = "Ponto E";
-        break;
-    }
-
-    return pontoEmbarque;
   }
 
   public static int opcaoCartaoPassageiro() {
@@ -123,40 +97,6 @@ public class PassageiroService implements PassageiroRepository {
     } while (!opcaoValida);
 
     return tipoCartao;
-  }
-
-  public static int localEmbarquePassageiro() {
-
-    boolean opcaoValida = false;
-    int opcaoEmbarque = 0;
-
-    do {
-
-      try {
-        System.out.println("\n\tPonto de Embarque: ");
-        System.out.println("\t1 - Ponto A");
-        System.out.println("\t2 - Ponto B");
-        System.out.println("\t3 - Ponto C");
-        System.out.println("\t4 - Ponto D");
-        System.out.println("\t5 - Ponto E");
-        System.out.print("\tOpção: ");
-
-        opcaoEmbarque = Integer.parseInt(Utils.scan.nextLine());
-
-        if (opcaoEmbarque >= 1 && opcaoEmbarque <= 5) {
-          opcaoValida = true;
-        } else {
-          Utils.limparTela();
-          System.out.println("\n\tOpção inválida. Digite um número entre 1 e 5.");
-        }
-
-      } catch (NumberFormatException e) {
-        Utils.limparTela();
-        System.out.println("\n\tPor favor, digite um número válido.");
-      }
-    } while (!opcaoValida);
-
-    return opcaoEmbarque;
   }
 
 }

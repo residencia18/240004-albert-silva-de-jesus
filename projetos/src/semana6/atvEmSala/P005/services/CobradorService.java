@@ -9,7 +9,7 @@ import semana6.atvEmSala.P005.utils.Utils;
 
 public class CobradorService implements CobradorRepository {
 
-  private static List<Cobrador> cobradores = new ArrayList<>();
+  public static List<Cobrador> cobradores = new ArrayList<>();
 
   public void adcionar(Cobrador cobrador) {
     cobradores.add(cobrador);
@@ -37,6 +37,7 @@ public class CobradorService implements CobradorRepository {
 
     for (Cobrador cobrador : cobradores) {
       System.out.println(cobrador.toString());
+      System.out.println("\t============================");
     }
     Utils.pausar(Utils.scan);
   }

@@ -10,6 +10,12 @@ public class Passageiro {
   public Passageiro() {
   }
 
+  public Passageiro(String nome, String cpf, String tipoCartao) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.tipoCartao = tipoCartao;
+  }
+
   public Passageiro(String nome, String cpf, String tipoCartao, String pontoEmbarque) {
     this.nome = nome;
     this.cpf = cpf;

@@ -37,6 +37,7 @@ public class MotoristaService implements MotoristaRepository {
 
     for (Motorista motorista : motoristas) {
       System.out.println(motorista.toString());
+      System.out.println("\t============================");
     }
     Utils.pausar(Utils.scan);
   }

@@ -10,6 +10,8 @@ import java.util.Scanner;
 import semana6.atvEmSala.P005.services.CobradorService;
 import semana6.atvEmSala.P005.services.MotoristaService;
 import semana6.atvEmSala.P005.services.PassageiroService;
+import semana6.atvEmSala.P005.services.PontoDeParadaService;
+import semana6.atvEmSala.P005.services.TrajetoService;
 import semana6.atvEmSala.P005.services.VeiculoService;
 
 public class Utils {
@@ -39,19 +41,37 @@ public class Utils {
           menuPassageiros();
           break;
         case 5:
-          // menuTrajetos();
+          menuPontosDeParada();
+          break;
+        case 6:
+          menuTrajetos();
+          break;
+        case 7:
+          // menuRegistroDeJornada();
+          break;
+        case 8:
+          // menuRegistroDeInicioDeTrajeto();
+          break;
+        case 9:
+          // menuRegistroDePassageirosComCartao();
+          break;
+        case 10:
+          // menuRegistroDeCheckpoint();
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar a nossa Energia Coelho, Saindo!...");
           System.exit(0);
           break;
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+          Utils.pausar(scan);
       }
 
     } while (opcao != 0);
 
   }
 
-  public static int dispMain() {
+  private static int dispMain() {
 
     int opcao = -1;
 
@@ -130,7 +150,7 @@ public class Utils {
     return opcao;
   }
 
-  public static void menuCobrador() {
+  private static void menuCobrador() {
 
     int opcao = -1;
 
@@ -200,7 +220,7 @@ public class Utils {
     return opcao;
   }
 
-  public static void menuMotoristas() {
+  private static void menuMotoristas() {
 
     int opcao = -1;
 
@@ -270,7 +290,7 @@ public class Utils {
     return opcao;
   }
 
-  public static void menuVeiculos() {
+  private static void menuVeiculos() {
 
     int opcao = -1;
 
@@ -340,7 +360,7 @@ public class Utils {
     return opcao;
   }
 
-  public static void menuPassageiros() {
+  private static void menuPassageiros() {
 
     int opcao = -1;
 
@@ -372,6 +392,183 @@ public class Utils {
           System.out.println("\n\tOpção inválida. Tente novamente.");
       }
     } while (opcao != 0);
+  }
+
+  private static int dispMenuPontosDeParada() {
+
+    int opcao = -1;
+
+    do {
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== GESTÃO PONTOS DE PARADA =====");
+      System.out.print("\n\t[1] - CADASTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
+  }
+
+  private static void menuPontosDeParada() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuPontosDeParada();
+
+      switch (opcao) {
+        case 1:
+          PontoDeParadaService.cadastrarPontoDeParada();
+          break;
+
+        case 2:
+          PontoDeParadaService.listarPontosDeParada();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
+  }
+
+  private static int dispMenuTrajetos() {
+
+    int opcao = -1;
+
+    do {
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== GESTÃO TRAJETOS =====");
+      System.out.print("\n\t[1] - CADASTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
+  }
+
+  private static void menuTrajetos() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuTrajetos();
+
+      switch (opcao) {
+        case 1:
+          TrajetoService.cadastrarTrajeto();
+          break;
+
+        case 2:
+          TrajetoService.listarTrajetos();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
+  }
+
+  public static int dispMenuJornada() {
+
+    int opcao = -1;
+
+    do {
+
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== GESTÃO JORNADAS =====");
+      System.out.print("\n\t[1] - CADASTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
   }
 
   public static void imprimirFormatado(LocalDateTime dataHora) {

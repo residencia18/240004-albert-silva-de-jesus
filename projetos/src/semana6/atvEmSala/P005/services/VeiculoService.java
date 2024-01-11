@@ -37,6 +37,7 @@ public class VeiculoService implements VeiculoRepository{
 
     for (Veiculo veiculo : veiculos) {
       System.out.println(veiculo.toString());
+      System.out.println("\t============================");
     }
     Utils.pausar(Utils.scan);
   }
