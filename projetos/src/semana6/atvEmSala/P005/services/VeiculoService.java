@@ -1,0 +1,39 @@
+package semana6.atvEmSala.P005.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import semana6.atvEmSala.P005.entities.Veiculo;
+import semana6.atvEmSala.P005.utils.Utils;
+
+public class VeiculoService {
+
+  public static List<Veiculo> veiculos = new ArrayList<>();
+
+  public void adcionar(Veiculo veiculo) {
+    veiculos.add(veiculo);
+  }
+
+  public static void cadastrarVeiculo() {
+
+    System.out.println("\n\t===== CADASTRO DE VEICULO =====");
+
+    System.out.print("\n\tPlaca do Veiculo: ");
+    String placa = Utils.scan.nextLine();
+
+    System.out.print("\tModelo do Veiculo: ");
+    String modelo = Utils.scan.nextLine();
+
+    veiculos.add(new Veiculo(placa, modelo));
+  }
+
+  public static void listarVeiculos() {
+
+    System.out.println("\n\t===== LISTA DE VEICULOS =====");
+
+    for (Veiculo veiculo : veiculos) {
+      System.out.println(veiculo.toString());
+    }
+    Utils.pausar(Utils.scan);
+  }
+}

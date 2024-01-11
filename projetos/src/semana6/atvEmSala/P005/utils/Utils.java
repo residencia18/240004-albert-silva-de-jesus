@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import semana6.atvEmSala.P005.services.CobradorService;
 import semana6.atvEmSala.P005.services.MotoristaService;
+import semana6.atvEmSala.P005.services.VeiculoService;
 
 public class Utils {
 
@@ -25,7 +26,7 @@ public class Utils {
 
       switch (opcao) {
         case 1:
-          // menuVeiculos();
+          menuVeiculos();
           break;
         case 2:
           menuMotoristas();
@@ -57,7 +58,7 @@ public class Utils {
       limparTela();
       imprimirFormatado(LocalDateTime.now());
       calcularDiasRestantes(LocalDateTime.now());
-      System.out.print("\n\t===== ENERGIA COELHO =====");
+      System.out.print("\n\t=============== ENERGIA COELHO ===============");
       System.out.print("\n\t[1] - GESTÃO VEÍCULOS");
       System.out.print("\n\t[2] - GESTÃO MOTORISTAS");
       System.out.print("\n\t[3] - GESTÃO COBRADORES");
@@ -213,6 +214,76 @@ public class Utils {
 
         case 2:
           MotoristaService.listarMotoristas();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
+  }
+
+  private static int dispMenuVeiculos() {
+
+    int opcao = -1;
+
+    do {
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== GESTÃO VEÍCULOS =====");
+      System.out.print("\n\t[1] - CADASTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
+  }
+
+  public static void menuVeiculos() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuVeiculos();
+
+      switch (opcao) {
+        case 1:
+          VeiculoService.cadastrarVeiculo();
+          break;
+
+        case 2:
+          VeiculoService.listarVeiculos();
           break;
 
         case 3:
