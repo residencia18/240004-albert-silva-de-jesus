@@ -26,6 +26,9 @@ public class MotoristaService implements MotoristaRepository {
     String matricula = Utils.scan.nextLine();
 
     motoristas.add(new Motorista(nome, matricula));
+
+    System.out.println("\n\tMotorista cadastrado com sucesso!");
+    Utils.pausar(Utils.scan);
   }
 
   public static void listarMotoristas() {

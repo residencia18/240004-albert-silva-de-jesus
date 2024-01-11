@@ -26,6 +26,9 @@ public class CobradorService implements CobradorRepository {
     String matricula = Utils.scan.nextLine();
 
     cobradores.add(new Cobrador(nome, matricula));
+    
+    System.out.println("\n\tCobrador cadastrado com sucesso!");
+    Utils.pausar(Utils.scan);
   }
 
   public static void listarCobradores() {

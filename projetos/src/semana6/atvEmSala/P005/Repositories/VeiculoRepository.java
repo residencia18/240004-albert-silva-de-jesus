@@ -1,10 +1,12 @@
 package semana6.atvEmSala.P005.Repositories;
 
+import semana6.atvEmSala.P005.entities.Veiculo;
+
 public interface VeiculoRepository {
   
-  public void addVeiculo();
+  public void adcionar(Veiculo veiculo);
 
-  public static void cadastrar(){}
+  public static void cadastrarVeiculo(){}
 
-  public static void listar(){}
+  public static void listarVeiculos(){}
 }
