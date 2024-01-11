@@ -97,7 +97,7 @@ public class TrajetoService implements TrajetoRepository {
     }
 
     for (Trajeto trajeto : trajetos) {
-      System.out.println("Embarque" + trajeto.toString());
+      System.out.println(trajeto.toString());
       System.out.println("\t===============================");
     }
     Utils.pausar(Utils.scan);

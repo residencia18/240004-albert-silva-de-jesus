@@ -8,6 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import semana6.atvEmSala.P005.services.CobradorService;
+import semana6.atvEmSala.P005.services.JornadaService;
 import semana6.atvEmSala.P005.services.MotoristaService;
 import semana6.atvEmSala.P005.services.PassageiroService;
 import semana6.atvEmSala.P005.services.PontoDeParadaService;
@@ -47,7 +48,7 @@ public class Utils {
           menuTrajetos();
           break;
         case 7:
-          // menuRegistroDeJornada();
+          menuRegistroDeJornada();
           break;
         case 8:
           // menuRegistroDeInicioDeTrajeto();
@@ -569,6 +570,40 @@ public class Utils {
     } while (opcao < 0 || opcao > 3);
 
     return opcao;
+  }
+
+  public static void menuRegistroDeJornada() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuJornada();
+
+      switch (opcao) {
+        case 1:
+          JornadaService.cadastrarJornada();
+          break;
+
+        case 2:
+          JornadaService.listarJornadas();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
   }
 
   public static void imprimirFormatado(LocalDateTime dataHora) {

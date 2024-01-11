@@ -51,7 +51,19 @@ public class Jornada {
 
   @Override
   public String toString() {
-    return ("\n\tTrajeto: " + trajeto + "\n\tVeiculo: " + veiculo + "\n\tMotorista: " + motorista + "\n\tCobrador: " + cobrador);
+    StringBuilder sb = new StringBuilder();
+    sb.append("\tTrajeto:");
+    sb.append(trajeto);
+    sb.append("\n\t===============");
+    sb.append("\n\tVeiculo:\n");
+    sb.append(veiculo);
+    sb.append("\n\t===============");
+    sb.append("\n\tMotorista:\n");
+    sb.append(motorista);
+    sb.append("\n\t===============");
+    sb.append("\n\tCobrador:\n");
+    sb.append(cobrador);
+    return sb.toString();
   }
   
   

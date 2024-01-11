@@ -67,13 +67,13 @@ public class JornadaService implements JornadaRepository {
   // }
 
   public static void cadastrarJornada() {
-    
+
     System.out.println("\n\t===== CADASTRAR JORNADA =====\n");
 
-    Trajeto trajeto = selecionarOpcao("Escolha o trajeto: ", TrajetoService.trajetos);
-    Veiculo veiculo = selecionarOpcao("Escolha o veículo: ", VeiculoService.veiculos);
-    Motorista motorista = selecionarOpcao("Escolha o motorista: ", MotoristaService.motoristas);
-    Cobrador cobrador = selecionarOpcao("Escolha o cobrador: ", CobradorService.cobradores);
+    Trajeto trajeto = selecionarOpcao("\tEscolha o trajeto: ", TrajetoService.trajetos);
+    Veiculo veiculo = selecionarOpcao("\tEscolha o veículo: ", VeiculoService.veiculos);
+    Motorista motorista = selecionarOpcao("\tEscolha o motorista: ", MotoristaService.motoristas);
+    Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", CobradorService.cobradores);
 
     Jornada jornada = new Jornada(trajeto, veiculo, motorista, cobrador);
     jornadas.add(jornada);
@@ -83,9 +83,13 @@ public class JornadaService implements JornadaRepository {
   }
 
   private static <T> T selecionarOpcao(String mensagem, List<T> opcoes) {
+
+    Utils.limparTela();
     System.out.println(mensagem);
+    System.out.println("\t============================");
     for (int i = 0; i < opcoes.size(); i++) {
-      System.out.println("\t" + (i + 1) + " - " + opcoes.get(i));
+      System.out.println("\t" + (i + 1) + "º" + opcoes.get(i));
+      System.out.println("\t============================");
     }
     System.out.print("\tOpção: ");
 
@@ -94,6 +98,7 @@ public class JornadaService implements JornadaRepository {
 
     if (opcao < 1 || opcao > opcoes.size()) {
       System.out.println("\tOpção inválida. Digite um número entre 1 e " + opcoes.size());
+      Utils.pausar(Utils.scan);
       return selecionarOpcao(mensagem, opcoes); // Chamada recursiva em caso de opção inválida
     }
 
