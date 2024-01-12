@@ -1,4 +1,4 @@
-package semana6.atvEmSala.P005.utils;
+package semana6.atvEmSala.P005.views;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ import semana6.atvEmSala.P005.services.PontoDeParadaService;
 import semana6.atvEmSala.P005.services.TrajetoService;
 import semana6.atvEmSala.P005.services.VeiculoService;
 
-public class Utils {
+public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
   public static Scanner scan = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Utils {
           break;
         default:
           System.out.println("\n\tOpção inválida. Tente novamente.");
-          Utils.pausar(scan);
+          Views.pausar(scan);
       }
 
     } while (opcao != 0);

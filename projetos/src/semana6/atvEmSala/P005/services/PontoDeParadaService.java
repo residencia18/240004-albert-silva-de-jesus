@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana6.atvEmSala.P005.Repositories.PontoDeParadaRepository;
 import semana6.atvEmSala.P005.entities.PontosDeParada;
-import semana6.atvEmSala.P005.utils.Utils;
+import semana6.atvEmSala.P005.views.Views;
 
 public class PontoDeParadaService implements PontoDeParadaRepository{
 
@@ -21,13 +21,13 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
     System.out.println("\n\t===== CADASTRAR PONTO DE PARADA =====\n");
 
     System.out.print("\tInforme o ponto de embarque: ");
-    String pontoEmbarque = Utils.scan.nextLine();
+    String pontoEmbarque = Views.scan.nextLine();
 
     System.out.print("\tInforme o ponto de desembarque: ");
-    String pontoDesembarque = Utils.scan.nextLine();
+    String pontoDesembarque = Views.scan.nextLine();
 
     System.out.print("\tInforme a distância entre os pontos: ");
-    int distancia = Utils.scan.nextInt();
+    int distancia = Views.scan.nextInt();
 
     pontosDeParada.add(new PontosDeParada(pontoEmbarque, pontoDesembarque, distancia));
 
@@ -35,14 +35,14 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
 
   public static void listarPontosDeParada() {
     
-    Utils.limparTela();
+    Views.limparTela();
     System.out.println("\n\t===== LISTAR PONTOS DE PARADA =====");
 
     for (PontosDeParada pontoDeParada : pontosDeParada) {
       System.out.println(pontoDeParada.toString());
       System.out.println("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public static String localDeEmbarquePassageiro(int opcao) {
@@ -87,17 +87,17 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
         System.out.println("\t5 - Ponto E");
         System.out.print("\tOpção: ");
 
-        opcaoEmbarque = Integer.parseInt(Utils.scan.nextLine());
+        opcaoEmbarque = Integer.parseInt(Views.scan.nextLine());
 
         if (opcaoEmbarque >= 1 && opcaoEmbarque <= 5) {
           opcaoValida = true;
         } else {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.println("\n\tOpção inválida. Digite um número entre 1 e 5.");
         }
 
       } catch (NumberFormatException e) {
-        Utils.limparTela();
+        Views.limparTela();
         System.out.println("\n\tPor favor, digite um número válido.");
       }
     } while (!opcaoValida);

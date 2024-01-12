@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana6.atvEmSala.P005.Repositories.CobradorRepository;
 import semana6.atvEmSala.P005.entities.Cobrador;
-import semana6.atvEmSala.P005.utils.Utils;
+import semana6.atvEmSala.P005.views.Views;
 
 public class CobradorService implements CobradorRepository {
 
@@ -20,15 +20,15 @@ public class CobradorService implements CobradorRepository {
     System.out.println("\n\t===== CADASTRO DE COBRADOR =====");
 
     System.out.print("\n\tNome do Cobrador: ");
-    String nome = Utils.scan.nextLine();
+    String nome = Views.scan.nextLine();
 
     System.out.print("\tMatricula do Cobrador: ");
-    String matricula = Utils.scan.nextLine();
+    String matricula = Views.scan.nextLine();
 
     cobradores.add(new Cobrador(nome, matricula));
     
     System.out.println("\n\tCobrador cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public void listarCobradores() {
@@ -39,7 +39,7 @@ public class CobradorService implements CobradorRepository {
       System.out.println(cobrador.toString());
       System.out.print("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana6.atvEmSala.P005.Repositories.PassageiroRepository;
 import semana6.atvEmSala.P005.entities.Passageiro;
-import semana6.atvEmSala.P005.utils.Utils;
+import semana6.atvEmSala.P005.views.Views;
 
 public class PassageiroService implements PassageiroRepository {
 
@@ -22,15 +22,15 @@ public class PassageiroService implements PassageiroRepository {
     System.out.println("\n\t===== CADASTRO DE PASSAGEIRO =====");
 
     System.out.print("\n\tNome do Passageiro: ");
-    String nome = Utils.scan.nextLine();
+    String nome = Views.scan.nextLine();
 
     System.out.print("\tCPF do Passageiro: ");
-    String cpf = Utils.scan.nextLine();
+    String cpf = Views.scan.nextLine();
 
     passageiros.add(new Passageiro(nome, cpf, tipoCartaoPassageiro(tipoCartao)));
 
     System.out.println("\n\tPassageiro cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public static void listarPassageiros() {
@@ -41,7 +41,7 @@ public class PassageiroService implements PassageiroRepository {
       System.out.println(passageiro.toString());
       System.out.println("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public static String tipoCartaoPassageiro(int opcao) {
@@ -49,7 +49,7 @@ public class PassageiroService implements PassageiroRepository {
     String tipoCartao = "";
     opcao = opcaoCartaoPassageiro();
 
-    Utils.limparTela(); 
+    Views.limparTela(); 
     switch (opcao) {
       case 1:
         tipoCartao = "Estudante";
@@ -80,18 +80,18 @@ public class PassageiroService implements PassageiroRepository {
         System.out.println("\t3 - Normal");
         System.out.print("\tOpção: ");
 
-        tipoCartao = Integer.parseInt(Utils.scan.nextLine());
+        tipoCartao = Integer.parseInt(Views.scan.nextLine());
 
         if (tipoCartao >= 1 && tipoCartao <= 3) {
           opcaoValida = true;
 
         } else {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.println("\n\tOpção inválida. Digite um número entre 1 e 3.");
         }
 
       } catch (NumberFormatException e) {
-        Utils.limparTela();
+        Views.limparTela();
         System.out.println("\n\tPor favor, digite um número válido.");
       }
     } while (!opcaoValida);

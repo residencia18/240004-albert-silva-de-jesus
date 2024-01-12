@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana6.atvEmSala.P005.Repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.entities.Veiculo;
-import semana6.atvEmSala.P005.utils.Utils;
+import semana6.atvEmSala.P005.views.Views;
 
 public class VeiculoService implements VeiculoRepository{
 
@@ -20,15 +20,15 @@ public class VeiculoService implements VeiculoRepository{
     System.out.println("\n\t===== CADASTRO DE VEICULO =====");
 
     System.out.print("\n\tPlaca do Veiculo: ");
-    String placa = Utils.scan.nextLine();
+    String placa = Views.scan.nextLine();
 
     System.out.print("\tModelo do Veiculo: ");
-    String modelo = Utils.scan.nextLine();
+    String modelo = Views.scan.nextLine();
 
     veiculos.add(new Veiculo(placa, modelo));
 
     System.out.println("\n\tVeiculo cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public static void listarVeiculos() {
@@ -39,6 +39,6 @@ public class VeiculoService implements VeiculoRepository{
       System.out.println(veiculo.toString());
       System.out.println("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 }

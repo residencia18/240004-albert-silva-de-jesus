@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana6.atvEmSala.P005.Repositories.MotoristaRepository;
 import semana6.atvEmSala.P005.entities.Motorista;
-import semana6.atvEmSala.P005.utils.Utils;
+import semana6.atvEmSala.P005.views.Views;
 
 public class MotoristaService implements MotoristaRepository {
   
@@ -20,15 +20,15 @@ public class MotoristaService implements MotoristaRepository {
     System.out.println("\n\t===== CADASTRO DE MOTORISTA =====");
 
     System.out.print("\n\tNome do Motorista: ");
-    String nome = Utils.scan.nextLine();
+    String nome = Views.scan.nextLine();
 
     System.out.print("\tMatricula do Motorista: ");
-    String matricula = Utils.scan.nextLine();
+    String matricula = Views.scan.nextLine();
 
     motoristas.add(new Motorista(nome, matricula));
 
     System.out.println("\n\tMotorista cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   public static void listarMotoristas() {
@@ -39,6 +39,6 @@ public class MotoristaService implements MotoristaRepository {
       System.out.println(motorista.toString());
       System.out.println("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 }
