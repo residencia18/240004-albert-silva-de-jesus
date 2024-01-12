@@ -1,4 +1,6 @@
-package semana6.atvEmSala.P005.Repositories;
+package semana6.atvEmSala.P005.repositories;
+
+import java.util.List;
 
 import semana6.atvEmSala.P005.entities.Motorista;
 
@@ -6,7 +8,9 @@ public interface MotoristaRepository {
   
   public void adicionar(Motorista motorista);
 
-  public static void cadastrarMotorista() {}
+  public List<Motorista> getMotoristas();
 
-  public static void listarMotoristas() {}
+  public void cadastrarMotorista();
+
+  public void listarMotoristas();
 }

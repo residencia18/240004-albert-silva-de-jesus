@@ -3,20 +3,28 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.Repositories.MotoristaRepository;
 import semana6.atvEmSala.P005.entities.Motorista;
+import semana6.atvEmSala.P005.repositories.MotoristaRepository;
 import semana6.atvEmSala.P005.views.Views;
 
 public class MotoristaService implements MotoristaRepository {
   
   public static List<Motorista> motoristas = new ArrayList<>();
 
+  @Override
   public void adicionar(Motorista motorista) {
     motoristas.add(motorista);
   }
 
-  public static void cadastrarMotorista() {
+  @Override
+  public List<Motorista> getMotoristas() {
+    return motoristas;
+  }
 
+  @Override
+  public void cadastrarMotorista() {
+
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE MOTORISTA =====");
 
     System.out.print("\n\tNome do Motorista: ");
@@ -31,13 +39,15 @@ public class MotoristaService implements MotoristaRepository {
     Views.pausar(Views.scan);
   }
 
-  public static void listarMotoristas() {
+  @Override
+  public void listarMotoristas() {
 
-    System.out.println("\n\t===== LISTA DE MOTORISTAS =====");
+    Views.limparTela();
+    System.out.print("\n\t===== LISTA DE MOTORISTAS =====");
 
     for (Motorista motorista : motoristas) {
       System.out.println(motorista.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
   }

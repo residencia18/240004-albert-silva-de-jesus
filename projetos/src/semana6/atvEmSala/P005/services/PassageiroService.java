@@ -3,22 +3,30 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.Repositories.PassageiroRepository;
 import semana6.atvEmSala.P005.entities.Passageiro;
+import semana6.atvEmSala.P005.repositories.PassageiroRepository;
 import semana6.atvEmSala.P005.views.Views;
 
 public class PassageiroService implements PassageiroRepository {
 
   public static List<Passageiro> passageiros = new ArrayList<>();
 
+  @Override
   public void adicionar(Passageiro passageiro) {
     passageiros.add(passageiro);
   }
 
-  public static void cadastrarPassageiro() {
+  @Override
+  public List<Passageiro> getPassageiros() {
+    return passageiros;
+  }
+
+  @Override
+  public void cadastrarPassageiro() {
 
     int tipoCartao = 0;
 
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE PASSAGEIRO =====");
 
     System.out.print("\n\tNome do Passageiro: ");
@@ -33,13 +41,15 @@ public class PassageiroService implements PassageiroRepository {
     Views.pausar(Views.scan);
   }
 
-  public static void listarPassageiros() {
+  @Override
+  public void listarPassageiros() {
 
-    System.out.println("\n\t===== LISTA DE PASSAGEIROS =====");
+    Views.limparTela();
+    System.out.print("\n\t===== LISTA DE PASSAGEIROS =====");
 
     for (Passageiro passageiro : passageiros) {
       System.out.println(passageiro.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
   }

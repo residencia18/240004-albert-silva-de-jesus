@@ -1,4 +1,6 @@
-package semana6.atvEmSala.P005.Repositories;
+package semana6.atvEmSala.P005.repositories;
+
+import java.util.List;
 
 import semana6.atvEmSala.P005.entities.Trajeto;
 
@@ -7,7 +9,11 @@ public interface TrajetoRepository {
 
   public void adicionar(Trajeto trecho);
 
-  public static void cadastrarTrajeto(){}
+  public List<Trajeto> getTrajetos();
 
-  public static void listarTrajetos(){}
+  public void cadastrarTrajeto();
+
+  public void registroDeTrajeto();
+
+  public void listarTrajetos();
 }

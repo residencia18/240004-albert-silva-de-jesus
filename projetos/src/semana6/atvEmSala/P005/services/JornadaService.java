@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana4.atvemsala.redesocial.Utils;
-import semana6.atvEmSala.P005.Repositories.JornadaRepository;
 import semana6.atvEmSala.P005.entities.Cobrador;
 import semana6.atvEmSala.P005.entities.Jornada;
 import semana6.atvEmSala.P005.entities.Motorista;
 import semana6.atvEmSala.P005.entities.Trajeto;
 import semana6.atvEmSala.P005.entities.Veiculo;
+import semana6.atvEmSala.P005.repositories.JornadaRepository;
+import semana6.atvEmSala.P005.views.Views;
 
 public class JornadaService implements JornadaRepository {
 
   public static List<Jornada> jornadas = new ArrayList<Jornada>();
-  private CobradorService cobradorService = new CobradorService();
 
   @Override
   public void adicionar(Jornada jornada) {
     jornadas.add(jornada);
+  }
+
+  @Override
+  public List<Jornada> getJornadas() {
+    return jornadas;
   }
 
   // public static void cadastrarJornada() {
@@ -67,14 +72,16 @@ public class JornadaService implements JornadaRepository {
 
   // }
 
+  @Override
   public void cadastrarJornada() {
 
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRAR JORNADA =====\n");
 
     Trajeto trajeto = selecionarOpcao("\tEscolha o trajeto: ", TrajetoService.trajetos);
     Veiculo veiculo = selecionarOpcao("\tEscolha o veículo: ", VeiculoService.veiculos);
     Motorista motorista = selecionarOpcao("\tEscolha o motorista: ", MotoristaService.motoristas);
-    Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", cobradorService.cobradores);
+    Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", CobradorService.cobradores);
 
     jornadas.add(new Jornada(trajeto, veiculo, motorista, cobrador));
 
@@ -103,15 +110,17 @@ public class JornadaService implements JornadaRepository {
     }
 
     return opcoes.get(opcao - 1);
+    
   }
 
-  public static void listarJornadas() {
+  public void listarJornadas() {
 
+    Views.limparTela();
     System.out.println("\n\t===== LISTA DE JORNADAS =====");
 
     for (Jornada jornada : jornadas) {
       System.out.println(jornada.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Utils.pausar(Utils.scan);
   }

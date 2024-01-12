@@ -7,8 +7,13 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import semana6.atvEmSala.P005.Repositories.CobradorRepository;
-import semana6.atvEmSala.P005.Repositories.JornadaRepository;
+import semana6.atvEmSala.P005.repositories.CobradorRepository;
+import semana6.atvEmSala.P005.repositories.JornadaRepository;
+import semana6.atvEmSala.P005.repositories.MotoristaRepository;
+import semana6.atvEmSala.P005.repositories.PassageiroRepository;
+import semana6.atvEmSala.P005.repositories.PontoDeParadaRepository;
+import semana6.atvEmSala.P005.repositories.TrajetoRepository;
+import semana6.atvEmSala.P005.repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.services.CobradorService;
 import semana6.atvEmSala.P005.services.JornadaService;
 import semana6.atvEmSala.P005.services.MotoristaService;
@@ -21,8 +26,15 @@ public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
   public static Scanner scan = new Scanner(System.in);
+  private VeiculoRepository veiculoRepository = new VeiculoService();
+  private MotoristaRepository motoristaRepository = new MotoristaService();
+  private CobradorRepository cobradorRepository = new CobradorService();
+  private PassageiroRepository passageiroRepository = new PassageiroService();
+  private PontoDeParadaRepository pontoDeParadaRepository = new PontoDeParadaService();
+  private TrajetoRepository trajetoRepository = new TrajetoService();
+  private JornadaRepository jornadaRepository = new JornadaService();
 
-  public static void MainTransporteViario() {
+  public void MainTransporteViario() {
 
     int opcao = -1;
 
@@ -56,7 +68,7 @@ public class Views {
           menuRegistroDeInicioDeTrajeto();
           break;
         case 9:
-          // menuRegistroDePassageirosComCartao();
+          menuRegistroDePassageirosComCartao();
           break;
         case 10:
           // menuRegistroDeCheckpoint();
@@ -153,10 +165,9 @@ public class Views {
     return opcao;
   }
 
-  private static void menuCobrador() {
+  private void menuCobrador() {
 
     int opcao = -1;
-    CobradorRepository cobradorRepository = new CobradorService();
 
     do {
 
@@ -224,7 +235,7 @@ public class Views {
     return opcao;
   }
 
-  private static void menuMotoristas() {
+  private void menuMotoristas() {
 
     int opcao = -1;
 
@@ -234,11 +245,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          MotoristaService.cadastrarMotorista();
+          motoristaRepository.cadastrarMotorista();
           break;
 
         case 2:
-          MotoristaService.listarMotoristas();
+          motoristaRepository.listarMotoristas();
           break;
 
         case 3:
@@ -294,7 +305,7 @@ public class Views {
     return opcao;
   }
 
-  private static void menuVeiculos() {
+  private void menuVeiculos() {
 
     int opcao = -1;
 
@@ -304,11 +315,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          VeiculoService.cadastrarVeiculo();
+          veiculoRepository.cadastrarVeiculo();
           break;
 
         case 2:
-          VeiculoService.listarVeiculos();
+          veiculoRepository.listarVeiculos();
           break;
 
         case 3:
@@ -364,7 +375,7 @@ public class Views {
     return opcao;
   }
 
-  private static void menuPassageiros() {
+  private void menuPassageiros() {
 
     int opcao = -1;
 
@@ -374,11 +385,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          PassageiroService.cadastrarPassageiro();
+          passageiroRepository.cadastrarPassageiro();
           break;
 
         case 2:
-          PassageiroService.listarPassageiros();
+          passageiroRepository.listarPassageiros();
           break;
 
         case 3:
@@ -434,7 +445,7 @@ public class Views {
     return opcao;
   }
 
-  private static void menuPontosDeParada() {
+  private void menuPontosDeParada() {
 
     int opcao = -1;
 
@@ -444,11 +455,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          PontoDeParadaService.cadastrarPontoDeParada();
+        pontoDeParadaRepository.cadastrarPontoDeParada();
           break;
 
         case 2:
-          PontoDeParadaService.listarPontosDeParada();
+        pontoDeParadaRepository.listarPontosDeParada();
           break;
 
         case 3:
@@ -504,7 +515,7 @@ public class Views {
     return opcao;
   }
 
-  private static void menuTrajetos() {
+  private void menuTrajetos() {
 
     int opcao = -1;
 
@@ -514,11 +525,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          TrajetoService.cadastrarTrajeto();
+          trajetoRepository.cadastrarTrajeto();
           break;
 
         case 2:
-          TrajetoService.listarTrajetos();
+          trajetoRepository.listarTrajetos();
           break;
 
         case 3:
@@ -575,10 +586,9 @@ public class Views {
     return opcao;
   }
 
-  public static void menuRegistroDeJornada() {
+  public void menuRegistroDeJornada() {
 
     int opcao = -1;
-    JornadaRepository jornadaRepository = new JornadaService();
 
     do {
 
@@ -590,7 +600,7 @@ public class Views {
           break;
 
         case 2:
-          JornadaService.listarJornadas();
+          jornadaRepository.listarJornadas();
           break;
 
         case 3:
@@ -647,7 +657,7 @@ public class Views {
     return opcao;
   }
 
-  public static void menuRegistroDeInicioDeTrajeto() {
+  public void menuRegistroDeInicioDeTrajeto() {
 
     int opcao = -1;
 
@@ -657,11 +667,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          TrajetoService.registroDeTrajeto();
+          trajetoRepository.registroDeTrajeto();
           break;
 
         case 2:
-          JornadaService.listarJornadas();
+          jornadaRepository.listarJornadas();
           break;
 
         case 3:
@@ -677,6 +687,80 @@ public class Views {
 
         default:
           System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
+  }
+
+  public static int dispMenuRegistroDePassageirosComCartao() {
+
+    int opcao = -1;
+
+    do {
+
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== REGISTRO DE PASSAGEIROS COM CARTÃO =====");
+      System.out.print("\n\t[1] - REGISTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
+  }
+
+  public void menuRegistroDePassageirosComCartao() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuRegistroDePassageirosComCartao();
+
+      switch (opcao) {
+        case 1:
+          trajetoRepository.cadastrarTrajeto();
+          break;
+
+        case 2:
+          trajetoRepository.listarTrajetos();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+
       }
     } while (opcao != 0);
   }

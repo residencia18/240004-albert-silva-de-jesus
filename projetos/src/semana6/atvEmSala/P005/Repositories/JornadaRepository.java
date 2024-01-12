@@ -1,4 +1,6 @@
-package semana6.atvEmSala.P005.Repositories;
+package semana6.atvEmSala.P005.repositories;
+
+import java.util.List;
 
 import semana6.atvEmSala.P005.entities.Jornada;
 
@@ -6,7 +8,9 @@ public interface JornadaRepository {
 
   public void adicionar(Jornada jornada);
 
+  public List<Jornada> getJornadas();
+
   public void cadastrarJornada();
 
-  public static void listarJornadas(){}
+  public void listarJornadas();
 }

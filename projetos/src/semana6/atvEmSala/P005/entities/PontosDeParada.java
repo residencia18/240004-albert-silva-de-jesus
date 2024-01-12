@@ -46,7 +46,7 @@ public class PontosDeParada {
 
   @Override
   public String toString() {
-    return ("\tPonto de embarque: " + embarque + "\n\tPonto de desembarque: " + desembarque + "\n\tDistância entre os pontos: " + distanciaEntreParadas + "km");
+    return ("\n\tPonto de embarque: " + embarque + "\n\tPonto de desembarque: " + desembarque + "\n\tDistância entre os pontos: " + distanciaEntreParadas + "km");
   }
 
 }

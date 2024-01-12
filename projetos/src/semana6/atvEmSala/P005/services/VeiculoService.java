@@ -3,20 +3,27 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.Repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.entities.Veiculo;
+import semana6.atvEmSala.P005.repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.views.Views;
 
 public class VeiculoService implements VeiculoRepository{
 
   public static List<Veiculo> veiculos = new ArrayList<>();
 
+  @Override
   public void adicionar(Veiculo veiculo) {
     veiculos.add(veiculo);
   }
 
-  public static void cadastrarVeiculo() {
+  @Override
+  public List<Veiculo> getVeiculos() {
+    return veiculos;
+  }
 
+  public void cadastrarVeiculo() {
+
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE VEICULO =====");
 
     System.out.print("\n\tPlaca do Veiculo: ");
@@ -31,13 +38,14 @@ public class VeiculoService implements VeiculoRepository{
     Views.pausar(Views.scan);
   }
 
-  public static void listarVeiculos() {
+  public void listarVeiculos() {
 
+    Views.limparTela();
     System.out.println("\n\t===== LISTA DE VEICULOS =====");
 
     for (Veiculo veiculo : veiculos) {
       System.out.println(veiculo.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
   }

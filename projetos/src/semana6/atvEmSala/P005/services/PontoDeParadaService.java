@@ -3,21 +3,27 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.Repositories.PontoDeParadaRepository;
+import semana4.atvemsala.redesocial.Utils;
 import semana6.atvEmSala.P005.entities.PontosDeParada;
+import semana6.atvEmSala.P005.repositories.PontoDeParadaRepository;
 import semana6.atvEmSala.P005.views.Views;
 
-public class PontoDeParadaService implements PontoDeParadaRepository{
+public class PontoDeParadaService implements PontoDeParadaRepository {
 
   public static List<PontosDeParada> pontosDeParada = new ArrayList<PontosDeParada>();
-  
+
   @Override
   public void adicionar(PontosDeParada pontoDeParada) {
     pontosDeParada.add(pontoDeParada);
   }
 
-  public static void cadastrarPontoDeParada() {
+  public List<PontosDeParada> getPontosDeParada() {
+    return pontosDeParada;
+  }
 
+  public void cadastrarPontoDeParada() {
+
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRAR PONTO DE PARADA =====\n");
 
     System.out.print("\tInforme o ponto de embarque: ");
@@ -29,20 +35,85 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
     System.out.print("\tInforme a distância entre os pontos: ");
     int distancia = Views.scan.nextInt();
 
-    pontosDeParada.add(new PontosDeParada(pontoEmbarque, pontoDesembarque, distancia));
+    adicionar(new PontosDeParada(pontoEmbarque, pontoDesembarque, distancia));
 
   }
 
-  public static void listarPontosDeParada() {
-    
+  public void listarPontosDeParada() {
+
     Views.limparTela();
     System.out.println("\n\t===== LISTAR PONTOS DE PARADA =====");
 
     for (PontosDeParada pontoDeParada : pontosDeParada) {
       System.out.println(pontoDeParada.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
+  }
+
+  public String trajetoEmbarque() {
+
+    if (getPontosDeParada().isEmpty()) {
+      System.out.println("\tNão há pontos de parada cadastrados!");
+      Utils.pausar(Utils.scan);
+      return null;
+    }
+
+    int index = 1;
+    int pontoEmbarque;
+
+    do {
+      System.out.println("\tInforme a origem: ");
+
+      for (PontosDeParada ponto : getPontosDeParada()) {
+        System.out.println("\t[" + (index++) + "] - " + ponto.getEmbarque());
+      }
+      System.out.print("\tOpção: ");
+      pontoEmbarque = Utils.scan.nextInt();
+      Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+
+      if (pontoEmbarque < 1 || pontoEmbarque > getPontosDeParada().size()) {
+        System.out
+            .println(
+                "\tOpção inválida. Digite um número entre 1 e " + getPontosDeParada().size());
+        index = 1; // Reiniciar o índice
+      }
+
+    } while (pontoEmbarque < 1 || pontoEmbarque > getPontosDeParada().size());
+
+    return getPontosDeParada().get(pontoEmbarque - 1).getEmbarque();
+  }
+
+  public String trajetoDesembarque() {
+
+    if (getPontosDeParada().isEmpty()) {
+      System.out.println("\tNão há pontos de parada cadastrados!");
+      Utils.pausar(Utils.scan);
+      return null;
+    }
+
+    int index = 1;
+    int pontoDesembarque;
+
+    do {
+      System.out.println("\tInforme o destino: ");
+
+      for (PontosDeParada ponto : getPontosDeParada()) {
+        System.out.println("\t[" + (index++) + "] - " + ponto.getDesembarque());
+      }
+      System.out.print("\tOpção: ");
+      pontoDesembarque = Utils.scan.nextInt();
+      Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+
+      if (pontoDesembarque < 1 || pontoDesembarque > getPontosDeParada().size()) {
+        System.out.println(
+            "\tOpção inválida. Digite um número entre 1 e " + getPontosDeParada().size());
+        index = 1; // Reiniciar o índice
+      }
+
+    } while (pontoDesembarque < 1 || pontoDesembarque > getPontosDeParada().size());
+
+    return getPontosDeParada().get(pontoDesembarque - 1).getDesembarque();
   }
 
   public static String localDeEmbarquePassageiro(int opcao) {
@@ -71,7 +142,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
     return pontoEmbarque;
   }
 
-   public static int localEmbarquePassageiro() {
+  public static int localEmbarquePassageiro() {
 
     boolean opcaoValida = false;
     int opcaoEmbarque = 0;
@@ -104,5 +175,5 @@ public class PontoDeParadaService implements PontoDeParadaRepository{
 
     return opcaoEmbarque;
   }
-  
+
 }
