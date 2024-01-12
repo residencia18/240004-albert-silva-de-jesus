@@ -137,7 +137,7 @@ public class Views {
       limparTela();
       imprimirFormatado(LocalDateTime.now());
       calcularDiasRestantes(LocalDateTime.now());
-      System.out.print("\n\t===== GESTÃO CLIENTE =====");
+      System.out.print("\n\t===== GESTÃO COBRADORES =====");
       System.out.print("\n\t[1] - CADASTRAR");
       System.out.print("\n\t[2] - LISTAR");
       System.out.print("\n\t[3] - MENU PRINCIPAL");
@@ -740,11 +740,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          trajetoRepository.cadastrarTrajeto();
+          passageiroRepository.registroDePassageiroEmbarcadoComCartao();
           break;
 
         case 2:
-          trajetoRepository.listarTrajetos();
+          passageiroRepository.registroDePassageiros();
           break;
 
         case 3:

@@ -14,4 +14,8 @@ public interface PassageiroRepository {
 
   public void listarPassageiros();
 
+  public void registroDePassageiroEmbarcadoComCartao();
+
+  public void registroDePassageiros();
+
 }

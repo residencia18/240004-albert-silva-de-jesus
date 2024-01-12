@@ -17,7 +17,7 @@ import semana6.atvEmSala.P005.views.Views;
 
 public class TrajetoService implements TrajetoRepository {
 
-  public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+  public SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
   public static List<Trajeto> trajetos = new ArrayList<Trajeto>();
   private PontoDeParadaRepository pontoDeParadaRepository = new PontoDeParadaService();
 

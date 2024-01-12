@@ -63,7 +63,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
     int pontoEmbarque;
 
     do {
-      System.out.println("\tInforme a origem: ");
+      System.out.println("\tInforme o Embarque: ");
 
       for (PontosDeParada ponto : getPontosDeParada()) {
         System.out.println("\t[" + (index++) + "] - " + ponto.getEmbarque());
@@ -73,9 +73,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
       Utils.scan.nextLine(); // Consumir a quebra de linha pendente
 
       if (pontoEmbarque < 1 || pontoEmbarque > getPontosDeParada().size()) {
-        System.out
-            .println(
-                "\tOpção inválida. Digite um número entre 1 e " + getPontosDeParada().size());
+        System.out.println("\tOpção inválida. Digite um número entre 1 e " + getPontosDeParada().size());
         index = 1; // Reiniciar o índice
       }
 
