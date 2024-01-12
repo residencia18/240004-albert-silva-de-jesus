@@ -7,6 +7,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import semana6.atvEmSala.P005.Repositories.CobradorRepository;
+import semana6.atvEmSala.P005.Repositories.JornadaRepository;
 import semana6.atvEmSala.P005.services.CobradorService;
 import semana6.atvEmSala.P005.services.JornadaService;
 import semana6.atvEmSala.P005.services.MotoristaService;
@@ -154,6 +156,7 @@ public class Utils {
   private static void menuCobrador() {
 
     int opcao = -1;
+    CobradorRepository cobradorRepository = new CobradorService();
 
     do {
 
@@ -161,11 +164,11 @@ public class Utils {
 
       switch (opcao) {
         case 1:
-          CobradorService.cadastrarCobrador();
+          cobradorRepository.cadastrarCobrador();
           break;
 
         case 2:
-          CobradorService.listarCobradores();
+          cobradorRepository.listarCobradores();
           break;
 
         case 3:
@@ -575,6 +578,7 @@ public class Utils {
   public static void menuRegistroDeJornada() {
 
     int opcao = -1;
+    JornadaRepository jornadaRepository = new JornadaService();
 
     do {
 
@@ -582,7 +586,7 @@ public class Utils {
 
       switch (opcao) {
         case 1:
-          JornadaService.cadastrarJornada();
+          jornadaRepository.cadastrarJornada();
           break;
 
         case 2:

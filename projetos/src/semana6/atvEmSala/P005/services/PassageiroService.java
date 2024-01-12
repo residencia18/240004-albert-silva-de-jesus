@@ -11,7 +11,7 @@ public class PassageiroService implements PassageiroRepository {
 
   public static List<Passageiro> passageiros = new ArrayList<>();
 
-  public void adcionar(Passageiro passageiro) {
+  public void adicionar(Passageiro passageiro) {
     passageiros.add(passageiro);
   }
 

@@ -11,7 +11,7 @@ public class MotoristaService implements MotoristaRepository {
   
   public static List<Motorista> motoristas = new ArrayList<>();
 
-  public void adcionar(Motorista motorista) {
+  public void adicionar(Motorista motorista) {
     motoristas.add(motorista);
   }
 

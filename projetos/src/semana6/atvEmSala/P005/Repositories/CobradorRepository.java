@@ -4,9 +4,9 @@ import semana6.atvEmSala.P005.entities.Cobrador;
 
 public interface CobradorRepository {
   
-  public void adcionar(Cobrador cobrador);
+  public void adicionar(Cobrador cobrador);
   
-  public static void cadastrarCobrador(){}
+  public void cadastrarCobrador();
 
-  public static void listarCobradores(){}
+  public void listarCobradores();
 }

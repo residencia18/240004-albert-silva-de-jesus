@@ -9,13 +9,13 @@ import semana6.atvEmSala.P005.utils.Utils;
 
 public class CobradorService implements CobradorRepository {
 
-  public static List<Cobrador> cobradores = new ArrayList<>();
+  public List<Cobrador> cobradores = new ArrayList<>();
 
-  public void adcionar(Cobrador cobrador) {
+  public void adicionar(Cobrador cobrador) {
     cobradores.add(cobrador);
   }
 
-  public static void cadastrarCobrador() {
+  public void cadastrarCobrador() {
 
     System.out.println("\n\t===== CADASTRO DE COBRADOR =====");
 
@@ -31,13 +31,13 @@ public class CobradorService implements CobradorRepository {
     Utils.pausar(Utils.scan);
   }
 
-  public static void listarCobradores() {
+  public void listarCobradores() {
 
-    System.out.println("\n\t===== LISTA DE COBRADORES =====");
+    System.out.print("\n\t===== LISTA DE COBRADORES =====");
 
     for (Cobrador cobrador : cobradores) {
       System.out.println(cobrador.toString());
-      System.out.println("\t============================");
+      System.out.print("\t============================");
     }
     Utils.pausar(Utils.scan);
   }

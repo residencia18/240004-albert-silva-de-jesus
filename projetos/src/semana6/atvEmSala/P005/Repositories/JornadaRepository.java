@@ -4,9 +4,9 @@ import semana6.atvEmSala.P005.entities.Jornada;
 
 public interface JornadaRepository {
 
-  public void adcionar(Jornada jornada);
+  public void adicionar(Jornada jornada);
 
-  public static void cadastrarJornada(){}
+  public void cadastrarJornada();
 
   public static void listarJornadas(){}
 }

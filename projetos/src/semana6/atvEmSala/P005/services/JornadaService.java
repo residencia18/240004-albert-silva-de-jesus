@@ -14,9 +14,10 @@ import semana6.atvEmSala.P005.entities.Veiculo;
 public class JornadaService implements JornadaRepository {
 
   public static List<Jornada> jornadas = new ArrayList<Jornada>();
+  private CobradorService cobradorService = new CobradorService();
 
   @Override
-  public void adcionar(Jornada jornada) {
+  public void adicionar(Jornada jornada) {
     jornadas.add(jornada);
   }
 
@@ -66,14 +67,14 @@ public class JornadaService implements JornadaRepository {
 
   // }
 
-  public static void cadastrarJornada() {
+  public void cadastrarJornada() {
 
     System.out.println("\n\t===== CADASTRAR JORNADA =====\n");
 
     Trajeto trajeto = selecionarOpcao("\tEscolha o trajeto: ", TrajetoService.trajetos);
     Veiculo veiculo = selecionarOpcao("\tEscolha o veículo: ", VeiculoService.veiculos);
     Motorista motorista = selecionarOpcao("\tEscolha o motorista: ", MotoristaService.motoristas);
-    Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", CobradorService.cobradores);
+    Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", cobradorService.cobradores);
 
     jornadas.add(new Jornada(trajeto, veiculo, motorista, cobrador));
 

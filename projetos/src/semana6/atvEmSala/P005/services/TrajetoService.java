@@ -20,7 +20,7 @@ public class TrajetoService implements TrajetoRepository {
   public static List<Trajeto> trajetos = new ArrayList<Trajeto>();
 
   @Override
-  public void adcionar(Trajeto trecho) {
+  public void adicionar(Trajeto trecho) {
     trajetos.add(trecho);
   }
 

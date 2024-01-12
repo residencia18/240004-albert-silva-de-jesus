@@ -5,7 +5,7 @@ import semana6.atvEmSala.P005.entities.Trajeto;
 public interface TrajetoRepository {
   
 
-  public void adcionar(Trajeto trecho);
+  public void adicionar(Trajeto trecho);
 
   public static void cadastrarTrajeto(){}
 

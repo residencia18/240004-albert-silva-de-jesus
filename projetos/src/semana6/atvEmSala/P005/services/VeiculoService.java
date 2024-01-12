@@ -11,7 +11,7 @@ public class VeiculoService implements VeiculoRepository{
 
   public static List<Veiculo> veiculos = new ArrayList<>();
 
-  public void adcionar(Veiculo veiculo) {
+  public void adicionar(Veiculo veiculo) {
     veiculos.add(veiculo);
   }
 
