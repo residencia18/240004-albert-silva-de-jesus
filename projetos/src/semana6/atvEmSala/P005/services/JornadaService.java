@@ -13,7 +13,7 @@ import semana6.atvEmSala.P005.entities.Veiculo;
 
 public class JornadaService implements JornadaRepository {
 
-  private static List<Jornada> jornadas = new ArrayList<Jornada>();
+  public static List<Jornada> jornadas = new ArrayList<Jornada>();
 
   @Override
   public void adcionar(Jornada jornada) {
@@ -75,8 +75,7 @@ public class JornadaService implements JornadaRepository {
     Motorista motorista = selecionarOpcao("\tEscolha o motorista: ", MotoristaService.motoristas);
     Cobrador cobrador = selecionarOpcao("\tEscolha o cobrador: ", CobradorService.cobradores);
 
-    Jornada jornada = new Jornada(trajeto, veiculo, motorista, cobrador);
-    jornadas.add(jornada);
+    jornadas.add(new Jornada(trajeto, veiculo, motorista, cobrador));
 
     System.out.println("\n\tJornada cadastrada com sucesso!");
     Utils.pausar(Utils.scan);
@@ -97,7 +96,7 @@ public class JornadaService implements JornadaRepository {
     Utils.scan.nextLine(); // Consumir a quebra de linha pendente
 
     if (opcao < 1 || opcao > opcoes.size()) {
-      System.out.println("\tOpção inválida. Digite um número entre 1 e " + opcoes.size());
+      System.out.println("\n\tOpção inválida. Digite um número entre 1 e " + opcoes.size());
       Utils.pausar(Utils.scan);
       return selecionarOpcao(mensagem, opcoes); // Chamada recursiva em caso de opção inválida
     }

@@ -31,6 +31,6 @@ public class Motorista {
 
   @Override
   public String toString() {
-    return ("\tNome: " + this.nome + "\n\tCNH: " + this.cnh);
+    return ("\n\tNome: " + this.nome + "\n\tCNH: " + this.cnh);
   }
 }

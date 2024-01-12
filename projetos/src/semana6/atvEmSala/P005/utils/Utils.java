@@ -51,7 +51,7 @@ public class Utils {
           menuRegistroDeJornada();
           break;
         case 8:
-          // menuRegistroDeInicioDeTrajeto();
+          menuRegistroDeInicioDeTrajeto();
           break;
         case 9:
           // menuRegistroDePassageirosComCartao();
@@ -583,6 +583,77 @@ public class Utils {
       switch (opcao) {
         case 1:
           JornadaService.cadastrarJornada();
+          break;
+
+        case 2:
+          JornadaService.listarJornadas();
+          break;
+
+        case 3:
+          System.out.println("\n\tRetornando ao menu principal...");
+          pausar(scan);
+          MainTransporteViario();
+          break;
+
+        case 0:
+          System.err.println("\n\tObrigado por utilizar o nosso sistema de gestão de transportes, Saindo!...");
+          System.exit(0);
+          break;
+
+        default:
+          System.out.println("\n\tOpção inválida. Tente novamente.");
+      }
+    } while (opcao != 0);
+  }
+
+  public static int dispMenuRegistroDeInicioDeTrajeto() {
+
+    int opcao = -1;
+
+    do {
+
+      limparTela();
+      imprimirFormatado(LocalDateTime.now());
+      calcularDiasRestantes(LocalDateTime.now());
+      System.out.print("\n\t===== REGISTRO DE INICIO DE TRAJETO =====");
+      System.out.print("\n\t[1] - REGISTRAR");
+      System.out.print("\n\t[2] - LISTAR");
+      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[0] - SAIR");
+      System.out.print("\n\tENTRADA -> ");
+
+      try {
+        opcao = scan.nextInt();
+        scan.nextLine();
+
+        if (opcao < 0 || opcao > 3) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+          pausar(scan);
+          limparTela();
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\tOps, entrada inválida. Digite um número inteiro.");
+        scan.next(); // Limpa o buffer do scanner
+        pausar(scan);
+        limparTela();
+      }
+
+    } while (opcao < 0 || opcao > 3);
+
+    return opcao;
+  }
+
+  public static void menuRegistroDeInicioDeTrajeto() {
+
+    int opcao = -1;
+
+    do {
+
+      opcao = dispMenuRegistroDeInicioDeTrajeto();
+
+      switch (opcao) {
+        case 1:
+          TrajetoService.registroDeTrajeto();
           break;
 
         case 2:

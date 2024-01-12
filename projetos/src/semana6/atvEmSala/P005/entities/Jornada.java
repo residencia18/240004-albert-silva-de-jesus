@@ -1,13 +1,20 @@
 package semana6.atvEmSala.P005.entities;
 
+import java.util.Date;
+
 public class Jornada {
   
   private Trajeto trajeto;
   private Veiculo veiculo;
   private Motorista motorista;
   private Cobrador cobrador;
+  private Date dataInicio;
 
   public Jornada(){
+  }
+
+  public Jornada(Date dataInicio) {
+    this.dataInicio = dataInicio;
   }
 
   public Jornada(Trajeto trajeto, Veiculo veiculo, Motorista motorista, Cobrador cobrador) {
@@ -49,19 +56,31 @@ public class Jornada {
     this.cobrador = cobrador;
   }
 
+  public Date getDataInicio() {
+    return dataInicio;
+  }
+
+  public void setDataInicio(Date dataInicio) {
+    this.dataInicio = dataInicio;
+  }
+
+  public void registrarInicioDoTrajeto(Date dataHoraInicio){
+    this.dataInicio = dataHoraInicio;
+  }
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("\tTrajeto:");
+    sb.append("\n\tInicio da jornada: ");
+    sb.append("\n\t" + dataInicio);
     sb.append(trajeto);
-    sb.append("\n\t===============");
-    sb.append("\n\tVeiculo:\n");
+    sb.append("\n\t============================");
+    sb.append("\n\tVeiculo:");
     sb.append(veiculo);
-    sb.append("\n\t===============");
-    sb.append("\n\tMotorista:\n");
+    sb.append("\n\t============================");
+    sb.append("\n\tMotorista:");
     sb.append(motorista);
-    sb.append("\n\t===============");
-    sb.append("\n\tCobrador:\n");
+    sb.append("\n\t============================");
+    sb.append("\n\tCobrador:");
     sb.append(cobrador);
     return sb.toString();
   }

@@ -31,6 +31,6 @@ public class Veiculo {
 
   @Override
   public String toString() {
-    return ("\tPlaca: " + this.placa + "\n\tModelo: " + this.modelo);
+    return ("\n\tPlaca: " + this.placa + "\n\tModelo: " + this.modelo);
   }
 }

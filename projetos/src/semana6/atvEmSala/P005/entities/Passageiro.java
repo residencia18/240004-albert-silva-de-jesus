@@ -58,7 +58,7 @@ public class Passageiro {
   @Override
   public String toString() {
     return (
-      "\tNome: " + getNome() + 
+      "\n\tNome: " + getNome() + 
       "\n\tCPF: " + getCpf() + 
       "\n\tTipo de Cartão: " + getTipoCartao() + 
       "\n\tPonto de Embarque: " + getPontoEmbarque());
