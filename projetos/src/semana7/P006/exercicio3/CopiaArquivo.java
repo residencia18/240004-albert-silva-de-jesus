@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 public class CopiaArquivo {
   public static void main(String[] args) {
+    
     limparTela();
-
     // Caminho dos arquivos de origem e destino
     String caminhoOrigem = "projetos/src/semana7/P006/exercicio3/bancodedados/origem.txt";
     String caminhoDestino = "projetos/src/semana7/P006/exercicio3/bancodedados/destino.txt";
