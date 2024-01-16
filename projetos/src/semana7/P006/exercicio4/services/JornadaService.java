@@ -8,9 +8,9 @@ import semana7.P006.exercicio4.entities.Jornada;
 import semana7.P006.exercicio4.entities.Motorista;
 import semana7.P006.exercicio4.entities.Trajeto;
 import semana7.P006.exercicio4.entities.Veiculo;
+import semana7.P006.exercicio4.persistencia.ArquivoJornadas;
 import semana7.P006.exercicio4.repositories.JornadaRepository;
 import semana7.P006.exercicio4.views.Views;
-
 
 public class JornadaService implements JornadaRepository {
 
@@ -25,52 +25,6 @@ public class JornadaService implements JornadaRepository {
   public List<Jornada> getJornadas() {
     return jornadas;
   }
-
-  // public static void cadastrarJornada() {
-
-  // System.out.println("\n\t===== CADASTRAR JORNADA =====\n");
-
-  // System.out.println("\tEscolha o trajeto: ");
-  // for (int i = 0; i < TrajetoService.trajetos.size(); i++) {
-  // System.out.println("\t" + (i + 1) + " - " + TrajetoService.trajetos.get(i));
-  // }
-  // System.out.println("\tOpção: ");
-  // int opcaoTrajeto = Utils.scan.nextInt();
-  // Utils.scan.nextLine();
-
-  // System.out.println("\tEscolha o veículo: ");
-  // for (int i = 0; i < VeiculoService.veiculos.size(); i++) {
-  // System.out.println("\t" + (i + 1) + " - " + VeiculoService.veiculos.get(i));
-  // }
-  // System.out.println("\tOpção: ");
-  // int opcaoVeiculo = Utils.scan.nextInt();
-
-  // System.out.println("\tEscolha o motorista: ");
-  // for (int i = 0; i < MotoristaService.motoristas.size(); i++) {
-  // System.out.println("\t" + (i + 1) + " - " +
-  // MotoristaService.motoristas.get(i));
-  // }
-  // System.out.println("\tOpção: ");
-  // int opcaoMotorista = Utils.scan.nextInt();
-
-  // System.out.println("\tEscolha o cobrador: ");
-  // for (int i = 0; i < CobradorService.cobradores.size(); i++) {
-  // System.out.println("\t" + (i + 1) + " - " +
-  // CobradorService.cobradores.get(i));
-  // }
-  // System.out.println("\tOpção: ");
-  // int opcaoCobrador = Utils.scan.nextInt();
-
-  // Jornada jornada = new Jornada(TrajetoService.trajetos.get(opcaoTrajeto - 1),
-  // VeiculoService.veiculos.get(opcaoVeiculo - 1),
-  // MotoristaService.motoristas.get(opcaoMotorista - 1),
-  // CobradorService.cobradores.get(opcaoCobrador - 1));
-  // jornadas.add(jornada);
-
-  // System.out.println("\n\tJornada cadastrada com sucesso!");
-  // Utils.pausar(Utils.scan);
-
-  // }
 
   @Override
   public void cadastrarJornada() {
@@ -110,7 +64,7 @@ public class JornadaService implements JornadaRepository {
     }
 
     return opcoes.get(opcao - 1);
-    
+
   }
 
   public void listarJornadas() {
@@ -123,5 +77,21 @@ public class JornadaService implements JornadaRepository {
       System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
+  }
+
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    jornadas = ArquivoJornadas.carregarDeArquivo(nomeArquivo);
+
+    if (jornadas != null) {
+      jornadas = ArquivoJornadas.carregarDeArquivo(nomeArquivo);
+    }
+
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    ArquivoJornadas.salvarEmArquivo(jornadas, nomeArquivo);
+
   }
 }

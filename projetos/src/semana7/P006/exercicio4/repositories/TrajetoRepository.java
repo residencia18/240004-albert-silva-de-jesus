@@ -16,4 +16,8 @@ public interface TrajetoRepository {
   public void registroDeTrajeto();
 
   public void listarTrajetos();
+
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
 }

@@ -13,4 +13,8 @@ public interface VeiculoRepository {
   public void cadastrarVeiculo();
 
   public void listarVeiculos();
+
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
 }

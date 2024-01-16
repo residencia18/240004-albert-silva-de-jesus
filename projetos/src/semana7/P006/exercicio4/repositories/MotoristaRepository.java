@@ -13,4 +13,8 @@ public interface MotoristaRepository {
   public void cadastrarMotorista();
 
   public void listarMotoristas();
+
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
 }

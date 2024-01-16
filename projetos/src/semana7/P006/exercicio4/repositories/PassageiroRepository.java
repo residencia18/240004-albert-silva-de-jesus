@@ -18,4 +18,8 @@ public interface PassageiroRepository {
 
   public void registroDePassageiros();
 
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
+
 }

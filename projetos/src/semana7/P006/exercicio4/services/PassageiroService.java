@@ -157,4 +157,16 @@ public class PassageiroService implements PassageiroRepository {
     return tipoCartao;
   }
 
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+    
+  }
+
 }

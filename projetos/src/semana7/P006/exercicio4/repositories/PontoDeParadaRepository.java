@@ -13,4 +13,8 @@ public interface PontoDeParadaRepository {
   public String trajetoEmbarque();
 
   public String trajetoDesembarque();
+
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
 }

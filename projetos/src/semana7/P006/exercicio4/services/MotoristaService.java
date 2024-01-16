@@ -51,4 +51,16 @@ public class MotoristaService implements MotoristaRepository {
     }
     Views.pausar(Views.scan);
   }
+
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+    
+  }
 }

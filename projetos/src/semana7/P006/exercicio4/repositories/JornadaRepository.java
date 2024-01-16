@@ -13,4 +13,8 @@ public interface JornadaRepository {
   public void cadastrarJornada();
 
   public void listarJornadas();
+
+  public void carregarArquivo(String nomeArquivo);
+
+  public void salvarArquivo(String nomeArquivo);
 }

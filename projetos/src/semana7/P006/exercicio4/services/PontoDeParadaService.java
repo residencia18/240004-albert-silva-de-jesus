@@ -173,4 +173,16 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
     return opcaoEmbarque;
   }
 
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+
+  }
+
 }

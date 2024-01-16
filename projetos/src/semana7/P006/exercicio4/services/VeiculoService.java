@@ -21,6 +21,7 @@ public class VeiculoService implements VeiculoRepository{
     return veiculos;
   }
 
+  @Override
   public void cadastrarVeiculo() {
 
     Views.limparTela();
@@ -38,6 +39,7 @@ public class VeiculoService implements VeiculoRepository{
     Views.pausar(Views.scan);
   }
 
+  @Override
   public void listarVeiculos() {
 
     Views.limparTela();
@@ -48,5 +50,17 @@ public class VeiculoService implements VeiculoRepository{
       System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
+  }
+
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    // TODO Auto-generated method stub
+
   }
 }
