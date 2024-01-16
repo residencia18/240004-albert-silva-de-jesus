@@ -1,6 +1,6 @@
 package semana7.P006.exercicio4.repositories;
 
-import semana6.atvEmSala.P005.entities.PontosDeParada;
+import semana7.P006.exercicio4.entities.PontosDeParada;
 
 public interface PontoDeParadaRepository {
   

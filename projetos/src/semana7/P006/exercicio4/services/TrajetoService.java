@@ -7,13 +7,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import semana4.atvemsala.redesocial.Utils;
-import semana6.atvEmSala.P005.entities.Jornada;
-import semana6.atvEmSala.P005.entities.Trajeto;
-import semana6.atvEmSala.P005.entities.Trecho;
-import semana6.atvEmSala.P005.repositories.PontoDeParadaRepository;
-import semana6.atvEmSala.P005.repositories.TrajetoRepository;
-import semana6.atvEmSala.P005.views.Views;
+import semana7.P006.exercicio4.entities.Jornada;
+import semana7.P006.exercicio4.entities.Trajeto;
+import semana7.P006.exercicio4.entities.Trecho;
+import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
+import semana7.P006.exercicio4.repositories.TrajetoRepository;
+import semana7.P006.exercicio4.views.Views;
 
 public class TrajetoService implements TrajetoRepository {
 
@@ -42,16 +41,16 @@ public class TrajetoService implements TrajetoRepository {
     String destino = pontoDeParadaRepository.trajetoDesembarque(); 
 
     System.out.print("\tInforme os pontos de parada: ");
-    String pontos = Utils.scan.nextLine();
+    String pontos = Views.scan.nextLine();
 
     System.out.print("\tInforme o intervalo estimado: ");
-    int intervaloEstimado = Utils.scan.nextInt();
+    int intervaloEstimado = Views.scan.nextInt();
 
     Trecho trecho = new Trecho(origem, destino, pontos, intervaloEstimado);
     trajetos.add(new Trajeto(trecho));
 
     System.out.println("\n\tTrajeto cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   @Override
@@ -62,7 +61,7 @@ public class TrajetoService implements TrajetoRepository {
 
     if (trajetos.isEmpty()) {
       System.out.println("\tNão há trajetos cadastrados!");
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return;
     }
 
@@ -70,7 +69,7 @@ public class TrajetoService implements TrajetoRepository {
       System.out.println(trajeto.toString());
       System.out.print("\t===============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   @Override
@@ -80,7 +79,7 @@ public class TrajetoService implements TrajetoRepository {
 
     if (JornadaService.jornadas.isEmpty()) {
       System.out.println("\tNão há jornadas cadastradas!");
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return;
     }
 
@@ -91,12 +90,12 @@ public class TrajetoService implements TrajetoRepository {
     }
 
     System.out.print("\tEscolha a jornada pelo índice: ");
-    int opcaoJornada = Utils.scan.nextInt();
-    Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+    int opcaoJornada = Views.scan.nextInt();
+    Views.scan.nextLine(); // Consumir a quebra de linha pendente
 
     if (opcaoJornada < 1 || opcaoJornada > JornadaService.jornadas.size()) {
       System.out.println("\tOpção inválida. Digite um número entre 1 e " + JornadaService.jornadas.size());
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return;
     }
 
@@ -105,7 +104,7 @@ public class TrajetoService implements TrajetoRepository {
 
     // Registra a data e hora de início do trajeto
     System.out.print("\tInforme a data e hora de início do trajeto (formato dd/MM/yyyy): ");
-    String dataHoraInicio = Utils.scan.nextLine();
+    String dataHoraInicio = Views.scan.nextLine();
 
     // Converte a string em um objeto Date
     Date dataInicio = converterStringParaData(dataHoraInicio);
@@ -133,7 +132,7 @@ public class TrajetoService implements TrajetoRepository {
 
     jornadaEscolhida.registrarInicioDoTrajeto(dataInicio);
     System.out.println("\n\tRegistro de trajeto realizado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   private Date converterStringParaData(String dataString) {

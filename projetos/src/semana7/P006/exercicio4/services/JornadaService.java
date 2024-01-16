@@ -3,14 +3,14 @@ package semana7.P006.exercicio4.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana4.atvemsala.redesocial.Utils;
-import semana6.atvEmSala.P005.entities.Cobrador;
-import semana6.atvEmSala.P005.entities.Jornada;
-import semana6.atvEmSala.P005.entities.Motorista;
-import semana6.atvEmSala.P005.entities.Trajeto;
-import semana6.atvEmSala.P005.entities.Veiculo;
-import semana6.atvEmSala.P005.repositories.JornadaRepository;
-import semana6.atvEmSala.P005.views.Views;
+import semana7.P006.exercicio4.entities.Cobrador;
+import semana7.P006.exercicio4.entities.Jornada;
+import semana7.P006.exercicio4.entities.Motorista;
+import semana7.P006.exercicio4.entities.Trajeto;
+import semana7.P006.exercicio4.entities.Veiculo;
+import semana7.P006.exercicio4.repositories.JornadaRepository;
+import semana7.P006.exercicio4.views.Views;
+
 
 public class JornadaService implements JornadaRepository {
 
@@ -86,12 +86,12 @@ public class JornadaService implements JornadaRepository {
     jornadas.add(new Jornada(trajeto, veiculo, motorista, cobrador));
 
     System.out.println("\n\tJornada cadastrada com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   private static <T> T selecionarOpcao(String mensagem, List<T> opcoes) {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.println(mensagem);
     System.out.println("\t============================");
     for (int i = 0; i < opcoes.size(); i++) {
@@ -100,12 +100,12 @@ public class JornadaService implements JornadaRepository {
     }
     System.out.print("\tOpção: ");
 
-    int opcao = Utils.scan.nextInt();
-    Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+    int opcao = Views.scan.nextInt();
+    Views.scan.nextLine(); // Consumir a quebra de linha pendente
 
     if (opcao < 1 || opcao > opcoes.size()) {
       System.out.println("\n\tOpção inválida. Digite um número entre 1 e " + opcoes.size());
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return selecionarOpcao(mensagem, opcoes); // Chamada recursiva em caso de opção inválida
     }
 
@@ -122,6 +122,6 @@ public class JornadaService implements JornadaRepository {
       System.out.println(jornada.toString());
       System.out.print("\t============================");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 }

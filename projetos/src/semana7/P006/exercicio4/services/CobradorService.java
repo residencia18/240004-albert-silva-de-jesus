@@ -3,9 +3,10 @@ package semana7.P006.exercicio4.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana6.atvEmSala.P005.entities.Cobrador;
-import semana6.atvEmSala.P005.repositories.CobradorRepository;
-import semana6.atvEmSala.P005.views.Views;
+import semana7.P006.exercicio4.entities.Cobrador;
+import semana7.P006.exercicio4.repositories.CobradorRepository;
+import semana7.P006.exercicio4.views.Views;
+import semana7.P006.exercicio4.arquivos.ArquivoCobradores;
 
 public class CobradorService implements CobradorRepository {
 
@@ -34,7 +35,7 @@ public class CobradorService implements CobradorRepository {
     String matricula = Views.scan.nextLine();
 
     cobradores.add(new Cobrador(nome, matricula));
-    
+
     System.out.println("\n\tCobrador cadastrado com sucesso!");
     Views.pausar(Views.scan);
   }
@@ -50,6 +51,20 @@ public class CobradorService implements CobradorRepository {
       System.out.print("\t============================");
     }
     Views.pausar(Views.scan);
+  }
+
+  @Override
+  public void carregarArquivo(String nomeArquivo) {
+    cobradores = ArquivoCobradores.carregarDeArquivo(nomeArquivo);
+
+    if (cobradores != null) {
+      cobradores = ArquivoCobradores.carregarDeArquivo(nomeArquivo);
+    }
+  }
+
+  @Override
+  public void salvarArquivo(String nomeArquivo) {
+    ArquivoCobradores.salvarEmArquivo(cobradores, nomeArquivo);
   }
 
 }

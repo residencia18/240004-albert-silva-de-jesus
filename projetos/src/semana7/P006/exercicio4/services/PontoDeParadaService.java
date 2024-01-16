@@ -3,10 +3,9 @@ package semana7.P006.exercicio4.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana4.atvemsala.redesocial.Utils;
-import semana6.atvEmSala.P005.entities.PontosDeParada;
-import semana6.atvEmSala.P005.repositories.PontoDeParadaRepository;
-import semana6.atvEmSala.P005.views.Views;
+import semana7.P006.exercicio4.entities.PontosDeParada;
+import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
+import semana7.P006.exercicio4.views.Views;
 
 public class PontoDeParadaService implements PontoDeParadaRepository {
 
@@ -55,7 +54,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
 
     if (getPontosDeParada().isEmpty()) {
       System.out.println("\tNão há pontos de parada cadastrados!");
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return null;
     }
 
@@ -69,8 +68,8 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
         System.out.println("\t[" + (index++) + "] - " + ponto.getEmbarque());
       }
       System.out.print("\tOpção: ");
-      pontoEmbarque = Utils.scan.nextInt();
-      Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+      pontoEmbarque = Views.scan.nextInt();
+      Views.scan.nextLine(); // Consumir a quebra de linha pendente
 
       if (pontoEmbarque < 1 || pontoEmbarque > getPontosDeParada().size()) {
         System.out.println("\tOpção inválida. Digite um número entre 1 e " + getPontosDeParada().size());
@@ -86,7 +85,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
 
     if (getPontosDeParada().isEmpty()) {
       System.out.println("\tNão há pontos de parada cadastrados!");
-      Utils.pausar(Utils.scan);
+      Views.pausar(Views.scan);
       return null;
     }
 
@@ -100,8 +99,8 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
         System.out.println("\t[" + (index++) + "] - " + ponto.getDesembarque());
       }
       System.out.print("\tOpção: ");
-      pontoDesembarque = Utils.scan.nextInt();
-      Utils.scan.nextLine(); // Consumir a quebra de linha pendente
+      pontoDesembarque = Views.scan.nextInt();
+      Views.scan.nextLine(); // Consumir a quebra de linha pendente
 
       if (pontoDesembarque < 1 || pontoDesembarque > getPontosDeParada().size()) {
         System.out.println(

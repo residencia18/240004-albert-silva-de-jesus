@@ -17,7 +17,7 @@ public class Cobrador {
     return this.nome;
   }
 
-  public String getmatricula() {
+  public String getMatricula() {
     return this.matricula;
   }
 
@@ -31,7 +31,7 @@ public class Cobrador {
 
   @Override
   public String toString() {
-    return ("\n\tNome: " + getNome() + "\n\tMatricula: " + getmatricula());
+    return ("\n\tNome: " + getNome() + "\n\tMatricula: " + getMatricula());
   }
 
 }
