@@ -458,6 +458,7 @@ public class Views {
   private void menuPontosDeParada() {
 
     int opcao = -1;
+    pontoDeParadaRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
 
     do {
 
@@ -466,6 +467,7 @@ public class Views {
       switch (opcao) {
         case 1:
         pontoDeParadaRepository.cadastrarPontoDeParada();
+        pontoDeParadaRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
           break;
 
         case 2:
@@ -528,6 +530,8 @@ public class Views {
   private void menuTrajetos() {
 
     int opcao = -1;
+    trajetoRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\trajeto.txt");
+    pontoDeParadaRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
 
     do {
 
@@ -536,6 +540,7 @@ public class Views {
       switch (opcao) {
         case 1:
           trajetoRepository.cadastrarTrajeto();
+          trajetoRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\trajeto.txt");
           break;
 
         case 2:

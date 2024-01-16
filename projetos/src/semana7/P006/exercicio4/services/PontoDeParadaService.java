@@ -4,20 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana7.P006.exercicio4.entities.PontosDeParada;
+import semana7.P006.exercicio4.persistencia.ArquivoPontoDeParada;
 import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
 import semana7.P006.exercicio4.views.Views;
 
 public class PontoDeParadaService implements PontoDeParadaRepository {
 
-  public static List<PontosDeParada> pontosDeParada = new ArrayList<PontosDeParada>();
+  public static List<PontosDeParada> pontosDeParadas = new ArrayList<PontosDeParada>();
 
   @Override
   public void adicionar(PontosDeParada pontoDeParada) {
-    pontosDeParada.add(pontoDeParada);
+    pontosDeParadas.add(pontoDeParada);
   }
 
   public List<PontosDeParada> getPontosDeParada() {
-    return pontosDeParada;
+    return pontosDeParadas;
   }
 
   public void cadastrarPontoDeParada() {
@@ -43,7 +44,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
     Views.limparTela();
     System.out.println("\n\t===== LISTAR PONTOS DE PARADA =====");
 
-    for (PontosDeParada pontoDeParada : pontosDeParada) {
+    for (PontosDeParada pontoDeParada : pontosDeParadas) {
       System.out.println(pontoDeParada.toString());
       System.out.print("\t============================");
     }
@@ -175,14 +176,19 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    pontosDeParadas = ArquivoPontoDeParada.carregarPontosDeParadaDeArquivo(nomeArquivo);
+
+    if(pontosDeParadas != null) {
+      Views.limparTela();
+      System.out.println("\n\tPontos de Parada carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
+    }
 
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
-
+    ArquivoPontoDeParada.salvarPontosDeParadaEmArquivo(pontosDeParadas, nomeArquivo);
   }
 
 }

@@ -10,6 +10,7 @@ import java.util.List;
 import semana7.P006.exercicio4.entities.Jornada;
 import semana7.P006.exercicio4.entities.Trajeto;
 import semana7.P006.exercicio4.entities.Trecho;
+import semana7.P006.exercicio4.persistencia.ArquivoTrajetos;
 import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
 import semana7.P006.exercicio4.repositories.TrajetoRepository;
 import semana7.P006.exercicio4.views.Views;
@@ -150,15 +151,18 @@ public class TrajetoService implements TrajetoRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    trajetos = ArquivoTrajetos.carregarTrajetosDeArquivo(nomeArquivo);
+
+    if(trajetos != null){
+      Views.limparTela();
+      System.out.println("\n\tTrajetos carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
+    }
 
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
-
+    ArquivoTrajetos.salvarTrajetosEmArquivo(trajetos, nomeArquivo);
   }
-
-
 }
