@@ -59,6 +59,9 @@ public class CobradorService implements CobradorRepository {
 
     if (cobradores != null) {
       cobradores = ArquivoCobradores.carregarDeArquivo(nomeArquivo);
+      Views.limparTela();
+      System.out.println("\n\tCobradores carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
     }
   }
 

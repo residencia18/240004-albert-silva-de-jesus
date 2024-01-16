@@ -242,6 +242,7 @@ public class Views {
   private void menuMotoristas() {
 
     int opcao = -1;
+    motoristaRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\motorista.txt");
 
     do {
 
@@ -250,6 +251,7 @@ public class Views {
       switch (opcao) {
         case 1:
           motoristaRepository.cadastrarMotorista();
+          motoristaRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\motorista.txt");
           break;
 
         case 2:

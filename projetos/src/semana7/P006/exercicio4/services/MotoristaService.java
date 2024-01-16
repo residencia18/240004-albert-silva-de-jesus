@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana7.P006.exercicio4.entities.Motorista;
+import semana7.P006.exercicio4.persistencia.ArquivoMotoristas;
 import semana7.P006.exercicio4.repositories.MotoristaRepository;
 import semana7.P006.exercicio4.views.Views;
 
@@ -30,7 +31,7 @@ public class MotoristaService implements MotoristaRepository {
     System.out.print("\n\tNome do Motorista: ");
     String nome = Views.scan.nextLine();
 
-    System.out.print("\tMatricula do Motorista: ");
+    System.out.print("\tCNH do Motorista: ");
     String matricula = Views.scan.nextLine();
 
     motoristas.add(new Motorista(nome, matricula));
@@ -54,13 +55,19 @@ public class MotoristaService implements MotoristaRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    motoristas = ArquivoMotoristas.carregarMotoristasDeArquivo(nomeArquivo);
+
+    if (motoristas != null) {
+      Views.limparTela();
+      System.out.println("\n\tMotoristas carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
+    }
     
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    ArquivoMotoristas.salvarMotoristasEmArquivo(motoristas, nomeArquivo);
     
   }
 }
