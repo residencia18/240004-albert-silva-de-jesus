@@ -6,7 +6,7 @@ import java.util.List;
 import semana7.P006.exercicio4.entities.Cobrador;
 import semana7.P006.exercicio4.repositories.CobradorRepository;
 import semana7.P006.exercicio4.views.Views;
-import semana7.P006.exercicio4.arquivos.ArquivoCobradores;
+import semana7.P006.exercicio4.persistencia.ArquivoCobradores;
 
 public class CobradorService implements CobradorRepository {
 

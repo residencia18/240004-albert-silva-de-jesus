@@ -1,4 +1,4 @@
-package semana7.P006.exercicio4.arquivos;
+package semana7.P006.exercicio4.persistencia;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
