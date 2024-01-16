@@ -314,6 +314,7 @@ public class Views {
   private void menuVeiculos() {
 
     int opcao = -1;
+    veiculoRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\veiculo.txt");
 
     do {
 
@@ -322,6 +323,7 @@ public class Views {
       switch (opcao) {
         case 1:
           veiculoRepository.cadastrarVeiculo();
+          veiculoRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\veiculo.txt");
           break;
 
         case 2:
@@ -384,6 +386,7 @@ public class Views {
   private void menuPassageiros() {
 
     int opcao = -1;
+    passageiroRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\passageiro.txt");
 
     do {
 
@@ -392,6 +395,7 @@ public class Views {
       switch (opcao) {
         case 1:
           passageiroRepository.cadastrarPassageiro();
+          passageiroRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\passageiro.txt");
           break;
 
         case 2:

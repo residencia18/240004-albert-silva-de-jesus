@@ -3,7 +3,8 @@ package semana7.P006.exercicio4.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Passageiro; 
+import semana7.P006.exercicio4.entities.Passageiro;
+import semana7.P006.exercicio4.persistencia.ArquivoPassageiros;
 import semana7.P006.exercicio4.repositories.PassageiroRepository;
 import semana7.P006.exercicio4.views.Views;
 
@@ -159,14 +160,19 @@ public class PassageiroService implements PassageiroRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    passageiros = ArquivoPassageiros.carregarPassageirosDeArquivo(nomeArquivo);
+
+    if (passageiros != null) {
+      Views.limparTela();
+      System.out.println("\n\tPassageiros carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
+    }
     
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
-    
+    ArquivoPassageiros.salvarPassageirosEmArquivo(passageiros, nomeArquivo);
   }
 
 }

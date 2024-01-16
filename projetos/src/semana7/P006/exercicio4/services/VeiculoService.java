@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana7.P006.exercicio4.entities.Veiculo;
+import semana7.P006.exercicio4.persistencia.ArquivoVeiculos;
 import semana7.P006.exercicio4.repositories.VeiculoRepository;
 import semana7.P006.exercicio4.views.Views;
 
@@ -54,13 +55,17 @@ public class VeiculoService implements VeiculoRepository{
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
+    veiculos = ArquivoVeiculos.carregarVeiculosDeArquivo(nomeArquivo);
 
+    if (veiculos != null) {
+      Views.limparTela();
+      System.out.println("\n\tVeiculos carregados do arquivo: " + nomeArquivo);
+      Views.pausar(Views.scan);
+    }
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    // TODO Auto-generated method stub
-
+    ArquivoVeiculos.salvarVeiculosEmArquivo(veiculos, nomeArquivo);
   }
 }
