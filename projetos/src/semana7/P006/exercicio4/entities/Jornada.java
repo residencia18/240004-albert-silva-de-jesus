@@ -67,6 +67,7 @@ public class Jornada {
   public void registrarInicioDoTrajeto(Date dataHoraInicio){
     this.dataInicio = dataHoraInicio;
   }
+  
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
