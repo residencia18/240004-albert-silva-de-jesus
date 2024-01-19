@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'p007';
   resultados: any;
   categoriaSelecionada: any;
+  veiculoSelecionado: any;
 
   constructor(public http: HttpClient) {
     console.log('constructor');
@@ -26,5 +27,9 @@ export class AppComponent {
 
   setCategoriaSelecionada(categoria: any) {
     this.categoriaSelecionada = categoria;
+  }
+
+  setVeiculoSelecionado(veiculo: any) {
+    this.veiculoSelecionado = veiculo;
   }
 }

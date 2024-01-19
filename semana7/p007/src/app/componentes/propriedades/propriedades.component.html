@@ -1,1 +1,8 @@
-<p>propriedades works!</p>
+<div *ngIf="veiculo != null">
+  <h1>{{veiculo.Name}}</h1>
+  <ul>
+    <li *ngFor="let propriedade of pegarChaves()">
+      <button (click)="selecionarPropriedade(veiculo[propriedade])">{{propriedade}}</button>
+    </li>
+  </ul>
+</div>

@@ -1,1 +1,8 @@
-<p>objetos works!</p>
+<div *ngIf="categoria != null">
+  <h1>{{categoria.titulo}}</h1>
+  <ul>
+    <li *ngFor="let veiculo of categoria.veiculos">
+      <button (click)="selecionarVeiculo(veiculo)">{{veiculo.Name}}</button>
+    </li>
+  </ul>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-objetos',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './objetos.component.css'
 })
 export class ObjetosComponent {
+  @Input() categoria: any;
+  @Output() veiculoSelecionado = new EventEmitter<any>();
 
+  selecionarVeiculo(veiculo: any): void {
+    this.veiculoSelecionado.emit(veiculo);
+  }
 }
