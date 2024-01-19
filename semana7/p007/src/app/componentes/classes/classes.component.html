@@ -1,1 +1,8 @@
-<p>classes works!</p>
+<div>
+  <h1>Categorias</h1>
+  <ul>
+    <li *ngFor="let categoria of pegarChaves()">
+      <button (click)="selecionarCategoria(categoria)">{{categoria}}</button>
+    </li>
+  </ul>
+</div>

@@ -7,6 +7,7 @@ import { ClassesComponent } from './componentes/classes/classes.component';
 import { ObjetosComponent } from './componentes/objetos/objetos.component';
 import { PropriedadesComponent } from './componentes/propriedades/propriedades.component';
 import { ValorPropriedadesComponent } from './componentes/valor-propriedades/valor-propriedades.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,10 +18,11 @@ import { ValorPropriedadesComponent } from './componentes/valor-propriedades/val
     ValorPropriedadesComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClient, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
