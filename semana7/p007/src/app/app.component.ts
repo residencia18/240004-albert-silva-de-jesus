@@ -13,6 +13,7 @@ export class AppComponent {
   categoriaSelecionada: any;
   veiculoSelecionado: any;
   propriedadeSelecionada: string = '';
+  listaVeiculos: any[] = [];
 
   constructor(public http: HttpClient) {
     console.log('constructor');
@@ -36,5 +37,10 @@ export class AppComponent {
 
   setValorPropriedade(propriedade: string) {
     this.propriedadeSelecionada = propriedade;
+  }
+
+  setVeiculosLista(veiculo: any) {
+    veiculo && !this.listaVeiculos.includes(veiculo) && this.listaVeiculos.push(veiculo);
+    console.log('this.listaVeiculos', this.listaVeiculos);
   }
 }

@@ -3,4 +3,6 @@
   <app-objetos [categoria]="categoriaSelecionada" (veiculoSelecionado)="setVeiculoSelecionado($event)"></app-objetos>
   <app-propriedades [veiculo]="veiculoSelecionado" (propriedadeSelecionada)="setValorPropriedade($event)"></app-propriedades>
   <app-valor-propriedades [propriedade]="propriedadeSelecionada"></app-valor-propriedades>
+  <button (click)="setVeiculosLista(veiculoSelecionado)">Adicionar</button>
 </main>
+<app-carinho [carinho]="listaVeiculos"></app-carinho>
