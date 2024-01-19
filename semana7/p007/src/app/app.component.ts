@@ -12,6 +12,7 @@ export class AppComponent {
   resultados: any;
   categoriaSelecionada: any;
   veiculoSelecionado: any;
+  propriedadeSelecionada: string = '';
 
   constructor(public http: HttpClient) {
     console.log('constructor');
@@ -31,5 +32,9 @@ export class AppComponent {
 
   setVeiculoSelecionado(veiculo: any) {
     this.veiculoSelecionado = veiculo;
+  }
+
+  setValorPropriedade(propriedade: string) {
+    this.propriedadeSelecionada = propriedade;
   }
 }

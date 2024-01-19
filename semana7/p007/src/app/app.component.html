@@ -1,5 +1,6 @@
 <main>
   <app-classes [categorias]="resultados" (categoriaSelecionada)="setCategoriaSelecionada($event)"></app-classes>
   <app-objetos [categoria]="categoriaSelecionada" (veiculoSelecionado)="setVeiculoSelecionado($event)"></app-objetos>
-  <app-propriedades [veiculo]="veiculoSelecionado"></app-propriedades>
+  <app-propriedades [veiculo]="veiculoSelecionado" (propriedadeSelecionada)="setValorPropriedade($event)"></app-propriedades>
+  <app-valor-propriedades [propriedade]="propriedadeSelecionada"></app-valor-propriedades>
 </main>
