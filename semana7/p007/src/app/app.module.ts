@@ -9,6 +9,8 @@ import { PropriedadesComponent } from './componentes/propriedades/propriedades.c
 import { ValorPropriedadesComponent } from './componentes/valor-propriedades/valor-propriedades.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CarinhoComponent } from './componentes/carinho/carinho.component';
+import { CategoriaDirective } from './diretivas/categoria.directive';
+import { VeiculoDirective } from './diretivas/veiculo.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CarinhoComponent } from './componentes/carinho/carinho.component';
     ObjetosComponent,
     PropriedadesComponent,
     ValorPropriedadesComponent,
-    CarinhoComponent
+    CarinhoComponent,
+    CategoriaDirective,
+    VeiculoDirective
   ],
   imports: [
     HttpClientModule,
