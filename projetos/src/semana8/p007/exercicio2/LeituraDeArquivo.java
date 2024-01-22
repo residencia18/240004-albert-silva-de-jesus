@@ -17,6 +17,7 @@ public class LeituraDeArquivo {
 
   public static void main(String[] args) {
 
+    limparTela();
     // Reconstrui a lista de estudantes a partir do arquivo "estudantes.json"
     List<Estudante> estudantes = lerArquivo("projetos\\src\\semana8\\p007\\exercicio1\\json\\estudantes.json");
 
@@ -59,5 +60,21 @@ public class LeituraDeArquivo {
     }
 
     return estudantes;
+  }
+
+  public static void limparTela() {
+    try {
+      final String os = System.getProperty("os.name");
+
+      if (os.contains("Windows")) {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+      } else {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+      }
+    } catch (final Exception e) {
+      // Trata exceções (pode ser uma exceção de interrupção)
+      e.printStackTrace();
+    }
   }
 }

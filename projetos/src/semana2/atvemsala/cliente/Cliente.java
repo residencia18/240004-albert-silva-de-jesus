@@ -1,11 +1,11 @@
 package atvemsala.cliente;
 
 public class Cliente {
-    
+
     private String nome;
     private int idade;
     private String cpf;
-    
+
     public Cliente() {
     }
 
@@ -39,5 +39,4 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    
 }
