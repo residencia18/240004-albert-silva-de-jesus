@@ -606,6 +606,12 @@ public class Views {
   public void menuRegistroDeJornada() {
 
     int opcao = -1;
+    jornadaRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\jornada.json");
+    cobradorRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
+    motoristaRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\motorista.json");
+    veiculoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\veiculo.json");
+    trajetoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\trajeto.json");
+    
 
     do {
 
@@ -614,6 +620,7 @@ public class Views {
       switch (opcao) {
         case 1:
           jornadaRepository.cadastrarJornada();
+          jornadaRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\jornada.json");
           break;
 
         case 2:

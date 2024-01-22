@@ -82,18 +82,18 @@ public class JornadaService implements JornadaRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    jornadas = JsonJornadas.carregarDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    jornadas = JsonJornadas.carregarDeArquivoJSON(nomeArquivo);
 
     if (jornadas != null) {
-      jornadas = JsonJornadas.carregarDeArquivo(nomeArquivo);
+      jornadas = JsonJornadas.carregarDeArquivoJSON(nomeArquivo);
     }
 
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    JsonJornadas.salvarEmArquivo(jornadas, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonJornadas.salvarEmArquivoJSON(jornadas, nomeArquivo);
 
   }
 }
