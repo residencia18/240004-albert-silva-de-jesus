@@ -17,4 +17,8 @@ public interface CobradorRepository {
   public void carregarArquivoJSON(String nomeArquivo);
 
   public void salvarArquivoJSON(String nomeArquivo);
+
+  public void excluirArquivoJSON();
+
+  public void alterarArquivoJSON(); 
 }

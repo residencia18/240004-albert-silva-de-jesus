@@ -1,10 +1,4 @@
-[
-  {
-    "Matricula": "111112223",
-    "Nome": "Alex"
-  },
-  {
-    "Matricula": "098765",
-    "Nome": "Maria"
-  }
-]
+[{
+  "Matricula": "10",
+  "Nome": "Alexandre"
+}]

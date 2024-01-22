@@ -1,15 +1,7 @@
 package semana8.p007.exercicio3.services;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import semana8.p007.exercicio3.entities.Cobrador;
 import semana8.p007.exercicio3.persistencia.JsonCobradores;
@@ -82,52 +74,126 @@ public class CobradorService implements CobradorRepository {
     JsonCobradores.salvarCobradoresEmArquivoJSON(cobradores, nomeArquivo);
   }
 
-  private void escreverJson(Cobrador cobrador) {
+  @Override
+  public void excluirArquivoJSON() {
 
-    try {
-      // Ler o arquivo JSON existente, se houver
-      JSONArray jsonArray = lerJson();
+    Views.limparTela();
+    int indiceParaExcluir = -1;
 
-      // Adicionar o novo cobrador ao JSONArray
-      jsonArray.put(cobradorParaJsonObject(cobrador));
+    System.err.println("\n\t========== EXCLUIR COBRADORES ==========");
 
-      // Escrever a lista atualizada no arquivo JSON
-      String filePath = "projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json";
-      try (FileWriter fileWriter = new FileWriter(filePath)) {
-        fileWriter.write(jsonArray.toString()); // escreve no arquivo o toString do JSONArray
+    System.out.print("\n\tInforme o número de matrícula do cobrador que deseja excluir: ");
+    String matricula = Views.scan.nextLine();
+
+    // Procurando o cobrador pelo número de matrícula e armazenando o índice para
+    // excluir
+    for (int i = 0; i < cobradores.size(); i++) {
+
+      if (cobradores.get(i).getMatricula().equals(matricula)) {
+        indiceParaExcluir = i;
+        break;
       }
-
-    } catch (IOException e) {
-      System.err.println(
-          "Erro ao escrever no arquivo JSON. Verifique se o caminho é válido e se você tem permissão para escrever no diretório.");
-      e.printStackTrace();
-      Views.pausar(Views.scan);
     }
-  }
 
-  private JSONArray lerJson() {
-    JSONArray jsonArray = new JSONArray();
-    try {
-      String filePath = "projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json";
-      Path path = Paths.get(filePath);
+    if (indiceParaExcluir >= 0) {
 
-      if (Files.exists(path)) {
-        String content = new String(Files.readAllBytes(path));
-        if (!content.isEmpty()) {
-          jsonArray = new JSONArray(content);
+      Views.limparTela();
+      System.out.print("\n\tCobrador encontrado:");
+      System.out.println("\t"+ cobradores.get(indiceParaExcluir));
+
+      // loop de confirmação de exclusão do cobrador
+      while (true) {
+
+        System.out.print("\n\tDeseja realmente excluir este cobrador? (S/N): ");
+        String resposta = Views.scan.nextLine().trim().toUpperCase();
+
+        if (resposta.equals("S")) {
+
+          cobradores.remove(indiceParaExcluir);
+          JsonCobradores.excluirCobradorJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json",
+              indiceParaExcluir);
+          break; // Sai do loop se a exclusão for confirmada
+
+        } else if (resposta.equals("N")) {
+          System.out.println("\n\tExclusão cancelada pelo usuário.");
+          break; // Sai do loop se a exclusão for cancelada
+
+        } else {
+          System.err.println("\n\tOpção inválida. Por favor, digite S para Sim ou N para Não.");
         }
       }
-    } catch (IOException e) {
-      e.printStackTrace();
+    } else {
+      System.err.println("\n\tCobrador não encontrado!");
     }
-    return jsonArray;
+
+    Views.pausar(Views.scan);
   }
 
-  private JSONObject cobradorParaJsonObject(Cobrador cobrador) {
-    JSONObject jsonObject = new JSONObject();
-    jsonObject.put("Nome", cobrador.getNome());
-    jsonObject.put("Matricula", cobrador.getMatricula());
-    return jsonObject;
+  @Override
+  public void alterarArquivoJSON() {
+
+    Views.limparTela();
+    int indiceParaAlterar = -1;
+
+    System.err.println("\n\t========== ALTERAR COBRADORES ===========");
+
+    System.out.print("\n\tInforme o número de matrícula do cobrador que deseja alterar: ");
+    String matricula = Views.scan.nextLine();
+
+    // Procurando o cobrador pelo número de matrícula e armazenando o índice para
+    // alterar
+    for (int i = 0; i < cobradores.size(); i++) {
+      if (cobradores.get(i).getMatricula().equals(matricula)) {
+        indiceParaAlterar = i;
+        break;
+      }
+    }
+
+    if (indiceParaAlterar >= 0) {
+
+      Views.limparTela();
+      System.out.print("\n\tCobrador encontrado:");
+      System.out.println("\t"+ cobradores.get(indiceParaAlterar));
+
+      // loop de confirmação de alteração do cobrador
+      while (true) {
+
+        System.out.print("\n\tDeseja realmente alterar este cobrador? (S/N): ");
+        String resposta = Views.scan.nextLine().trim().toUpperCase();
+
+        if (resposta.equals("S")) {
+
+          Views.limparTela();
+          System.out.println("\n\tInforme os novos dados do cobrador: ");
+          System.out.print("\n\tNome do Cobrador: ");
+          String nome = Views.scan.nextLine();
+
+          System.out.print("\tMatricula do Cobrador: ");
+          String novaMatricula = Views.scan.nextLine();
+
+          Cobrador novoCobrador = new Cobrador(nome, novaMatricula);
+
+          cobradores.set(indiceParaAlterar, novoCobrador);
+          JsonCobradores.alterarCobradorJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json",
+              indiceParaAlterar, novoCobrador);
+          break; // Sai do loop se a alteração for confirmada
+
+        } else if (resposta.equals("N")) {
+          System.out.println("\n\tAlteração cancelada pelo usuário.");
+          break; // Sai do loop se a alteração for cancelada
+
+        } else {
+          System.err.println("\n\tOpção inválida. Por favor, digite S para Sim ou N para Não.");
+        }
+
+      }
+
+    } else {
+      System.err.println("\n\tCobrador não encontrado!");
+    }
+
+    Views.pausar(Views.scan);
+
   }
 
 }

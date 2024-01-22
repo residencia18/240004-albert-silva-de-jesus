@@ -22,7 +22,6 @@ import semana8.p007.exercicio3.services.PontoDeParadaService;
 import semana8.p007.exercicio3.services.TrajetoService;
 import semana8.p007.exercicio3.services.VeiculoService;
 
-
 public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
@@ -141,7 +140,9 @@ public class Views {
       System.out.print("\n\t===== GESTÃO COBRADORES =====");
       System.out.print("\n\t[1] - CADASTRAR");
       System.out.print("\n\t[2] - LISTAR");
-      System.out.print("\n\t[3] - MENU PRINCIPAL");
+      System.out.print("\n\t[3] - EXCLUIR");
+      System.out.print("\n\t[4] - ALTERAR");
+      System.out.print("\n\t[5] - MENU PRINCIPAL");
       System.out.print("\n\t[0] - SAIR");
       System.out.print("\n\tENTRADA -> ");
 
@@ -149,8 +150,8 @@ public class Views {
         opcao = scan.nextInt();
         scan.nextLine();
 
-        if (opcao < 0 || opcao > 3) {
-          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 3.");
+        if (opcao < 0 || opcao > 5) {
+          System.out.println("\n\tOps, opção inválida. Digite um número entre 0 e 5.");
           pausar(scan);
           limparTela();
         }
@@ -161,7 +162,7 @@ public class Views {
         limparTela();
       }
 
-    } while (opcao < 0 || opcao > 3);
+    } while (opcao < 0 || opcao > 5);
 
     return opcao;
   }
@@ -186,6 +187,14 @@ public class Views {
           break;
 
         case 3:
+          cobradorRepository.excluirArquivoJSON();
+          break;
+
+        case 4:
+          cobradorRepository.alterarArquivoJSON();
+          break;
+
+        case 5:
           System.out.println("\n\tRetornando ao menu principal...");
           pausar(scan);
           MainTransporteViario();
@@ -611,7 +620,6 @@ public class Views {
     motoristaRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\motorista.json");
     veiculoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\veiculo.json");
     trajetoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\trajeto.json");
-    
 
     do {
 

@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class JsonCobradores {
 
   public static List<Cobrador> carregarCobradoresDeArquivoJSON(String nomeArquivo) {
@@ -80,6 +79,46 @@ public class JsonCobradores {
     } catch (IOException e) {
       Views.limparTela();
       System.err.println("\n\nErro ao salvar no arquivo: " + e.getMessage());
+    }
+  }
+
+  public static void excluirCobradorJSON(String nomeArquivo, int indiceParaExcluir) {
+    // Carrega a lista de cobradores do arquivo
+    List<Cobrador> cobradores = carregarCobradoresDeArquivoJSON(nomeArquivo);
+
+    // Verifica se o índice é válido
+    if (indiceParaExcluir >= 0 && indiceParaExcluir < cobradores.size()) {
+      // Remove o cobrador no índice especificado
+      cobradores.remove(indiceParaExcluir);
+
+      // Salva a lista atualizada no arquivo JSON
+      salvarCobradoresEmArquivoJSON(cobradores, nomeArquivo);
+
+      Views.limparTela();
+      System.out.println("\n\tCobrador excluído com sucesso, do arquivo JSON!");
+    } else {
+      Views.limparTela();
+      System.err.println("\n\tÍndice inválido para exclusão.");
+    }
+  }
+
+  public static void alterarCobradorJSON(String nomeArquivo, int indiceParaAlterar, Cobrador novoCobrador) {
+    // Carregar a lista de cobradores do arquivo
+    List<Cobrador> cobradores = carregarCobradoresDeArquivoJSON(nomeArquivo);
+
+    // Verificar se o índice é válido
+    if (indiceParaAlterar >= 0 && indiceParaAlterar < cobradores.size()) {
+      // Substituir o cobrador no índice especificado pelo novo objeto
+      cobradores.set(indiceParaAlterar, novoCobrador);
+
+      // Salvar a lista atualizada no arquivo JSON
+      salvarCobradoresEmArquivoJSON(cobradores, nomeArquivo);
+
+      Views.limparTela();
+      System.out.println("\n\tCobrador alterado com sucesso, do arquivo JSON!");
+    } else {
+      Views.limparTela();
+      System.err.println("\n\tÍndice inválido para alteração.");
     }
   }
 
