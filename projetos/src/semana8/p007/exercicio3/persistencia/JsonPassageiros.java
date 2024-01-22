@@ -11,7 +11,7 @@ import java.util.List;
 import semana8.p007.exercicio3.entities.Passageiro;
 import semana8.p007.exercicio3.views.Views;
 
-public class ArquivoPassageiros {
+public class JsonPassageiros {
 
   public static List<Passageiro> carregarPassageirosDeArquivo(String nomeArquivo) {
 

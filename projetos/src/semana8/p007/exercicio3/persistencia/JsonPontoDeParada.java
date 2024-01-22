@@ -11,7 +11,7 @@ import java.util.List;
 import semana8.p007.exercicio3.entities.PontosDeParada;
 import semana8.p007.exercicio3.views.Views;
 
-public class ArquivoPontoDeParada {
+public class JsonPontoDeParada {
 
   public static List<PontosDeParada> carregarPontosDeParadaDeArquivo(String nomeArquivo) {
 

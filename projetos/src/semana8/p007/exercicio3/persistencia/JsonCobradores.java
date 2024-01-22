@@ -15,10 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+public class JsonCobradores {
 
-public class ArquivoCobradores {
-
-  public static List<Cobrador> carregarDeArquivo(String nomeArquivo) {
+  public static List<Cobrador> carregarCobradoresDeArquivoJSON(String nomeArquivo) {
 
     List<Cobrador> cobradores = new ArrayList<>();
 
@@ -38,8 +37,8 @@ public class ArquivoCobradores {
       for (int i = 0; i < jsonArray.length(); i++) {
         JSONObject jsonCobrador = jsonArray.getJSONObject(i);
 
-        String nome = jsonCobrador.getString("nome");
-        String matricula = jsonCobrador.getString("matricula");
+        String nome = jsonCobrador.getString("Nome");
+        String matricula = jsonCobrador.getString("Matricula");
 
         Cobrador cobrador = new Cobrador(nome, matricula);
         cobradores.add(cobrador);
@@ -56,7 +55,7 @@ public class ArquivoCobradores {
     return cobradores;
   }
 
-  public static void salvarEmArquivo(List<Cobrador> cobradores, String nomeArquivo) {
+  public static void salvarCobradoresEmArquivoJSON(List<Cobrador> cobradores, String nomeArquivo) {
 
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
 
@@ -73,7 +72,7 @@ public class ArquivoCobradores {
       }
 
       // Convertendo o JSONArray em uma string formatada e escrevendo no arquivo
-      writer.write(jsonArray.toString()); // O método toString() retorna uma string formatada
+      writer.write(jsonArray.toString(2)); // O método toString() retorna uma string formatada
 
       Views.limparTela();
       System.out.println("\n\tCobradores salvos com sucesso no arquivo: " + nomeArquivo);

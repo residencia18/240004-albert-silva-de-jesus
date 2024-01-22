@@ -8,7 +8,7 @@ import semana8.p007.exercicio3.entities.Jornada;
 import semana8.p007.exercicio3.entities.Motorista;
 import semana8.p007.exercicio3.entities.Trajeto;
 import semana8.p007.exercicio3.entities.Veiculo;
-import semana8.p007.exercicio3.persistencia.ArquivoJornadas;
+import semana8.p007.exercicio3.persistencia.JsonJornadas;
 import semana8.p007.exercicio3.repositories.JornadaRepository;
 import semana8.p007.exercicio3.views.Views;
 
@@ -83,17 +83,17 @@ public class JornadaService implements JornadaRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    jornadas = ArquivoJornadas.carregarDeArquivo(nomeArquivo);
+    jornadas = JsonJornadas.carregarDeArquivo(nomeArquivo);
 
     if (jornadas != null) {
-      jornadas = ArquivoJornadas.carregarDeArquivo(nomeArquivo);
+      jornadas = JsonJornadas.carregarDeArquivo(nomeArquivo);
     }
 
   }
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    ArquivoJornadas.salvarEmArquivo(jornadas, nomeArquivo);
+    JsonJornadas.salvarEmArquivo(jornadas, nomeArquivo);
 
   }
 }

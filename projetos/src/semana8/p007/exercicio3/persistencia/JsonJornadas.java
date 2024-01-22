@@ -16,7 +16,7 @@ import semana8.p007.exercicio3.entities.Trecho;
 import semana8.p007.exercicio3.entities.Veiculo;
 import semana8.p007.exercicio3.views.Views;
 
-public class ArquivoJornadas {
+public class JsonJornadas {
 
   public static List<Jornada> carregarDeArquivo(String nomeArquivo) {
 

@@ -10,7 +10,7 @@ import java.util.List;
 import semana8.p007.exercicio3.entities.Jornada;
 import semana8.p007.exercicio3.entities.Trajeto;
 import semana8.p007.exercicio3.entities.Trecho;
-import semana8.p007.exercicio3.persistencia.ArquivoTrajetos;
+import semana8.p007.exercicio3.persistencia.JsonTrajetos;
 import semana8.p007.exercicio3.repositories.PontoDeParadaRepository;
 import semana8.p007.exercicio3.repositories.TrajetoRepository;
 import semana8.p007.exercicio3.views.Views;
@@ -151,7 +151,7 @@ public class TrajetoService implements TrajetoRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    trajetos = ArquivoTrajetos.carregarTrajetosDeArquivo(nomeArquivo);
+    trajetos = JsonTrajetos.carregarTrajetosDeArquivo(nomeArquivo);
 
     if(trajetos != null){
       Views.limparTela();
@@ -163,6 +163,6 @@ public class TrajetoService implements TrajetoRepository {
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    ArquivoTrajetos.salvarTrajetosEmArquivo(trajetos, nomeArquivo);
+    JsonTrajetos.salvarTrajetosEmArquivo(trajetos, nomeArquivo);
   }
 }

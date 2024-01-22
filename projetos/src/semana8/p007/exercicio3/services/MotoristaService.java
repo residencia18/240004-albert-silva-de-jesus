@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana8.p007.exercicio3.entities.Motorista;
-import semana8.p007.exercicio3.persistencia.ArquivoMotoristas;
+import semana8.p007.exercicio3.persistencia.JsonMotoristas;
 import semana8.p007.exercicio3.repositories.MotoristaRepository;
 import semana8.p007.exercicio3.views.Views;
 
@@ -54,8 +54,8 @@ public class MotoristaService implements MotoristaRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    motoristas = ArquivoMotoristas.carregarMotoristasDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    motoristas = JsonMotoristas.carregarMotoristasDeArquivoJSON(nomeArquivo);
 
     if (motoristas != null) {
       Views.limparTela();
@@ -66,8 +66,8 @@ public class MotoristaService implements MotoristaRepository {
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    ArquivoMotoristas.salvarMotoristasEmArquivo(motoristas, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonMotoristas.salvarMotoristasEmArquivoJSON(motoristas, nomeArquivo);
     
   }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import semana8.p007.exercicio3.entities.PontosDeParada; 
 import semana8.p007.exercicio3.repositories.PontoDeParadaRepository;
-import semana8.p007.exercicio3.persistencia.ArquivoPontoDeParada;
+import semana8.p007.exercicio3.persistencia.JsonPontoDeParada;
 import semana8.p007.exercicio3.views.Views;
 
 public class PontoDeParadaService implements PontoDeParadaRepository {
@@ -176,7 +176,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    pontosDeParadas = ArquivoPontoDeParada.carregarPontosDeParadaDeArquivo(nomeArquivo);
+    pontosDeParadas = JsonPontoDeParada.carregarPontosDeParadaDeArquivo(nomeArquivo);
 
     if(pontosDeParadas != null) {
       Views.limparTela();
@@ -188,7 +188,7 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    ArquivoPontoDeParada.salvarPontosDeParadaEmArquivo(pontosDeParadas, nomeArquivo);
+    JsonPontoDeParada.salvarPontosDeParadaEmArquivo(pontosDeParadas, nomeArquivo);
   }
 
 }

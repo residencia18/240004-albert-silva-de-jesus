@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import semana8.p007.exercicio3.entities.Passageiro;
-import semana8.p007.exercicio3.persistencia.ArquivoPassageiros;
+import semana8.p007.exercicio3.persistencia.JsonPassageiros;
 import semana8.p007.exercicio3.repositories.PassageiroRepository;
 import semana8.p007.exercicio3.views.Views;
 
@@ -160,7 +160,7 @@ public class PassageiroService implements PassageiroRepository {
 
   @Override
   public void carregarArquivo(String nomeArquivo) {
-    passageiros = ArquivoPassageiros.carregarPassageirosDeArquivo(nomeArquivo);
+    passageiros = JsonPassageiros.carregarPassageirosDeArquivo(nomeArquivo);
 
     if (passageiros != null) {
       Views.limparTela();
@@ -172,7 +172,7 @@ public class PassageiroService implements PassageiroRepository {
 
   @Override
   public void salvarArquivo(String nomeArquivo) {
-    ArquivoPassageiros.salvarPassageirosEmArquivo(passageiros, nomeArquivo);
+    JsonPassageiros.salvarPassageirosEmArquivo(passageiros, nomeArquivo);
   }
 
 }

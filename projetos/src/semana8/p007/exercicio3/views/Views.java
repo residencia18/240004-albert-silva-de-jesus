@@ -169,7 +169,7 @@ public class Views {
   private void menuCobrador() {
 
     int opcao = -1;
-    // cobradorRepository.carregarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
+    cobradorRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
 
     do {
 
@@ -178,7 +178,7 @@ public class Views {
       switch (opcao) {
         case 1:
           cobradorRepository.cadastrarCobrador();
-          // cobradorRepository.salvarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
+          cobradorRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
           break;
 
         case 2:
@@ -241,7 +241,7 @@ public class Views {
   private void menuMotoristas() {
 
     int opcao = -1;
-    motoristaRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\motorista.txt");
+    motoristaRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\motorista.json");
 
     do {
 
@@ -250,7 +250,7 @@ public class Views {
       switch (opcao) {
         case 1:
           motoristaRepository.cadastrarMotorista();
-          motoristaRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\motorista.txt");
+          motoristaRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\motorista.json");
           break;
 
         case 2:
@@ -313,7 +313,7 @@ public class Views {
   private void menuVeiculos() {
 
     int opcao = -1;
-    veiculoRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\veiculo.txt");
+    veiculoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\veiculo.json");
 
     do {
 
@@ -322,7 +322,7 @@ public class Views {
       switch (opcao) {
         case 1:
           veiculoRepository.cadastrarVeiculo();
-          veiculoRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\veiculo.txt");
+          veiculoRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\veiculo.json");
           break;
 
         case 2:

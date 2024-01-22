@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import semana8.p007.exercicio3.entities.Cobrador;
-import semana8.p007.exercicio3.persistencia.ArquivoCobradores;
+import semana8.p007.exercicio3.persistencia.JsonCobradores;
 import semana8.p007.exercicio3.repositories.CobradorRepository;
 import semana8.p007.exercicio3.views.Views;
 
@@ -46,7 +46,7 @@ public class CobradorService implements CobradorRepository {
     adicionar(cobrador);
 
     // Escrever no arquivo JSON
-    escreverJson(cobrador);
+    // escreverJson(cobrador);
 
     System.out.println("\n\tCobrador cadastrado com sucesso!");
 
@@ -67,8 +67,8 @@ public class CobradorService implements CobradorRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    cobradores = ArquivoCobradores.carregarDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    cobradores = JsonCobradores.carregarCobradoresDeArquivoJSON(nomeArquivo);
 
     if (cobradores != null) {
       Views.limparTela();
@@ -78,8 +78,8 @@ public class CobradorService implements CobradorRepository {
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    ArquivoCobradores.salvarEmArquivo(cobradores, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonCobradores.salvarCobradoresEmArquivoJSON(cobradores, nomeArquivo);
   }
 
   private void escreverJson(Cobrador cobrador) {

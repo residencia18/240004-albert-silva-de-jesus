@@ -12,7 +12,7 @@ import semana8.p007.exercicio3.entities.Trajeto;
 import semana8.p007.exercicio3.entities.Trecho;
 import semana8.p007.exercicio3.views.Views;
 
-public class ArquivoTrajetos {
+public class JsonTrajetos {
 
   public static List<Trajeto> carregarTrajetosDeArquivo(String nomeArquivo) {
 
