@@ -14,6 +14,7 @@ public class Passageiro {
     this.nome = nome;
     this.cpf = cpf;
     this.tipoCartao = tipoCartao;
+    this.pontoEmbarque = "null";
   }
 
   public Passageiro(String nome, String cpf, String tipoCartao, String pontoEmbarque) {

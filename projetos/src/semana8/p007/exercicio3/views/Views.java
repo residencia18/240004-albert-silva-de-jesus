@@ -385,7 +385,7 @@ public class Views {
   private void menuPassageiros() {
 
     int opcao = -1;
-    passageiroRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\passageiro.txt");
+    passageiroRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\passageiro.json");
 
     do {
 
@@ -394,7 +394,7 @@ public class Views {
       switch (opcao) {
         case 1:
           passageiroRepository.cadastrarPassageiro();
-          passageiroRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\passageiro.txt");
+          passageiroRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\passageiro.json");
           break;
 
         case 2:

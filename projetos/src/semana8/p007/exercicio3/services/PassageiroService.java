@@ -159,8 +159,8 @@ public class PassageiroService implements PassageiroRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    passageiros = JsonPassageiros.carregarPassageirosDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    passageiros = JsonPassageiros.carregarPassageirosDeArquivoJSON(nomeArquivo);
 
     if (passageiros != null) {
       Views.limparTela();
@@ -171,8 +171,8 @@ public class PassageiroService implements PassageiroRepository {
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    JsonPassageiros.salvarPassageirosEmArquivo(passageiros, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonPassageiros.salvarPassageirosEmArquivoJSON(passageiros, nomeArquivo);
   }
 
 }
