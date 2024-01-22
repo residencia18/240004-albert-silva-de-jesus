@@ -150,8 +150,8 @@ public class TrajetoService implements TrajetoRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    trajetos = JsonTrajetos.carregarTrajetosDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    trajetos = JsonTrajetos.carregarTrajetosDeArquivoJSON(nomeArquivo);
 
     if(trajetos != null){
       Views.limparTela();
@@ -162,7 +162,7 @@ public class TrajetoService implements TrajetoRepository {
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    JsonTrajetos.salvarTrajetosEmArquivo(trajetos, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonTrajetos.salvarTrajetosEmArquivoJSON(trajetos, nomeArquivo);
   }
 }

@@ -458,7 +458,7 @@ public class Views {
 
     int opcao = -1;
     pontoDeParadaRepository
-        .carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
+        .carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\pontosdeparadas.json");
 
     do {
 
@@ -468,7 +468,7 @@ public class Views {
         case 1:
           pontoDeParadaRepository.cadastrarPontoDeParada();
           pontoDeParadaRepository
-              .salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
+              .salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\pontosdeparadas.json");
           break;
 
         case 2:
@@ -531,9 +531,9 @@ public class Views {
   private void menuTrajetos() {
 
     int opcao = -1;
-    trajetoRepository.carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\trajeto.txt");
+    trajetoRepository.carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\trajeto.json");
     pontoDeParadaRepository
-        .carregarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\pontodeparada.txt");
+        .carregarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\pontosdeparadas.json");
 
     do {
 
@@ -542,7 +542,7 @@ public class Views {
       switch (opcao) {
         case 1:
           trajetoRepository.cadastrarTrajeto();
-          trajetoRepository.salvarArquivo("projetos\\src\\semana7\\P006\\exercicio4\\bancodedados\\trajeto.txt");
+          trajetoRepository.salvarArquivoJSON("projetos\\src\\semana8\\p007\\exercicio3\\json\\trajeto.json");
           break;
 
         case 2:

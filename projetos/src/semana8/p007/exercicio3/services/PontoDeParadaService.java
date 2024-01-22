@@ -175,8 +175,8 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
   }
 
   @Override
-  public void carregarArquivo(String nomeArquivo) {
-    pontosDeParadas = JsonPontoDeParada.carregarPontosDeParadaDeArquivo(nomeArquivo);
+  public void carregarArquivoJSON(String nomeArquivo) {
+    pontosDeParadas = JsonPontoDeParada.carregarPontosDeParadaDeArquivoJSON(nomeArquivo);
 
     if(pontosDeParadas != null) {
       Views.limparTela();
@@ -187,8 +187,8 @@ public class PontoDeParadaService implements PontoDeParadaRepository {
   }
 
   @Override
-  public void salvarArquivo(String nomeArquivo) {
-    JsonPontoDeParada.salvarPontosDeParadaEmArquivo(pontosDeParadas, nomeArquivo);
+  public void salvarArquivoJSON(String nomeArquivo) {
+    JsonPontoDeParada.salvarPontosDeParadaEmArquivoJSON(pontosDeParadas, nomeArquivo);
   }
 
 }

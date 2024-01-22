@@ -8,64 +8,81 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import semana8.p007.exercicio3.entities.Trajeto;
 import semana8.p007.exercicio3.entities.Trecho;
 import semana8.p007.exercicio3.views.Views;
 
 public class JsonTrajetos {
 
-  public static List<Trajeto> carregarTrajetosDeArquivo(String nomeArquivo) {
-
+  public static List<Trajeto> carregarTrajetosDeArquivoJSON(String nomeArquivo) {
     List<Trajeto> trajetos = new ArrayList<>();
 
     try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
-
+      StringBuilder jsonContent = new StringBuilder();
       String linha;
 
       while ((linha = reader.readLine()) != null) {
-
-        String[] partes = linha.split(";");
-
-        if (partes.length == 4) {
-
-          Trecho trecho = new Trecho(partes[0], partes[1], partes[2], Integer.parseInt(partes[3]));
-
-          Trajeto trajeto = new Trajeto(trecho);
-
-          trajetos.add(trajeto);
-        }
+        jsonContent.append(linha);
       }
+
+      JSONArray jsonArray = new JSONArray(jsonContent.toString());
+
+      for (int i = 0; i < jsonArray.length(); i++) {
+        JSONObject jsonTrajeto = jsonArray.getJSONObject(i);
+
+        // Aqui, dependendo da estrutura exata do seu JSON, pode ser necessário ajustar
+        // as chaves
+        String origem = jsonTrajeto.getString("Origem");
+        String destino = jsonTrajeto.getString("Destino");
+        String pontos = jsonTrajeto.getString("Pontos");
+        int intervaloEstimado = jsonTrajeto.getInt("IntervaloEstimado");
+
+        Trecho trecho = new Trecho(origem, destino, pontos, intervaloEstimado);
+        Trajeto trajeto = new Trajeto(trecho);
+        trajetos.add(trajeto);
+      }
+
       Views.limparTela();
-      System.out.println("\n\tTrajetos carregados do arquivo: " + nomeArquivo);
+      System.out.println("\n\tTrajetos carregados do arquivo JSON: " + nomeArquivo);
 
     } catch (IOException | NumberFormatException e) {
       Views.limparTela();
-      System.err.println("\n\tErro ao carregar do arquivo: " + e.getMessage());
+      System.err.println("\n\tErro ao carregar do arquivo JSON: " + e.getMessage());
     }
 
     return trajetos;
   }
 
-  public static void salvarTrajetosEmArquivo(List<Trajeto> trajetos, String nomeArquivo) {
-
+  public static void salvarTrajetosEmArquivoJSON(List<Trajeto> trajetos, String nomeArquivo) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+      JSONArray jsonArray = new JSONArray();
 
       for (Trajeto trajeto : trajetos) {
         Trecho trecho = trajeto.getTrecho();
 
-        writer.write(trecho.getOrigem() + ";" +
-            trecho.getDestino() + ";" +
-            trecho.getPontos() + ";" +
-            trecho.getIntervaloEstimado());
-        writer.newLine();
+        // Criando um objeto JSON para representar o trajeto
+        JSONObject jsonTrajeto = new JSONObject();
+        jsonTrajeto.put("Origem", trecho.getOrigem());
+        jsonTrajeto.put("Destino", trecho.getDestino());
+        jsonTrajeto.put("Pontos", trecho.getPontos());
+        jsonTrajeto.put("IntervaloEstimado", trecho.getIntervaloEstimado());
+
+        // Adicionando o objeto ao JSONArray
+        jsonArray.put(jsonTrajeto);
       }
 
+      // Convertendo o JSONArray em uma string formatada e escrevendo no arquivo
+      writer.write(jsonArray.toString(2)); // Indentação de 2 espaços
+
       Views.limparTela();
-      System.out.println("\n\tTrajetos salvos com sucesso no arquivo: " + nomeArquivo);
+      System.out.println("\n\tTrajetos salvos com sucesso no arquivo JSON: " + nomeArquivo);
 
     } catch (IOException e) {
       Views.limparTela();
-      System.err.println("\n\nErro ao salvar no arquivo: " + e.getMessage());
+      System.err.println("\n\nErro ao salvar no arquivo JSON: " + e.getMessage());
     }
   }
 
