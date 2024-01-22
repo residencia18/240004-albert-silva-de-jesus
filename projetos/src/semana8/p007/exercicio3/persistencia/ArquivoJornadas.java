@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Cobrador;
-import semana7.P006.exercicio4.entities.Jornada;
-import semana7.P006.exercicio4.entities.Motorista;
-import semana7.P006.exercicio4.entities.Trajeto;
-import semana7.P006.exercicio4.entities.Trecho;
-import semana7.P006.exercicio4.entities.Veiculo;
-import semana7.P006.exercicio4.views.Views;
+import semana8.p007.exercicio3.entities.Cobrador;
+import semana8.p007.exercicio3.entities.Jornada;
+import semana8.p007.exercicio3.entities.Motorista;
+import semana8.p007.exercicio3.entities.Trajeto;
+import semana8.p007.exercicio3.entities.Trecho;
+import semana8.p007.exercicio3.entities.Veiculo;
+import semana8.p007.exercicio3.views.Views;
 
 public class ArquivoJornadas {
 

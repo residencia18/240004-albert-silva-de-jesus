@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.PontosDeParada;
-import semana7.P006.exercicio4.views.Views;
+import semana8.p007.exercicio3.entities.PontosDeParada;
+import semana8.p007.exercicio3.views.Views;
 
 public class ArquivoPontoDeParada {
 

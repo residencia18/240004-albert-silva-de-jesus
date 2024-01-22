@@ -1,12 +1,20 @@
 package semana8.p007.exercicio3.services;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Cobrador;
-import semana7.P006.exercicio4.repositories.CobradorRepository;
-import semana7.P006.exercicio4.views.Views;
-import semana7.P006.exercicio4.persistencia.ArquivoCobradores;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import semana8.p007.exercicio3.entities.Cobrador;
+import semana8.p007.exercicio3.persistencia.ArquivoCobradores;
+import semana8.p007.exercicio3.repositories.CobradorRepository;
+import semana8.p007.exercicio3.views.Views;
 
 public class CobradorService implements CobradorRepository {
 
@@ -34,9 +42,14 @@ public class CobradorService implements CobradorRepository {
     System.out.print("\tMatricula do Cobrador: ");
     String matricula = Views.scan.nextLine();
 
-    adicionar(new Cobrador(nome, matricula));
+    Cobrador cobrador = new Cobrador(nome, matricula);
+    adicionar(cobrador);
+
+    // Escrever no arquivo JSON
+    escreverJson(cobrador);
 
     System.out.println("\n\tCobrador cadastrado com sucesso!");
+
     Views.pausar(Views.scan);
   }
 
@@ -67,6 +80,54 @@ public class CobradorService implements CobradorRepository {
   @Override
   public void salvarArquivo(String nomeArquivo) {
     ArquivoCobradores.salvarEmArquivo(cobradores, nomeArquivo);
+  }
+
+  private void escreverJson(Cobrador cobrador) {
+
+    try {
+      // Ler o arquivo JSON existente, se houver
+      JSONArray jsonArray = lerJson();
+
+      // Adicionar o novo cobrador ao JSONArray
+      jsonArray.put(cobradorParaJsonObject(cobrador));
+
+      // Escrever a lista atualizada no arquivo JSON
+      String filePath = "projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json";
+      try (FileWriter fileWriter = new FileWriter(filePath)) {
+        fileWriter.write(jsonArray.toString()); // escreve no arquivo o toString do JSONArray
+      }
+
+    } catch (IOException e) {
+      System.err.println(
+          "Erro ao escrever no arquivo JSON. Verifique se o caminho é válido e se você tem permissão para escrever no diretório.");
+      e.printStackTrace();
+      Views.pausar(Views.scan);
+    }
+  }
+
+  private JSONArray lerJson() {
+    JSONArray jsonArray = new JSONArray();
+    try {
+      String filePath = "projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json";
+      Path path = Paths.get(filePath);
+
+      if (Files.exists(path)) {
+        String content = new String(Files.readAllBytes(path));
+        if (!content.isEmpty()) {
+          jsonArray = new JSONArray(content);
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return jsonArray;
+  }
+
+  private JSONObject cobradorParaJsonObject(Cobrador cobrador) {
+    JSONObject jsonObject = new JSONObject();
+    jsonObject.put("Nome", cobrador.getNome());
+    jsonObject.put("Matricula", cobrador.getMatricula());
+    return jsonObject;
   }
 
 }

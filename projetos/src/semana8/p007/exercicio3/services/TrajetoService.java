@@ -7,13 +7,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Jornada;
-import semana7.P006.exercicio4.entities.Trajeto;
-import semana7.P006.exercicio4.entities.Trecho;
-import semana7.P006.exercicio4.persistencia.ArquivoTrajetos;
-import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
-import semana7.P006.exercicio4.repositories.TrajetoRepository;
-import semana7.P006.exercicio4.views.Views;
+import semana8.p007.exercicio3.entities.Jornada;
+import semana8.p007.exercicio3.entities.Trajeto;
+import semana8.p007.exercicio3.entities.Trecho;
+import semana8.p007.exercicio3.persistencia.ArquivoTrajetos;
+import semana8.p007.exercicio3.repositories.PontoDeParadaRepository;
+import semana8.p007.exercicio3.repositories.TrajetoRepository;
+import semana8.p007.exercicio3.views.Views;
 
 public class TrajetoService implements TrajetoRepository {
 

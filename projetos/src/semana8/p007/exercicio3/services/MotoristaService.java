@@ -3,10 +3,10 @@ package semana8.p007.exercicio3.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Motorista;
-import semana7.P006.exercicio4.persistencia.ArquivoMotoristas;
-import semana7.P006.exercicio4.repositories.MotoristaRepository;
-import semana7.P006.exercicio4.views.Views;
+import semana8.p007.exercicio3.entities.Motorista;
+import semana8.p007.exercicio3.persistencia.ArquivoMotoristas;
+import semana8.p007.exercicio3.repositories.MotoristaRepository;
+import semana8.p007.exercicio3.views.Views;
 
 public class MotoristaService implements MotoristaRepository {
   

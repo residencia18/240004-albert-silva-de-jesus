@@ -1,0 +1,341 @@
+{
+  // Use o IntelliSense para saber mais sobre os atributos possíveis.
+  // Focalizar para exibir as descrições dos atributos existentes.
+  // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    
+
+
+
+
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Calculadora",
+      "request": "launch",
+      "mainClass": "Calculadora",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ConversorDeTemperatura",
+      "request": "launch",
+      "mainClass": "ConversorDeTemperatura",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "atvemsala.cliente.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(1)",
+      "request": "launch",
+      "mainClass": "avaliacao.utils.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ConversorDeMoeda",
+      "request": "launch",
+      "mainClass": "p002.ConversorDeMoeda",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "JogoDeAdivinhacao",
+      "request": "launch",
+      "mainClass": "p002.JogoDeAdivinhacao",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ManipulaArray",
+      "request": "launch",
+      "mainClass": "p002.ManipulaArray",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Facade",
+      "request": "launch",
+      "mainClass": "poligonos.Facade",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Data",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.data.Data",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(2)",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio1.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(3)",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio2.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ConcatenacaoDeString",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio3.ConcatenacaoDeString",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "VerificacaoDeParidade",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio4.VerificacaoDeParidade",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ConversorDeTemperatura(1)",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio5.ConversorDeTemperatura",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "MainRetangulo",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio6.MainRetangulo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(4)",
+      "request": "launch",
+      "mainClass": "semana3.atvemsala.exercicio7.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ExcecaoNaoVerificadaExemplo",
+      "request": "launch",
+      "mainClass": "semana3.p003.ExcecaoNaoVerificadaExemplo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "ExcecaoVerificadaExemplo",
+      "request": "launch",
+      "mainClass": "semana3.p003.ExcecaoVerificadaExemplo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(5)",
+      "request": "launch",
+      "mainClass": "semana3.p003.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "MainRedeSocial",
+      "request": "launch",
+      "mainClass": "semana4.atvemsala.redesocial.MainRedeSocial",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(6)",
+      "request": "launch",
+      "mainClass": "semana4.estudo.produto.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(7)",
+      "request": "launch",
+      "mainClass": "semana5.P005.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(8)",
+      "request": "launch",
+      "mainClass": "semana5.P006.exercicio1.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(9)",
+      "request": "launch",
+      "mainClass": "semana5.P006.exercicio2.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(10)",
+      "request": "launch",
+      "mainClass": "semana5.P006.exercicio3.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(11)",
+      "request": "launch",
+      "mainClass": "semana5.P006.exercicio4.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Facade(1)",
+      "request": "launch",
+      "mainClass": "semana5.atvEmSala.exDegas.poligono.Facade",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Facade(2)",
+      "request": "launch",
+      "mainClass": "semana5.atvEmSala.exDegas.poligonos.Facade",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Facade(3)",
+      "request": "launch",
+      "mainClass": "semana5.atvEmSala.poligonomaPratica.Facade",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(12)",
+      "request": "launch",
+      "mainClass": "semana5.atvEmSala.sobrecarca.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(13)",
+      "request": "launch",
+      "mainClass": "semana6.atvEmSala.P005.views.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(14)",
+      "request": "launch",
+      "mainClass": "semana6.atvEmSala.array.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "LeituraArquivo",
+      "request": "launch",
+      "mainClass": "semana7.P006.exercicio1.LeituraArquivo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "EscritaArquivo",
+      "request": "launch",
+      "mainClass": "semana7.P006.exercicio2.EscritaArquivo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "CopiaArquivo",
+      "request": "launch",
+      "mainClass": "semana7.P006.exercicio3.CopiaArquivo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(15)",
+      "request": "launch",
+      "mainClass": "semana7.P006.exercicio4.views.Main",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.arquivos.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program(1)",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.cliente.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "EscreverBytes",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.criptografia.exemplo.entities.EscreverBytes",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "LeituraBytes",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.criptografia.exemplo.entities.LeituraBytes",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program(2)",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.criptografia.exercicio.entities.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program(3)",
+      "request": "launch",
+      "mainClass": "semana7.atvsala.filmes.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program(4)",
+      "request": "launch",
+      "mainClass": "semana8.p007.exercicio1.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "LeituraDeArquivo",
+      "request": "launch",
+      "mainClass": "semana8.p007.exercicio2.LeituraDeArquivo",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Main(16)",
+      "request": "launch",
+      "mainClass": "semana8.p007.exercicio3.views.Main",
+      "projectName": "residenciaJava_8da23afe"
+    }
+  ]
+}

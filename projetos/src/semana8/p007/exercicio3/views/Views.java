@@ -7,20 +7,21 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import semana7.P006.exercicio4.repositories.CobradorRepository;
-import semana7.P006.exercicio4.repositories.JornadaRepository;
-import semana7.P006.exercicio4.repositories.MotoristaRepository;
-import semana7.P006.exercicio4.repositories.PassageiroRepository;
-import semana7.P006.exercicio4.repositories.PontoDeParadaRepository;
-import semana7.P006.exercicio4.repositories.TrajetoRepository;
-import semana7.P006.exercicio4.repositories.VeiculoRepository;
-import semana7.P006.exercicio4.services.CobradorService;
-import semana7.P006.exercicio4.services.JornadaService;
-import semana7.P006.exercicio4.services.MotoristaService;
-import semana7.P006.exercicio4.services.PassageiroService;
-import semana7.P006.exercicio4.services.PontoDeParadaService;
-import semana7.P006.exercicio4.services.TrajetoService;
-import semana7.P006.exercicio4.services.VeiculoService;
+import semana8.p007.exercicio3.repositories.CobradorRepository;
+import semana8.p007.exercicio3.repositories.JornadaRepository;
+import semana8.p007.exercicio3.repositories.MotoristaRepository;
+import semana8.p007.exercicio3.repositories.PassageiroRepository;
+import semana8.p007.exercicio3.repositories.PontoDeParadaRepository;
+import semana8.p007.exercicio3.repositories.TrajetoRepository;
+import semana8.p007.exercicio3.repositories.VeiculoRepository;
+import semana8.p007.exercicio3.services.CobradorService;
+import semana8.p007.exercicio3.services.JornadaService;
+import semana8.p007.exercicio3.services.MotoristaService;
+import semana8.p007.exercicio3.services.PassageiroService;
+import semana8.p007.exercicio3.services.PontoDeParadaService;
+import semana8.p007.exercicio3.services.TrajetoService;
+import semana8.p007.exercicio3.services.VeiculoService;
+
 
 public class Views {
 
@@ -168,7 +169,7 @@ public class Views {
   private void menuCobrador() {
 
     int opcao = -1;
-    cobradorRepository.carregarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
+    // cobradorRepository.carregarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
 
     do {
 
@@ -177,7 +178,7 @@ public class Views {
       switch (opcao) {
         case 1:
           cobradorRepository.cadastrarCobrador();
-          cobradorRepository.salvarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
+          // cobradorRepository.salvarArquivo("projetos\\src\\semana8\\p007\\exercicio3\\json\\cobrador.json");
           break;
 
         case 2:

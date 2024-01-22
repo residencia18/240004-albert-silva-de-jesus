@@ -3,6 +3,9 @@ package semana8.p007.exercicio3.persistencia;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import semana8.p007.exercicio3.entities.Cobrador;
+import semana8.p007.exercicio3.views.Views;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -11,8 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Cobrador;
-import semana7.P006.exercicio4.views.Views;
+
 
 public class ArquivoCobradores {
 

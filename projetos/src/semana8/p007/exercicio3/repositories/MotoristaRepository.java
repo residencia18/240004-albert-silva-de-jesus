@@ -2,7 +2,7 @@ package semana8.p007.exercicio3.repositories;
 
 import java.util.List;
 
-import semana7.P006.exercicio4.entities.Motorista;
+import semana8.p007.exercicio3.entities.Motorista;
 
 public interface MotoristaRepository {
   
