@@ -7,13 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class BuscaApiService {
 
-  private api = 'https://en.wikipedia.org/w/api.php?action=parse&page=Pet_door&format=json'
+  private resultadoApi: any;
 
   constructor(private http: HttpClient) {
   }
 
-  busca(titulo: string): Observable<any> {
-    return this.http.get<any>(this.api);
+  setResultadoApi(resultado: any): void {
+    this.resultadoApi = resultado;
+  }
+
+  buscaService(titulo: string): Observable<any> {
+    return this.http.get<any>(`https://en.wikipedia.org/w/api.php?action=parse&page=${titulo}&format=json&origin=*`);
   }
 
 }

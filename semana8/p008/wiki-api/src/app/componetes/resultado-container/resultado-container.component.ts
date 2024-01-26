@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-resultado-container',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ResultadoContainerComponent {
 
+  @Input('resultadosDaApi') resultados: any;
+
+  linkWikiPedia() {
+    return `https://en.wikipedia.org/wiki/${this.resultados.parse.title}`
+  }
 }

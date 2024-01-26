@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuscaConteinerComponent } from './componetes/busca-conteiner/busca-conteiner.component';
 import { ResultadoContainerComponent } from './componetes/resultado-container/resultado-container.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { ResultadoContainerComponent } from './componetes/resultado-container/re
     ResultadoContainerComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [HttpClient, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
