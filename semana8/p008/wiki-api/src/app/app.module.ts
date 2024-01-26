@@ -7,12 +7,14 @@ import { BuscaConteinerComponent } from './componetes/busca-conteiner/busca-cont
 import { ResultadoContainerComponent } from './componetes/resultado-container/resultado-container.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BoldTextPipe } from './pipes/bold-text.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuscaConteinerComponent,
-    ResultadoContainerComponent
+    ResultadoContainerComponent,
+    BoldTextPipe
   ],
   imports: [
     HttpClientModule,
