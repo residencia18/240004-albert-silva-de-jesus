@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BuscaConteinerComponent } from './componetes/busca-conteiner/busca-conteiner.component';
+import { ResultadoContainerComponent } from './componetes/resultado-container/resultado-container.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuscaConteinerComponent,
+    ResultadoContainerComponent
   ],
   imports: [
     BrowserModule,
