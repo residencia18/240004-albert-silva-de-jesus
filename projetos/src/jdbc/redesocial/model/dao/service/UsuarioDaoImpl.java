@@ -1,4 +1,4 @@
-package jdbc.redesocial.service;
+package jdbc.redesocial.model.dao.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Scanner;
 
-import jdbc.redesocial.dao.UsuarioDao;
 import jdbc.redesocial.db.DB;
 import jdbc.redesocial.db.DbException;
-import jdbc.redesocial.entities.Postagem;
-import jdbc.redesocial.entities.Usuario;
+import jdbc.redesocial.model.dao.UsuarioDao;
+import jdbc.redesocial.model.entities.Postagem;
+import jdbc.redesocial.model.entities.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
 
@@ -48,10 +49,35 @@ public class UsuarioDaoImpl implements UsuarioDao {
       }
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
-      
+
     } finally {
       DB.closeStatement(st);
     }
+  }
+
+  @Override 
+  public Integer cadastrar() {
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("\n\tLogin: ");
+    String login = scanner.nextLine();
+
+    System.out.print("\tSenha: ");
+    String senha = scanner.nextLine();
+
+    System.out.print("\tE-mail: ");
+    String email = scanner.nextLine();
+
+    Usuario novoUsuario = new Usuario(null, login, senha, email);
+
+    // adiciona usuário ao banco de dados
+    insert(novoUsuario);
+
+    System.out.println("\tUsuário cadastrado com sucesso!");
+   
+    scanner.close();
+    return novoUsuario.getId();
   }
 
   @Override

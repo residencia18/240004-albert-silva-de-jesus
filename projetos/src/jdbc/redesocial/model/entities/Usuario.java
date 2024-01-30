@@ -1,22 +1,24 @@
-package jdbc.redesocial.entities;
+package jdbc.redesocial.model.entities;
 
 import java.io.Serializable;
 
-public class Postagem implements Serializable {
+public class Usuario implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
   private Integer id;
   private String login;
-  private String text;
+  private String senha;
+  private String email;
 
-  public Postagem() {
+  public Usuario() {
   }
 
-  public Postagem(Integer id, String login, String text) {
+  public Usuario(Integer id, String login, String senha, String email) {
     this.id = id;
     this.login = login;
-    this.text = text;
+    this.senha = senha;
+    this.email = email;
   }
 
   public static long getSerialversionuid() {
@@ -39,12 +41,20 @@ public class Postagem implements Serializable {
     this.login = login;
   }
 
-  public String getText() {
-    return text;
+  public String getSenha() {
+    return senha;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setSenha(String senha) {
+    this.senha = senha;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   @Override
@@ -63,7 +73,7 @@ public class Postagem implements Serializable {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Postagem other = (Postagem) obj;
+    Usuario other = (Usuario) obj;
     if (id == null) {
       if (other.id != null)
         return false;
@@ -74,7 +84,7 @@ public class Postagem implements Serializable {
 
   @Override
   public String toString() {
-    return "Postagem [id=" + id + ", login=" + login + ", text=" + text + "]";
+    return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + ", email=" + email + "]";
   }
 
 }
