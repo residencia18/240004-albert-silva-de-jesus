@@ -1,5 +1,6 @@
 package jdbc.redesocial.service;
 
+import java.sql.Connection;
 import java.util.List;
 
 import jdbc.redesocial.dao.PostagemDao;
@@ -7,6 +8,12 @@ import jdbc.redesocial.entities.Postagem;
 
 public class PostagemDaoImpl implements PostagemDao{
 
+  private Connection conn;
+
+  public PostagemDaoImpl(Connection conn) {
+    this.conn = conn;
+  }
+  
   @Override
   public void insert(Postagem obj) {
    
