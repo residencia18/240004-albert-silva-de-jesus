@@ -27,7 +27,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     PreparedStatement st = null;
     try {
       st = conn.prepareStatement("INSERT INTO usuario " + "(login, senha, email) "
-          + "VALUES " + "(?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+          + "VALUES " + "(?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
       st.setString(1, obj.getLogin());
       st.setString(2, obj.getSenha());
