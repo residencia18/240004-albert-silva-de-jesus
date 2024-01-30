@@ -41,7 +41,7 @@ public class DB {
 
   private static Properties loadProperties() {
 
-    try (FileInputStream fs = new FileInputStream("db.properties")) {
+    try (FileInputStream fs = new FileInputStream("projetos\\src\\jdbc\\redesocial\\db.properties")) {
       Properties props = new Properties();
       props.load(fs);
       return props;
