@@ -6,11 +6,11 @@ import jdbc.redesocial.service.UsuarioDaoImpl;
 
 public class DaoFactory {
 
-  public static UsuarioDao createUsuario() {
+  public static UsuarioDao createUsuarioDao() {
     return new UsuarioDaoImpl(DB.getConnection());
   }
 
-  public static PostagemDao createDepartmentDao() {
+  public static PostagemDao createPostagemDao() {
     return new PostagemDaoImpl(DB.getConnection());
   }
 }

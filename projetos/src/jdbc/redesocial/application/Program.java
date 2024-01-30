@@ -12,12 +12,14 @@ public class Program {
 
     Scanner sc = new Scanner(System.in);
 
-    UsuarioDao usuarioDao = DaoFactory.createUsuario();
+    UsuarioDao usuarioDao = DaoFactory.createUsuarioDao();
 
     System.out.println("\n\t=== TEST 1: usuario insert =====");
-    Usuario usuario = new Usuario(null, "Greg", "12345", "greg@gmail.com");
+    Usuario usuario = new Usuario(null, "Tico", "90876", "tico@hotmail.com");
     usuarioDao.insert(usuario);
     System.out.println("\n\tInserted! New id: " + usuario.getId());
+
+    sc.close();
 
   }
 }
