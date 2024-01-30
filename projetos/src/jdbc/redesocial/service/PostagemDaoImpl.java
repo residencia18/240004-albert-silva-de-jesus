@@ -1,0 +1,35 @@
+package jdbc.redesocial.service;
+
+import java.util.List;
+
+import jdbc.redesocial.dao.PostagemDao;
+import jdbc.redesocial.entities.Postagem;
+
+public class PostagemDaoImpl implements PostagemDao{
+
+  @Override
+  public void insert(Postagem obj) {
+   
+  }
+
+  @Override
+  public void update(Postagem obj) {
+ 
+  }
+
+  @Override
+  public void deleteById(Integer id) {
+
+  }
+
+  @Override
+  public Postagem findById(Integer id) {
+    throw new UnsupportedOperationException("Unimplemented method 'findById'");
+  }
+
+  @Override
+  public List<Postagem> findAll() {
+    throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+  }
+  
+}
