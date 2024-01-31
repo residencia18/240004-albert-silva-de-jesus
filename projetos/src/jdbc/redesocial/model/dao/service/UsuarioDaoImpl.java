@@ -160,10 +160,11 @@ public class UsuarioDaoImpl implements UsuarioDao {
     ResultSet rs = null;
     try {
       st = conn.prepareStatement(
-          "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
-              + "FROM usuario INNER JOIN postagens "
-              + "ON usuario.login = postagens.login "
-              + "ORDER BY usuario.login");
+        "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
+                + "FROM usuario LEFT JOIN postagens "
+                + "ON usuario.login = postagens.login "
+                + "ORDER BY usuario.login");
+
 
       rs = st.executeQuery();
 

@@ -5,26 +5,26 @@ import java.util.Scanner;
 
 import jdbc.redesocial.model.dao.DaoFactory;
 import jdbc.redesocial.model.dao.UsuarioDao;
-import jdbc.redesocial.model.entities.Usuario;  
+import jdbc.redesocial.model.entities.Usuario;
 
 public class Program {
 
   public static void main(String[] args) {
 
-    limparTela(); 
+    limparTela();
     Scanner sc = new Scanner(System.in);
 
     UsuarioDao usuarioDao = DaoFactory.createUsuarioDao();
 
     // System.out.println("\n\t=== TEST 1: usuario findById =====");
-		// Usuario usuario = usuarioDao.findById(1);
-		// System.out.println(usuario);
+    // Usuario usuario = usuarioDao.findById(1);
+    // System.out.println(usuario);
 
     System.out.println("\n\t=== TEST 3: seller findAll =====");
-		List<Usuario> list = usuarioDao.findAll();
-		for (Usuario obj : list) {
-			System.out.println(obj);
-		}
+    List<Usuario> list = usuarioDao.findAll();
+    for (Usuario obj : list) {
+      System.out.println(obj);
+    }
 
     // System.out.println("\n\t=== TEST 1: usuario insert =====");
     // Integer id = usuarioDao.cadastrar();
