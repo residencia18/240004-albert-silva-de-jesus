@@ -55,7 +55,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     }
   }
 
-  @Override 
+  @Override
   public Integer cadastrar() {
 
     Scanner scanner = new Scanner(System.in);
@@ -75,7 +75,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     insert(novoUsuario);
 
     System.out.println("\tUsuário cadastrado com sucesso!");
-   
+
     scanner.close();
     return novoUsuario.getId();
   }
@@ -92,7 +92,53 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
   @Override
   public Usuario findById(Integer id) {
-    throw new UnsupportedOperationException("Unimplemented method 'findById'");
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+    try {
+
+      st = conn.prepareStatement(
+          "SELECT usuario.*,postagens.login,postagens.texto "
+          + "FROM usuario INNER JOIN postagens "
+          + "ON usuario.login = postagens.login "
+          + "WHERE usuario.Id = ?");
+
+      st.setInt(1, id);
+      rs = st.executeQuery();
+
+      if (rs.next()) {
+        Postagem post = instantiatePostagem(rs);
+        Usuario obj = instantiateUsuario(rs, post);
+        obj.addPostagem(post);
+        return obj;
+      }
+      return null;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
+  private Usuario instantiateUsuario(ResultSet rs, Postagem post) throws SQLException {
+    Usuario obj = new Usuario();
+    obj.setId(rs.getInt("Id"));
+    obj.setLogin(rs.getString("login"));
+    obj.setSenha(rs.getString("senha"));
+    obj.setEmail(rs.getString("email"));
+    obj.addPostagem(post);
+    return obj;
+  }
+
+  private Postagem instantiatePostagem(ResultSet rs) throws SQLException {
+    Postagem post = new Postagem();
+    post.setId(rs.getInt("Id"));
+    post.setLogin(rs.getString("login"));
+    post.setTexto(rs.getString("texto"));
+    return post;
   }
 
   @Override
@@ -101,8 +147,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
   }
 
   @Override
-  public List<Usuario> findByDepartment(Postagem postagem) {
-    throw new UnsupportedOperationException("Unimplemented method 'findByDepartment'");
+  public List<Usuario> findByPostagem(Postagem postagem) {
+    throw new UnsupportedOperationException("Unimplemented method 'findByPostagem'");
   }
 
 }

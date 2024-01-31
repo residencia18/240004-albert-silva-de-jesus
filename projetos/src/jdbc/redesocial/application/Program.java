@@ -3,7 +3,8 @@ package jdbc.redesocial.application;
 import java.util.Scanner;
 
 import jdbc.redesocial.model.dao.DaoFactory;
-import jdbc.redesocial.model.dao.UsuarioDao;  
+import jdbc.redesocial.model.dao.UsuarioDao;
+import jdbc.redesocial.model.entities.Usuario;  
 
 public class Program {
 
@@ -14,11 +15,15 @@ public class Program {
 
     UsuarioDao usuarioDao = DaoFactory.createUsuarioDao();
 
-    System.out.println("\n\t=== TEST 1: usuario insert =====");
-    Integer id = usuarioDao.cadastrar();
-    System.out.println("\n\tInserted! New id: " + id);
+    // System.out.println("\n\t=== TEST 1: usuario findById =====");
+		// Usuario usuario = usuarioDao.findById(1);
+		// System.out.println(usuario);
 
-    System.out.println("\n\t=== TEST 2: usuario findById =====");
+    // System.out.println("\n\t=== TEST 1: usuario insert =====");
+    // Integer id = usuarioDao.cadastrar();
+    // System.out.println("\n\tInserted! New id: " + id);
+
+    // System.out.println("\n\t=== TEST 2: usuario findById =====");
 
     sc.close();
 

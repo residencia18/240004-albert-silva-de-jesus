@@ -8,15 +8,15 @@ public class Postagem implements Serializable {
 
   private Integer id;
   private String login;
-  private String text;
+  private String texto;
 
   public Postagem() {
   }
 
-  public Postagem(Integer id, String login, String text) {
+  public Postagem(Integer id, String login, String texto) {
     this.id = id;
     this.login = login;
-    this.text = text;
+    this.texto = texto;
   }
 
   public static long getSerialversionuid() {
@@ -39,12 +39,12 @@ public class Postagem implements Serializable {
     this.login = login;
   }
 
-  public String getText() {
-    return text;
+  public String getTexto() {
+    return texto;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setTexto(String texto) {
+    this.texto = texto;
   }
 
   @Override
@@ -74,7 +74,7 @@ public class Postagem implements Serializable {
 
   @Override
   public String toString() {
-    return "Postagem [id=" + id + ", login=" + login + ", text=" + text + "]";
+    return "\n\tPostagem:" + "\tId: " + id + "\n\tLogin: " + login + "\n\tTexto: " + texto + "\n";
   }
 
 }

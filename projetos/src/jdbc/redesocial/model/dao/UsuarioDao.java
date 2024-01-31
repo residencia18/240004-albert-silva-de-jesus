@@ -19,5 +19,5 @@ public interface UsuarioDao {
 
   List<Usuario> findAll();
 
-  List<Usuario> findByDepartment(Postagem postagem);
+  List<Usuario> findByPostagem(Postagem postagem);
 }

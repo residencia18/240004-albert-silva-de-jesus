@@ -1,6 +1,8 @@
 package jdbc.redesocial.model.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario implements Serializable {
 
@@ -10,8 +12,10 @@ public class Usuario implements Serializable {
   private String login;
   private String senha;
   private String email;
+  private List<Postagem> postagens;
 
   public Usuario() {
+    this.postagens = new ArrayList<>();
   }
 
   public Usuario(Integer id, String login, String senha, String email) {
@@ -23,6 +27,14 @@ public class Usuario implements Serializable {
 
   public static long getSerialversionuid() {
     return serialVersionUID;
+  }
+
+  public void addPostagem(Postagem postagem) {
+    postagens.add(postagem);
+  }
+
+  public List<Postagem> getPostagens() {
+    return postagens;
   }
 
   public Integer getId() {
@@ -84,7 +96,21 @@ public class Usuario implements Serializable {
 
   @Override
   public String toString() {
-    return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + ", email=" + email + "]";
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n\tUsuario:\n");
+    sb.append("\tId: ").append(id).append("\n");
+    sb.append("\tLogin: ").append(login).append("\n");
+    sb.append("\tSenha: ").append(senha).append("\n");
+    sb.append("\tEmail: ").append(email).append("\n\n");
+
+    sb.append("\tPostagens do Usuario:\n");
+    for (Postagem postagem : postagens) {
+      sb.append("\tId: ").append(postagem.getId()).append("\n");
+      sb.append("\tLogin: ").append(postagem.getLogin()).append("\n");
+      sb.append("\tTexto: ").append(postagem.getTexto()).append("\n\n");
+    }
+
+    return sb.toString();
   }
 
 }
