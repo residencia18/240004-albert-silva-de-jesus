@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import jdbc.redesocial.db.DB;
@@ -99,9 +102,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
       st = conn.prepareStatement(
           "SELECT usuario.*,postagens.login,postagens.texto "
-          + "FROM usuario INNER JOIN postagens "
-          + "ON usuario.login = postagens.login "
-          + "WHERE usuario.Id = ?");
+              + "FROM usuario INNER JOIN postagens "
+              + "ON usuario.login = postagens.login "
+              + "WHERE usuario.Id = ?");
 
       st.setInt(1, id);
       rs = st.executeQuery();
@@ -133,6 +136,15 @@ public class UsuarioDaoImpl implements UsuarioDao {
     return obj;
   }
 
+  private Usuario instantiateUsuario(ResultSet rs) throws SQLException {
+    Usuario obj = new Usuario();
+    obj.setId(rs.getInt("Id"));
+    obj.setLogin(rs.getString("login"));
+    obj.setSenha(rs.getString("senha"));
+    obj.setEmail(rs.getString("email"));
+    return obj;
+  }
+
   private Postagem instantiatePostagem(ResultSet rs) throws SQLException {
     Postagem post = new Postagem();
     post.setId(rs.getInt("Id"));
@@ -143,7 +155,44 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
   @Override
   public List<Usuario> findAll() {
-    throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+    try {
+      st = conn.prepareStatement(
+          "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
+              + "FROM usuario INNER JOIN postagens "
+              + "ON usuario.login = postagens.login "
+              + "ORDER BY usuario.login");
+
+      rs = st.executeQuery();
+
+      Map<String, Usuario> userMap = new HashMap<>();
+
+      while (rs.next()) {
+
+        String login = rs.getString("login");
+
+        Usuario user = userMap.get(login);
+
+        if (user == null) {
+          user = instantiateUsuario(rs);
+          userMap.put(login, user);
+        }
+
+        Postagem post = instantiatePostagem(rs);
+        user.addPostagem(post);
+      }
+
+      return new ArrayList<>(userMap.values());
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
   }
 
   @Override

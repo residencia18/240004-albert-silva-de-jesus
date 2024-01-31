@@ -1,5 +1,6 @@
 package jdbc.redesocial.application;
 
+import java.util.List;
 import java.util.Scanner;
 
 import jdbc.redesocial.model.dao.DaoFactory;
@@ -18,6 +19,12 @@ public class Program {
     // System.out.println("\n\t=== TEST 1: usuario findById =====");
 		// Usuario usuario = usuarioDao.findById(1);
 		// System.out.println(usuario);
+
+    System.out.println("\n\t=== TEST 3: seller findAll =====");
+		List<Usuario> list = usuarioDao.findAll();
+		for (Usuario obj : list) {
+			System.out.println(obj);
+		}
 
     // System.out.println("\n\t=== TEST 1: usuario insert =====");
     // Integer id = usuarioDao.cadastrar();
