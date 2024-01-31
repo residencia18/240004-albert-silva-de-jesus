@@ -89,7 +89,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
     if (obj == null || obj.getId() == null) {
       throw new IllegalArgumentException("O objeto Usuario ou seu Id não pode ser nulo.");
     }
-    
+
     PreparedStatement st = null;
     try {
       st = conn.prepareStatement(
@@ -119,46 +119,48 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
   @Override
   public Usuario findById(Integer id) {
-
     PreparedStatement st = null;
     ResultSet rs = null;
     try {
-
       st = conn.prepareStatement(
-          "SELECT usuario.*,postagens.login,postagens.texto "
-              + "FROM usuario INNER JOIN postagens "
-              + "ON usuario.login = postagens.login "
-              + "WHERE usuario.Id = ?");
+          "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
+          + "FROM usuario LEFT JOIN postagens "
+          + "ON usuario.login = postagens.login "
+          + "WHERE usuario.Id = ?");
 
       st.setInt(1, id);
       rs = st.executeQuery();
 
-      if (rs.next()) {
-        Postagem post = instantiatePostagem(rs);
-        Usuario obj = instantiateUsuario(rs, post);
-        obj.addPostagem(post);
-        return obj;
+      Usuario obj = null;
+      while (rs.next()) {
+
+        if (obj == null) {
+          obj = instantiateUsuario(rs); 
+        }
+        if (rs.getString("postagem_login") != null) {
+          Postagem post = instantiatePostagem(rs);
+          obj.addPostagem(post);
+        }
       }
-      return null;
+      return obj;
 
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
-
     } finally {
       DB.closeStatement(st);
       DB.closeResultSet(rs);
     }
   }
 
-  private Usuario instantiateUsuario(ResultSet rs, Postagem post) throws SQLException {
-    Usuario obj = new Usuario();
-    obj.setId(rs.getInt("Id"));
-    obj.setLogin(rs.getString("login"));
-    obj.setSenha(rs.getString("senha"));
-    obj.setEmail(rs.getString("email"));
-    obj.addPostagem(post);
-    return obj;
-  }
+  // private Usuario instantiateUsuario(ResultSet rs, Postagem post) throws SQLException {
+  //   Usuario obj = new Usuario();
+  //   obj.setId(rs.getInt("Id"));
+  //   obj.setLogin(rs.getString("login"));
+  //   obj.setSenha(rs.getString("senha"));
+  //   obj.setEmail(rs.getString("email"));
+  //   obj.addPostagem(post);
+  //   return obj;
+  // }
 
   private Usuario instantiateUsuario(ResultSet rs) throws SQLException {
     Usuario obj = new Usuario();

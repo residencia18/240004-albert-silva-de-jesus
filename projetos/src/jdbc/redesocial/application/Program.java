@@ -15,7 +15,6 @@ public class Program {
     Scanner sc = new Scanner(System.in);
 
     UsuarioDao usuarioDao = DaoFactory.createUsuarioDao();
-    // Usuario usuario = new Usuario();
 
     // System.out.println("\n\t=== TEST 1: usuario findById =====");
     // Usuario usuario = usuarioDao.findById(1);
@@ -32,8 +31,8 @@ public class Program {
     // System.out.println("\n\tInserted! New id: " + id);
 
     System.out.println("\n\t=== TEST 5: seller update =====");
-    Usuario usuario = usuarioDao.findById(3);
-		usuario.setSenha("12345678");
+    Usuario usuario = usuarioDao.findById(1);
+		usuario.setSenha("12341010");
     usuarioDao.update(usuario);
 		System.out.println("\n\tUpdate completed");
 
