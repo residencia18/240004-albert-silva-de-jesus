@@ -86,6 +86,30 @@ public class UsuarioDaoImpl implements UsuarioDao {
   @Override
   public void update(Usuario obj) {
 
+    if (obj == null || obj.getId() == null) {
+      throw new IllegalArgumentException("O objeto Usuario ou seu Id não pode ser nulo.");
+    }
+    
+    PreparedStatement st = null;
+    try {
+      st = conn.prepareStatement(
+          "UPDATE usuario "
+              + "SET login = ?, senha = ?, email = ?  "
+              + "WHERE Id = ?");
+
+      st.setString(1, obj.getLogin());
+      st.setString(2, obj.getSenha());
+      st.setString(3, obj.getEmail());
+      st.setInt(4, obj.getId());
+
+      st.executeUpdate();
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+    }
   }
 
   @Override
@@ -160,11 +184,10 @@ public class UsuarioDaoImpl implements UsuarioDao {
     ResultSet rs = null;
     try {
       st = conn.prepareStatement(
-        "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
-                + "FROM usuario LEFT JOIN postagens "
-                + "ON usuario.login = postagens.login "
-                + "ORDER BY usuario.login");
-
+          "SELECT usuario.*, postagens.login AS postagem_login, postagens.texto "
+              + "FROM usuario LEFT JOIN postagens "
+              + "ON usuario.login = postagens.login "
+              + "ORDER BY usuario.login");
 
       rs = st.executeQuery();
 
