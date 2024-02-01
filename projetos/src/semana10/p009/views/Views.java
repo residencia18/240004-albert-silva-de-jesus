@@ -7,13 +7,20 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import p009.dao.ClienteDao;
+import p009.dao.FalhaDao;
+import p009.dao.FaturaDao;
+import p009.dao.ImovelDao;
+import p009.dao.ReparoDao;
+import p009.dao.impl.ClienteDaoImpl;
+import p009.entities.Fatura;
+
 public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
   public static Scanner scan = new Scanner(System.in);
 
-  public static void MainEnergiaCoelho() 
-  {
+  public static void MainEnergiaCoelho() {
 
     int opcao = -1;
 
@@ -127,6 +134,7 @@ public class Views {
   public static void menuCliente() {
 
     int opcao = -1;
+    ClienteDao clienteDao = new ClienteDaoImpl();
 
     do {
 
@@ -134,19 +142,19 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // ClienteService.cadastrar();
+          clienteDao.cadastrar();
           break;
         case 2:
-          // ClienteService.listar();
+          clienteDao.listar();
           break;
         case 3:
-          // ClienteService.editar();
+          clienteDao.editar();
           break;
         case 4:
-          // ClienteService.excluir();
+          clienteDao.excluir();
           break;
         case 5:
-          // ClienteService.pesquisar();
+          clienteDao.pesquisar();
           break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
@@ -205,6 +213,7 @@ public class Views {
   public static void menuImoveis() {
 
     int opcao = -1;
+    ImovelDao imovelDao = new ImovelDao();
 
     do {
 
@@ -212,19 +221,19 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // ImovelService.cadastrar();
+          imovelDao.cadastrar();
           break;
         case 2:
-          // ImovelService.listar();
+          imovelDao.listar();
           break;
         case 3:
-          // ImovelService.editar();
+          imovelDao.editar();
           break;
         case 4:
-          // ImovelService.excluir();
+          imovelDao.excluir();
           break;
         case 5:
-          // ImovelService.pesquisar();
+          imovelDao.pesquisar();
           break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
@@ -281,6 +290,7 @@ public class Views {
   public static void menuFaturas() {
 
     int opcao = -1;
+    FaturaDao faturaDao = new FaturaDao();
 
     do {
 
@@ -288,13 +298,13 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // FaturaService.registrarConsumo();
+          faturaDao.registrarConsumo();
           break;
         case 2:
-          // FaturaService.faturasEmAberto();
+          faturaDao.faturasEmAberto();
           break;
         case 3:
-          // FaturaService.todasAsFaturas();
+          faturaDao.todasAsFaturas();
           break;
         case 4:
           System.out.println("\n\tRetornando ao menu principal...");
@@ -353,6 +363,7 @@ public class Views {
   public static void menuPagamentos() {
 
     int opcao = -1;
+    FaturaDao faturaDao = new FaturaDaoImpl();
 
     do {
 
@@ -360,22 +371,22 @@ public class Views {
 
       switch (opcao) {
         case 1:
-        //   Fatura fatura = FaturaService.obterFaturaPorMesEmissao();
-        //   if (fatura != null)
-        //     fatura.novoPagamento();
-        //   break;
-        // case 2:
-        //   FaturaService.todosOsPagamentos();
-        //   break;
-        // case 3:
-        //   FaturaService.pagamentosPorFatura();
-        //   break;
-        // case 4:
-        //   FaturaService.todosOsReembolsos();
-        //   break;
-        // case 5:
-        //   FaturaService.reembolsosPorFatura();
-        //   break;
+          Fatura fatura = faturaDao.obterFaturaPorMesEmissao();
+          if (fatura != null)
+            fatura.novoPagamento();
+          break;
+        case 2:
+          FaturaDao.todosOsPagamentos();
+          break;
+        case 3:
+          faturaDao.pagamentosPorFatura();
+          break;
+        case 4:
+          faturaDao.todosOsReembolsos();
+          break;
+        case 5:
+          faturaDao.reembolsosPorFatura();
+          break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
           pausar(scan);
@@ -464,21 +475,29 @@ public class Views {
   }
 
   public static void menuTipoFalhas() {
+
     int opcao = -1;
+    FalhaDao falhaDao = new FalhaDaoImpl();
+
     do {
+
       opcao = dispMenuTipoFalhas();
+
       switch (opcao) {
         case 1:
-          // FalhaService.cadastrarFalhaDistribuicao();
+          falhaDao.cadastrarFalhaDistribuicao();
           break;
+
         case 2:
-          // FalhaService.cadastrarFalhaGeracao();
+          falhaDao.cadastrarFalhaGeracao();
           break;
         case 3:
+
           System.out.println("\n\tRetornando ao menu principal...");
           pausar(scan);
           MainEnergiaCoelho();
           break;
+
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
           System.exit(0);
@@ -526,21 +545,29 @@ public class Views {
   }
 
   public static void menuReparos() {
+
     int opcao = -1;
+    ReparoDao reparoDao = new ReparoDaoImpl();
+
     do {
+
       opcao = dispMenuReparos();
+
       switch (opcao) {
         case 1:
-          // ReparoService.listarReparosAbertos();
+          reparoDao.listarRaparosAbertos();
           break;
+
         case 2:
-          // ReparoService.encerraReparo();
+          reparoDao.encerraReparo();
           break;
+
         case 3:
           System.out.println("\n\tRetornando ao menu anterior...");
           pausar(scan);
           menuFalhas();
           break;
+
         default:
           break;
       }
@@ -548,19 +575,28 @@ public class Views {
   }
 
   public static void menuFalhas() {
+
     int opcao = -1;
+    FalhaDao falhaDao = new FalhaDaoImpl();
+
     do {
+
       opcao = dispMenuFalhas();
+
       switch (opcao) {
+
         case 1:
           menuTipoFalhas();
           break;
+
         case 2:
-          // FalhaService.listar();
+          falhaDao.listar();
           break;
+
         case 3:
-          // FalhaService.editar();
+          falhaDao.editar();
           break;
+
         case 4:
           menuReparos();
           break;
@@ -621,4 +657,5 @@ public class Views {
     System.out.println(mensagem);
     pausar(Views.scan);
   }
+
 }
