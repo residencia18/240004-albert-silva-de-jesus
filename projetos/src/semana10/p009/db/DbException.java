@@ -1,4 +1,4 @@
-package semana10.p009.db;
+package p009.db;
 
 public class DbException extends RuntimeException {
   

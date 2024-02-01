@@ -8,6 +8,13 @@
       "type": "java",
       "name": "Program",
       "request": "launch",
+      "mainClass": "p009.application.Program",
+      "projectName": "residenciaJava_8da23afe"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
       "mainClass": "tutorial.jdbc.application.Program",
       "projectName": "residenciaJava_8da23afe"
     },

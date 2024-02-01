@@ -1,4 +1,4 @@
-package semana10.p009.db;
+package p009.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class DB {
 
   private static Properties loadProperties() {
 
-    try (FileInputStream fs = new FileInputStream("projetos\\src\\tutorial\\jdbc\\db.properties")) {
+    try (FileInputStream fs = new FileInputStream("projetos\\src\\semana10\\p009\\db.properties")) {
       Properties props = new Properties();
       props.load(fs);
       return props;

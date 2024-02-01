@@ -1,8 +1,8 @@
-package semana10.p009.entities;
+package p009.entities;
 
 import java.time.LocalDate;
 
-import semana10.p009.views.Views;
+import p009.views.Views;
 
 import java.text.DecimalFormat;
 

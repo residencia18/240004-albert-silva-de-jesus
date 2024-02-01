@@ -16,9 +16,9 @@ public class Program {
 
     UsuarioDao usuarioDao = DaoFactory.createUsuarioDao();
 
-    // System.out.println("\n\t=== TEST 1: usuario findById =====");
-    // Usuario usuario = usuarioDao.findById(1);
-    // System.out.println(usuario);
+    System.out.println("\n\t=== TEST 1: usuario findById =====");
+    Usuario usuario = usuarioDao.findById(1);
+    System.out.println(usuario);
 
     // System.out.println("\n\t=== TEST 2: usuario findAll =====");
     // List<Usuario> list = usuarioDao.findAll();
@@ -30,11 +30,11 @@ public class Program {
     // Integer id = usuarioDao.cadastrar();
     // System.out.println("\n\tInserted! New id: " + id);
 
-    System.out.println("\n\t=== TEST 5: seller update =====");
-    Usuario usuario = usuarioDao.findById(1);
-		usuario.setSenha("12341010");
-    usuarioDao.update(usuario);
-		System.out.println("\n\tUpdate completed");
+    // System.out.println("\n\t=== TEST 5: seller update =====");
+    // Usuario usuario = usuarioDao.findById(1);
+		// usuario.setSenha("12341010");
+    // usuarioDao.update(usuario);
+		// System.out.println("\n\tUpdate completed");
 
     sc.close();
 

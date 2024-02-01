@@ -1,4 +1,4 @@
-package semana10.p009.entities;
+package p009.entities;
 
 import java.time.LocalDate;
 import java.text.DecimalFormat;

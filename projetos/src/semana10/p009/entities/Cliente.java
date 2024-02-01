@@ -1,4 +1,4 @@
-package semana10.p009.entities;
+package p009.entities;
 
 import java.util.ArrayList;
 import java.util.List;
