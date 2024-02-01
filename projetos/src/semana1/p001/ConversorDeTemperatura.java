@@ -3,6 +3,7 @@ Escreva um programa que converta a temperatura de graus Celsius para Fahrenheit 
 O programa deve solicitar ao usuário que insira a temperatura e a unidade de origem (Celsius ou Fahrenheit) e, em seguida, realizar 
 a conversão e exibir o resultado. A fórmula para a conversão de Celsius para Fahrenheit é: F = (C * 9/5) + 32, onde F é a temperatura em 
 Fahrenheit e C é a temperatura em Celsius.  */
+package semana1.p001;
 
 import java.util.Scanner;
 

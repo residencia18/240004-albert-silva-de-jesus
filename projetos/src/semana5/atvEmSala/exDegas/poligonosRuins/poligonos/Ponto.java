@@ -1,4 +1,4 @@
-package poligonos;
+package semana5.atvEmSala.exDegas.poligonosRuins.poligonos;
 
 import java.util.Scanner;
 

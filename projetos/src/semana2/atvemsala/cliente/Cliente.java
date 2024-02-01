@@ -1,4 +1,4 @@
-package atvemsala.cliente;
+package semana2.atvemsala.cliente;
 
 public class Cliente {
 

@@ -6,22 +6,22 @@ import java.util.List;
 import jdbc.redesocial.model.dao.PostagemDao;
 import jdbc.redesocial.model.entities.Postagem;
 
-public class PostagemDaoImpl implements PostagemDao{
+public class PostagemDaoImpl implements PostagemDao {
 
   private Connection conn;
 
   public PostagemDaoImpl(Connection conn) {
     this.conn = conn;
   }
-  
+
   @Override
   public void insert(Postagem obj) {
-   
+
   }
 
   @Override
   public void update(Postagem obj) {
- 
+
   }
 
   @Override
@@ -38,5 +38,5 @@ public class PostagemDaoImpl implements PostagemDao{
   public List<Postagem> findAll() {
     throw new UnsupportedOperationException("Unimplemented method 'findAll'");
   }
-  
+
 }
