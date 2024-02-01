@@ -10,7 +10,7 @@ public class Cliente extends AbstractEntity {
   private List<Imovel> imoveis;
 
   public Cliente() {
-
+    this.imoveis = new ArrayList<>();
   }
 
   public Cliente(String nome, String cpf) {
@@ -80,7 +80,17 @@ public class Cliente extends AbstractEntity {
 
   @Override
   public String toString() {
-    return "\n\tNome: " + nome + "\n\tCPF : " + cpf;
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n\tNome: ").append(nome);
+    sb.append("\n\tCPF : ").append(cpf);
+    sb.append("\n\tImóveis:");
+
+    for (Imovel imovel : imoveis) {
+      sb.append("\n\tMatrícula: ").append(imovel.getMatricula());
+      sb.append("\n\tEndereço : ").append(imovel.getEndereco());
+    }
+
+    return sb.toString();
   }
 
 }

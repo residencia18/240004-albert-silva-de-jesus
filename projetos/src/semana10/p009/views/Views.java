@@ -135,7 +135,6 @@ public class Views {
   public static void menuCliente() {
 
     int opcao = -1;
-    // ClienteDao clienteDao = new ClienteDaoImpl();
     ClienteDao clienteDao = DaoFactory.createClienteDao();
 
     do {

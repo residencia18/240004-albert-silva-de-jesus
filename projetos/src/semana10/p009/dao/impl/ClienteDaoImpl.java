@@ -6,15 +6,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import p009.entities.Cliente;
+import p009.entities.Imovel;
 import p009.views.Views;
-import tutorial.jdbc.db.DB;
-import tutorial.jdbc.db.DbException;
+import tutorial.jdbc.entities.Department;
 import tutorial.jdbc.entities.Seller;
+import p009.db.DB;
+import p009.db.DbException;
 import p009.dao.ClienteDao;
 
 public class ClienteDaoImpl implements ClienteDao {
@@ -57,12 +61,15 @@ public class ClienteDaoImpl implements ClienteDao {
 
   @Override
   public void listar() {
+
     Views.limparTela();
     System.out.print("\n\t===== LISTAGEM DE CLIENTES =====");
 
+    clientes = findAll();
+
     if (clientes.size() > 0) {
       for (Cliente cliente : clientes) {
-        System.out.println(cliente.toString()); // Chama explicitamente o método toString
+        System.out.println(cliente.toString());
         System.out.print("\t================================");
       }
     } else {
@@ -252,5 +259,61 @@ public class ClienteDaoImpl implements ClienteDao {
     } finally {
       DB.closeStatement(st);
     }
+  }
+
+  public List<Cliente> findAll() {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+    try {
+      st = conn.prepareStatement(
+          "SELECT cliente.*, imovel.matricula as matricula, imovel.endereco " 
+          + "FROM cliente " + "LEFT JOIN imovel ON cliente.Id = imovel.cliente_id " 
+          + "ORDER BY nome");
+
+      rs = st.executeQuery();
+
+      List<Cliente> list = new ArrayList<>();
+      Map<Integer, Imovel> map = new HashMap<>();
+
+      while (rs.next()) {
+
+        Imovel imovel = map.get(rs.getInt("Id"));
+
+        if (imovel == null) {
+          imovel = instantiateImovel(rs);
+          map.put(rs.getInt("Id"), imovel);
+        }
+
+        Cliente obj = instantiateCliente(rs, imovel);
+        list.add(obj);
+      }
+      return list;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
+  private Cliente instantiateCliente(ResultSet rs, Imovel imovel) throws SQLException {
+    Cliente obj = new Cliente();
+    obj.setId(rs.getInt("Id"));
+    obj.setNome(rs.getString("nome"));
+    obj.setCpf(rs.getString("cpf"));
+    obj.addImovel(imovel);
+    imovel.setCliente(obj);
+    return obj;
+  }
+
+  private Imovel instantiateImovel(ResultSet rs) throws SQLException {
+    Imovel imovel = new Imovel();
+    imovel.setId(rs.getInt("Id"));
+    imovel.setMatricula(rs.getString("matricula"));
+    imovel.setEndereco(rs.getString("endereco"));
+    return imovel;
   }
 }
