@@ -1,13 +1,23 @@
 package p009.entities;
 
-public class Imovel {
+public class Imovel extends AbstractEntity {
 
   private String matricula;
   private String endereco;
   private int ultimaLeitura;
   private int penultimaLeitura;
 
+  public Imovel() {
+  }
+
   public Imovel(String matricula, String endereco, int ultimaLeitura) {
+    this.matricula = matricula;
+    this.endereco = endereco;
+    this.ultimaLeitura = ultimaLeitura;
+  }
+
+  public Imovel(Integer id, String matricula, String endereco, int ultimaLeitura) {
+    super(id);
     this.matricula = matricula;
     this.endereco = endereco;
     this.ultimaLeitura = ultimaLeitura;

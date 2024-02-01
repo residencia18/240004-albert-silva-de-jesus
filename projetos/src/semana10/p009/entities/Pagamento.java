@@ -6,12 +6,21 @@ import p009.views.Views;
 
 import java.text.DecimalFormat;
 
-public class Pagamento {
+public class Pagamento extends AbstractEntity {
 
     protected double valor;
     protected LocalDate data;
 
+    public Pagamento() {
+    }
+
     public Pagamento(double valor) {
+        this.valor = valor;
+        this.data = LocalDate.now();
+    }
+
+    public Pagamento(Integer id, double valor) {
+        super(id);
         this.valor = valor;
         this.data = LocalDate.now();
     }

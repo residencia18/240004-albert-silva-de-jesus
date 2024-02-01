@@ -3,11 +3,21 @@ package p009.entities;
 import java.time.LocalDate;
 import java.text.DecimalFormat;
 
-public class Reembolso {
+public class Reembolso extends AbstractEntity {
+
     private double valor;
     private LocalDate data;
 
+    public Reembolso() {
+    }
+
     public Reembolso(double valor) {
+        this.valor = valor;
+        this.data = LocalDate.now();
+    }
+
+    public Reembolso(Integer id, double valor) {
+        super(id);
         this.valor = valor;
         this.data = LocalDate.now();
     }

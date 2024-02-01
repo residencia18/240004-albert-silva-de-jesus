@@ -2,7 +2,8 @@ package p009.entities;
 
 import java.time.LocalDate;
 
-public class Reparo {
+public class Reparo extends AbstractEntity {
+
   private String descricao;
   private LocalDate previsaoConclusao;
   private LocalDate dataInicio;
@@ -10,6 +11,10 @@ public class Reparo {
   private boolean concluido;
   private Reparo reparoAuxiliar;
   private Falha falha;
+
+  public Reparo() {
+
+  }
 
   public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim,
       boolean concluido, Reparo reparoAuxiliar, Falha falha) {
@@ -23,6 +28,17 @@ public class Reparo {
   }
 
   public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, Falha falha) {
+    this.descricao = descricao;
+    this.previsaoConclusao = previsaoConclusao;
+    this.dataInicio = dataInicio;
+    this.falha = falha;
+    this.dataFim = null;
+    this.concluido = false;
+
+  }
+
+  public Reparo(Integer id, String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, Falha falha) {
+    super(id);
     this.descricao = descricao;
     this.previsaoConclusao = previsaoConclusao;
     this.dataInicio = dataInicio;

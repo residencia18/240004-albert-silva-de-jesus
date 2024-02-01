@@ -3,13 +3,24 @@ package p009.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+public class Cliente extends AbstractEntity {
 
   private String nome;
   private String cpf;
   private List<Imovel> imoveis;
 
+  public Cliente() {
+
+  }
+
   public Cliente(String nome, String cpf) {
+    this.nome = nome;
+    this.cpf = cpf;
+    this.imoveis = new ArrayList<>();
+  }
+
+  public Cliente(Integer id, String nome, String cpf) {
+    super(id);
     this.nome = nome;
     this.cpf = cpf;
     this.imoveis = new ArrayList<>();

@@ -3,19 +3,20 @@ package p009.entities;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Falha {
+public class Falha extends AbstractEntity {
 
-  private static int proximoID = 1;
-  private int id;
   private String matriculaImovel;
   private String descricao;
   private LocalDate previsaoConclusao;
   private LocalDate dataInicio;
   private LocalDate dataFim;
 
+  public Falha() {
+
+  }
+
   public Falha(String matriculaImovel, String descricao, LocalDate previsaoConclusao, LocalDate dataInicio,
       LocalDate dataFim) {
-    this.id = proximoID++;
     this.matriculaImovel = matriculaImovel;
     this.descricao = descricao;
     this.previsaoConclusao = previsaoConclusao;
@@ -23,8 +24,14 @@ public class Falha {
     this.dataFim = dataFim;
   }
 
-  public int getId() {
-    return this.id;
+  public Falha(Integer id, String matriculaImovel, String descricao, LocalDate previsaoConclusao, LocalDate dataInicio,
+      LocalDate dataFim) {
+    super(id);
+    this.matriculaImovel = matriculaImovel;
+    this.descricao = descricao;
+    this.previsaoConclusao = previsaoConclusao;
+    this.dataInicio = dataInicio;
+    this.dataFim = dataFim;
   }
 
   public String getMatriculaImovel() {
@@ -121,7 +128,7 @@ public class Falha {
 
     StringBuilder sb = new StringBuilder();
     // sb.append("Falha [");
-    sb.append("\n\tId=").append(id);
+    sb.append("\n\tId=").append(getId());
 
     if (matriculaImovel != null) {
       sb.append("\n\tMatricula do Imovel:").append(matriculaImovel);

@@ -24,12 +24,12 @@ public abstract class AbstractEntity implements Serializable {
   }
 
   public boolean hasNotId() {
-		return id == null;
-	}
+    return id == null;
+  }
 
-	public boolean hasId() {
-		return id != null;
-	}
+  public boolean hasId() {
+    return id != null;
+  }
 
   @Override
   public int hashCode() {
@@ -57,7 +57,7 @@ public abstract class AbstractEntity implements Serializable {
   }
 
   @Override
-	public String toString() {
-		return String.format("Entidade %s id: %s", this.getClass().getName(), getId());
-	}
+  public String toString() {
+    return String.format("Entidade %s id: %s", this.getClass().getName(), getId());
+  }
 }

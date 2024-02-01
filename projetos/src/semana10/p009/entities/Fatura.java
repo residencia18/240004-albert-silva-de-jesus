@@ -8,7 +8,7 @@ import p009.views.Views;
 
 import java.text.DecimalFormat;
 
-public class Fatura {
+public class Fatura extends AbstractEntity {
 
     private String matriculaImovel;
     private int ultimaLeitura;
@@ -19,7 +19,21 @@ public class Fatura {
     private ArrayList<Pagamento> pagamentos;
     private Reembolso reembolso;
 
+    public Fatura() {
+    }
+
     public Fatura(String matriculaImovel, int ultimaLeitura, int penultimaLeitura) {
+        this.matriculaImovel = matriculaImovel;
+        this.ultimaLeitura = ultimaLeitura;
+        this.penultimaLeitura = penultimaLeitura;
+        this.dataEmissao = LocalDate.now();
+        this.quitado = false;
+        this.pagamentos = new ArrayList<>();
+        calcularValorFatura();
+    }
+
+    public Fatura(Integer id, String matriculaImovel, int ultimaLeitura, int penultimaLeitura) {
+        super(id);
         this.matriculaImovel = matriculaImovel;
         this.ultimaLeitura = ultimaLeitura;
         this.penultimaLeitura = penultimaLeitura;
