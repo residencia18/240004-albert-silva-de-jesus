@@ -26,8 +26,9 @@ public class Cliente extends AbstractEntity {
     this.imoveis = new ArrayList<>();
   }
 
-  public void adicionarImovel(Imovel imovel) {
-    this.imoveis.add(imovel);
+  public void addImovel(Imovel imovel) {
+    imoveis.add(imovel);
+    imovel.setCliente(this); // Estabelece a relação bidirecional
   }
 
   public String getNome() {

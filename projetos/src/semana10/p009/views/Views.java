@@ -13,6 +13,7 @@ import p009.dao.FaturaDao;
 import p009.dao.ImovelDao;
 import p009.dao.ReparoDao;
 import p009.dao.impl.ClienteDaoImpl;
+import p009.dao.impl.DaoFactory;
 import p009.entities.Fatura;
 
 public class Views {
@@ -134,7 +135,8 @@ public class Views {
   public static void menuCliente() {
 
     int opcao = -1;
-    ClienteDao clienteDao = new ClienteDaoImpl();
+    // ClienteDao clienteDao = new ClienteDaoImpl();
+    ClienteDao clienteDao = DaoFactory.createClienteDao();
 
     do {
 

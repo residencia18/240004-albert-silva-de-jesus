@@ -1,6 +1,10 @@
 package p009.dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -8,6 +12,9 @@ import java.util.NoSuchElementException;
 
 import p009.entities.Cliente;
 import p009.views.Views;
+import tutorial.jdbc.db.DB;
+import tutorial.jdbc.db.DbException;
+import tutorial.jdbc.entities.Seller;
 import p009.dao.ClienteDao;
 
 public class ClienteDaoImpl implements ClienteDao {
@@ -30,6 +37,7 @@ public class ClienteDaoImpl implements ClienteDao {
 
   @Override
   public void cadastrar() {
+
     Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE CLIENTE =====");
 
@@ -40,6 +48,7 @@ public class ClienteDaoImpl implements ClienteDao {
     String cpf = Views.scan.nextLine();
 
     clientes.add(new Cliente(nome, cpf));
+    insert(new Cliente(nome, cpf));
 
     Views.limparTela();
     System.out.println("\n\tCliente cadastrado com sucesso!");
@@ -208,6 +217,40 @@ public class ClienteDaoImpl implements ClienteDao {
     } catch (Exception e) {
       System.out.println("\n\tOps, ocorreu um erro inesperado: " + e.getMessage());
       Views.pausar(Views.scan);
+    }
+  }
+
+  public void insert(Cliente obj) {
+
+    PreparedStatement st = null;
+    try {
+
+      st = conn.prepareStatement("INSERT INTO cliente " + "(nome, cpf) " + "VALUES " + "(?, ?)",
+          Statement.RETURN_GENERATED_KEYS);
+
+      st.setString(1, obj.getNome());
+      st.setString(2, obj.getCpf());
+
+      int rowsAffected = st.executeUpdate();
+
+      if (rowsAffected > 0) {
+        ResultSet rs = st.getGeneratedKeys();
+
+        if (rs.next()) {
+          int id = rs.getInt(1);
+          obj.setId(id);
+
+        }
+        DB.closeResultSet(rs);
+
+      } else {
+        throw new DbException("Unexpected error! No rows affected!");
+      }
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
     }
   }
 }

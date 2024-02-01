@@ -6,6 +6,7 @@ public class Imovel extends AbstractEntity {
   private String endereco;
   private int ultimaLeitura;
   private int penultimaLeitura;
+  private Cliente cliente;
 
   public Imovel() {
   }
@@ -54,6 +55,14 @@ public class Imovel extends AbstractEntity {
 
   public void setPenultimaLeitura(int penultimaLeitura) {
     this.penultimaLeitura = penultimaLeitura;
+  }
+
+  public Cliente getCliente() {
+    return cliente;
+  }
+
+  public void setCliente(Cliente cliente) {
+    this.cliente = cliente;
   }
 
   @Override
