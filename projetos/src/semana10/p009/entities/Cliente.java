@@ -47,6 +47,14 @@ public class Cliente extends AbstractEntity {
     this.cpf = cpf;
   }
 
+  public List<Imovel> getImoveis() {
+    return this.imoveis;
+  }
+
+  public void setImoveis(List<Imovel> imoveis) {
+    this.imoveis = imoveis;
+  }
+
   @Override
   public int hashCode() {
     final int prime = 31;

@@ -15,6 +15,8 @@ import java.util.NoSuchElementException;
 import p009.entities.Cliente;
 import p009.entities.Imovel;
 import p009.views.Views;
+import tutorial.jdbc.entities.Department;
+import tutorial.jdbc.entities.Seller;
 import p009.db.DB;
 import p009.db.DbException;
 import p009.dao.ClienteDao;
@@ -153,29 +155,21 @@ public class ClienteDaoImpl implements ClienteDao {
     System.out.print("\n\tDigite o CPF do cliente: ");
     String cpf = Views.scan.nextLine();
 
-    Cliente clienteParaRemover = null;
+    Integer clienteId = findClientIdByCpf(cpf);
 
-    for (Cliente cliente : clientes) {
-
-      if (cliente.getCpf().equals(cpf)) {
-        clienteParaRemover = cliente;
-        break;
-      }
-    }
-
-    if (clienteParaRemover != null) {
+    if (clienteId != null) {
+      Cliente clienteParaRemover = findById(clienteId);
 
       Views.limparTela();
       System.out.print("\n\t===== DADOS DO CLIENTE =====");
       System.out.println(clienteParaRemover.toString());
 
       try {
-
+        
         System.out.print("\n\tDeseja realmente excluir este cliente? (S/N): ");
         String opcao = Views.scan.nextLine();
 
         if (opcao.equalsIgnoreCase("s")) {
-          
           Views.limparTela();
           clientes.remove(clienteParaRemover);
           deleteById(clienteParaRemover.getId());
@@ -199,6 +193,7 @@ public class ClienteDaoImpl implements ClienteDao {
 
   @Override
   public void pesquisar() {
+
     Views.limparTela();
     System.out.println("\n\t===== PESQUISA DE CLIENTE =====");
 
@@ -206,26 +201,25 @@ public class ClienteDaoImpl implements ClienteDao {
       System.out.print("\n\tDigite o CPF do cliente: ");
       String cpf = Views.scan.nextLine();
 
-      Cliente clienteEncontrado = null;
+      Integer clienteId = findClientIdByCpf(cpf);
 
-      for (Cliente cliente : clientes) {
-        if (cliente.getCpf().equals(cpf)) {
-          clienteEncontrado = cliente;
-          break;
-        }
-      }
+      if (clienteId != null) {
+        Cliente clienteEncontrado = findById(clienteId);
 
-      if (clienteEncontrado != null) {
         Views.limparTela();
         System.out.print("\n\t===== DADOS DO CLIENTE =====");
+
         System.out.println(clienteEncontrado.toString());
+        System.out.println("\t================================");
         Views.pausar(Views.scan);
+
       } else {
         throw new NoSuchElementException("\n\tOps, Cliente não encontrado!..");
       }
     } catch (NoSuchElementException e) {
       System.out.println(e.getMessage());
       Views.pausar(Views.scan);
+
     } catch (Exception e) {
       System.out.println("\n\tOps, ocorreu um erro inesperado: " + e.getMessage());
       Views.pausar(Views.scan);
@@ -272,28 +266,31 @@ public class ClienteDaoImpl implements ClienteDao {
     ResultSet rs = null;
     try {
       st = conn.prepareStatement(
-          "SELECT cliente.*, imovel.matricula as matricula, imovel.endereco "
-              + "FROM cliente " + "LEFT JOIN imovel ON cliente.Id = imovel.cliente_id "
-              + "ORDER BY nome");
+          "SELECT cliente.*, imovel.matricula AS matricula, imovel.endereco "
+              + "FROM cliente LEFT JOIN imovel "
+              + "ON cliente.Id = imovel.cliente_id "
+              + "ORDER BY cliente.nome");
 
       rs = st.executeQuery();
 
-      List<Cliente> list = new ArrayList<>();
-      Map<Integer, Imovel> map = new HashMap<>();
+      Map<Integer, Cliente> clienteMap = new HashMap<>();
 
       while (rs.next()) {
 
-        Imovel imovel = map.get(rs.getInt("Id"));
+        Integer clienteId = rs.getInt("Id");
 
-        if (imovel == null) {
-          imovel = instantiateImovel(rs);
-          map.put(rs.getInt("Id"), imovel);
+        Cliente cliente = clienteMap.get(clienteId);
+
+        if (cliente == null) {
+          cliente = instantiateCliente(rs);
+          clienteMap.put(clienteId, cliente);
         }
 
-        Cliente obj = instantiateCliente(rs, imovel);
-        list.add(obj);
+        Imovel imovel = instantiateImovel(rs);
+        cliente.addImovel(imovel);
       }
-      return list;
+
+      return new ArrayList<>(clienteMap.values());
 
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
@@ -348,15 +345,94 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  private Cliente instantiateCliente(ResultSet rs, Imovel imovel) throws SQLException {
+  public Cliente findById(Integer id) {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+          "SELECT cliente.*, imovel.matricula as matricula, imovel.endereco "
+              + "FROM cliente "
+              + "LEFT JOIN imovel ON cliente.Id = imovel.cliente_id "
+              + "WHERE cliente.Id = ?");
+
+      st.setInt(1, id);
+      rs = st.executeQuery();
+
+      List<Imovel> imoveis = new ArrayList<>();
+      Cliente cliente = null;
+
+      while (rs.next()) {
+
+        if (cliente == null) {
+          cliente = instantiateCliente(rs);
+        }
+
+        Imovel imovel = instantiateImovel(rs);
+        imoveis.add(imovel);
+      }
+
+      if (cliente != null) {
+        cliente.setImoveis(imoveis);
+      }
+
+      return cliente;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
+  private Integer findClientIdByCpf(String cpf) {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+
+      st = conn.prepareStatement("SELECT Id FROM cliente WHERE cpf = ?");
+      st.setString(1, cpf);
+
+      rs = st.executeQuery();
+
+      if (rs.next()) {
+        return rs.getInt("Id");
+      }
+
+      return null;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
+  private Cliente instantiateCliente(ResultSet rs) throws SQLException {
     Cliente obj = new Cliente();
     obj.setId(rs.getInt("Id"));
     obj.setNome(rs.getString("nome"));
     obj.setCpf(rs.getString("cpf"));
-    obj.addImovel(imovel);
-    imovel.setCliente(obj);
     return obj;
   }
+
+  // private Cliente instantiateCliente(ResultSet rs, Imovel imovel) throws
+  // SQLException {
+  // Cliente obj = new Cliente();
+  // obj.setId(rs.getInt("Id"));
+  // obj.setNome(rs.getString("nome"));
+  // obj.setCpf(rs.getString("cpf"));
+  // obj.addImovel(imovel);
+  // imovel.setCliente(obj);
+  // return obj;
+  // }
 
   private Imovel instantiateImovel(ResultSet rs) throws SQLException {
     Imovel imovel = new Imovel();
