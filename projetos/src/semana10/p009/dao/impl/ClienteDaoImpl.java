@@ -105,7 +105,7 @@ public class ClienteDaoImpl implements ClienteDao {
             }
 
             if (opcao.equalsIgnoreCase("s")) {
-              
+
               Views.limparTela();
               System.out.print("\n\tDigite o novo nome do cliente: ");
               String nome = Views.scan.nextLine();
@@ -153,46 +153,47 @@ public class ClienteDaoImpl implements ClienteDao {
     System.out.print("\n\tDigite o CPF do cliente: ");
     String cpf = Views.scan.nextLine();
 
+    Cliente clienteParaRemover = null;
+
     for (Cliente cliente : clientes) {
+
       if (cliente.getCpf().equals(cpf)) {
-
-        Views.limparTela();
-        System.out.print("\n\t===== DADOS DO CLIENTE =====");
-        System.out.println(cliente.toString());
-
-        while (true) {
-          try {
-            System.out.print("\n\tDeseja realmente excluir este cliente? (S/N): ");
-            String opcao = Views.scan.nextLine();
-
-            if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
-              throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
-            }
-
-            if (opcao.equalsIgnoreCase("s")) {
-              Views.limparTela();
-              clientes.remove(cliente);
-              System.out.println("\n\tCliente removido com sucesso!");
-              Views.pausar(Views.scan);
-              return;
-
-            } else {
-              System.out.println("\n\tOperação cancelada!");
-              Views.pausar(Views.scan);
-              return;
-            }
-          } catch (InputMismatchException e) {
-            System.out.println("\n\t" + e.getMessage());
-            // Limpar o buffer do scanner antes de continuar o loop
-            Views.scan.nextLine();
-          }
-        }
-      } else {
-        System.out.println("\n\tOps, Cliente não encontrado!..");
-        Views.pausar(Views.scan);
-        return;
-
+        clienteParaRemover = cliente;
+        break;
       }
+    }
+
+    if (clienteParaRemover != null) {
+
+      Views.limparTela();
+      System.out.print("\n\t===== DADOS DO CLIENTE =====");
+      System.out.println(clienteParaRemover.toString());
+
+      try {
+
+        System.out.print("\n\tDeseja realmente excluir este cliente? (S/N): ");
+        String opcao = Views.scan.nextLine();
+
+        if (opcao.equalsIgnoreCase("s")) {
+          
+          Views.limparTela();
+          clientes.remove(clienteParaRemover);
+          deleteById(clienteParaRemover.getId());
+
+          System.out.println("\n\tCliente removido com sucesso!");
+          Views.pausar(Views.scan);
+
+        } else {
+          System.out.println("\n\tOperação cancelada!");
+          Views.pausar(Views.scan);
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\t" + e.getMessage());
+        Views.scan.nextLine(); // Limpar o buffer do scanner antes de continuar o loop
+      }
+    } else {
+      System.out.println("\n\tOps, Cliente não encontrado!..");
+      Views.pausar(Views.scan);
     }
   }
 
@@ -319,6 +320,25 @@ public class ClienteDaoImpl implements ClienteDao {
       if (rowsAffected == 0) {
         throw new DbException("Ops, nenhum cliente encontrado para atualização!...");
       }
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+    }
+  }
+
+  public void deleteById(Integer id) {
+
+    PreparedStatement st = null;
+    try {
+
+      st = conn.prepareStatement("DELETE FROM cliente WHERE Id = ?");
+
+      st.setInt(1, id);
+
+      st.executeUpdate();
 
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
