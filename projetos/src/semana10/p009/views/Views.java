@@ -214,7 +214,7 @@ public class Views {
   public static void menuImoveis() {
 
     int opcao = -1;
-    ImovelDao imovelDao = new ImovelDao();
+    ImovelDao imovelDao = DaoFactory.createImovelDao();
 
     do {
 

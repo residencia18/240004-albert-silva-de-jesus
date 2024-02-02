@@ -4,7 +4,7 @@ import p009.entities.Cliente;
 
 public interface ClienteDao {
 
-  void adcionar(Cliente cliente);
+  void adicionar(Cliente cliente);
 
   void cadastrar();
 

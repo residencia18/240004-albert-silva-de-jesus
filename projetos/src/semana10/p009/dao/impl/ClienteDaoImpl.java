@@ -15,8 +15,6 @@ import java.util.NoSuchElementException;
 import p009.entities.Cliente;
 import p009.entities.Imovel;
 import p009.views.Views;
-import tutorial.jdbc.entities.Department;
-import tutorial.jdbc.entities.Seller;
 import p009.db.DB;
 import p009.db.DbException;
 import p009.dao.ClienteDao;
@@ -35,7 +33,7 @@ public class ClienteDaoImpl implements ClienteDao {
   }
 
   @Override
-  public void adcionar(Cliente cliente) {
+  public void adicionar(Cliente cliente) {
     clientes.add(cliente);
   }
 
