@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import p009.dao.ClienteDao;
 import p009.dao.ImovelDao;
@@ -85,7 +86,7 @@ public class ImovelDaoImpl implements ImovelDao {
 
     if (imoveis.size() > 0) {
       for (Imovel imovel : imoveis) {
-        System.out.println(imovel.toString()); 
+        System.out.println(imovel.toString());
         System.out.print("\t================================");
       }
     } else {
@@ -232,34 +233,33 @@ public class ImovelDaoImpl implements ImovelDao {
     Views.limparTela();
     System.out.print("\n\t===== PESQUISA DE IMÓVEL =====\n");
 
-    if (imoveis.size() > 0) {
+    try {
+
       System.out.print("\n\tDigite a matrícula do imóvel: ");
       String matricula = Views.scan.nextLine();
 
-      boolean imovelEncontrado = false;
+      Integer imovelId = findImovelIdByMatricula(matricula);
 
-      for (Imovel imovel : imoveis) {
-
-        if (imovel.getMatricula().equals(matricula)) {
-          Views.limparTela();
-          System.out.print("\n\t===== DADOS DO IMOVEL =====");
-          System.out.println(imovel.toString());
-          System.out.println("\t===========================");
-          imovelEncontrado = true;
-          break;
-        }
-      }
-
-      if (!imovelEncontrado) {
+      if (imovelId != null) {
+        Imovel imovel = findById(imovelId);
         Views.limparTela();
-        System.out.println("\n\tImóvel não encontrado!");
+        System.out.print("\n\t===== DADOS DO IMOVEL =====");
+        System.out.println(imovel.toString());
+        System.out.println("\t===========================");
+
+      } else {
+        throw new NoSuchElementException("\n\tImóvel não encontrado!");
       }
 
-    } else {
-      Views.limparTela();
-      System.out.println("\n\tNão há imóveis cadastrados!");
+    } catch (NoSuchElementException e) {
+      System.out.println(e.getMessage());
+
+    } catch (Exception e) {
+      System.out.println("\n\tOps, ocorreu um erro inesperado: " + e.getMessage());
+
+    } finally {
+      Views.pausar(Views.scan);
     }
-    Views.pausar(Views.scan);
   }
 
   private void insert(Imovel obj) {
@@ -348,6 +348,37 @@ public class ImovelDaoImpl implements ImovelDao {
     }
   }
 
+  public Imovel findById(Integer id) {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+          "SELECT imovel.*, cliente.nome AS nome, cliente.cpf  "
+              + "FROM imovel " + "LEFT JOIN cliente ON imovel.cliente_id = cliente.Id "
+              + "WHERE imovel.Id = ?");
+
+      st.setInt(1, id);
+      rs = st.executeQuery();
+
+      if (rs.next()) {
+        Cliente cliente = instantiateCliente(rs);
+        Imovel imovel = instantiateImovel(rs, cliente);
+        return imovel;
+      }
+
+      return null;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
   private Cliente instantiateCliente(ResultSet rs) throws SQLException {
     Cliente obj = new Cliente();
     obj.setId(rs.getInt("Id"));
@@ -364,6 +395,45 @@ public class ImovelDaoImpl implements ImovelDao {
     imovel.setUltimaLeitura(rs.getInt("ultimaLeitura"));
     imovel.setPenultimaLeitura(rs.getInt("penultimaLeitura"));
     return imovel;
+  }
+
+  private Imovel instantiateImovel(ResultSet rs, Cliente cliente) throws SQLException {
+    Imovel imovel = new Imovel();
+    imovel.setId(rs.getInt("Id"));
+    imovel.setMatricula(rs.getString("matricula"));
+    imovel.setEndereco(rs.getString("endereco"));
+    imovel.setUltimaLeitura(rs.getInt("ultimaLeitura"));
+    imovel.setPenultimaLeitura(rs.getInt("penultimaLeitura"));
+    imovel.setCliente(cliente);
+    return imovel;
+  }
+
+  public Integer findImovelIdByMatricula(String matricula) {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+
+      st = conn.prepareStatement("SELECT id FROM imovel WHERE matricula = ?");
+
+      st.setString(1, matricula);
+
+      rs = st.executeQuery();
+
+      if (rs.next()) {
+        return rs.getInt("id");
+      }
+
+      return null;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
   }
 
   private static int obterInteiroValido(String prompt) {
