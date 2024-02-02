@@ -98,75 +98,64 @@ public class ImovelDaoImpl implements ImovelDao {
 
   @Override
   public void editar() {
-
     Views.limparTela();
     System.out.println("\n\t===== EDIÇÃO DE IMOVEL =====");
 
-    if (imoveis.size() > 0) {
-      System.out.print("\n\tDigite a matrícula do imóvel: ");
-      String matricula = Views.scan.nextLine();
+    System.out.print("\n\tDigite a matrícula do imóvel: ");
+    String matricula = Views.scan.nextLine();
 
-      for (Imovel imovel : imoveis) {
+    Integer imovelId = findImovelIdByMatricula(matricula);
 
-        if (imovel.getMatricula().equals(matricula)) {
-          Views.limparTela();
-          System.out.print("\n\t===== DADOS DO IMOVEL =====");
-          System.out.println(imovel.toString());
-          System.out.println("\t===========================");
+    if (imovelId != null) {
+      Imovel imovelParaEditar = findById(imovelId);
 
-          while (true) {
+      Views.limparTela();
+      System.out.print("\n\t===== DADOS DO IMOVEL =====");
+      System.out.println(imovelParaEditar.toString());
 
-            try {
-              System.out.print("\n\tDeseja realmente editar este imóvel? (S/N): ");
-              String opcao = Views.scan.nextLine();
+      try {
+        System.out.print("\n\tDeseja realmente editar este imóvel? (S/N): ");
+        String opcao = Views.scan.nextLine();
 
-              if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
-                throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
-              }
-
-              if (opcao.equalsIgnoreCase("s")) {
-                Views.limparTela();
-                System.out.print("\n\tDigite o novo endereço do imóvel: ");
-                String endereco = Views.scan.nextLine();
-
-                int penultimaLeitura = obterInteiroValido(
-                    "\n\tDigite a nova leitura da penúltima leitura (em kWh): ");
-                int ultimaLeitura = obterInteiroValido("\n\tDigite a nova leitura da última leitura (em kWh): ");
-
-                imovel.setEndereco(endereco);
-                imovel.setUltimaLeitura(ultimaLeitura);
-                imovel.setPenultimaLeitura(penultimaLeitura);
-
-                Views.limparTela();
-                System.out.print("\n\t===== IMOVEL EDITADO =====");
-                System.out.println(imovel.toString());
-                System.out.print("\t==========================");
-                System.out.println("\n\tImóvel editado com sucesso!");
-                Views.pausar(Views.scan);
-                return;
-
-              } else {
-                System.out.println("\n\tOperação cancelada!");
-                Views.pausar(Views.scan);
-                return;
-              }
-            } catch (InputMismatchException e) {
-              System.out.println("\n\t" + e.getMessage());
-              // Limpar o buffer do scanner antes de continuar o loop
-              Views.scan.nextLine();
-            }
-          }
+        if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
+          throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
         }
+
+        if (opcao.equalsIgnoreCase("s")) {
+          Views.limparTela();
+          System.out.print("\n\tDigite o novo endereço do imóvel: ");
+          String novoEndereco = Views.scan.nextLine();
+
+          System.out.print("\n\tDigite a nova leitura atual (em kWh): ");
+          int novaLeitura = Views.scan.nextInt();
+
+          Views.scan.nextLine(); // Limpar o buffer do scanner
+
+          imovelParaEditar.setEndereco(novoEndereco);
+          imovelParaEditar.setUltimaLeitura(novaLeitura);
+
+          update(imovelParaEditar);
+
+          Views.limparTela();
+          System.out.print("\n\t===== IMOVEL EDITADO =====");
+          System.out.println(imovelParaEditar.toString());
+          System.out.println("\n\tImóvel editado com sucesso!");
+          Views.pausar(Views.scan);
+          return;
+
+        } else {
+          System.out.println("\n\tOperação cancelada!");
+          Views.pausar(Views.scan);
+          return;
+        }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\t" + e.getMessage());
+        Views.scan.nextLine(); // Limpar o buffer do scanner antes de continuar o loop
       }
-
-      Views.limparTela();
-      System.out.println("\n\tImóvel não encontrado!");
-
     } else {
-      Views.limparTela();
-      System.out.println("\n\tNão há imóveis cadastrados!");
+      System.out.println("\n\tOps, Imóvel não encontrado!..");
+      Views.pausar(Views.scan);
     }
-    Views.pausar(Views.scan);
   }
 
   @Override
@@ -175,56 +164,44 @@ public class ImovelDaoImpl implements ImovelDao {
     Views.limparTela();
     System.out.println("\n\t===== EXCLUSÃO DE IMOVEL =====");
 
-    if (imoveis.size() > 0) {
-      System.out.print("\n\tDigite a matrícula do imóvel: ");
-      String matricula = Views.scan.nextLine();
+    System.out.print("\n\tDigite a matrícula do imóvel: ");
+    String matricula = Views.scan.nextLine();
 
-      // boolean imovelEncontrado = false;
+    Integer imovelId = findImovelIdByMatricula(matricula);
 
-      for (Imovel imovel : imoveis) {
-        if (imovel.getMatricula().equals(matricula)) {
+    if (imovelId != null) {
+      Imovel imovelParaRemover = findById(imovelId);
+
+      Views.limparTela();
+      System.out.print("\n\t===== DADOS DO IMOVEL =====");
+      System.out.println(imovelParaRemover.toString());
+
+      try {
+
+        System.out.print("\n\tDeseja realmente excluir este imóvel? (S/N): ");
+        String opcao = Views.scan.nextLine();
+
+        if (opcao.equalsIgnoreCase("s")) {
           Views.limparTela();
-          System.out.print("\n\t===== DADOS DO IMOVEL =====");
-          System.out.println(imovel.toString());
-          System.out.print("\t===========================");
+          imoveis.remove(imovelParaRemover);
+          deleteById(imovelParaRemover.getId());
 
-          while (true) {
-            try {
-              System.out.print("\n\tDeseja realmente excluir este imóvel? (S/N): ");
-              String opcao = Views.scan.nextLine();
+          System.out.println("\n\tImóvel removido com sucesso!");
+          Views.pausar(Views.scan);
 
-              if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
-                throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
-              }
-
-              if (opcao.equalsIgnoreCase("s")) {
-                Views.limparTela();
-                imoveis.remove(imovel);
-                System.out.println("\n\tImóvel excluído com sucesso!");
-                Views.pausar(Views.scan);
-                return;
-
-              } else {
-                System.out.println("\n\tOperação cancelada!");
-                Views.pausar(Views.scan);
-                return;
-              }
-            } catch (InputMismatchException e) {
-              System.out.println("\n\t" + e.getMessage());
-              // Limpar o buffer do scanner antes de continuar o loop
-              Views.scan.nextLine();
-            }
-          }
+        } else {
+          System.out.println("\n\tOperação cancelada!");
+          Views.pausar(Views.scan);
         }
+      } catch (InputMismatchException e) {
+        System.out.println("\n\t" + e.getMessage());
+        Views.scan.nextLine(); // Limpar o buffer do scanner antes de continuar o loop
       }
-
-      Views.limparTela();
-      System.out.println("\n\tImóvel não encontrado!");
     } else {
-      Views.limparTela();
-      System.out.println("\n\tNão há imóveis cadastrados!");
+      System.out.println("\n\tOps, Imóvel não encontrado!..");
+      Views.pausar(Views.scan);
     }
-    Views.pausar(Views.scan);
+
   }
 
   @Override
@@ -348,7 +325,7 @@ public class ImovelDaoImpl implements ImovelDao {
     }
   }
 
-  public Imovel findById(Integer id) {
+  private Imovel findById(Integer id) {
 
     PreparedStatement st = null;
     ResultSet rs = null;
@@ -376,6 +353,53 @@ public class ImovelDaoImpl implements ImovelDao {
     } finally {
       DB.closeStatement(st);
       DB.closeResultSet(rs);
+    }
+  }
+
+  private void update(Imovel obj) {
+
+    PreparedStatement st = null;
+    try {
+
+      st = conn.prepareStatement("UPDATE imovel " 
+      + "SET matricula = ?, endereco = ?, ultimaleitura = ?, penultimaleitura = ? " + "WHERE Id = ?");
+
+      st.setString(1, obj.getMatricula());
+      st.setString(2, obj.getEndereco());
+      st.setInt(3, obj.getUltimaLeitura());
+      st.setInt(4, obj.getPenultimaLeitura());
+      st.setInt(5, obj.getId());
+
+      int rowsAffected = st.executeUpdate();
+
+      if (rowsAffected == 0) {
+        throw new DbException("Ops, nenhum imovel encontrado para atualização!...");
+      }
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+    }
+  }
+
+  private void deleteById(Integer id) {
+
+    PreparedStatement st = null;
+    try {
+
+      st = conn.prepareStatement("DELETE FROM imovel WHERE Id = ?");
+
+      st.setInt(1, id);
+
+      st.executeUpdate();
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
     }
   }
 
