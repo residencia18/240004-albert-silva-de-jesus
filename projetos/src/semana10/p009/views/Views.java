@@ -14,6 +14,7 @@ import p009.dao.ImovelDao;
 import p009.dao.ReparoDao;
 import p009.dao.impl.ClienteDaoImpl;
 import p009.dao.impl.DaoFactory;
+import p009.dao.impl.FaturaDaoImpl;
 import p009.entities.Fatura;
 
 public class Views {
@@ -291,7 +292,7 @@ public class Views {
   public static void menuFaturas() {
 
     int opcao = -1;
-    FaturaDao faturaDao = new FaturaDao();
+    FaturaDao faturaDao = new FaturaDaoImpl();
 
     do {
 

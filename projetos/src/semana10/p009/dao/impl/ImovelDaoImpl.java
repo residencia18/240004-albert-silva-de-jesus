@@ -98,6 +98,7 @@ public class ImovelDaoImpl implements ImovelDao {
 
   @Override
   public void editar() {
+
     Views.limparTela();
     System.out.println("\n\t===== EDIÇÃO DE IMOVEL =====");
 
@@ -107,6 +108,7 @@ public class ImovelDaoImpl implements ImovelDao {
     Integer imovelId = findImovelIdByMatricula(matricula);
 
     if (imovelId != null) {
+
       Imovel imovelParaEditar = findById(imovelId);
 
       Views.limparTela();
@@ -114,6 +116,7 @@ public class ImovelDaoImpl implements ImovelDao {
       System.out.println(imovelParaEditar.toString());
 
       try {
+
         System.out.print("\n\tDeseja realmente editar este imóvel? (S/N): ");
         String opcao = Views.scan.nextLine();
 
@@ -122,6 +125,7 @@ public class ImovelDaoImpl implements ImovelDao {
         }
 
         if (opcao.equalsIgnoreCase("s")) {
+
           Views.limparTela();
           System.out.print("\n\tDigite o novo endereço do imóvel: ");
           String novoEndereco = Views.scan.nextLine();
@@ -361,8 +365,8 @@ public class ImovelDaoImpl implements ImovelDao {
     PreparedStatement st = null;
     try {
 
-      st = conn.prepareStatement("UPDATE imovel " 
-      + "SET matricula = ?, endereco = ?, ultimaleitura = ?, penultimaleitura = ? " + "WHERE Id = ?");
+      st = conn.prepareStatement("UPDATE imovel "
+          + "SET matricula = ?, endereco = ?, ultimaleitura = ?, penultimaleitura = ? " + "WHERE Id = ?");
 
       st.setString(1, obj.getMatricula());
       st.setString(2, obj.getEndereco());

@@ -47,20 +47,48 @@ public class Fatura extends AbstractEntity {
         return matriculaImovel;
     }
 
+    public void setMatriculaImovel(String matriculaImovel) {
+        this.matriculaImovel = matriculaImovel;
+    }
+
     public int getUltimaLeitura() {
         return ultimaLeitura;
+    }
+
+    public void setUltimaLeitura(int ultimaLeitura) {
+        this.ultimaLeitura = ultimaLeitura;
     }
 
     public int getPenultimaLeitura() {
         return penultimaLeitura;
     }
 
+    public void setPenultimaLeitura(int penultimaLeitura) {
+        this.penultimaLeitura = penultimaLeitura;
+    }
+
     public double getValorTotal() {
         return valorTotal;
     }
 
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public LocalDate getDataEmissao() {
         return dataEmissao;
+    }
+
+    public void setDataEmissao(LocalDate dataEmissao) {
+        this.dataEmissao = dataEmissao;
+    }
+
+    public boolean isQuitado() {
+        return quitado;
+    }
+
+    public void setQuitado(boolean quitado) {
+        this.quitado = quitado;
     }
 
     public ArrayList<Pagamento> getPagamentos() {
@@ -71,46 +99,12 @@ public class Fatura extends AbstractEntity {
         return reembolso;
     }
 
-    public void novoPagamento() {
-
-        if (quitado) {
-            Views.cxMsg("A fatura já está quitada!");
-            return;
-        }
-
-        float totalPago = 0;
-        Pagamento novo = Pagamento.obterDadosPagamento();
-        if (novo == null) {
-            Views.cxMsg("Pagamento não realizado");
-            return;
-        }
-        this.pagamentos.add(novo);
-
-        for (Pagamento p : pagamentos)
-            totalPago += p.valor;
-
-        if (totalPago < this.valorTotal) {
-            DecimalFormat df = new DecimalFormat("#.##");
-            String msg = String.format("A fatura foi parcialmente paga, restando R$%s a pagar!",
-                    df.format(this.valorTotal - totalPago));
-            Views.cxMsg(msg);
-            return;
-        }
-
-        this.quitado = true;
-        Views.cxMsg("A fatura foi paga!");
-        if (totalPago > this.valorTotal) {
-            this.reembolso = new Reembolso(totalPago - this.valorTotal);
-            Views.cxMsg(this.reembolso.toString());
-        }
+    public void setReembolso(Reembolso reembolso) {
+        this.reembolso = reembolso;
     }
 
-    public boolean isQuitado() {
-        return quitado;
-    }
-
-    public void setQuitado(boolean quitado) {
-        this.quitado = quitado;
+    public void addPagamento(Pagamento pagamento) {
+        this.pagamentos.add(pagamento);
     }
 
     public void calcularValorFatura() {
