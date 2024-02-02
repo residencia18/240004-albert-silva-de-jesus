@@ -1,11 +1,21 @@
 package p009.dao.impl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 
+import p009.dao.ClienteDao;
 import p009.dao.ImovelDao;
+import p009.db.DB;
+import p009.db.DbException;
+import p009.entities.Cliente;
 import p009.entities.Imovel;
 import p009.views.Views;
 
@@ -33,19 +43,36 @@ public class ImovelDaoImpl implements ImovelDao {
     Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE IMÓVEL =====");
 
-    System.out.print("\n\tMatrícula do Imóvel: ");
-    String matricula = Views.scan.nextLine();
+    System.out.print("\n\tCPF do Cliente: ");
+    String cpfCliente = Views.scan.nextLine();
 
-    System.out.print("\n\tEndereço do Imóvel: ");
-    String endereco = Views.scan.nextLine();
+    ClienteDao clienteDao = DaoFactory.createClienteDao();
+    Integer clientId = clienteDao.findClientIdByCpf(cpfCliente);
 
-    int ultimaLeitura = obterInteiroValido("\n\tLeitura atual (em kWh): ");
+    if (clientId != null) {
+      // Cliente encontrado, prossegue com o cadastro do imóvel
+      System.out.print("\n\tMatrícula do Imóvel: ");
+      String matriculaImovel = Views.scan.nextLine();
 
-    imoveis.add(new Imovel(matricula, endereco, ultimaLeitura));
+      System.out.print("\n\tEndereço do Imóvel: ");
+      String enderecoImovel = Views.scan.nextLine();
 
-    Views.limparTela();
-    System.out.println("\n\tImóvel cadastrado com sucesso!");
-    Views.pausar(Views.scan);
+      int ultimaLeituraImovel = obterInteiroValido("\n\tLeitura atual (em kWh): ");
+
+      Cliente cliente = clienteDao.findById(clientId);
+      Imovel novoImovel = new Imovel(cliente, matriculaImovel, enderecoImovel, ultimaLeituraImovel);
+
+      insert(novoImovel);
+
+      Views.limparTela();
+      System.out.println("\n\tImóvel cadastrado com sucesso!");
+      Views.pausar(Views.scan);
+
+    } else {
+      // Cliente não encontrado
+      System.out.println("\n\tCliente não encontrado com o CPF informado!");
+      Views.pausar(Views.scan);
+    }
   }
 
   @Override
@@ -54,9 +81,11 @@ public class ImovelDaoImpl implements ImovelDao {
     Views.limparTela();
     System.out.print("\n\t===== LISTAGEM DE IMÓVEIS =====");
 
+    imoveis = findAll();
+
     if (imoveis.size() > 0) {
       for (Imovel imovel : imoveis) {
-        System.out.println(imovel.toString()); // Chama explicitamente o método toString
+        System.out.println(imovel.toString()); 
         System.out.print("\t================================");
       }
     } else {
@@ -231,6 +260,110 @@ public class ImovelDaoImpl implements ImovelDao {
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
     Views.pausar(Views.scan);
+  }
+
+  private void insert(Imovel obj) {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+          "INSERT INTO imovel (matricula, endereco, ultimaLeitura, cliente_id) VALUES (?, ?, ?, ?)",
+          Statement.RETURN_GENERATED_KEYS);
+
+      st.setString(1, obj.getMatricula());
+      st.setString(2, obj.getEndereco());
+      st.setInt(3, obj.getUltimaLeitura());
+
+      if (obj.getCliente() != null) {
+        st.setInt(4, obj.getCliente().getId());
+      } else {
+        // Define como null se não houver cliente associado.
+        st.setNull(4, java.sql.Types.INTEGER);
+      }
+
+      int rowsAffected = st.executeUpdate();
+
+      if (rowsAffected > 0) {
+        rs = st.getGeneratedKeys();
+
+        if (rs.next()) {
+
+          int id = rs.getInt(1);
+          obj.setId(id);
+        }
+      } else {
+        throw new DbException("Unexpected error! No rows affected!");
+      }
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeResultSet(rs);
+      DB.closeStatement(st);
+    }
+  }
+
+  public List<Imovel> findAll() {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+          "SELECT cliente.*, imovel.matricula AS matricula, imovel.endereco, imovel.ultimaLeitura, imovel.penultimaLeitura "
+              + "FROM cliente LEFT JOIN imovel "
+              + "ON cliente.Id = imovel.cliente_id "
+              + "ORDER BY cliente.nome");
+
+      rs = st.executeQuery();
+
+      Map<Integer, Cliente> clienteMap = new HashMap<>();
+      List<Imovel> imoveis = new ArrayList<>();
+
+      while (rs.next()) {
+        Integer clienteId = rs.getInt("Id");
+
+        Cliente cliente = clienteMap.get(clienteId);
+
+        if (cliente == null) {
+          cliente = instantiateCliente(rs);
+          clienteMap.put(clienteId, cliente);
+        }
+
+        Imovel imovel = instantiateImovel(rs);
+        cliente.addImovel(imovel);
+        imoveis.add(imovel);
+      }
+
+      return imoveis;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
+  private Cliente instantiateCliente(ResultSet rs) throws SQLException {
+    Cliente obj = new Cliente();
+    obj.setId(rs.getInt("Id"));
+    obj.setNome(rs.getString("nome"));
+    obj.setCpf(rs.getString("cpf"));
+    return obj;
+  }
+
+  private Imovel instantiateImovel(ResultSet rs) throws SQLException {
+    Imovel imovel = new Imovel();
+    imovel.setId(rs.getInt("Id"));
+    imovel.setMatricula(rs.getString("matricula"));
+    imovel.setEndereco(rs.getString("endereco"));
+    imovel.setUltimaLeitura(rs.getInt("ultimaLeitura"));
+    imovel.setPenultimaLeitura(rs.getInt("penultimaLeitura"));
+    return imovel;
   }
 
   private static int obterInteiroValido(String prompt) {

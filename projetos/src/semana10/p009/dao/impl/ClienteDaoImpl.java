@@ -219,7 +219,7 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  public void insert(Cliente obj) {
+  private void insert(Cliente obj) {
 
     PreparedStatement st = null;
     try {
@@ -253,7 +253,7 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  public List<Cliente> findAll() {
+  private List<Cliente> findAll() {
 
     PreparedStatement st = null;
     ResultSet rs = null;
@@ -294,7 +294,7 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  public void update(Cliente obj) {
+  private void update(Cliente obj) {
 
     PreparedStatement st = null;
     try {
@@ -319,7 +319,7 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  public void deleteById(Integer id) {
+  private void deleteById(Integer id) {
 
     PreparedStatement st = null;
     try {
@@ -338,6 +338,7 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
+  @Override
   public Cliente findById(Integer id) {
 
     PreparedStatement st = null;
@@ -381,7 +382,8 @@ public class ClienteDaoImpl implements ClienteDao {
     }
   }
 
-  private Integer findClientIdByCpf(String cpf) {
+  @Override
+  public Integer findClientIdByCpf(String cpf) {
 
     PreparedStatement st = null;
     ResultSet rs = null;

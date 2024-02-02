@@ -11,7 +11,8 @@ public class Imovel extends AbstractEntity {
   public Imovel() {
   }
 
-  public Imovel(String matricula, String endereco, int ultimaLeitura) {
+  public Imovel(Cliente cliente, String matricula, String endereco, int ultimaLeitura) {
+    this.cliente = cliente;
     this.matricula = matricula;
     this.endereco = endereco;
     this.ultimaLeitura = ultimaLeitura;
@@ -104,8 +105,9 @@ public class Imovel extends AbstractEntity {
 
   @Override
   public String toString() {
-
-    return "\n\tMatricula: " + matricula + "\n\tEndereco: " + endereco + "\n\tPenultimaLeitura: "
-        + penultimaLeitura + "\n\tUltimaLeitura: " + ultimaLeitura;
+    return String.format(
+        "\n\tMatrícula: %s\n\tEndereço: %s\n\tPenúltima Leitura: %d\n\tÚltima Leitura: %d\n\tCliente: %s",
+        matricula, endereco, penultimaLeitura, ultimaLeitura, (cliente != null) ? cliente.getNome() : "N/A");
   }
+
 }

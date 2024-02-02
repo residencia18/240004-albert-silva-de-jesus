@@ -15,5 +15,9 @@ public interface ClienteDao {
   void excluir();
 
   void pesquisar();
+
+  Cliente findById(Integer id);
+  
+  Integer findClientIdByCpf(String cpf);
   
 }
