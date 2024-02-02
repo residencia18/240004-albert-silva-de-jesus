@@ -15,8 +15,6 @@ import java.util.NoSuchElementException;
 import p009.entities.Cliente;
 import p009.entities.Imovel;
 import p009.views.Views;
-import tutorial.jdbc.entities.Department;
-import tutorial.jdbc.entities.Seller;
 import p009.db.DB;
 import p009.db.DbException;
 import p009.dao.ClienteDao;
@@ -89,6 +87,7 @@ public class ClienteDaoImpl implements ClienteDao {
     String cpf = Views.scan.nextLine();
 
     for (Cliente cliente : clientes) {
+
       if (cliente.getCpf().equals(cpf)) {
 
         Views.limparTela();
@@ -96,6 +95,7 @@ public class ClienteDaoImpl implements ClienteDao {
         System.out.println(cliente.toString());
 
         while (true) {
+
           try {
             System.out.print("\n\tDeseja realmente editar este cliente? (S/N): ");
             String opcao = Views.scan.nextLine();
@@ -105,6 +105,7 @@ public class ClienteDaoImpl implements ClienteDao {
             }
 
             if (opcao.equalsIgnoreCase("s")) {
+              
               Views.limparTela();
               System.out.print("\n\tDigite o novo nome do cliente: ");
               String nome = Views.scan.nextLine();
@@ -115,8 +116,11 @@ public class ClienteDaoImpl implements ClienteDao {
               cliente.setNome(nome);
               cliente.setCpf(cpf);
 
+              update(cliente);
+
               Views.limparTela();
               System.out.print("\n\t===== CLIENTE EDITADO =====");
+
               System.out.println(cliente.toString());
               System.out.println("\n\tCliente editado com sucesso!");
               Views.pausar(Views.scan);
@@ -267,9 +271,9 @@ public class ClienteDaoImpl implements ClienteDao {
     ResultSet rs = null;
     try {
       st = conn.prepareStatement(
-          "SELECT cliente.*, imovel.matricula as matricula, imovel.endereco " 
-          + "FROM cliente " + "LEFT JOIN imovel ON cliente.Id = imovel.cliente_id " 
-          + "ORDER BY nome");
+          "SELECT cliente.*, imovel.matricula as matricula, imovel.endereco "
+              + "FROM cliente " + "LEFT JOIN imovel ON cliente.Id = imovel.cliente_id "
+              + "ORDER BY nome");
 
       rs = st.executeQuery();
 
@@ -296,6 +300,31 @@ public class ClienteDaoImpl implements ClienteDao {
     } finally {
       DB.closeStatement(st);
       DB.closeResultSet(rs);
+    }
+  }
+
+  public void update(Cliente obj) {
+
+    PreparedStatement st = null;
+    try {
+
+      st = conn.prepareStatement("UPDATE cliente " + "SET nome = ?, cpf = ? " + "WHERE Id = ?");
+
+      st.setString(1, obj.getNome());
+      st.setString(2, obj.getCpf());
+      st.setInt(3, obj.getId());
+
+      int rowsAffected = st.executeUpdate();
+
+      if (rowsAffected == 0) {
+        throw new DbException("Ops, nenhum cliente encontrado para atualização!...");
+      }
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
     }
   }
 

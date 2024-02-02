@@ -77,8 +77,10 @@ public class SellerDaoJDBC implements SellerDao {
       st.setInt(6, obj.getId());
 
       st.executeUpdate();
+
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
+
     } finally {
       DB.closeStatement(st);
     }
@@ -102,8 +104,10 @@ public class SellerDaoJDBC implements SellerDao {
 
   @Override
   public Seller findById(Integer id) {
+
     PreparedStatement st = null;
     ResultSet rs = null;
+
     try {
       st = conn.prepareStatement(
           "SELECT seller.*,department.Name as DepName "
@@ -113,14 +117,17 @@ public class SellerDaoJDBC implements SellerDao {
 
       st.setInt(1, id);
       rs = st.executeQuery();
+
       if (rs.next()) {
         Department dep = instantiateDepartment(rs);
         Seller obj = instantiateSeller(rs, dep);
         return obj;
       }
       return null;
+      
     } catch (SQLException e) {
       throw new DbException(e.getMessage());
+
     } finally {
       DB.closeStatement(st);
       DB.closeResultSet(rs);
