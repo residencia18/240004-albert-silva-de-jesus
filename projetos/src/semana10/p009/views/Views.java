@@ -292,7 +292,7 @@ public class Views {
   public static void menuFaturas() {
 
     int opcao = -1;
-    FaturaDao faturaDao = new FaturaDaoImpl();
+    FaturaDao faturaDao = DaoFactory.createFaturaDao();
 
     do {
 
@@ -372,32 +372,42 @@ public class Views {
       opcao = dispMenuPagamentos();
 
       switch (opcao) {
+
         case 1:
+
           Fatura fatura = faturaDao.obterFaturaPorMesEmissao();
+
           if (fatura != null)
             fatura.novoPagamento();
           break;
+
         case 2:
-          FaturaDao.todosOsPagamentos();
+          FaturaDaoImpl.todosOsPagamentos();
           break;
+
         case 3:
           faturaDao.pagamentosPorFatura();
           break;
+
         case 4:
           faturaDao.todosOsReembolsos();
           break;
+
         case 5:
           faturaDao.reembolsosPorFatura();
           break;
+
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
           pausar(scan);
           MainEnergiaCoelho();
           break;
+
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
           System.exit(0);
           break;
+
         default:
           System.out.println("\n\tOpção inválida. Tente novamente.");
       }
@@ -659,5 +669,26 @@ public class Views {
     System.out.println(mensagem);
     pausar(Views.scan);
   }
+
+  public static boolean confirmarRepeticao() {
+
+    while (true) {
+
+        System.out.print("\n\tDeseja pesquisar outro imóvel? (S/N): ");
+        String resposta = Views.scan.nextLine();
+
+        if (resposta.equalsIgnoreCase("S")) {
+            return true;
+
+        } else if (resposta.equalsIgnoreCase("N")) {
+            return false;
+
+        } else {
+            Views.limparTela();
+            System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
+        }
+    }
+}
+
 
 }

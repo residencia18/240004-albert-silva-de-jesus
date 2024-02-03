@@ -55,6 +55,7 @@ public class Fatura {
     }
     
     public void novoPagamento() {
+        
     	if(quitado) {
     		Utils.cxMsg("A fatura já está quitadaa!");
     		return;

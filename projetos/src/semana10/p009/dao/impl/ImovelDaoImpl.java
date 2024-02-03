@@ -487,64 +487,97 @@ public class ImovelDaoImpl implements ImovelDao {
     return valor;
   }
 
-  @Override
   public Imovel buscaImovel() {
 
     Views.limparTela();
-    System.out.print("\n\t===== PESQUISA DE IMÓVEL POR MATRÍCULA =====");
+    System.out.println("\n\t===== PESQUISA DE IMÓVEL POR MATRÍCULA =====");
 
-    if (imoveis.size() > 0) {
+    int totalImoveis = countImoveis();
 
-      while (true) {
-
-        System.out.print("\n\tDigite a matrícula do imóvel: ");
-        String matricula = Views.scan.nextLine();
-        Views.limparTela();
-
-        boolean imovelEncontrado = false;
-
-        for (Imovel imovel : imoveis) {
-
-          if (imovel.getMatricula().equals(matricula)) {
-            Views.limparTela();
-            System.out.print("\n\t===== DADOS DO IMOVEL =====");
-            System.out.println(imovel.toString());
-            System.out.println("\t===========================");
-
-            // Pergunta se é o Imovel correto
-            while (true) {
-
-              System.out.print("\n\tEsse é o Imovel correto? (S/N): ");
-              String resposta = Views.scan.nextLine();
-
-              if (resposta.equalsIgnoreCase("S")) {
-                Views.pausar(Views.scan);
-                return imovel;
-              } else
-
-              if (resposta.equalsIgnoreCase("N")) {
-                imovelEncontrado = true;
-                break; // Retorna ao loop anterior para pedir uma nova matrícula
-
-              } else {
-                Views.limparTela();
-                System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
-              }
-            }
-          }
-        }
-        if (!imovelEncontrado) {
-          Views.limparTela();
-          System.out.println("\n\tImóvel não encontrado!");
-        }
-      }
-    } else {
+    if (totalImoveis == 0) {
       Views.limparTela();
       System.out.println("\n\tNão há imóveis cadastrados!");
+      Views.pausar(Views.scan);
+      return null;
     }
 
+    do {
+
+      System.out.print("\n\tDigite a matrícula do imóvel: ");
+      String matricula = Views.scan.nextLine();
+      Views.limparTela();
+
+      Integer imovelId = findImovelIdByMatricula(matricula);
+
+      if (imovelId != null) {
+        Imovel imovel = findById(imovelId);
+        exibirDetalhesImovel(imovel);
+
+        if (confirmarImovelCorreto(imovel)) {
+          Views.pausar(Views.scan);
+          return imovel;
+        }
+
+      } else {
+        Views.limparTela();
+        System.out.println("\n\tImóvel não encontrado!");
+      }
+
+    } while (Views.confirmarRepeticao());
+
     Views.pausar(Views.scan);
-    return null; // Se não encontrou, retorna null
+    return null;
+  }
+
+  private void exibirDetalhesImovel(Imovel imovel) {
+    System.out.print("\n\t===== DADOS DO IMOVEL =====");
+    System.out.println(imovel.toString());
+    System.out.println("\t===========================");
+  }
+
+  private boolean confirmarImovelCorreto(Imovel imovel) {
+
+    while (true) {
+
+      System.out.print("\n\tEsse é o Imóvel correto? (S/N): ");
+      String resposta = Views.scan.nextLine();
+
+      if (resposta.equalsIgnoreCase("S")) {
+        return true;
+
+      } else if (resposta.equalsIgnoreCase("N")) {
+        return false;
+
+      } else {
+        Views.limparTela();
+        System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
+      }
+    }
+  }
+
+  private int countImoveis() {
+
+    PreparedStatement st = null;
+    conn = DB.getConnection();
+
+    try {
+      st = conn.prepareStatement("SELECT COUNT(*) FROM imovel");
+
+      try (ResultSet resultSet = st.executeQuery()) {
+
+        if (resultSet.next()) {
+          return resultSet.getInt(1);
+        }
+      }
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+    }
+
+    return 0;
   }
 
 }

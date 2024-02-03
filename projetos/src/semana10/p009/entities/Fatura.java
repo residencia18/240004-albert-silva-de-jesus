@@ -3,6 +3,8 @@ package p009.entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.text.View;
+
 import p009.exceptions.FaturaQuitadaException;
 import p009.views.Views;
 
@@ -13,7 +15,7 @@ public class Fatura extends AbstractEntity {
     private String matriculaImovel;
     private int ultimaLeitura;
     private int penultimaLeitura;
-    private double valorTotal;
+    private Double valorTotal;
     private LocalDate dataEmissao;
     private boolean quitado;
     private ArrayList<Pagamento> pagamentos;
@@ -67,11 +69,11 @@ public class Fatura extends AbstractEntity {
         this.penultimaLeitura = penultimaLeitura;
     }
 
-    public double getValorTotal() {
+    public Double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
+    public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
 
@@ -107,8 +109,41 @@ public class Fatura extends AbstractEntity {
         this.pagamentos.add(pagamento);
     }
 
+    public void novoPagamento() {
+        
+    	if(quitado) {
+    		Views.cxMsg("A fatura já está quitadaa!");
+    		return;
+    	}
+    	
+    	float totalPago = 0;
+    	Pagamento novo = Pagamento.obterDadosPagamento();
+    	if(novo == null) {
+    		Views.cxMsg("Pagamento não realizado");
+    		return;
+    	}
+    	this.pagamentos.add(novo);
+    	
+    	for (Pagamento p : pagamentos)
+			totalPago += p.valor;
+    	
+    	if(totalPago < this.valorTotal) {
+    		DecimalFormat df = new DecimalFormat("#.##");
+            String msg = String.format("A fatura foi parcialmente paga, restando R$%s a pagar!", df.format(this.valorTotal - totalPago));
+            Views.cxMsg(msg);
+            return;
+    	}
+    	
+		this.quitado = true;
+		Views.cxMsg("A fatura foi paga!");
+		if(totalPago > this.valorTotal) {
+			this.reembolso = new Reembolso(totalPago - this.valorTotal);
+			Views.cxMsg(this.reembolso.toString());
+		}
+    }
+
     public void calcularValorFatura() {
-        double custoPorKWh = 10.0;
+        Double custoPorKWh = 10.0;
         this.valorTotal = (ultimaLeitura - penultimaLeitura) * custoPorKWh;
     }
 
