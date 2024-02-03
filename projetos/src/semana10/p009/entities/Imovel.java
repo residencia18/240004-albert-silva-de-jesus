@@ -1,5 +1,8 @@
 package p009.entities;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+
 public class Imovel extends AbstractEntity {
 
   private String matricula;
@@ -107,7 +110,25 @@ public class Imovel extends AbstractEntity {
   public String toString() {
     return String.format(
         "\n\tMatrícula: %s\n\tEndereço: %s\n\tPenúltima Leitura: %d\n\tÚltima Leitura: %d\n\tCliente: %s",
-        matricula, endereco, penultimaLeitura, ultimaLeitura, (cliente != null) ? cliente.getNome() : "N/A");
+        normalizeString(matricula), normalizeString(endereco), penultimaLeitura, ultimaLeitura,
+        (cliente != null) ? normalizeString(cliente.getNome()) : "N/A");
+  }
+
+  private String normalizeString(String input) {
+    if (input == null) {
+      return null; // Se a string for nula, retorna nulo (evita exceção)
+    }
+
+    try {
+
+      byte[] utf8Bytes = input.getBytes("ISO-8859-1");
+      return new String(utf8Bytes, StandardCharsets.UTF_8);
+
+    } catch (UnsupportedEncodingException e) {
+      e.printStackTrace(); 
+      
+      return input; // Se ocorrer uma exceção, retorna a string original
+    }
   }
 
 }

@@ -1,7 +1,9 @@
 package p009.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.swing.text.View;
 
@@ -9,6 +11,7 @@ import p009.exceptions.FaturaQuitadaException;
 import p009.views.Views;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Fatura extends AbstractEntity {
 
@@ -43,6 +46,17 @@ public class Fatura extends AbstractEntity {
         this.quitado = false;
         this.pagamentos = new ArrayList<>();
         calcularValorFatura();
+    }
+
+    public Fatura(Integer id, String matriculaImovel, int ultimaLeitura, int penultimaLeitura, Double valorTotal,
+            LocalDate dataEmissao, boolean quitado) {
+        super(id);
+        this.matriculaImovel = matriculaImovel;
+        this.ultimaLeitura = ultimaLeitura;
+        this.penultimaLeitura = penultimaLeitura;
+        this.valorTotal = valorTotal;
+        this.dataEmissao = dataEmissao;
+        this.quitado = quitado;
     }
 
     public String getMatriculaImovel() {
@@ -110,36 +124,37 @@ public class Fatura extends AbstractEntity {
     }
 
     public void novoPagamento() {
-        
-    	if(quitado) {
-    		Views.cxMsg("A fatura já está quitadaa!");
-    		return;
-    	}
-    	
-    	float totalPago = 0;
-    	Pagamento novo = Pagamento.obterDadosPagamento();
-    	if(novo == null) {
-    		Views.cxMsg("Pagamento não realizado");
-    		return;
-    	}
-    	this.pagamentos.add(novo);
-    	
-    	for (Pagamento p : pagamentos)
-			totalPago += p.valor;
-    	
-    	if(totalPago < this.valorTotal) {
-    		DecimalFormat df = new DecimalFormat("#.##");
-            String msg = String.format("A fatura foi parcialmente paga, restando R$%s a pagar!", df.format(this.valorTotal - totalPago));
+
+        if (quitado) {
+            Views.cxMsg("A fatura já está quitadaa!");
+            return;
+        }
+
+        float totalPago = 0;
+        Pagamento novo = Pagamento.obterDadosPagamento();
+        if (novo == null) {
+            Views.cxMsg("Pagamento não realizado");
+            return;
+        }
+        this.pagamentos.add(novo);
+
+        for (Pagamento p : pagamentos)
+            totalPago += p.valor;
+
+        if (totalPago < this.valorTotal) {
+            DecimalFormat df = new DecimalFormat("#.##");
+            String msg = String.format("A fatura foi parcialmente paga, restando R$%s a pagar!",
+                    df.format(this.valorTotal - totalPago));
             Views.cxMsg(msg);
             return;
-    	}
-    	
-		this.quitado = true;
-		Views.cxMsg("A fatura foi paga!");
-		if(totalPago > this.valorTotal) {
-			this.reembolso = new Reembolso(totalPago - this.valorTotal);
-			Views.cxMsg(this.reembolso.toString());
-		}
+        }
+
+        this.quitado = true;
+        Views.cxMsg("A fatura foi paga!");
+        if (totalPago > this.valorTotal) {
+            this.reembolso = new Reembolso(totalPago - this.valorTotal);
+            Views.cxMsg(this.reembolso.toString());
+        }
     }
 
     public void calcularValorFatura() {
@@ -202,8 +217,18 @@ public class Fatura extends AbstractEntity {
 
     @Override
     public String toString() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        return String.format("Nº de Matrícula: %s, Consumo: %s, Valor Total: R$%s, Data de Emissão: %s, Quitado: %s]",
-                matriculaImovel, ultimaLeitura - penultimaLeitura, df.format(valorTotal), dataEmissao, quitado);
+
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        currencyFormat.setMaximumFractionDigits(2);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        return String.format("\n\tNº de Matrícula: %s\n" +
+                "\tConsumo: %d\n" +
+                "\tValor Total: %s\n" +
+                "\tData de Emissão: %s\n" +
+                "\tQuitado: %s",
+                matriculaImovel, ultimaLeitura - penultimaLeitura, currencyFormat.format(valorTotal),
+                dataEmissao.format(dateFormatter), quitado);
     }
+
 }

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -72,7 +74,7 @@ public class FaturaDaoImpl implements FaturaDao {
 
       } catch (InputMismatchException e) {
         Views.cxMsg("\n\tPor favor, forneça um valor inteiro válido.");
-        Views.scan.next(); 
+        Views.scan.next();
 
       } catch (Exception e) {
         // Trate a exceção de maneira adequada, como registrar em logs
@@ -89,14 +91,25 @@ public class FaturaDaoImpl implements FaturaDao {
     ResultSet rs = null;
 
     try {
+      
       st = conn.prepareStatement(
           "INSERT INTO fatura (matriculaImovel, ultimaLeitura, penultimaLeitura, valorTotal, dataEmissao, quitado, imovel_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
           Statement.RETURN_GENERATED_KEYS);
 
+      NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+      currencyFormat.setMaximumFractionDigits(2);
+
+      String valorFormatado = currencyFormat.format(obj.getValorTotal());
+      // Remover caracteres não numéricos
+      valorFormatado = valorFormatado.replaceAll("[^\\d,]", "");
+      // Substituir ',' por '.' para formato válido
+      valorFormatado = valorFormatado.replace(',', '.');
+
+      // Restante do código
       st.setString(1, obj.getMatriculaImovel());
       st.setInt(2, obj.getUltimaLeitura());
       st.setInt(3, obj.getPenultimaLeitura());
-      st.setDouble(4, Double.parseDouble(String.format(Locale.US, "%.2f", obj.getValorTotal())));
+      st.setDouble(4, Double.parseDouble(valorFormatado));
       st.setDate(5, java.sql.Date.valueOf(obj.getDataEmissao()));
       st.setBoolean(6, obj.isQuitado());
 
@@ -130,6 +143,33 @@ public class FaturaDaoImpl implements FaturaDao {
     }
   }
 
+  public List<Fatura> buscarFaturasNaoQuitadasDoBanco() {
+
+    List<Fatura> faturasNaoQuitadas = new ArrayList<>();
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+
+      st = conn.prepareStatement("SELECT * FROM fatura WHERE quitado = false");
+      rs = st.executeQuery();
+
+      while (rs.next()) {
+        Fatura fatura = instantiateFatura(rs);
+        faturasNaoQuitadas.add(fatura);
+      }
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+
+    return faturasNaoQuitadas;
+  }
+
   public static void novaFatura(Imovel imovel) {
     Fatura nova = new Fatura(imovel.getMatricula(), imovel.getUltimaLeitura(), imovel.getPenultimaLeitura());
     listaFatura.add(nova);
@@ -155,6 +195,7 @@ public class FaturaDaoImpl implements FaturaDao {
     System.out.println("=============== FATURAS EM ABERTO ===============");
     System.out.println("");
 
+    listaFatura = buscarFaturasNaoQuitadasDoBanco();
     for (Fatura fatura : listaFatura) {
       if (!fatura.isQuitado())
         System.out.println(fatura.toString());
@@ -203,6 +244,22 @@ public class FaturaDaoImpl implements FaturaDao {
       }
     }
     return null;
+  }
+
+  private Fatura instantiateFatura(ResultSet rs) throws SQLException {
+
+    int id = rs.getInt("id");
+    String matriculaImovel = rs.getString("matriculaImovel");
+    int ultimaLeitura = rs.getInt("ultimaLeitura");
+    int penultimaLeitura = rs.getInt("penultimaLeitura");
+    double valorTotal = rs.getDouble("valorTotal");
+    LocalDate dataEmissao = rs.getDate("dataEmissao").toLocalDate();
+    boolean quitado = rs.getBoolean("quitado");
+
+    // Construa o objeto Fatura com os dados obtidos do ResultSet
+    Fatura fatura = new Fatura(id, matriculaImovel, ultimaLeitura, penultimaLeitura, valorTotal, dataEmissao, quitado);
+
+    return fatura;
   }
 
   public static void todosOsPagamentos() {
