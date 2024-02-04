@@ -674,20 +674,20 @@ public class Views {
 
     while (true) {
 
-        System.out.print("\n\tDeseja pesquisar outro imóvel? (S/N): ");
-        String resposta = Views.scan.nextLine();
+      System.out.print("\n\tDeseja pesquisar outro imóvel? (S/N): ");
+      String resposta = Views.scan.nextLine();
 
-        if (resposta.equalsIgnoreCase("S")) {
-            return true;
+      if (resposta.equalsIgnoreCase("S")) {
+        return true;
 
-        } else if (resposta.equalsIgnoreCase("N")) {
-            return false;
+      } else if (resposta.equalsIgnoreCase("N")) {
+        return false;
 
-        } else {
-            Views.limparTela();
-            System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
-        }
+      } else {
+        Views.limparTela();
+        System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
+      }
     }
-}
+  }
 
 }
