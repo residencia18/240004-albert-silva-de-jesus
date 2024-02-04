@@ -259,6 +259,7 @@ public class ImovelDaoImpl implements ImovelDao {
 
       if (obj.getCliente() != null) {
         st.setInt(4, obj.getCliente().getId());
+
       } else {
         // Define como null se não houver cliente associado.
         st.setNull(4, java.sql.Types.INTEGER);
@@ -270,10 +271,10 @@ public class ImovelDaoImpl implements ImovelDao {
         rs = st.getGeneratedKeys();
 
         if (rs.next()) {
-
           int id = rs.getInt(1);
           obj.setId(id);
         }
+
       } else {
         throw new DbException("Unexpected error! No rows affected!");
       }

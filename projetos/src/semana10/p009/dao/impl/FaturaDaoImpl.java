@@ -8,14 +8,17 @@ import java.sql.Statement;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import p009.dao.FaturaDao;
 import p009.dao.ImovelDao;
 import p009.db.DB;
 import p009.db.DbException;
+import p009.entities.Cliente;
 import p009.entities.Fatura;
 import p009.entities.Imovel;
 import p009.entities.Pagamento;
@@ -91,7 +94,7 @@ public class FaturaDaoImpl implements FaturaDao {
     ResultSet rs = null;
 
     try {
-      
+
       st = conn.prepareStatement(
           "INSERT INTO fatura (matriculaImovel, ultimaLeitura, penultimaLeitura, valorTotal, dataEmissao, quitado, imovel_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
           Statement.RETURN_GENERATED_KEYS);
@@ -143,6 +146,35 @@ public class FaturaDaoImpl implements FaturaDao {
     }
   }
 
+  public List<Fatura> findAll() {
+
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
+    try {
+      st = conn.prepareStatement(
+          "SELECT * FROM fatura ORDER BY dataEmissao");
+
+      rs = st.executeQuery();
+
+      List<Fatura> faturas = new ArrayList<>();
+
+      while (rs.next()) {
+        Fatura fatura = instantiateFatura(rs);
+        faturas.add(fatura);
+      }
+
+      return faturas;
+
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+
+    } finally {
+      DB.closeStatement(st);
+      DB.closeResultSet(rs);
+    }
+  }
+
   public List<Fatura> buscarFaturasNaoQuitadasDoBanco() {
 
     List<Fatura> faturasNaoQuitadas = new ArrayList<>();
@@ -181,6 +213,8 @@ public class FaturaDaoImpl implements FaturaDao {
     Views.limparTela();
     System.out.println("=============== TODAS AS FATURAS ===============");
     System.out.println("");
+
+    listaFatura = findAll();
 
     for (Fatura f : listaFatura) {
       System.out.println(f.toString());

@@ -1,8 +1,5 @@
 package p009.entities;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-
 public class Imovel extends AbstractEntity {
 
   private String matricula;
