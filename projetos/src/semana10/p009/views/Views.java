@@ -489,7 +489,7 @@ public class Views {
   public static void menuTipoFalhas() {
 
     int opcao = -1;
-    FalhaDao falhaDao = new FalhaDaoImpl();
+    // FalhaDao falhaDao = new FalhaDaoImpl();
 
     do {
 
@@ -497,11 +497,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          falhaDao.cadastrarFalhaDistribuicao();
+          // falhaDao.cadastrarFalhaDistribuicao();
           break;
 
         case 2:
-          falhaDao.cadastrarFalhaGeracao();
+          // falhaDao.cadastrarFalhaGeracao();
           break;
         case 3:
 
@@ -559,7 +559,7 @@ public class Views {
   public static void menuReparos() {
 
     int opcao = -1;
-    ReparoDao reparoDao = new ReparoDaoImpl();
+    // ReparoDao reparoDao = new ReparoDaoImpl();
 
     do {
 
@@ -567,11 +567,11 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          reparoDao.listarRaparosAbertos();
+          // reparoDao.listarRaparosAbertos();
           break;
 
         case 2:
-          reparoDao.encerraReparo();
+          // reparoDao.encerraReparo();
           break;
 
         case 3:
@@ -589,7 +589,7 @@ public class Views {
   public static void menuFalhas() {
 
     int opcao = -1;
-    FalhaDao falhaDao = new FalhaDaoImpl();
+    // FalhaDao falhaDao = new FalhaDaoImpl();
 
     do {
 
@@ -602,11 +602,11 @@ public class Views {
           break;
 
         case 2:
-          falhaDao.listar();
+          // falhaDao.listar();
           break;
 
         case 3:
-          falhaDao.editar();
+          // falhaDao.editar();
           break;
 
         case 4:

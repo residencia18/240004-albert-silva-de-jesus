@@ -1,6 +1,6 @@
 package jdbc.redesocial.application;
 
-import java.util.List;
+// import java.util.List;
 import java.util.Scanner;
 
 import jdbc.redesocial.model.dao.DaoFactory;

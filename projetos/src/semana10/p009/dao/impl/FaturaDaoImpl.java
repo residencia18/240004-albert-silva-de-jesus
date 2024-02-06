@@ -8,17 +8,14 @@ import java.sql.Statement;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import p009.dao.FaturaDao;
 import p009.dao.ImovelDao;
 import p009.db.DB;
 import p009.db.DbException;
-import p009.entities.Cliente;
 import p009.entities.Fatura;
 import p009.entities.Imovel;
 import p009.entities.Pagamento;
@@ -108,7 +105,6 @@ public class FaturaDaoImpl implements FaturaDao {
       // Substituir ',' por '.' para formato válido
       valorFormatado = valorFormatado.replace(',', '.');
 
-      // Restante do código
       st.setString(1, obj.getMatriculaImovel());
       st.setInt(2, obj.getUltimaLeitura());
       st.setInt(3, obj.getPenultimaLeitura());

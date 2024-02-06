@@ -1,6 +1,7 @@
 package jdbc.redesocial.model.dao.service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import jdbc.redesocial.model.dao.PostagemDao;
@@ -17,6 +18,19 @@ public class PostagemDaoImpl implements PostagemDao {
   @Override
   public void insert(Postagem obj) {
 
+    PreparedStatement st = null;
+
+    try {
+      st = conn.prepareStatement("INSERT INTO postagem " + "(login, texto) " + "VALUES " + "(?, ?)");
+
+      st.setString(1, obj.getLogin());
+      st.setString(2, obj.getTexto());
+      
+      st.executeUpdate();
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @Override

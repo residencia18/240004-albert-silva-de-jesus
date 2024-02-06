@@ -5,8 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import javax.swing.text.View;
-
 import p009.exceptions.FaturaQuitadaException;
 import p009.views.Views;
 
