@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Estudante implements Serializable{
@@ -19,6 +21,10 @@ public class Estudante implements Serializable{
   private String email;
   private String matricula;
 
+  @ManyToOne
+  @JoinColumn(name = "idcurso")
+  private Curso curso;
+
   public Estudante() {
   }
 
@@ -27,6 +33,14 @@ public class Estudante implements Serializable{
     this.nome = nome;
     this.email = email;
     this.matricula = matricula;
+  }
+
+  public Estudante(Integer id, String nome, String email, String matricula, Curso curso) {
+    this.id = id;
+    this.nome = nome;
+    this.email = email;
+    this.matricula = matricula;
+    this.curso = curso;
   }
 
   public Integer getId() {

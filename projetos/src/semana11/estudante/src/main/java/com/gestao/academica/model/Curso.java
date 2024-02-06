@@ -1,11 +1,13 @@
 package com.gestao.academica.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Curso implements Serializable {
@@ -17,6 +19,9 @@ public class Curso implements Serializable {
   private Integer id;
   private String nome;
   private int numSemestres;
+
+  @OneToMany(mappedBy = "curso")
+  List<Estudante> estudantes;
 
   public Curso() {
   }
