@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.gestao.academica.entities.Estudante;
+import com.gestao.academica.model.Estudante;
 
 public class Program {
 

@@ -1,4 +1,4 @@
-package com.gestao.academica.entities;
+package com.gestao.academica.model;
 
 import java.io.Serializable;
 
