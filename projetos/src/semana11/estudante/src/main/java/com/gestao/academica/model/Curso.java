@@ -32,6 +32,17 @@ public class Curso implements Serializable {
     this.numSemestres = numSemestres;
   }
 
+  public Curso(Integer id, String nome, int numSemestres, List<Estudante> estudantes) {
+    this.id = id;
+    this.nome = nome;
+    this.numSemestres = numSemestres;
+    this.estudantes = estudantes;
+  }
+
+  public void addEstudantes(Estudante estudante) {
+    estudantes.add(estudante);
+  }
+
   public Integer getId() {
     return id;
   }
@@ -54,6 +65,10 @@ public class Curso implements Serializable {
 
   public void setNumSemestres(int numSemestres) {
     this.numSemestres = numSemestres;
+  }
+
+  public List<Estudante> getEstudantes() {
+    return estudantes;
   }
 
   @Override

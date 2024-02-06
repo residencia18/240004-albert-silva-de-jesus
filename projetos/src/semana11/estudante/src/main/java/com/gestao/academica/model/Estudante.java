@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Estudante implements Serializable{
+public class Estudante implements Serializable {
 
   private static final long serialVersionUID = 1l;
 
@@ -73,6 +73,14 @@ public class Estudante implements Serializable{
 
   public void setMatricula(String matricula) {
     this.matricula = matricula;
+  }
+
+  public Curso getCurso() {
+    return curso;
+  }
+
+  public void setCurso(Curso curso) {
+    this.curso = curso;
   }
 
   @Override

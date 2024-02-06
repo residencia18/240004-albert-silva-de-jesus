@@ -14,9 +14,9 @@ public class Program {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
     EntityManager em = emf.createEntityManager();
 
-    Curso c1 = new Curso(null, "Sistemas de Informação", 8);
-    Estudante p1 = new Estudante(null, "Casio Oliveira", "casio@gmail.com",
-    "123456", c1);
+    Curso c1 = new Curso(null, "Segurança da Informação", 6);
+    Estudante p1 = new Estudante(null, "Huelbert Lima", "huelbert@gmail.com",
+    "098765", c1);
     // Pessoa p2 = new Pessoa(null, "Joaquim Torres", "joaquim@gmail.com");
     // Pessoa p3 = new Pessoa(null, "Maria Joaquina", "maria@gmail.com");
 
@@ -30,8 +30,8 @@ public class Program {
 
     // Buscar por Id
 
-    Estudante p = em.find(Estudante.class, 2);
-    System.out.println(p);
+    // Estudante p = em.find(Estudante.class, 3);
+    // System.out.println(p);
 
     // em.getTransaction().begin();
     // Pessoa p = em.find(Pessoa.class, 5);

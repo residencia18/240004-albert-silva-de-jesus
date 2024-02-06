@@ -3,6 +3,7 @@
   "java.project.sourcePaths": [
     "projetos/src/semana10",
     "projetos/src",
-    "projetos"
+    "projetos",
+    ".vscode"
   ]
 }
