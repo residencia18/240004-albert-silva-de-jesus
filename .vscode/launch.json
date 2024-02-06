@@ -8,6 +8,55 @@
       "type": "java",
       "name": "Program",
       "request": "launch",
+      "mainClass": "com.demo.jpa.aplication.Program",
+      "projectName": "tutorial2_jpa"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.tutorial.jpa.aplication.Program",
+      "projectName": "jpa"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.jpa.demo.aplication.Program",
+      "projectName": "tutorial"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.semana11.jpa.estudante.Main",
+      "projectName": "academico"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.gestao.academico.Main",
+      "projectName": "estudante"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.demo.jpa.Main",
+      "projectName": "tutorial-jpa-maven"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.demo.jpa.aplication.Program",
+      "projectName": "tutorial-jpa-maven"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
       "mainClass": "p009.application.Program",
       "projectName": "residenciaJava_8da23afe"
     },
