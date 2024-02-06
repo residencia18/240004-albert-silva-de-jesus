@@ -196,9 +196,9 @@ public class Program {
     String jpql = "SELECT c FROM Curso c WHERE c.Id = 1";
     TypedQuery<Curso> query = em.createQuery(jpql, Curso.class);
     Curso c = query.getSingleResult();
-    String jpqlEstudante = "SELECT e FROM Estudante e WHERE e.Curso = :Curso";
+    String jpqlEstudante = "SELECT e FROM Estudante e WHERE e.Curso = :curso";
     TypedQuery<Estudante> queryEstudante = em.createQuery(jpqlEstudante, Estudante.class);
-    queryEstudante.setParameter("Curso", c);
+    queryEstudante.setParameter("curso", c);
     List<Estudante> estudantes = queryEstudante.getResultList();
 
     for (Estudante estudante : estudantes) {
