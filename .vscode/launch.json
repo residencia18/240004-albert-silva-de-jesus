@@ -8,6 +8,13 @@
       "type": "java",
       "name": "Program",
       "request": "launch",
+      "mainClass": "com.gestao.academica.aplication.Program",
+      "projectName": "estudante"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
       "mainClass": "com.demo.jpa.aplication.Program",
       "projectName": "tutorial2_jpa"
     },
