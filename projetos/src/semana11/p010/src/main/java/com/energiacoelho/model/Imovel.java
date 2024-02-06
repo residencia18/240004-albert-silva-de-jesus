@@ -1,5 +1,11 @@
 package com.energiacoelho.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Imovel extends AbstractEntity {
 
   private String matricula;
@@ -7,6 +13,9 @@ public class Imovel extends AbstractEntity {
   private int ultimaLeitura;
   private int penultimaLeitura;
   private Cliente cliente;
+
+  @OneToMany(mappedBy = "imovel")
+  List<Fatura> faturas;
 
   public Imovel() {
   }

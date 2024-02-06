@@ -1,8 +1,12 @@
 package com.energiacoelho.model;
 
 import java.time.LocalDate;
+
+import javax.persistence.Entity;
+
 import java.text.DecimalFormat;
 
+@Entity
 public class Reembolso extends AbstractEntity {
 
   private double valor;

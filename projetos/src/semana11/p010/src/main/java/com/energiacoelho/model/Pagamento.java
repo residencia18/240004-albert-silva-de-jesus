@@ -2,14 +2,23 @@ package com.energiacoelho.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.energiacoelho.views.Views;
 
 import java.text.DecimalFormat;
 
+@Entity
 public class Pagamento extends AbstractEntity {
 
   protected double valor;
   protected LocalDate data;
+
+  @ManyToOne
+  @JoinColumn(name = "fatura_id")
+  private Fatura fatura;
 
   public Pagamento() {
   }

@@ -5,12 +5,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import com.energiacoelho.exceptions.FaturaQuitadaException;
 import com.energiacoelho.views.Views;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+@Entity
 public class Fatura extends AbstractEntity {
 
   private String matriculaImovel;
@@ -19,8 +25,14 @@ public class Fatura extends AbstractEntity {
   private Double valorTotal;
   private LocalDate dataEmissao;
   private boolean quitado;
-  private ArrayList<Pagamento> pagamentos;
   private Reembolso reembolso;
+
+  @OneToMany(mappedBy = "fatura")
+  private ArrayList<Pagamento> pagamentos;
+
+  @ManyToOne
+  @JoinColumn(name = "imovel_id")
+  private Imovel imovel;
 
   public Fatura() {
   }
