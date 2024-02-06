@@ -116,8 +116,7 @@ public class Program {
     }
   }
 
-  public static void alterarEstudante(EntityManager entityManager, Long id, String nome, String email,
-      String matricula) {
+  public static void alterarEstudante(EntityManager entityManager, Long id, String nome, String email, String matricula) {
 
     Estudante estudante = entityManager.find(Estudante.class, id);
     if (estudante != null) {
@@ -196,9 +195,11 @@ public class Program {
     String jpql = "SELECT c FROM Curso c WHERE c.Id = 1";
     TypedQuery<Curso> query = em.createQuery(jpql, Curso.class);
     Curso c = query.getSingleResult();
+
     String jpqlEstudante = "SELECT e FROM Estudante e WHERE e.Curso = :curso";
     TypedQuery<Estudante> queryEstudante = em.createQuery(jpqlEstudante, Estudante.class);
     queryEstudante.setParameter("curso", c);
+    
     List<Estudante> estudantes = queryEstudante.getResultList();
 
     for (Estudante estudante : estudantes) {
