@@ -8,11 +8,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import p009.dao.ClienteDao;
-import p009.dao.FalhaDao;
 import p009.dao.FaturaDao;
 import p009.dao.ImovelDao;
-import p009.dao.ReparoDao;
-import p009.dao.impl.ClienteDaoImpl;
 import p009.dao.impl.DaoFactory;
 import p009.dao.impl.FaturaDaoImpl;
 import p009.entities.Fatura;

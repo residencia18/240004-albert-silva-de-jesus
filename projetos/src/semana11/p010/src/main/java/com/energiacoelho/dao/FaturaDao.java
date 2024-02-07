@@ -9,8 +9,7 @@ public interface FaturaDao {
 
   void faturasEmAberto();
 
-  static void novaFatura(Imovel imovel) {
-  }
+  void novaFatura(Imovel imovel);
 
   void todasAsFaturas();
 

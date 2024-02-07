@@ -240,7 +240,7 @@ public class ImovelDaoImpl implements ImovelDao {
     Views.limparTela();
     System.out.println("\n\t===== PESQUISA DE IMÓVEL POR MATRÍCULA =====");
 
-    int totalImoveis = countImoveis();
+    Long totalImoveis = countImoveis();
 
     if (totalImoveis == 0) {
       Views.limparTela();
@@ -389,9 +389,9 @@ public class ImovelDaoImpl implements ImovelDao {
     }
   }
 
-  private int countImoveis() {
-
-    return 0;
+  public long countImoveis() {
+    TypedQuery<Long> query = em.createQuery("SELECT COUNT(i) FROM Imovel i", Long.class);
+    return query.getSingleResult();
   }
 
 }

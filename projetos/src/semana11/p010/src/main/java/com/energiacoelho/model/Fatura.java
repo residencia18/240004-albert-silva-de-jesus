@@ -38,10 +38,11 @@ public class Fatura extends AbstractEntity {
   public Fatura() {
   }
 
-  public Fatura(String matriculaImovel, int ultimaLeitura, int penultimaLeitura) {
+  public Fatura(String matriculaImovel, int ultimaLeitura, int penultimaLeitura, Imovel imovel) {
     this.matriculaImovel = matriculaImovel;
     this.ultimaLeitura = ultimaLeitura;
     this.penultimaLeitura = penultimaLeitura;
+    this.imovel = imovel;
     this.dataEmissao = LocalDate.now();
     this.quitado = false;
     this.pagamentos = new ArrayList<>();

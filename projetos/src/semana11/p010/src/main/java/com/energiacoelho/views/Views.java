@@ -8,8 +8,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.energiacoelho.dao.ClienteDao;
+import com.energiacoelho.dao.FaturaDao;
 import com.energiacoelho.dao.ImovelDao;
 import com.energiacoelho.dao.impl.ClienteDaoImpl;
+import com.energiacoelho.dao.impl.FaturaDaoImpl;
 import com.energiacoelho.dao.impl.ImovelDaoImpl;
 
 public class Views {
@@ -290,7 +292,7 @@ public class Views {
   public static void menuFaturas() {
 
     int opcao = -1;
-    // FaturaDao faturaDao = DaoFactory.createFaturaDao();
+    FaturaDao faturaDao = new FaturaDaoImpl();
 
     do {
 
@@ -298,13 +300,13 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // faturaDao.registrarConsumo();
+          faturaDao.registrarConsumo();
           break;
         case 2:
-          // faturaDao.faturasEmAberto();
+          faturaDao.faturasEmAberto();
           break;
         case 3:
-          // faturaDao.todasAsFaturas();
+          faturaDao.todasAsFaturas();
           break;
         case 4:
           System.out.println("\n\tRetornando ao menu principal...");
