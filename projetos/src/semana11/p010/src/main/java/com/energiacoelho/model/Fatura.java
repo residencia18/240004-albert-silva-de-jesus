@@ -49,23 +49,13 @@ public class Fatura extends AbstractEntity {
     calcularValorFatura();
   }
 
-  public Fatura(Integer id, String matriculaImovel, int ultimaLeitura, int penultimaLeitura) {
-    super(id);
-    this.matriculaImovel = matriculaImovel;
-    this.ultimaLeitura = ultimaLeitura;
-    this.penultimaLeitura = penultimaLeitura;
-    this.dataEmissao = LocalDate.now();
-    this.quitado = false;
-    this.pagamentos = new ArrayList<>();
-    calcularValorFatura();
-  }
-
   public Fatura(Integer id, String matriculaImovel, int ultimaLeitura, int penultimaLeitura, Double valorTotal,
-      LocalDate dataEmissao, boolean quitado) {
+      LocalDate dataEmissao, boolean quitado, Imovel imovel) {
     super(id);
     this.matriculaImovel = matriculaImovel;
     this.ultimaLeitura = ultimaLeitura;
     this.penultimaLeitura = penultimaLeitura;
+    this.imovel = imovel;
     this.valorTotal = valorTotal;
     this.dataEmissao = dataEmissao;
     this.quitado = quitado;

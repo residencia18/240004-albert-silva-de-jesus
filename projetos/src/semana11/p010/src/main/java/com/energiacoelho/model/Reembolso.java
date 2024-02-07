@@ -3,6 +3,8 @@ package com.energiacoelho.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import java.text.DecimalFormat;
 
@@ -11,6 +13,10 @@ public class Reembolso extends AbstractEntity {
 
   private double valor;
   private LocalDate data;
+
+  @OneToOne
+  @JoinColumn(name = "pagamento_id")
+  private Pagamento pagamento;
 
   public Reembolso() {
   }
@@ -24,6 +30,12 @@ public class Reembolso extends AbstractEntity {
     super(id);
     this.valor = valor;
     this.data = LocalDate.now();
+  }
+
+  public Reembolso(double valor, Pagamento pagamento) {
+    this.valor = valor;
+    this.data = LocalDate.now();
+    this.pagamento = pagamento;
   }
 
   public double getValor() {
@@ -40,6 +52,14 @@ public class Reembolso extends AbstractEntity {
 
   public void setData(LocalDate data) {
     this.data = data;
+  }
+
+  public Pagamento getPagamento() {
+    return pagamento;
+  }
+
+  public void setPagamento(Pagamento pagamento) {
+    this.pagamento = pagamento;
   }
 
   @Override

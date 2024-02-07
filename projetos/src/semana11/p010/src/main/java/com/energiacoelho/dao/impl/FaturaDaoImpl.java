@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import com.energiacoelho.dao.FaturaDao;
 import com.energiacoelho.dao.ImovelDao;
@@ -50,8 +51,7 @@ public class FaturaDaoImpl implements FaturaDao {
           }
 
           imovel.setUltimaLeitura(valorLido);
-          listaFatura
-              .add(new Fatura(imovel.getMatricula(), imovel.getUltimaLeitura(), imovel.getPenultimaLeitura(), imovel));
+          novaFatura(imovel);
           em.getTransaction().begin();
           em.persist(
               new Fatura(imovel.getMatricula(), imovel.getUltimaLeitura(), imovel.getPenultimaLeitura(), imovel));
@@ -66,12 +66,11 @@ public class FaturaDaoImpl implements FaturaDao {
         }
 
       } catch (InputMismatchException e) {
-        Views.cxMsg("\n\tPor favor, forneça um valor inteiro válido.");
+        Views.cxMsg("\n\tPor favor, forneça um valor inteiro válido." + e.getMessage());
         Views.scan.next();
 
       } catch (Exception e) {
-        // Trate a exceção de maneira adequada, como registrar em logs
-        Views.cxMsg("\n\tOcorreu um erro ao registrar o consumo.");
+        Views.cxMsg("\n\tOcorreu um erro ao registrar o consumo." + e.getMessage());
         e.printStackTrace();
         break;
       }
@@ -162,12 +161,8 @@ public class FaturaDaoImpl implements FaturaDao {
   }
 
   public List<Fatura> buscarFaturasNaoQuitadasDoBanco() {
-
-    List<Fatura> faturasNaoQuitadas = new ArrayList<>();
-
-    // ("SELECT * FROM fatura WHERE quitado = false");
-
-    return null;
+    TypedQuery<Fatura> query = em.createQuery("SELECT f FROM Fatura f WHERE f.quitado = false", Fatura.class);
+    return query.getResultList();
   }
 
   public void todosOsPagamentos() {

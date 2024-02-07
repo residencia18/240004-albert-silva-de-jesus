@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.energiacoelho.views.Views;
 
@@ -20,6 +21,9 @@ public class Pagamento extends AbstractEntity {
   @JoinColumn(name = "fatura_id")
   private Fatura fatura;
 
+  @OneToOne(mappedBy = "pagamento")
+  private Reembolso reembolso;
+
   public Pagamento() {
   }
 
@@ -28,9 +32,16 @@ public class Pagamento extends AbstractEntity {
     this.data = LocalDate.now();
   }
 
-  public Pagamento(Integer id, double valor) {
+  public Pagamento(double valor, Fatura fatura) {
+    this.valor = valor;
+    this.data = LocalDate.now();
+    this.fatura = fatura;
+  }
+
+  public Pagamento(Integer id, double valor, Fatura fatura) {
     super(id);
     this.valor = valor;
+    this.fatura = fatura;
     this.data = LocalDate.now();
   }
 
@@ -48,6 +59,22 @@ public class Pagamento extends AbstractEntity {
 
   public void setData(LocalDate data) {
     this.data = data;
+  }
+
+  public Fatura getFatura() {
+    return fatura;
+  }
+
+  public void setFatura(Fatura fatura) {
+    this.fatura = fatura;
+  }
+
+  public Reembolso getReembolso() {
+    return reembolso;
+  }
+
+  public void setReembolso(Reembolso reembolso) {
+    this.reembolso = reembolso;
   }
 
   public static Pagamento obterDadosPagamento() {
