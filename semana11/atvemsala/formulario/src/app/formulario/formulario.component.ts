@@ -12,9 +12,8 @@ export class FormularioComponent {
 
   constructor() {
     this.exemploForm = new FormGroup({
-      'login': new FormControl(null, Validators.required),
-      'senha': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-
+      'login': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+      'senha': new FormControl(null, Validators.required),
     });
   }
 
