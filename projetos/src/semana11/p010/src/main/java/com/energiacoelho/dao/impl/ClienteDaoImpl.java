@@ -38,7 +38,14 @@ public class ClienteDaoImpl implements ClienteDao {
     String cpf = Views.scan.nextLine();
 
     clientes.add(new Cliente(nome, cpf));
-    // insert(new Cliente(nome, cpf));
+    
+    em.getTransaction().begin();
+    em.persist(new Cliente(nome, cpf));
+    em.getTransaction().commit();
+
+    System.out.println("Pronto!...");
+    emf.close();
+    em.close();
 
     Views.limparTela();
     System.out.println("\n\tCliente cadastrado com sucesso!");

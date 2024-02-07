@@ -3,6 +3,7 @@ package com.energiacoelho.model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class Fatura extends AbstractEntity {
   private Reembolso reembolso;
 
   @OneToMany(mappedBy = "fatura")
-  private ArrayList<Pagamento> pagamentos;
+  private List<Pagamento> pagamentos;
 
   @ManyToOne
   @JoinColumn(name = "imovel_id")
@@ -117,7 +118,7 @@ public class Fatura extends AbstractEntity {
     this.quitado = quitado;
   }
 
-  public ArrayList<Pagamento> getPagamentos() {
+  public List<Pagamento> getPagamentos() {
     return pagamentos;
   }
 

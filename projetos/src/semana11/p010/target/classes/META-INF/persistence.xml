@@ -7,7 +7,7 @@
   <persistence-unit name="exemplo-jpa" transaction-type="RESOURCE_LOCAL">
     <properties>
       <property name="javax.persistence.jdbc.url"
-        value="jdbc:mysql://localhost:3306/aulajpa?useSSL=FALSE&amp;serverTimezone=UTC" />
+        value="jdbc:mysql://localhost:3306/EnergiaCoelho?useSSL=FALSE&amp;serverTimezone=UTC" />
 
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 

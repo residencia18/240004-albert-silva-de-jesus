@@ -7,6 +7,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.energiacoelho.dao.ClienteDao;
+import com.energiacoelho.dao.impl.ClienteDaoImpl;
+
 public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
@@ -127,7 +130,7 @@ public class Views {
   public static void menuCliente() {
 
     int opcao = -1;
-    // ClienteDao clienteDao = DaoFactory.createClienteDao();
+    ClienteDao clienteDao = new ClienteDaoImpl();
 
     do {
 
@@ -135,7 +138,7 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // clienteDao.cadastrar();
+          clienteDao.cadastrar();
           break;
         case 2:
           // clienteDao.listar();

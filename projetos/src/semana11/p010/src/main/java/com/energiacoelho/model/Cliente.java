@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente extends AbstractEntity {
 
   private String nome;
   private String cpf;
+
+  @OneToMany(mappedBy = "cliente")
   private List<Imovel> imoveis;
 
   public Cliente() {

@@ -3,6 +3,8 @@ package com.energiacoelho.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -12,6 +14,9 @@ public class Imovel extends AbstractEntity {
   private String endereco;
   private int ultimaLeitura;
   private int penultimaLeitura;
+
+  @ManyToOne
+  @JoinColumn(name = "cliente_id")
   private Cliente cliente;
 
   @OneToMany(mappedBy = "imovel")
