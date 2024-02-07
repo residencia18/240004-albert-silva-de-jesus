@@ -20,4 +20,6 @@ public interface ClienteDao {
   
   Integer findClientIdByCpf(String cpf);
   
+  public void encerrarComunicacao();
+  
 }

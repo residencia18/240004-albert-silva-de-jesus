@@ -141,16 +141,16 @@ public class Views {
           clienteDao.cadastrar();
           break;
         case 2:
-          // clienteDao.listar();
+          clienteDao.listar();
           break;
         case 3:
-          // clienteDao.editar();
+          clienteDao.editar();
           break;
         case 4:
-          // clienteDao.excluir();
+          clienteDao.excluir();
           break;
         case 5:
-          // clienteDao.pesquisar();
+          clienteDao.pesquisar();
           break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
@@ -159,6 +159,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          clienteDao.encerrarComunicacao();
           System.exit(0);
           break;
         default:
