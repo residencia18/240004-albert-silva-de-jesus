@@ -29,29 +29,29 @@ public class Program {
       System.out.println(obj);
     }
 
-    System.out.println("\n\t=== TEST 3: seller findAll =====");
-    list = sellerDao.findAll();
-    for (Seller obj : list) {
-      System.out.println(obj);
-    }
+    // System.out.println("\n\t=== TEST 3: seller findAll =====");
+    // list = sellerDao.findAll();
+    // for (Seller obj : list) {
+    //   System.out.println(obj);
+    // }
 
     System.out.println("\n\t=== TEST 4: seller insert =====");
-    Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(),
-        4000.0, department);
+    Seller newSeller = new Seller(null, "João", "joao@gmail.com", new Date(),
+        3000.0, department);
     sellerDao.insert(newSeller);
     System.out.println("\n\tInserted! New id = " + newSeller.getId());
 
-    System.out.println("\n\t=== TEST 5: seller update =====");
-    seller = sellerDao.findById(1);
-    seller.setName("Martha Waine");
-    sellerDao.update(seller);
-    System.out.println("\n\tUpdate completed");
+    // System.out.println("\n\t=== TEST 5: seller update =====");
+    // seller = sellerDao.findById(1);
+    // seller.setName("Martha Waine");
+    // sellerDao.update(seller);
+    // System.out.println("\n\tUpdate completed");
 
-    System.out.println("\n\t=== TEST 6: seller delete =====");
-    System.out.print("\n\tEnter id for delete test: ");
-    int id = sc.nextInt();
-    sellerDao.deleteById(id);
-    System.out.println("\n\tDelete completed");
+    // System.out.println("\n\t=== TEST 6: seller delete =====");
+    // System.out.print("\n\tEnter id for delete test: ");
+    // int id = sc.nextInt();
+    // sellerDao.deleteById(id);
+    // System.out.println("\n\tDelete completed");
 
     sc.close();
   }

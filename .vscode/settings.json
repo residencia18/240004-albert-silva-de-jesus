@@ -5,5 +5,9 @@
     "projetos/src",
     "projetos",
     ".vscode"
+  ],
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\java-libs\\jdbc-connectors\\mysql-connector-j-8.3.0.jar"
   ]
 }
