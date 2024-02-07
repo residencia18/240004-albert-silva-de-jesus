@@ -9,14 +9,14 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormularioReativoComponent {
 
   exemploForm: FormGroup;
-  status = ['Nao_instalada:', 'Instalada:', 'Operante:'];
+  status = ['Não instalada:', 'Instalada:', 'Operante:'];
   y: number = 0;
 
   constructor() {
     this.exemploForm = new FormGroup({
       'nome': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'localizacao': new FormControl(null),
+      'localizacao': new FormControl(null, Validators.required),
       'logEstaca': new FormArray([])
     });
   }

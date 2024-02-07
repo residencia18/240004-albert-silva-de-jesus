@@ -8,16 +8,24 @@
             exemploForm.get('nome')?.touched">Min:3 Max:10 caracteres</span>
         <br>
     </label>
-    <label>
+    <!-- <label>
         Email:
         <input formControlName="email">
         <span *ngIf="!exemploForm.get('email')?.valid &&
             exemploForm.get('email')?.touched">Email inválido</span>
         <br>
-    </label>
-    <!-- <label for="email">Email:</label>
+    </label> -->
+    <label for="email">Email:</label>
     <input type="email" id="email" name="email" required ngModel email #email="ngModel">
-    <span *ngIf="!email.valid && email.touched">Emtre com um email Válido</span> -->
+    <span *ngIf="!email.valid && email.touched">Emtre com um email Válido</span>
+
+    <label>
+        Localização:
+        <input formControlName="localizacao">
+        <span *ngIf="!exemploForm.get('localizacao')?.valid &&
+            exemploForm.get('localizacao')?.touched">Campo obrigatório</span>
+        <br>
+    </label>
 
     <!-- <h1>Log de Status</h1>
     <button (click)="addLogStatus()">Adicionar</button>
