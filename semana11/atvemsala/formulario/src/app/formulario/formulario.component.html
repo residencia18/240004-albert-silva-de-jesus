@@ -1,0 +1,15 @@
+<form [formGroup]="exemploForm" (ngSubmit)="onSubmit()">
+    <label>
+        Login:
+        <input formControlName="login">
+        <span *ngIf="!exemploForm.get('login')?.valid &&
+            exemploForm.get('login')?.touched">Min:3 Max:10 caracteres</span>
+        <br>
+    </label>
+    <label for="senha">Senha:</label>
+    <input formControlName="senha" name="senha">
+    <br>
+    <label for="senha">Companhia Aérea:</label>
+
+    <button type="submit">Enviar</button>
+</form>
