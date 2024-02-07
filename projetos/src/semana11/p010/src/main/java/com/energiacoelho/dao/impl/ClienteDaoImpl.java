@@ -251,9 +251,9 @@ public class ClienteDaoImpl implements ClienteDao {
   }
 
   public void delete(Cliente cliente) {
-    
+
     if (cliente != null) {
-  
+
       try {
 
         em.getTransaction().begin();
@@ -262,10 +262,10 @@ public class ClienteDaoImpl implements ClienteDao {
           // Se não estiver, carrega o cliente gerenciado antes de excluí-lo
           cliente = em.find(Cliente.class, cliente.getId());
         }
-      
+
         em.remove(cliente);
         em.getTransaction().commit();
-        
+
       } finally {
         // Fecha a EntityManager
         if (em != null && em.isOpen()) {
