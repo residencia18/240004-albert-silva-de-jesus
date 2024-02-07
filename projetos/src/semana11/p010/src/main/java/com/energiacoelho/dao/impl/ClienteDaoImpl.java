@@ -16,8 +16,8 @@ import com.energiacoelho.views.Views;
 
 public class ClienteDaoImpl implements ClienteDao {
 
-  EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
-  EntityManager em = emf.createEntityManager();
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("energia-coelho-jpa");
+  private static EntityManager em = emf.createEntityManager();
 
   public static List<Cliente> clientes = new ArrayList<>();
 
@@ -267,18 +267,14 @@ public class ClienteDaoImpl implements ClienteDao {
         em.getTransaction().commit();
 
       } finally {
-        // Fecha a EntityManager
-        if (em != null && em.isOpen()) {
-          em.close();
-        }
+        System.out.println("Cliente removido com sucesso!");
       }
     } else {
       System.out.println("Cliente passado como parâmetro é nulo.");
     }
   }
 
-  @Override
-  public void encerrarComunicacao() {
+  public static void encerrarComunicacao() {
     emf.close();
     em.close();
   }

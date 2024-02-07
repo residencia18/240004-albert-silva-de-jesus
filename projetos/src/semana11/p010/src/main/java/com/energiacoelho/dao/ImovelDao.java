@@ -18,4 +18,6 @@ public interface ImovelDao {
 
   Imovel buscaImovel();
 
+  public Imovel findById(Integer id);
+
 }

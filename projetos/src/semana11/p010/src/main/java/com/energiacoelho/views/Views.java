@@ -8,15 +8,16 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.energiacoelho.dao.ClienteDao;
+import com.energiacoelho.dao.ImovelDao;
 import com.energiacoelho.dao.impl.ClienteDaoImpl;
+import com.energiacoelho.dao.impl.ImovelDaoImpl;
 
 public class Views {
 
   LocalDateTime agora = LocalDateTime.now();
   public static Scanner scan = new Scanner(System.in);
 
-  public static void MainEnergiaCoelho() 
-  {
+  public static void MainEnergiaCoelho() {
 
     int opcao = -1;
 
@@ -42,6 +43,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar a nossa Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
       }
@@ -159,7 +161,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
-          clienteDao.encerrarComunicacao();
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
         default:
@@ -210,7 +212,7 @@ public class Views {
   public static void menuImoveis() {
 
     int opcao = -1;
-    // ImovelDao imovelDao = DaoFactory.createImovelDao();
+    ImovelDao imovelDao = new ImovelDaoImpl();
 
     do {
 
@@ -218,19 +220,19 @@ public class Views {
 
       switch (opcao) {
         case 1:
-          // imovelDao.cadastrar();
+          imovelDao.cadastrar();
           break;
         case 2:
-          // imovelDao.listar();
+          imovelDao.listar();
           break;
         case 3:
-          // imovelDao.editar();
+          imovelDao.editar();
           break;
         case 4:
-          // imovelDao.excluir();
+          imovelDao.excluir();
           break;
         case 5:
-          // imovelDao.pesquisar();
+          imovelDao.pesquisar();
           break;
         case 6:
           System.out.println("\n\tRetornando ao menu principal...");
@@ -239,6 +241,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
         default:
@@ -310,6 +313,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
         default:
@@ -373,7 +377,7 @@ public class Views {
           // Fatura fatura = faturaDao.obterFaturaPorMesEmissao();
 
           // if (fatura != null)
-            // fatura.novoPagamento();
+          // fatura.novoPagamento();
           break;
 
         case 2:
@@ -400,6 +404,7 @@ public class Views {
 
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
 
@@ -507,6 +512,7 @@ public class Views {
 
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
         default:
@@ -614,6 +620,7 @@ public class Views {
           break;
         case 0:
           System.err.println("\n\tObrigado por utilizar o Energia Coelho, Saindo!...");
+          ClienteDaoImpl.encerrarComunicacao();
           System.exit(0);
           break;
         default:
@@ -639,6 +646,7 @@ public class Views {
   }
 
   public static void limparTela() {
+
     try {
       final String os = System.getProperty("os.name");
 
