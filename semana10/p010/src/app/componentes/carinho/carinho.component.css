@@ -1,0 +1,21 @@
+div,
+ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul {
+  display: flex;
+  justify-content: start;
+  gap: 4px;
+  padding-left: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+}
