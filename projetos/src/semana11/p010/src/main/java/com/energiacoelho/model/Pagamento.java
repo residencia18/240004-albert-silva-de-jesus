@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 @Entity
 public class Pagamento extends AbstractEntity {
 
-  protected double valor;
+  protected Double valor;
   protected LocalDate data;
 
   @ManyToOne
@@ -27,25 +27,25 @@ public class Pagamento extends AbstractEntity {
   public Pagamento() {
   }
 
-  public Pagamento(double valor) {
+  public Pagamento(Double valor) {
     this.valor = valor;
     this.data = LocalDate.now();
   }
 
-  public Pagamento(double valor, Fatura fatura) {
+  public Pagamento(Double valor, Fatura fatura) {
     this.valor = valor;
     this.data = LocalDate.now();
     this.fatura = fatura;
   }
 
-  public Pagamento(Integer id, double valor, Fatura fatura) {
+  public Pagamento(Integer id, Double valor, Fatura fatura) {
     super(id);
     this.valor = valor;
     this.fatura = fatura;
     this.data = LocalDate.now();
   }
 
-  public double getValor() {
+  public Double getValor() {
     return valor;
   }
 
@@ -53,7 +53,7 @@ public class Pagamento extends AbstractEntity {
     return data;
   }
 
-  public void setValor(double valor) {
+  public void setValor(Double valor) {
     this.valor = valor;
   }
 
@@ -83,7 +83,7 @@ public class Pagamento extends AbstractEntity {
     try {
 
       System.out.print("\n\tInforme o valor do pagamento: ");
-      double valorPagamento = Views.scan.nextDouble();
+      Double valorPagamento = Views.scan.nextDouble();
       Views.scan.nextLine();
 
       pagamento = new Pagamento(valorPagamento, fatura);
