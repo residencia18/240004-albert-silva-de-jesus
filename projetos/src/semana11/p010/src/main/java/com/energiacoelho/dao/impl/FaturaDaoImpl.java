@@ -89,7 +89,7 @@ public class FaturaDaoImpl implements FaturaDao {
   public void todasAsFaturas() {
 
     Views.limparTela();
-    System.out.println("=============== TODAS AS FATURAS ===============");
+    System.out.println("\n\t=============== TODAS AS FATURAS ===============");
     System.out.println("");
 
     listaFatura = findAll(em);
@@ -104,7 +104,7 @@ public class FaturaDaoImpl implements FaturaDao {
   public void faturasEmAberto() {
 
     Views.limparTela();
-    System.out.println("=============== FATURAS EM ABERTO ===============");
+    System.out.println("\n\t=============== FATURAS EM ABERTO ===============");
     System.out.println("");
 
     listaFatura = buscarFaturasNaoQuitadasDoBanco();
@@ -160,12 +160,14 @@ public class FaturaDaoImpl implements FaturaDao {
   public void listarPagamentos() {
 
     Views.limparTela();
-    System.out.println("=============== TODOS OS PAGAMENTOS ===============");
+    System.out.println("\n\t=============== TODOS OS PAGAMENTOS ===============");
     System.out.println("");
+
+    listaFatura = findAll(em);
 
     for (Fatura f : listaFatura) {
 
-      System.out.println("===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
+      System.out.println("\n\t===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
       System.out.println("");
 
       for (Pagamento p : f.getPagamentos()) {
@@ -182,11 +184,11 @@ public class FaturaDaoImpl implements FaturaDao {
   public void listarReembolsos() {
 
     Views.limparTela();
-    System.out.println("=============== TODOS OS REEMBOLSOS ===============");
+    System.out.println("\n\t=============== TODOS OS REEMBOLSOS ===============");
     System.out.println("");
 
     for (Fatura f : listaFatura) {
-      System.out.println("===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
+      System.out.println("\n\t===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
       System.out.println("");
       System.out.println(f.getReembolso().toString());
       System.out.println("");
@@ -210,12 +212,12 @@ public class FaturaDaoImpl implements FaturaDao {
     Fatura encontrada = obterFaturaPorMesEmissao();
 
     if (encontrada == null) {
-      Views.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
+      Views.cxMsg("\n\tNão foi encontrado nenhuma fatura com as descrições informadas!");
       return;
     }
 
     Views.limparTela();
-    System.out.println("=============== PAGAMENTOS RELACIONADOS À FATURA ===============");
+    System.out.println("\n\t=============== PAGAMENTOS RELACIONADOS À FATURA ===============");
     System.out.println("");
 
     for (Pagamento p : encontrada.getPagamentos()) {
@@ -230,18 +232,18 @@ public class FaturaDaoImpl implements FaturaDao {
     Fatura encontrada = obterFaturaPorMesEmissao();
 
     if (encontrada == null) {
-      Views.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
+      Views.cxMsg("\n\tão foi encontrado nenhuma fatura com as descrições informadas!");
       return;
     }
 
     Views.limparTela();
-    System.out.println("=============== REEMBOLSOS RELACIONADOS À FATURA ===============");
+    System.out.println("\n\t=============== REEMBOLSOS RELACIONADOS À FATURA ===============");
     System.out.println("");
 
     if (encontrada.getReembolso() != null)
       System.out.println(encontrada.getReembolso().toString());
     else
-      System.out.println("Não há reembolsos para essa fatura!");
+      System.out.println("\n\tNão há reembolsos para essa fatura!");
 
     Views.pausar(Views.scan);
   }

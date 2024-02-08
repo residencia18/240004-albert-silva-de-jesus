@@ -13,7 +13,6 @@ public class Reparo extends AbstractEntity {
   private Falha falha;
 
   public Reparo() {
-
   }
 
   public Reparo(String descricao, LocalDate previsaoConclusao, LocalDate dataInicio, LocalDate dataFim,

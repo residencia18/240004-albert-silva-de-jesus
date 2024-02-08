@@ -98,6 +98,6 @@ public class Pagamento extends AbstractEntity {
   @Override
   public String toString() {
     DecimalFormat df = new DecimalFormat("#.##");
-    return String.format("Pagamento no valor de R$%s realizado na data %s!", df.format(valor), data);
+    return String.format("\n\tPagamento no valor de R$%s realizado na data %s!", df.format(valor), data);
   }
 }
