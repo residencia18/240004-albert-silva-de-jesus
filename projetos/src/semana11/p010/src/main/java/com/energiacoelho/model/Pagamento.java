@@ -77,15 +77,16 @@ public class Pagamento extends AbstractEntity {
     this.reembolso = reembolso;
   }
 
-  public static Pagamento obterDadosPagamento() {
+  public static Pagamento obterDadosPagamento(Fatura fatura) {
 
     Pagamento pagamento;
     try {
 
-      System.out.print("Informe o valor do pagamento: ");
+      System.out.print("\n\tInforme o valor do pagamento: ");
       double valorPagamento = Views.scan.nextDouble();
+      Views.scan.nextLine();
 
-      pagamento = new Pagamento(valorPagamento);
+      pagamento = new Pagamento(valorPagamento, fatura);
       return pagamento;
 
     } catch (Exception e) {

@@ -17,7 +17,9 @@ public interface FaturaDao {
 
   void pagamentosPorFatura();
 
-  void todosOsReembolsos();
+  void listarPagamentos();
+
+  void listarReembolsos();
 
   void reembolsosPorFatura();
 }

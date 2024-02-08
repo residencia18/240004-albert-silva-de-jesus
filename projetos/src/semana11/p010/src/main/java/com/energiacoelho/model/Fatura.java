@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.energiacoelho.dao.impl.FaturaDaoImpl;
 import com.energiacoelho.exceptions.FaturaQuitadaException;
 import com.energiacoelho.views.Views;
 
@@ -125,43 +126,64 @@ public class Fatura extends AbstractEntity {
     this.pagamentos.add(pagamento);
   }
 
-  public void novoPagamento() {
+  public void novoPagamento(Fatura fatura) {
 
-    if (quitado) {
-      Views.cxMsg("A fatura já está quitadaa!");
+    if (fatura.isQuitado()) {
+      Views.cxMsg("\n\tA fatura já está quitada!");
       return;
     }
 
-    float totalPago = 0;
-    Pagamento novo = Pagamento.obterDadosPagamento();
+    Pagamento novo = Pagamento.obterDadosPagamento(fatura);
     if (novo == null) {
-      Views.cxMsg("Pagamento não realizado");
+      Views.cxMsg("\n\tPagamento não realizado");
       return;
     }
+
     this.pagamentos.add(novo);
+    FaturaDaoImpl.pagarFatura(novo);
 
-    for (Pagamento p : pagamentos)
-      totalPago += p.valor;
+    Double totalPago = calcularTotalPago();
+    if (totalPago < fatura.getValorTotal()) {
 
-    if (totalPago < this.valorTotal) {
+      this.valorTotal -= totalPago;
       DecimalFormat df = new DecimalFormat("#.##");
-      String msg = String.format("A fatura foi parcialmente paga, restando R$%s a pagar!",
-          df.format(this.valorTotal - totalPago));
+      String msg = String.format("\n\tA fatura foi parcialmente paga, restando R$%s a pagar!",
+          df.format(this.valorTotal));
       Views.cxMsg(msg);
+      fatura.setQuitado(false);
+      fatura.setValorTotal(this.valorTotal);
+      FaturaDaoImpl.atualizarFatura(fatura);
       return;
     }
 
     this.quitado = true;
-    Views.cxMsg("A fatura foi paga!");
+    this.valorTotal -= totalPago;
+    Views.cxMsg("\n\tA fatura foi paga!");
+    
     if (totalPago > this.valorTotal) {
-      this.reembolso = new Reembolso(totalPago - this.valorTotal);
-      Views.cxMsg(this.reembolso.toString());
+      fatura.setQuitado(this.quitado);
+      fatura.setValorTotal(this.valorTotal);
+      FaturaDaoImpl.atualizarFatura(fatura);
+      Reembolso reembolso = new Reembolso(this.valorTotal, novo);
+      FaturaDaoImpl.adicionarReembolso(reembolso);
+
+      Views.limparTela();
+      System.out.println(reembolso);
+      Views.pausar(Views.scan);
     }
   }
 
   public void calcularValorFatura() {
     Double custoPorKWh = 10.0;
     this.valorTotal = (ultimaLeitura - penultimaLeitura) * custoPorKWh;
+  }
+
+  private Double calcularTotalPago() {
+    Double totalPago = 0.0;
+    for (Pagamento p : pagamentos) {
+      totalPago += p.valor;
+    }
+    return totalPago;
   }
 
   public void registraLeitura(int novaLeitura) {

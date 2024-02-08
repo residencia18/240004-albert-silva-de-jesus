@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 @Entity
 public class Reembolso extends AbstractEntity {
 
-  private double valor;
+  private Double valor;
   private LocalDate data;
 
   @OneToOne
@@ -21,24 +21,24 @@ public class Reembolso extends AbstractEntity {
   public Reembolso() {
   }
 
-  public Reembolso(double valor) {
+  public Reembolso(Double valor) {
     this.valor = valor;
     this.data = LocalDate.now();
   }
 
-  public Reembolso(Integer id, double valor) {
+  public Reembolso(Integer id, Double valor) {
     super(id);
     this.valor = valor;
     this.data = LocalDate.now();
   }
 
-  public Reembolso(double valor, Pagamento pagamento) {
-    this.valor = valor;
+  public Reembolso(Double valor, Pagamento pagamento) {
+    this.valor = Math.abs(valor);
     this.data = LocalDate.now();
     this.pagamento = pagamento;
   }
 
-  public double getValor() {
+  public Double getValor() {
     return valor;
   }
 
@@ -46,7 +46,7 @@ public class Reembolso extends AbstractEntity {
     return data;
   }
 
-  public void setValor(double valor) {
+  public void setValor(Double valor) {
     this.valor = valor;
   }
 
@@ -65,6 +65,7 @@ public class Reembolso extends AbstractEntity {
   @Override
   public String toString() {
     DecimalFormat df = new DecimalFormat("#.##");
-    return String.format("Foi gerado um reembolso no valor de: R$%s, na data: %s]", df.format(valor), data);
+    return String.format("\n\tFoi gerado um reembolso no valor de: R$%s, na data: %s", df.format(valor), data);
   }
+
 }

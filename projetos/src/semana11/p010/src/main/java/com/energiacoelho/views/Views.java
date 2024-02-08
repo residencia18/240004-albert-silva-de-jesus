@@ -13,6 +13,7 @@ import com.energiacoelho.dao.ImovelDao;
 import com.energiacoelho.dao.impl.ClienteDaoImpl;
 import com.energiacoelho.dao.impl.FaturaDaoImpl;
 import com.energiacoelho.dao.impl.ImovelDaoImpl;
+import com.energiacoelho.model.Fatura;
 
 public class Views {
 
@@ -366,7 +367,7 @@ public class Views {
   public static void menuPagamentos() {
 
     int opcao = -1;
-    // FaturaDao faturaDao = new FaturaDaoImpl();
+    FaturaDao faturaDao = new FaturaDaoImpl();
 
     do {
 
@@ -376,26 +377,26 @@ public class Views {
 
         case 1:
 
-          // Fatura fatura = faturaDao.obterFaturaPorMesEmissao();
+          Fatura fatura = faturaDao.obterFaturaPorMesEmissao();
 
-          // if (fatura != null)
-          // fatura.novoPagamento();
+          if (fatura != null)
+          fatura.novoPagamento(fatura);
           break;
 
         case 2:
-          // FaturaDaoImpl.todosOsPagamentos();
+          faturaDao.listarPagamentos();
           break;
 
         case 3:
-          // faturaDao.pagamentosPorFatura();
+          faturaDao.pagamentosPorFatura();
           break;
 
         case 4:
-          // faturaDao.todosOsReembolsos();
+          faturaDao.listarReembolsos();
           break;
 
         case 5:
-          // faturaDao.reembolsosPorFatura();
+          faturaDao.reembolsosPorFatura();
           break;
 
         case 6:

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -14,12 +15,13 @@ import com.energiacoelho.dao.ImovelDao;
 import com.energiacoelho.model.Fatura;
 import com.energiacoelho.model.Imovel;
 import com.energiacoelho.model.Pagamento;
+import com.energiacoelho.model.Reembolso;
 import com.energiacoelho.views.Views;
 
 public class FaturaDaoImpl implements FaturaDao {
 
-  EntityManagerFactory emf = Persistence.createEntityManagerFactory("energia-coelho-jpa");
-  EntityManager em = emf.createEntityManager();
+  static EntityManagerFactory emf = Persistence.createEntityManagerFactory("energia-coelho-jpa");
+  static EntityManager em = emf.createEntityManager();
 
   private List<Fatura> listaFatura = new ArrayList<>();
   private ImovelDao imovelDao = newImovelDao();
@@ -119,53 +121,43 @@ public class FaturaDaoImpl implements FaturaDao {
     Imovel imovel = imovelDao.buscaImovel();
 
     if (imovel == null) {
-      Views.cxMsg("Imóvel não encontrado!");
+      Views.cxMsg("\n\tImóvel não encontrado!");
       return null;
     }
 
-    int valorLido = 0;
-    int k = 0;
-    while (valorLido > 12 || valorLido < 1) {
+    int mesEmissao;
+    do {
 
       try {
-
         Views.limparTela();
-        System.out.print("Informe o mês referente à fatura: ");
-        valorLido = Views.scan.nextInt();
+        System.out.print("\n\tInforme o mês referente à fatura (1-12): ");
+        mesEmissao = Views.scan.nextInt();
+        Views.scan.nextLine();
 
-      } catch (Exception e) {
-        e.printStackTrace();
-        return null;
+      } catch (InputMismatchException e) {
+        Views.cxMsg("\n\tEntrada inválida. Por favor, insira um número de 1 a 12.");
+        Views.scan.next(); // Limpar o buffer do scanner
+        mesEmissao = -1; // Definir valor inválido para continuar o loop
       }
-      if (valorLido > 12 || valorLido < 1) {
-        Views.cxMsg("O mês informado é inválido!");
-        k++;
-      }
-      if (k == 3) {
-        Views.cxMsg("Limite de tentativas excedidas! Tente novamente!");
-      }
+    } while (mesEmissao < 1 || mesEmissao > 12);
+
+    // Consulta JPQL para recuperar a fatura com base no imóvel e no mês de emissão
+    String jpql = "SELECT f FROM Fatura f WHERE f.matriculaImovel = :matricula AND FUNCTION('MONTH', f.dataEmissao) = :mes";
+    TypedQuery<Fatura> query = em.createQuery(jpql, Fatura.class);
+    query.setParameter("matricula", imovel.getMatricula());
+    query.setParameter("mes", mesEmissao);
+
+    try {
+      return query.getSingleResult();
+
+    } catch (NoResultException e) {
+      Views.cxMsg("\n\tNenhuma fatura encontrada para o mês informado.");
+      return null;
     }
-
-    for (Fatura fatura : listaFatura) {
-
-      if (fatura.getMatriculaImovel().equalsIgnoreCase(imovel.getMatricula())
-          && fatura.getDataEmissao().getMonthValue() == valorLido) {
-        return fatura;
-      }
-    }
-    return null;
   }
 
-  public List<Fatura> findAll(EntityManager entityManager) {
-    return entityManager.createQuery("SELECT f FROM Fatura f", Fatura.class).getResultList();
-  }
-
-  public List<Fatura> buscarFaturasNaoQuitadasDoBanco() {
-    TypedQuery<Fatura> query = em.createQuery("SELECT f FROM Fatura f WHERE f.quitado = false", Fatura.class);
-    return query.getResultList();
-  }
-
-  public void todosOsPagamentos() {
+  @Override
+  public void listarPagamentos() {
 
     Views.limparTela();
     System.out.println("=============== TODOS OS PAGAMENTOS ===============");
@@ -183,6 +175,34 @@ public class FaturaDaoImpl implements FaturaDao {
     }
 
     Views.pausar(Views.scan);
+
+  }
+
+  @Override
+  public void listarReembolsos() {
+
+    Views.limparTela();
+    System.out.println("=============== TODOS OS REEMBOLSOS ===============");
+    System.out.println("");
+
+    for (Fatura f : listaFatura) {
+      System.out.println("===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
+      System.out.println("");
+      System.out.println(f.getReembolso().toString());
+      System.out.println("");
+    }
+
+    Views.pausar(Views.scan);
+
+  }
+
+  public List<Fatura> findAll(EntityManager entityManager) {
+    return entityManager.createQuery("SELECT f FROM Fatura f", Fatura.class).getResultList();
+  }
+
+  public List<Fatura> buscarFaturasNaoQuitadasDoBanco() {
+    TypedQuery<Fatura> query = em.createQuery("SELECT f FROM Fatura f WHERE f.quitado = false", Fatura.class);
+    return query.getResultList();
   }
 
   public void pagamentosPorFatura() {
@@ -200,22 +220,6 @@ public class FaturaDaoImpl implements FaturaDao {
 
     for (Pagamento p : encontrada.getPagamentos()) {
       System.out.println(p.toString());
-    }
-
-    Views.pausar(Views.scan);
-  }
-
-  public void todosOsReembolsos() {
-
-    Views.limparTela();
-    System.out.println("=============== TODOS OS REEMBOLSOS ===============");
-    System.out.println("");
-
-    for (Fatura f : listaFatura) {
-      System.out.println("===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
-      System.out.println("");
-      System.out.println(f.getReembolso().toString());
-      System.out.println("");
     }
 
     Views.pausar(Views.scan);
@@ -242,7 +246,32 @@ public class FaturaDaoImpl implements FaturaDao {
     Views.pausar(Views.scan);
   }
 
+  public static void pagarFatura(Pagamento pagamento) {
+
+    em.getTransaction().begin();
+    em.persist(pagamento);
+    em.getTransaction().commit();
+
+  }
+
+  public static void atualizarFatura(Fatura fatura) {
+
+    em.getTransaction().begin();
+    em.persist(fatura);
+    em.getTransaction().commit();
+
+  }
+
+  public static void adicionarReembolso(Reembolso reembolso) {
+
+    em.getTransaction().begin();
+    em.persist(reembolso);
+    em.getTransaction().commit();
+
+  }
+
   public ImovelDaoImpl newImovelDao() {
     return new ImovelDaoImpl();
   }
+
 }
