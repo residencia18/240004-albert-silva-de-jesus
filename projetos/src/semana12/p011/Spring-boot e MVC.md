@@ -38,7 +38,7 @@
 
 ## 6. Pesquise sobre o ciclo de vida de uma aplicação Spring Boot e o descreva aqui, incluindo as fases de inicialização, configuração e execução. Destaque a importância de anotações.
 
-- **Inicialização:** O ciclo de vida de uma aplicação Spring Boot começa com a inicialização do contexto de aplicação. Durante essa fase, o Spring Boot carrega e configura os componentes da aplicação, como controladores, serviços e repositórios. Isso inclui a leitura de anotações, como `@Controller`, @Service e `@Repository`, que indicam ao Spring Boot como configurar e gerenciar os componentes da aplicação.
+- **Inicialização:** O ciclo de vida de uma aplicação Spring Boot começa com a inicialização do contexto de aplicação. Durante essa fase, o Spring Boot carrega e configura os componentes da aplicação, como controladores, serviços e repositórios. Isso inclui a leitura de anotações, como `@Controller`, `@Service` e `@Repository`, que indicam ao Spring Boot como configurar e gerenciar os componentes da aplicação.
 
 - **Configuração:** Após a inicialização, o Spring Boot aplica as configurações definidas na aplicação, como propriedades, perfis e beans. Isso inclui a leitura de anotações, como `@Configuration` e `@Bean`, que indicam ao Spring Boot como configurar e gerenciar as configurações da aplicação.
 
