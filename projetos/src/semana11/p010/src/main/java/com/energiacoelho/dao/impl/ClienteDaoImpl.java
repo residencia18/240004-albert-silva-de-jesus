@@ -23,7 +23,9 @@ public class ClienteDaoImpl implements ClienteDao {
 
   @Override
   public void adicionar(Cliente cliente) {
-    clientes.add(cliente);
+    em.getTransaction().begin();
+    em.persist(cliente); // Persiste o cliente no banco de dados
+    em.getTransaction().commit();
   }
 
   @Override
