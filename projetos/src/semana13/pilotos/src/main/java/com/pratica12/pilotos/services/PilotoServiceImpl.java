@@ -89,9 +89,11 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     String resultado = list.stream()
-      .filter(piloto -> "Brasil".equals(piloto.getPais()))
-      .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método toString()
-      .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova linha
+        .filter(piloto -> "Brasil".equals(piloto.getPais()))
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método
+                               // toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
+                                            // linha
 
     return botoes() + resultado;
   }
@@ -106,10 +108,12 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     String resultado = list.stream()
-      .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias())) // Ordenar em ordem decrescente
-      .limit(5) // Limitar a 5 elementos
-      .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método toString()
-      .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova linha
+        .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias())) // Ordenar em ordem decrescente
+        .limit(5) // Limitar a 5 elementos
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método
+                               // toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
+                                            // linha
 
     return botoes() + resultado;
   }
@@ -124,15 +128,16 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     String resultado = list.stream().sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias()))
-      .limit(10)
-      .map(Piloto::toString)
-      .collect(Collectors.joining("\n"));
+        .limit(10)
+        .map(Piloto::toString)
+        .collect(Collectors.joining("\n"));
 
     return botoes() + resultado;
   }
 
   @Override
   public String numeroDeVitoriasPorPais() {
+
     List<Piloto> list = carregarPilotos();
 
     // Agrupar por país e somar o número de vitórias
@@ -141,12 +146,18 @@ public class PilotoServiceImpl implements PilotoService {
     // Construir a representação em string formatada
     StringBuilder sb = new StringBuilder();
     sb.append("<h1 style=\"text-align: center;\">Número de Vitórias por País</h1>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
     sb.append("<br><br>");
     sb.append(formatarVitoriasPorPais(vitoriasPorPais));
 
@@ -155,6 +166,7 @@ public class PilotoServiceImpl implements PilotoService {
 
   @Override
   public String mediaDeVitoriasPorPais() {
+
     List<Piloto> list = carregarPilotos();
 
     // Agrupar por país e calcular a média de vitórias
@@ -163,12 +175,18 @@ public class PilotoServiceImpl implements PilotoService {
     // Construir a representação em string formatada
     StringBuilder sb = new StringBuilder();
     sb.append("<h1 style=\"text-align: center;\">Média de Vitórias por País</h1>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
-    sb.append("<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
     sb.append("<br><br>");
     sb.append(formatarMediaVitoriasPorPais(mediaVitoriasPorPais));
 
@@ -176,13 +194,19 @@ public class PilotoServiceImpl implements PilotoService {
   }
 
   private Map<String, Integer> calcularVitoriasPorPais(List<Piloto> pilotos) {
-    return pilotos.stream().collect(Collectors.groupingBy(Piloto::getPais, Collectors.summingInt(Piloto::getNumVitorias)));
+    return pilotos.stream()
+        .collect(Collectors.groupingBy(Piloto::getPais, Collectors.summingInt(Piloto::getNumVitorias)));
   }
 
   private String formatarVitoriasPorPais(Map<String, Integer> vitoriasPorPais) {
+
+    Integer count = 0;
     StringBuilder sb = new StringBuilder();
     for (Map.Entry<String, Integer> entry : vitoriasPorPais.entrySet()) {
-      sb.append("<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+      count++;
+      sb.append(
+          "<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+      sb.append("<p><strong>Número:</strong> ").append(count + "º").append("</p>");
       sb.append("<p><strong>País:</strong> ").append(entry.getKey()).append("</p>");
       sb.append(String.format("<p><strong>Número de Vitórias:</strong> %.2f</p>", (double) entry.getValue()));
       sb.append("</div>");
@@ -191,15 +215,21 @@ public class PilotoServiceImpl implements PilotoService {
   }
 
   private Map<String, Double> calcularMediaVitoriasPorPais(List<Piloto> pilotos) {
-    return pilotos.stream().collect(Collectors.groupingBy(Piloto::getPais, Collectors.averagingDouble(Piloto::getNumVitorias)));
+    return pilotos.stream()
+        .collect(Collectors.groupingBy(Piloto::getPais, Collectors.averagingDouble(Piloto::getNumVitorias)));
   }
 
   private String formatarMediaVitoriasPorPais(Map<String, Double> mediaVitoriasPorPais) {
+
+    Integer count = 0;
     StringBuilder sb = new StringBuilder();
     for (Map.Entry<String, Double> entry : mediaVitoriasPorPais.entrySet()) {
-      sb.append("<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+      count++;
+      sb.append(
+          "<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+      sb.append("<p><strong>Número:</strong> ").append(count + "º").append("</p>");
       sb.append("<p><strong>País:</strong> ").append(entry.getKey()).append("</p>");
-      sb.append(String.format("<p><strong>Média de Vitórias:</strong> %.2f </p>" , ((Double)entry.getValue())));
+      sb.append(String.format("<p><strong>Média de Vitórias:</strong> %.2f </p>", ((Double) entry.getValue())));
       sb.append("</div>");
     }
     return sb.toString();

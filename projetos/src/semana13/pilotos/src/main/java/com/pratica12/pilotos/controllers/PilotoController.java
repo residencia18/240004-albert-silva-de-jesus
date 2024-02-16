@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pratica12.pilotos.services.PilotoService;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 @RestController
 @RequestMapping("/pilotos")
 public class PilotoController {
-  
+
   @Autowired
   private PilotoService pilotoService;
 
@@ -24,7 +23,7 @@ public class PilotoController {
   public String listarVencedoresBrasileiros() {
     return pilotoService.vencedoresBrasileiros();
   }
-  
+
   @GetMapping("/top5")
   public String listarTop5() {
     return pilotoService.top5Vencedores();
@@ -44,5 +43,5 @@ public class PilotoController {
   public String listarMediaVitoriasPorPais() {
     return pilotoService.mediaDeVitoriasPorPais();
   }
-  
+
 }
