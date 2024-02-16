@@ -5,13 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.pratica12.pilotos.entities.Piloto;
 
 @Service
-public class PilotoServiceImpl implements PilotoService{
+public class PilotoServiceImpl implements PilotoService {
 
   @Override
   public List<Piloto> carregarPilotos() {
@@ -72,17 +73,42 @@ public class PilotoServiceImpl implements PilotoService{
 
   @Override
   public String vencedoresBrasileiros() {
-    throw new UnsupportedOperationException("Unimplemented method 'vencedoresBrasileiros'");
+    List<Piloto> list = carregarPilotos();
+
+    String resultado = list.stream()
+        .filter(piloto -> "Brasil".equals(piloto.getPais()))
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método
+                               // toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
+                                            // linha
+
+    return resultado;
   }
 
   @Override
   public String top5Vencedores() {
-    throw new UnsupportedOperationException("Unimplemented method 'top5Vencedores'");
+    List<Piloto> list = carregarPilotos();
+
+    String resultado = list.stream()
+        .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias())) // Ordenar em ordem decrescente
+        .limit(5) // Limitar a 5 elementos
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova linha
+
+    return resultado;
   }
 
   @Override
   public String top10Vencedores() {
-    throw new UnsupportedOperationException("Unimplemented method 'top10Vencedores'");
+    List<Piloto> list = carregarPilotos();
+
+    String resultado = list.stream()
+        .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias()))
+        .limit(10)
+        .map(Piloto::toString)
+        .collect(Collectors.joining("\n"));
+
+    return resultado;
   }
 
   @Override
@@ -94,5 +120,5 @@ public class PilotoServiceImpl implements PilotoService{
   public String mediaDeVitoriasPorPais() {
     throw new UnsupportedOperationException("Unimplemented method 'mediaDeVitoriasPorPais'");
   }
-  
+
 }
