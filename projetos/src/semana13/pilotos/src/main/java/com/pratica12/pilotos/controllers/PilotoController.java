@@ -16,8 +16,7 @@ public class PilotoController {
 
   @GetMapping("/todos")
   public String listarTodos() {
-    return pilotoService.getPilotos().toString();
+    return pilotoService.findAll();
   }
-  
   
 }
