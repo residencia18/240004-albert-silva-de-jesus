@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -126,8 +127,7 @@ public class PilotoServiceImpl implements PilotoService {
       piloto.setNumero(++count);
     }
 
-    String resultado = list.stream()
-        .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias()))
+    String resultado = list.stream().sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias()))
         .limit(10)
         .map(Piloto::toString)
         .collect(Collectors.joining("\n"));
@@ -137,7 +137,30 @@ public class PilotoServiceImpl implements PilotoService {
 
   @Override
   public String numeroDeVitoriasPorPais() {
-    throw new UnsupportedOperationException("Unimplemented method 'numeroDeVitoriasPorPais'");
+    List<Piloto> list = carregarPilotos();
+
+    // Agrupar por país e somar o número de vitórias
+    Map<String, Integer> vitoriasPorPais = calcularVitoriasPorPais(list);
+
+    // Construir a representação em string formatada
+    StringBuilder sb = new StringBuilder();
+    sb.append("<h1 style=\"text-align: center;\">Número de Vitórias por País</h1>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
+    sb.append(
+        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
+    sb.append("<br><br>");
+    sb.append(formatarVitoriasPorPais(vitoriasPorPais));
+
+    return sb.toString();
   }
 
   @Override
@@ -145,7 +168,24 @@ public class PilotoServiceImpl implements PilotoService {
     throw new UnsupportedOperationException("Unimplemented method 'mediaDeVitoriasPorPais'");
   }
 
-  public String botoes(){
+  private Map<String, Integer> calcularVitoriasPorPais(List<Piloto> pilotos) {
+    return pilotos.stream()
+        .collect(Collectors.groupingBy(Piloto::getPais, Collectors.summingInt(Piloto::getNumVitorias)));
+  }
+
+  private String formatarVitoriasPorPais(Map<String, Integer> vitoriasPorPais) {
+    StringBuilder sb = new StringBuilder();
+    for (Map.Entry<String, Integer> entry : vitoriasPorPais.entrySet()) {
+      sb.append(
+          "<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+      sb.append("<p><strong>País:</strong> ").append(entry.getKey()).append("</p>");
+      sb.append("<p><strong>Número de Vitórias:</strong> ").append(entry.getValue()).append("</p>");
+      sb.append("</div>");
+    }
+    return sb.toString();
+  }
+
+  public String botoes() {
     String titulo = "<h1 style=\"text-align: center;\">Detalhes dos Pilotos</h1>";
     String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
     String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
