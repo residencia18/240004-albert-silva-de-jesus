@@ -43,10 +43,24 @@ public class Piloto implements Serializable {
     this.numVitorias = numVitorias;
   }
 
+  // @Override
+  // public String toString() {
+  // StringBuilder sb = new StringBuilder();
+  // sb.append("<div style=\" padding: 10px; border: 1px solid #ccc;
+  // margin-bottom: 10px; background-color:#cecece;\">");
+  // sb.append("<p><strong>País:</strong> ").append(pais).append("</p>");
+  // sb.append("<p><strong>Nome:</strong> ").append(nome).append("</p>");
+  // sb.append("<p><strong>Número de Vitórias:</strong>
+  // ").append(numVitorias).append("</p>");
+  // sb.append("</div>");
+  // return sb.toString();
+  // }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("<div style=\" padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+    sb.append("<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+    sb.append("<h3>Detalhes do Piloto</h3>");
     sb.append("<p><strong>País:</strong> ").append(pais).append("</p>");
     sb.append("<p><strong>Nome:</strong> ").append(nome).append("</p>");
     sb.append("<p><strong>Número de Vitórias:</strong> ").append(numVitorias).append("</p>");
