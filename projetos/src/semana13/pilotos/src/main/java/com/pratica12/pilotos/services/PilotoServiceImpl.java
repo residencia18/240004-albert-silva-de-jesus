@@ -68,69 +68,63 @@ public class PilotoServiceImpl implements PilotoService {
   @Override
   public String findAll() {
 
-    String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
-    String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
-    String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
-    String botao4 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>";
-    String botao5 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>";
-    String botao6 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>";
-
     List<Piloto> list = carregarPilotos();
-    return botao1 + botao2 + botao3 + botao4 + botao5 + botao6 + list.toString();
+    for (int i = 0; i < list.size(); i++) {
+      list.get(i).setNumero(i + 1);
+    }
+
+    return botoes() + list.toString();
   }
 
   @Override
   public String vencedoresBrasileiros() {
 
-    String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
-    String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
-    String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
-    String botao4 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>";
-    String botao5 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>";
-    String botao6 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>";
-
     List<Piloto> list = carregarPilotos();
+    Integer count = 0;
+    for (Piloto piloto : list) {
+      if ("Brasil".equals(piloto.getPais())) {
+        piloto.setNumero(++count);
+      }
+    }
 
     String resultado = list.stream()
         .filter(piloto -> "Brasil".equals(piloto.getPais()))
-        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método toString()
-        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova linha
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método
+                               // toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
+                                            // linha
 
-    return botao1 + botao2 + botao3 + botao4 + botao5 + botao6 + resultado;
+    return botoes() + resultado;
   }
 
   @Override
   public String top5Vencedores() {
 
-    String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
-    String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
-    String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
-    String botao4 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>";
-    String botao5 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>";
-    String botao6 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>";
-
     List<Piloto> list = carregarPilotos();
+    Integer count = 0;
+    for (Piloto piloto : list) {
+      piloto.setNumero(++count);
+    }
 
     String resultado = list.stream()
         .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias())) // Ordenar em ordem decrescente
         .limit(5) // Limitar a 5 elementos
-        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método toString()
-        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova linha
+        .map(Piloto::toString) // Mapear cada piloto para sua representação em string usando o método
+                               // toString()
+        .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
+                                            // linha
 
-    return botao1 + botao2 + botao3 + botao4 + botao5 + botao6 + resultado;
+    return botoes() + resultado;
   }
 
   @Override
   public String top10Vencedores() {
 
-    String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
-    String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
-    String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
-    String botao4 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>";
-    String botao5 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>";
-    String botao6 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>";
-
     List<Piloto> list = carregarPilotos();
+    Integer count = 0;
+    for (Piloto piloto : list) {
+      piloto.setNumero(++count);
+    }
 
     String resultado = list.stream()
         .sorted((p1, p2) -> p2.getNumVitorias().compareTo(p1.getNumVitorias()))
@@ -138,7 +132,7 @@ public class PilotoServiceImpl implements PilotoService {
         .map(Piloto::toString)
         .collect(Collectors.joining("\n"));
 
-    return botao1 + botao2 + botao3 + botao4 + botao5 + botao6 + resultado;
+    return botoes() + resultado;
   }
 
   @Override
@@ -149,6 +143,19 @@ public class PilotoServiceImpl implements PilotoService {
   @Override
   public String mediaDeVitoriasPorPais() {
     throw new UnsupportedOperationException("Unimplemented method 'mediaDeVitoriasPorPais'");
+  }
+
+  public String botoes(){
+    String titulo = "<h1 style=\"text-align: center;\">Detalhes dos Pilotos</h1>";
+    String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
+    String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
+    String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
+    String botao4 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>";
+    String botao5 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>";
+    String botao6 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>";
+    String br = "<br><br>";
+
+    return titulo + botao1 + botao2 + botao3 + botao4 + botao5 + botao6 + br;
   }
 
 }

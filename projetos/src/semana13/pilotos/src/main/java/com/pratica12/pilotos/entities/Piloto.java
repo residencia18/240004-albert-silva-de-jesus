@@ -6,6 +6,7 @@ public class Piloto implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  private Integer numero = 0;
   private String pais;
   private String nome;
   private Integer numVitorias;
@@ -17,6 +18,15 @@ public class Piloto implements Serializable {
     this.pais = pais;
     this.nome = nome;
     this.numVitorias = numVitorias;
+  }
+
+  
+  public Integer getNumero() {
+    return numero;
+  }
+
+  public void setNumero(Integer numero) {
+    this.numero = numero;
   }
 
   public String getPais() {
@@ -59,8 +69,8 @@ public class Piloto implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("<div style=\"padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
-    sb.append("<h3>Detalhes do Piloto</h3>");
+    sb.append("<div style=\"padding: 2px; border: 1px solid #ccc; margin-bottom: 10px; background-color:#cecece;\">");
+    sb.append("<p><strong>Número:</strong> ").append(this.numero + "º").append("</p>");
     sb.append("<p><strong>País:</strong> ").append(pais).append("</p>");
     sb.append("<p><strong>Nome:</strong> ").append(nome).append("</p>");
     sb.append("<p><strong>Número de Vitórias:</strong> ").append(numVitorias).append("</p>");
