@@ -239,17 +239,26 @@ public class ClienteDaoImpl implements ClienteDao {
 
   public void update(Cliente cliente) {
 
-    String jpql = "SELECT c FROM Cliente c WHERE c.id = 1";
-    TypedQuery<Cliente> query = em.createQuery(jpql, Cliente.class);
-    cliente = query.getSingleResult();
+    // String jpql = "SELECT c FROM Cliente c WHERE c.id = 1";
+    // TypedQuery<Cliente> query = em.createQuery(jpql, Cliente.class);
+    // cliente = query.getSingleResult();
 
-    System.out.println(cliente.toString());
+    // System.out.println(cliente.toString());
 
-    em.getTransaction().begin();
-    cliente.setNome(cliente.getNome());
-    cliente.setCpf(cliente.getCpf());
-    em.persist(cliente);
-    em.getTransaction().commit();
+    // em.getTransaction().begin();
+    // cliente.setNome(cliente.getNome());
+    // cliente.setCpf(cliente.getCpf());
+    // em.persist(cliente);
+    // em.getTransaction().commit();
+
+     // Inicia a transação
+     em.getTransaction().begin();
+
+     // Atualiza o cliente no banco de dados
+     em.merge(cliente);
+ 
+     // Finaliza a transação
+     em.getTransaction().commit();
   }
 
   public void delete(Cliente cliente) {

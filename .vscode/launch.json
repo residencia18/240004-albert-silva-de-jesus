@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-PilotosApplication<pilotos>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.pratica12.pilotos.PilotosApplication",
+      "projectName": "pilotos",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
