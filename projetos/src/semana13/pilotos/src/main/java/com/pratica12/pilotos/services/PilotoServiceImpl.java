@@ -74,7 +74,7 @@ public class PilotoServiceImpl implements PilotoService {
       list.get(i).setNumero(i + 1);
     }
 
-    return botoes() + list.toString();
+    return botoes("Todos os Pilotos") + list.toString();
   }
 
   @Override
@@ -95,7 +95,7 @@ public class PilotoServiceImpl implements PilotoService {
         .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
                                             // linha
 
-    return botoes() + resultado;
+    return botoes("Vencedores Brazileiros") + resultado;
   }
 
   @Override
@@ -115,7 +115,7 @@ public class PilotoServiceImpl implements PilotoService {
         .collect(Collectors.joining("\n")); // Coleta as representações em string em uma única string separada por nova
                                             // linha
 
-    return botoes() + resultado;
+    return botoes("Top 5 Vencedores") + resultado;
   }
 
   @Override
@@ -132,7 +132,7 @@ public class PilotoServiceImpl implements PilotoService {
         .map(Piloto::toString)
         .collect(Collectors.joining("\n"));
 
-    return botoes() + resultado;
+    return botoes("Top 10 Vencedores") + resultado;
   }
 
   @Override
@@ -145,23 +145,10 @@ public class PilotoServiceImpl implements PilotoService {
 
     // Construir a representação em string formatada
     StringBuilder sb = new StringBuilder();
-    sb.append("<h1 style=\"text-align: center;\">Número de Vitórias por País</h1>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
-    sb.append("<br><br>");
+ 
     sb.append(formatarVitoriasPorPais(vitoriasPorPais));
 
-    return sb.toString();
+    return botoes("Número de Vitórias por País") + sb.toString();
   }
 
   @Override
@@ -174,23 +161,10 @@ public class PilotoServiceImpl implements PilotoService {
 
     // Construir a representação em string formatada
     StringBuilder sb = new StringBuilder();
-    sb.append("<h1 style=\"text-align: center;\">Média de Vitórias por País</h1>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top10'\">Top 10</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vitoriasPorPais'\">Vitórias por País</button>");
-    sb.append(
-        "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/mediaVitoriasPorPais'\">Média de Vitórias por País</button>");
-    sb.append("<br><br>");
+    
     sb.append(formatarMediaVitoriasPorPais(mediaVitoriasPorPais));
 
-    return sb.toString();
+    return botoes("Média de Vitórias por País") + sb.toString();
   }
 
   private Map<String, Integer> calcularVitoriasPorPais(List<Piloto> pilotos) {
@@ -235,8 +209,8 @@ public class PilotoServiceImpl implements PilotoService {
     return sb.toString();
   }
 
-  public String botoes() {
-    String titulo = "<h1 style=\"text-align: center;\">Detalhes dos Pilotos</h1>";
+  public String botoes(String tituloDaPagina) {
+    String titulo = "<h1 style=\"text-align: center;\">"+ tituloDaPagina +"</h1>";
     String botao1 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/todos'\">Listar Todos</button>";
     String botao2 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/vencedoresBrasileiros'\">Vencedores Brasileiros</button>";
     String botao3 = "<button style=\"background-color: blue; color: white; padding: 5px 10px; border: none; cursor: pointer; margin-right: 5px; border-radius: 20px;\" onclick=\"window.location.href='/pilotos/top5'\">Top 5</button>";
