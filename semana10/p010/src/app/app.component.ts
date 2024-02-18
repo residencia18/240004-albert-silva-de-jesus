@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { JreaderService } from './services/jreader.service';
 
 @Component({
   selector: 'app-root',
@@ -8,39 +9,21 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  
   title = 'p007';
-  resultados: any;
-  categoriaSelecionada: any;
-  veiculoSelecionado: any;
-  propriedadeSelecionada: string = '';
-  listaVeiculos: any[] = [];
 
-  constructor(public http: HttpClient) {
-    console.log('constructor');
-  }
+  salvarVeiculo: any;
+
+  constructor(private jreaderServico: JreaderService) { }
 
   ngOnInit() {
-    this.http.get('../assets/veiculos.json')
-      .subscribe((data: any) => {
-        this.resultados = data;
-        console.log('this.resultados', this.resultados);
-      });
+    this.jreaderServico.getVeiculo().subscribe(
+      data => {
+        this.salvarVeiculo = data;
+      }
+    );
   }
-
-  setCategoriaSelecionada(categoria: any) {
-    this.categoriaSelecionada = categoria;
-  }
-
-  setVeiculoSelecionado(veiculo: any) {
-    this.veiculoSelecionado = veiculo;
-  }
-
-  setValorPropriedade(propriedade: string) {
-    this.propriedadeSelecionada = propriedade;
-  }
-
-  setVeiculosLista(veiculo: any) {
-    veiculo && !this.listaVeiculos.includes(veiculo) && this.listaVeiculos.push(veiculo);
-    console.log('this.listaVeiculos', this.listaVeiculos);
+  setVeiculosLista() {
+    this.jreaderServico.setListVeiculos(this.salvarVeiculo.Name);
   }
 }
