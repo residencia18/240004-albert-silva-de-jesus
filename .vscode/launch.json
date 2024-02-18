@@ -9,6 +9,12 @@
     },
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App"
+    },
+    {
+      "type": "java",
       "name": "Spring Boot-PilotosApplication<pilotos>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
