@@ -1,5 +1,5 @@
 {
-  "java.project.sourcePaths": ["src", "projetos/src/semana13"],
+  "java.project.sourcePaths": ["src", "projetos/src/semana13", "projetos/src/semana14"],
   "java.project.outputPath": "bin",
   "java.project.referencedLibraries": ["lib/**/*.jar"]
 }
