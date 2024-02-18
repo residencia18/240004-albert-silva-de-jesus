@@ -1,7 +1,7 @@
-<div *ngIf="categoria != null">
-  <h1 class="conponent_title">{{categoria.titulo}}</h1>
+<div *ngIf="listaVeiculos != null">
+  <h1 class="conponent_title">{{listaVeiculos.cat}}</h1>
   <ul class="itens_list">
-    <li *ngFor="let veiculo of categoria.veiculos">
+    <li *ngFor="let veiculo of listaVeiculos.veiculos">
       <button appVeiculo class="itens_list__item" (click)="selecionarVeiculo(veiculo)">{{veiculo.Name}}</button>
     </li>
   </ul>

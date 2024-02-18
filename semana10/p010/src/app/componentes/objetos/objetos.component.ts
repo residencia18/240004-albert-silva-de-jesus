@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-objetos',
@@ -6,10 +7,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './objetos.component.css'
 })
 export class ObjetosComponent {
-  @Input() categoria: any;
-  @Output() veiculoSelecionado = new EventEmitter<any>();
+
+  listaVeiculos: any;
+  constructor(private jreaderServico: JreaderService) { }
+
+  ngOnInit() {
+    this.jreaderServico.getCategoria().subscribe(
+      categoria => {
+        this.listaVeiculos = categoria
+      }
+    )
+  }
 
   selecionarVeiculo(veiculo: any): void {
-    this.veiculoSelecionado.emit(veiculo);
+    this.jreaderServico.setVeiculo(veiculo);
   }
 }

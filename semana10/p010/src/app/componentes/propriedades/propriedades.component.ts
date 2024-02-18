@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-propriedades',
@@ -7,14 +8,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PropriedadesComponent {
 
-  @Input() veiculo: any;
-  @Output() propriedadeSelecionada = new EventEmitter<any>();
+  listaPropriedades: string[] = [];
+  veiculo: any; 
 
-  pegarChaves(): string[] {
-    return this.veiculo ? Object.keys(this.veiculo) : [];
+  constructor(private jreaderSevice: JreaderService) { }
+
+  ngOnInit() {
+    this.jreaderSevice.getVeiculo().subscribe(
+      data => {
+        this.listaPropriedades = Object.keys(data);
+        this.veiculo = data;
+      }
+    );
   }
 
   selecionarPropriedade(propriedade: string): void {
-    this.propriedadeSelecionada.emit(propriedade);
+    this.jreaderSevice.setPropriedade(this.veiculo[propriedade]);
   }
 }

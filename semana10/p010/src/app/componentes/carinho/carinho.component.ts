@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './carinho.component.css'
 })
 export class CarinhoComponent {
-  @Input() carinho: any[] = [];
+  
 }

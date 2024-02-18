@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-classes',
@@ -6,14 +7,23 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './classes.component.css'
 })
 export class ClassesComponent {
-  @Input() categorias: any;
-  @Output() categoriaSelecionada = new EventEmitter<{titulo : string, veiculos : []}>();
 
-  pegarChaves(): string[] {
-    return this.categorias ? Object.keys(this.categorias) : [];
+  listaCategorias: string[] = [];
+  constructor(private jreaderServico: JreaderService) { }
+
+  ngOnInit() {
+    this.jreaderServico.getJsonVeiculos().subscribe(
+      data => {
+        this.listaCategorias = Object.keys(data);
+      }
+    );
   }
 
   selecionarCategoria(categoria: string): void {
-    this.categoriaSelecionada.emit({titulo: categoria, veiculos: this.categorias[categoria]}); 
+    this.jreaderServico.getJsonVeiculos().subscribe(
+      data => {
+        this.jreaderServico.setCategoria({cat:categoria, veiculos:data[categoria]});
+      }
+    )
   }
 }

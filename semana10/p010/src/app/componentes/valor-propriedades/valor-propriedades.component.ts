@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-valor-propriedades',
@@ -7,5 +8,15 @@ import { Component, Input } from '@angular/core';
 })
 export class ValorPropriedadesComponent {
 
-  @Input() propriedade: string = '';
+  propriedade: string = '';
+
+  constructor(private jreaderSevice: JreaderService) { }
+
+  ngOnInit() {
+    this.jreaderSevice.getPropriedade().subscribe(
+      data => {
+        this.propriedade = data;
+      }
+    );
+  }
 }
