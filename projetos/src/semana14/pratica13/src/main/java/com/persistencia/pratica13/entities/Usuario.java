@@ -5,13 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
-public class Usuario extends AbstractEntity{
-  
+@Getter
+@Setter
+@ToString
+@Entity
+public class Usuario extends AbstractEntity {
+
   private String nome;
   private String email;
   private String senha;
