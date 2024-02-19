@@ -1,11 +1,13 @@
 package com.persistencia.pratica13.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.repositories.UsuarioRepository;
 
@@ -18,7 +20,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public void salvar(Usuario usuario) {
-
+    usuario = new Usuario("João", "joão@gmail.com", "12345678");
+    usuarioRepository.save(usuario);
   }
 
   @Override
@@ -41,8 +44,19 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Override
   @Transactional(readOnly = true)
   public String buscarTodos() {
+    return usuarioRepository.findAll().toString();
+  }
+
+  @Override
+  public List<UsuarioDTO> listarUsuarios() {
+
     List<Usuario> usuarios = usuarioRepository.findAll();
-    return usuarios.toString();
+    List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+    for (Usuario usuario : usuarios) {
+      usuariosDTO.add(new UsuarioDTO(usuario));
+    }
+    return usuariosDTO;
+
   }
 
 }

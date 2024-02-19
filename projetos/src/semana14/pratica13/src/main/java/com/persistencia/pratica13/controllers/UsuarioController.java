@@ -1,10 +1,13 @@
 package com.persistencia.pratica13.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.services.UsuarioService;
 
@@ -15,13 +18,19 @@ public class UsuarioController {
   @Autowired
   private UsuarioService usuarioService;
   
-  public String cadastrar(Usuario usuario){
-    return null;
+  @GetMapping("/cadastrar")
+  public void cadastrar(Usuario usuario){
+    usuarioService.salvar(usuario);
   }
 
   @GetMapping("/listar")
   public String listar(){
     return usuarioService.buscarTodos();
+  }
+
+  @GetMapping("/listarusuarios")
+  public List<UsuarioDTO> listarUsuarios(){
+    return usuarioService.listarUsuarios();
   }
 
   public String salvar(Usuario usuario){

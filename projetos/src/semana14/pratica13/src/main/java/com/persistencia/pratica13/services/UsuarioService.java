@@ -1,5 +1,8 @@
 package com.persistencia.pratica13.services;
 
+import java.util.List;
+
+import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
 
 public interface UsuarioService {
@@ -13,5 +16,7 @@ public interface UsuarioService {
   Usuario buscarPorId(Long id);
 
   String buscarTodos();
+
+  List<UsuarioDTO> listarUsuarios();
 
 }
