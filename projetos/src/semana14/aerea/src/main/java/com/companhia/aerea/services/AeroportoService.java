@@ -6,5 +6,5 @@ import com.companhia.aerea.entities.Aeroporto;
 
 public interface AeroportoService {
 
-    public List<Aeroporto> buscarTodos();
+    public List<Aeroporto> buscarTodos(String nome, String icao);
 }
