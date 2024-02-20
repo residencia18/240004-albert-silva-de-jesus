@@ -72,4 +72,23 @@ public class UsuarioServiceImpl implements UsuarioService {
     return usuario;
   }
 
+  @Override
+  public List<UsuarioDTO> buscarPorNome(String nome) {
+
+    List<Usuario> usuarios;
+    if (nome == null) {
+      usuarios = buscarTodos();
+    } else {
+      usuarios = usuarioRepository.findByNome(nome);
+    }
+    List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+
+    for (Usuario usuario : usuarios) {
+      usuariosDTO.add(new UsuarioDTO(usuario));
+    }
+
+    return usuariosDTO;
+  
+  }
+
 }

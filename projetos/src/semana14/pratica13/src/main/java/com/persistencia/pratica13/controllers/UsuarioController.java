@@ -1,5 +1,6 @@
 package com.persistencia.pratica13.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,14 @@ public class UsuarioController {
     return usuarioService.buscarTodos();
   }
 
-  @GetMapping("/listarusuarios")
-  public List<UsuarioDTO> listarUsuarios() {
-    return usuarioService.listarUsuarios();
+  // @GetMapping("/listarusuarios")
+  // public List<UsuarioDTO> listarUsuarios() {
+  // return usuarioService.listarUsuarios();
+  // }
+
+  @GetMapping("/listarusuarios/")
+  public List<UsuarioDTO> listarUsuarios(String nome) {
+   return usuarioService.buscarPorNome(nome);
   }
 
   @GetMapping("/editar/{id}")

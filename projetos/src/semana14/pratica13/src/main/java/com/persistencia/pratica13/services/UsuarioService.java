@@ -17,6 +17,8 @@ public interface UsuarioService {
 
   List<Usuario> buscarTodos();
 
+  List<UsuarioDTO> buscarPorNome(String nome);
+
   List<UsuarioDTO> listarUsuarios();
 
   Usuario toUsuario();
