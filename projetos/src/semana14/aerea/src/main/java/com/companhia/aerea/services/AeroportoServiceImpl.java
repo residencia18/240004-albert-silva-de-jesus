@@ -21,13 +21,20 @@ public class AeroportoServiceImpl implements AeroportoService {
     public List<Aeroporto> buscarTodos(String nome, String icao) {
 
         List<Aeroporto> aeroportos;
-        if(nome == null && icao == null || nome.isEmpty() && icao.isEmpty()){
-            aeroportos = aeroportoRepository.findAll();
-        } else if(icao != null && !icao.isEmpty()) {
-            aeroportos = aeroportoRepository.findByIcao(icao);
-        } else {
+        
+        if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
+
+        } else if (nome != null && !nome.isEmpty()) {
             aeroportos = aeroportoRepository.findByNome(nome);
+
+        } else if (icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByIcao(icao);
+
+        } else {
+            aeroportos = aeroportoRepository.findAll();
         }
+
         return aeroportos;
     }
 }

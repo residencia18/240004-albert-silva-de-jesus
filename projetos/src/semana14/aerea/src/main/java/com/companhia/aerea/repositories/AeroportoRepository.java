@@ -13,4 +13,6 @@ public interface AeroportoRepository extends JpaRepository<Aeroporto, Long>{
   List<Aeroporto> findByIcao(String icao);
 
   List<Aeroporto> findByNome(String nome);
+
+  List<Aeroporto> findByNomeAndIcao(String nome, String icao);
 }
