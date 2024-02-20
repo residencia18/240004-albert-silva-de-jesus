@@ -15,4 +15,5 @@ public class Piloto extends AbstractEntity {
 
   private String nome;
   private String numBreve;
+  private Integer registro;
 }
