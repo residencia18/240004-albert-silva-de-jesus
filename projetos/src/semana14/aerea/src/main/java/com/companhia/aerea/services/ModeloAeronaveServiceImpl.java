@@ -18,16 +18,21 @@ public class ModeloAeronaveServiceImpl implements ModeloAeronaveService {
 
   @Override
   public List<ModeloAeronave> buscarTodos(String nome, String fabricante) {
-    List<ModeloAeronave> modelos = null;
-    if (nome != null && !nome.isEmpty()) {
+    List<ModeloAeronave> modelos;
+
+    if (nome != null && !nome.isEmpty() && fabricante != null && !fabricante.isEmpty()) {
+      modelos = modeloAeronaveRepository.findByNomeAndFabricante(nome, fabricante);
+
+    } else if (nome != null && !nome.isEmpty()) {
       modelos = modeloAeronaveRepository.findByNome(nome);
 
     } else if (fabricante != null && !fabricante.isEmpty()) {
       modelos = modeloAeronaveRepository.findByFabricante(fabricante);
-      
+
     } else {
       modelos = modeloAeronaveRepository.findAll();
     }
+
     return modelos;
   }
 

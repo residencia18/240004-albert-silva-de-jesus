@@ -11,4 +11,6 @@ public interface ModeloAeronaveRepository extends JpaRepository<ModeloAeronave, 
   List<ModeloAeronave> findByNome(String nome);
 
   List<ModeloAeronave> findByFabricante(String fabricante);
+
+  List<ModeloAeronave> findByNomeAndFabricante(String nome, String fabricante);
 }
