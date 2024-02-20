@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "AereaApplication",
+      "request": "launch",
+      "mainClass": "com.companhia.aerea.AereaApplication",
+      "projectName": "aerea"
+    },
+    {
+      "type": "java",
       "name": "Pratica13Application",
       "request": "launch",
       "mainClass": "com.persistencia.pratica13.Pratica13Application",
