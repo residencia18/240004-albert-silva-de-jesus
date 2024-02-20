@@ -37,6 +37,7 @@ public class UsuarioDTOServiceImpl implements UsuarioDTOService {
     List<Usuario> usuarios;
     if (nome == null) {
       usuarios = usuarioRepository.findAll();
+
     } else {
       usuarios = usuarioRepository.findByNome(nome);
     }

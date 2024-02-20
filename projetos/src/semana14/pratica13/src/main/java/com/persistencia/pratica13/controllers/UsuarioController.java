@@ -23,15 +23,15 @@ public class UsuarioController {
   @Autowired
   private UsuarioDTOService usuarioDTOService;
 
-  @GetMapping("/cadastrar")
-  public void cadastrar(Usuario usuario) {
-    usuarioService.salvarUsuario(usuario);
-  }
+  // @GetMapping("/cadastrar")
+  // public void cadastrar(Usuario usuario) {
+  //   usuarioService.salvarUsuario(usuario);
+  // }
 
-  @GetMapping("/listar")
-  public List<Usuario> listar() {
-    return usuarioService.buscarTodos();
-  }
+  // @GetMapping("/listar")
+  // public List<Usuario> listar() {
+  //   return usuarioService.buscarTodos();
+  // }
 
   // @GetMapping("/listarusuarios")
   // public List<UsuarioDTO> listarUsuarios() {
@@ -43,17 +43,17 @@ public class UsuarioController {
    return usuarioDTOService.buscarPorNome(nome);
   }
 
-  @GetMapping("/editar/{id}")
-  public Usuario editar(@PathVariable("id") Long id) {
-    usuarioService.editar(id);
-    return usuarioService.buscarPorId(id);
-  }
+  // @GetMapping("/editar/{id}")
+  // public Usuario editar(@PathVariable("id") Long id) {
+  //   usuarioService.editar(id);
+  //   return usuarioService.buscarPorId(id);
+  // }
 
-  @GetMapping("/excluir/{id}")
-  public String excluir(@PathVariable("id") Long id) {
-    usuarioService.excluir(id);
-    return "Usuário excluído com sucesso!";
-  }
+  // @GetMapping("/excluir/{id}")
+  // public String excluir(@PathVariable("id") Long id) {
+  //   usuarioService.excluir(id);
+  //   return "Usuário excluído com sucesso!";
+  // }
 
   @GetMapping("/buscar/{id}")
   public Usuario buscarPorId(@PathVariable("id") Long id) {
