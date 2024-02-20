@@ -25,8 +25,11 @@ public class UsuarioServiceImpl implements UsuarioService {
   }
 
   @Override
-  public void editar(Usuario usuario) {
-
+  public void editar(Long id) {
+    Usuario usuario = buscarPorId(id);
+    usuario.setNome("Paulo Henrique da Silva");
+    usuario.setEmail("paulo@gmail.com");
+    usuarioRepository.save(usuario);
   }
 
   @Override
@@ -37,14 +40,14 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Override
   @Transactional(readOnly = true)
   public Usuario buscarPorId(Long id) {
-
-    throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    return usuarioRepository.findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
   }
 
   @Override
   @Transactional(readOnly = true)
-  public String buscarTodos() {
-    return usuarioRepository.findAll().toString();
+  public List<Usuario> buscarTodos() {
+    return usuarioRepository.findAll();
   }
 
   @Override
@@ -52,6 +55,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     List<Usuario> usuarios = usuarioRepository.findAll();
     List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+
     for (Usuario usuario : usuarios) {
       usuariosDTO.add(new UsuarioDTO(usuario));
     }

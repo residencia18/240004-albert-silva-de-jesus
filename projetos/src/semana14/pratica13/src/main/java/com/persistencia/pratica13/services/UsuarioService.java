@@ -9,13 +9,13 @@ public interface UsuarioService {
 
   void salvar(Usuario usuario);
 
-  void editar(Usuario usuario);
+  void editar(Long id);
 
   void excluir(Long id);
 
   Usuario buscarPorId(Long id);
 
-  String buscarTodos();
+  List<Usuario> buscarTodos();
 
   List<UsuarioDTO> listarUsuarios();
 

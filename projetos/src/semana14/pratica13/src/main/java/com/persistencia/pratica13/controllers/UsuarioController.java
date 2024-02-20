@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,35 +18,33 @@ public class UsuarioController {
 
   @Autowired
   private UsuarioService usuarioService;
-  
+
   @GetMapping("/cadastrar")
-  public void cadastrar(Usuario usuario){
+  public void cadastrar(Usuario usuario) {
     usuarioService.salvar(usuario);
   }
 
   @GetMapping("/listar")
-  public String listar(){
+  public List<Usuario> listar() {
     return usuarioService.buscarTodos();
   }
 
   @GetMapping("/listarusuarios")
-  public List<UsuarioDTO> listarUsuarios(){
+  public List<UsuarioDTO> listarUsuarios() {
     return usuarioService.listarUsuarios();
   }
 
-  public String salvar(Usuario usuario){
+  @GetMapping("/editar/{id}")
+  public List<UsuarioDTO> editar(@PathVariable("id") Long id) {
+    usuarioService.editar(id);
+    return listarUsuarios();
+  }
+
+  public String excluir(Long id) {
     return null;
   }
 
-  public String editar(Usuario usuario){
-    return null;
-  }
-
-  public String excluir(Long id){
-    return null;
-  }
-
-  public String buscarPorId(Long id){
+  public String buscarPorId(Long id) {
     return null;
   }
 }
