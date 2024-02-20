@@ -7,7 +7,7 @@ import com.persistencia.pratica13.entities.Usuario;
 
 public interface UsuarioService {
 
-  void salvar(Usuario usuario);
+  void salvarUsuario(Usuario usuario);
 
   void editar(Long id);
 
@@ -18,5 +18,7 @@ public interface UsuarioService {
   List<Usuario> buscarTodos();
 
   List<UsuarioDTO> listarUsuarios();
+
+  Usuario toUsuario();
 
 }

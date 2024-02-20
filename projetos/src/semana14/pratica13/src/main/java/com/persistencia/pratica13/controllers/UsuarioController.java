@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +23,7 @@ public class UsuarioController {
 
   @GetMapping("/cadastrar")
   public void cadastrar(Usuario usuario) {
-    usuarioService.salvar(usuario);
+    usuarioService.salvarUsuario(usuario);
   }
 
   @GetMapping("/listar")
@@ -35,16 +37,19 @@ public class UsuarioController {
   }
 
   @GetMapping("/editar/{id}")
-  public List<UsuarioDTO> editar(@PathVariable("id") Long id) {
+  public Usuario editar(@PathVariable("id") Long id) {
     usuarioService.editar(id);
-    return listarUsuarios();
+    return usuarioService.buscarPorId(id);
   }
 
-  public String excluir(Long id) {
-    return null;
+  @GetMapping("/excluir/{id}")
+  public String excluir(@PathVariable("id") Long id) {
+    usuarioService.excluir(id);
+    return "Usuário excluído com sucesso!";
   }
 
-  public String buscarPorId(Long id) {
-    return null;
+  @GetMapping("/buscar/{id}")
+  public Usuario buscarPorId(@PathVariable("id") Long id) {
+    return usuarioService.buscarPorId(id);
   }
 }

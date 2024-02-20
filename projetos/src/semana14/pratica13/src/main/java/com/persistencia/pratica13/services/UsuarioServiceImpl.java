@@ -18,10 +18,10 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Autowired
   private UsuarioRepository usuarioRepository;
 
+  @SuppressWarnings("null")
   @Override
-  public void salvar(Usuario usuario) {
-    usuario = new Usuario("João", "joão@gmail.com", "12345678");
-    usuarioRepository.save(usuario);
+  public void salvarUsuario(Usuario usuario) {
+    usuarioRepository.save(toUsuario());
   }
 
   @Override
@@ -34,7 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @Override
   public void excluir(Long id) {
-
+    usuarioRepository.deleteById(id);
   }
 
   @Override
@@ -61,6 +61,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
     return usuariosDTO;
 
+  }
+
+  @Override
+  public Usuario toUsuario() {
+    Usuario usuario = new Usuario();
+    usuario.setNome("Paulo Henrique da Silva");
+    usuario.setEmail("paulo@gmail.com");
+    usuario.setSenha("12345678");
+    return usuario;
   }
 
 }
