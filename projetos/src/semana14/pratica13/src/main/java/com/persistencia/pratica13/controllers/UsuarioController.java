@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
+import com.persistencia.pratica13.services.UsuarioDTOService;
 import com.persistencia.pratica13.services.UsuarioService;
 
 @RestController
@@ -18,6 +19,9 @@ public class UsuarioController {
 
   @Autowired
   private UsuarioService usuarioService;
+
+  @Autowired
+  private UsuarioDTOService usuarioDTOService;
 
   @GetMapping("/cadastrar")
   public void cadastrar(Usuario usuario) {
@@ -36,7 +40,7 @@ public class UsuarioController {
 
   @GetMapping("/listarusuarios/")
   public List<UsuarioDTO> listarUsuarios(String nome) {
-   return usuarioService.buscarPorNome(nome);
+   return usuarioDTOService.buscarPorNome(nome);
   }
 
   @GetMapping("/editar/{id}")
