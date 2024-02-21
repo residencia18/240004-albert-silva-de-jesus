@@ -18,8 +18,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   @SuppressWarnings("null")
   @Override
-  public void salvarUsuario(Usuario usuario) {
-    usuarioRepository.save(toUsuario());
+  @Transactional
+  public Usuario salvar(Usuario usuario) {
+    return usuarioRepository.save(usuario);
   }
 
   @Override

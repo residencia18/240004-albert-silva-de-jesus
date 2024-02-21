@@ -6,7 +6,7 @@ import com.persistencia.pratica13.entities.Usuario;
 
 public interface UsuarioService {
 
-  void salvarUsuario(Usuario usuario);
+  Usuario salvar(Usuario usuario);
 
   void editar(Long id);
 
