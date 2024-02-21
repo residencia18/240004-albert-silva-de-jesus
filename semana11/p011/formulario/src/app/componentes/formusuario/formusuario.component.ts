@@ -18,7 +18,7 @@ export class FormusuarioComponent {
       'nome': new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern(/^\S{1,12}$/)]),
       'nomeCompleto': new FormControl(null, [Validators.required, Validators.maxLength(50), this.validarNomeCompleto.bind(this)]),
       'email': new FormControl(null, [Validators.required, Validators.email, Validators.minLength(10)]),
-      'senha': new FormControl(null, [Validators.required, Validators.minLength(6), Validators.pattern(/^(?=.[A-Z])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{4,}$/)]),
+      'senha': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,}$/)]),
       'telefone': new FormControl(null, [Validators.required, Validators.pattern(/^\(\d{2}\)\d{5}-\d{4}$/)]),
       'endereco': new FormControl(null, [Validators.required, this.validarNomeCompleto.bind(this)]),
       'dataAniversario': new FormControl(null, [Validators.required, this.validarData.bind(this)]),
@@ -58,5 +58,20 @@ export class FormusuarioComponent {
     }
 
     return null;
+  }
+
+  enviaFormulario() {
+    const usuarioJson={
+      nome: this.usuarioFormulario.get('nome')?.value,
+      nomeCompleto: this.usuarioFormulario.get('nomeCompleto')?.value,
+      email: this.usuarioFormulario.get('email')?.value,
+      senha: this.usuarioFormulario.get('senha')?.value,
+      telefone: this.usuarioFormulario.get('telefone')?.value,
+      endereco: this.usuarioFormulario.get('endereco')?.value,
+      dataAniversario: this.usuarioFormulario.get('dataAniversario')?.value,
+      sexo: this.usuarioFormulario.get('sexo')?.value,
+      profissao: this.usuarioFormulario.get('profissao')?.value
+    }
+    console.log("dados do usuario",usuarioJson)
   }
 }
