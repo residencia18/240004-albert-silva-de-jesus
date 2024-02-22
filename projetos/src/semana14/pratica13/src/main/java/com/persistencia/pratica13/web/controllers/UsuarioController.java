@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.persistencia.pratica13.entities.Usuario;
-import com.persistencia.pratica13.services.UsuarioDTOService;
 import com.persistencia.pratica13.services.UsuarioService;
 import com.persistencia.pratica13.web.dto.UsuarioDto;
 import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
@@ -28,9 +27,6 @@ public class UsuarioController {
   @Autowired
   private UsuarioService usuarioService;
 
-  @Autowired
-  private UsuarioDTOService usuarioDTOService;
-
   @PostMapping("/cadastrar")
   public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
     Usuario user = usuarioService.salvar(usuario);
@@ -39,7 +35,7 @@ public class UsuarioController {
 
   @GetMapping("/listarusuarios/")
   public List<UsuarioDto> listarUsuarios(String nome) {
-    return usuarioDTOService.buscarPorNome(nome);
+    return usuarioService.buscarPorNome(nome);
   }
 
   // @GetMapping("/editar/{id}")

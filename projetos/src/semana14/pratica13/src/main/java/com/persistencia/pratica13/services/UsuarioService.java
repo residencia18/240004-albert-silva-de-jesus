@@ -3,6 +3,7 @@ package com.persistencia.pratica13.services;
 import java.util.List;
 
 import com.persistencia.pratica13.entities.Usuario;
+import com.persistencia.pratica13.web.dto.UsuarioDto;
 
 public interface UsuarioService {
 
@@ -18,6 +19,8 @@ public interface UsuarioService {
 
   List<Usuario> buscarTodos();
 
-  Usuario toUsuario();
+  List<UsuarioDto> buscarPorNome(String nome);
+
+  List<UsuarioDto> listarUsuarios();
 
 }
