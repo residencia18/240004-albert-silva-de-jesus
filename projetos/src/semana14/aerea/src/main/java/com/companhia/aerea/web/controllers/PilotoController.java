@@ -1,4 +1,4 @@
-package com.companhia.aerea.controllers;
+package com.companhia.aerea.web.controllers;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.companhia.aerea.dto.PilotoDto;
 import com.companhia.aerea.services.PilotoService;
+import com.companhia.aerea.web.dto.PilotoDto;
 
 @RestController
 @RequestMapping("/pilotos")

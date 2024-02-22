@@ -1,4 +1,4 @@
-package com.companhia.aerea.controllers;
+package com.companhia.aerea.web.controllers;
 
 import java.util.List;
 

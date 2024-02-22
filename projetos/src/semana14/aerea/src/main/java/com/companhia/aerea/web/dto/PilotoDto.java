@@ -1,4 +1,4 @@
-package com.companhia.aerea.dto;
+package com.companhia.aerea.web.dto;
 
 import com.companhia.aerea.entities.AbstractEntity;
 import com.companhia.aerea.entities.Piloto;
