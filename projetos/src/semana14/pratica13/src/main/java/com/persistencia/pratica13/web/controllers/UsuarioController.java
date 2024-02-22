@@ -1,5 +1,6 @@
 package com.persistencia.pratica13.web.controllers;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.services.UsuarioService;
@@ -19,6 +21,7 @@ import com.persistencia.pratica13.web.dto.UsuarioDto;
 import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
 import com.persistencia.pratica13.web.dto.UsuarioSenhaDto;
 import com.persistencia.pratica13.web.dto.mapper.UsuarioMapper;
+import com.persistencia.pratica13.web.form.UsuarioForm;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -33,12 +36,24 @@ public class UsuarioController {
     return ResponseEntity.status(HttpStatus.CREATED).body(user);
   }
 
+  // Forma de cadastrar usuário com DTO diferente do primeiro método de
+  // cadastro(create) acima.
+  @PostMapping("/cadastrarusuario")
+  public ResponseEntity<UsuarioDto> insert(@RequestBody UsuarioForm usuarioForm, UriComponentsBuilder uriBuilder) {
+    Usuario usuario = usuarioForm.toUsuario();
+    usuario = usuarioService.salvar(usuario);
+    UsuarioDto usuarioDto = new UsuarioDto(usuario);
+    uriBuilder.path("/usuario/{id}");
+    URI uri = uriBuilder.buildAndExpand(usuario.getId()).toUri();
+    return ResponseEntity.created(uri).body(usuarioDto);
+  }
+
   @GetMapping("/listarusuarios/")
   public List<UsuarioDto> listarUsuarios(String nome) {
     return usuarioService.buscarPorNome(nome);
   }
 
-  // @GetMapping("/editar/{id}")
+  // @PatchMapping("/editar/{id}")
   // public Usuario editar(@PathVariable("id") Long id) {
   // usuarioService.editar(id);
   // return usuarioService.buscarPorId(id);
