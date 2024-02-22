@@ -17,7 +17,9 @@ import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.services.UsuarioDTOService;
 import com.persistencia.pratica13.services.UsuarioService;
 import com.persistencia.pratica13.web.dto.UsuarioDto;
+import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
 import com.persistencia.pratica13.web.dto.UsuarioSenhaDto;
+import com.persistencia.pratica13.web.dto.mapper.UsuarioMapper;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -57,6 +59,12 @@ public class UsuarioController {
   // usuarioService.excluir(id);
   // return "Usuário excluído com sucesso!";
   // }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id) {
+    Usuario user = usuarioService.buscarPorId(id);
+    return ResponseEntity.ok(UsuarioMapper.toDto(user));
+  }
 
   @GetMapping("/buscar/{id}")
   public Usuario buscarPorId(@PathVariable("id") Long id) {
