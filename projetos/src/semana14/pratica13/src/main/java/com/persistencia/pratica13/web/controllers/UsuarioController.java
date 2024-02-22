@@ -38,12 +38,24 @@ public class UsuarioController {
 
   // Forma de cadastrar usuário com DTO diferente do primeiro método de
   // cadastro(create) acima.
-  @PostMapping("/cadastrarusuario")
+  /*
+   * @PostMapping("/cadastrar")
+   * public ResponseEntity<UsuarioResponseDto> create(@RequestBody
+   * UsuarioCreateDto createDto) {
+   * Usuario user = usuarioService.salvar(UsuarioMapper.toUsuario(createDto));
+   * return
+   * ResponseEntity.status(HttpStatus.CREATED).body(UsuarioMapper.toDto(user));
+   * }
+   */
+
+  // Forma de cadastrar usuário com DTO diferente do primeiro método de
+  // cadastro(create) acima.
+  @PostMapping("/cadastrarusuario/")
   public ResponseEntity<UsuarioDto> insert(@RequestBody UsuarioForm usuarioForm, UriComponentsBuilder uriBuilder) {
     Usuario usuario = usuarioForm.toUsuario();
     usuario = usuarioService.salvar(usuario);
     UsuarioDto usuarioDto = new UsuarioDto(usuario);
-    uriBuilder.path("/usuario/{id}");
+    uriBuilder.path("/usuarios/cadastrarusuario/{id}");
     URI uri = uriBuilder.buildAndExpand(usuario.getId()).toUri();
     return ResponseEntity.created(uri).body(usuarioDto);
   }
@@ -51,6 +63,12 @@ public class UsuarioController {
   @GetMapping("/listarusuarios/")
   public List<UsuarioDto> listarUsuarios(String nome) {
     return usuarioService.buscarPorNome(nome);
+  }
+
+  @GetMapping("/role")
+  public ResponseEntity<List<UsuarioResponseDto>> getAll() {
+    // List<Usuario> users = usuarioService.buscarTodos();
+    return ResponseEntity.ok(UsuarioMapper.toListDto(usuarioService.buscarTodos()));
   }
 
   // @PatchMapping("/editar/{id}")
