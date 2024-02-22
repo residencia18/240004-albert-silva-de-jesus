@@ -8,6 +8,8 @@ public interface UsuarioService {
 
   Usuario salvar(Usuario usuario);
 
+  public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha);
+
   void editar(Long id);
 
   void excluir(Long id);

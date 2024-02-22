@@ -24,16 +24,9 @@ public class UsuarioServiceImpl implements UsuarioService {
   }
 
   @Override
-  public void editar(Long id) {
-    Usuario usuario = buscarPorId(id);
-    usuario.setNome("Paulo Henrique da Silva");
-    usuario.setEmail("paulo@gmail.com");
-    usuarioRepository.save(usuario);
-  }
-
-  @Override
-  public void excluir(Long id) {
-    usuarioRepository.deleteById(id);
+  @Transactional(readOnly = true)
+  public List<Usuario> buscarTodos() {
+    return usuarioRepository.findAll();
   }
 
   @Override
@@ -43,10 +36,31 @@ public class UsuarioServiceImpl implements UsuarioService {
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
   }
 
+  @Transactional
+  public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+
+    if (!novaSenha.equals(confirmaSenha)) {
+      throw new RuntimeException("Nova senha e confirmação de senha não conferem");
+    }
+    Usuario user = buscarPorId(id);
+    if (!user.getSenha().equals(senhaAtual)) {
+      throw new RuntimeException("Senha atual inválida");
+    }
+    user.setSenha(novaSenha);
+    return user;
+
+    // Outra forma de fazer a mesma coisa é:
+    // return usuarioRepository.save(user);
+  }
+
   @Override
-  @Transactional(readOnly = true)
-  public List<Usuario> buscarTodos() {
-    return usuarioRepository.findAll();
+  public void editar(Long id) {
+    throw new UnsupportedOperationException("Unimplemented method 'editar'");
+  }
+
+  @Override
+  public void excluir(Long id) {
+    usuarioRepository.deleteById(id);
   }
 
   @Override

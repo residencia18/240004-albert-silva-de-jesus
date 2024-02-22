@@ -1,4 +1,4 @@
-package com.persistencia.pratica13.controllers;
+package com.persistencia.pratica13.web.controllers;
 
 import java.util.List;
 
@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.services.UsuarioDTOService;
 import com.persistencia.pratica13.services.UsuarioService;
+import com.persistencia.pratica13.web.dto.UsuarioDto;
+import com.persistencia.pratica13.web.dto.UsuarioSenhaDto;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -33,18 +35,8 @@ public class UsuarioController {
     return ResponseEntity.status(HttpStatus.CREATED).body(user);
   }
 
-  // @GetMapping("/listar")
-  // public List<Usuario> listar() {
-  // return usuarioService.buscarTodos();
-  // }
-
-  // @GetMapping("/listarusuarios")
-  // public List<UsuarioDTO> listarUsuarios() {
-  // return usuarioService.listarUsuarios();
-  // }
-
   @GetMapping("/listarusuarios/")
-  public List<UsuarioDTO> listarUsuarios(String nome) {
+  public List<UsuarioDto> listarUsuarios(String nome) {
     return usuarioDTOService.buscarPorNome(nome);
   }
 
@@ -53,6 +45,12 @@ public class UsuarioController {
   // usuarioService.editar(id);
   // return usuarioService.buscarPorId(id);
   // }
+
+  @PatchMapping("/editar/{id}")
+  public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UsuarioSenhaDto dto) {
+    Usuario user = usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
+    return ResponseEntity.noContent().build();
+  }
 
   // @GetMapping("/excluir/{id}")
   // public String excluir(@PathVariable("id") Long id) {

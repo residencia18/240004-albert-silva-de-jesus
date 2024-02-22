@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.persistencia.pratica13.dto.UsuarioDTO;
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.repositories.UsuarioRepository;
+import com.persistencia.pratica13.web.dto.UsuarioDto;
 
 @Service
 @Transactional(readOnly = false)
@@ -19,20 +19,20 @@ public class UsuarioDTOServiceImpl implements UsuarioDTOService {
   private UsuarioRepository usuarioRepository;
 
   @Override
-  public List<UsuarioDTO> listarUsuarios() {
+  public List<UsuarioDto> listarUsuarios() {
 
     List<Usuario> usuarios = usuarioRepository.findAll();
-    List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+    List<UsuarioDto> usuariosDTO = new ArrayList<>();
 
     for (Usuario usuario : usuarios) {
-      usuariosDTO.add(new UsuarioDTO(usuario));
+      usuariosDTO.add(new UsuarioDto(usuario));
     }
     return usuariosDTO;
 
   }
 
   @Override
-  public List<UsuarioDTO> buscarPorNome(String nome) {
+  public List<UsuarioDto> buscarPorNome(String nome) {
 
     List<Usuario> usuarios;
     if (nome == null) {
@@ -41,10 +41,10 @@ public class UsuarioDTOServiceImpl implements UsuarioDTOService {
     } else {
       usuarios = usuarioRepository.findByNome(nome);
     }
-    List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+    List<UsuarioDto> usuariosDTO = new ArrayList<>();
 
     for (Usuario usuario : usuarios) {
-      usuariosDTO.add(new UsuarioDTO(usuario));
+      usuariosDTO.add(new UsuarioDto(usuario));
     }
 
     return usuariosDTO;
