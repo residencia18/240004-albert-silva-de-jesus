@@ -2,6 +2,12 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TutorialWebServicesApplication",
+      "request": "launch",
+      "mainClass": "com.webservices.tutorial_web_services.TutorialWebServicesApplication"
+    },
+    {
+      "type": "java",
       "name": "AereaApplication",
       "request": "launch",
       "mainClass": "com.companhia.aerea.AereaApplication",
