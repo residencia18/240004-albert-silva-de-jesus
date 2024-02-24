@@ -4,6 +4,13 @@
       "type": "java",
       "name": "TutorialWebServicesApplication",
       "request": "launch",
+      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
+      "projectName": "tutorial_web_services"
+    },
+    {
+      "type": "java",
+      "name": "TutorialWebServicesApplication",
+      "request": "launch",
       "mainClass": "com.webservices.tutorial_web_services.TutorialWebServicesApplication"
     },
     {
