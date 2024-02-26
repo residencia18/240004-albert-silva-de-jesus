@@ -2,6 +2,7 @@ package com.persistencia.pratica13.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.repositories.UsuarioRepository;
+import com.persistencia.pratica13.services.exceptions.ResourceNotFoundException;
 import com.persistencia.pratica13.web.dto.UsuarioDto;
 
 @Service
@@ -67,6 +69,8 @@ public class UsuarioServiceImpl implements UsuarioService {
   @Override
   @Transactional(readOnly = true)
   public Usuario buscarPorId(Long id) {
+    // Optional<Usuario> obj = usuarioRepository.findById(id);
+    // return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     return usuarioRepository.findById(id)
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
   }

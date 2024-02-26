@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -83,16 +85,41 @@ public class UsuarioController {
     return ResponseEntity.noContent().build();
   }
 
-  // @GetMapping("/excluir/{id}")
-  // public String excluir(@PathVariable("id") Long id) {
-  // usuarioService.excluir(id);
-  // return "Usuário excluído com sucesso!";
-  // }
+  @PutMapping("/update/{id}")
+  public ResponseEntity<?> update(@PathVariable Long id, @RequestBody UsuarioForm usuarioForm) {
+    try {
+      Usuario usuario = usuarioService.buscarPorId(id);
+      usuario.setNome(usuarioForm.getNome());
+      usuario.setEmail(usuarioForm.getEmail());
+      usuario.setSenha(usuarioForm.getSenha());
+      UsuarioDto usuarioDto = new UsuarioDto(usuario);
+      usuarioService.salvar(usuario);
+      return ResponseEntity.ok(usuarioDto);
+
+    } catch (Exception e) {
+      return ResponseEntity.notFound().build();
+    }
+  }
+
+  @DeleteMapping("/excluir/{id}")
+  public String excluir(@PathVariable("id") Long id) {
+    usuarioService.excluir(id);
+    return "Usuário excluído com sucesso!";
+  }
 
   @GetMapping("/{id}")
   public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id) {
-    Usuario user = usuarioService.buscarPorId(id);
-    return ResponseEntity.ok(UsuarioMapper.toDto(user));
+
+    // Usuario user = usuarioService.buscarPorId(id);
+    // return ResponseEntity.ok(UsuarioMapper.toDto(user));
+
+    try {
+      Usuario user = usuarioService.buscarPorId(id);
+      return ResponseEntity.ok(UsuarioMapper.toDto(user));
+
+    } catch (Exception e) {
+      return ResponseEntity.notFound().build();
+    }
   }
 
   @GetMapping("/buscar/{id}")
