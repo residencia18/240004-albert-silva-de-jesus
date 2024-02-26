@@ -41,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService {
       usuarios = usuarioRepository.findAll();
 
     } else {
-      usuarios = usuarioRepository.findByNome(nome);
+      usuarios = usuarioRepository.findByNomeContainingIgnoreCase(nome);
     }
     List<UsuarioDto> usuariosDTO = new ArrayList<>();
 
@@ -76,8 +76,8 @@ public class UsuarioServiceImpl implements UsuarioService {
   }
 
   @Override
-  public Boolean isExisteId(Long id){
-    if(usuarioRepository.existsById(id)){
+  public Boolean isExisteId(Long id) {
+    if (usuarioRepository.existsById(id)) {
       return true;
     }
     return false;

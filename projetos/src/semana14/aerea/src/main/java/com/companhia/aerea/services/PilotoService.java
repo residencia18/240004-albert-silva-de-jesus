@@ -8,7 +8,9 @@ import com.companhia.aerea.web.form.PilotoForm;
 
 public interface PilotoService {
 
-    public List<PilotoDto> buscarTodos(String nome);
+    List<PilotoDto> buscarTodos();
+
+    List<PilotoDto> buscarPorNome(String nome);
 
     Piloto salvar(Piloto piloto);
 
@@ -17,4 +19,8 @@ public interface PilotoService {
     Piloto insert(Long id, PilotoForm pilotoForm);
 
     PilotoDto update(Long id, PilotoForm pilotoForm);
+
+    void delete(Long id);
+
+    Boolean isExisteId(Long id);
 }

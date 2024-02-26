@@ -8,6 +8,6 @@ import com.companhia.aerea.entities.Piloto;
 
 public interface PilotoRepository extends JpaRepository<Piloto, Long>{
 
-    List<Piloto> findByNome(String nome);
+    List<Piloto> findByNomeContainingIgnoreCase(String nome);
     
 }

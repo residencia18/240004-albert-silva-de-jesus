@@ -20,20 +20,33 @@ public class PilotoServiceImpl implements PilotoService {
     private PilotoRepository pilotoRepository;
 
     @Override
-    public List<PilotoDto> buscarTodos(String nome) {
+    public List<PilotoDto> buscarTodos() {
+        List<Piloto> pilotos = pilotoRepository.findAll();
+        List<PilotoDto> pilotoDTO = new ArrayList<>();
+
+        for (Piloto piloto : pilotos) {
+            pilotoDTO.add(new PilotoDto(piloto));
+        }
+        return pilotoDTO;
+    }
+
+    @Override
+    public List<PilotoDto> buscarPorNome(String nome) {
+
         List<Piloto> pilotos;
         if (nome == null) {
             pilotos = pilotoRepository.findAll();
 
         } else {
-            pilotos = pilotoRepository.findByNome(nome);
+            pilotos = pilotoRepository.findByNomeContainingIgnoreCase(nome);
         }
-        List<PilotoDto> pilotosDTO = new ArrayList<>();
+        List<PilotoDto> pilotoDto = new ArrayList<>();
+
         for (Piloto piloto : pilotos) {
-            pilotosDTO.add(new PilotoDto(piloto));
+            pilotoDto.add(new PilotoDto(piloto));
         }
 
-        return pilotosDTO;
+        return pilotoDto;
     }
 
     @SuppressWarnings("null")
@@ -65,6 +78,19 @@ public class PilotoServiceImpl implements PilotoService {
     @Override
     public PilotoDto update(Long id, PilotoForm pilotoForm) {
         return new PilotoDto(insert(id, pilotoForm));
+    }
+
+    @Override
+    public void delete(Long id) {
+        pilotoRepository.deleteById(id);
+    }
+
+    @Override
+    public Boolean isExisteId(Long id) {
+        if (pilotoRepository.existsById(id)) {
+            return true;
+        }
+        return false;
     }
 
 }
