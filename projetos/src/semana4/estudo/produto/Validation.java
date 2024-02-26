@@ -1,4 +1,4 @@
-package semana4.estudo.produto;
+package estudo.produto;
 
 public class Validation {
 

@@ -1,4 +1,4 @@
-package jdbc.redesocial.model.dao.service;
+package redesocial.model.dao.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import jdbc.redesocial.db.DB;
-import jdbc.redesocial.db.DbException;
-import jdbc.redesocial.model.dao.UsuarioDao;
-import jdbc.redesocial.model.entities.Postagem;
-import jdbc.redesocial.model.entities.Usuario;
+import redesocial.db.DB;
+import redesocial.db.DbException;
+import redesocial.model.dao.UsuarioDao;
+import redesocial.model.entities.Postagem;
+import redesocial.model.entities.Usuario;
 
 public class UsuarioDaoImpl implements UsuarioDao {
 

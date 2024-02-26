@@ -1,8 +1,8 @@
-package avaliacao.services;
+package services;
 
 import java.util.*;
-import avaliacao.utils.*;
-import avaliacao.entities.*;
+import utils.*;
+import entities.*;
 
 public class FaturaService {
 	private static List<Fatura> listaFatura = new ArrayList<>();

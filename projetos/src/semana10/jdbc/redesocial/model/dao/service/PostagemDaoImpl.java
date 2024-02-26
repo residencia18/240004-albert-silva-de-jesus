@@ -1,11 +1,11 @@
-package jdbc.redesocial.model.dao.service;
+package redesocial.model.dao.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-import jdbc.redesocial.model.dao.PostagemDao;
-import jdbc.redesocial.model.entities.Postagem;
+import redesocial.model.dao.PostagemDao;
+import redesocial.model.entities.Postagem;
 
 public class PostagemDaoImpl implements PostagemDao {
 

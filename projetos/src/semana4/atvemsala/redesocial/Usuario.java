@@ -1,4 +1,4 @@
-package semana4.atvemsala.redesocial;
+package atvemsala.redesocial;
 
 import java.io.Serializable;
 import java.time.format.DateTimeFormatter;

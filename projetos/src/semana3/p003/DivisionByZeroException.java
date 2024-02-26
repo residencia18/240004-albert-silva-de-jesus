@@ -1,4 +1,4 @@
-package semana3.p003;
+package p003;
 
 class DivisionByZeroException extends Exception {
 

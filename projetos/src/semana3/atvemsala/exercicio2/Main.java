@@ -1,4 +1,4 @@
-package semana3.atvemsala.exercicio2;
+package atvemsala.exercicio2;
 
 import java.util.Scanner;
 

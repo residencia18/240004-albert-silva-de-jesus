@@ -1,17 +1,17 @@
-package tutorial.jdbc.application;
+package jdbc.application;
 
 import java.util.List;
 import java.util.Scanner;
 
-import tutorial.jdbc.dao.DaoFactory;
-import tutorial.jdbc.dao.DepartmentDao;
-import tutorial.jdbc.entities.Department;
+import jdbc.dao.DaoFactory;
+import jdbc.dao.DepartmentDao;
+import jdbc.entities.Department;
 
 public class Program2 {
 
   public static void main(String[] args) {
 
-    limparTela(); 
+    limparTela();
     Scanner sc = new Scanner(System.in);
 
     DepartmentDao departmentDao = DaoFactory.createDepartmentDao();

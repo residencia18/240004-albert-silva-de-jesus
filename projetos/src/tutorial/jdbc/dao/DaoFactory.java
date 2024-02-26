@@ -1,8 +1,8 @@
-package tutorial.jdbc.dao;
+package jdbc.dao;
 
-import tutorial.jdbc.db.DB;
-import tutorial.jdbc.dao.impl.DepartmentDaoJDBC;
-import tutorial.jdbc.dao.impl.SellerDaoJDBC;
+import jdbc.db.DB;
+import jdbc.dao.impl.DepartmentDaoJDBC;
+import jdbc.dao.impl.SellerDaoJDBC;
 
 public class DaoFactory {
 

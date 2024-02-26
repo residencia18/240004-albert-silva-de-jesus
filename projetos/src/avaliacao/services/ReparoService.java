@@ -1,15 +1,14 @@
-package avaliacao.services;
-
+package services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import avaliacao.entities.Reparo;
-import avaliacao.entities.Falha;
-import avaliacao.repositories.ReparoRepository;
-import avaliacao.utils.Utils;
+import entities.Reparo;
+import entities.Falha;
+import repositories.ReparoRepository;
+import utils.Utils;
 
 public class ReparoService implements ReparoRepository {
     private static ArrayList<Reparo> listaReparos = new ArrayList<>();

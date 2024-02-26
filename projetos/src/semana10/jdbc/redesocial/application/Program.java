@@ -1,11 +1,11 @@
-package jdbc.redesocial.application;
+package redesocial.application;
 
 // import java.util.List;
 import java.util.Scanner;
 
-import jdbc.redesocial.model.dao.DaoFactory;
-import jdbc.redesocial.model.dao.UsuarioDao;
-import jdbc.redesocial.model.entities.Usuario;
+import redesocial.model.dao.DaoFactory;
+import redesocial.model.dao.UsuarioDao;
+import redesocial.model.entities.Usuario;
 
 public class Program {
 

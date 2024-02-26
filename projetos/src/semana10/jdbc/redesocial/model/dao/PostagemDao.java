@@ -1,8 +1,8 @@
-package jdbc.redesocial.model.dao;
+package redesocial.model.dao;
 
 import java.util.List;
 
-import jdbc.redesocial.model.entities.Postagem;
+import redesocial.model.entities.Postagem;
 
 public interface PostagemDao {
 

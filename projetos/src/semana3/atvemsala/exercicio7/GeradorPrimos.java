@@ -1,4 +1,4 @@
-package semana3.atvemsala.exercicio7;
+package atvemsala.exercicio7;
 
 public class GeradorPrimos {
 

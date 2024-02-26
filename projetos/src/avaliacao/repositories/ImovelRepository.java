@@ -1,6 +1,6 @@
-package avaliacao.repositories;
+package repositories;
 
-import avaliacao.entities.Imovel;
+import entities.Imovel;
 
 public interface ImovelRepository {
   

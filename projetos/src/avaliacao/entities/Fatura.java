@@ -1,9 +1,9 @@
-package avaliacao.entities;
+package entities;
 import java.time.LocalDate;
 import java.util.*;
 
 import java.text.DecimalFormat;
-import avaliacao.utils.*;
+import utils.*;
 
 
 public class Fatura {

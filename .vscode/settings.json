@@ -1,11 +1,13 @@
 {
   "java.configuration.updateBuildConfiguration": "interactive",
   "java.project.sourcePaths": [
-    "projetos/src/semana10",
-    "projetos/src/semana13",
-    "projetos/src",
-    "projetos",
-    ".vscode"
+    "projetos/src/tutorial",
+    "projetos/src/semana3",
+    "projetos/src/semana2",
+    "projetos/src/semana10/jdbc",
+    "projetos/src/semana1",
+    "projetos/src/avaliacao",
+    "projetos/src/semana4"
   ],
   "java.project.referencedLibraries": [
     "lib/**/*.jar",

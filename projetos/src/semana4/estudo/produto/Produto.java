@@ -1,4 +1,4 @@
-package semana4.estudo.produto;
+package estudo.produto;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

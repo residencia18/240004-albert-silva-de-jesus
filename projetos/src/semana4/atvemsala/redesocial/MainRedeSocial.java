@@ -1,4 +1,4 @@
-package semana4.atvemsala.redesocial;
+package atvemsala.redesocial;
 
 import java.util.Scanner;
 

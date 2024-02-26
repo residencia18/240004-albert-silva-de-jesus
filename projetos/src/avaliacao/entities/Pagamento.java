@@ -1,4 +1,4 @@
-package avaliacao.entities;
+package entities;
 import java.time.LocalDate;
 import java.util.*;
 import java.text.DecimalFormat;

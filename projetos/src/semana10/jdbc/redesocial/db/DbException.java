@@ -1,4 +1,4 @@
-package jdbc.redesocial.db;
+package redesocial.db;
 
 public class DbException extends RuntimeException {
 

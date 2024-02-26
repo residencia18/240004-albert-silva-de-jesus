@@ -1,4 +1,4 @@
-package semana4.estudo.produto;
+package estudo.produto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

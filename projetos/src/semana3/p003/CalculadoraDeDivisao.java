@@ -7,7 +7,7 @@ personalizada chamada DivisionByZeroException. O seu programa deve lidar com ess
 não é permitida.
  */
 
-package semana3.p003;
+package p003;
 
 class CalculadoraDeDivisao {
 

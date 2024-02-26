@@ -1,4 +1,4 @@
-package jdbc.redesocial.model.entities;
+package redesocial.model.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;

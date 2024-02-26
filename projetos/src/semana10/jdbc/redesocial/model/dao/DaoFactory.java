@@ -1,8 +1,8 @@
-package jdbc.redesocial.model.dao;
+package redesocial.model.dao;
 
-import jdbc.redesocial.db.DB;
-import jdbc.redesocial.model.dao.service.PostagemDaoImpl;
-import jdbc.redesocial.model.dao.service.UsuarioDaoImpl;
+import redesocial.db.DB;
+import redesocial.model.dao.service.PostagemDaoImpl;
+import redesocial.model.dao.service.UsuarioDaoImpl;
 
 public class DaoFactory {
 

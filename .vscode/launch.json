@@ -2,6 +2,47 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "atvemsala.exercicio7.Main",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "utils.Main",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "redesocial.application.Program",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.energiacoelho.aplication.Program",
+      "projectName": "p010"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "jdbc.application.Program",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "tutorial.jdbc.application.Program"
+    },
+    {
+      "type": "java",
       "name": "TutorialWebServicesApplication",
       "request": "launch",
       "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",

@@ -1,4 +1,4 @@
-package semana3.atvemsala.exercicio1;
+package atvemsala.exercicio1;
 
 public class Soma {
 

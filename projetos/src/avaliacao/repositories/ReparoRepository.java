@@ -1,7 +1,7 @@
-package avaliacao.repositories;
+package repositories;
 
+import entities.Falha;
 
-import avaliacao.entities.Falha;
 public interface ReparoRepository {
     public static void listarReparos(){}
     public static void listarRaparosAbertos(){}

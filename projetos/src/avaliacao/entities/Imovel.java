@@ -1,4 +1,4 @@
-package avaliacao.entities;
+package entities;
 
 public class Imovel {
 

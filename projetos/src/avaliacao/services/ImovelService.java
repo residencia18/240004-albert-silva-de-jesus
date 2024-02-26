@@ -1,12 +1,12 @@
-package avaliacao.services;
+package services;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
-import avaliacao.entities.Imovel;
-import avaliacao.repositories.ImovelRepository;
-import avaliacao.utils.Utils;
+import entities.Imovel;
+import repositories.ImovelRepository;
+import utils.Utils;
 
 public class ImovelService implements ImovelRepository {
 

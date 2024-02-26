@@ -1,4 +1,4 @@
-package tutorial.jdbc.db;
+package jdbc.db;
 
 public class DbIntegrityException extends RuntimeException {
   private static final long serialVersionUID = 1L;

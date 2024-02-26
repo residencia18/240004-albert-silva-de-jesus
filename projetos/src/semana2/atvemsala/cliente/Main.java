@@ -1,4 +1,4 @@
-package semana2.atvemsala.cliente;
+package atvemsala.cliente;
 
 import java.util.Scanner;
 

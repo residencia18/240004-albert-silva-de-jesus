@@ -1,13 +1,13 @@
-package tutorial.jdbc.application;
+package jdbc.application;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import tutorial.jdbc.dao.DaoFactory;
-import tutorial.jdbc.dao.SellerDao;
-import tutorial.jdbc.entities.Department;
-import tutorial.jdbc.entities.Seller;
+import jdbc.dao.DaoFactory;
+import jdbc.dao.SellerDao;
+import jdbc.entities.Department;
+import jdbc.entities.Seller;
 
 public class Program {
 
@@ -32,7 +32,7 @@ public class Program {
     // System.out.println("\n\t=== TEST 3: seller findAll =====");
     // list = sellerDao.findAll();
     // for (Seller obj : list) {
-    //   System.out.println(obj);
+    // System.out.println(obj);
     // }
 
     System.out.println("\n\t=== TEST 4: seller insert =====");

@@ -1,4 +1,4 @@
-package avaliacao.utils;
+package utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,8 +7,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import avaliacao.entities.Fatura;
-import avaliacao.services.*;
+import entities.Fatura;
+import services.*;
 
 public class Utils {
 

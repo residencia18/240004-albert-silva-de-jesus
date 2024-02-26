@@ -1,9 +1,9 @@
-package tutorial.jdbc.dao;
+package jdbc.dao;
 
 import java.util.List;
 
-import tutorial.jdbc.entities.Department;
-import tutorial.jdbc.entities.Seller;
+import jdbc.entities.Department;
+import jdbc.entities.Seller;
 
 public interface SellerDao {
 

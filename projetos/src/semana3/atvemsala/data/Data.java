@@ -1,4 +1,4 @@
-package semana3.atvemsala.data;
+package atvemsala.data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

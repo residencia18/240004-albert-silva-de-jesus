@@ -1,4 +1,4 @@
-package jdbc.redesocial.db;
+package redesocial.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;
