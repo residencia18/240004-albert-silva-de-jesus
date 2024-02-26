@@ -101,10 +101,20 @@ public class UsuarioController {
     }
   }
 
-  @DeleteMapping("/excluir/{id}")
-  public String excluir(@PathVariable("id") Long id) {
-    usuarioService.excluir(id);
-    return "Usuário excluído com sucesso!";
+  @DeleteMapping("/delete/{id}")
+  public ResponseEntity<UsuarioDto> excluir(@PathVariable("id") Long id) {
+    if (usuarioService.isExisteId(id)){
+
+      try {
+        usuarioService.excluir(id);
+        return ResponseEntity.ok().build();
+
+      } catch (Exception e) {
+        return ResponseEntity.notFound().build();
+      }
+    } else {
+      return ResponseEntity.badRequest().build();
+    }
   }
 
   @GetMapping("/{id}")

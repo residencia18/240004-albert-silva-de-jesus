@@ -75,6 +75,14 @@ public class UsuarioServiceImpl implements UsuarioService {
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
   }
 
+  @Override
+  public Boolean isExisteId(Long id){
+    if(usuarioRepository.existsById(id)){
+      return true;
+    }
+    return false;
+  }
+
   @Transactional
   public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
 

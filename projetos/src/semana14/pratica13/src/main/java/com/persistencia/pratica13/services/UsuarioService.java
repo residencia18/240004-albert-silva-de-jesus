@@ -23,4 +23,6 @@ public interface UsuarioService {
 
   List<UsuarioDto> listarUsuarios();
 
+  public Boolean isExisteId(Long id);
+
 }
