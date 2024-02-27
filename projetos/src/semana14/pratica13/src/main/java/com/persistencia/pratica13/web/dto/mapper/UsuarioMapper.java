@@ -7,12 +7,12 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.persistencia.pratica13.entities.Usuario;
-import com.persistencia.pratica13.web.dto.UsuarioCreateDto;
 import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
+import com.persistencia.pratica13.web.form.UsuarioForm;
 
 public class UsuarioMapper {
 
-  public static Usuario toUsuario(UsuarioCreateDto createDto) {
+  public static Usuario toUsuario(UsuarioForm createDto) {
     return new ModelMapper().map(createDto, Usuario.class);
   }
 
