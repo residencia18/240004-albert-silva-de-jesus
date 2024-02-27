@@ -4,13 +4,18 @@ import java.util.List;
 
 import com.companhia.aerea.entities.Piloto;
 import com.companhia.aerea.web.dto.PilotoDto;
-import com.companhia.aerea.web.form.PilotoForm;   
+import com.companhia.aerea.web.dto.PilotoResponseDto;
+import com.companhia.aerea.web.dto.form.PilotoForm;   
 
 public interface PilotoService {
 
-    List<PilotoDto> buscarTodos();
+    // List<PilotoDto> buscarTodos();
 
-    List<PilotoDto> buscarPorNome(String nome);
+    List<Piloto> buscaTodos();
+
+    // List<PilotoDto> buscarPorNome(String nome);
+
+    public List<PilotoResponseDto> buscarPorNome(String nome);
 
     Piloto salvar(Piloto piloto);
 
@@ -18,7 +23,9 @@ public interface PilotoService {
 
     Piloto insert(Long id, PilotoForm pilotoForm);
 
-    PilotoDto update(Long id, PilotoForm pilotoForm);
+    // PilotoDto update(Long id, PilotoForm pilotoForm);
+
+    PilotoResponseDto update(Long id, PilotoForm pilotoForm);
 
     void delete(Long id);
 

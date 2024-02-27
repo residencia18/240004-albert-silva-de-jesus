@@ -4,15 +4,15 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.companhia.aerea.entities.Piloto;
-import com.companhia.aerea.web.dto.PilotoCreateDto;
 import com.companhia.aerea.web.dto.PilotoResponseDto;
+import com.companhia.aerea.web.dto.form.PilotoForm;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class PilotoMapper {
 
-    public static Piloto toPiloto(PilotoCreateDto createDto) {
+    public static Piloto toPiloto(PilotoForm createDto) {
         return new ModelMapper().map(createDto, Piloto.class);
     }
 

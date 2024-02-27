@@ -1,4 +1,4 @@
-package com.companhia.aerea.web.form;
+package com.companhia.aerea.web.dto.form;
 
 public class ModeloAeronaveForm {
     
