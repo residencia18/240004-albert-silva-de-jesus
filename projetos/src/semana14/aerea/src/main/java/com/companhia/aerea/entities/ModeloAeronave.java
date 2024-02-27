@@ -13,6 +13,6 @@ import lombok.Setter;
 @Entity
 public class ModeloAeronave extends AbstractEntity {
 
-  private String fabricante;
   private String nome;
+  private String fabricante;
 }

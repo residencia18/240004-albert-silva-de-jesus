@@ -7,9 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class PilotoResponseDto {
+public class AeroportoResponseDto {
 
-    private Long id;
-    private String nome;
-    private String numBreve;
+  private Long id;
+  private String icao;
+
 }
