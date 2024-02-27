@@ -22,8 +22,8 @@ import com.persistencia.pratica13.services.UsuarioService;
 import com.persistencia.pratica13.web.dto.UsuarioDto;
 import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
 import com.persistencia.pratica13.web.dto.UsuarioSenhaDto;
+import com.persistencia.pratica13.web.dto.form.UsuarioForm;
 import com.persistencia.pratica13.web.dto.mapper.UsuarioMapper;
-import com.persistencia.pratica13.web.form.UsuarioForm;
 
 @RestController
 @RequestMapping("/usuarios")

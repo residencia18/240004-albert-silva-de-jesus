@@ -8,7 +8,7 @@ import org.modelmapper.PropertyMap;
 
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.web.dto.UsuarioResponseDto;
-import com.persistencia.pratica13.web.form.UsuarioForm;
+import com.persistencia.pratica13.web.dto.form.UsuarioForm;
 
 public class UsuarioMapper {
 

@@ -1,4 +1,4 @@
-package com.persistencia.pratica13.web.form;
+package com.persistencia.pratica13.web.dto.form;
 
 import com.persistencia.pratica13.entities.Usuario;
 
