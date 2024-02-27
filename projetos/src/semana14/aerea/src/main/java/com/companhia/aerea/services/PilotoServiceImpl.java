@@ -91,7 +91,7 @@ public class PilotoServiceImpl implements PilotoService {
         piloto.setNome(pilotoForm.getNome());
         piloto.setNumBreve(pilotoForm.getNumBreve());
         piloto.setRegistro(pilotoForm.getRegistro());
-        PilotoDto pilotoDto = new PilotoDto(piloto);
+        PilotoResponseDto pilotoResponseDto = new PilotoResponseDto(piloto);
         return piloto;
     }
 
@@ -102,7 +102,7 @@ public class PilotoServiceImpl implements PilotoService {
 
     @Override
     public PilotoResponseDto update(Long id, PilotoForm pilotoForm) {
-        return new PilotoResponseDto(id, pilotoForm.getNome(), pilotoForm.getNumBreve());
+        return new PilotoResponseDto(insert(id, pilotoForm));
     }
 
     @Override

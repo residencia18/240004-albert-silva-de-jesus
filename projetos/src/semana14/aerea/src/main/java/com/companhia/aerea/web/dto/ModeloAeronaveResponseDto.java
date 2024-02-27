@@ -1,5 +1,8 @@
 package com.companhia.aerea.web.dto;
 
+import com.companhia.aerea.entities.AbstractEntity;
+import com.companhia.aerea.entities.ModeloAeronave;
+
 import lombok.*;
 
 @Getter
@@ -7,8 +10,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ModeloAeronaveResponseDto {
+public class ModeloAeronaveResponseDto extends AbstractEntity{
 
-  private Long id;
   private String nome;
+
+  public ModeloAeronaveResponseDto(ModeloAeronave modeloAeronave) {
+    setId(modeloAeronave.getId());
+    this.nome = modeloAeronave.getNome();
+  }
 }

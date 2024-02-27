@@ -22,13 +22,13 @@ public class AeroportoServiceImpl implements AeroportoService {
     @Override
     @Transactional
     public Aeroporto salvar(Aeroporto aeroporto) {
-       return aeroportoRepository.save(aeroporto);
+        return aeroportoRepository.save(aeroporto);
     }
 
     // @Override
     // @Transactional(readOnly = true)
     // public List<Aeroporto> buscarTodos(String nome, String icao) {
-    //    return aeroportoRepository.findAll();
+    // return aeroportoRepository.findAll();
     // }
 
     @Override
@@ -38,18 +38,22 @@ public class AeroportoServiceImpl implements AeroportoService {
 
     @Override
     public Aeroporto buscarPorId(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+        return aeroportoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
     }
 
     @Override
     public Aeroporto insert(Long id, AeroportoForm aeroportoForm) {
-        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+        Aeroporto aeroporto = buscarPorId(id);
+        aeroporto.setNome(aeroportoForm.getNome());
+        aeroporto.setIcao(aeroportoForm.getIcao());
+        AeroportoResponseDto aeroportoResponseDto = new AeroportoResponseDto(aeroporto);
+        return aeroporto;
     }
 
     @Override
     public AeroportoResponseDto update(Long id, AeroportoForm aeroportoForm) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        return new AeroportoResponseDto(insert(id, aeroportoForm));
     }
 
     @Override
@@ -66,21 +70,21 @@ public class AeroportoServiceImpl implements AeroportoService {
     @Transactional(readOnly = true)
     public List<Aeroporto> buscarTodos(String nome, String icao) {
 
-    List<Aeroporto> aeroportos;
+        List<Aeroporto> aeroportos;
 
-    if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
-    aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
+        if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
 
-    } else if (nome != null && !nome.isEmpty()) {
-    aeroportos = aeroportoRepository.findByNome(nome);
+        } else if (nome != null && !nome.isEmpty()) {
+            aeroportos = aeroportoRepository.findByNome(nome);
 
-    } else if (icao != null && !icao.isEmpty()) {
-    aeroportos = aeroportoRepository.findByIcao(icao);
+        } else if (icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByIcao(icao);
 
-    } else {
-    aeroportos = aeroportoRepository.findAll();
-    }
+        } else {
+            aeroportos = aeroportoRepository.findAll();
+        }
 
-    return aeroportos;
+        return aeroportos;
     }
 }
