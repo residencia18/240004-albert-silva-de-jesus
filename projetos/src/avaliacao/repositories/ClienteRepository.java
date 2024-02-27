@@ -2,17 +2,17 @@ package repositories;
 
 import entities.Cliente;
 
-public interface ClienteRepository{
-  
-  public void adcionar(Cliente cliente);
+public interface ClienteRepository {
 
-  public static void cadastrar(){}
+  void adcionar(Cliente cliente);
 
-  public static void listar(){}
+  void cadastrar();
 
-  public static void editar(){}
+  void listar();
 
-  public static void excluir(){}
+  void editar();
 
-  public static void pesquisar(){}
+  void excluir();
+
+  void pesquisar();
 }

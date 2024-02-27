@@ -1,36 +1,44 @@
 package services;
 
-import java.util.*;
-import utils.*;
-import entities.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import entities.Fatura;
+import entities.Imovel;
+import entities.Pagamento;
+import repositories.ImovelRepository;
+import views.Views;
 
 public class FaturaService {
-	private static List<Fatura> listaFatura = new ArrayList<>();
 
-	public static void registrarConsumo() {
-		Imovel imovel = ImovelService.buscaImovel();
+	private static List<Fatura> listaFatura = new ArrayList<>();
+	private ImovelRepository imovelRepository = newImovelRepository();
+
+	public void registrarConsumo() {
+
+		Imovel imovel = imovelRepository.buscaImovel();
 
 		if (imovel == null) {
-			Utils.cxMsg("Imóvel não encontrado!");
+			Views.cxMsg("Imóvel não encontrado!");
 			return;
 		}
 
 		while (true) {
 			int valorLido;
 			try {
-				@SuppressWarnings("resource")
-				Scanner scanner = new Scanner(System.in);
 
-				Utils.limparTela();
+				Views.limparTela();
 				System.out.print("Informe a leitura realizada: ");
-				valorLido = scanner.nextInt();
+				valorLido = Views.scan.nextInt();
+
 				if (imovel.getUltimaLeitura() > valorLido) {
-					Utils.cxMsg("A leitura atual não pode ser menor que a leitura antiga!");
+					Views.cxMsg("A leitura atual não pode ser menor que a leitura antiga!");
 					continue;
 				}
 				imovel.setUltimaLeitura(valorLido);
 				novaFatura(imovel);
-				Utils.cxMsg("O consumo foi registrado e a fatura foi gerada!");
+				Views.cxMsg("O consumo foi registrado e a fatura foi gerada!");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -44,20 +52,22 @@ public class FaturaService {
 		listaFatura.add(nova);
 	}
 
-	public static void todasAsFaturas() {
-		Utils.limparTela();
+	public void todasAsFaturas() {
+
+		Views.limparTela();
 		System.out.println("=============== TODAS AS FATURAS ===============");
 		System.out.println("");
 
 		for (Fatura f : listaFatura) {
 			System.out.println(f.toString());
 		}
-		Scanner scanner = new Scanner(System.in);
-		Utils.pausar(scanner);
+
+		Views.pausar(Views.scan);
 	}
 
-	public static void faturasEmAberto() {
-		Utils.limparTela();
+	public void faturasEmAberto() {
+		
+		Views.limparTela();
 		System.out.println("=============== FATURAS EM ABERTO ===============");
 		System.out.println("");
 
@@ -65,41 +75,43 @@ public class FaturaService {
 			if (!f.isQuitado())
 				System.out.println(f.toString());
 		}
-		Utils.pausar(Utils.scan);
+		Views.pausar(Views.scan);
 	}
 
-	public static Fatura obterFaturaPorMesEmissao() {
-		Imovel imovel = ImovelService.buscaImovel();
+	public Fatura obterFaturaPorMesEmissao() {
+
+		Imovel imovel = imovelRepository.buscaImovel();
 
 		if (imovel == null) {
-			Utils.cxMsg("Imóvel não encontrado!");
+			Views.cxMsg("Imóvel não encontrado!");
 			return null;
 		}
 
 		int valorLido = 0;
 		int k = 0;
 		while (valorLido > 12 || valorLido < 1) {
-			try {
-				@SuppressWarnings("resource")
-				Scanner scanner = new Scanner(System.in);
 
-				Utils.limparTela();
+			try {
+
+				Views.limparTela();
 				System.out.print("Informe o mês referente à fatura: ");
-				valorLido = scanner.nextInt();
+				valorLido = Views.scan.nextInt();
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;
 			}
 			if (valorLido > 12 || valorLido < 1) {
-				Utils.cxMsg("O mês informado é inválido!");
+				Views.cxMsg("O mês informado é inválido!");
 				k++;
 			}
 			if (k == 3) {
-				Utils.cxMsg("Limite de tentativas excedidas! Tente novamente!");
+				Views.cxMsg("Limite de tentativas excedidas! Tente novamente!");
 			}
 		}
 
 		for (Fatura fatura : listaFatura) {
+
 			if (fatura.getMatriculaImovel().equalsIgnoreCase(imovel.getMatricula())
 					&& fatura.getDataEmissao().getMonthValue() == valorLido) {
 				return fatura;
@@ -110,7 +122,7 @@ public class FaturaService {
 
 	public static void todosOsPagamentos() {
 
-		Utils.limparTela();
+		Views.limparTela();
 		System.out.println("=============== TODOS OS PAGAMENTOS ===============");
 		System.out.println("");
 
@@ -124,63 +136,69 @@ public class FaturaService {
 			}
 			System.out.println("");
 		}
-		Scanner scanner = new Scanner(System.in);
-		Utils.pausar(scanner);
+
+		Views.pausar(Views.scan);
 	}
 
-	public static void pagamentosPorFatura() {
+	public void pagamentosPorFatura() {
+
 		Fatura encontrada = obterFaturaPorMesEmissao();
 
 		if (encontrada == null) {
-			Utils.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
+			Views.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
 			return;
 		}
 
-		Utils.limparTela();
+		Views.limparTela();
 		System.out.println("=============== PAGAMENTOS RELACIONADOS À FATURA ===============");
 		System.out.println("");
+
 		for (Pagamento p : encontrada.getPagamentos()) {
 			System.out.println(p.toString());
 		}
-		Scanner scanner = new Scanner(System.in);
-		Utils.pausar(scanner);
+
+		Views.pausar(Views.scan);
 	}
 
-	public static void todosOsReembolsos() {
+	public void todosOsReembolsos() {
 
-		Utils.limparTela();
+		Views.limparTela();
 		System.out.println("=============== TODOS OS REEMBOLSOS ===============");
 		System.out.println("");
-
+		
 		for (Fatura f : listaFatura) {
-
 			System.out.println("===== IMÓVEL DE MATRÍCULA: " + f.getMatriculaImovel() + " =====");
 			System.out.println("");
-			
 			System.out.println(f.getReembolso().toString());
 			System.out.println("");
 		}
-		Scanner scanner = new Scanner(System.in);
-		Utils.pausar(scanner);
+
+		Views.pausar(Views.scan);
 	}
 
-	public static void reembolsosPorFatura() {
+	public void reembolsosPorFatura() {
+
 		Fatura encontrada = obterFaturaPorMesEmissao();
 
 		if (encontrada == null) {
-			Utils.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
+			Views.cxMsg("Não foi encontrado nenhuma fatura com as descrições informadas!");
 			return;
 		}
 
-		Utils.limparTela();
+		Views.limparTela();
 		System.out.println("=============== REEMBOLSOS RELACIONADOS À FATURA ===============");
 		System.out.println("");
+
 		if (encontrada.getReembolso() != null)
 			System.out.println(encontrada.getReembolso().toString());
 		else
 			System.out.println("Não há reembolsos para essa fatura!");
-		Scanner scanner = new Scanner(System.in);
-		Utils.pausar(scanner);
+
+		Views.pausar(Views.scan);
+	}
+
+	public ImovelService newImovelRepository() {
+		return new ImovelService();
 	}
 
 }

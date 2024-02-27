@@ -5,89 +5,102 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import utils.Utils;
 import entities.FalhaDistribuicao;
 import entities.FalhaGeracao;
 import entities.Imovel;
 import repositories.FalhaRepository;
+import repositories.ImovelRepository;
+import repositories.ReparoRepository;
+import views.Views;
 
 public class FalhaService implements FalhaRepository {
+
     public static List<FalhaDistribuicao> falhasDist = new ArrayList<>();
     public static List<FalhaGeracao> falhasGer = new ArrayList<>();
+    ReparoRepository reparoRepository = new ReparoService();
 
-    public static void cadastrarFalhaDistribuicao() {
-        Utils.limparTela();
+    @Override
+    public void cadastrarFalhaDistribuicao() {
+
+        Views.limparTela();
         System.out.println("\n\t===== CADASTRO DE FALHA DE DISTRIBUIÇÃO=====");
 
         System.out.println("\n\tA falha foi reportada por algum cliente? (S/N)");
-        String resposta = Utils.scan.nextLine();
+        String resposta = Views.scan.nextLine();
         String matriculaImovel = null;
         if (resposta.equalsIgnoreCase("S")) {
             System.out.print("\n\tDigite a matrícula do imóvel: ");
-            matriculaImovel = Utils.scan.nextLine();
+            matriculaImovel = Views.scan.nextLine();
 
-            Imovel imovel = ImovelService.buscaImovel();
+            // Imovel imovel = ImovelService.buscaImovel();
 
-            if (imovel == null) {
-                Utils.cxMsg("Imóvel não encontrado!");
-                return;
-            }
-            matriculaImovel = imovel.getMatricula();
-        } 
-        
+            // if (imovel == null) {
+            // Utils.cxMsg("Imóvel não encontrado!");
+            // return;
+            // }
+            // matriculaImovel = imovel.getMatricula();
+        }
+
         System.out.print("\n\tDigite a descrição da falha: ");
-        String descricao = Utils.scan.nextLine();
+        String descricao = Views.scan.nextLine();
 
         System.out.print("\n\tDigite a previsão de conclusão: ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate previsaoConclusao = LocalDate.parse(Utils.scan.nextLine(), formatter);
+        LocalDate previsaoConclusao = LocalDate.parse(Views.scan.nextLine(), formatter);
 
         System.out.print("\n\tDigite a data de início: ");
-        LocalDate dataInicio = LocalDate.parse(Utils.scan.nextLine(), formatter);
-        
-        FalhaDistribuicao falhaDist = new FalhaDistribuicao(matriculaImovel, descricao, previsaoConclusao, dataInicio, null);
-        
-        ReparoService.cadastrarReparo(falhaDist);
-        
+        LocalDate dataInicio = LocalDate.parse(Views.scan.nextLine(), formatter);
+
+        FalhaDistribuicao falhaDist = new FalhaDistribuicao(matriculaImovel, descricao, previsaoConclusao, dataInicio,
+                null);
+
+        reparoRepository.cadastrarReparo(falhaDist);
+
         falhasDist.add(falhaDist);
     }
 
-    public static void cadastrarFalhaGeracao() {
-        Utils.limparTela();
+    @Override
+    public void cadastrarFalhaGeracao() {
+
+        ImovelRepository imovelRepository = new ImovelService();
+
+        Views.limparTela();
         System.out.println("\n\t===== CADASTRO DE FALHA DE GERAÇÃO =====");
 
         System.out.println("\n\tA falha foi reportada por algum cliente? (S/N)");
-        String resposta = Utils.scan.nextLine();
+        String resposta = Views.scan.nextLine();
         String matriculaImovel = null;
         if (resposta.equalsIgnoreCase("S")) {
             System.out.print("\n\tDigite a matrícula do imóvel: ");
-            Imovel imovel = ImovelService.buscaImovel();
+            Imovel imovel = imovelRepository.buscaImovel();
 
             if (imovel == null) {
-                Utils.cxMsg("Imóvel não encontrado!");
+                Views.cxMsg("Imóvel não encontrado!");
                 return;
             }
 
             matriculaImovel = imovel.getMatricula();
-        } 
+        }
 
         System.out.print("\n\tDigite a descrição da falha: ");
-        String descricao = Utils.scan.nextLine();
+        String descricao = Views.scan.nextLine();
 
         System.out.print("\n\tDigite a previsão de conclusão: ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate previsaoConclusao = LocalDate.parse(Utils.scan.nextLine(), formatter);
+        LocalDate previsaoConclusao = LocalDate.parse(Views.scan.nextLine(), formatter);
 
         System.out.print("\n\tDigite a data de início: ");
-        LocalDate dataInicio = LocalDate.parse(Utils.scan.nextLine(), formatter);
+        LocalDate dataInicio = LocalDate.parse(Views.scan.nextLine(), formatter);
 
         FalhaGeracao falhaGer = new FalhaGeracao(matriculaImovel, descricao, previsaoConclusao, dataInicio, null);
 
         falhasGer.add(falhaGer);
     }
 
-    public static void listar() {
-        Utils.limparTela();
+    @Override
+    public void listar() {
+
+        Views.limparTela();
         System.out.println("\n\t===== LISTA DE FALHAS =====");
         System.out.print("\n\t===== FALHAS DE DISTRIBUIÇÃO =====");
         for (FalhaDistribuicao falhaDist : falhasDist) {
@@ -98,11 +111,12 @@ public class FalhaService implements FalhaRepository {
             System.out.println(falhaGer.toString());
         }
         System.out.println("\t===== FIM DA LISTA =====");
-        Utils.pausar(Utils.scan);
+        Views.pausar(Views.scan);
     }
 
-    public static void editar(){ 
-        Utils.limparTela();
+    public void editar() {
+
+        Views.limparTela();
         System.out.println("\n\t===== EDITAR FALHA =====");
         System.out.print("\n\t===== FALHAS DE DISTRIBUIÇÃO =====");
         for (FalhaDistribuicao falhaDist : falhasDist) {
@@ -114,17 +128,17 @@ public class FalhaService implements FalhaRepository {
         }
         System.out.println("\n\t===== FIM DA LISTA =====");
         System.out.print("\n\tDigite o ID da falha que deseja editar: ");
-        int id = Utils.scan.nextInt();
-        Utils.scan.nextLine();
+        int id = Views.scan.nextInt();
+        Views.scan.nextLine();
         for (FalhaDistribuicao falhaDist : falhasDist) {
             if (falhaDist.getId() == id) {
                 System.out.print("\n\tDigite a nova data de fim: ");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate dataFim = LocalDate.parse(Utils.scan.nextLine(), formatter);
+                LocalDate dataFim = LocalDate.parse(Views.scan.nextLine(), formatter);
                 falhaDist.setDataFim(dataFim);
                 System.out.println("\n\t===== FALHA EDITADA =====");
                 System.out.println(falhaDist.toString());
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
             }
         }
@@ -132,37 +146,38 @@ public class FalhaService implements FalhaRepository {
             if (falhaGer.getId() == id) {
                 System.out.print("\n\tDigite a nova data de fim: ");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate dataFim = LocalDate.parse(Utils.scan.nextLine(), formatter);
+                LocalDate dataFim = LocalDate.parse(Views.scan.nextLine(), formatter);
                 falhaGer.setDataFim(dataFim);
                 System.out.println("\n\t===== FALHA EDITADA =====");
                 System.out.println(falhaGer.toString());
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
             }
         }
         System.out.println("\n\t===== FALHA NÃO ENCONTRADA =====");
-        Utils.pausar(Utils.scan);     
-   
+        Views.pausar(Views.scan);
+
     }
 
-    public static FalhaDistribuicao buscarFalhaDistribuicao(){
-        Utils.limparTela();
+    @Override
+    public FalhaDistribuicao buscarFalhaDistribuicao() {
+
+        Views.limparTela();
         System.out.println("\n\t===== BUSCAR FALHA DE DISTRIBUIÇÃO =====");
         System.out.print("\n\tDigite o ID da falha que deseja buscar: ");
-        int id = Utils.scan.nextInt();
-        Utils.scan.nextLine();
+        int id = Views.scan.nextInt();
+        Views.scan.nextLine();
         for (FalhaDistribuicao falhaDist : falhasDist) {
             if (falhaDist.getId() == id) {
                 System.out.println("\n\t===== FALHA ENCONTRADA =====");
                 System.out.println(falhaDist.toString());
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return falhaDist;
             }
         }
         System.out.println("\n\t===== FALHA NÃO ENCONTRADA =====");
-        Utils.pausar(Utils.scan);
+        Views.pausar(Views.scan);
         return null;
     }
-
 
 }

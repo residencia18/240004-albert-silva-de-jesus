@@ -6,7 +6,7 @@ import java.util.List;
 
 import entities.Imovel;
 import repositories.ImovelRepository;
-import utils.Utils;
+import views.Views;
 
 public class ImovelService implements ImovelRepository {
 
@@ -16,28 +16,30 @@ public class ImovelService implements ImovelRepository {
     imoveis.add(imovel);
   }
 
-  public static void cadastrar() {
-    Utils.limparTela();
+  @Override
+  public void cadastrar() {
+    Views.limparTela();
     System.out.println("\n\t===== CADASTRO DE IMÓVEL =====");
 
     System.out.print("\n\tMatrícula do Imóvel: ");
-    String matricula = Utils.scan.nextLine();
+    String matricula = Views.scan.nextLine();
 
     System.out.print("\n\tEndereço do Imóvel: ");
-    String endereco = Utils.scan.nextLine();
+    String endereco = Views.scan.nextLine();
 
     int ultimaLeitura = obterInteiroValido("\n\tLeitura atual (em kWh): ");
 
     imoveis.add(new Imovel(matricula, endereco, ultimaLeitura));
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.println("\n\tImóvel cadastrado com sucesso!");
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
-  public static void listar() {
+  @Override
+  public void listar() {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.print("\n\t===== LISTAGEM DE IMÓVEIS =====");
 
     if (imoveis.size() > 0) {
@@ -49,21 +51,22 @@ public class ImovelService implements ImovelRepository {
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
 
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
-  public static void editar() {
+  @Override
+  public void editar() {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.println("\n\t===== EDIÇÃO DE IMOVEL =====");
 
     if (imoveis.size() > 0) {
       System.out.print("\n\tDigite a matrícula do imóvel: ");
-      String matricula = Utils.scan.nextLine();
+      String matricula = Views.scan.nextLine();
 
       for (Imovel imovel : imoveis) {
         if (imovel.getMatricula().equals(matricula)) {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.print("\n\t===== DADOS DO IMOVEL =====");
           System.out.println(imovel.toString());
           System.out.println("\t===========================");
@@ -71,16 +74,16 @@ public class ImovelService implements ImovelRepository {
           while (true) {
             try {
               System.out.print("\n\tDeseja realmente editar este imóvel? (S/N): ");
-              String opcao = Utils.scan.nextLine();
+              String opcao = Views.scan.nextLine();
 
               if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
                 throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
               }
 
               if (opcao.equalsIgnoreCase("s")) {
-                Utils.limparTela();
+                Views.limparTela();
                 System.out.print("\n\tDigite o novo endereço do imóvel: ");
-                String endereco = Utils.scan.nextLine();
+                String endereco = Views.scan.nextLine();
 
                 int penultimaLeitura = obterInteiroValido(
                     "\n\tDigite a nova leitura da penúltima leitura (em kWh): ");
@@ -90,50 +93,51 @@ public class ImovelService implements ImovelRepository {
                 imovel.setUltimaLeitura(ultimaLeitura);
                 imovel.setPenultimaLeitura(penultimaLeitura);
 
-                Utils.limparTela();
+                Views.limparTela();
                 System.out.print("\n\t===== IMOVEL EDITADO =====");
                 System.out.println(imovel.toString());
                 System.out.print("\t==========================");
                 System.out.println("\n\tImóvel editado com sucesso!");
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
               } else {
                 System.out.println("\n\tOperação cancelada!");
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
               }
             } catch (InputMismatchException e) {
               System.out.println("\n\t" + e.getMessage());
               // Limpar o buffer do scanner antes de continuar o loop
-              Utils.scan.nextLine();
+              Views.scan.nextLine();
             }
           }
         }
       }
 
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tImóvel não encontrado!");
     } else {
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
-  public static void excluir() {
+  @Override
+  public void excluir() {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.println("\n\t===== EXCLUSÃO DE IMOVEL =====");
 
     if (imoveis.size() > 0) {
       System.out.print("\n\tDigite a matrícula do imóvel: ");
-      String matricula = Utils.scan.nextLine();
+      String matricula = Views.scan.nextLine();
 
       // boolean imovelEncontrado = false;
 
       for (Imovel imovel : imoveis) {
         if (imovel.getMatricula().equals(matricula)) {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.print("\n\t===== DADOS DO IMOVEL =====");
           System.out.println(imovel.toString());
           System.out.print("\t===========================");
@@ -141,56 +145,57 @@ public class ImovelService implements ImovelRepository {
           while (true) {
             try {
               System.out.print("\n\tDeseja realmente excluir este imóvel? (S/N): ");
-              String opcao = Utils.scan.nextLine();
+              String opcao = Views.scan.nextLine();
 
               if (!opcao.equalsIgnoreCase("s") && !opcao.equalsIgnoreCase("n")) {
                 throw new InputMismatchException("Opção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
               }
 
               if (opcao.equalsIgnoreCase("s")) {
-                Utils.limparTela();
+                Views.limparTela();
                 imoveis.remove(imovel);
                 System.out.println("\n\tImóvel excluído com sucesso!");
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
 
               } else {
                 System.out.println("\n\tOperação cancelada!");
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return;
               }
             } catch (InputMismatchException e) {
               System.out.println("\n\t" + e.getMessage());
               // Limpar o buffer do scanner antes de continuar o loop
-              Utils.scan.nextLine();
+              Views.scan.nextLine();
             }
           }
         }
       }
 
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tImóvel não encontrado!");
     } else {
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
-  public static void pesquisar() {
+  @Override
+  public void pesquisar() {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.print("\n\t===== PESQUISA DE IMÓVEL =====\n");
 
     if (imoveis.size() > 0) {
       System.out.print("\n\tDigite a matrícula do imóvel: ");
-      String matricula = Utils.scan.nextLine();
+      String matricula = Views.scan.nextLine();
 
       boolean imovelEncontrado = false;
 
       for (Imovel imovel : imoveis) {
         if (imovel.getMatricula().equals(matricula)) {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.print("\n\t===== DADOS DO IMOVEL =====");
           System.out.println(imovel.toString());
           System.out.println("\t===========================");
@@ -200,15 +205,15 @@ public class ImovelService implements ImovelRepository {
       }
 
       if (!imovelEncontrado) {
-        Utils.limparTela();
+        Views.limparTela();
         System.out.println("\n\tImóvel não encontrado!");
       }
 
     } else {
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
   }
 
   private static int obterInteiroValido(String prompt) {
@@ -219,22 +224,23 @@ public class ImovelService implements ImovelRepository {
     do {
       try {
         System.out.print(prompt);
-        valor = Integer.parseInt(Utils.scan.nextLine());
+        valor = Integer.parseInt(Views.scan.nextLine());
         valorValido = true; // Se chegou aqui, o valor é válido
 
       } catch (NumberFormatException e) {
-        Utils.limparTela();
+        Views.limparTela();
         System.out.println("\n\tPor favor, digite um valor inteiro válido.");
-        Utils.pausar(Utils.scan);
+        Views.pausar(Views.scan);
       }
     } while (!valorValido);
 
     return valor;
   }
 
-  public static Imovel buscaImovel() {
+  @Override
+  public Imovel buscaImovel() {
 
-    Utils.limparTela();
+    Views.limparTela();
     System.out.print("\n\t===== PESQUISA DE IMÓVEL POR MATRÍCULA =====");
 
     if (imoveis.size() > 0) {
@@ -242,15 +248,15 @@ public class ImovelService implements ImovelRepository {
       while (true) {
 
         System.out.print("\n\tDigite a matrícula do imóvel: ");
-        String matricula = Utils.scan.nextLine();
-        Utils.limparTela();
+        String matricula = Views.scan.nextLine();
+        Views.limparTela();
 
         boolean imovelEncontrado = false;
 
         for (Imovel imovel : imoveis) {
 
           if (imovel.getMatricula().equals(matricula)) {
-            Utils.limparTela();
+            Views.limparTela();
             System.out.print("\n\t===== DADOS DO IMOVEL =====");
             System.out.println(imovel.toString());
             System.out.println("\t===========================");
@@ -258,10 +264,10 @@ public class ImovelService implements ImovelRepository {
             // Pergunta se é o Imovel correto
             while (true) {
               System.out.print("\n\tEsse é o Imovel correto? (S/N): ");
-              String resposta = Utils.scan.nextLine();
+              String resposta = Views.scan.nextLine();
 
               if (resposta.equalsIgnoreCase("S")) {
-                Utils.pausar(Utils.scan);
+                Views.pausar(Views.scan);
                 return imovel;
               } else
 
@@ -270,23 +276,23 @@ public class ImovelService implements ImovelRepository {
                 break; // Retorna ao loop anterior para pedir uma nova matrícula
 
               } else {
-                Utils.limparTela();
+                Views.limparTela();
                 System.out.println("\n\tOpção inválida. Digite 'S' para confirmar ou 'N' para cancelar.");
               }
             }
           }
         }
         if (!imovelEncontrado) {
-          Utils.limparTela();
+          Views.limparTela();
           System.out.println("\n\tImóvel não encontrado!");
         }
       }
     } else {
-      Utils.limparTela();
+      Views.limparTela();
       System.out.println("\n\tNão há imóveis cadastrados!");
     }
 
-    Utils.pausar(Utils.scan);
+    Views.pausar(Views.scan);
     return null; // Se não encontrou, retorna null
   }
 
