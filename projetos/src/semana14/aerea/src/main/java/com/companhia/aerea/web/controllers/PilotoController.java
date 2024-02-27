@@ -102,7 +102,7 @@ public class PilotoController {
     @PutMapping("/update/{id}")
     public ResponseEntity<PilotoResponseDto> update(@PathVariable Long id, @RequestBody PilotoForm createDto) {
         try {
-            pilotoService.salvar(PilotoMapper.toPiloto(createDto));
+            pilotoService.salvar(pilotoService.insert(id, createDto));
             return ResponseEntity.ok(pilotoService.update(id, createDto));
 
         } catch (Exception e) {
@@ -111,7 +111,7 @@ public class PilotoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<PilotoDto> excluir(@PathVariable("id") Long id) {
+    public ResponseEntity<PilotoResponseDto> excluir(@PathVariable("id") Long id) {
         if (pilotoService.isExisteId(id)) {
 
             try {
