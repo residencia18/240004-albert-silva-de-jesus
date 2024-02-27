@@ -12,7 +12,7 @@ import com.companhia.aerea.web.dto.form.AeroportoForm;
 
 public class AeroportoMapper {
 
-  public static Aeroporto toPiloto(AeroportoForm createDto) {
+  public static Aeroporto toAeroporto(AeroportoForm createDto) {
     return new ModelMapper().map(createDto, Aeroporto.class);
   }
 

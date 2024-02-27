@@ -8,7 +8,7 @@ import com.companhia.aerea.web.dto.form.AeroportoForm;
 
 public interface AeroportoService {
 
-    List<AeroportoResponseDto> buscarTodos(String nome, String icao);
+    List<Aeroporto> buscarTodos(String nome, String icao);
 
     List<AeroportoResponseDto> buscarPorNome(String nome);
 

@@ -1,6 +1,6 @@
 package com.companhia.aerea.services;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,13 @@ public class PilotoServiceImpl implements PilotoService {
     // }
     // return pilotoDTO;
     // }
+
+    @SuppressWarnings("null")
+    @Override
+    @Transactional
+    public Piloto salvar(Piloto piloto) {
+        return pilotoRepository.save(piloto);
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -67,13 +74,6 @@ public class PilotoServiceImpl implements PilotoService {
             pilotos = pilotoRepository.findByNomeContainingIgnoreCase(nome);
         }
         return PilotoMapper.toListDto(pilotos);
-    }
-
-    @SuppressWarnings("null")
-    @Override
-    @Transactional
-    public Piloto salvar(Piloto piloto) {
-        return pilotoRepository.save(piloto);
     }
 
     @Override

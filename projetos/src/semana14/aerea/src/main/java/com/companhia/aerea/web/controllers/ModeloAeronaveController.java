@@ -18,8 +18,8 @@ public class ModeloAeronaveController {
   @Autowired
   private ModeloAeronaveService modeloAeronaveService;
 
-  @GetMapping("/listar-todos")
-  public List<ModeloAeronave> buscarTodos(@RequestParam(required = false) String nome, @RequestParam(required = false) String fabricante) {
-    return modeloAeronaveService.buscarTodos(nome, fabricante);
-  }
+  // @GetMapping("/listar-todos")
+  // public List<ModeloAeronave> buscarTodos(@RequestParam(required = false) String nome, @RequestParam(required = false) String fabricante) {
+  //   return modeloAeronaveService.buscarTodos(nome, fabricante);
+  // }
 }

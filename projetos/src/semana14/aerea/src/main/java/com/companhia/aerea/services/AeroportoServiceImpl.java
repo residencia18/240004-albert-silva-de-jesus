@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.companhia.aerea.entities.Aeroporto;
 import com.companhia.aerea.repositories.AeroportoRepository;
+import com.companhia.aerea.web.dto.AeroportoResponseDto;
+import com.companhia.aerea.web.dto.form.AeroportoForm;
 
 @Service
 @Transactional(readOnly = false)
@@ -16,25 +18,69 @@ public class AeroportoServiceImpl implements AeroportoService {
     @Autowired
     private AeroportoRepository aeroportoRepository;
 
+    @SuppressWarnings("null")
+    @Override
+    @Transactional
+    public Aeroporto salvar(Aeroporto aeroporto) {
+       return aeroportoRepository.save(aeroporto);
+    }
+
+    // @Override
+    // @Transactional(readOnly = true)
+    // public List<Aeroporto> buscarTodos(String nome, String icao) {
+    //    return aeroportoRepository.findAll();
+    // }
+
+    @Override
+    public List<AeroportoResponseDto> buscarPorNome(String nome) {
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPorNome'");
+    }
+
+    @Override
+    public Aeroporto buscarPorId(Long id) {
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    }
+
+    @Override
+    public Aeroporto insert(Long id, AeroportoForm aeroportoForm) {
+        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+    }
+
+    @Override
+    public AeroportoResponseDto update(Long id, AeroportoForm aeroportoForm) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+
+    @Override
+    public void delete(Long id) {
+    }
+
+    @Override
+    public Boolean isExisteId(Long id) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'isExisteId'");
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<Aeroporto> buscarTodos(String nome, String icao) {
 
-        List<Aeroporto> aeroportos;
-        
-        if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
-            aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
+    List<Aeroporto> aeroportos;
 
-        } else if (nome != null && !nome.isEmpty()) {
-            aeroportos = aeroportoRepository.findByNome(nome);
+    if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
+    aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
 
-        } else if (icao != null && !icao.isEmpty()) {
-            aeroportos = aeroportoRepository.findByIcao(icao);
+    } else if (nome != null && !nome.isEmpty()) {
+    aeroportos = aeroportoRepository.findByNome(nome);
 
-        } else {
-            aeroportos = aeroportoRepository.findAll();
-        }
+    } else if (icao != null && !icao.isEmpty()) {
+    aeroportos = aeroportoRepository.findByIcao(icao);
 
-        return aeroportos;
+    } else {
+    aeroportos = aeroportoRepository.findAll();
+    }
+
+    return aeroportos;
     }
 }
