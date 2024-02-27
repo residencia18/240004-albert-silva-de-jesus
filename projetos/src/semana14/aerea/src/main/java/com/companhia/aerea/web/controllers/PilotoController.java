@@ -20,6 +20,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.companhia.aerea.entities.Piloto;
 import com.companhia.aerea.services.PilotoService;
 import com.companhia.aerea.web.dto.PilotoDto;
+import com.companhia.aerea.web.dto.PilotoResponseDto;
+import com.companhia.aerea.web.dto.mapper.PilotoMapper;
 import com.companhia.aerea.web.form.PilotoForm;
 
 @RestController
@@ -84,19 +86,15 @@ public class PilotoController {
         }
     }
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<PilotoResponseDto> getById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<PilotoResponseDto> getById(@PathVariable Long id) {
+        try {
+            Piloto piloto = pilotoService.buscarPorId(id);
+            return ResponseEntity.ok(PilotoMapper.toDto(piloto));
 
-    // // Usuario user = usuarioService.buscarPorId(id);
-    // // return ResponseEntity.ok(UsuarioMapper.toDto(user));
-
-    // try {
-    // Piloto piloto = pilotoService.buscarPorId(id);
-    // return ResponseEntity.ok(UsuarioMapper.toDto(user));
-
-    // } catch (Exception e) {
-    // return ResponseEntity.notFound().build();
-    // }
-    // }
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }
