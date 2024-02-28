@@ -2,7 +2,6 @@ package com.persistencia.pratica13.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.persistencia.pratica13.entities.Usuario;
 import com.persistencia.pratica13.repositories.UsuarioRepository;
-import com.persistencia.pratica13.services.exceptions.ResourceNotFoundException;
 import com.persistencia.pratica13.web.dto.UsuarioDto;
 
 @Service
@@ -38,7 +36,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     List<Usuario> usuarios;
     if (nome == null) {
-      usuarios = usuarioRepository.findAll();
+      usuarios = usuarioRepository.findAllByOrderByNome();
 
     } else {
       usuarios = usuarioRepository.findByNomeContainingIgnoreCase(nome);

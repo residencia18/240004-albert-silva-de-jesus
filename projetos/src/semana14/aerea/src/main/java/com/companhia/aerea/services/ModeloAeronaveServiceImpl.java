@@ -16,6 +16,7 @@ import com.companhia.aerea.web.dto.form.ModeloAeronaveForm;
 @Transactional(readOnly = false)
 public class ModeloAeronaveServiceImpl implements ModeloAeronaveService {
 
+  @SuppressWarnings("unused")
   @Autowired
   private ModeloAeronaveRepository modeloAeronaveRepository;
 

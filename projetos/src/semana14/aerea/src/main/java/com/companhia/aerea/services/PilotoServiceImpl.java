@@ -1,6 +1,5 @@
 package com.companhia.aerea.services;
 
-// import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.companhia.aerea.entities.Piloto;
 import com.companhia.aerea.repositories.PilotoRepository;
-import com.companhia.aerea.web.dto.PilotoDto;
 import com.companhia.aerea.web.dto.PilotoResponseDto;
 import com.companhia.aerea.web.dto.form.PilotoForm;
 import com.companhia.aerea.web.dto.mapper.PilotoMapper;
@@ -21,28 +19,25 @@ public class PilotoServiceImpl implements PilotoService {
     @Autowired
     private PilotoRepository pilotoRepository;
 
-    // @Override
-    // public List<PilotoDto> buscarTodos() {
-    // List<Piloto> pilotos = pilotoRepository.findAll();
-    // List<PilotoDto> pilotoDTO = new ArrayList<>();
+    @Override
+    @Transactional(readOnly = false)
+    public List<PilotoResponseDto> buscarTodos(String nome) {
 
-    // for (Piloto piloto : pilotos) {
-    // pilotoDTO.add(new PilotoDto(piloto));
-    // }
-    // return pilotoDTO;
-    // }
+        List<Piloto> pilotos;
+
+        if (nome != null) {
+            pilotos = pilotoRepository.findByNomeContainingIgnoreCase(nome);
+        } else {
+            pilotos = pilotoRepository.findAllByOrderByNome();
+        }
+        return PilotoMapper.toListDto(pilotos);
+    }
 
     @SuppressWarnings("null")
     @Override
     @Transactional
     public Piloto salvar(Piloto piloto) {
         return pilotoRepository.save(piloto);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Piloto> buscaTodos() {
-        return pilotoRepository.findAll();
     }
 
     // @Override
@@ -66,16 +61,16 @@ public class PilotoServiceImpl implements PilotoService {
 
     @Override
     public List<PilotoResponseDto> buscarPorNome(String nome) {
-
         List<Piloto> pilotos;
         if (nome == null) {
-            pilotos = pilotoRepository.findAll();
+            pilotos = pilotoRepository.findAllByOrderByNome();
         } else {
             pilotos = pilotoRepository.findByNomeContainingIgnoreCase(nome);
         }
         return PilotoMapper.toListDto(pilotos);
     }
 
+    @SuppressWarnings("null")
     @Override
     @Transactional(readOnly = true)
     public Piloto buscarPorId(Long id) {
@@ -97,7 +92,7 @@ public class PilotoServiceImpl implements PilotoService {
 
     // @Override
     // public PilotoDto update(Long id, PilotoForm pilotoForm) {
-    //     return new PilotoDto(insert(id, pilotoForm));
+    // return new PilotoDto(insert(id, pilotoForm));
     // }
 
     @Override

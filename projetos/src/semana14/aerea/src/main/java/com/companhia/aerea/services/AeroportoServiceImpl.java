@@ -25,15 +25,26 @@ public class AeroportoServiceImpl implements AeroportoService {
         return aeroportoRepository.save(aeroporto);
     }
 
-    // @Override
-    // @Transactional(readOnly = true)
-    // public List<Aeroporto> buscarTodos(String nome, String icao) {
-    // return aeroportoRepository.findAll();
-    // }
-
     @Override
-    public List<AeroportoResponseDto> buscarPorNome(String nome) {
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorNome'");
+    @Transactional(readOnly = true)
+    public List<Aeroporto> buscarPorNomeOuIcao(String nome, String icao) {
+
+        List<Aeroporto> aeroportos;
+
+        if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
+
+        } else if (nome != null && !nome.isEmpty()) {
+            aeroportos = aeroportoRepository.findByNome(nome);
+
+        } else if (icao != null && !icao.isEmpty()) {
+            aeroportos = aeroportoRepository.findByIcao(icao);
+
+        } else {
+            aeroportos = aeroportoRepository.findAll();
+        }
+
+        return aeroportos;
     }
 
     @Override
@@ -58,33 +69,15 @@ public class AeroportoServiceImpl implements AeroportoService {
 
     @Override
     public void delete(Long id) {
+        aeroportoRepository.deleteById(id);
     }
 
     @Override
     public Boolean isExisteId(Long id) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'isExisteId'");
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Aeroporto> buscarTodos(String nome, String icao) {
-
-        List<Aeroporto> aeroportos;
-
-        if (nome != null && !nome.isEmpty() && icao != null && !icao.isEmpty()) {
-            aeroportos = aeroportoRepository.findByNomeAndIcao(nome, icao);
-
-        } else if (nome != null && !nome.isEmpty()) {
-            aeroportos = aeroportoRepository.findByNome(nome);
-
-        } else if (icao != null && !icao.isEmpty()) {
-            aeroportos = aeroportoRepository.findByIcao(icao);
-
+        if (aeroportoRepository.existsById(id)) {
+            return true;
         } else {
-            aeroportos = aeroportoRepository.findAll();
+            return false;
         }
-
-        return aeroportos;
     }
 }

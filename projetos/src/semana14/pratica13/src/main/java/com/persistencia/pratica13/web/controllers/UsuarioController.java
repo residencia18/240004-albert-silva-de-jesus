@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +31,7 @@ public class UsuarioController {
   @Autowired
   private UsuarioService usuarioService;
 
-  @PostMapping("/cadastrar")
-  public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
-    Usuario user = usuarioService.salvar(usuario);
-    return ResponseEntity.status(HttpStatus.CREATED).body(user);
-  }
-
-  // Forma de cadastrar usuário com DTO diferente do primeiro método de
-  // cadastro(create) acima.
+  // Forma de cadastrar usuário com DTO, diferente do proximo método de cadastro (insert) abaixo.
   /*
    * @PostMapping("/cadastrar")
    * public ResponseEntity<UsuarioResponseDto> create(@RequestBody
@@ -50,8 +42,6 @@ public class UsuarioController {
    * }
    */
 
-  // Forma de cadastrar usuário com DTO diferente do primeiro método de
-  // cadastro(create) acima.
   @PostMapping("/cadastrarusuario/")
   public ResponseEntity<UsuarioDto> insert(@RequestBody UsuarioForm usuarioForm, UriComponentsBuilder uriBuilder) {
     Usuario usuario = usuarioForm.toUsuario();
@@ -81,6 +71,7 @@ public class UsuarioController {
 
   @PatchMapping("/editar/{id}")
   public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UsuarioSenhaDto dto) {
+    @SuppressWarnings("unused")
     Usuario user = usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
     return ResponseEntity.noContent().build();
   }

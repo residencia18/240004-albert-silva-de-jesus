@@ -11,4 +11,6 @@ import com.persistencia.pratica13.entities.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
   
   List<Usuario> findByNomeContainingIgnoreCase(String nome);
+
+  List<Usuario> findAllByOrderByNome();
 }

@@ -9,11 +9,9 @@ import com.companhia.aerea.web.dto.form.PilotoForm;
 
 public interface PilotoService {
 
-    // List<PilotoDto> buscarTodos();
-
-    List<Piloto> buscaTodos();
-
     // List<PilotoDto> buscarPorNome(String nome);
+
+    List<PilotoResponseDto> buscarTodos(String nome);
 
     List<PilotoResponseDto> buscarPorNome(String nome);
 
