@@ -19,11 +19,9 @@ public interface PilotoService {
 
     Piloto buscarPorId(Long id);
 
-    Piloto insert(Long id, PilotoForm pilotoForm);
+    Piloto update(Long id, PilotoForm pilotoForm);
 
     // PilotoDto update(Long id, PilotoForm pilotoForm);
-
-    PilotoResponseDto update(Long id, PilotoForm pilotoForm);
 
     void delete(Long id);
 

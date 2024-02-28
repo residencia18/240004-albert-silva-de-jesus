@@ -81,23 +81,12 @@ public class PilotoServiceImpl implements PilotoService {
     }
 
     @Override
-    public Piloto insert(Long id, PilotoForm pilotoForm) {
+    public Piloto update(Long id, PilotoForm pilotoForm) {
         Piloto piloto = buscarPorId(id);
         piloto.setNome(pilotoForm.getNome());
         piloto.setNumBreve(pilotoForm.getNumBreve());
         piloto.setRegistro(pilotoForm.getRegistro());
-        PilotoResponseDto pilotoResponseDto = new PilotoResponseDto(piloto);
-        return piloto;
-    }
-
-    // @Override
-    // public PilotoDto update(Long id, PilotoForm pilotoForm) {
-    // return new PilotoDto(insert(id, pilotoForm));
-    // }
-
-    @Override
-    public PilotoResponseDto update(Long id, PilotoForm pilotoForm) {
-        return new PilotoResponseDto(insert(id, pilotoForm));
+        return salvar(piloto);
     }
 
     @Override

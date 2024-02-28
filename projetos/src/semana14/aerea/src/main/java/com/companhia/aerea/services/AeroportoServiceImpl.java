@@ -54,17 +54,11 @@ public class AeroportoServiceImpl implements AeroportoService {
     }
 
     @Override
-    public Aeroporto insert(Long id, AeroportoForm aeroportoForm) {
+    public Aeroporto update(Long id, AeroportoForm aeroportoForm) {
         Aeroporto aeroporto = buscarPorId(id);
         aeroporto.setNome(aeroportoForm.getNome());
         aeroporto.setIcao(aeroportoForm.getIcao());
-        AeroportoResponseDto aeroportoResponseDto = new AeroportoResponseDto(aeroporto);
-        return aeroporto;
-    }
-
-    @Override
-    public AeroportoResponseDto update(Long id, AeroportoForm aeroportoForm) {
-        return new AeroportoResponseDto(insert(id, aeroportoForm));
+        return salvar(aeroporto);
     }
 
     @Override

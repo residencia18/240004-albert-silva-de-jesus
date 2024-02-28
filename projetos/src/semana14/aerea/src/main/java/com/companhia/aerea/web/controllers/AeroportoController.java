@@ -2,7 +2,6 @@ package com.companhia.aerea.web.controllers;
 
 import java.net.URI;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,14 +46,10 @@ public class AeroportoController {
     @PutMapping("/update/{id}")
     public ResponseEntity<AeroportoResponseDto> update(@PathVariable Long id, @RequestBody AeroportoForm createDto) {
         try {
-            aeroportoService.salvar(aeroportoService.insert(id, createDto));
-            return ResponseEntity.ok(aeroportoService.update(id, createDto));
-
-        } catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build(); // Aeroporto não encontrado
+            return ResponseEntity.ok(AeroportoMapper.toDto(aeroportoService.update(id, createDto)));
 
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // Outro erro inesperado
+            return ResponseEntity.notFound().build();
         }
     }
 

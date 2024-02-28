@@ -51,8 +51,7 @@ public class PilotoController {
     @PutMapping("/update/{id}")
     public ResponseEntity<PilotoResponseDto> update(@PathVariable Long id, @RequestBody PilotoForm createDto) {
         try {
-            pilotoService.salvar(pilotoService.insert(id, createDto));
-            return ResponseEntity.ok(pilotoService.update(id, createDto));
+            return ResponseEntity.ok(PilotoMapper.toDto(pilotoService.update(id, createDto)));
 
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
