@@ -1,6 +1,6 @@
-package repositories;
+package avaliacao.repositories;
 
-import entities.Falha;
+import avaliacao.entities.Falha;
 
 public interface ReparoRepository {
 

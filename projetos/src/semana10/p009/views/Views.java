@@ -1,4 +1,4 @@
-package p009.views;
+package semana10.p009.views;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,12 +7,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import p009.dao.ClienteDao;
-import p009.dao.FaturaDao;
-import p009.dao.ImovelDao;
-import p009.dao.impl.DaoFactory;
-import p009.dao.impl.FaturaDaoImpl;
-import p009.entities.Fatura;
+import semana10.p009.dao.ClienteDao;
+import semana10.p009.dao.FaturaDao;
+import semana10.p009.dao.ImovelDao;
+import semana10.p009.dao.impl.DaoFactory;
+import semana10.p009.dao.impl.FaturaDaoImpl;
+import semana10.p009.entities.Fatura;
 
 public class Views {
 

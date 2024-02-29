@@ -1,13 +1,14 @@
-package services;
+package avaliacao.services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Fatura;
-import entities.Imovel;
-import entities.Pagamento;
-import repositories.ImovelRepository;
-import views.Views;
+import avaliacao.entities.Fatura;
+import avaliacao.entities.Imovel;
+import avaliacao.entities.Pagamento;
+import avaliacao.repositories.ImovelRepository;
+import avaliacao.views.Views;
+
 
 public class FaturaService {
 

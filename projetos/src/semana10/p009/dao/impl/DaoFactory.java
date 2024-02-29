@@ -1,9 +1,9 @@
-package p009.dao.impl;
+package semana10.p009.dao.impl;
 
-import p009.dao.ClienteDao;
-import p009.dao.FaturaDao;
-import p009.dao.ImovelDao;
-import p009.db.DB;
+import semana10.p009.dao.ClienteDao;
+import semana10.p009.dao.FaturaDao;
+import semana10.p009.dao.ImovelDao;
+import semana10.p009.db.DB;
 
 public class DaoFactory {
 

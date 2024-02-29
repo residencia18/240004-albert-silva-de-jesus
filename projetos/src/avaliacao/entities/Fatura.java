@@ -1,10 +1,10 @@
-package entities;
+package avaliacao.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import exceptions.FaturaQuitadaException;
-import views.Views;
+import avaliacao.exceptions.FaturaQuitadaException;
+import avaliacao.views.Views;
 
 import java.text.DecimalFormat;
 

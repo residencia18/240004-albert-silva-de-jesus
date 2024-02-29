@@ -1,4 +1,4 @@
-package atvemsala.redesocial;
+package semana4.atvemsala.redesocial;
 
 import java.util.ArrayList;
 import java.util.List;

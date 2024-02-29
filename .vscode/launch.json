@@ -4,6 +4,27 @@
       "type": "java",
       "name": "Program",
       "request": "launch",
+      "mainClass": "semana10.jdbc.redesocial.application.Program",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "semana10.p009.application.Program",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "semana7.P006.exercicio4.views.Main",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
       "mainClass": "views.Program",
       "projectName": "ResidenciaJava_51e9071e"
     },

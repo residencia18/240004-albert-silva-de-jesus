@@ -1,4 +1,4 @@
-package p009.dao.impl;
+package semana10.p009.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,19 +12,18 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Locale;
 
-import p009.dao.FaturaDao;
-import p009.dao.ImovelDao;
-import p009.db.DB;
-import p009.db.DbException;
-import p009.entities.Fatura;
-import p009.entities.Imovel;
-import p009.entities.Pagamento;
-import p009.views.Views;
+import semana10.p009.dao.FaturaDao;
+import semana10.p009.db.DB;
+import semana10.p009.db.DbException;
+import semana10.p009.entities.Fatura;
+import semana10.p009.entities.Imovel;
+import semana10.p009.entities.Pagamento;
+import semana10.p009.views.Views;
 
 public class FaturaDaoImpl implements FaturaDao {
 
   private static List<Fatura> listaFatura = new ArrayList<>();
-  private ImovelDao imovelDao = newImovelDao();
+  private ImovelDaoImpl imovelDao = newImovelDao();
 
   private Connection conn;
 

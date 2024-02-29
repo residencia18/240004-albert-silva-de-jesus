@@ -1,4 +1,4 @@
-package p003;
+package semana3.p003;
 
 public class ExcecaoNaoVerificadaExemplo {
     

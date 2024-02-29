@@ -1,4 +1,4 @@
-package semana6.atvEmSala.P005.repositories;
+package semana6.atvEmSala.P005.Repositories;
 
 import semana6.atvEmSala.P005.entities.PontosDeParada;
 

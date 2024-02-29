@@ -1,6 +1,6 @@
-package repositories;
+package avaliacao.repositories;
 
-import entities.Cliente;
+import avaliacao.entities.Cliente;
 
 public interface ClienteRepository {
 

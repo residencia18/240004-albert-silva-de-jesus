@@ -1,17 +1,17 @@
-package services;
+package avaliacao.services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.FalhaDistribuicao;
-import entities.FalhaGeracao;
-import entities.Imovel;
-import repositories.FalhaRepository;
-import repositories.ImovelRepository;
-import repositories.ReparoRepository;
-import views.Views;
+import avaliacao.entities.FalhaDistribuicao;
+import avaliacao.entities.FalhaGeracao;
+import avaliacao.entities.Imovel;
+import avaliacao.repositories.FalhaRepository;
+import avaliacao.repositories.ImovelRepository;
+import avaliacao.repositories.ReparoRepository;
+import avaliacao.views.Views;
 
 public class FalhaService implements FalhaRepository {
 

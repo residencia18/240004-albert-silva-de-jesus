@@ -1,4 +1,4 @@
-package p009.entities;
+package semana10.p009.entities;
 
 public class Imovel extends AbstractEntity {
 

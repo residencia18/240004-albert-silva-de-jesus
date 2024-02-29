@@ -1,12 +1,12 @@
-package p009.entities;
+package semana10.p009.entities;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import p009.exceptions.FaturaQuitadaException;
-import p009.views.Views;
+import semana10.p009.exceptions.FaturaQuitadaException;
+import semana10.p009.views.Views;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

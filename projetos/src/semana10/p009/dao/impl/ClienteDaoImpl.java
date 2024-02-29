@@ -1,4 +1,4 @@
-package p009.dao.impl;
+package semana10.p009.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import p009.entities.Cliente;
-import p009.entities.Imovel;
-import p009.views.Views;
-import p009.db.DB;
-import p009.db.DbException;
-import p009.dao.ClienteDao;
+import semana10.p009.dao.ClienteDao;
+import semana10.p009.db.DB;
+import semana10.p009.db.DbException;
+import semana10.p009.entities.Cliente;
+import semana10.p009.entities.Imovel;
+import semana10.p009.views.Views;
 
 public class ClienteDaoImpl implements ClienteDao {
 

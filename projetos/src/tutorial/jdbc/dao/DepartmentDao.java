@@ -1,8 +1,8 @@
-package jdbc.dao;
+package tutorial.jdbc.dao;
 
 import java.util.List;
 
-import jdbc.entities.Department;
+import tutorial.jdbc.entities.Department;
 
 public interface DepartmentDao {
 

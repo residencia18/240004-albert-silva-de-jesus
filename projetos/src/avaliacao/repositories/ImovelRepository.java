@@ -1,7 +1,6 @@
-package repositories;
+package avaliacao.repositories;
 
-import entities.Imovel;
-
+import avaliacao.entities.Imovel;
 public interface ImovelRepository {
 
   public void adcionar(Imovel imovel);

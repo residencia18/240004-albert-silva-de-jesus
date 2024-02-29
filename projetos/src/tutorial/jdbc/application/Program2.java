@@ -1,11 +1,11 @@
-package jdbc.application;
+package tutorial.jdbc.application;
 
 import java.util.List;
 import java.util.Scanner;
 
-import jdbc.dao.DaoFactory;
-import jdbc.dao.DepartmentDao;
-import jdbc.entities.Department;
+import tutorial.jdbc.dao.DaoFactory;
+import tutorial.jdbc.dao.DepartmentDao;
+import tutorial.jdbc.entities.Department;
 
 public class Program2 {
 

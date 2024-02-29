@@ -1,4 +1,4 @@
-package views;
+package avaliacao.views;
 
 import java.util.Locale;
 

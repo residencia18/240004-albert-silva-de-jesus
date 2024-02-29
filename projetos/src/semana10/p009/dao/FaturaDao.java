@@ -1,7 +1,7 @@
-package p009.dao;
+package semana10.p009.dao;
 
-import p009.entities.Fatura;
-import p009.entities.Imovel;
+import semana10.p009.entities.Fatura;
+import semana10.p009.entities.Imovel;
 
 public interface FaturaDao {
 

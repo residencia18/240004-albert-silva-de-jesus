@@ -1,4 +1,4 @@
-package redesocial.db;
+package semana10.jdbc.redesocial.db;
 
 public class DbIntegrityException extends RuntimeException {
 

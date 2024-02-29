@@ -1,4 +1,4 @@
-package redesocial.db;
+package semana10.jdbc.redesocial.db;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package jdbc.dao.impl;
+package tutorial.jdbc.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,11 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import jdbc.dao.DepartmentDao;
-import jdbc.db.DB;
-import jdbc.db.DbException;
-import jdbc.db.DbIntegrityException;
-import jdbc.entities.Department;
+import tutorial.jdbc.dao.DepartmentDao;
+import tutorial.jdbc.db.DB;
+import tutorial.jdbc.db.DbException;
+import tutorial.jdbc.db.DbIntegrityException;
+import tutorial.jdbc.entities.Department;
 
 public class DepartmentDaoJDBC implements DepartmentDao {
 

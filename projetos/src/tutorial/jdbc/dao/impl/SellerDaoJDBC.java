@@ -1,4 +1,4 @@
-package jdbc.dao.impl;
+package tutorial.jdbc.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,11 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jdbc.dao.SellerDao;
-import jdbc.db.DB;
-import jdbc.db.DbException;
-import jdbc.entities.Department;
-import jdbc.entities.Seller;
+import tutorial.jdbc.dao.SellerDao;
+import tutorial.jdbc.db.DB;
+import tutorial.jdbc.db.DbException;
+import tutorial.jdbc.entities.Department;
+import tutorial.jdbc.entities.Seller;
 
 public class SellerDaoJDBC implements SellerDao {
 

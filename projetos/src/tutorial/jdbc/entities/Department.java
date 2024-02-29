@@ -1,4 +1,4 @@
-package jdbc.entities;
+package tutorial.jdbc.entities;
 
 import java.io.Serializable;
 

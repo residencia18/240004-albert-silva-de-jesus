@@ -1,6 +1,6 @@
-package repositories;
+package avaliacao.repositories;
 
-import entities.FalhaDistribuicao;
+import avaliacao.entities.FalhaDistribuicao;
 
 public interface FalhaRepository {
 

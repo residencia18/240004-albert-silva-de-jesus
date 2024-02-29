@@ -1,4 +1,4 @@
-package redesocial.model.entities;
+package semana10.jdbc.redesocial.model.entities;
 
 import java.io.Serializable;
 

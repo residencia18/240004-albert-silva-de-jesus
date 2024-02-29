@@ -1,14 +1,13 @@
-package services;
+package avaliacao.services;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import entities.Cliente;
-import repositories.ClienteRepository;
-import views.Views;
-
+import avaliacao.entities.Cliente;
+import avaliacao.repositories.ClienteRepository;
+import avaliacao.views.Views;
 
 public class ClienteService implements ClienteRepository {
 

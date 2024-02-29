@@ -1,8 +1,8 @@
-package entities;
+package avaliacao.entities;
 
 import java.time.LocalDate;
 
-import views.Views;
+import avaliacao.views.Views;
 
 import java.text.DecimalFormat;
 

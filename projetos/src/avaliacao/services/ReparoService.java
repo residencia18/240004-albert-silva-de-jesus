@@ -1,4 +1,4 @@
-package services;
+package avaliacao.services;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import entities.Falha;
-import entities.Reparo;
-import repositories.ReparoRepository;
-import views.Views;
+import avaliacao.entities.Falha;
+import avaliacao.entities.Reparo;
+import avaliacao.repositories.ReparoRepository;
+import avaliacao.views.Views;
 
 public class ReparoService implements ReparoRepository {
 

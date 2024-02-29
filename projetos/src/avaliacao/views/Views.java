@@ -1,4 +1,4 @@
-package views;
+package avaliacao.views;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -7,16 +7,16 @@ import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import entities.Fatura;
-import repositories.ClienteRepository;
-import repositories.FalhaRepository;
-import repositories.ImovelRepository;
-import repositories.ReparoRepository;
-import services.ClienteService;
-import services.FalhaService;
-import services.FaturaService;
-import services.ImovelService;
-import services.ReparoService;
+import avaliacao.entities.Fatura;
+import avaliacao.repositories.ClienteRepository;
+import avaliacao.repositories.FalhaRepository;
+import avaliacao.repositories.ImovelRepository;
+import avaliacao.repositories.ReparoRepository;
+import avaliacao.services.ClienteService;
+import avaliacao.services.FalhaService;
+import avaliacao.services.FaturaService;
+import avaliacao.services.ImovelService;
+import avaliacao.services.ReparoService;
 
 public class Views {
 

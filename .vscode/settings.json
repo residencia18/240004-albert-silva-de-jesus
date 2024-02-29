@@ -1,14 +1,6 @@
 {
   "java.configuration.updateBuildConfiguration": "interactive",
-  "java.project.sourcePaths": [
-    "projetos/src/tutorial",
-    "projetos/src/semana3",
-    "projetos/src/semana2",
-    "projetos/src/semana10/jdbc",
-    "projetos/src/semana1",
-    "projetos/src/avaliacao",
-    "projetos/src/semana4"
-  ],
+  "java.project.sourcePaths": ["projetos/src/"],
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     "c:\\java-libs\\jdbc-connectors\\mysql-connector-j-8.3.0.jar"

@@ -1,6 +1,6 @@
-package p009.dao;
+package semana10.p009.dao;
 
-import p009.entities.Cliente;
+import semana10.p009.entities.Cliente;
 
 public interface ClienteDao {
 

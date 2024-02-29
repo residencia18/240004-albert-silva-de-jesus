@@ -1,6 +1,5 @@
-package p009.dao;
+package semana10.p009.dao;
 
 public interface ReparoDao {
-
   
 }

@@ -1,9 +1,9 @@
-package redesocial.model.dao;
+package semana10.jdbc.redesocial.model.dao;
 
 import java.util.List;
 
-import redesocial.model.entities.Postagem;
-import redesocial.model.entities.Usuario;
+import semana10.jdbc.redesocial.model.entities.Postagem;
+import semana10.jdbc.redesocial.model.entities.Usuario;
 
 public interface UsuarioDao {
 

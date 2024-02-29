@@ -3,8 +3,8 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import semana6.atvEmSala.P005.Repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.entities.Veiculo;
-import semana6.atvEmSala.P005.repositories.VeiculoRepository;
 import semana6.atvEmSala.P005.views.Views;
 
 public class VeiculoService implements VeiculoRepository{

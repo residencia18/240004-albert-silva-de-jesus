@@ -3,8 +3,8 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import semana6.atvEmSala.P005.Repositories.PassageiroRepository;
 import semana6.atvEmSala.P005.entities.Passageiro;
-import semana6.atvEmSala.P005.repositories.PassageiroRepository;
 import semana6.atvEmSala.P005.views.Views;
 
 public class PassageiroService implements PassageiroRepository {

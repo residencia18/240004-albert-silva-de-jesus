@@ -3,8 +3,9 @@ package semana6.atvEmSala.P005.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import semana6.atvEmSala.P005.Repositories.MotoristaRepository;
 import semana6.atvEmSala.P005.entities.Motorista;
-import semana6.atvEmSala.P005.repositories.MotoristaRepository;
+
 import semana6.atvEmSala.P005.views.Views;
 
 public class MotoristaService implements MotoristaRepository {
