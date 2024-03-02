@@ -54,7 +54,7 @@ public class LanceController {
 
     if (id != null) {
 
-      List<LanceResponseDto> lance = lanceService.buscarTodos(id);
+      List<LanceResponseDto> lance = lanceService.findById(id);
       if (!lance.isEmpty()) {
         return ResponseEntity.ok().body(lance);
 
