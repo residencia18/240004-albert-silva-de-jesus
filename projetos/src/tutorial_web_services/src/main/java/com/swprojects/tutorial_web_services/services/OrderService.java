@@ -20,6 +20,7 @@ public class OrderService {
 	}
 	
 	public Order findById(Long id) {
+		@SuppressWarnings("null")
 		Optional<Order> obj = orderRepository.findById(id);
 		return obj.get();
 	}

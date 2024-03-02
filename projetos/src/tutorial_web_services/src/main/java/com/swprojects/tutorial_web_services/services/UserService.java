@@ -27,10 +27,12 @@ public class UserService {
   }
 
   public User findById(Long id) {
+    @SuppressWarnings("null")
     Optional<User> obj = userRepository.findById(id);
     return obj.orElseThrow(() -> new ResourceNotFoundException(id));
   }
 
+  @SuppressWarnings("null")
   public User insert(User obj) {
     return userRepository.save(obj);
   }
@@ -47,6 +49,7 @@ public class UserService {
    * DatabaseException(e.getMessage()); } }
    */
 
+  @SuppressWarnings("null")
   @Transactional
   public void delete(Long id) {
     if (!userRepository.existsById(id)) {
@@ -65,6 +68,7 @@ public class UserService {
 
   public User update(Long id, User obj) {
     try {
+      @SuppressWarnings("null")
       User entity = userRepository.getReferenceById(id);
       updateData(entity, obj);
       return userRepository.save(entity);

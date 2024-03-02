@@ -89,11 +89,13 @@ public class PilotoServiceImpl implements PilotoService {
         return salvar(piloto);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void delete(Long id) {
         pilotoRepository.deleteById(id);
     }
 
+    @SuppressWarnings("null")
     @Override
     public Boolean isExisteId(Long id) {
         if (pilotoRepository.existsById(id)) {

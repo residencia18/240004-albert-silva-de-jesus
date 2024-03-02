@@ -1,6 +1,5 @@
 package com.residenciatic18.apileilao.services;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,13 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.residenciatic18.apileilao.entities.Concorrente;
-import com.residenciatic18.apileilao.entities.Lance;
 import com.residenciatic18.apileilao.repositories.ConcorrenteRepository;
 import com.residenciatic18.apileilao.web.dto.ConcorrenteResponseDto;
-import com.residenciatic18.apileilao.web.dto.LanceResponseDto;
 import com.residenciatic18.apileilao.web.dto.form.ConcorrenteForm;
 import com.residenciatic18.apileilao.web.dto.mapper.ConcorrenteMapper;
-import com.residenciatic18.apileilao.web.dto.mapper.LanceMapper;
 
 @Service
 @Transactional(readOnly = false)
@@ -77,6 +73,7 @@ public class ConcorrenteServiceImpl implements ConcorrenteService {
     return concorrenteRepository.findAll();
   }
 
+  @SuppressWarnings("null")
   @Override
   public Concorrente buscarPorId(Long id) {
     return concorrenteRepository.findById(id)
@@ -91,11 +88,13 @@ public class ConcorrenteServiceImpl implements ConcorrenteService {
     return salvar(concorrente);
   }
 
+  @SuppressWarnings("null")
   @Override
   public void delete(Long id) {
     concorrenteRepository.deleteById(id);
   }
 
+  @SuppressWarnings("null")
   @Override
   public Boolean isExisteId(Long id) {
     if (concorrenteRepository.existsById(id)) {

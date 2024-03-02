@@ -18,6 +18,7 @@ public class PostService {
 	private PostRepository postRepositoty;
 
 	public Post findById(String id) {
+		@SuppressWarnings("null")
 		Optional<Post> obj = postRepositoty.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}

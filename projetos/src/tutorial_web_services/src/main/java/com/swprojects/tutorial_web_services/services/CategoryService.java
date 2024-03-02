@@ -20,6 +20,7 @@ public class CategoryService {
 	}
 	
 	public Category findById(Long id) {
+		@SuppressWarnings("null")
 		Optional<Category> obj = categoryRepository.findById(id);
 		return obj.get();
 	}

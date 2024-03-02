@@ -24,6 +24,7 @@ public class Instantiation implements CommandLineRunner {
 	@Autowired
 	private PostRepository postRepository;
 
+	@SuppressWarnings("null")
 	@Override
 	public void run(String... args) throws Exception {
 

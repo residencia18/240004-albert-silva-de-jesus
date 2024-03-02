@@ -22,10 +22,12 @@ public class UserService {
 	}
 
 	public User findById(String id) {
+		@SuppressWarnings("null")
 		Optional<User> obj = userRepositoty.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 
+	@SuppressWarnings("null")
 	public User insert(User obj) {
 		return userRepositoty.insert(obj);
 	}
@@ -34,11 +36,13 @@ public class UserService {
 		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
 	}
 	
+	@SuppressWarnings("null")
 	public void delete(String id) {
 		findById(id);
 		userRepositoty.deleteById(id);
 	}
 	
+	@SuppressWarnings("null")
 	public User update(User obj) {
 		User newObj = findById(obj.getId());
 		updateData(newObj, obj);

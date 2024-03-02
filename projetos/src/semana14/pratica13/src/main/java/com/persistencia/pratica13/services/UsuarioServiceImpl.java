@@ -64,6 +64,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   }
 
+  @SuppressWarnings("null")
   @Override
   @Transactional(readOnly = true)
   public Usuario buscarPorId(Long id) {
@@ -73,6 +74,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para condutor:" + id));
   }
 
+  @SuppressWarnings("null")
   @Override
   public Boolean isExisteId(Long id) {
     if (usuarioRepository.existsById(id)) {
@@ -103,6 +105,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     throw new UnsupportedOperationException("Unimplemented method 'editar'");
   }
 
+  @SuppressWarnings("null")
   @Override
   public void excluir(Long id) {
     usuarioRepository.deleteById(id);

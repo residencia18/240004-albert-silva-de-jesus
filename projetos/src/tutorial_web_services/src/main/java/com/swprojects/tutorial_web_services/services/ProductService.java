@@ -20,6 +20,7 @@ public class ProductService {
   }
 
   public Product findById(Long id) {
+    @SuppressWarnings("null")
     Optional<Product> obj = productRepository.findById(id);
     return obj.get();
   }

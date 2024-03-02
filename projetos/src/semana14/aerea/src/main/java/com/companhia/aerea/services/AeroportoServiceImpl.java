@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.companhia.aerea.entities.Aeroporto;
 import com.companhia.aerea.repositories.AeroportoRepository;
-import com.companhia.aerea.web.dto.AeroportoResponseDto;
 import com.companhia.aerea.web.dto.form.AeroportoForm;
 
 @Service
@@ -47,6 +46,7 @@ public class AeroportoServiceImpl implements AeroportoService {
         return aeroportos;
     }
 
+    @SuppressWarnings("null")
     @Override
     public Aeroporto buscarPorId(Long id) {
         return aeroportoRepository.findById(id)
@@ -61,11 +61,13 @@ public class AeroportoServiceImpl implements AeroportoService {
         return salvar(aeroporto);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void delete(Long id) {
         aeroportoRepository.deleteById(id);
     }
 
+    @SuppressWarnings("null")
     @Override
     public Boolean isExisteId(Long id) {
         if (aeroportoRepository.existsById(id)) {
