@@ -37,14 +37,32 @@ public class LanceController {
     return ResponseEntity.created(uri).body(LanceMapper.toDto(obj));
   }
 
+  // @GetMapping("/{id}")
+  // public ResponseEntity<List<LanceResponseDto>> getById(@RequestParam(required
+  // = false) Long id) {
+  // List<LanceResponseDto> lance = lanceService.buscarTodos(id);
+
+  // if (!lance.isEmpty()) {
+  // return ResponseEntity.ok().body(lance);
+  // } else {
+  // return ResponseEntity.notFound().build();
+  // }
+  // }
+
   @GetMapping("/{id}")
   public ResponseEntity<List<LanceResponseDto>> getById(@RequestParam(required = false) Long id) {
-    List<LanceResponseDto> lance = lanceService.buscarTodos(id);
 
-    if (!lance.isEmpty()) {
-      return ResponseEntity.ok().body(lance);
+    if (id != null) {
+
+      List<LanceResponseDto> lance = lanceService.buscarTodos(id);
+      if (!lance.isEmpty()) {
+        return ResponseEntity.ok().body(lance);
+
+      } else {
+        return ResponseEntity.notFound().build();
+      }
     } else {
-      return ResponseEntity.notFound().build();
+      return ResponseEntity.ok().body(LanceMapper.toListDto(lanceService.findAll()));
     }
   }
 
