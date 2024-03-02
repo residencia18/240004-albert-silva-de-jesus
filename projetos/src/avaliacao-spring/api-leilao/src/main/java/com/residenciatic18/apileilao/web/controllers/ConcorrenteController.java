@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -37,24 +38,20 @@ public class ConcorrenteController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<List<ConcorrenteResponseDto>> getById(@PathVariable Long id) {
-    try {
-      List<Concorrente> concorrentes = concorrenteService.buscarTodos(id);
+  public ResponseEntity<List<ConcorrenteResponseDto>> getById(@RequestParam(required = false) Long id) {
 
-      if (concorrentes.isEmpty()) {
+    if (id != null) {
+
+      List<ConcorrenteResponseDto> concorrente = concorrenteService.findById(id);
+      if (!concorrente.isEmpty()) {
+        return ResponseEntity.ok().body(concorrente);
+
+      } else {
         return ResponseEntity.notFound().build();
       }
-
-      return ResponseEntity.ok(ConcorrenteMapper.toListDto(concorrentes));
-
-    } catch (Exception e) {
-      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    } else {
+      return ResponseEntity.ok().body(ConcorrenteMapper.toListDto(concorrenteService.findAll()));
     }
-  }
-
-  @GetMapping("/")
-  public ResponseEntity<List<ConcorrenteResponseDto>> buscarTodos() {
-    return ResponseEntity.ok(ConcorrenteMapper.toListDto(concorrenteService.buscarTodos(null)));
   }
 
   @PutMapping("/{id}")

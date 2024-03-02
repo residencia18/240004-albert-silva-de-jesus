@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "WorkshopmongoApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.workshopmongodb.WorkshopmongoApplication",
+      "projectName": "workshopmongo"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-AereaApplication<aerea>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.companhia.aerea.AereaApplication",
+      "projectName": "aerea",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=52843 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=aerea"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiLeilaoApplication<api-leilao>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
+      "projectName": "api-leilao",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
