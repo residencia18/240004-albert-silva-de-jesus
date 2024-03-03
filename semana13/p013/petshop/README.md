@@ -1,10 +1,6 @@
 # Petshop
 
-<<<<<<< HEAD
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
-=======
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
->>>>>>> 6f9b083ba936429749ce05774827d67c1eb77fad
 
 ## Development server
 
