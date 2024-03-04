@@ -2,11 +2,12 @@ import { NgFor, NgIf } from '@angular/common';
 import { type_atendimento } from '../../../types/atendimento';
 import { CrudService } from './../../services/crud.service';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-find-all',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor, RouterLink],
   templateUrl: './find-all.component.html',
   styleUrl: './find-all.component.css'
 })
