@@ -1,11 +1,11 @@
-<h2>Lista de Dados</h2>
+<h1>Lista de Dados</h1>
 <div class="pet-list">
-  <ul>
-    <li><strong>Nome:</strong></li>
-    <li><strong>CPF:</strong></li>
-    <li><strong>Telefone:</strong></li>
-    <li><strong>Nome do Pet:</strong></li>
-    <li><strong>Raça:</strong></li>
-    <li><strong>Data do Atendimento:</strong></li>
+  <ul *ngFor="let atendimento of atendimentos">
+    <li><strong>Nome:</strong>{{atendimento.nome}}</li>
+    <li><strong>CPF:</strong>{{atendimento.cpf}}</li>
+    <li><strong>Telefone:</strong>{{atendimento.telefone}}</li>
+    <li><strong>Nome do Pet:</strong>{{atendimento.nomePet}}</li>
+    <li><strong>Raça:</strong>{{atendimento.raca}}</li>
+    <li><strong>Data do Atendimento:</strong>{{atendimento.dataAtendimento}}</li>
   </ul>
 </div>
