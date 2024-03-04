@@ -1,0 +1,24 @@
+.pet-list {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pet-list h2 {
+  margin-bottom: 15px;
+}
+
+.pet-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pet-list li {
+  margin-bottom: 10px;
+}
+
+.pet-list li strong {
+  font-weight: bold;
+}

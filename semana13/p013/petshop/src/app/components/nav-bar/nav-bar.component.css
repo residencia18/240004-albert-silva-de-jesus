@@ -2,6 +2,8 @@
 nav {
   background-color: #f0f0f0;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Estilo para o título */

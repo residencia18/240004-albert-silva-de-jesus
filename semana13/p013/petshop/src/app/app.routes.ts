@@ -5,6 +5,7 @@ import { UpdateComponent } from './components/update/update.component';
 
 export const routes: Routes = [
   { path: '', component: CreateComponent },
+  { path: 'create', component: CreateComponent },
   { path: 'findAll', component: FindAllComponent },
   { path: 'update/:id', component: UpdateComponent },
 
