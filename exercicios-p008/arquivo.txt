@@ -1,0 +1,23 @@
+commit 178b9018e7fc5437e3238c19a1a237f04d169257
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 9 12:06:49 2023 -0300
+
+    Atividade Finalizada
+
+commit f05a46386e571316b506b17107f19416daf2fa25
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Wed Sep 6 10:30:35 2023 -0300
+
+    reformulação o padrão dos arquivos .cpp
+
+commit 23fc7ce4e3357704bff781286c0a03ba60740bee
+Author: joao Ramos <jvitorsb98@outlook.com>
+Date:   Tue Sep 5 15:53:08 2023 -0300
+
+    arquivos .cpp incluidos vazios para alteração pelos integrantes
+
+commit 164cf8deefd3309dd545bd452ae5d6155f1781b4
+Author: jvitorsb98 <118237381+jvitorsb98@users.noreply.github.com>
+Date:   Tue Sep 5 15:44:57 2023 -0300
+
+    Initial commit

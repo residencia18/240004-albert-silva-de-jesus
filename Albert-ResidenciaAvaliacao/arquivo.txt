@@ -1,0 +1,17 @@
+commit 42e9c5114ce1e317edda0e7a75eae5d0fb5f8bf3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 19 13:33:51 2023 -0300
+
+    Albert: Avaliação Atualizada
+
+commit c72069a07c730904584c75178375fbdc225b685a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 19 13:26:56 2023 -0300
+
+    Albert: 1° Versão do projeto
+
+commit 1e9f809e474271d033bf1229be6f49187fbd706c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 22:07:11 2023 -0300
+
+    Readme.md

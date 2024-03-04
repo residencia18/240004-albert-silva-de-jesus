@@ -1,0 +1,48 @@
+commit cecd34e4420222431c29cc78f5294c280fa1649f
+Merge: 3f49d79 c272d55
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 9 22:15:54 2023 -0300
+
+    Merge branch 'alber' of https://github.com/jvitorsb98/atividade-programacao-imperativaPI-P010 into alber
+
+commit c272d55786cab94a46efef7ab9cced8e6c7d1f5d
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 9 21:29:21 2023 -0300
+
+    retirada definição TAM
+
+commit a6eb79b371d725701e9658fc4be436b02a4f9ad5
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 9 21:27:57 2023 -0300
+
+    inserindo funcoes pausar e limpar tela
+
+commit 3f49d79507aaa092e1e1987536e0753ad4232552
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 9 20:37:26 2023 -0300
+
+    Validação de nota 1 e nota 2 atualizada
+
+commit 952b93ef15f569c311beff16e56798612497b9c7
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 8 21:37:18 2023 -0300
+
+    Sistema de Controle de Notas Finalizado
+
+commit 2fe9c0b3fb9a32479544a7e0daf3f5aa804b0674
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Wed Sep 6 19:33:30 2023 -0300
+
+    arquivo vazio incluido
+
+commit ebb17612bb9a71b18721c1ba4be50c2ed74f5b07
+Author: jvitorsb98 <118237381+jvitorsb98@users.noreply.github.com>
+Date:   Wed Sep 6 19:29:43 2023 -0300
+
+    Update README.md
+
+commit 93c6a5e55a07e9f6a2d3213850abcdd1b8975052
+Author: jvitorsb98 <118237381+jvitorsb98@users.noreply.github.com>
+Date:   Wed Sep 6 19:28:26 2023 -0300
+
+    Initial commit

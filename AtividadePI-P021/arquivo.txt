@@ -1,0 +1,17 @@
+commit 659733ab1f329fe7f042ddbc92612216f41f4b2f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Oct 14 18:40:47 2023 -0300
+
+    Atividade finalizada
+
+commit a2985bdf8624d2a1b3d77fe34478d1df7fee1734
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 10 17:20:03 2023 -0300
+
+    Atividade Parcialmente resolvida
+
+commit ce2b918e1f9714ceafca3497c050b884ec72d36c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 10 13:40:33 2023 -0300
+
+    Readme.md
