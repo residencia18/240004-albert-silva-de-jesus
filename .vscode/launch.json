@@ -2,6 +2,19 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PilotosApplication",
+      "request": "launch",
+      "mainClass": "com.pratica12.pilotos.PilotosApplication",
+      "projectName": "pilotos"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "semana10.jdbc.redesocial.application.Program"
+    },
+    {
+      "type": "java",
       "name": "Program",
       "request": "launch",
       "mainClass": "com.demo.jpa.aplication.Program",
