@@ -2,6 +2,40 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "semana10.jdbc.redesocial.application.Program",
+      "projectName": "ResidenciaJava_51e9071e"
+    },
+    {
+      "type": "java",
+      "name": "TutorialWebServicesApplication",
+      "request": "launch",
+      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
+      "projectName": "tutorial_web_services"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "avaliacao.views.Program"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.energiacoelho.aplication.Program",
+      "projectName": "p010"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
+      "mainClass": "com.gestao.academica.aplication.Program",
+      "projectName": "estudante"
+    },
+    {
+      "type": "java",
       "name": "WorkshopmongoApplication",
       "request": "launch",
       "mainClass": "com.swproject.workshopmongodb.WorkshopmongoApplication",

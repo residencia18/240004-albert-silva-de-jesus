@@ -23,7 +23,7 @@ public class Program {
     // System.out.println("\n\t=== TEST 2: usuario findAll =====");
     // List<Usuario> list = usuarioDao.findAll();
     // for (Usuario obj : list) {
-    //   System.out.println(obj);
+    // System.out.println(obj);
     // }
 
     // System.out.println("\n\t=== TEST 3: usuario insert =====");
@@ -32,9 +32,9 @@ public class Program {
 
     // System.out.println("\n\t=== TEST 5: seller update =====");
     // Usuario usuario = usuarioDao.findById(1);
-		// usuario.setSenha("12341010");
+    // usuario.setSenha("12341010");
     // usuarioDao.update(usuario);
-		// System.out.println("\n\tUpdate completed");
+    // System.out.println("\n\tUpdate completed");
 
     sc.close();
 
