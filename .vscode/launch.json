@@ -4,6 +4,13 @@
       "type": "java",
       "name": "Program",
       "request": "launch",
+      "mainClass": "com.demo.jpa.aplication.Program",
+      "projectName": "tutorial2_jpa"
+    },
+    {
+      "type": "java",
+      "name": "Program",
+      "request": "launch",
       "mainClass": "semana10.jdbc.redesocial.application.Program",
       "projectName": "ResidenciaJava_51e9071e"
     },
