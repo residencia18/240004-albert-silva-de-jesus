@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CrudUserApplication",
+      "request": "launch",
+      "mainClass": "com.example.crud_user.CrudUserApplication",
+      "projectName": "crud_user"
+    },
+    {
+      "type": "java",
       "name": "Program",
       "request": "launch",
       "mainClass": "com.demo.jpa.aplication.Program",
