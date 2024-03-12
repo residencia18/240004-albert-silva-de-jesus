@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -38,7 +37,7 @@ public class ConcorrenteController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<List<ConcorrenteResponseDto>> getById(@RequestParam(required = false) Long id) {
+  public ResponseEntity<List<ConcorrenteResponseDto>> getById(@PathVariable Long id) {
 
     if (id != null) {
 
@@ -52,6 +51,12 @@ public class ConcorrenteController {
     } else {
       return ResponseEntity.ok().body(ConcorrenteMapper.toListDto(concorrenteService.findAll()));
     }
+  }
+
+  @GetMapping("/")
+  public ResponseEntity<List<ConcorrenteResponseDto>> getAll() {
+    List<ConcorrenteResponseDto> concorrentes = ConcorrenteMapper.toListDto(concorrenteService.findAll());
+    return ResponseEntity.ok().body(concorrentes);
   }
 
   @PutMapping("/{id}")

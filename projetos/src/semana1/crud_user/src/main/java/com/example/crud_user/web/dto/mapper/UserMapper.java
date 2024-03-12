@@ -12,7 +12,7 @@ import com.example.crud_user.web.dto.form.UserForm;
 
 public class UserMapper {
 
-  public static User toLeilao(UserForm createDto) {
+  public static User toUser(UserForm createDto) {
     return new ModelMapper().map(createDto, User.class);
   }
 

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -50,7 +49,7 @@ public class LanceController {
   // }
 
   @GetMapping("/{id}")
-  public ResponseEntity<List<LanceResponseDto>> getById(@RequestParam(required = false) Long id) {
+  public ResponseEntity<List<LanceResponseDto>> getById(@PathVariable Long id) {
 
     if (id != null) {
 
@@ -64,6 +63,12 @@ public class LanceController {
     } else {
       return ResponseEntity.ok().body(LanceMapper.toListDto(lanceService.findAll()));
     }
+  }
+
+  @GetMapping("/")
+  public ResponseEntity<List<LanceResponseDto>> getAll() {
+    List<LanceResponseDto> lances = LanceMapper.toListDto(lanceService.findAll());
+    return ResponseEntity.ok().body(lances);
   }
 
   @GetMapping("/leilao={id}")

@@ -13,8 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class User extends AbstractEntity{
-  
+public class User extends AbstractEntity {
+
   private String name;
   private String email;
   private String cpf;
