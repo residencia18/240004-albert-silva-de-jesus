@@ -2,30 +2,10 @@
   "configurations": [
     {
       "type": "java",
-      "name": "PilotosApplication",
-      "request": "launch",
-      "mainClass": "com.pratica12.pilotos.PilotosApplication",
-      "projectName": "pilotos"
-    },
-    {
-      "type": "java",
-      "name": "Program",
-      "request": "launch",
-      "mainClass": "semana10.jdbc.redesocial.application.Program"
-    },
-    {
-      "type": "java",
       "name": "Program",
       "request": "launch",
       "mainClass": "com.demo.jpa.aplication.Program",
       "projectName": "tutorial2_jpa"
-    },
-    {
-      "type": "java",
-      "name": "Program",
-      "request": "launch",
-      "mainClass": "semana10.jdbc.redesocial.application.Program",
-      "projectName": "ResidenciaJava_51e9071e"
     },
     {
       "type": "java",
@@ -42,35 +22,10 @@
     },
     {
       "type": "java",
-      "name": "Program",
-      "request": "launch",
-      "mainClass": "com.energiacoelho.aplication.Program",
-      "projectName": "p010"
-    },
-    {
-      "type": "java",
-      "name": "Program",
-      "request": "launch",
-      "mainClass": "com.gestao.academica.aplication.Program",
-      "projectName": "estudante"
-    },
-    {
-      "type": "java",
       "name": "WorkshopmongoApplication",
       "request": "launch",
       "mainClass": "com.swproject.workshopmongodb.WorkshopmongoApplication",
       "projectName": "workshopmongo"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-AereaApplication<aerea>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.companhia.aerea.AereaApplication",
-      "projectName": "aerea",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env",
-      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=52843 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=aerea"
     },
     {
       "type": "java",
