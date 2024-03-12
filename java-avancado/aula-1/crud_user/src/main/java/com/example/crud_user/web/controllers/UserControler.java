@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.crud_user.entities.User;
 import com.example.crud_user.services.UserService;
 import com.example.crud_user.web.dto.UserResponseDto;
+import com.example.crud_user.web.dto.UserSenhaDto;
 import com.example.crud_user.web.dto.form.UserForm;
 import com.example.crud_user.web.dto.mapper.UserMapper;
 
@@ -60,6 +62,12 @@ public class UserControler {
     } catch (Exception e) {
       return ResponseEntity.notFound().build();
     }
+  }
+
+  @PatchMapping("/password/{id}")
+  public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UserSenhaDto dto) {
+    User user = userService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
+    return ResponseEntity.noContent().build();
   }
 
   @DeleteMapping("{id}")

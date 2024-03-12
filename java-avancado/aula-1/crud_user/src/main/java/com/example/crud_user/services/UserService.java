@@ -61,6 +61,22 @@ public class UserService {
     return userRepository.save(obj);
   }
 
+  @Transactional
+  public User editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+    if (!novaSenha.equals(confirmaSenha)) {
+      throw new RuntimeException("Nova senha e confirmação de senha não conferem");
+    }
+    User user = searchById(id);
+    if (!user.getPassword().equals(senhaAtual)) {
+      throw new RuntimeException("Senha atual inválida");
+    }
+    user.setPassword(novaSenha);
+    return user;
+
+    // Outra forma de fazer a mesma coisa é:
+    // return usuarioRepository.save(user);
+  }
+
   @SuppressWarnings("null")
   public void delete(Long id) {
     userRepository.deleteById(id);
