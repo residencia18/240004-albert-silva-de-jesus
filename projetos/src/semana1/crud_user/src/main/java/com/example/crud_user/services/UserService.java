@@ -30,7 +30,7 @@ public class UserService {
   }
 
   @SuppressWarnings("null")
-  public User buscarPorId(Long id) {
+  public User searchById(Long id) {
     return userRepository.findById(id)
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para o leilao:" + id));
   }
@@ -43,7 +43,7 @@ public class UserService {
 
     } else {
 
-      User user = buscarPorId(id);
+      User user = searchById(id);
       if (user != null) {
         return UserMapper.toListDto(Collections.singletonList(user));
 
@@ -54,7 +54,7 @@ public class UserService {
   }
 
   public User update(Long id, UserForm userForm) {
-    User obj = buscarPorId(id);
+    User obj = searchById(id);
     obj.setName(userForm.getName());
     obj.setEmail(userForm.getEmail());
     obj.setCpf(userForm.getCpf());
