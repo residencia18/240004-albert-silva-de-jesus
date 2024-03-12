@@ -1,6 +1,6 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "java.project.sourcePaths": [
-        "java-avancado",
+        "java-avancado/tutorial-data"
     ],
 }
