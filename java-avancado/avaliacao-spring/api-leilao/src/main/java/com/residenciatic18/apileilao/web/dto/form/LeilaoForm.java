@@ -13,13 +13,13 @@ public class LeilaoForm {
   private Double valorMinimo;
   private Integer leilaoStatus;
 
-  public LeilaoStatus getOrderStatus() {
+  public LeilaoStatus getLeilaoStatus() {
     return LeilaoStatus.valueOf(leilaoStatus);
   }
 
-  public void setOrderStatus(LeilaoStatus orderStatus) {
-    if (orderStatus != null) {
-      this.leilaoStatus = orderStatus.getCode();
+  public void setLeilaoStatus(LeilaoStatus leilaoStatus) {
+    if (leilaoStatus != null) {
+      this.leilaoStatus = leilaoStatus.getCode();
     }
   }
 }

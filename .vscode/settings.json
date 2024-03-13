@@ -3,4 +3,5 @@
     "java.project.sourcePaths": [
         "java-avancado/tutorial-data"
     ],
+    "java.configuration.updateBuildConfiguration": "interactive",
 }

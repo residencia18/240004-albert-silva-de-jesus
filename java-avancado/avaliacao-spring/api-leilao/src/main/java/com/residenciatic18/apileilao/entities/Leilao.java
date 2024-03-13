@@ -33,16 +33,16 @@ public class Leilao extends AbstractEntity {
   public Leilao(String descricrao, Double valorMinimo, LeilaoStatus leilaoStatus) {
     this.descricrao = descricrao;
     this.valorMinimo = valorMinimo;
-    setOrderStatus(leilaoStatus);
+    setLeilaoStatus(leilaoStatus);
   }
 
-  public LeilaoStatus getOrderStatus() {
+  public LeilaoStatus getLeilaoStatus() {
     return LeilaoStatus.valueOf(leilaoStatus);
   }
 
-  public void setOrderStatus(LeilaoStatus orderStatus) {
-    if (orderStatus != null) {
-      this.leilaoStatus = orderStatus.getCode();
+  public void setLeilaoStatus(LeilaoStatus leilaoStatus) {
+    if (leilaoStatus != null) {
+      this.leilaoStatus = leilaoStatus.getCode();
     }
   }
 }

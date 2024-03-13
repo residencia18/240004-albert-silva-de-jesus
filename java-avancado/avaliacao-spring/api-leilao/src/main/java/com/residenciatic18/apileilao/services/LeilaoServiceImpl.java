@@ -78,7 +78,7 @@ public class LeilaoServiceImpl implements LeilaoService {
     Leilao leilao = buscarPorId(id);
     leilao.setDescricrao(leilaoForm.getDescricrao());
     leilao.setValorMinimo(leilaoForm.getValorMinimo());
-    leilao.setOrderStatus(leilaoForm.getOrderStatus());
+    leilao.setLeilaoStatus(leilaoForm.getLeilaoStatus());
     return salvar(leilao);
   }
 

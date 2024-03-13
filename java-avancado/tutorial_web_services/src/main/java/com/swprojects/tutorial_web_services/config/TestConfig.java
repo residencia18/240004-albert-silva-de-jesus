@@ -21,7 +21,6 @@ import com.swprojects.tutorial_web_services.repositories.OrderRepository;
 import com.swprojects.tutorial_web_services.repositories.ProductRepository;
 import com.swprojects.tutorial_web_services.repositories.UserRepository;
 
-
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
@@ -42,7 +41,7 @@ public class TestConfig implements CommandLineRunner {
 	private OrderItemRepository orderItemRepository;
 
 	@SuppressWarnings("null")
-  @Override
+	@Override
 	public void run(String... args) throws Exception {
 
 		Category cat1 = new Category(null, "Electronics");

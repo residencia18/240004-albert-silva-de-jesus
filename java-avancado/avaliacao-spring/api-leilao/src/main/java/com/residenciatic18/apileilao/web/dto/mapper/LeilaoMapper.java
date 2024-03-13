@@ -12,6 +12,8 @@ import com.residenciatic18.apileilao.web.dto.form.LeilaoForm;
 
 public class LeilaoMapper {
 
+  protected static final ModelMapper map = null;
+
   public static Leilao toLeilao(LeilaoForm createDto) {
     return new ModelMapper().map(createDto, Leilao.class);
   }
