@@ -77,7 +77,7 @@
 
     <p-chart type="bar" [data]="chartData" [options]="chartOptions" width="100%" height="300px"></p-chart>
 
-    <ng-template pTemplate="grid">
+    <!-- <ng-template pTemplate="grid">
         <div class="suinos-grid">
             <div class="pesos-container">
                 <div class="card-peso" *ngFor="let peso of pesos">
@@ -85,5 +85,23 @@
                 </div>
             </div>
         </div>
+    </ng-template> -->
+</p-card>
+
+
+<p-card class="suino-card">
+    <!-- <p-dataView [value]="pesos" layout="grid"></p-dataView> -->
+    <ng-template pTemplate="grid">
+        <div class="controls">
+            <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
+            <!-- <p-button icon="pi pi-filter" (click)="toggleFilter()"></p-button> -->
+        </div>
+        <div class="suinos-grid">
+            <div class="card-peso" *ngFor="let peso of pesos">
+                <!-- <app-card-peso [suino]="peso" (onDelete)="getAll()"></app-card-peso> -->
+                <app-card-peso [suino]="peso"></app-card-peso>
+            </div>
+        </div>
     </ng-template>
+    <!-- </p-dataView> -->
 </p-card>
