@@ -1,32 +1,39 @@
 {
-    "configurations": [
-        {
-            "type": "java",
-            "name": "ApiLeilaoApplication",
-            "request": "launch",
-            "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
-            "projectName": "com.residenciatic18-api-leilao"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-CrudUserApplication<com.example-crud_user>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.example.crud_user.CrudUserApplication",
-            "projectName": "com.example-crud_user",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-TutorialWebServicesApplication<com.webservices-tutorial_web_services>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
-            "projectName": "com.webservices-tutorial_web_services",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env",
-            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51519 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=com.webservices-tutorial_web_services"
-        }
-    ]
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CrudUserTestApplication",
+      "request": "launch",
+      "mainClass": "com.documentation.crud_user_test.CrudUserTestApplication",
+      "projectName": "com.documentation-crud_user_test"
+    },
+    {
+      "type": "java",
+      "name": "ApiLeilaoApplication",
+      "request": "launch",
+      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
+      "projectName": "com.residenciatic18-api-leilao"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CrudUserApplication<com.example-crud_user>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.crud_user.CrudUserApplication",
+      "projectName": "com.example-crud_user",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-TutorialWebServicesApplication<com.webservices-tutorial_web_services>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
+      "projectName": "com.webservices-tutorial_web_services",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51519 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=com.webservices-tutorial_web_services"
+    }
+  ]
 }
