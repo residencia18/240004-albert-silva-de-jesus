@@ -20,36 +20,5 @@
       "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
       "projectName": "com.residenciatic18-api-leilao"
     },
-    {
-      "type": "java",
-      "name": "Spring Boot-CrudUserApplication<com.example-crud_user>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.example.crud_user.CrudUserApplication",
-      "projectName": "com.example-crud_user",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-TutorialWebServicesApplication<com.webservices-tutorial_web_services>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
-      "projectName": "com.webservices-tutorial_web_services",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env",
-      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51519 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=com.webservices-tutorial_web_services"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-SellGeniusApplication<com.swproject-sell-genius>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.swproject.sellgenius.SellGeniusApplication",
-      "projectName": "com.swproject-sell-genius",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
-    }
   ]
 }

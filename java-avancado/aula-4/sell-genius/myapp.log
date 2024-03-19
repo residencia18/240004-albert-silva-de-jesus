@@ -53,3 +53,79 @@
 2024-03-19T16:52:25.509-03:00  INFO 17804 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.555 seconds (process running for 197.322)
 2024-03-19T16:52:25.552-03:00  INFO 17804 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
 2024-03-19T16:52:25.553-03:00  INFO 17804 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-19T18:50:19.167-03:00  INFO 4776 --- [main] c.s.s.SellGeniusApplicationTests         : Starting SellGeniusApplicationTests using Java 17.0.1 with PID 4776 (started by alber in c:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T18:50:19.169-03:00  INFO 4776 --- [main] c.s.s.SellGeniusApplicationTests         : The following 1 profile is active: "test"
+2024-03-19T18:50:20.106-03:00  INFO 4776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T18:50:20.190-03:00  INFO 4776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 4 JPA repository interfaces.
+2024-03-19T18:50:20.848-03:00  INFO 4776 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T18:50:20.934-03:00  INFO 4776 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-19T18:50:20.983-03:00  INFO 4776 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T18:50:21.326-03:00  INFO 4776 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T18:50:21.364-03:00  INFO 4776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-19T18:50:21.622-03:00  INFO 4776 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T18:50:21.626-03:00  INFO 4776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-19T18:50:21.657-03:00  WARN 4776 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T18:50:22.678-03:00  INFO 4776 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T18:50:22.780-03:00  INFO 4776 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:23.998-03:00  INFO 4776 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T18:50:24.099-03:00  INFO 4776 --- [main] c.s.s.SellGeniusApplicationTests         : Started SellGeniusApplicationTests in 5.223 seconds (process running for 6.422)
+2024-03-19T18:50:25.151-03:00  INFO 4776 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:25.154-03:00  INFO 4776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-19T18:50:25.162-03:00  INFO 4776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-19T18:50:35.494-03:00  INFO 13492 --- [main] c.s.s.SellGeniusApplicationTests         : Starting SellGeniusApplicationTests using Java 17.0.1 with PID 13492 (started by alber in c:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T18:50:35.497-03:00  INFO 13492 --- [main] c.s.s.SellGeniusApplicationTests         : The following 1 profile is active: "test"
+2024-03-19T18:50:36.365-03:00  INFO 13492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T18:50:36.434-03:00  INFO 13492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2024-03-19T18:50:36.931-03:00  INFO 13492 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T18:50:37.004-03:00  INFO 13492 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-19T18:50:37.046-03:00  INFO 13492 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T18:50:37.350-03:00  INFO 13492 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T18:50:37.383-03:00  INFO 13492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-19T18:50:37.651-03:00  INFO 13492 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T18:50:37.652-03:00  INFO 13492 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-19T18:50:37.697-03:00  WARN 13492 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T18:50:38.713-03:00  INFO 13492 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T18:50:38.784-03:00  INFO 13492 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:39.994-03:00  INFO 13492 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T18:50:40.081-03:00  INFO 13492 --- [main] c.s.s.SellGeniusApplicationTests         : Started SellGeniusApplicationTests in 4.905 seconds (process running for 5.783)
+2024-03-19T18:50:40.922-03:00  INFO 13492 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:40.924-03:00  INFO 13492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-19T18:50:40.926-03:00  INFO 13492 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-19T18:50:49.015-03:00  INFO 640 --- [main] c.s.s.SellGeniusApplicationTests         : Starting SellGeniusApplicationTests using Java 17.0.1 with PID 640 (started by alber in c:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T18:50:49.016-03:00  INFO 640 --- [main] c.s.s.SellGeniusApplicationTests         : The following 1 profile is active: "test"
+2024-03-19T18:50:49.777-03:00  INFO 640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T18:50:49.846-03:00  INFO 640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2024-03-19T18:50:50.275-03:00  INFO 640 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T18:50:50.341-03:00  INFO 640 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-19T18:50:50.393-03:00  INFO 640 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T18:50:50.745-03:00  INFO 640 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T18:50:50.783-03:00  INFO 640 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-19T18:50:51.009-03:00  INFO 640 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T18:50:51.011-03:00  INFO 640 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-19T18:50:51.034-03:00  WARN 640 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T18:50:51.950-03:00  INFO 640 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T18:50:52.015-03:00  INFO 640 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:53.090-03:00  INFO 640 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T18:50:53.163-03:00  INFO 640 --- [main] c.s.s.SellGeniusApplicationTests         : Started SellGeniusApplicationTests in 4.42 seconds (process running for 5.341)
+2024-03-19T18:50:53.872-03:00  INFO 640 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:50:53.876-03:00  INFO 640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-19T18:50:53.884-03:00  INFO 640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-19T18:51:00.253-03:00  INFO 1904 --- [main] c.s.s.SellGeniusApplicationTests         : Starting SellGeniusApplicationTests using Java 17.0.1 with PID 1904 (started by alber in c:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T18:51:00.255-03:00  INFO 1904 --- [main] c.s.s.SellGeniusApplicationTests         : The following 1 profile is active: "test"
+2024-03-19T18:51:01.496-03:00  INFO 1904 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T18:51:01.550-03:00  INFO 1904 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2024-03-19T18:51:02.149-03:00  INFO 1904 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T18:51:02.224-03:00  INFO 1904 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-19T18:51:02.274-03:00  INFO 1904 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T18:51:02.547-03:00  INFO 1904 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T18:51:02.579-03:00  INFO 1904 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-19T18:51:02.843-03:00  INFO 1904 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T18:51:02.846-03:00  INFO 1904 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-19T18:51:02.881-03:00  WARN 1904 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T18:51:03.948-03:00  INFO 1904 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T18:51:04.026-03:00  INFO 1904 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:51:05.065-03:00  INFO 1904 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T18:51:05.128-03:00  INFO 1904 --- [main] c.s.s.SellGeniusApplicationTests         : Started SellGeniusApplicationTests in 5.222 seconds (process running for 6.278)
+2024-03-19T18:51:05.970-03:00  INFO 1904 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T18:51:05.973-03:00  INFO 1904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-19T18:51:05.982-03:00  INFO 1904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
