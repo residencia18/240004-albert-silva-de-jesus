@@ -7,7 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.swproject.sellgenius.entities.Category;
 import com.swproject.sellgenius.entities.User;
+import com.swproject.sellgenius.repositories.CategoryRepository;
 import com.swproject.sellgenius.repositories.UserRepository;
 
 @Configuration
@@ -17,9 +19,18 @@ public class TestConfig implements CommandLineRunner {
   @Autowired
   private UserRepository userRepository;
 
+  @Autowired
+  private CategoryRepository categoryRepositoy;
+
   @SuppressWarnings("null")
   @Override
   public void run(String... args) throws Exception {
+
+    Category cat1 = new Category(null, "Electronics");
+		Category cat2 = new Category(null, "Books");
+		Category cat3 = new Category(null, "Computers");
+
+    categoryRepositoy.saveAll(Arrays.asList(cat1, cat2, cat3));
 
     User obj1 = new User(null, "maria@gmail.com", "123456", User.Role.ROLE_ADMIN);
     User obj2 = new User(null, "alex@hotmail.com", "098765", User.Role.ROLE_USUARIO);
