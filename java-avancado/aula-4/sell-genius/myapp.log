@@ -1,5 +1,59 @@
-2024-03-19T15:58:00.113-03:00  WARN 13832 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-19T15:58:01.227-03:00 DEBUG 13832 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
-2024-03-19T15:58:01.280-03:00 DEBUG 13832 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2024-03-19T15:58:01.315-03:00 DEBUG 13832 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-19T15:58:01.349-03:00 DEBUG 13832 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-19T16:30:49.136-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 11936 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T16:30:49.136-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-19T16:30:49.184-03:00  INFO 11936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-19T16:30:49.185-03:00  INFO 11936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-19T16:30:49.812-03:00  INFO 11936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T16:30:49.855-03:00  INFO 11936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+2024-03-19T16:30:50.332-03:00  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-19T16:30:50.348-03:00  INFO 11936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-19T16:30:50.349-03:00  INFO 11936 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-19T16:30:50.389-03:00  INFO 11936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-19T16:30:50.389-03:00  INFO 11936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1199 ms
+2024-03-19T16:30:50.405-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-19T16:30:50.554-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T16:30:50.556-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-19T16:30:50.565-03:00  INFO 11936 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T16:30:50.670-03:00  INFO 11936 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T16:30:50.725-03:00  INFO 11936 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-03-19T16:30:50.753-03:00  INFO 11936 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T16:30:50.951-03:00  INFO 11936 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T16:30:50.985-03:00  WARN 11936 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T16:30:51.648-03:00  INFO 11936 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T16:30:51.706-03:00  INFO 11936 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T16:30:52.110-03:00 DEBUG 11936 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2024-03-19T16:30:52.167-03:00 DEBUG 11936 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-19T16:30:52.202-03:00 DEBUG 11936 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-19T16:30:52.234-03:00 DEBUG 11936 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-19T16:30:52.381-03:00  INFO 11936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-19T16:30:52.405-03:00  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-19T16:30:52.418-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 3.534 seconds (process running for 3.957)
+2024-03-19T16:30:52.588-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-19T16:31:31.471-03:00  INFO 11936 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-19T16:31:31.489-03:00  INFO 11936 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T16:31:31.493-03:00  WARN 11936 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-19T16:31:31.493-03:00  INFO 11936 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-19T16:31:31.495-03:00  INFO 11936 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-19T16:31:31.548-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 11936 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-19T16:31:31.550-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-19T16:31:31.683-03:00  INFO 11936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-19T16:31:31.700-03:00  INFO 11936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 4 JPA repository interfaces.
+2024-03-19T16:31:31.783-03:00  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-19T16:31:31.783-03:00  INFO 11936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-19T16:31:31.783-03:00  INFO 11936 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-19T16:31:31.802-03:00  INFO 11936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-19T16:31:31.803-03:00  INFO 11936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 252 ms
+2024-03-19T16:31:31.806-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-03-19T16:31:31.812-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-03-19T16:31:31.812-03:00  INFO 11936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-03-19T16:31:31.813-03:00  INFO 11936 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-19T16:31:31.817-03:00  INFO 11936 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-19T16:31:31.830-03:00  INFO 11936 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-19T16:31:31.833-03:00  INFO 11936 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-19T16:31:31.834-03:00  WARN 11936 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-19T16:31:31.883-03:00  INFO 11936 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-19T16:31:31.902-03:00  INFO 11936 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-19T16:31:32.066-03:00  INFO 11936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-19T16:31:32.084-03:00  INFO 11936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-19T16:31:32.088-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.565 seconds (process running for 43.627)
+2024-03-19T16:31:32.131-03:00  INFO 11936 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-19T16:31:32.131-03:00  INFO 11936 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
