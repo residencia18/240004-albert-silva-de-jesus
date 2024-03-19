@@ -2,6 +2,12 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SellGeniusApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.sellgenius.SellGeniusApplication"
+    },
+    {
+      "type": "java",
       "name": "CrudUserTestApplication",
       "request": "launch",
       "mainClass": "com.documentation.crud_user_test.CrudUserTestApplication",
