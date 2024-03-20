@@ -9,6 +9,7 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class AbstractEntity implements Serializable {
+  private static final long serialVersionUID = 1L;
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,4 +70,3 @@ public abstract class AbstractEntity implements Serializable {
   }
 
 }
-

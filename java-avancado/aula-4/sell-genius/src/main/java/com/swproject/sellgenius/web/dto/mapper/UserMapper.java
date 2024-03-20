@@ -7,15 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.swproject.sellgenius.entities.User;
-import com.swproject.sellgenius.entities.enums.PerfilTipo;
 import com.swproject.sellgenius.web.dto.UserResponseDto;
 import com.swproject.sellgenius.web.dto.form.UserForm;
 
 public class UserMapper {
 
   public static User toUser(UserForm createDto) {
-    return new ModelMapper().map(new User(createDto.getUsername(), createDto.getPassword(), PerfilTipo.FUNCIONARIO),
-        User.class);
+    return new ModelMapper().map(createDto, User.class);
 
   }
 
@@ -25,7 +23,7 @@ public class UserMapper {
       protected void configure() {
         map().setId(source.getId());
         map().setUsername(source.getUsername());
-        map().setPerfis(source.getPerfis());
+        map().setPerfilTipo(source.getPerfilTipo());
       }
     };
     ModelMapper mapper = new ModelMapper();

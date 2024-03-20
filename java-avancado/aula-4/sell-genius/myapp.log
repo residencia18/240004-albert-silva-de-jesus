@@ -2107,3 +2107,1008 @@ org.modelmapper.ConfigurationException: ModelMapper configuration errors:
 2024-03-20T12:19:10.109-03:00 DEBUG 10268 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2024-03-20T12:19:10.111-03:00 DEBUG 10268 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=joãopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entiti (truncated)...]
 2024-03-20T12:19:10.138-03:00 DEBUG 10268 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:05:28.984-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:05:28.987-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:05:31.678-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:05:33.230-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:05:33.345-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:05:33.413-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:05:33.491-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:05:33.789-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.133 seconds (process running for 5.706)
+2024-03-20T18:05:34.200-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:05:59.007-03:00  INFO 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:05:59.008-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:05:59.008-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:05:59.008-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:05:59.010-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6d61554a
+2024-03-20T18:05:59.013-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3c768d92
+2024-03-20T18:05:59.014-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:05:59.015-03:00  INFO 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2024-03-20T18:05:59.040-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:05:59.071-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:05:59.186-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@3116580]
+2024-03-20T18:05:59.264-03:00  INFO 14972 --- [http-nio-8080-exec-1] c.s.sellgenius.SellGeniusApplication     : User created: Entidade com.swproject.sellgenius.entities.User id: 6
+2024-03-20T18:05:59.624-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:05:59.626-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=joãopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entiti (truncated)...]
+2024-03-20T18:05:59.642-03:00 DEBUG 14972 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:08:27.474-03:00  WARN 14972 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:27.568-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:27.569-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:28.259-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:28.765-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:28.838-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:28.861-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:28.875-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:29.104-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 1.564 seconds (process running for 181.021)
+2024-03-20T18:08:29.355-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:30.502-03:00  WARN 14972 --- [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:30.571-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:30.572-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:31.017-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:31.277-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:31.301-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:31.308-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:31.313-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:31.367-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.818 seconds (process running for 183.284)
+2024-03-20T18:08:31.445-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:34.867-03:00  WARN 14972 --- [Thread-12] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:34.937-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:34.938-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:35.412-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:35.711-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:35.728-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:35.736-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:35.742-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:35.884-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.975 seconds (process running for 187.802)
+2024-03-20T18:08:36.021-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:37.304-03:00  WARN 14972 --- [Thread-16] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:37.381-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:37.382-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:37.929-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:38.339-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:38.369-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:38.380-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:38.385-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:38.470-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 1.117 seconds (process running for 190.389)
+2024-03-20T18:08:38.591-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:39.918-03:00  WARN 14972 --- [Thread-20] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:40.007-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:40.010-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:40.448-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:40.794-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:40.818-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:40.829-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:40.833-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:40.912-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.947 seconds (process running for 192.83)
+2024-03-20T18:08:40.995-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:43.391-03:00  WARN 14972 --- [Thread-24] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:08:43.478-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14972 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:08:43.479-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:08:43.790-03:00  WARN 14972 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:08:44.059-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:08:44.080-03:00 DEBUG 14972 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:08:44.088-03:00 DEBUG 14972 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:08:44.094-03:00 DEBUG 14972 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:08:44.179-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.728 seconds (process running for 196.097)
+2024-03-20T18:08:44.283-03:00  INFO 14972 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:08:48.071-03:00  INFO 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:08:48.071-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:08:48.072-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:08:48.072-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:08:48.073-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59331b1c
+2024-03-20T18:08:48.075-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3ecb951f
+2024-03-20T18:08:48.076-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:08:48.077-03:00  INFO 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T18:08:48.077-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:08:48.077-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:08:48.080-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@546ceea5]
+2024-03-20T18:08:48.090-03:00  INFO 14972 --- [http-nio-8080-exec-2] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:08:48.123-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:08:48.128-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=joãopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entiti (truncated)...]
+2024-03-20T18:08:48.131-03:00 DEBUG 14972 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:13:16.776-03:00  INFO 6616 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 6616 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:13:16.778-03:00  INFO 6616 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:13:19.108-03:00  WARN 6616 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:13:20.854-03:00 DEBUG 6616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:13:20.993-03:00 DEBUG 6616 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:13:21.052-03:00 DEBUG 6616 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:13:21.151-03:00 DEBUG 6616 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:13:21.617-03:00  INFO 6616 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.179 seconds (process running for 5.748)
+2024-03-20T18:13:22.278-03:00  INFO 6616 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:13:52.763-03:00  INFO 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:13:52.764-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:13:52.764-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:13:52.764-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:13:52.765-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@68131421
+2024-03-20T18:13:52.766-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@c24718b
+2024-03-20T18:13:52.767-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:13:52.771-03:00  INFO 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-03-20T18:13:52.784-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:13:52.826-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:13:52.997-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@41bf3e6d]
+2024-03-20T18:13:53.113-03:00  INFO 6616 --- [http-nio-8080-exec-1] c.s.sellgenius.SellGeniusApplication     : User created: null
+2024-03-20T18:13:53.691-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:13:53.693-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=joãopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entiti (truncated)...]
+2024-03-20T18:13:53.734-03:00 DEBUG 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:17:07.516-03:00  INFO 3564 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 3564 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:17:07.519-03:00  INFO 3564 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:17:10.430-03:00  WARN 3564 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:17:12.084-03:00 DEBUG 3564 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:17:12.208-03:00 DEBUG 3564 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:17:12.274-03:00 DEBUG 3564 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:17:12.342-03:00 DEBUG 3564 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:17:12.616-03:00  INFO 3564 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.43 seconds (process running for 6.015)
+2024-03-20T18:17:13.095-03:00  INFO 3564 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:17:16.387-03:00  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:17:16.388-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:17:16.389-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:17:16.389-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:17:16.390-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@119c791c
+2024-03-20T18:17:16.391-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4ab40e65
+2024-03-20T18:17:16.392-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:17:16.392-03:00  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-03-20T18:17:16.404-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:17:16.435-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:17:16.562-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@768d053e]
+2024-03-20T18:17:16.610-03:00  INFO 3564 --- [http-nio-8080-exec-1] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:17:16.918-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:17:16.920-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=joãopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entiti (truncated)...]
+2024-03-20T18:17:16.938-03:00 DEBUG 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:17:27.455-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:17:27.455-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:17:27.459-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+2024-03-20T18:17:27.462-03:00  WARN 3564 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
+2024-03-20T18:17:27.464-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T18:17:27.477-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T18:17:27.479-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T18:17:27.488-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:17:27.489-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 18:17:27 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T18:17:27.502-03:00 DEBUG 3564 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T18:17:31.746-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:17:31.746-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:17:31.748-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@1637c88b]
+2024-03-20T18:17:31.751-03:00  WARN 3564 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+2024-03-20T18:17:31.752-03:00 ERROR 3564 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]
+2024-03-20T18:17:31.765-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]] [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default)]; SQL [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default)]; constraint ["PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]]
+2024-03-20T18:17:31.767-03:00 ERROR 3564 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]] [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default)]; SQL [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default)]; constraint ["PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]]] with root cause
+
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ U&'jo\\00e3opaulo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,username,id) values (?,?,?,?,?,?,default) [23505-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.index.Index.getDuplicateKeyException(Index.java:527) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:184) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.dml.Insert.update(Insert.java:135) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.CommandContainer.executeUpdateWithGeneratedKeys(CommandContainer.java:242) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:163) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:216) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:174) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor18.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy124.persist(Unknown Source) ~[na:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor18.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy124.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618) ~[spring-data-jpa-3.2.3.jar:3.2.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220) ~[spring-aop-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy128.save(Unknown Source) ~[na:na]
+	at com.swproject.sellgenius.services.UserService.save(UserService.java:31) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.swproject.sellgenius.services.UserService$$SpringCGLIB$$0.save(<generated>) ~[classes/:na]
+	at com.swproject.sellgenius.web.controllers.UserController.create(UserController.java:39) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2024-03-20T18:17:31.787-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T18:17:31.788-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T18:17:31.789-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:17:31.790-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 18:17:31 BRT 2024, status=500, error=Internal Server Error, trace=org.springfr (truncated)...]
+2024-03-20T18:17:31.792-03:00 DEBUG 3564 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-03-20T18:17:37.693-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:17:37.694-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:17:37.695-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@7655990a]
+2024-03-20T18:17:37.702-03:00  INFO 3564 --- [http-nio-8080-exec-6] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:17:37.737-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:17:37.737-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=8, username=jopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entities (truncated)...]
+2024-03-20T18:17:37.738-03:00 DEBUG 3564 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:18:16.392-03:00  INFO 14932 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14932 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:18:16.394-03:00  INFO 14932 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:18:18.742-03:00  WARN 14932 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:18:20.338-03:00 DEBUG 14932 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:18:20.453-03:00 DEBUG 14932 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:18:20.524-03:00 DEBUG 14932 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:18:20.592-03:00 DEBUG 14932 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:18:20.877-03:00  INFO 14932 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.818 seconds (process running for 5.384)
+2024-03-20T18:18:21.415-03:00  INFO 14932 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:18:33.207-03:00  INFO 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:18:33.208-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:18:33.209-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:18:33.209-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:18:33.210-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4653808c
+2024-03-20T18:18:33.211-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@79672509
+2024-03-20T18:18:33.212-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:18:33.213-03:00  INFO 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T18:18:33.240-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:18:33.277-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:18:33.426-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@4694b8c1]
+2024-03-20T18:18:33.552-03:00  INFO 14932 --- [http-nio-8080-exec-1] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:18:34.054-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:18:34.056-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=jopaulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entities (truncated)...]
+2024-03-20T18:18:34.079-03:00 DEBUG 14932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:19:07.561-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:19:07.562-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:19:07.564-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@4cc229a6]
+2024-03-20T18:19:07.570-03:00  INFO 14932 --- [http-nio-8080-exec-3] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:19:07.595-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:19:07.597-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=7, username=paulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entities.P (truncated)...]
+2024-03-20T18:19:07.598-03:00 DEBUG 14932 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:21:18.948-03:00  INFO 14604 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14604 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:21:18.950-03:00  INFO 14604 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:21:21.312-03:00  WARN 14604 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:21:22.887-03:00 DEBUG 14604 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:21:23.000-03:00 DEBUG 14604 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:21:23.089-03:00 DEBUG 14604 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:21:23.166-03:00 DEBUG 14604 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:21:23.484-03:00  INFO 14604 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.857 seconds (process running for 5.435)
+2024-03-20T18:21:23.885-03:00  INFO 14604 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:21:37.259-03:00  INFO 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:21:37.262-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:21:37.263-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:21:37.264-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:21:37.265-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@508780f8
+2024-03-20T18:21:37.266-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@41e3ff0a
+2024-03-20T18:21:37.267-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:21:37.268-03:00  INFO 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T18:21:37.286-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:21:37.324-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:21:37.487-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@49b4d579]
+2024-03-20T18:21:37.577-03:00  INFO 14604 --- [http-nio-8080-exec-1] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:21:38.013-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:21:38.015-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=paulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entities.P (truncated)...]
+2024-03-20T18:21:38.052-03:00 DEBUG 14604 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:21:53.520-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:21:53.522-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:21:53.524-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@77ebc8c5]
+2024-03-20T18:21:53.529-03:00  INFO 14604 --- [http-nio-8080-exec-3] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:21:53.567-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:21:53.570-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=7, username=pulo@gmail.com, perfis=[Entidade com.swproject.sellgenius.entities.Pe (truncated)...]
+2024-03-20T18:21:53.573-03:00 DEBUG 14604 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T18:22:02.834-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2024-03-20T18:22:02.839-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-03-20T18:22:02.843-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-03-20T18:22:02.852-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-03-20T18:22:02.854-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-03-20T18:22:02.869-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-03-20T18:22:02.871-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T18:22:02.893-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2024-03-20T18:22:02.897-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 18:22:02 BRT 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-03-20T18:22:02.921-03:00 DEBUG 14604 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-03-20T18:30:23.663-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:30:23.665-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:30:26.386-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:30:28.176-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:30:28.284-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:30:28.347-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:30:28.421-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:30:28.769-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.462 seconds (process running for 6.384)
+2024-03-20T18:30:29.151-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:35:47.732-03:00  WARN 12948 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:35:47.864-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:35:47.866-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:35:48.453-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:35:48.860-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:35:48.911-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:35:48.925-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:35:48.931-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:35:49.000-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 1.19 seconds (process running for 326.615)
+2024-03-20T18:35:49.096-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:35:52.496-03:00  WARN 12948 --- [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:35:52.583-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:35:52.585-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:35:53.010-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:35:53.259-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:35:53.292-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:35:53.300-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:35:53.305-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:35:53.352-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.813 seconds (process running for 330.967)
+2024-03-20T18:35:53.423-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:35:59.905-03:00  WARN 12948 --- [Thread-12] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:35:59.967-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:35:59.968-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:36:00.308-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:36:00.611-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:36:00.647-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:36:00.656-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:36:00.662-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:36:00.725-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.78 seconds (process running for 338.34)
+2024-03-20T18:36:00.798-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:36:02.153-03:00  WARN 12948 --- [Thread-16] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:36:02.239-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:36:02.240-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:36:02.563-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:36:02.821-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:36:02.841-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:36:02.846-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:36:02.849-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:36:02.893-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.69 seconds (process running for 340.508)
+2024-03-20T18:36:02.956-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:36:09.450-03:00  WARN 12948 --- [Thread-20] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:36:09.523-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:36:09.525-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:36:09.849-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:36:10.030-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:36:10.046-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:36:10.053-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:36:10.056-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:36:10.098-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.597 seconds (process running for 347.713)
+2024-03-20T18:36:10.146-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:36:11.524-03:00  WARN 12948 --- [Thread-24] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-20T18:36:11.602-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12948 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:36:11.602-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:36:11.856-03:00  WARN 12948 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:36:12.052-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:36:12.074-03:00 DEBUG 12948 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:36:12.079-03:00 DEBUG 12948 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:36:12.082-03:00 DEBUG 12948 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:36:12.164-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 0.582 seconds (process running for 349.78)
+2024-03-20T18:36:12.211-03:00  INFO 12948 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:47:58.151-03:00  INFO 2228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 2228 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T18:47:58.155-03:00  INFO 2228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T18:48:00.739-03:00  WARN 2228 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T18:48:02.634-03:00 DEBUG 2228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T18:48:02.748-03:00 DEBUG 2228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T18:48:02.802-03:00 DEBUG 2228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T18:48:02.857-03:00 DEBUG 2228 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T18:48:03.122-03:00  INFO 2228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.376 seconds (process running for 5.964)
+2024-03-20T18:48:03.476-03:00  INFO 2228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T18:48:08.400-03:00  INFO 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T18:48:08.401-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T18:48:08.401-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T18:48:08.401-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T18:48:08.403-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1ab83dea
+2024-03-20T18:48:08.404-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@19450a05
+2024-03-20T18:48:08.404-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T18:48:08.405-03:00  INFO 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T18:48:08.421-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T18:48:08.437-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T18:48:08.531-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@237324ad]
+2024-03-20T18:48:08.580-03:00  INFO 2228 --- [http-nio-8080-exec-2] c.s.sellgenius.SellGeniusApplication     : User created: [Entidade com.swproject.sellgenius.entities.Perfil id: 2]
+2024-03-20T18:48:08.637-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.modelmapper.ConfigurationException: ModelMapper configuration errors:
+
+1) No corresponding mutator was found for com.swproject.sellgenius.web.dto.UserResponseDto.getDescricao().
+
+2) A mapping is missing a required destination member.
+
+2 errors
+2024-03-20T18:48:08.639-03:00 ERROR 2228 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.modelmapper.ConfigurationException: ModelMapper configuration errors:
+
+1) No corresponding mutator was found for com.swproject.sellgenius.web.dto.UserResponseDto.getDescricao().
+
+2) A mapping is missing a required destination member.
+
+2 errors] with root cause
+
+org.modelmapper.ConfigurationException: ModelMapper configuration errors:
+
+1) No corresponding mutator was found for com.swproject.sellgenius.web.dto.UserResponseDto.getDescricao().
+
+2) A mapping is missing a required destination member.
+
+2 errors
+	at org.modelmapper.internal.Errors.throwConfigurationExceptionIfErrorsExist(Errors.java:241) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.internal.ExplicitMappingBuilder.visitPropertyMap(ExplicitMappingBuilder.java:273) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.PropertyMap.configure(PropertyMap.java:386) ~[modelmapper-3.0.0.jar:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.modelmapper.internal.ExplicitMappingBuilder.build(ExplicitMappingBuilder.java:235) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.internal.ExplicitMappingBuilder.build(ExplicitMappingBuilder.java:104) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.internal.TypeMapImpl.addMappings(TypeMapImpl.java:92) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.internal.TypeMapStore.getOrCreate(TypeMapStore.java:127) ~[modelmapper-3.0.0.jar:na]
+	at org.modelmapper.ModelMapper.addMappings(ModelMapper.java:113) ~[modelmapper-3.0.0.jar:na]
+	at com.swproject.sellgenius.web.dto.mapper.UserMapper.toDto(UserMapper.java:32) ~[classes/:na]
+	at com.swproject.sellgenius.web.controllers.UserController.create(UserController.java:42) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2024-03-20T18:48:08.659-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T18:48:08.668-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T18:48:08.713-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T18:48:08.716-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 18:48:08 BRT 2024, status=500, error=Internal Server Error, trace=org.modelmap (truncated)...]
+2024-03-20T18:48:08.736-03:00 DEBUG 2228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-03-20T19:15:59.283-03:00  INFO 11244 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 11244 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:15:59.286-03:00  INFO 11244 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:16:01.999-03:00  WARN 11244 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:16:03.483-03:00 DEBUG 11244 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:16:03.564-03:00 DEBUG 11244 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:16:03.605-03:00 DEBUG 11244 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:16:03.643-03:00 DEBUG 11244 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:16:03.876-03:00  INFO 11244 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.907 seconds (process running for 5.61)
+2024-03-20T19:16:04.083-03:00  INFO 11244 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:16:30.780-03:00  INFO 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:16:30.782-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:16:30.782-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:16:30.783-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:16:30.784-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@249fc75d
+2024-03-20T19:16:30.785-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@559d660
+2024-03-20T19:16:30.786-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:16:30.787-03:00  INFO 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T19:16:30.795-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:16:30.810-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:16:30.901-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]
+2024-03-20T19:16:30.904-03:00  WARN 11244 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]]
+2024-03-20T19:16:30.907-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:16:30.918-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:16:30.921-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:16:30.945-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:16:30.949-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:16:30 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:16:30.973-03:00 DEBUG 11244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:16:47.001-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2024-03-20T19:16:47.007-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-03-20T19:16:47.020-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-03-20T19:16:47.025-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-03-20T19:16:47.026-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-03-20T19:16:47.026-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-03-20T19:16:47.027-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:16:47.030-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2024-03-20T19:16:47.036-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:16:47 BRT 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-03-20T19:16:47.040-03:00 DEBUG 11244 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-03-20T19:19:22.049-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:19:22.050-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:19:22.052-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@697c64fc]
+2024-03-20T19:19:22.570-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:19:22.573-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=pulo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:19:22.575-03:00 DEBUG 11244 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:27:29.864-03:00  INFO 14228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14228 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:27:29.868-03:00  INFO 14228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:27:32.197-03:00  WARN 14228 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:27:33.746-03:00 DEBUG 14228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:27:33.864-03:00 DEBUG 14228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:27:33.915-03:00 DEBUG 14228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:27:33.988-03:00 DEBUG 14228 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:27:34.267-03:00  INFO 14228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.728 seconds (process running for 5.26)
+2024-03-20T19:27:34.664-03:00  INFO 14228 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:27:52.006-03:00  INFO 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:27:52.007-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:27:52.007-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:27:52.007-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:27:52.008-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@42829930
+2024-03-20T19:27:52.009-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1ac12f3b
+2024-03-20T19:27:52.010-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:27:52.011-03:00  INFO 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-03-20T19:27:52.029-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:27:52.061-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:27:52.231-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@22c63f8f]
+2024-03-20T19:27:52.839-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:27:52.841-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=pulo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:27:52.863-03:00 DEBUG 14228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:28:07.677-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:28:07.678-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:28:07.685-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]
+2024-03-20T19:28:07.691-03:00  WARN 14228 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]]
+2024-03-20T19:28:07.693-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:28:07.709-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:28:07.716-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:28:07.747-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:28:07.749-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:28:07 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:28:07.784-03:00 DEBUG 14228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:34:45.032-03:00  INFO 12076 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 12076 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:34:45.034-03:00  INFO 12076 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:34:47.317-03:00  WARN 12076 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:34:48.932-03:00 DEBUG 12076 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:34:49.054-03:00 DEBUG 12076 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:34:49.116-03:00 DEBUG 12076 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:34:49.180-03:00 DEBUG 12076 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:34:49.460-03:00  INFO 12076 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.786 seconds (process running for 5.35)
+2024-03-20T19:34:49.804-03:00  INFO 12076 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:34:56.660-03:00  INFO 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:34:56.661-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:34:56.661-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:34:56.662-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:34:56.663-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@297e5b34
+2024-03-20T19:34:56.664-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@296dec0f
+2024-03-20T19:34:56.664-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:34:56.664-03:00  INFO 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-03-20T19:34:56.685-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:34:56.713-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:34:56.857-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@350835e8]
+2024-03-20T19:34:57.396-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:34:57.399-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=plo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:34:57.416-03:00 DEBUG 12076 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:35:36.468-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:35:36.469-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:35:36.470-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@398c8722]
+2024-03-20T19:35:36.540-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:35:36.543-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=7, username=qqqplo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:35:36.550-03:00 DEBUG 12076 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:35:45.254-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:35:45.257-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:35:45.263-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]
+2024-03-20T19:35:45.268-03:00  WARN 12076 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]]
+2024-03-20T19:35:45.270-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:35:45.289-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:35:45.298-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:35:45.314-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:35:45.317-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:35:45 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:35:45.336-03:00 DEBUG 12076 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:36:29.288-03:00  INFO 13820 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 13820 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:36:29.291-03:00  INFO 13820 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:36:32.012-03:00  WARN 13820 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:36:33.898-03:00 DEBUG 13820 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:36:34.021-03:00 DEBUG 13820 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:36:34.099-03:00 DEBUG 13820 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:36:34.156-03:00 DEBUG 13820 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:36:34.500-03:00  INFO 13820 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.595 seconds (process running for 6.195)
+2024-03-20T19:36:34.853-03:00  INFO 13820 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:36:40.145-03:00  INFO 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:36:40.146-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:36:40.147-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:36:40.147-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:36:40.149-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@363812e2
+2024-03-20T19:36:40.150-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@13719f59
+2024-03-20T19:36:40.151-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:36:40.151-03:00  INFO 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T19:36:40.157-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:36:40.174-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:36:40.312-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]
+2024-03-20T19:36:40.314-03:00  WARN 13820 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]]
+2024-03-20T19:36:40.316-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:36:40.321-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:36:40.323-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:36:40.340-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:36:40.352-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:36:40 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:36:40.389-03:00 DEBUG 13820 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:36:46.224-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:36:46.228-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:36:46.230-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@1e2920a3]
+2024-03-20T19:36:46.883-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:36:46.884-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=qqgggqplo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:36:46.887-03:00 DEBUG 13820 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:40:11.882-03:00  INFO 4300 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 4300 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:40:11.885-03:00  INFO 4300 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:40:14.716-03:00  WARN 4300 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:40:16.525-03:00 DEBUG 4300 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:40:16.642-03:00 DEBUG 4300 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:40:16.712-03:00 DEBUG 4300 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:40:16.791-03:00 DEBUG 4300 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:40:17.329-03:00  INFO 4300 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.823 seconds (process running for 6.449)
+2024-03-20T19:40:17.965-03:00  INFO 4300 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:40:33.580-03:00  INFO 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:40:33.581-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:40:33.581-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:40:33.581-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:40:33.583-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7bd7c5
+2024-03-20T19:40:33.585-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@78290c66
+2024-03-20T19:40:33.590-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:40:33.591-03:00  INFO 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2024-03-20T19:40:33.599-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:40:33.614-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:40:33.743-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@4b09dfa8]
+2024-03-20T19:40:34.130-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:40:34.132-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=qqgggqplo@gmail.com, perfilTipo=ADMIN)]
+2024-03-20T19:40:34.151-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:41:16.600-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:41:16.601-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:41:16.611-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]
+2024-03-20T19:41:16.613-03:00  WARN 4300 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.swproject.sellgenius.entities.enums.PerfilTipo` from String "2": not one of the values accepted for Enum class: [FUNCIONARIO, ADMIN]]
+2024-03-20T19:41:16.615-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:41:16.622-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:41:16.628-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:41:16.634-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:41:16.636-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:41:16 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:41:16.655-03:00 DEBUG 4300 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:41:24.010-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:41:24.011-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:41:24.014-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@588f03b5]
+2024-03-20T19:41:24.053-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:41:24.054-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=7, username=qplo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:41:24.057-03:00 DEBUG 4300 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:47:07.467-03:00  INFO 14440 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14440 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:47:07.470-03:00  INFO 14440 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:47:10.000-03:00  WARN 14440 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:47:11.493-03:00 DEBUG 14440 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:47:11.597-03:00 DEBUG 14440 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:47:11.648-03:00 DEBUG 14440 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:47:11.704-03:00 DEBUG 14440 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:47:11.982-03:00  INFO 14440 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.865 seconds (process running for 5.383)
+2024-03-20T19:47:12.299-03:00  INFO 14440 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:47:22.160-03:00  INFO 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:47:22.161-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:47:22.162-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:47:22.162-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:47:22.163-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@da62159
+2024-03-20T19:47:22.164-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7557c0e5
+2024-03-20T19:47:22.165-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:47:22.166-03:00  INFO 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-03-20T19:47:22.174-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:47:22.206-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:47:22.322-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Input mismatch reading Enum `com.swproject.sellgenius.entities.enums.PerfilTipo`: properties-based `@JsonCreator` ([method com.swproject.sellgenius.entities.enums.PerfilTipo#fromString(java.lang.String)]) expects JSON Object (JsonToken.START_OBJECT), got JsonToken.VALUE_STRING
+2024-03-20T19:47:22.326-03:00  WARN 14440 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Input mismatch reading Enum `com.swproject.sellgenius.entities.enums.PerfilTipo`: properties-based `@JsonCreator` ([method com.swproject.sellgenius.entities.enums.PerfilTipo#fromString(java.lang.String)]) expects JSON Object (JsonToken.START_OBJECT), got JsonToken.VALUE_STRING]
+2024-03-20T19:47:22.329-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:47:22.341-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:47:22.345-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:47:22.393-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:47:22.400-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:47:22 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:47:22.445-03:00 DEBUG 14440 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:47:42.263-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:47:42.264-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:47:42.265-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.swproject.sellgenius.web.dto.UserResponseDto> com.swproject.sellgenius.web.controllers.UserController.create(com.swproject.sellgenius.web.dto.form.UserForm): JSON parse error: Input mismatch reading Enum `com.swproject.sellgenius.entities.enums.PerfilTipo`: properties-based `@JsonCreator` ([method com.swproject.sellgenius.entities.enums.PerfilTipo#fromString(java.lang.String)]) expects JSON Object (JsonToken.START_OBJECT), got JsonToken.VALUE_STRING
+2024-03-20T19:47:42.266-03:00  WARN 14440 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Input mismatch reading Enum `com.swproject.sellgenius.entities.enums.PerfilTipo`: properties-based `@JsonCreator` ([method com.swproject.sellgenius.entities.enums.PerfilTipo#fromString(java.lang.String)]) expects JSON Object (JsonToken.START_OBJECT), got JsonToken.VALUE_STRING]
+2024-03-20T19:47:42.268-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-03-20T19:47:42.268-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:47:42.269-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:47:42.270-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:47:42.271-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:47:42 BRT 2024, status=400, error=Bad Request, trace=org.springframework.ht (truncated)...]
+2024-03-20T19:47:42.273-03:00 DEBUG 14440 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
+2024-03-20T19:51:28.440-03:00  INFO 14272 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 14272 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:51:28.443-03:00  INFO 14272 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:51:31.441-03:00  WARN 14272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:51:33.064-03:00 DEBUG 14272 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:51:33.172-03:00 DEBUG 14272 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:51:33.236-03:00 DEBUG 14272 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:51:33.316-03:00 DEBUG 14272 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:51:33.600-03:00  INFO 14272 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.615 seconds (process running for 6.399)
+2024-03-20T19:51:33.962-03:00  INFO 14272 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:51:38.153-03:00  INFO 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:51:38.155-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:51:38.156-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:51:38.157-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:51:38.158-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59f46558
+2024-03-20T19:51:38.159-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5073c4c3
+2024-03-20T19:51:38.160-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:51:38.160-03:00  INFO 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-20T19:51:38.181-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:51:38.206-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:51:38.294-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@6f090f87]
+2024-03-20T19:51:38.615-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:51:38.618-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=qplo@gmail.com, perfilTipo=ADMIN)]
+2024-03-20T19:51:38.629-03:00 DEBUG 14272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:51:45.313-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:51:45.313-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:51:45.314-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@5f17f3e2]
+2024-03-20T19:51:45.322-03:00  WARN 14272 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+2024-03-20T19:51:45.324-03:00 ERROR 14272 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]
+2024-03-20T19:51:45.359-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]] [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default)]; SQL [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default)]; constraint ["PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]]
+2024-03-20T19:51:45.371-03:00 ERROR 14272 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]] [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default)]; SQL [insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default)]; constraint ["PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]]] with root cause
+
+org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.UK_4WV83HFAJRY5TDOAMN8WSQA6X_INDEX_D ON PUBLIC.TB_USER(USERNAME NULLS FIRST) VALUES ( /* 6 */ 'qplo@gmail.com' )"; SQL statement:
+insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,password,perfil_tipo,username,id) values (?,?,?,?,?,?,?,default) [23505-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:520) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.index.Index.getDuplicateKeyException(Index.java:527) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:223) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:184) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:519) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.dml.Insert.insertRows(Insert.java:174) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.dml.Insert.update(Insert.java:135) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.CommandContainer.executeUpdateWithGeneratedKeys(CommandContainer.java:242) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:163) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:216) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:174) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor18.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364) ~[spring-orm-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy124.persist(Unknown Source) ~[na:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor18.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy124.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618) ~[spring-data-jpa-3.2.3.jar:3.2.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.3.jar:3.2.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220) ~[spring-aop-6.1.4.jar:6.1.4]
+	at jdk.proxy4/jdk.proxy4.$Proxy128.save(Unknown Source) ~[na:na]
+	at com.swproject.sellgenius.services.UserService.save(UserService.java:31) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.swproject.sellgenius.services.UserService$$SpringCGLIB$$0.save(<generated>) ~[classes/:na]
+	at com.swproject.sellgenius.web.controllers.UserController.create(UserController.java:34) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2024-03-20T19:51:45.468-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-03-20T19:51:45.471-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-20T19:51:45.499-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:51:45.501-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Mar 20 19:51:45 BRT 2024, status=500, error=Internal Server Error, trace=org.springfr (truncated)...]
+2024-03-20T19:51:45.535-03:00 DEBUG 14272 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-03-20T19:51:54.817-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:51:54.818-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:51:54.819-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@398c8722]
+2024-03-20T19:51:54.897-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:51:54.898-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=8, username=qp@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:51:54.900-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED

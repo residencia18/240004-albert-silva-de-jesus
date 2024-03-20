@@ -1,32 +1,32 @@
 package com.swproject.sellgenius.entities.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.swproject.sellgenius.entities.PerfilTipoDeserializer;
+
+@JsonDeserialize(using = PerfilTipoDeserializer.class)
 public enum PerfilTipo {
 
-	ADMIN(1, "ADMIN"), FUNCIONARIO(2, "FUNCIONARIO");
+  FUNCIONARIO("1"),
+  ADMIN("2");
 
-	private long cod;
-	private String desc;
+  private final String codigo;
 
-	private PerfilTipo(long cod, String desc) {
-		this.cod = cod;
-		this.desc = desc;
-	}
+  PerfilTipo(String codigo) {
+    this.codigo = codigo;
+  }
 
-	public long getCod() {
-		return cod;
-	}
+  public String getCodigo() {
+    return codigo;
+  }
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public static PerfilTipo valueOf(int code) {
-		for (PerfilTipo value : PerfilTipo.values()) {
-			if (value.getCod() == code) {
-				return value;
-			}
-		}
-		throw new IllegalArgumentException("Invalid PerfilTipo code");
-	}
-
+  @JsonCreator
+  public static PerfilTipo fromString(String codigo) {
+    for (PerfilTipo perfilTipo : PerfilTipo.values()) {
+      if (perfilTipo.codigo.equals(codigo)) {
+        return perfilTipo;
+      }
+    }
+    throw new IllegalArgumentException("PerfilTipo inválido: " + codigo);
+  }
 }

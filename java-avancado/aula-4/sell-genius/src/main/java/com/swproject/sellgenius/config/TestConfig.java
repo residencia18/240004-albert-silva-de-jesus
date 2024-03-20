@@ -12,13 +12,11 @@ import org.springframework.context.annotation.Profile;
 
 import com.swproject.sellgenius.entities.Category;
 import com.swproject.sellgenius.entities.Employee;
-import com.swproject.sellgenius.entities.Perfil;
 import com.swproject.sellgenius.entities.Product;
 import com.swproject.sellgenius.entities.User;
 import com.swproject.sellgenius.entities.enums.PerfilTipo;
 import com.swproject.sellgenius.repositories.CategoryRepository;
 import com.swproject.sellgenius.repositories.EmployeeRepository;
-import com.swproject.sellgenius.repositories.PerfilRepository;
 import com.swproject.sellgenius.repositories.ProductRepository;
 import com.swproject.sellgenius.repositories.UserRepository;
 
@@ -37,9 +35,6 @@ public class TestConfig implements CommandLineRunner {
 
   @Autowired
   private EmployeeRepository employeeRepository;
-
-  @Autowired
-  private PerfilRepository perfilRepository;
 
   @SuppressWarnings("null")
   @Override
@@ -69,22 +64,11 @@ public class TestConfig implements CommandLineRunner {
 
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    Perfil perfil1 = new Perfil("ADMIN");
-    Perfil perfil2 = new Perfil("FUNCIONARIO");
-
-    perfilRepository.saveAll(Arrays.asList(perfil1, perfil2));
-
-    User obj1 = new User(null, "maria@gmail.com", "123456");
-    User obj2 = new User(null, "alex@hotmail.com", "098765");
-    User obj3 = new User(null, "bob@gamil.com", "234567");
-    User obj4 = new User(null, "ana@gmail.com", "987654");
-    User obj5 = new User(null, "carlos@hotmail.com", "192938");
-
-    obj1.addPerfil(PerfilTipo.ADMIN);
-    obj2.addPerfil(PerfilTipo.FUNCIONARIO);
-    obj3.addPerfil(PerfilTipo.FUNCIONARIO);
-    obj4.addPerfil(PerfilTipo.FUNCIONARIO);
-    obj5.addPerfil(PerfilTipo.FUNCIONARIO);
+    User obj1 = new User(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
+    User obj2 = new User(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
+    User obj3 = new User(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
+    User obj4 = new User(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
+    User obj5 = new User(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 

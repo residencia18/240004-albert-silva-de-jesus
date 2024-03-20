@@ -1,10 +1,8 @@
 package com.swproject.sellgenius.web.dto;
 
-import java.util.List;
-
 import com.swproject.sellgenius.entities.AbstractEntity;
-import com.swproject.sellgenius.entities.Perfil;
 import com.swproject.sellgenius.entities.User;
+import com.swproject.sellgenius.entities.enums.PerfilTipo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,19 +19,22 @@ public class UserResponseDto extends AbstractEntity {
 
   private Long id;
   private String username;
-  private List<Perfil> perfis;
+  private String perfilTipo;
 
-  public UserResponseDto(User user) {
+  public UserResponseDto(User user, PerfilTipo tipo) {
     setId(user.getId());
     this.username = user.getUsername();
+    setPerfilTipo(tipo);
   }
 
-  public List<Perfil> getPerfis() {
-    return perfis;
+  public PerfilTipo getPerfilTipo() {
+    return PerfilTipo.fromString(perfilTipo);
   }
 
-  public void setPerfis(List<Perfil> perfis) {
-    this.perfis = perfis;
+  public void setPerfilTipo(PerfilTipo perfilTipo) {
+    if (perfilTipo != null) {
+      this.perfilTipo = perfilTipo.getCodigo();
+    }
   }
 
 }
