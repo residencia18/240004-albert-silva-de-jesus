@@ -1,6 +1,7 @@
 package com.swproject.sellgenius.entities;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -19,8 +20,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_product")
-public class Product extends AbstractEntity{
-  
+public class Product extends AbstractEntity {
+
   private String name;
   private String description;
   private Double price;
@@ -32,6 +33,9 @@ public class Product extends AbstractEntity{
   @ManyToMany
   @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
   private Set<Category> categories = new HashSet<>();
+
+  @ManyToMany(mappedBy = "productsSold")
+  private Set<Employee> employeesSoldBy = new LinkedHashSet<>();
 
   public Product(Long id, String name, String description, Double price, String imgUrl) {
     super(id);

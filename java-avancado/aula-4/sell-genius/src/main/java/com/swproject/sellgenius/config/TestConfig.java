@@ -79,6 +79,13 @@ public class TestConfig implements CommandLineRunner {
     Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj5);
     Employee emp6 = new Employee(null, "Carlos Black", "453.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj3);
 
+    emp1.getProductsSold().add(p1);
+    emp2.getProductsSold().add(p2);
+    emp3.getProductsSold().add(p3);
+    emp4.getProductsSold().add(p4);
+    emp5.getProductsSold().add(p5);
+    emp6.getProductsSold().add(p1);
+
     employeeRepository.saveAll(Arrays.asList(emp1, emp2, emp3, emp4, emp5, emp6));
 
 

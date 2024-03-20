@@ -1,12 +1,16 @@
 package com.swproject.sellgenius.entities;
 
 import java.time.Instant;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -31,6 +35,10 @@ public class Employee extends AbstractEntity {
   @ManyToOne
   @JoinColumn(name = "usuario_id")
   private User usuario;
+
+  @ManyToMany
+  @JoinTable(name = "tb_employee_product", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+  private Set<Product> productsSold = new LinkedHashSet<>();
 
   public Employee(Long id, String name, String cpf, Instant birthDate, User usuario) {
     super(id);

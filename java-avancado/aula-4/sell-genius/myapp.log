@@ -3112,3 +3112,44 @@ insert into tb_user (criado_por,data_criacao,data_modificacao,modificado_por,pas
 2024-03-20T19:51:54.897-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2024-03-20T19:51:54.898-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=8, username=qp@gmail.com, perfilTipo=FUNCIONARIO)]
 2024-03-20T19:51:54.900-03:00 DEBUG 14272 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T19:53:22.673-03:00  INFO 15040 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 15040 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T19:53:22.675-03:00  INFO 15040 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T19:53:25.533-03:00  WARN 15040 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T19:53:27.126-03:00 DEBUG 15040 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T19:53:27.238-03:00 DEBUG 15040 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T19:53:27.328-03:00 DEBUG 15040 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T19:53:27.408-03:00 DEBUG 15040 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T19:53:27.704-03:00  INFO 15040 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.448 seconds (process running for 6.429)
+2024-03-20T19:53:28.329-03:00  INFO 15040 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T19:53:45.505-03:00  INFO 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T19:53:45.505-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-20T19:53:45.505-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-03-20T19:53:45.505-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-20T19:53:45.506-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4b152a3a
+2024-03-20T19:53:45.507-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@296dec0f
+2024-03-20T19:53:45.507-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-20T19:53:45.508-03:00  INFO 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-03-20T19:53:45.512-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/users", parameters={}
+2024-03-20T19:53:45.540-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.sellgenius.web.controllers.UserController#create(UserForm)
+2024-03-20T19:53:45.716-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.swproject.sellgenius.web.dto.form.UserForm@360c7be2]
+2024-03-20T19:53:46.206-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-20T19:53:46.208-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [UserResponseDto(id=6, username=Pauloricardo@gmail.com, perfilTipo=FUNCIONARIO)]
+2024-03-20T19:53:46.220-03:00 DEBUG 15040 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-20T20:09:42.102-03:00  INFO 5388 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 5388 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T20:09:42.104-03:00  INFO 5388 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T20:09:44.437-03:00  WARN 5388 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T20:09:46.007-03:00 DEBUG 5388 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T20:09:46.118-03:00 DEBUG 5388 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T20:09:46.175-03:00 DEBUG 5388 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T20:09:46.243-03:00 DEBUG 5388 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T20:09:46.615-03:00  INFO 5388 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 4.907 seconds (process running for 5.617)
+2024-03-20T20:09:47.006-03:00  INFO 5388 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!
+2024-03-20T20:12:30.727-03:00  INFO 7624 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Starting SellGeniusApplication using Java 17.0.1 with PID 7624 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-4\sell-genius)
+2024-03-20T20:12:30.729-03:00  INFO 7624 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : The following 1 profile is active: "test"
+2024-03-20T20:12:33.370-03:00  WARN 7624 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T20:12:34.994-03:00 DEBUG 7624 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-03-20T20:12:35.091-03:00 DEBUG 7624 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-20T20:12:35.136-03:00 DEBUG 7624 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-20T20:12:35.201-03:00 DEBUG 7624 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-20T20:12:35.458-03:00  INFO 7624 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Started SellGeniusApplication in 5.167 seconds (process running for 5.992)
+2024-03-20T20:12:35.898-03:00  INFO 7624 --- [restartedMain] c.s.sellgenius.SellGeniusApplication     : Aplicação iniciada com sucesso!

@@ -7,8 +7,7 @@ import com.swproject.sellgenius.entities.PerfilTipoDeserializer;
 @JsonDeserialize(using = PerfilTipoDeserializer.class)
 public enum PerfilTipo {
 
-  FUNCIONARIO("1"),
-  ADMIN("2");
+  ADMIN("1"), FUNCIONARIO("2");
 
   private final String codigo;
 
