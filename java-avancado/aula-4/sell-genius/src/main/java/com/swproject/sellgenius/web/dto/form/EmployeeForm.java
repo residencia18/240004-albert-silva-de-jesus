@@ -1,6 +1,8 @@
 package com.swproject.sellgenius.web.dto.form;
 
-import java.util.Date;
+import java.time.Instant;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -17,5 +19,6 @@ public class EmployeeForm {
     private String name;
     @Column(unique = true)
     private String cpf;
-    private Date birthDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+    private Instant birthDate;
 }

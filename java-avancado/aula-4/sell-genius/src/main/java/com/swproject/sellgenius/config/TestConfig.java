@@ -1,6 +1,7 @@
 package com.swproject.sellgenius.config;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.TimeZone;
 
@@ -11,10 +12,13 @@ import org.springframework.context.annotation.Profile;
 
 import com.swproject.sellgenius.entities.Category;
 import com.swproject.sellgenius.entities.Employee;
+import com.swproject.sellgenius.entities.Perfil;
 import com.swproject.sellgenius.entities.Product;
 import com.swproject.sellgenius.entities.User;
+import com.swproject.sellgenius.entities.enums.PerfilTipo;
 import com.swproject.sellgenius.repositories.CategoryRepository;
 import com.swproject.sellgenius.repositories.EmployeeRepository;
+import com.swproject.sellgenius.repositories.PerfilRepository;
 import com.swproject.sellgenius.repositories.ProductRepository;
 import com.swproject.sellgenius.repositories.UserRepository;
 
@@ -33,6 +37,9 @@ public class TestConfig implements CommandLineRunner {
 
   @Autowired
   private EmployeeRepository employeeRepository;
+
+  @Autowired
+  private PerfilRepository perfilRepository;
 
   @SuppressWarnings("null")
   @Override
@@ -62,22 +69,34 @@ public class TestConfig implements CommandLineRunner {
 
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    User obj1 = new User(null, "maria@gmail.com", "123456", User.Role.ROLE_ADMIN);
-    User obj2 = new User(null, "alex@hotmail.com", "098765", User.Role.ROLE_USUARIO);
-    User obj3 = new User(null, "bob@gamil.com", "234567", User.Role.ROLE_USUARIO);
-    User obj4 = new User(null, "ana@gmail.com", "987654", User.Role.ROLE_USUARIO);
-    User obj5 = new User(null, "carlos@hotmail.com", "192938", User.Role.ROLE_USUARIO);
+    Perfil perfil1 = new Perfil("ADMIN");
+    Perfil perfil2 = new Perfil("FUNCIONARIO");
+
+    perfilRepository.saveAll(Arrays.asList(perfil1, perfil2));
+
+    User obj1 = new User(null, "maria@gmail.com", "123456");
+    User obj2 = new User(null, "alex@hotmail.com", "098765");
+    User obj3 = new User(null, "bob@gamil.com", "234567");
+    User obj4 = new User(null, "ana@gmail.com", "987654");
+    User obj5 = new User(null, "carlos@hotmail.com", "192938");
+
+    obj1.addPerfil(PerfilTipo.ADMIN);
+    obj2.addPerfil(PerfilTipo.FUNCIONARIO);
+    obj3.addPerfil(PerfilTipo.FUNCIONARIO);
+    obj4.addPerfil(PerfilTipo.FUNCIONARIO);
+    obj5.addPerfil(PerfilTipo.FUNCIONARIO);
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 
-    Employee emp1 = new Employee(null, "Maria Brown", "123.456.789-01", sdf.parse("20/06/2023"), obj1);
-    Employee emp2 = new Employee(null, "Alex Green", "189.876.543-21", sdf.parse("10/03/2022"), obj2);
-    Employee emp3 = new Employee(null, "Bob Grey", "678.456.459-91", sdf.parse("06/05/2024"), obj1);
-    Employee emp4 = new Employee(null, "Ana White", "109.876.543-21", sdf.parse("03/01/2022"), obj4);
-    Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", sdf.parse("05/10/2021"), obj5);
-    Employee emp6 = new Employee(null, "Carlos Black", "453.456.099-78", sdf.parse("07/11/2021"), obj3);
+    Employee emp1 = new Employee(null, "Maria Brown", "123.456.789-01", Instant.parse("2019-06-20T19:53:07Z"), obj1);
+    Employee emp2 = new Employee(null, "Alex Green", "189.876.543-21", Instant.parse("2019-06-20T19:53:07Z"), obj2);
+    Employee emp3 = new Employee(null, "Bob Grey", "678.456.459-91", Instant.parse("2019-06-20T19:53:07Z"), obj1);
+    Employee emp4 = new Employee(null, "Ana White", "109.876.543-21", Instant.parse("2019-06-20T19:53:07Z"), obj4);
+    Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj5);
+    Employee emp6 = new Employee(null, "Carlos Black", "453.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj3);
 
     employeeRepository.saveAll(Arrays.asList(emp1, emp2, emp3, emp4, emp5, emp6));
+
 
   }
 }

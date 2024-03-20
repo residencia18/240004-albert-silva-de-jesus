@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +22,12 @@ public class UserService {
   @Autowired
   private UserRepository  userRepository;
 
-  @SuppressWarnings("null")
-  public User save(User user) {
+  public User save(@Nullable User user) {
+
+    if (user == null) {
+      throw new IllegalArgumentException("O parâmetro 'user' não pode ser nulo.");
+    }
+
     return userRepository.save(user);
   }
 
@@ -29,8 +35,7 @@ public class UserService {
     return userRepository.findAll();
   }
 
-  @SuppressWarnings("null")
-  public User searchById(Long id) {
+  public User searchById(@NonNull Long id) {
     return userRepository.findById(id)
         .orElseThrow(() -> new IllegalArgumentException("Id Inválido para o leilao:" + id));
   }
@@ -53,19 +58,17 @@ public class UserService {
     }
   }
 
-  public User update(Long id, UserForm userForm) {
+  public User update(@NonNull Long id, UserForm userForm) {
     User obj = searchById(id);
     obj.setUsername(userForm.getUsername());
     return userRepository.save(obj);
   }
 
-  @SuppressWarnings("null")
-  public void delete(Long id) {
+  public void delete(@NonNull Long id) {
     userRepository.deleteById(id);
   }
 
-  @SuppressWarnings("null")
-  public Boolean isExisteId(Long id) {
+  public Boolean isExisteId(@NonNull Long id) {
     if (userRepository.existsById(id)) {
       return true;
     } else {

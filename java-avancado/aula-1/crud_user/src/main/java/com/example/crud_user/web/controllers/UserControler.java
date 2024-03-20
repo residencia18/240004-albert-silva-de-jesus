@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -55,7 +56,7 @@ public class UserControler {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<UserResponseDto> update(@PathVariable Long id, @RequestBody UserForm createDto) {
+  public ResponseEntity<UserResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UserForm createDto) {
     try {
       return ResponseEntity.ok(UserMapper.toDto(userService.update(id, createDto)));
 
@@ -65,13 +66,13 @@ public class UserControler {
   }
 
   @PatchMapping("/password/{id}")
-  public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UserSenhaDto dto) {
+  public ResponseEntity<Void> updatePassword(@PathVariable @NonNull Long id, @RequestBody UserSenhaDto dto) {
     User user = userService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
     return ResponseEntity.noContent().build();
   }
 
   @DeleteMapping("{id}")
-  public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+  public ResponseEntity<Void> delete(@PathVariable("id") @NonNull Long id) {
 
     if (userService.isExisteId(id)) {
 

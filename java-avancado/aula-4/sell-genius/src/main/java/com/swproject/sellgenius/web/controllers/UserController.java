@@ -24,7 +24,7 @@ import com.swproject.sellgenius.web.dto.mapper.UserMapper;
 
 @RestController
 @RequestMapping("/users")
-public class UserControler {
+public class UserController {
 
   @Autowired
   private UserService userService;
