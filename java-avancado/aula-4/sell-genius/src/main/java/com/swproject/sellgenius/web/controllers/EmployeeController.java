@@ -17,7 +17,7 @@ import com.swproject.sellgenius.web.dto.form.EmployeeForm;
 import com.swproject.sellgenius.web.dto.mapper.EmployeeMapper;
 
 @RestController
-@RequestMapping("/employee/")
+@RequestMapping("/api/v1/employees")
 public class EmployeeController {
 
   @Autowired

@@ -34,13 +34,13 @@ public class Employee extends AbstractEntity {
 
   @ManyToOne
   @JoinColumn(name = "usuario_id")
-  private User usuario;
+  private Usuario usuario;
 
   @ManyToMany
   @JoinTable(name = "tb_employee_product", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
   private Set<Product> productsSold = new LinkedHashSet<>();
 
-  public Employee(Long id, String name, String cpf, Instant birthDate, User usuario) {
+  public Employee(Long id, String name, String cpf, Instant birthDate, Usuario usuario) {
     super(id);
     this.name = name;
     this.cpf = cpf;

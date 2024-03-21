@@ -21,7 +21,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class User extends AbstractEntity {
+public class Usuario extends AbstractEntity {
 
   @Column(name = "username", nullable = false, unique = true, length = 100)
   private String username;
@@ -41,13 +41,13 @@ public class User extends AbstractEntity {
   @Column(name = "modificado_por")
   private String modificadoPor;
 
-  public User(Long id, String username, String password) {
+  public Usuario(Long id, String username, String password) {
     super(id);
     this.username = username;
     this.password = password;
   }
 
-  public User(Long id, String username, String password, PerfilTipo tipo) {
+  public Usuario(Long id, String username, String password, PerfilTipo tipo) {
     this.username = username;
     this.password = password;
     setPerfilTipo(tipo);

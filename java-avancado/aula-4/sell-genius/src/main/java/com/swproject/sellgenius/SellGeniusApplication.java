@@ -12,7 +12,7 @@ public class SellGeniusApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SellGeniusApplication.class, args);
-		log.info("Aplicação iniciada com sucesso!");
+		log.info("Aplicacao iniciada com sucesso!...");
 	}
 
 }

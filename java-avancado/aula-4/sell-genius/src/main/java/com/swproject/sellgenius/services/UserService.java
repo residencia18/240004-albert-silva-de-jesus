@@ -1,6 +1,5 @@
 package com.swproject.sellgenius.services;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,67 +8,78 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.swproject.sellgenius.entities.User;
-import com.swproject.sellgenius.repositories.UserRepository;
-import com.swproject.sellgenius.web.dto.UserResponseDto;
+import com.swproject.sellgenius.entities.Usuario;
+import com.swproject.sellgenius.exception.EntityNotFoundException;
+import com.swproject.sellgenius.exception.PasswordInvalidException;
+import com.swproject.sellgenius.exception.UsernameUniqueViolationException;
+import com.swproject.sellgenius.repositories.UsuarioRepository;
 import com.swproject.sellgenius.web.dto.form.UserForm;
-import com.swproject.sellgenius.web.dto.mapper.UserMapper;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class UserService {
 
   @Autowired
-  private UserRepository  userRepository;
+  private UsuarioRepository usuarioRepository;
 
-  public User save(@Nullable User user) {
-
-    if (user == null) {
-      throw new IllegalArgumentException("O parâmetro 'user' não pode ser nulo.");
+  @Transactional
+  public Usuario save(@Nullable Usuario usuario) {
+    if (usuario == null) {
+      throw new IllegalArgumentException("O parâmetro 'usuário' não pode ser nulo.");
     }
 
-    return userRepository.save(user);
-  }
+    try {
+      return usuarioRepository.save(usuario);
 
-  public List<User> findAll() {
-    return userRepository.findAll();
-  }
-
-  public User searchById(@NonNull Long id) {
-    return userRepository.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("Id Inválido para o leilao:" + id));
+    } catch (org.springframework.dao.DataIntegrityViolationException ex) {
+      throw new UsernameUniqueViolationException(String.format("Username: %s já cadastrado: ", usuario.getUsername()));
+    }
   }
 
   @Transactional(readOnly = true)
-  public List<UserResponseDto> findById(Long id) {
-
-    if (id == null) {
-      return UserMapper.toListDto(findAll());
-
-    } else {
-
-      User user = searchById(id);
-      if (user != null) {
-        return UserMapper.toListDto(Collections.singletonList(user));
-
-      } else {
-        return Collections.emptyList();
-      }
-    }
+  public Usuario findById(@NonNull Long id) {
+    return usuarioRepository.findById(id).orElseThrow(
+        () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
   }
 
-  public User update(@NonNull Long id, UserForm userForm) {
-    User obj = searchById(id);
+  @Transactional
+  public Usuario editarSenha(@NonNull Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+    if (!novaSenha.equals(confirmaSenha)) {
+      throw new PasswordInvalidException("Nova senha não confere com confirmação de senha.");
+    }
+
+    Usuario user = findById(id);
+    if (!user.getPassword().equals(senhaAtual)) {
+      throw new PasswordInvalidException("Sua senha não confere.");
+    }
+
+    user.setPassword(novaSenha);
+    return user;
+
+    // Outra forma de fazer a mesma coisa é:
+    // return usuarioRepository.save(user);
+  }
+
+  @Transactional(readOnly = true)
+  public List<Usuario> findAll() {
+    return usuarioRepository.findAll();
+  }
+
+  public Usuario update(@NonNull Long id, UserForm userForm) {
+    Usuario obj = findById(id);
     obj.setUsername(userForm.getUsername());
-    return userRepository.save(obj);
+    return usuarioRepository.save(obj);
   }
 
   public void delete(@NonNull Long id) {
-    userRepository.deleteById(id);
+    usuarioRepository.deleteById(id);
   }
 
   public Boolean isExisteId(@NonNull Long id) {
-    if (userRepository.existsById(id)) {
+    if (usuarioRepository.existsById(id)) {
       return true;
     } else {
       return false;

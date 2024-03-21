@@ -13,19 +13,19 @@ import org.springframework.context.annotation.Profile;
 import com.swproject.sellgenius.entities.Category;
 import com.swproject.sellgenius.entities.Employee;
 import com.swproject.sellgenius.entities.Product;
-import com.swproject.sellgenius.entities.User;
+import com.swproject.sellgenius.entities.Usuario;
 import com.swproject.sellgenius.entities.enums.PerfilTipo;
 import com.swproject.sellgenius.repositories.CategoryRepository;
 import com.swproject.sellgenius.repositories.EmployeeRepository;
 import com.swproject.sellgenius.repositories.ProductRepository;
-import com.swproject.sellgenius.repositories.UserRepository;
+import com.swproject.sellgenius.repositories.UsuarioRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
   @Autowired
-  private UserRepository userRepository;
+  private UsuarioRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -64,11 +64,11 @@ public class TestConfig implements CommandLineRunner {
 
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    User obj1 = new User(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
-    User obj2 = new User(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
-    User obj3 = new User(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
-    User obj4 = new User(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
-    User obj5 = new User(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
+    Usuario obj1 = new Usuario(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
+    Usuario obj2 = new Usuario(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
+    Usuario obj3 = new Usuario(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
+    Usuario obj4 = new Usuario(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
+    Usuario obj5 = new Usuario(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 
