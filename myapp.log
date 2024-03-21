@@ -1,0 +1,9 @@
+2024-03-21T17:52:23.335-03:00  INFO 14576 --- [restartedMain] c.s.supersale.SuperSaleApplication       : Starting SuperSaleApplication using Java 17.0.1 with PID 14576 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-5\super-sale\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava)
+2024-03-21T17:52:23.337-03:00  INFO 14576 --- [restartedMain] c.s.supersale.SuperSaleApplication       : The following 1 profile is active: "test"
+2024-03-21T17:52:25.278-03:00  WARN 14576 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21T17:52:26.473-03:00 DEBUG 14576 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-21T17:52:26.543-03:00 DEBUG 14576 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-21T17:52:26.577-03:00 DEBUG 14576 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-21T17:52:26.604-03:00 DEBUG 14576 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-21T17:52:26.765-03:00  INFO 14576 --- [restartedMain] c.s.supersale.SuperSaleApplication       : Started SuperSaleApplication in 3.748 seconds (process running for 4.075)
+2024-03-21T17:52:26.945-03:00  INFO 14576 --- [restartedMain] c.s.supersale.SuperSaleApplication       : Aplicacao iniciada com sucesso!...
