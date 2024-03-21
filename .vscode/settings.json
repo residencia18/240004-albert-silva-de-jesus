@@ -1,7 +1,5 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.project.sourcePaths": [
-        "java-avancado/tutorial-data"
-    ],
-    "java.configuration.updateBuildConfiguration": "interactive",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.project.sourcePaths": ["java-avancado/tutorial-data"],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

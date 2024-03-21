@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TradeInApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.tradein.TradeInApplication",
+      "projectName": "com.swproject-trade-in"
+    },
+    {
+      "type": "java",
       "name": "VendaGrocerApplication",
       "request": "launch",
       "mainClass": "com.swproject.vendagrocer.VendaGrocerApplication",
@@ -33,16 +40,6 @@
       "request": "launch",
       "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
       "projectName": "com.residenciatic18-api-leilao"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-TradeInApplication<trade-in>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.swproject.tradein.TradeInApplication",
-      "projectName": "trade-in",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
