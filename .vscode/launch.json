@@ -41,25 +41,5 @@
       "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
       "projectName": "com.residenciatic18-api-leilao"
     },
-    {
-      "type": "java",
-      "name": "Spring Boot-SellGeniusApplication<com.swproject-sell-genius>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.swproject.sellgenius.SellGeniusApplication",
-      "projectName": "com.swproject-sell-genius",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-TutorialWebServicesApplication<com.webservices-tutorial_web_services>",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
-      "projectName": "com.webservices-tutorial_web_services",
-      "args": "",
-      "envFile": "${workspaceFolder}/.env"
-    }
   ]
 }
