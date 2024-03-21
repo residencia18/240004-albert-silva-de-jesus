@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TradeInApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.tradein.TradeInApplication",
+      "projectName": "com.swproject-trade-in"
+    },
+    {
+      "type": "java",
       "name": "VendaGrocerApplication",
       "request": "launch",
       "mainClass": "com.swproject.vendagrocer.VendaGrocerApplication",
