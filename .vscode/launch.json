@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SuperSaleApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.supersale.SuperSaleApplication",
+      "projectName": "com.swproject-super-sale"
+    },
+    {
+      "type": "java",
       "name": "SellGeniusApplication",
       "request": "launch",
       "mainClass": "com.swproject.sellgenius.SellGeniusApplication"
