@@ -1,0 +1,9 @@
+2024-03-21T18:29:13.508-03:00  INFO 14764 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Starting TradeInApplication using Java 17.0.1 with PID 14764 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-7\trade-in\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-7\trade-in)
+2024-03-21T18:29:13.511-03:00  INFO 14764 --- [restartedMain] c.swproject.tradein.TradeInApplication   : The following 1 profile is active: "test"
+2024-03-21T18:29:16.781-03:00  WARN 14764 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21T18:29:18.763-03:00 DEBUG 14764 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-21T18:29:18.893-03:00 DEBUG 14764 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-21T18:29:18.959-03:00 DEBUG 14764 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-21T18:29:19.011-03:00 DEBUG 14764 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-21T18:29:19.324-03:00  INFO 14764 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Started TradeInApplication in 6.253 seconds (process running for 6.939)
+2024-03-21T18:29:19.609-03:00  INFO 14764 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Aplicacao iniciada com sucesso!...
