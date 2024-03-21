@@ -2,7 +2,6 @@ package com.swproject.sellgenius.entities.enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.swproject.sellgenius.entities.PerfilTipoDeserializer;
 
 @JsonDeserialize(using = PerfilTipoDeserializer.class)
 public enum PerfilTipo {

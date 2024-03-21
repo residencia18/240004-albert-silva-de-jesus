@@ -1,10 +1,9 @@
-package com.swproject.sellgenius.web.dto.form;
+package com.swproject.sellgenius.web.dto;
 
+import com.swproject.sellgenius.entities.AbstractEntity;
+import com.swproject.sellgenius.entities.Usuario;
 import com.swproject.sellgenius.entities.enums.PerfilTipo;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,16 +15,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserForm {
+public class UsuarioResponseDto extends AbstractEntity {
 
-  @NotBlank
-  @Email(message = "formato do e-mail está invalido", regexp = "^[a-z0-9.+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")
+  private Long id;
   private String username;
-
-  @NotBlank
-  @Size(min = 6, max = 6)
-  private String password;
   private String perfilTipo;
+
+  public UsuarioResponseDto(Usuario user, PerfilTipo tipo) {
+    setId(user.getId());
+    this.username = user.getUsername();
+    setPerfilTipo(tipo);
+  }
 
   public PerfilTipo getPerfilTipo() {
     return PerfilTipo.fromString(perfilTipo);

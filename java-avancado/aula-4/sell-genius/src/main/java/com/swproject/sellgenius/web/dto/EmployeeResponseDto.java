@@ -22,7 +22,7 @@ public class EmployeeResponseDto {
   @Column(unique = true)
   private Instant birthDate;
 
-  public EmployeeResponseDto(Employee employee, Usuario user) {
+  public EmployeeResponseDto(Employee employee, Usuario usuario) {
     setId(id);
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();

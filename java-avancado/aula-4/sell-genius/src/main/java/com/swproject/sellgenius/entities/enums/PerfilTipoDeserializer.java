@@ -1,4 +1,4 @@
-package com.swproject.sellgenius.entities;
+package com.swproject.sellgenius.entities.enums;
 
 import java.io.IOException;
 
@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonParser;
 
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.swproject.sellgenius.entities.enums.PerfilTipo;
 
 public class PerfilTipoDeserializer extends JsonDeserializer<PerfilTipo> {
 

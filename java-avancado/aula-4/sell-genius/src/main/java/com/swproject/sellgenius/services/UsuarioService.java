@@ -13,14 +13,14 @@ import com.swproject.sellgenius.exception.EntityNotFoundException;
 import com.swproject.sellgenius.exception.PasswordInvalidException;
 import com.swproject.sellgenius.exception.UsernameUniqueViolationException;
 import com.swproject.sellgenius.repositories.UsuarioRepository;
-import com.swproject.sellgenius.web.dto.form.UserForm;
+import com.swproject.sellgenius.web.dto.form.UsuarioForm;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
-public class UserService {
+public class UsuarioService {
 
   @Autowired
   private UsuarioRepository usuarioRepository;
@@ -68,7 +68,7 @@ public class UserService {
     return usuarioRepository.findAll();
   }
 
-  public Usuario update(@NonNull Long id, UserForm userForm) {
+  public Usuario update(@NonNull Long id, UsuarioForm userForm) {
     Usuario obj = findById(id);
     obj.setUsername(userForm.getUsername());
     return usuarioRepository.save(obj);

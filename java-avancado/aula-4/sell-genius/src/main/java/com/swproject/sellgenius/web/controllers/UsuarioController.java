@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swproject.sellgenius.entities.Usuario;
-import com.swproject.sellgenius.services.UserService;
-import com.swproject.sellgenius.web.dto.UserResponseDto;
+import com.swproject.sellgenius.services.UsuarioService;
+import com.swproject.sellgenius.web.dto.UsuarioResponseDto;
 import com.swproject.sellgenius.web.dto.UsuarioSenhaDto;
-import com.swproject.sellgenius.web.dto.form.UserForm;
-import com.swproject.sellgenius.web.dto.mapper.UserMapper;
+import com.swproject.sellgenius.web.dto.form.UsuarioForm;
+import com.swproject.sellgenius.web.dto.mapper.UsuarioMapper;
 import com.swproject.sellgenius.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,43 +38,43 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/usuarios")
-public class UserController {
+public class UsuarioController {
 
   @Autowired
-  private UserService userService;
+  private UsuarioService userService;
 
   @Operation(summary = "Cria um novo usuário", description = "Recurso para criar um novo usuário no sistema.", responses = {
-      @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class))),
+      @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
       @ApiResponse(responseCode = "409", description = "Usuário e-mail já cadastrado no sistema.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
       @ApiResponse(responseCode = "422", description = "Recursos não processados por dados de entrada invalidos.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @PostMapping
-  public ResponseEntity<UserResponseDto> create(@Valid @RequestBody UserForm createDto) {
-    Usuario user = userService.save(UserMapper.toUser(createDto));
+  public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioForm createDto) {
+    Usuario user = userService.save(UsuarioMapper.toUser(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
-    return ResponseEntity.created(uri).body(UserMapper.toDto(user));
+    return ResponseEntity.created(uri).body(UsuarioMapper.toDto(user));
   }
 
   @Operation(summary = "Recuperar um usuário pelo id", description = "Recurso para recuperar um usuário pelo id.", responses = {
-      @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class))),
+      @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @GetMapping("/{id}")
-  public ResponseEntity<UserResponseDto> getById(@PathVariable @NonNull Long id) {
+  public ResponseEntity<UsuarioResponseDto> getById(@PathVariable @NonNull Long id) {
     Usuario user = userService.findById(id);
-    return ResponseEntity.ok(UserMapper.toDto(user));
+    return ResponseEntity.ok(UsuarioMapper.toDto(user));
   }
 
   @GetMapping("/")
-  public ResponseEntity<List<UserResponseDto>> getAll() {
-    List<UserResponseDto> users = UserMapper.toListDto(userService.findAll());
+  public ResponseEntity<List<UsuarioResponseDto>> getAll() {
+    List<UsuarioResponseDto> users = UsuarioMapper.toListDto(userService.findAll());
     return ResponseEntity.ok().body(users);
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<UserResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UserForm createDto) {
+  public ResponseEntity<UsuarioResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UsuarioForm createDto) {
     try {
-      return ResponseEntity.ok(UserMapper.toDto(userService.update(id, createDto)));
+      return ResponseEntity.ok(UsuarioMapper.toDto(userService.update(id, createDto)));
 
     } catch (Exception e) {
       return ResponseEntity.notFound().build();
