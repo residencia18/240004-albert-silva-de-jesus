@@ -72,12 +72,12 @@ public class TestConfig implements CommandLineRunner {
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 
-    Employee emp1 = new Employee(null, "Maria Brown", "123.456.789-01", Instant.parse("2019-06-20T19:53:07Z"), obj1);
-    Employee emp2 = new Employee(null, "Alex Green", "189.876.543-21", Instant.parse("2019-06-20T19:53:07Z"), obj2);
-    Employee emp3 = new Employee(null, "Bob Grey", "678.456.459-91", Instant.parse("2019-06-20T19:53:07Z"), obj1);
-    Employee emp4 = new Employee(null, "Ana White", "109.876.543-21", Instant.parse("2019-06-20T19:53:07Z"), obj4);
-    Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj5);
-    Employee emp6 = new Employee(null, "Carlos Black", "453.456.099-78", Instant.parse("2019-06-20T19:53:07Z"), obj3);
+    Employee emp1 = new Employee(null, "Maria Brown", "123.456.789-01", Instant.parse("2019-01-20T19:53:07Z"), obj1);
+    Employee emp2 = new Employee(null, "Alex Green", "189.876.543-21", Instant.parse("2021-07-25T19:53:07Z"), obj2);
+    Employee emp3 = new Employee(null, "Bob Grey", "678.456.459-91", Instant.parse("2020-06-30T19:53:07Z"), obj1);
+    Employee emp4 = new Employee(null, "Ana White", "109.876.543-21", Instant.parse("2021-07-20T19:53:07Z"), obj4);
+    Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", Instant.parse("2022-10-13T19:53:07Z"), obj5);
+    Employee emp6 = new Employee(null, "Jaime Oliveira", "453.456.099-78", Instant.parse("2023-12-31T19:53:07Z"), obj3);
 
     emp1.getProductsSold().add(p1);
     emp2.getProductsSold().add(p2);

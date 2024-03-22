@@ -3,7 +3,6 @@ package com.swproject.tradein.web.dto;
 import java.time.Instant;
 
 import com.swproject.tradein.entities.Employee;
-import com.swproject.tradein.entities.Usuario;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -21,11 +20,12 @@ public class EmployeeResponseDto {
   private String name;
   @Column(unique = true)
   private Instant birthDate;
+  private UsuarioResponseDto usuario;
 
-  public EmployeeResponseDto(Employee employee, Usuario usuario) {
+  public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario) {
     setId(id);
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();
-    
+    this.usuario = usuario;
   }
 }

@@ -7,13 +7,15 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.swproject.tradein.entities.Employee;
+import com.swproject.tradein.entities.Usuario;
 import com.swproject.tradein.web.dto.EmployeeResponseDto;
 import com.swproject.tradein.web.dto.form.EmployeeForm;
 
 public class EmployeeMapper {
 
-  public static Employee toEmployee(EmployeeForm createDto) {
-    return new ModelMapper().map(createDto, Employee.class);
+  public static Employee toEmployee(EmployeeForm createDto, Usuario usuario) {
+    return new ModelMapper()
+        .map(new Employee(createDto.getName(), createDto.getCpf(), createDto.getBirthDate(), usuario), Employee.class);
   }
 
   public static EmployeeResponseDto toDto(Employee employee) {
@@ -23,6 +25,7 @@ public class EmployeeMapper {
         map().setId(source.getId());
         map().setName(source.getName());
         map().setBirthDate(source.getBirthDate());
+        map().setUsuario(UsuarioMapper.toDto(source.getUsuario()));
       }
     };
     ModelMapper mapper = new ModelMapper();

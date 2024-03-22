@@ -1,5 +1,10 @@
 package com.swproject.tradein.web.dto.form;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.swproject.tradein.entities.Category;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -28,4 +33,6 @@ public class ProductForm {
     private Double price;
 
     private String imgUrl;
+
+    private Set<Category> categories = new HashSet<>();
 }

@@ -48,4 +48,11 @@ public class Employee extends AbstractEntity {
     this.usuario = usuario;
   }
 
+  public Employee(String name, String cpf, Instant birthDate, Usuario usuario) {
+    this.name = name;
+    this.cpf = cpf;
+    this.birthDate = birthDate;
+    this.usuario = usuario;
+  }
+
 }

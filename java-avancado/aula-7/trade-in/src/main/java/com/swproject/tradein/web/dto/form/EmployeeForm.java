@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +16,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class EmployeeForm {
 
     @NotBlank
@@ -32,4 +30,13 @@ public class EmployeeForm {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant birthDate;
+
+    private Long usuarioId;
+
+    public EmployeeForm(String name, String cpf, Instant birthDate, Long id) {
+        this.name = name;
+        this.cpf = cpf;
+        this.birthDate = birthDate;
+        this.usuarioId = id;
+    }
 }

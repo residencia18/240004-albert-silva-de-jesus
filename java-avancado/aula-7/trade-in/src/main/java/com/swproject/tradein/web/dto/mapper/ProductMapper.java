@@ -24,6 +24,7 @@ public class ProductMapper {
         map().setName(source.getName());
         map().setPrice(source.getPrice());
         map().setImgUrl(source.getImgUrl());
+        map().setCategories(source.getCategories());
       }
     };
     ModelMapper mapper = new ModelMapper();

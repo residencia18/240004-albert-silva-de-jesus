@@ -1,0 +1,40 @@
+2024-03-21T20:34:42.382-03:00  INFO 3716 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Starting TradeInApplication using Java 17.0.1 with PID 3716 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-7\trade-in\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava)
+2024-03-21T20:34:42.387-03:00  INFO 3716 --- [restartedMain] c.swproject.tradein.TradeInApplication   : The following 1 profile is active: "test"
+2024-03-21T20:34:48.927-03:00 DEBUG 3716 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-21T20:34:49.086-03:00 DEBUG 3716 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-21T20:34:49.168-03:00 DEBUG 3716 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-21T20:34:49.249-03:00 DEBUG 3716 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-21T20:34:49.604-03:00  INFO 3716 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Started TradeInApplication in 7.758 seconds (process running for 8.356)
+2024-03-21T20:34:50.109-03:00  INFO 3716 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Aplicacao iniciada com sucesso!...
+2024-03-21T20:38:03.139-03:00  INFO 6588 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Starting TradeInApplication using Java 17.0.1 with PID 6588 (C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava\java-avancado\aula-7\trade-in\target\classes started by alber in C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\trilhaModuloBasico\ResidenciaJava)
+2024-03-21T20:38:03.142-03:00  INFO 6588 --- [restartedMain] c.swproject.tradein.TradeInApplication   : The following 1 profile is active: "test"
+2024-03-21T20:38:09.784-03:00 DEBUG 6588 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-21T20:38:09.960-03:00 DEBUG 6588 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-21T20:38:10.057-03:00 DEBUG 6588 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-21T20:38:10.159-03:00 DEBUG 6588 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-21T20:38:10.527-03:00  INFO 6588 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Started TradeInApplication in 7.968 seconds (process running for 8.655)
+2024-03-21T20:38:11.293-03:00  INFO 6588 --- [restartedMain] c.swproject.tradein.TradeInApplication   : Aplicacao iniciada com sucesso!...
+2024-03-21T20:38:44.061-03:00  INFO 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-21T20:38:44.061-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-21T20:38:44.061-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedLocaleResolver
+2024-03-21T20:38:44.069-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-21T20:38:44.069-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7da0a922
+2024-03-21T20:38:44.069-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6b50daaa
+2024-03-21T20:38:44.069-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-21T20:38:44.077-03:00  INFO 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2024-03-21T20:38:44.112-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/products", parameters={}
+2024-03-21T20:38:44.152-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.swproject.tradein.web.controllers.ProductController#create(ProductForm)
+2024-03-21T20:38:44.423-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [ProductForm(name=Feijão, description=Mulatinho, price=10.0, imgUrl=null, categories=[Entidade com.sw (truncated)...]
+2024-03-21T20:38:45.480-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-03-21T20:38:45.488-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProductResponseDto(id=6, name=Feijão, description=Mulatinho, price=10.0, imgUrl=null, categories=[En (truncated)...]
+2024-03-21T20:38:45.546-03:00 DEBUG 6588 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-03-21T20:38:57.296-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2024-03-21T20:38:57.309-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-03-21T20:38:57.324-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-03-21T20:38:57.324-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-03-21T20:38:57.337-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-03-21T20:38:57.352-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-03-21T20:38:57.374-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-21T20:38:57.403-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2024-03-21T20:38:57.408-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Mar 21 20:38:57 BRT 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-03-21T20:38:57.451-03:00 DEBUG 6588 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
