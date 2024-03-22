@@ -1,0 +1,44 @@
+2024-03-22T15:06:34.837-03:00  INFO 8736 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 8736 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:06:34.837-03:00  INFO 8736 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:06:37.080-03:00 DEBUG 8736 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:06:37.125-03:00 DEBUG 8736 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:06:37.147-03:00 DEBUG 8736 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:06:37.175-03:00 DEBUG 8736 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:06:37.289-03:00  INFO 8736 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 2.7 seconds (process running for 2.987)
+2024-03-22T15:06:55.839-03:00  INFO 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-22T15:06:55.839-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-03-22T15:06:55.840-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Detected FixedLocaleResolver
+2024-03-22T15:06:55.840-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-03-22T15:06:55.842-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5e4f5e07
+2024-03-22T15:06:55.843-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@26317244
+2024-03-22T15:06:55.843-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-03-22T15:06:55.844-03:00  INFO 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-03-22T15:06:55.844-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2024-03-22T15:06:55.844-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-03-22T15:06:55.863-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-03-22T15:06:55.866-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-03-22T15:06:55.867-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-03-22T15:06:55.871-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-03-22T15:06:55.872-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-03-22T15:06:55.889-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2024-03-22T15:06:55.891-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Fri Mar 22 15:06:55 BRT 2024, status=404, error=Not Found, trace=org.springframework.web. (truncated)...]
+2024-03-22T15:06:55.913-03:00 DEBUG 8736 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-03-22T15:07:10.884-03:00 DEBUG 8736 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/docs-vendas.html", parameters={}
+2024-03-22T15:07:10.885-03:00 DEBUG 8736 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2024-03-22T15:07:10.899-03:00 DEBUG 8736 --- [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2024-03-22T15:07:10.899-03:00 DEBUG 8736 --- [http-nio-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2024-03-22T15:07:10.900-03:00 DEBUG 8736 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-03-22T15:07:10.912-03:00 DEBUG 8736 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2024-03-22T15:07:10.914-03:00 DEBUG 8736 --- [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-03-22T15:07:10.926-03:00 DEBUG 8736 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-03-22T15:07:10.961-03:00 DEBUG 8736 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/docs-vendas/swagger-config", parameters={}
+2024-03-22T15:07:10.962-03:00 DEBUG 8736 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-03-22T15:07:10.963-03:00 DEBUG 8736 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-03-22T15:07:10.964-03:00 DEBUG 8736 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/docs-vendas/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2024-03-22T15:07:10.965-03:00 DEBUG 8736 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-03-22T15:07:10.977-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/docs-vendas", parameters={}
+2024-03-22T15:07:10.978-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-03-22T15:07:11.257-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-03-22T15:07:11.257-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2024-03-22T15:07:11.257-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-03-22T15:07:31.847-03:00  WARN 8736 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
