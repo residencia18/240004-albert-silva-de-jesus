@@ -42,3 +42,640 @@
 2024-03-22T15:07:11.257-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
 2024-03-22T15:07:11.257-03:00 DEBUG 8736 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2024-03-22T15:07:31.847-03:00  WARN 8736 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:19:07.945-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:19:07.947-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:19:10.993-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:19:11.061-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:19:11.089-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:19:11.118-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:19:11.300-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.652 seconds (process running for 4.096)
+2024-03-22T15:23:16.061-03:00  WARN 4700 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:23:16.122-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:23:16.123-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:23:16.849-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:23:16.868-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:23:16.873-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:23:16.876-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:23:16.920-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.822 seconds (process running for 249.716)
+2024-03-22T15:23:16.937-03:00 ERROR 4700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problems: 
+	Syntax error on token "<", delete this token
+	Syntax error on token ":", :: expected
+	Syntax error, insert "IdentifierOrNew" to complete Expression
+	Syntax error on token "/", delete this token
+	Syntax error on token "<", delete this token
+	Syntax error on token "/", delete this token
+	Syntax error on token "<", delete this token
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token "/", delete this token
+	Syntax error on token "<", invalid Expression
+	Syntax error on token ",", delete this token
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:78) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T15:23:16.956-03:00  WARN 4700 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:23:18.839-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:23:18.839-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:23:19.261-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:23:19.278-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:23:19.282-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:23:19.284-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:23:19.313-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.5 seconds (process running for 252.11)
+2024-03-22T15:23:37.032-03:00  WARN 4700 --- [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:23:37.085-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:23:37.085-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:23:37.496-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:23:37.511-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:23:37.516-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:23:37.518-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:23:37.546-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.479 seconds (process running for 270.343)
+2024-03-22T15:23:37.549-03:00 ERROR 4700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problems: 
+	The type of the expression must be an array type but it resolved to String
+	Syntax error on token "189.876", [ expected
+	The type of the expression must be an array type but it resolved to int
+	Syntax error on token "", Instant.parse("", [ expected
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert ")" to complete ClassInstanceCreationExpression
+	Syntax error, insert ";" to complete LocalVariableDeclarationStatement
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	String literal is not properly closed by a double-quote
+	String literal is not properly closed by a double-quote
+	Syntax error, insert ";" to complete LocalVariableDeclarationStatement
+	Syntax error on token ",", delete this token
+	Syntax error on token "109.876", [ expected
+	Syntax error on token "", Instant.parse("", [ expected
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert ")" to complete ClassInstanceCreationExpression
+	Syntax error, insert ";" to complete LocalVariableDeclarationStatement
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error, insert ";" to complete LocalVariableDeclarationStatement
+	Syntax error on token "897.456", [ expected
+	Syntax error on token "", Instant.parse("", [ expected
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert ")" to complete ClassInstanceCreationExpression
+	Syntax error, insert ";" to complete Statement
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error, insert ";" to complete LocalVariableDeclarationStatement
+	Syntax error on token "453.456", [ expected
+	Syntax error on token "", Instant.parse("", [ expected
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert "]" to complete ArrayAccess
+	Syntax error, insert ")" to complete ClassInstanceCreationExpression
+	Syntax error, insert ";" to complete Statement
+	Syntax error on token(s), misplaced construct(s)
+	Syntax error on token "Z", invalid AssignmentOperator
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:79) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T15:23:37.566-03:00  WARN 4700 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:23:41.043-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:23:41.044-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:23:41.466-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:23:41.478-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:23:41.482-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:23:41.484-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:23:41.515-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.493 seconds (process running for 274.311)
+2024-03-22T15:23:47.030-03:00  WARN 4700 --- [Thread-16] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:23:47.083-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:23:47.084-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:23:47.450-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:23:47.461-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:23:47.465-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:23:47.467-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:23:47.497-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.43 seconds (process running for 280.293)
+2024-03-22T15:23:47.500-03:00 ERROR 4700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ",", delete this token
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:79) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T15:23:47.514-03:00  WARN 4700 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:02.163-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:02.163-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:02.531-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:02.546-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:02.551-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:02.553-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:02.584-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.441 seconds (process running for 295.381)
+2024-03-22T15:24:41.655-03:00  WARN 4700 --- [Thread-24] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:41.716-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:41.716-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:42.061-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:42.076-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:42.089-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:42.091-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:42.117-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.422 seconds (process running for 334.913)
+2024-03-22T15:24:49.656-03:00  WARN 4700 --- [Thread-32] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:49.703-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:49.704-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:50.055-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:50.067-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:50.070-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:50.072-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:50.100-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.41 seconds (process running for 342.895)
+2024-03-22T15:24:50.102-03:00 ERROR 4700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ",", delete this token
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:81) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T15:24:50.115-03:00  WARN 4700 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:51.579-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:51.579-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:51.921-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:51.932-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:51.936-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:51.938-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:51.966-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.402 seconds (process running for 344.762)
+2024-03-22T15:24:56.437-03:00  WARN 4700 --- [Thread-36] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:56.477-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:56.477-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:56.792-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:56.808-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:56.814-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:56.815-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:56.863-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.395 seconds (process running for 349.66)
+2024-03-22T15:24:56.863-03:00 ERROR 4700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ",", delete this token
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:82) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T15:24:56.882-03:00  WARN 4700 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:24:59.360-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:24:59.360-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:24:59.661-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:24:59.676-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:24:59.690-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:24:59.691-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:24:59.717-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.373 seconds (process running for 352.513)
+2024-03-22T15:25:06.243-03:00  WARN 4700 --- [Thread-44] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T15:25:06.300-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 4700 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:25:06.300-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:25:06.595-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:25:06.595-03:00 DEBUG 4700 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:25:06.612-03:00 DEBUG 4700 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:25:06.614-03:00 DEBUG 4700 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:25:06.634-03:00  INFO 4700 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.354 seconds (process running for 359.438)
+2024-03-22T15:59:51.515-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 2520 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T15:59:51.515-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T15:59:54.782-03:00 DEBUG 2520 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T15:59:54.848-03:00 DEBUG 2520 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T15:59:54.890-03:00 DEBUG 2520 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T15:59:54.921-03:00 DEBUG 2520 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T15:59:55.096-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.864 seconds (process running for 4.321)
+2024-03-22T15:59:55.373-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T15:59:55.377-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T15:59:55.381-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T15:59:55.386-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T15:59:55.389-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T15:59:55.390-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 6
+2024-03-22T15:59:55.396-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 7
+2024-03-22T15:59:55.401-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 8
+2024-03-22T15:59:55.401-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 9
+2024-03-22T15:59:55.407-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 10
+2024-03-22T15:59:55.409-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 11
+2024-03-22T15:59:55.413-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 12
+2024-03-22T15:59:55.418-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 13
+2024-03-22T15:59:55.421-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 14
+2024-03-22T15:59:55.423-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 15
+2024-03-22T15:59:55.425-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 16
+2024-03-22T15:59:55.428-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 17
+2024-03-22T15:59:55.432-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 18
+2024-03-22T15:59:55.436-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 19
+2024-03-22T15:59:55.440-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 20
+2024-03-22T15:59:55.440-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 21
+2024-03-22T15:59:55.445-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 22
+2024-03-22T15:59:55.449-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 23
+2024-03-22T15:59:55.453-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 24
+2024-03-22T15:59:55.455-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 25
+2024-03-22T15:59:55.456-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 26
+2024-03-22T15:59:55.456-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 27
+2024-03-22T15:59:55.463-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 28
+2024-03-22T15:59:55.468-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 29
+2024-03-22T15:59:55.471-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 30
+2024-03-22T15:59:55.473-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 31
+2024-03-22T15:59:55.476-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 32
+2024-03-22T15:59:55.476-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 33
+2024-03-22T15:59:55.481-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 34
+2024-03-22T15:59:55.486-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 35
+2024-03-22T15:59:55.486-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 36
+2024-03-22T15:59:55.491-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 37
+2024-03-22T15:59:55.494-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 38
+2024-03-22T15:59:55.496-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 39
+2024-03-22T15:59:55.501-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 40
+2024-03-22T15:59:55.503-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 41
+2024-03-22T15:59:55.505-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 42
+2024-03-22T15:59:55.506-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 43
+2024-03-22T15:59:55.514-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 44
+2024-03-22T15:59:55.520-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 45
+2024-03-22T15:59:55.522-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 46
+2024-03-22T15:59:55.525-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 47
+2024-03-22T15:59:55.527-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 48
+2024-03-22T15:59:55.530-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 49
+2024-03-22T15:59:55.534-03:00  INFO 2520 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 50
+2024-03-22T16:07:37.890-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 11732 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:07:37.892-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:07:40.949-03:00 DEBUG 11732 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:07:41.019-03:00 DEBUG 11732 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:07:41.052-03:00 DEBUG 11732 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:07:41.082-03:00 DEBUG 11732 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:07:41.266-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.659 seconds (process running for 4.104)
+2024-03-22T16:07:41.497-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:07:41.517-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:07:41.524-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:07:41.530-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:07:41.538-03:00  INFO 11732 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:15:50.203-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 10156 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:15:50.203-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:15:53.292-03:00 DEBUG 10156 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:15:53.365-03:00 DEBUG 10156 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:15:53.389-03:00 DEBUG 10156 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:15:53.419-03:00 DEBUG 10156 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:15:53.611-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.691 seconds (process running for 4.183)
+2024-03-22T16:15:53.873-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:15:53.878-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:15:53.883-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:15:53.888-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:15:53.891-03:00  INFO 10156 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:28:26.971-03:00  INFO 9864 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9864 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:28:26.971-03:00  INFO 9864 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:28:30.106-03:00 DEBUG 9864 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:28:30.169-03:00 DEBUG 9864 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:28:30.207-03:00 DEBUG 9864 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:28:30.235-03:00 DEBUG 9864 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:28:30.414-03:00  INFO 9864 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.745 seconds (process running for 4.214)
+2024-03-22T16:28:30.724-03:00 ERROR 9864 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.swproject.shopall.entities.Product
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:368) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:246) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:565) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:676) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:426) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.4.jar:3.2.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.5.jar:6.1.5]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220) ~[spring-aop-6.1.5.jar:6.1.5]
+	at jdk.proxy4/jdk.proxy4.$Proxy139.save(Unknown Source) ~[na:na]
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:114) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+Caused by: java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.swproject.shopall.entities.Product
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:157) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:167) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:173) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1407) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:484) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2319) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1976) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561) ~[spring-orm-6.1.5.jar:6.1.5]
+	... 40 common frames omitted
+Caused by: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.swproject.shopall.entities.Product
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:106) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:489) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:199) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:450) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:109) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:119) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.CollectionRecreateAction.execute(CollectionRecreateAction.java:47) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	... 48 common frames omitted
+
+2024-03-22T16:28:30.758-03:00  WARN 9864 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T16:37:48.146-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 12484 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:37:48.147-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:37:51.238-03:00 DEBUG 12484 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:37:51.306-03:00 DEBUG 12484 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:37:51.341-03:00 DEBUG 12484 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:37:51.371-03:00 DEBUG 12484 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:37:51.557-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.69 seconds (process running for 4.146)
+2024-03-22T16:37:51.835-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:37:51.854-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:37:51.866-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:37:51.876-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:37:51.881-03:00  INFO 12484 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:39:53.653-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9236 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:39:53.653-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:39:56.830-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:39:56.889-03:00 DEBUG 9236 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:39:56.919-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:39:56.953-03:00 DEBUG 9236 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:39:57.139-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.769 seconds (process running for 4.217)
+2024-03-22T16:39:57.403-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:39:57.412-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:39:57.421-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:39:57.428-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:39:57.435-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:41:01.627-03:00  WARN 9236 --- [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T16:41:01.689-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9236 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:41:01.689-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:41:02.201-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:41:02.218-03:00 DEBUG 9236 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:41:02.223-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:41:02.229-03:00 DEBUG 9236 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:41:02.289-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.623 seconds (process running for 69.367)
+2024-03-22T16:41:02.308-03:00 ERROR 9236 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.Error: Unresolved compilation problems: 
+	obj1 cannot be resolved to a variable
+	obj2 cannot be resolved to a variable
+	obj3 cannot be resolved to a variable
+	obj4 cannot be resolved to a variable
+	obj5 cannot be resolved to a variable
+
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:81) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T16:41:02.323-03:00  WARN 9236 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T16:41:05.832-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9236 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:41:05.832-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:41:06.300-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:41:06.315-03:00 DEBUG 9236 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:41:06.335-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:41:06.338-03:00 DEBUG 9236 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:41:06.372-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.571 seconds (process running for 73.45)
+2024-03-22T16:41:06.430-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:41:06.438-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:41:06.446-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:41:06.454-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:41:06.464-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:41:28.207-03:00  WARN 9236 --- [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2024-03-22T16:41:28.260-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9236 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:41:28.260-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:41:28.687-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:41:28.701-03:00 DEBUG 9236 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:41:28.706-03:00 DEBUG 9236 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:41:28.709-03:00 DEBUG 9236 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:41:28.740-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 0.499 seconds (process running for 95.817)
+2024-03-22T16:41:28.796-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:41:28.802-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:41:28.809-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:41:28.814-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:41:28.820-03:00  INFO 9236 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:42:40.738-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 11280 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:42:40.738-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:42:43.864-03:00 DEBUG 11280 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:42:43.937-03:00 DEBUG 11280 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:42:43.973-03:00 DEBUG 11280 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:42:43.994-03:00 DEBUG 11280 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:42:44.182-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.711 seconds (process running for 4.17)
+2024-03-22T16:42:44.433-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:42:44.443-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:42:44.452-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:42:44.459-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:42:44.464-03:00  INFO 11280 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T16:44:33.874-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 14680 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T16:44:33.874-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T16:44:36.904-03:00 DEBUG 14680 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T16:44:36.971-03:00 DEBUG 14680 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T16:44:37.006-03:00 DEBUG 14680 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T16:44:37.035-03:00 DEBUG 14680 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T16:44:37.217-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.603 seconds (process running for 4.077)
+2024-03-22T16:44:37.417-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T16:44:37.428-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T16:44:37.437-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T16:44:37.446-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T16:44:37.454-03:00  INFO 14680 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 5
+2024-03-22T17:04:12.589-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Starting ShopallApplication using Java 17.0.1 with PID 9776 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-8\shopall)
+2024-03-22T17:04:12.589-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.ShopallApplication   : The following 1 profile is active: "test"
+2024-03-22T17:04:15.620-03:00 DEBUG 9776 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
+2024-03-22T17:04:15.690-03:00 DEBUG 9776 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-03-22T17:04:15.728-03:00 DEBUG 9776 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-03-22T17:04:15.760-03:00 DEBUG 9776 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-03-22T17:04:15.937-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.ShopallApplication   : Started ShopallApplication in 3.635 seconds (process running for 4.1)
+2024-03-22T17:04:16.174-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 1
+2024-03-22T17:04:16.190-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 2
+2024-03-22T17:04:16.207-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 3
+2024-03-22T17:04:16.216-03:00  INFO 9776 --- [restartedMain] c.swproject.shopall.config.TestConfig    : Employee: Entidade com.swproject.shopall.entities.Employee id: 4
+2024-03-22T17:04:16.226-03:00 ERROR 9776 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot invoke "com.swproject.shopall.entities.Product.getCategories()" because "product" is null
+	at com.swproject.shopall.config.TestConfig.run(TestConfig.java:95) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88) ~[spring-core-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at com.swproject.shopall.ShopallApplication.main(ShopallApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
+
+2024-03-22T17:04:16.263-03:00  WARN 9776 --- [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]

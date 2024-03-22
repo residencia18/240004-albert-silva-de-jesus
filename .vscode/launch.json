@@ -47,6 +47,16 @@
       "request": "launch",
       "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
       "projectName": "com.residenciatic18-api-leilao"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ShopallApplication<shopall>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.swproject.shopall.ShopallApplication",
+      "projectName": "shopall",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

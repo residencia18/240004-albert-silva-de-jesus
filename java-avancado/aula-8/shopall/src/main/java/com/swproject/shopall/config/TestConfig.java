@@ -3,13 +3,17 @@ package com.swproject.shopall.config;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.TimeZone;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.github.javafaker.Faker;
 import com.swproject.shopall.entities.Category;
 import com.swproject.shopall.entities.Employee;
 import com.swproject.shopall.entities.Product;
@@ -23,6 +27,8 @@ import com.swproject.shopall.repositories.UsuarioRepository;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
+
+  public static final Logger log = LoggerFactory.getLogger(TestConfig.class);
 
   @Autowired
   private UsuarioRepository userRepository;
@@ -41,53 +47,110 @@ public class TestConfig implements CommandLineRunner {
   public void run(String... args) throws Exception {
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+    sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-    Category cat1 = new Category(null, "Electronics");
-    Category cat2 = new Category(null, "Books");
-    Category cat3 = new Category(null, "Computers");
+    Faker faker = new Faker(new Locale("en"));
 
-    Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
-    Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
-    Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
-    Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
-    Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+    // Category cat1 = new Category(null, "Electronics");
+    // Category cat2 = new Category(null, "Books");
+    // Category cat3 = new Category(null, "Computers");
 
-    categoryRepositoy.saveAll(Arrays.asList(cat1, cat2, cat3));
-    productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+    // Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
+    // Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
+    // Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
+    // Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
+    // Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 
-    p1.getCategories().add(cat2);
-    p2.getCategories().add(cat1);
-    p3.getCategories().add(cat3);
-    p4.getCategories().add(cat3);
-    p5.getCategories().add(cat2);
+    // categoryRepositoy.saveAll(Arrays.asList(cat1, cat2, cat3));
+    // productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+    // p1.getCategories().add(cat2);
+    // p2.getCategories().add(cat1);
+    // p3.getCategories().add(cat3);
+    // p4.getCategories().add(cat3);
+    // p5.getCategories().add(cat2);
 
-    Usuario obj1 = new Usuario(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
-    Usuario obj2 = new Usuario(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
-    Usuario obj3 = new Usuario(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
-    Usuario obj4 = new Usuario(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
-    Usuario obj5 = new Usuario(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
+    // productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
+    for (int i = 0; i < 5; i++) {
+      // Gerando uma data de nascimento aleatória
+      Instant randomBirthDate = faker.date().birthday().toInstant();
 
-    Employee emp1 = new Employee(null, "Maria Brown", "123.456.789-01", Instant.parse("2019-01-20T19:53:07Z"), obj1);
-    Employee emp2 = new Employee(null, "Alex Green", "189.876.543-21", Instant.parse("2021-07-25T19:53:07Z"), obj2);
-    Employee emp3 = new Employee(null, "Bob Grey", "678.456.459-91", Instant.parse("2020-06-30T19:53:07Z"), obj1);
-    Employee emp4 = new Employee(null, "Ana White", "109.876.543-21", Instant.parse("2021-07-20T19:53:07Z"), obj4);
-    Employee emp5 = new Employee(null, "Carlos Black", "897.456.099-78", Instant.parse("2022-10-13T19:53:07Z"), obj5);
-    Employee emp6 = new Employee(null, "Jaime Oliveira", "453.456.099-78", Instant.parse("2023-12-31T19:53:07Z"), obj3);
+      // Criando um novo Employee com os dados aleatórios
+      Employee employee = new Employee();
+      employee.setName(faker.name().fullName());
+      employee.setCpf(faker.number().digits(11));
+      employee.setBirthDate(randomBirthDate);
 
-    emp1.getProductsSold().add(p1);
-    emp2.getProductsSold().add(p2);
-    emp3.getProductsSold().add(p3);
-    emp4.getProductsSold().add(p4);
-    emp5.getProductsSold().add(p5);
-    emp6.getProductsSold().add(p1);
+      // Criando um novo Usuario com os dados aleatórios
+      Usuario usuario = createUsuario(i + 1, faker);
+      employee.setUsuario(usuario);
 
-    employeeRepository.saveAll(Arrays.asList(emp1, emp2, emp3, emp4, emp5, emp6));
+      // Criando um novo Produto com os dados aleatórios
+      Product product = createProduct(i + 1);
+      // Atribuindo o produto ao employee
+      employee.getProductsSold().add(product);
 
+      Category category = createCategory(i + 1);
+      product.getCategories().add(category);
+      productRepository.save(product);
 
+      employeeRepository.save(employee);
+      log.info("Employee: {}", employee);
+    }
+  }
+
+  private Category createCategory(int index) {
+    switch (index) {
+      case 1:
+        return categoryRepositoy.save(new Category(null, "Electronics"));
+      case 2:
+        return categoryRepositoy.save(new Category(null, "Books"));
+      case 3:
+        return categoryRepositoy.save(new Category(null, "Computers"));
+      default:
+        return null;
+    }
+  }
+
+  private Product createProduct(int index) {
+    switch (index) {
+      case 1:
+        return productRepository
+            .save(new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, ""));
+      case 2:
+        return productRepository
+            .save(new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, ""));
+      case 3:
+        productRepository.save(new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, ""));
+      case 4:
+        return productRepository
+            .save(new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, ""));
+      case 5:
+        productRepository
+            .save(new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, ""));
+      default:
+        return null;
+    }
+  }
+
+  private Usuario createUsuario(int index, Faker faker) {
+    switch (index) {
+      case 1:
+        return userRepository.save(new Usuario(null, faker.internet().emailAddress(), "123456", PerfilTipo.ADMIN));
+      case 2:
+        return userRepository
+            .save(new Usuario(null, faker.internet().emailAddress(), "098765", PerfilTipo.FUNCIONARIO));
+      case 3:
+        return userRepository
+            .save(new Usuario(null, faker.internet().emailAddress(), "234567", PerfilTipo.FUNCIONARIO));
+      case 4:
+        return userRepository
+            .save(new Usuario(null, faker.internet().emailAddress(), "987654", PerfilTipo.FUNCIONARIO));
+      case 5:
+        return userRepository.save(new Usuario(null, faker.internet().emailAddress(), "192938", PerfilTipo.ADMIN));
+      default:
+        return null;
+    }
   }
 }
