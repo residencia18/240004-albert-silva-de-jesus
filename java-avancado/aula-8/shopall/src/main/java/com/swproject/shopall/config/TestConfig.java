@@ -47,6 +47,7 @@ public class TestConfig implements CommandLineRunner {
     Faker faker = new Faker(new Locale("pt-BR"));
 
     for (int i = 0; i < 5; i++) {
+
       // Gerando uma data de nascimento aleatória
       Instant randomBirthDate = faker.date().birthday().toInstant();
 
@@ -56,45 +57,58 @@ public class TestConfig implements CommandLineRunner {
       categoryRepositoy.save(category);
       log.info("Category: {}", category);
 
-      // Criando um novo produto com os dados aleatórios
+      // Criando um novo produto aleatório com a biblioteca Faker e salvando o produto no banco de dados
       Product product = new Product();
       product.setName(faker.commerce().productName());
       product.setDescription(faker.commerce().material());
       product.setPrice(faker.number().randomDouble(2, 10, 1000));
       productRepository.save(product);
-      log.info("Product: {}", product);
 
-      // Atribuindo a categoria ao produto
+      // Atribuindo a categoria ao produto e salvando o produto
       product.getCategories().add(category);
       productRepository.save(product);
       log.info("Product: {}", product);
 
+      // Se não houver um administrador, cria um novo
+      Usuario usuario = new Usuario();
+
+      // Verifica se já existe pelo menos um administrador no banco de dados
+      boolean isAdminExists = userRepository.existsByPerfilTipo("1");
+
+      if (!isAdminExists) {
+        usuario.setUsername(faker.internet().emailAddress());
+        usuario.setPassword(faker.number().digits(6));
+        usuario.setPerfilTipo(PerfilTipo.ADMIN);
+        userRepository.save(usuario);
+        log.info("Usuario ADMIN criado: {}", usuario);
+
+      } else {
+        // Se já existir um administrador, cria um funcionário
+        usuario.setUsername(faker.internet().emailAddress());
+        usuario.setPassword(faker.number().digits(6));
+        usuario.setPerfilTipo(PerfilTipo.FUNCIONARIO);
+        userRepository.save(usuario);
+        log.info("Usuario FUNCIONARIO criado: {}", usuario);
+      }
+
       // Gerar um número de CPF aleatório
       String cpfString = faker.number().digits(11);
 
-      // Obter o CPF formatado
+      // Obter o CPF formatado com pontos e traço
       String cpfFormatado = new CPF(cpfString).getNumeroFormatado();
 
-      // Criando um novo Employee com os dados aleatórios
+      // Criando um novo employee aleatório com a biblioteca Faker
       Employee employee = new Employee();
       employee.setName(faker.name().fullName());
       employee.setCpf(cpfFormatado);
       employee.setBirthDate(randomBirthDate);
 
-      // Criando um novo usuário com os dados aleatórios
-      Usuario usuario = new Usuario();
-      usuario.setUsername(faker.internet().emailAddress());
-      usuario.setPassword(faker.number().digits(6));
-      usuario.setPerfilTipo(PerfilTipo.FUNCIONARIO);
-      userRepository.save(usuario);
-      log.info("Usuario: {}", usuario);
-
-      // Atribuindo o usuário ao funcionário
+      // Atribuindo o usuário ao funcionário e salvando o funcionário no banco de dados
       employee.getProductsSold().add(product);
       employee.setUsuario(usuario);
       employeeRepository.save(employee);
       log.info("Employee: {}", employee);
+
     }
   }
-
 }

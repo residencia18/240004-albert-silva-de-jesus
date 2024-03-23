@@ -27,6 +27,8 @@ public class Usuario extends AbstractEntity {
   private String username;
   @Column(name = "password", nullable = false, length = 200)
   private String password;
+
+  @Column(name = "perfil_tipo", nullable = false, length = 20)  
   private String perfilTipo;
 
   @OneToMany(mappedBy = "usuario")
