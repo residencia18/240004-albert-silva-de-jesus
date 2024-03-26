@@ -2,7 +2,7 @@ package com.residenciatic18.apileilao.web.dto;
 
 import com.residenciatic18.apileilao.entities.AbstractEntity;
 import com.residenciatic18.apileilao.entities.Leilao;
-import com.residenciatic18.apileilao.enums.LeilaoStatus;
+import com.residenciatic18.apileilao.entities.enums.LeilaoStatus;
 
 import lombok.*;
 
@@ -16,7 +16,7 @@ public class LeilaoResponseDto extends AbstractEntity {
   private Long id;
   private String descricrao;
   private Double valorMinimo;
-  private Integer leilaoStatus;
+  private String leilaoStatus;
 
   public LeilaoResponseDto(Leilao leilao, LeilaoStatus leilaoStatus) {
     setId(leilao.getId());
@@ -26,7 +26,7 @@ public class LeilaoResponseDto extends AbstractEntity {
   }
 
   public LeilaoStatus getLeilaoStatus() {
-    return LeilaoStatus.valueOf(leilaoStatus);
+    return LeilaoStatus.fromString(leilaoStatus);
   }
 
   public void setLeilaoStatus(LeilaoStatus leilaoStatus) {

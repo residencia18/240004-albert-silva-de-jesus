@@ -1,5 +1,6 @@
 package com.residenciatic18.apileilao.services;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,43 +28,20 @@ public class ConcorrenteServiceImpl implements ConcorrenteService {
     return concorrenteRepository.save(concorrente);
   }
 
-  // @Override
-  // @Transactional(readOnly = true)
-  // public List<Concorrente> findById(Long id) {
-
-  //   List<Concorrente> todosOsLeiloes = concorrenteRepository.findAll();
-  //   List<Concorrente> concorrentesEncontrados = new ArrayList<>();
-
-  //   if (id != null) {
-
-  //     for (Concorrente concorrentes : todosOsLeiloes) {
-  //       if (concorrentes.getId().equals(id)) {
-  //         concorrentesEncontrados.add(concorrentes);
-  //         break;
-  //       }
-  //     }
-
-  //   } else {
-  //     concorrentesEncontrados.addAll(todosOsLeiloes);
-  //   }
-  //   return concorrentesEncontrados;
-  // }
-
   @Override
   @Transactional(readOnly = true)
   public List<ConcorrenteResponseDto> findById(Long id) {
 
     if (id == null) {
       return ConcorrenteMapper.toListDto(findAll());
-
     } else {
 
       Concorrente concorrente = buscarPorId(id);
-      if (concorrente != null) {
+     if(concorrente != null) {
         return ConcorrenteMapper.toListDto(Collections.singletonList(concorrente));
 
       } else {
-        return Collections.emptyList();
+        return new ArrayList<ConcorrenteResponseDto>();
       }
     }
   }

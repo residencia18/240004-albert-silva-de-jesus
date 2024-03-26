@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiLeilaoApplication<com.residenciatic18-api-leilao>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
+      "projectName": "com.residenciatic18-api-leilao",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
