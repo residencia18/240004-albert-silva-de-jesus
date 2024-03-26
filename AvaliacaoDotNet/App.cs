@@ -237,7 +237,7 @@ namespace AvaliacaoDotNet
 
                                 case 3:
                                     LimparTela();
-                                    // advogados.Editar();
+                                    advogados.Editar();
                                     Pause();
                                     break;
 
