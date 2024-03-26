@@ -1,4 +1,4 @@
-package com.swproject.shopall.web.controllers;
+package com.swproject.buyeverything.web.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swproject.shopall.entities.Employee;
-import com.swproject.shopall.entities.Usuario;
-import com.swproject.shopall.services.EmployeeService;
-import com.swproject.shopall.services.UsuarioService;
-import com.swproject.shopall.web.dto.EmployeeResponseDto;
-import com.swproject.shopall.web.dto.form.EmployeeForm;
-import com.swproject.shopall.web.dto.mapper.EmployeeMapper;
-import com.swproject.shopall.web.exceptions.ErrorMessage;
+import com.swproject.buyeverything.entities.Employee;
+import com.swproject.buyeverything.entities.Usuario;
+import com.swproject.buyeverything.services.EmployeeService;
+import com.swproject.buyeverything.services.UsuarioService;
+import com.swproject.buyeverything.web.dto.EmployeeResponseDto;
+import com.swproject.buyeverything.web.dto.form.EmployeeForm;
+import com.swproject.buyeverything.web.dto.mapper.EmployeeMapper;
+import com.swproject.buyeverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

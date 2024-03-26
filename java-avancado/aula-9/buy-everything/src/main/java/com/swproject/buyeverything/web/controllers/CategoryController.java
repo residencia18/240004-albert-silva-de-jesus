@@ -1,4 +1,4 @@
-package com.swproject.shopall.web.controllers;
+package com.swproject.buyeverything.web.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swproject.shopall.entities.Category;
-import com.swproject.shopall.services.CategoryService;
-import com.swproject.shopall.web.dto.CategoryResponseDto;
-import com.swproject.shopall.web.dto.form.CategoryForm;
-import com.swproject.shopall.web.dto.mapper.CategoryMapper;
-import com.swproject.shopall.web.exceptions.ErrorMessage;
+import com.swproject.buyeverything.entities.Category;
+import com.swproject.buyeverything.services.CategoryService;
+import com.swproject.buyeverything.web.dto.CategoryResponseDto;
+import com.swproject.buyeverything.web.dto.form.CategoryForm;
+import com.swproject.buyeverything.web.dto.mapper.CategoryMapper;
+import com.swproject.buyeverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
