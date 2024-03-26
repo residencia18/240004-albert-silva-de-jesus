@@ -1,0 +1,15 @@
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.csproj.AssemblyReference.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.AssemblyInfoInputs.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.AssemblyInfo.cs
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.csproj.CoreCompileInputs.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/bin/Debug/net7.0/fSymbols
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/bin/Debug/net7.0/fSymbols.deps.json
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/bin/Debug/net7.0/fSymbols.runtimeconfig.json
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/bin/Debug/net7.0/fSymbols.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/bin/Debug/net7.0/fSymbols.pdb
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/refint/fSymbols.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.pdb
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/fSymbols.genruntimeconfig.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/fSymbols/obj/Debug/net7.0/ref/fSymbols.dll

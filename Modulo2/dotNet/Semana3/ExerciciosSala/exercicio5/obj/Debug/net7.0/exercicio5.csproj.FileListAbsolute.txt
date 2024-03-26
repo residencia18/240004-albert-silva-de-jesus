@@ -1,0 +1,5 @@
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/exercicio5/obj/Debug/net7.0/exercicio5.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/exercicio5/obj/Debug/net7.0/exercicio5.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/exercicio5/obj/Debug/net7.0/exercicio5.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/exercicio5/obj/Debug/net7.0/exercicio5.AssemblyInfo.cs
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/exercicio5/obj/Debug/net7.0/exercicio5.csproj.CoreCompileInputs.cache

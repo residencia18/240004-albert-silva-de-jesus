@@ -1,0 +1,446 @@
+commit 42c5721aa7966fca874bc45e18d14a1941a7990c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 01:37:21 2023 -0300
+
+    Polimorfismo
+
+commit be5044d339fe18d3da894fa7156203c9feaf1c22
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Dec 2 13:23:15 2023 -0300
+
+    Listar de CasoJuridico Funcionando
+
+commit 797423d47924e2bb23fd94979eb14fc2d57e4e2e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Dec 2 01:51:43 2023 -0300
+
+    Cadastrando e listado Caso Juridico
+
+commit 7089251ab02b0f5399d6c51d7ce7af58506e0441
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Dec 1 18:46:57 2023 -0300
+
+    Advogado e Cliente Funcionando Redondo
+
+commit b07fd112951488f697c9a2642400081578e0bac4
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Dec 1 14:10:15 2023 -0300
+
+    Persistencia, Ok
+
+commit 1599cfa4c1d695ab160de25dc80b9e338af0fc7e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Dec 1 13:45:09 2023 -0300
+
+    Dados de Advogados e Clientes sendo Persistido em Arquivos
+
+commit 4303fb4efae9b77583ad41a0987b32131209e933
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Dec 1 02:18:16 2023 -0300
+
+    Persistencia de Dados Em Evolução
+
+commit 88462528be7b80a577f7c9e203ba5b98b50f8f81
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 23:57:13 2023 -0300
+
+    Relatorios de Cliente e Advogado, Concluidos com Crud completo
+
+commit 12c1cebebdb4860310a0e56a5b5989e018708e76
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 17:59:03 2023 -0300
+
+    Advogado Parcialmente Concluido
+
+commit af03f125f5977229c3d29f3be5615787b409c241
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 17:43:59 2023 -0300
+
+    Advogado em Evolução
+
+commit 3a132336fa102a218e88362aa6f4e14c85f400ba
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 17:24:38 2023 -0300
+
+    Relatorio Cliente, Ok
+
+commit 1506ef8fec3e68165a0ae578236de6c7afab9a88
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 17:12:30 2023 -0300
+
+    Relatorio Encaminhado
+
+commit 4fa79872edb87d625a4be8979d6973b4b8d6f249
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 16:43:16 2023 -0300
+
+    Relatórios em Construção
+
+commit 3aeb70af6fa3bf6d7e3f01b46700f9aa864cd924
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 16:29:41 2023 -0300
+
+    Cadastrando, Listando, Validação de CPF e Data com Calculo da idade
+
+commit 00d91c264fc9751c75b7b42ceaa602cadecaec66
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 16:04:51 2023 -0300
+
+    Cadastrar, Listar, Validação de CPF
+
+commit 54eccc07d3bc76a1b08ac53fe6b42f5a9ecab4d2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 30 15:27:33 2023 -0300
+
+    Projeto DotNet Criado
+
+commit 67e2fd6de4a14449bbf3654eb42ca027959ff678
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 29 11:07:31 2023 -0300
+
+    Validação de Data
+
+commit 02730fe5cbf8f8a43e5c259032846d1d7610de3e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 29 10:42:33 2023 -0300
+
+    Semana2 Adcionado
+
+commit bef683b263e4b71e2360701abfbd9e13abff7416
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 01:07:22 2023 -0300
+
+    LimpaTela()
+
+commit 9f6fb99816cf112106529b7a55cbef721e74eca8
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 00:59:02 2023 -0300
+
+    Método para Verificar Double
+
+commit e44f89498d14c686802bc1c835b2148df79c09a3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 25 21:54:31 2023 -0300
+
+    Exercicios de Exceção Finalizado
+
+commit e7efcd0c1b59c8d7fc5a9ac4b544e972ab4da04b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 25 20:14:00 2023 -0300
+
+    Atividades de Estudo Finalizada!
+
+commit 480b6156c9d50ed3129bd687cf473e39f07e44df
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 25 02:09:39 2023 -0300
+
+    Metodos Para Auxiliar a Atualização do Estoque
+
+commit 18f7dc7f7ea21700ee54c0eda7c2bc7a61cca4f9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 25 00:46:12 2023 -0300
+
+    Persistencia e Atualizar Estoque em Processo
+
+commit 09301616bfdaf5f9eaba0b9350930d73b9a58fcb
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Nov 24 23:25:21 2023 -0300
+
+    Versão com o Crud, Ok
+
+commit 9280f09781527d57dd1810a58bf6f95aefa98990
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 23 23:04:30 2023 -0300
+
+    Interface Criada e com Métodos
+
+commit d3bbd3b48dee44aec355a240d80ac60fe65736cb
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 23 22:16:41 2023 -0300
+
+    Projeto P003 Inicializado
+
+commit 9b13ae53ed6132f4a944180206430fa2a2e54fd5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 23 11:10:03 2023 -0300
+
+    Projeto P003 Inicializado
+
+commit d873c2919b63c08da83bae805ef031fe55454587
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 23 10:45:57 2023 -0300
+
+    Projeto P003 e Projeto Exercicios Criado
+
+commit ec3f7b5e75936ebb5ee0c2042b187ddc86bac412
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Nov 17 19:14:19 2023 -0300
+
+    Pasta semana2 Atualizada
+
+commit 022194293b4b3827ad281f51e825a64ab68c7689
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 19:22:34 2023 -0300
+
+    Projetos Modificados, Junto com Organização de Pastas
+
+commit dff8ac32f512175e21a6fc659ec48860983d1551
+Merge: af87241 b802731
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 18:55:45 2023 -0300
+
+    Merge branch 'Albert' into main
+
+commit b802731bac9ee95d9ff08b85c60046ec724f4903
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 18:31:40 2023 -0300
+
+    Organização de Pastas e Atividade P002, falta Implementar Comparação de Datas
+
+commit af872414b89e72b6357022159f5e1bc3d21a5b7d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 18:24:55 2023 -0300
+
+    Arquivos Remanesentes
+
+commit c522d0f1c3b579deb6360c43430f980b7969d183
+Merge: 1871a8f d1b36b5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 18:23:26 2023 -0300
+
+    Merge branch 'main' of https://github.com/Albertinesilva/Residencia_DotNet
+
+commit 1871a8fb55798389fd40b444cb5ec4013099f9c9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 18:23:00 2023 -0300
+
+    Alteração de Organização de Atividades
+
+commit 8ff3e99617c0c67cebb842585f810e6c20e59bf3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 16:48:10 2023 -0300
+
+    Fibonacci Parcialmente Finalizado
+
+commit 75885e873e8c2da8b25943c6112979695fdc3bad
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 15:55:51 2023 -0300
+
+    Exercicio 1 e 2 Resolvido
+
+commit 1c6c4e506c53ccb26bd74c16b4ef62ca9a8424bf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 14:52:58 2023 -0300
+
+    Data e Arquivo .sln
+
+commit 9ab6a54ade189906143a5805298b01602c1451de
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 13:35:45 2023 -0300
+
+    Arquivos Gerados Apos Clone
+
+commit d1b36b5a8257edf06793c8d72e8e93cdc2bdb0d0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 13:30:18 2023 -0300
+
+    Arquivos Gerados Apos Clone
+
+commit 8f758ca5644f46c960eb042c3c01d1ab7a52ec13
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 10:40:15 2023 -0300
+
+    Estrutura do Projeto Atualizado
+
+commit 01290214dae5dcc678eff9a963dce20de552bb3c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 16 08:38:02 2023 -0300
+
+    Projeto Semana2 Criado
+
+commit 981ac58205885709c6859c60703540bfc8afcb8c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 23:13:19 2023 -0300
+
+    Crud Finalizado, faltando detalhes
+
+commit 0d96d945cd01b0832634ececb288c914acc8303e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 23:04:03 2023 -0300
+
+    Excluir Tarefas Concluido
+
+commit 94b2a99ef67b87fe7ee83cebb50e259a86fb6100
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 22:55:04 2023 -0300
+
+    Tarefas Concluidas, ok
+
+commit 3ae68b2a7aabbc9b5b1afe678cfe791767a0b49c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 22:12:14 2023 -0300
+
+    Adicionar, listar e Marcar Tarefa como Concluida
+
+commit de081b2190449df47f3e0e1f4c36134421b85b7d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 20:05:15 2023 -0300
+
+    Readme.md do Projeto Atualizado
+
+commit f987f2f594bc881045e6494c687db54a173a2271
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 19:31:00 2023 -0300
+
+    Readme.md Atualizado
+
+commit 402d8fd471df1fe79666d95945de997198b22fd4
+Merge: 3a614fb 1305f48
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 17:56:22 2023 -0300
+
+    Concluir merge após resolver conflitos
+
+commit 3a614fbf5e8799aa86beae88f768645ed3775089
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 17:42:02 2023 -0300
+
+    Readme.md da Main Atualizado
+
+commit 1305f4828f019e3cb0bd0a36586172f435a0fb7a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 17:40:42 2023 -0300
+
+    Readme.md Principal Atualizado
+
+commit 71f72d7c40ad0d0e8005aeb6c6158767c07c287e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 17:33:44 2023 -0300
+
+    Readme.md Atualizado
+
+commit 88038d43a8e35340d69aafe2b4f6e68ca1566114
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Nov 15 17:29:42 2023 -0300
+
+    Readme.md Atualizado no Projeto P001
+
+commit 9f09dd6d59b8104a8d57626a6afdd6d5b72878a3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 16:26:31 2023 -0300
+
+    Readme.md Atualizado
+
+commit 961f0cf638707ffd91c52a0dfddec4abe0cfe778
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:51:48 2023 -0300
+
+    Readme.md, Titulo Centralizado
+
+commit 58242b70a735e32f4ec0cd4f0d51a8ba8a6ab551
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:49:09 2023 -0300
+
+    Tamanho da fonte do Markdown atualizado
+
+commit e4b27ea952c5da6d7f2f5235a9887cd6534652bf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:45:55 2023 -0300
+
+    Readme.md atualizado
+
+commit a5fc07a0c3efdf390128e7921c450189a638f4bf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:30:35 2023 -0300
+
+    Projeto Atualizado (LimpaTela())
+
+commit 3032acefbd723fb61bf2cd545a72c8d560e4b4ab
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:16:29 2023 -0300
+
+    Atividade P001 finalizada
+
+commit f9ea59169099eb0de155fbf0936db6e93ca6b2f6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 13:01:31 2023 -0300
+
+    Operadores de Igualdade e Operadores Lógicos Atualizados
+
+commit 4a089bf3548a619857746ad1099913fbdd971d3f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 12:52:31 2023 -0300
+
+    Padrão de Layout adotado
+
+commit 490f874ef3254fa1f2f189ff29136842b8343535
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 12:47:10 2023 -0300
+
+    Layot do projeto alterado e Operadores de Igualdade inicializado
+
+commit 6d2aba51cfd96a173cd84a16888dc34bfee428e3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 12:14:07 2023 -0300
+
+    Operadores Aritméticos
+
+commit af2419450087e96c6e09f3c208bfa3d750c112bc
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 12 11:23:57 2023 -0300
+
+    Tipos de Dados e Conversão de Tipos de Dados, atualizados no projeto.
+
+commit ac5aa1affc27bc9436c80248129534c7e1a21117
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 21:30:52 2023 -0300
+
+    Markdown Troca de tag
+
+commit 5a20f12e47eaa752cc9beb01420b6854d90bff4f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 21:28:29 2023 -0300
+
+    Markdown Titulo Atualizado
+
+commit b182b5d277bc650516c6b1025f6d666f83675c98
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 21:25:43 2023 -0300
+
+    Markdown atualizado
+
+commit b708dda8b7df735eaefb568c8758b558a560ecaf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 21:21:18 2023 -0300
+
+    Arquivo Markdown, Teste
+
+commit 90ca99624a39e9a90870a5bf461ae1adf79f3209
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 19:23:36 2023 -0300
+
+    Teste
+
+commit e5ce939efc88e40dbe89401ddf62d109dfe63345
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 11 18:35:29 2023 -0300
+
+    Projeto Atualizado
+
+commit 2e6ee187428a7623be9d4674939f3611f9d2bb53
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 9 17:17:47 2023 -0300
+
+    MeuPrimeiroProjeto
+
+commit 9cfff46b36b64c98c6ec1be505eba07a1655c100
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 9 16:54:58 2023 -0300
+
+    Readme.md atualizado
+
+commit f21ba0785900c4712a9c179df848e6d906365bc6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Nov 9 16:22:58 2023 -0300
+
+    Readme.md

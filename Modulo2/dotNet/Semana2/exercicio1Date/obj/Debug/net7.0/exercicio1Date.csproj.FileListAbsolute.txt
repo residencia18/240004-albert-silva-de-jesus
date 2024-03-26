@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/bin/Debug/net7.0/exercicio1Date
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/bin/Debug/net7.0/exercicio1Date.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/bin/Debug/net7.0/exercicio1Date.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/bin/Debug/net7.0/exercicio1Date.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/bin/Debug/net7.0/exercicio1Date.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/refint/exercicio1Date.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/exercicio1Date.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/exercicio1Date/obj/Debug/net7.0/ref/exercicio1Date.dll

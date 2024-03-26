@@ -1,0 +1,347 @@
+commit 133aec27a1fec44305de50d6147b4d0cabd348a2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:23:15 2023 -0300
+
+    Atividade em Equipe Finalizada com Sucesso
+
+commit b449aad4dc59b566c483d0c80c860102691eb861
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:19:13 2023 -0300
+
+    Atividade em Equipe Finalizado
+
+commit 9b83fbdf204be632426fb6141c34570e15a1dbca
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:15:44 2023 -0300
+
+    Menu Finalizado
+
+commit e3bcb02abbf3eab1270527dc5e9590f190ddf0d0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:11:23 2023 -0300
+
+    Atividade Individual Finalizada
+
+commit 7f102bbe389bda0b4ea059995e14dafbd69f59d9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:05:43 2023 -0300
+
+    ListaIdades Finalizada
+
+commit 00524037380554f692cc05e51fdbc3d3555abd9f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:03:46 2023 -0300
+
+    ListaSalarios Finalizado
+
+commit dd04c0724545c5552efe00e2b671fcbb01f05bb3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 11:01:07 2023 -0300
+
+    ListaDatas Finalizado
+
+commit 4abc8c42d2d0c70cd61c4d86fb2f9331758deeec
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 10:57:58 2023 -0300
+
+    ListaNomes Finalizado
+
+commit 7629beff60f56142118999665549b53edfaaae09
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 23:31:55 2023 -0300
+
+    Projeto P003 Finalizado com Sucesso!
+
+commit e87ac58748bf666d574415f215f099296b84f902
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 23:06:08 2023 -0300
+
+    De Lista para Dicionário
+
+commit 4a38d2ad1a0227ccd130d15be4176fcb09de81c1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 22:24:19 2023 -0300
+
+    Print de Teste Removido, Atividade Finalizada
+
+commit f00f5e36a6a1bc14aec135f5594678e3486c77f8
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 22:00:40 2023 -0300
+
+    Atividade P003 Finalizada com Sucesso!
+
+commit dca7835706ad4939b04f008bae24d0f15969c6d0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:55:18 2023 -0300
+
+    Método Consultar() Concluido
+
+commit 25a48aa3877fac7380aedf59f1f634750481e131
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:54:12 2023 -0300
+
+    Método Excluir() Finalizado
+
+commit 4b59c219bcc7f430b74d00a179abb4016d01235f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:52:59 2023 -0300
+
+    Método Editar() Funcionando
+
+commit 4f33d8167b6d823b4698ccf4917c0dbfc651bbe7
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:51:58 2023 -0300
+
+    Métodos Cadastrar() e Listar() Finalizados
+
+commit 8ff80ecdf71348c028c4c606b576a1d5344ec006
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:50:51 2023 -0300
+
+    SupermercadoEmPython() Inicializado
+
+commit 9ac7aa8d60d5d40c36b63eaa22f99cafa23ba91c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:49:24 2023 -0300
+
+    Menu do Supermercado Idealizado
+
+commit 1eb694f39d00b1862d8228b28438f8b2e7a681c3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:48:08 2023 -0300
+
+    Iniciando a Atividade Supermercado
+
+commit 871785c366314a65f8694d7cf6d35dbefe4a5331
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:45:11 2023 -0300
+
+    Exercicio2 da Atividade P003 Concluida
+
+commit d4d37e357b148c03521ed6a5c0ec426b10daa7b6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:35:48 2023 -0300
+
+    Método Excluir e Reajustar_dez_Porcento()
+
+commit 37b6726d497e7fd391c6c81080367febfb0947a7
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:33:35 2023 -0300
+
+    Metodo Consultar(), Obs: Commit Anterior: Foi Método Editar() não Excluir()
+
+commit e1c7330fc46481ad88815e3dead5b37637b36da9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:31:37 2023 -0300
+
+    Método Excluir() Funcionando com Sucesso
+
+commit 1728b99c13a564deea73715c2454a0c54e3fd776
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:30:09 2023 -0300
+
+    Método Listar() Funcionando com Sucesso
+
+commit 4ee5635691306c37794874dd1e616c66ba45bd63
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:29:06 2023 -0300
+
+    Método Cadastrar() Funcionando Com Sucesso
+
+commit 194d12e9c09d4f263afca6aad30e641a077fd71d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:27:51 2023 -0300
+
+    Metodo GestaoFuncionario() Idealizada
+
+commit 0732243df4f47d1a830c13c7b0de42ecb72cc208
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:26:39 2023 -0300
+
+    Menu Finalizado
+
+commit fdc85bdc459b9b31db8619138699457169c434a4
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:24:57 2023 -0300
+
+    Imports e Utilidades implementadas
+
+commit b01f54df2ce1cef61b659f6674b5e2017b6244ae
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 21:23:10 2023 -0300
+
+    Iniciando Projeto Gestão Funcionario
+
+commit 457a4349f54dc02f15567f6adf5639082125cbec
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 12:41:24 2023 -0300
+
+    Exercicio 2 Criação do Arquivo
+
+commit 7544572b2b0ad3ba0202e84f84a3eb17c173cc59
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 26 12:37:09 2023 -0300
+
+    Organização de Pastas, ok
+
+commit c0a91d220fc404863afc67df352db046fa359894
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Nov 20 14:27:25 2023 -0300
+
+    Padrão de Organização para Semana3
+
+commit dc5ccc79050d4881e767bfbfdfced19434357dda
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Nov 19 23:36:23 2023 -0300
+
+    Atividade P002 Finalizada
+
+commit ea1d7ecc72a8906e8719f829dc87005512386f3c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:29:40 2023 -0300
+
+    Editar, Ok
+
+commit a0bb40140f65a02d80e8d620d7c134dda3dc88a8
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:29:02 2023 -0300
+
+    Método marcarTarefaComoRealizada() Concluida
+
+commit 80889d9ef547605fe005100e22724a95dacf2133
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:27:44 2023 -0300
+
+    Cadastrar e Listar Funcionando
+
+commit d9971e4eba693b5fafe8eea21f1ac6642feade63
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:18:14 2023 -0300
+
+    Readme.md Titulo Centralizado
+
+commit 1af8a0bb380d7f9cf9d150b70af8c709d75b5063
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:16:25 2023 -0300
+
+    Readme.md Atualizado com Dados do Membro
+
+commit 2b286bbe5c00173ea75554e8e51f82d6c83eafd1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:09:05 2023 -0300
+
+    Jupter Notebook Adicionado na Atividade P001
+
+commit 2d7c189e7dd9b11bb3c1d34d7ccf87eed5caec33
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:06:33 2023 -0300
+
+    Atividade P001 Finalizada
+
+commit 6d2a86122ffe9716890db19bb57db833185474b1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:05:31 2023 -0300
+
+    Exercicio 5 da P001 Concluida
+
+commit c078e26693432af5e27f3a27d4fa75341cc9e4d5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:05:03 2023 -0300
+
+    Exercicio 5 Parcialmente Finalizada
+
+commit bcb523a649139a63748194c116ddf5b81ad3407d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 22:01:58 2023 -0300
+
+    Exercicio 4 da P001 Concluida
+
+commit d27d5753f46b32fae48495f70131481129f44c78
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:57:13 2023 -0300
+
+    Exercicio 3 da P001 Concluida
+
+commit b42e0ecf0695b7adb3a74f28009daa1000659c6c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:54:30 2023 -0300
+
+    Caracteres Especiais Concluid
+
+commit 9dac96ff7bfae7948d0c967b5407a6e5efaab29a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:52:58 2023 -0300
+
+    Caracteres Númericos Concluido
+
+commit 1bf2c30d41db802c0b6a374160bc668726e054a2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:51:07 2023 -0300
+
+    Exercicio 2 da P001 Concluida
+
+commit c78f0dfa54c01c6964b71b5601560b47e5700484
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:49:21 2023 -0300
+
+    Imultabilidade Númerica Concluido
+
+commit 89df20edcc80d60890ea8fb9112860674fcde115
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:48:16 2023 -0300
+
+    Calculo Fatorial Concluido
+
+commit bb7e75afd7690d9a7ff42a50028c84ba379da2a8
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:47:06 2023 -0300
+
+    Operadores Aritméticos Compostos Concluido
+
+commit f87433efa52724bed97e3e87eb5f49b8176150ff
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:45:38 2023 -0300
+
+    Operadores Aritméticos Concluido
+
+commit b170b2402c937bed1f2eb3dd1044f548e8ebbf3a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Nov 18 21:34:33 2023 -0300
+
+    Enunciado das Questões P001 Adicionadas aos Projetos
+
+commit 4e36c7e362c12cd6ee1ade3209609773e9314113
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Wed Nov 15 18:52:57 2023 -0300
+
+    atualizacao questao 2
+
+commit 4f35572694c5288936ac394083320ee80a30780f
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Mon Nov 13 11:55:57 2023 -0300
+
+    aula  do dia 13/11
+
+commit 767e4ef35081c70eedd8c78820a01cbf6083c613
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Sun Nov 12 22:50:12 2023 -0300
+
+    add pratica 1
+
+commit 50a301f650278409e85c320367bdc194900b40ef
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Sun Nov 12 22:47:40 2023 -0300
+
+    estrutura de pasta, pratica 1
+
+commit 50cfe2a14e075a4c6cbd2552021e23d0953bcf1d
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Sun Nov 12 22:44:56 2023 -0300
+
+    estrutura inicial, pratica 1
+
+commit 81592a05feac9230372c973ee3b783e307c15534
+Author: ManoelPatrocinio <manoelpatrocinio99@gmail.com>
+Date:   Sun Nov 12 22:43:06 2023 -0300
+
+    estrutura de pasta, pratica 1

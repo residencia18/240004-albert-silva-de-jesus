@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/bin/Debug/net7.0/imprimeTabela
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/bin/Debug/net7.0/imprimeTabela.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/bin/Debug/net7.0/imprimeTabela.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/bin/Debug/net7.0/imprimeTabela.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/bin/Debug/net7.0/imprimeTabela.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/refint/imprimeTabela.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/imprimeTabela.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/imprimeTabela/obj/Debug/net7.0/ref/imprimeTabela.dll

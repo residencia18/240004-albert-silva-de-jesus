@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/bin/Debug/net7.0/ExerciciosTupla
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/bin/Debug/net7.0/ExerciciosTupla.deps.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/bin/Debug/net7.0/ExerciciosTupla.runtimeconfig.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/bin/Debug/net7.0/ExerciciosTupla.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/bin/Debug/net7.0/ExerciciosTupla.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.AssemblyInfo.cs
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/refint/ExerciciosTupla.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ExerciciosTupla.genruntimeconfig.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosTupla/obj/Debug/net7.0/ref/ExerciciosTupla.dll

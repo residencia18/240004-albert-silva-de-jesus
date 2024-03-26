@@ -1,0 +1,53 @@
+commit a03daeef3384945161539e7e58c1917e3f3ff5ef
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:30:28 2023 -0300
+
+    Persistencia(Crud) de Cliente e Advogado Funcionado
+
+commit 58ec152691b5722404c91756958118f79597eac5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:19:08 2023 -0300
+
+    Projeto enviado com sucesso
+
+commit d0b7fd6a462e629fcd4c1499ce8accb55ec4b374
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:17:10 2023 -0300
+
+    Documeto e CasoJuridico
+
+commit 7d3ba4b0120e13fbdc378318dbc2156de04c54aa
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:16:28 2023 -0300
+
+    Persistencia
+
+commit d3c8209b57ebf8c8aba9779947d7af0020780928
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:15:56 2023 -0300
+
+    ListaAdvogado e ListaCliente
+
+commit cad5e6c21f3d79cac57dab9dc0ab4367b98065d3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:15:16 2023 -0300
+
+    Relatorio e App
+
+commit b67113956076fa09805b967d554d65ad35a3dee6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:14:24 2023 -0300
+
+    Cliente e Advogado
+
+commit 3f17b6c7c891a0fa7fb3210a98e1e18bd8dfed59
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Dec 3 11:13:33 2023 -0300
+
+    Program e Pessoa
+
+commit eb1ba692619f34d00c7509da72eb5fc065a99f3f
+Author: OutLaio <rlaio.ege@gmail.com>
+Date:   Sun Dec 3 10:44:46 2023 -0300
+
+    Repositorio teste

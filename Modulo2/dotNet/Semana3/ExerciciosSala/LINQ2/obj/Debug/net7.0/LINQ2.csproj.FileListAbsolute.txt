@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/bin/Debug/net7.0/LINQ2
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/bin/Debug/net7.0/LINQ2.deps.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/bin/Debug/net7.0/LINQ2.runtimeconfig.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/bin/Debug/net7.0/LINQ2.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/bin/Debug/net7.0/LINQ2.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.AssemblyInfo.cs
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/refint/LINQ2.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/LINQ2.genruntimeconfig.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/LINQ2/obj/Debug/net7.0/ref/LINQ2.dll

@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/bin/Debug/net7.0/AulaStrings
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/bin/Debug/net7.0/AulaStrings.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/bin/Debug/net7.0/AulaStrings.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/bin/Debug/net7.0/AulaStrings.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/bin/Debug/net7.0/AulaStrings.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/refint/AulaStrings.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/AulaStrings.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaStrings/obj/Debug/net7.0/ref/AulaStrings.dll

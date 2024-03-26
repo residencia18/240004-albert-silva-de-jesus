@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/bin/Debug/net7.0/AulaListas
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/bin/Debug/net7.0/AulaListas.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/bin/Debug/net7.0/AulaListas.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/bin/Debug/net7.0/AulaListas.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/bin/Debug/net7.0/AulaListas.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/refint/AulaListas.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/AulaListas.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/AulaListas/obj/Debug/net7.0/ref/AulaListas.dll

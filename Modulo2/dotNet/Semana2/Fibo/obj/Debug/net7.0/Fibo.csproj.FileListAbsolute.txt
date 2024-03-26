@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/bin/Debug/net7.0/Fibo
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/bin/Debug/net7.0/Fibo.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/bin/Debug/net7.0/Fibo.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/bin/Debug/net7.0/Fibo.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/bin/Debug/net7.0/Fibo.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/refint/Fibo.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/Fibo.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Fibo/obj/Debug/net7.0/ref/Fibo.dll

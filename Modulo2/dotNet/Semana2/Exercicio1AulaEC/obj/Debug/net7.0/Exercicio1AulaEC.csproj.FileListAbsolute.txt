@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/bin/Debug/net7.0/Exercicio1AulaEC
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/bin/Debug/net7.0/Exercicio1AulaEC.deps.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/bin/Debug/net7.0/Exercicio1AulaEC.runtimeconfig.json
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/bin/Debug/net7.0/Exercicio1AulaEC.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/bin/Debug/net7.0/Exercicio1AulaEC.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.AssemblyInfo.cs
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/refint/Exercicio1AulaEC.dll
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.pdb
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/Exercicio1AulaEC.genruntimeconfig.cache
+/home/joao-vitor-ramos/Documentos/CSharp-Atividades/Atv1-DOTNET-CEPEDI/Semana2/Exercicio1AulaEC/obj/Debug/net7.0/ref/Exercicio1AulaEC.dll
