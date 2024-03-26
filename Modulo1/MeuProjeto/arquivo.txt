@@ -1,0 +1,20 @@
+commit 1f09f7cbfa06ca98bf36f79268a0bf963025d423
+Merge: 12f9acc 118183f
+Author: Albert <102269168+Albertinesilva@users.noreply.github.com>
+Date:   Wed Aug 30 19:07:36 2023 -0300
+
+    Merge pull request #1 from Albertinesilva/feature-navbar
+    
+    Projeto Atualizado
+
+commit 118183ff2fdf6ffc0f56826916e8a86f8c50cd71
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Aug 30 18:55:08 2023 -0300
+
+    Projeto Atualizado
+
+commit 12f9accb970cf214729825dc3f7af3c08db8c551
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Aug 30 18:37:52 2023 -0300
+
+    Primeiro Commit

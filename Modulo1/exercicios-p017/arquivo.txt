@@ -1,0 +1,23 @@
+commit 330442693526defbf1059a6c1d39969160c9aca9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 30 16:51:21 2023 -0300
+
+    Albert: atividade em equipe, concluida!
+
+commit 108774d7df97195e92fdc044696f7f4d989d8964
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 15:21:31 2023 -0300
+
+    Albert: Atividade Finalizada.
+
+commit e63f0a2669c0d70bbf7b677c10cd36953b1e5cb2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 15:09:16 2023 -0300
+
+    Readme.md atualizado
+
+commit a54012876cd62635e52d318096fa1e7c31e6c7d7
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 14:48:39 2023 -0300
+
+    Readme.md

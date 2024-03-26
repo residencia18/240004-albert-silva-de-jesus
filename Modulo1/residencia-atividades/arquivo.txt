@@ -1,0 +1,721 @@
+commit b276df10baa939d58f83b49121cf5ad56b176849
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 10 10:56:26 2023 -0300
+
+    Projeto Atualizado
+
+commit 24d107cbea2dc446678328786dd99f1172a880f0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 9 19:39:31 2023 -0300
+
+    Atualização
+
+commit 1b1b2dbb22cc86ac4bc8c2b8d0f327fae53e47c1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 9 19:31:16 2023 -0300
+
+    Projeto excluido
+
+commit f10145e89eb924d79c856e54377f37aeed61c94e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 9 14:05:39 2023 -0300
+
+    projeto inicializado
+
+commit a1c3226cbac6c6b6cea1dabad9c2d4d870cd12e3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 9 13:51:04 2023 -0300
+
+    Crud ok
+
+commit abd0426f14c7eefd06e2d18d8e0e2f57fb1a48ea
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Oct 8 19:51:56 2023 -0300
+
+    Crud concluido
+
+commit d9a8523cd3eaad6fcd39af703e7741ae2b88ad2f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Oct 8 19:48:41 2023 -0300
+
+    Classes em private e com crud, faltando a parte de editar de veiculo
+
+commit 18275953e6d5c9982490235ee7f9550cb2009c3c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Oct 7 03:30:18 2023 -0300
+
+    Class Aluguel
+
+commit 1968e5d9fa85bccf14138fe077f8bbb0fb4f0a8d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Oct 7 02:39:02 2023 -0300
+
+    Exe
+
+commit dd414726e525c9b8d68a4c68fe7282543f96a672
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Oct 7 02:05:34 2023 -0300
+
+    crud com pesistencia concluido
+
+commit 3ca64000b6ddbac5693cc8649c4e95eee4aae493
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Oct 7 00:27:51 2023 -0300
+
+    Persistencia de cliente e funcionario, funcionando
+
+commit f265a5c17d1b40d21cd1db59382be22bf615fc97
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Oct 6 23:33:22 2023 -0300
+
+    persistencia cliente quase pronto
+
+commit b35606fc5f63ce820158c2b67625708fb791e4ff
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 23:56:34 2023 -0300
+
+    Persistencia de cliente e funcionario
+
+commit bd1b69c62d9fd3a6a72cd95bd8f111d5e79dfd47
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 20:44:20 2023 -0300
+
+    Crud de Veiculo Finalizado
+
+commit 3c3a6218aec0bc6de76cff5581f93ad7fa719140
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 20:17:44 2023 -0300
+
+    Crud Cliente e Funcionario
+
+commit 1df519f32b869f2d0610a5bc6f73c8a186ef82ca
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 19:51:45 2023 -0300
+
+    Crud Cliente concluido com sucesso!
+
+commit 9dacb563de774be3a245b4f5fbf4d1a27bdf74e4
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 17:53:52 2023 -0300
+
+    excluir alterado
+
+commit d56a2a46c67575a23ade73eb2af8838a88ecc818
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 17:34:14 2023 -0300
+
+    exclusão de cliente, ok!
+
+commit b9450e9e6465c7249b912b7d6961e528bb0d39ba
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 17:25:27 2023 -0300
+
+    excluir cliente, falta testar
+
+commit 66ba8c35d9a46cc9e33be49424c68a55b4027787
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 17:12:25 2023 -0300
+
+    Cadastrar e listar: Funcionario e Cliente
+
+commit 0dff513bb056326a695736303a3e80d416ef0bc2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 15:43:59 2023 -0300
+
+    usuario
+
+commit 0b80c4e68f43942379b642b825c7d7abc2067a99
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 5 15:41:16 2023 -0300
+
+    projeto locadora rodando
+
+commit c89967dd99dab49c0a2f8f33ffc4dcad51dab106
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Oct 4 00:39:27 2023 -0300
+
+    Pasta aquivos atualizada
+
+commit 18188f3bae1970015be7e6850b063ef568262fa5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 3 23:55:48 2023 -0300
+
+    atualização de quetão de arquivos
+
+commit 82d30ebe80ddd6efda1cc556b446735084dccdf7
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 3 23:44:03 2023 -0300
+
+    arquivo
+
+commit 5a20fbcd0ee4c272c9c2708dbf4b11b70d14b134
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 3 21:27:29 2023 -0300
+
+    Aluno
+
+commit 3d394ecca949ea935b8bee1c6016c99df4e85472
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 3 18:32:35 2023 -0300
+
+    alunos
+
+commit 77c40fd4ba9c5d8f6100f68be1c6cf815cf1103d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Oct 3 18:06:20 2023 -0300
+
+    diversos atualizado
+
+commit 8fe82543d9c7dbe0f5d37733b7d5f30beec075b5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 2 17:41:18 2023 -0300
+
+    cemiterio atualizado
+
+commit 840087075e62d2bd8aa9b88c9955869f0d526737
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 2 12:49:08 2023 -0300
+
+    Projeto Locadora de Veiculo, 1º commit
+
+commit 0b26eb8e1cdf9f60b19c26f1fdc39895f8018465
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Oct 1 00:03:47 2023 -0300
+
+    projeto P019 atualizada
+
+commit cee42d29c28d0eee56c70241671f03630fadfdec
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 30 15:55:29 2023 -0300
+
+    Atividade P0-PI019 atualizada
+
+commit 7febca6f54c38c495d3eec2f4d6f88cd978bcd2a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 21:48:48 2023 -0300
+
+    atividade individual concluida
+
+commit 7a5f648a3a3cd92c6ac788b49ba91d061adcf0bc
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 13:12:42 2023 -0300
+
+    Atividade P019 Inicializada
+
+commit 8deeb854855dbb83c0d32f6b81ca5aa5c9706cd3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 13:03:38 2023 -0300
+
+    Pastas atualizadas
+
+commit ba7d61ed95270d357e68079419ee82955e999fab
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 11:12:42 2023 -0300
+
+    Exercicio finalizado
+
+commit f464ad1216d3380e43232fff8732d8219c545242
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 29 01:06:56 2023 -0300
+
+    Projeto atualizado
+
+commit 8e662ea067fbfaf70722fac4d7f752f484704ca1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 23:18:24 2023 -0300
+
+    Remoção de carrinho solucionado
+
+commit 6f264df1721c988f997a02e58e3c7c54a5a28b62
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 20:45:30 2023 -0300
+
+    Classe carinho em andamento.
+
+commit 22e59be704933e59c991fe0db64ea18eda9cb986
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 18:24:30 2023 -0300
+
+    cemiterio
+
+commit cc139754f3b929c16878f2648efda4177f07fc59
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 16:59:19 2023 -0300
+
+    Pasta arquivo
+
+commit 53362bc1258ceb1f911a5baa57179fbc3e7f416c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 15:51:22 2023 -0300
+
+    cemiterio
+
+commit 9b75f4d614dbab546cd74f035465ef761edb5a6f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 11:41:27 2023 -0300
+
+    Comando para rodar o projeto
+
+commit bd837448e235f58e5da3338fc5bdef5ad5bf04fe
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 11:06:52 2023 -0300
+
+    Exercicio atualizado
+
+commit 22f314133dda93c18ad112bcda4b3f5367d5d8c1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 28 00:28:48 2023 -0300
+
+    Main atualizada
+
+commit 2050c2adadb6534834eb96ccf59ff44e013afd39
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 27 23:52:18 2023 -0300
+
+    Projeto atualizado
+
+commit 35222a4cc66cdf9dfedfb9777ad333157a9dcc4f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 27 19:37:18 2023 -0300
+
+    classes criadas
+
+commit a1d13c231d5db9bc3a7728ae1184967751fc3ac3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 27 16:18:26 2023 -0300
+
+    Exercico individual cocluido e atualizações da pasta
+
+commit 3393deaced7946930ef57da3f85a687266138b6f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 27 12:43:04 2023 -0300
+
+    pasta poo atualizada
+
+commit 5ed75e2f9fdd75929b7c60634a3c7f6862f866d2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 27 01:10:30 2023 -0300
+
+    Problema resolvido construtor sem inicializar
+
+commit 7ac9f0c282b3e20b1f1823785fa2ca1f0d38f84b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 26 20:17:55 2023 -0300
+
+    Aviao
+
+commit be57326041abadc5fd4a7fa02a59b0547a48bb04
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 26 18:40:16 2023 -0300
+
+    poo
+
+commit c6a3b7dbe65a58362ac226d711e53e2695bfbfa1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 25 18:36:35 2023 -0300
+
+    Organizado por pastas
+
+commit 82a570f4a22871de06306a55bda2dff4617f8e48
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 25 17:42:42 2023 -0300
+
+    LocaFina e SystemColor
+
+commit a17ff841830828386548fe37047001e5738b19b1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 19 15:43:21 2023 -0300
+
+    Projeto atualizado(Menus)
+
+commit 20009e5860fb3a1f886fc87b46039559ead99f77
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 19 12:27:47 2023 -0300
+
+    Validação de data de entrega e retirada
+
+commit dcb32ecd1f48393df937696ac287cbabef2709b2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 19 00:36:57 2023 -0300
+
+    locarVeiculo atualizada
+
+commit 98a2c7ac4f05e17923160479bae855793b6db56b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 18 23:00:46 2023 -0300
+
+    Função sistemaDeGestaoLocacaoDeVeiculos Atualizada
+
+commit 69e23868633c1851ab0abec10396be8ee429fc54
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 18 22:16:44 2023 -0300
+
+    função localizaCliente e localizaVeiculo atualizada
+
+commit 9635a6dca07997e0c1b06ba651a9f4f0f6d55b7e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 18 21:31:14 2023 -0300
+
+    Listar veiculos e remover veiculos
+
+commit 49c9da60a9fe7001c64a65f9c445160916197282
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 18 20:29:53 2023 -0300
+
+    Avaliação LocaFina.cpp atualizada
+
+commit 30bc49b819e18d0554c05eefbfe99702dcdab03a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 18 17:17:50 2023 -0300
+
+    LocaFINA.cpp
+
+commit d23fcb0a410af9d2135ebd67abdd9842eb3da0d8
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 23:29:10 2023 -0300
+
+    Horario atualizado
+
+commit 476c9ce584f6ccd222551d7064b1da53b095525b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 21:18:17 2023 -0300
+
+    Locação de carro atualizado
+
+commit e141b1f4f9e71dfee436cdd5bf8ea7ffaf33b385
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 16:44:12 2023 -0300
+
+    Projeto atualizado
+
+commit 56e55464b11014b18f0d7b9b960c6ad4c20fbd58
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 14:52:41 2023 -0300
+
+    mensagens de sucesso
+
+commit e2954602acc9043b62efea43ffae6d8424e2692e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 17 14:28:25 2023 -0300
+
+    projeto locadora atualizado
+
+commit fb29f52936d47b7278918cbc8707a7c028d505a4
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 16 00:45:09 2023 -0300
+
+    biblioteca <cmath> excluida
+
+commit 85cae2736828a59dd55525d65f72e3c6915fc290
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 16 00:42:49 2023 -0300
+
+    nostraDataAtual
+
+commit 730b73b0800095282edfbbd5da3ee91ccfc3bf83
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 16 00:32:49 2023 -0300
+
+    Troca de Typedef por Struct
+
+commit 06422c6cd76fc58c0b70afeaadc46873469f3098
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 16 00:22:51 2023 -0300
+
+    Main atualizada
+
+commit 49721f58b22c49a6c51b23d2b7b5a848378ef889
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 16 00:14:44 2023 -0300
+
+    Data Atualizada
+
+commit 22b0b8e2a50d3005bd27aa3c299451cf3ea3b26f
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 15 00:47:17 2023 -0300
+
+    Readme.md
+
+commit d1a76f1fd5ab7b53560a056c1bfc61eea6629659
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 15 00:46:03 2023 -0300
+
+    Readme.md atualizado
+
+commit df2ab40c71837180e02d6e27699fe0b8fff08773
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 15 00:42:28 2023 -0300
+
+    Readme.md
+
+commit 0fbccc00e989bd7a9ee3836d04302eff45d664d4
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 15 00:37:59 2023 -0300
+
+    Atualizações de exercicios
+
+commit 2638166235e96347e525d206a706e18ef49e2b1b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 23:45:25 2023 -0300
+
+    exercicio atualizado
+
+commit e3852e09c9bc4eb674ce5d7216250989cb37790d
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 19:46:39 2023 -0300
+
+    Atualização
+
+commit 781e8de855bdf6dd929acf15e39c1ea9122ccc40
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 17:17:59 2023 -0300
+
+    arquivo executavel
+
+commit b8319cbd5a4d558ece0962b5ef89ba26c15471c5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 17:16:31 2023 -0300
+
+    verifica se é maior de 18 anos
+
+commit 9c34e8acf0a3cc472cdbc55ecf899b0be0307305
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 17:01:48 2023 -0300
+
+    arquivo cliente
+
+commit 1a1d265176f75b68681276cc09005b0ede087373
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 17:01:30 2023 -0300
+
+    arquivo cliente
+
+commit da83f691102ec06aa28367527e16fb46a77062f6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 16:52:10 2023 -0300
+
+    validação de Data e dia da semana
+
+commit 9859232f0dca085c9a160e8c59b04e21f06e916a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 15:57:59 2023 -0300
+
+    Validade de Data
+
+commit 268df361c6e79cae7dbc0b11ea9030c3014abf90
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 15:37:55 2023 -0300
+
+    cliente.cpp
+
+commit 4df1c4e0e8b093f65426fcb0721c71a969dc1601
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 15:18:54 2023 -0300
+
+    mostraDadosCliente
+
+commit afcee7b98a0e566e950110d60c920b79795c12c0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 15:01:13 2023 -0300
+
+    DataRegistro Atualizada
+
+commit 4456023f0ee5f45e07c80e9322d9a844f68f85fa
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 14:27:30 2023 -0300
+
+    Sobrenome atualizado no sistema
+
+commit ad4d35fb9ff66c852d0810a1acde1ae45d59f1de
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 14:04:47 2023 -0300
+
+    adicionando dia atual
+
+commit 168a842f4b9c4b3a43fd2c99a8448e094f3d1add
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 03:38:14 2023 -0300
+
+    exercicio5.cpp atualizado
+
+commit 18fc9b5f9d5c09ec13d4735844c9e4019e5313cf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 03:23:33 2023 -0300
+
+    Veiculo
+
+commit d78cb579d001c178451a677d65c66a9636ddb081
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Sep 13 23:36:19 2023 -0300
+
+    cliente.cpp Atualizado
+
+commit 56a5055f7522067bc48f107b67ea815b94091912
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 12 17:25:02 2023 -0300
+
+    cliente
+
+commit 4e7f27418266fe2e21641a28efa006ad53e0ca2b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 12 12:36:31 2023 -0300
+
+    exclusão se arquivo
+
+commit 9bcc08df3d79c3343ce0ec09e48af16bdc4ed062
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 12 12:35:42 2023 -0300
+
+    Mudança de pasta
+
+commit dd678ea772f03d594359f44c2ce27fc3adf59804
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 12 00:53:27 2023 -0300
+
+    calculadora
+
+commit 699e241458a6cc817ed9a40a21ba6f8141fc74ae
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 11 23:23:42 2023 -0300
+
+    tituloEleitor.cpp
+
+commit 77d2eced2f681cd34deafd20a066a68cfad9568a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 11 17:43:34 2023 -0300
+
+    tituloEleitor.cpp
+
+commit 78916b2024c4d23e3ca85660ad164c048e8daa26
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 11 09:48:07 2023 -0300
+
+    Atividade P0010 Atualizada e C&a
+
+commit c9734640bc2193507c37c0c3bee42c4583e9f429
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 8 21:57:28 2023 -0300
+
+    Atividade p0014 atualizada
+
+commit 55e92b7a0257d219e7af05076a22d121120bfddc
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 8 21:53:27 2023 -0300
+
+    Atualização
+
+commit d2f21e7dc75d9269379e41942a2d98f8e39cfcd5
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 8 21:51:14 2023 -0300
+
+    Atividades finalizadas
+
+commit b3003a86000a775fcef0fa00aa5f0af59dcf1e06
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 7 18:47:06 2023 -0300
+
+    ControleDeNotas.cpp
+
+commit 02293f76504b940c314fcdba30abb7e000212871
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 5 21:59:54 2023 -0300
+
+    vectorBasico2.cpp
+
+commit f31fc6ca504f15c0238edfcb48c85f8acc888ed2
+Merge: 2b6797c e4193ef
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 5 14:39:58 2023 -0300
+
+    Merge branch 'master' of https://github.com/Albertinesilva/residencia-atividades
+
+commit 2b6797c2b9e7829790a9c0a0fbf1e1071112eb0a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 5 14:13:24 2023 -0300
+
+    vector
+
+commit e4193ef88d1cb752d796feee1b1309952093ccbc
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Sep 5 12:05:24 2023 -0300
+
+    VectorBasico.cpp
+
+commit 5b5445599ce989d7bbc8f7c0194819c08794ddfa
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 4 17:52:33 2023 -0300
+
+    vector
+
+commit 10099c2103dcd385a4d6b1f1b64c59640dc0a884
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 4 16:09:10 2023 -0300
+
+    projetomaipulacaostring atualizada
+
+commit d8131c77f4bcfd6259fbbab378498fe1b4e12cad
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Sep 4 12:08:06 2023 -0300
+
+    Atividade atualizada
+
+commit 252bc1964a6ae0e4874d00c2decfbdfef570c7e3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Sep 3 21:24:14 2023 -0300
+
+    Atividade P008 Atualizada
+
+commit 0a52fcd02d4398c181816f5ac2619ea4c8053181
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 2 19:16:54 2023 -0300
+
+    Atualização de atividades
+
+commit 4fb0492a5d6134ba8caeb8c3f7ca92519306da59
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 2 16:05:14 2023 -0300
+
+    Atividades Atualizadas
+
+commit 28b62a52ef48a71684eaeaa864ac39a9f5b483a2
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Aug 28 17:57:31 2023 -0300
+
+    operadores.cpp
+
+commit c3a0701e7662d28f55bb7b2773c57dbf313e7e70
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Aug 28 15:53:26 2023 -0300
+
+    exercicio6 excluido
+
+commit 54964e6344cd144f5efb194ca9265b678dbf1c41
+Merge: 632dba3 fb3a050
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 20:52:26 2023 -0300
+
+    Merge branch 'alber'
+
+commit fb3a050f056707747910f221d1a512740dd708c3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 20:49:15 2023 -0300
+
+    Exercicio6.cpp
+
+commit 632dba361f4b7c0852354c28a76018ca2295ebbb
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 20:38:53 2023 -0300
+
+    exercicios-p005
+
+commit 2680e4d894697db2ff8434eb1bd46138d66b9958
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 20:35:43 2023 -0300
+
+    exercicios-p004
+
+commit 1d2a8db808f2ff57eeb29a6db4c381137933340c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 20:20:35 2023 -0300
+
+    Primeiro Commit

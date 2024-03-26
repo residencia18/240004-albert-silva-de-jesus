@@ -1,0 +1,17 @@
+commit b4693beb313f77962422030a4241a46469a49adf
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 23:42:07 2023 -0300
+
+    Albert Atividade Concluida
+
+commit 1843b2faf0b0a656e882b746aa197fb06693f797
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 22:52:35 2023 -0300
+
+    Escopo padrão da atividade
+
+commit f0e786d139adf9db5a67c8c69b937c3da8a71923
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Sep 14 22:46:20 2023 -0300
+
+    Primeiro Commit

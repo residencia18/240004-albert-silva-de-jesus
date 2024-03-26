@@ -1,0 +1,65 @@
+commit 6cb0dbc2caebfb1b2fe81a34bf3a2dda8e310057
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 16:35:06 2023 -0300
+
+    retirando pasta vazia
+
+commit aa0f2f2f32b3faa2edc6ea5ed4d5e5fcfc5391ea
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 16:34:24 2023 -0300
+
+    inserindo arquivo readme
+
+commit f0de0846b32a979be3a1f40696ab1bff238d420e
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 16:15:15 2023 -0300
+
+    merge realizado
+
+commit 31932006dcc22600ac6df22ec4a08f951077c254
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Thu Aug 31 20:22:46 2023 -0300
+
+    merge dos exercicios restantes
+
+commit 7e4d0ff04d0faec527119824b0d6f5a4604e3340
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Thu Aug 31 17:34:51 2023 -0300
+
+    merge dos 6 primeiros exercicios
+
+commit 7540dd9735b35a33a1c9bab3df6ba1826e1914e3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 2 01:55:29 2023 -0300
+
+    Albert Start
+
+commit abb46801b43ca4d5c4eb88b7a5fe9c2b7d03db7b
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 16:15:15 2023 -0300
+
+    exercicio de fibonacci inserido
+
+commit 844c3c56360070a7d034a2492358eb07f02e8da1
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 2 01:55:29 2023 -0300
+
+    Albert Start
+
+commit ff48af3c3d7158b2e190b991dd46ccc0f6b2b8c2
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Thu Aug 31 20:22:46 2023 -0300
+
+    atividades concluidas
+
+commit db13b193603c464ca291dc2d6bae797c994c08f1
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Thu Aug 31 17:34:51 2023 -0300
+
+    atividades
+
+commit a2f6d52d384f728f862b82375a71f0461227861d
+Author: jvitorsb98 <118237381+jvitorsb98@users.noreply.github.com>
+Date:   Thu Aug 31 17:33:20 2023 -0300
+
+    Initial commit

@@ -1,0 +1,36 @@
+commit 6e00805fdb5626f78e53fef583be1b2a3367b8b5
+Merge: f93b431 594c07f
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 13:35:13 2023 -0300
+
+    merge realizado
+
+commit 594c07f54da3c30c3b7504a64da4a698b6cfc038
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Sat Sep 2 13:28:43 2023 -0300
+
+    adicionando readme
+
+commit c8b322d4364b12c0562fe021617e6660ab09236d
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Fri Sep 1 17:06:09 2023 -0300
+
+    atualização
+
+commit 4c08cba798ed1657fb89cb87cff20f79beab0c40
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Fri Sep 1 17:05:04 2023 -0300
+
+    atividades
+
+commit f93b431c0e273d0727eca9b3448a99b895ef16e0
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 1 16:27:17 2023 -0300
+
+    Arquivos apresentacao_albert.md e residencia.md alterados
+
+commit d8837872ba18e40bf5439d6029d79eb00b92dcee
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 1 16:16:45 2023 -0300
+
+    Primeiro Commit

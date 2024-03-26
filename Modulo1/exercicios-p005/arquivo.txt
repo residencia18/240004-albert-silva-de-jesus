@@ -1,0 +1,11 @@
+commit 93449ef11daa6528cfcde5b86b5aac10902a62db
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 1 21:20:08 2023 -0300
+
+    Albert Start
+
+commit 71ebf740bdb42abd10010bc5c4ce375e5052d672
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sun Aug 27 18:57:10 2023 -0300
+
+    Primeiro Commit

@@ -1,0 +1,5 @@
+O projeto de Residência de Software é uma iniciativa que combina teoria e prática, permitindo que estudantes ou recém-formados em áreas de tecnologia da informação aprimorem suas habilidades de desenvolvimento de software enquanto trabalham em projetos do mundo real. Essa abordagem proporciona aos participantes uma experiência valiosa no campo da programação.
+
+1º A etapa inicial compreende o módulo de programação imperativa - T3.
+
+
