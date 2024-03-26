@@ -1,10 +1,15 @@
 package com.swproject.shopall.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.swproject.shopall.entities.Category;
+import com.swproject.shopall.exception.EntityNotFoundException;
 import com.swproject.shopall.repositories.CategoryRepository;
 
 @Service
@@ -20,5 +25,16 @@ public class CategoryService {
     }
 
     return categoryRepository.save(category);
+  }
+
+  @Transactional(readOnly = true)
+  public Category findById(@NonNull Long id) {
+    return categoryRepository.findById(id).orElseThrow(
+        () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
+  }
+
+  @Transactional(readOnly = true)
+  public List<Category> findAll() {
+    return categoryRepository.findAll();
   }
 }
