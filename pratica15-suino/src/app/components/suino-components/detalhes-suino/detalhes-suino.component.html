@@ -1,11 +1,10 @@
 <p-card class="suino-card">
     <ng-template pTemplate="header">
         <h2>
-            <a>Brinco {{ suino.brinco | number:'3.0' }} ( {{suino.sexo}} )</a>
+            <a>Brinco {{ suino.brinco | number:'3.0':'pt-BR' }} ( {{suino.sexo}} )</a>
         </h2>
         <h3>
-            Status: <span
-                [ngClass]="{'suino-active': suino.status === 'Ativo', 'suino-sold': suino.status === 'Vendido', 'suino-dead': suino.status === 'Morto'}">{{
+            Status: <span [ngClass]="{'suino-active': suino.status === 'Ativo', 'suino-sold': suino.status === 'Vendido', 'suino-dead': suino.status === 'Morto'}">{{
                 suino.status }}</span>
         </h3>
     </ng-template>
@@ -16,7 +15,7 @@
                 Pai:
             </div>
             <div class="suino-property-value">
-                Brinco {{ suino.brincoPai | number:'3.0' }}
+                Brinco {{ suino.brincoPai | number:'3.0':'pt-BR' }}
             </div>
         </div>
         <div class="suino-property">
@@ -24,7 +23,7 @@
                 Mãe:
             </div>
             <div class="suino-property-value">
-                Brinco {{ suino.brincoMae | number:'3.0' }}
+                Brinco {{ suino.brincoMae | number:'3.0':'pt-BR' }}
             </div>
         </div>
         <div class="suino-property">
@@ -77,7 +76,7 @@
 
     <p-chart type="bar" [data]="chartData" [options]="chartOptions" width="100%" height="300px"></p-chart>
 
-    <!-- <ng-template pTemplate="grid">
+    <ng-template pTemplate="grid">
         <div class="suinos-grid">
             <div class="pesos-container">
                 <div class="card-peso" *ngFor="let peso of pesos">
@@ -85,23 +84,5 @@
                 </div>
             </div>
         </div>
-    </ng-template> -->
-</p-card>
-
-
-<p-card class="suino-card">
-    <!-- <p-dataView [value]="pesos" layout="grid"></p-dataView> -->
-    <ng-template pTemplate="grid">
-        <div class="controls">
-            <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
-            <!-- <p-button icon="pi pi-filter" (click)="toggleFilter()"></p-button> -->
-        </div>
-        <div class="suinos-grid">
-            <div class="card-peso" *ngFor="let peso of pesos">
-                <!-- <app-card-peso [suino]="peso" (onDelete)="getAll()"></app-card-peso> -->
-                <app-card-peso [suino]="peso"></app-card-peso>
-            </div>
-        </div>
     </ng-template>
-    <!-- </p-dataView> -->
 </p-card>

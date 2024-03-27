@@ -7,4 +7,3 @@ export const env = {
         baseUrl: 'https://pratica15-suino-default-rtdb.firebaseio.com/'
     }
 }
-
