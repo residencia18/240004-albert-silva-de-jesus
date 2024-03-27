@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BuyEverythingApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.buyeverything.BuyEverythingApplication",
+      "projectName": "com.swproject-buy-everything"
+    },
+    {
+      "type": "java",
       "name": "Spring Boot-ApiLeilaoApplication<com.residenciatic18-api-leilao>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
