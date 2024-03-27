@@ -38,7 +38,7 @@ public class UsuarioServiceTest {
     usuario.setId(1L); // Garantindo um ID para os testes de update
     usuario.setUsername(faker.internet().emailAddress());
     usuario.setPassword(faker.number().digits(6));
-    usuario.setPerfilTipo(PerfilTipo.FUNCIONARIO);
+    usuario.setPerfilTipo(PerfilTipo.ADMIN);
   }
 
   @Test
