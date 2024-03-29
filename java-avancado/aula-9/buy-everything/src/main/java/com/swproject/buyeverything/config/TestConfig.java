@@ -15,11 +15,11 @@ import com.swproject.buyeverything.entities.Category;
 import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.entities.Product;
 import com.swproject.buyeverything.entities.Usuario;
-import com.swproject.buyeverything.entities.enums.PerfilTipo;
+import com.swproject.buyeverything.entities.Usuario.Role;
 import com.swproject.buyeverything.repositories.CategoryRepository;
 import com.swproject.buyeverything.repositories.EmployeeRepository;
 import com.swproject.buyeverything.repositories.ProductRepository;
-import com.swproject.buyeverything.repositories.UsuarioRepository;  
+import com.swproject.buyeverything.repositories.UsuarioRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 
@@ -57,12 +57,12 @@ public class TestConfig implements CommandLineRunner {
       categoryRepositoy.save(category);
       log.info("Category: {}", category);
 
-      // Criando um novo produto aleatório com a biblioteca Faker e salvando o produto no banco de dados
+      // Criando um novo produto aleatório com a biblioteca Faker e salvando o produto
+      // no banco de dados
       Product product = new Product();
       product.setName(faker.commerce().productName());
       product.setDescription(faker.commerce().material());
       product.setPrice(faker.number().randomDouble(2, 10, 1000));
-      productRepository.save(product);
 
       // Atribuindo a categoria ao produto e salvando o produto
       product.getCategories().add(category);
@@ -73,12 +73,12 @@ public class TestConfig implements CommandLineRunner {
       Usuario usuario = new Usuario();
 
       // Verifica se já existe pelo menos um administrador no banco de dados
-      boolean isAdminExists = userRepository.existsByPerfilTipo("1");
+      boolean isAdminExists = userRepository.existsByRole(Role.ROLE_ADMIN);
 
       if (!isAdminExists) {
         usuario.setUsername(faker.internet().emailAddress());
         usuario.setPassword(faker.number().digits(6));
-        usuario.setPerfilTipo(PerfilTipo.ADMIN);
+        usuario.setRole(Role.ROLE_ADMIN);
         userRepository.save(usuario);
         log.info("Usuario ADMIN criado: {}", usuario);
 
@@ -86,7 +86,7 @@ public class TestConfig implements CommandLineRunner {
         // Se já existir um administrador, cria um funcionário
         usuario.setUsername(faker.internet().emailAddress());
         usuario.setPassword(faker.number().digits(6));
-        usuario.setPerfilTipo(PerfilTipo.FUNCIONARIO);
+        usuario.setRole(Role.ROLE_COMUM);
         userRepository.save(usuario);
         log.info("Usuario FUNCIONARIO criado: {}", usuario);
       }
@@ -103,7 +103,8 @@ public class TestConfig implements CommandLineRunner {
       employee.setCpf(cpfFormatado);
       employee.setBirthDate(randomBirthDate);
 
-      // Atribuindo o usuário ao funcionário e salvando o funcionário no banco de dados
+      // Atribuindo o usuário ao funcionário e salvando o funcionário no banco de
+      // dados
       employee.getProductsSold().add(product);
       employee.setUsuario(usuario);
       employeeRepository.save(employee);

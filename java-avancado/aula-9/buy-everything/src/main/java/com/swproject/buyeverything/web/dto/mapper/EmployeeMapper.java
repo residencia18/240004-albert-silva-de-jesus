@@ -9,8 +9,8 @@ import org.modelmapper.PropertyMap;
 import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.entities.Usuario;
 import com.swproject.buyeverything.web.dto.EmployeeResponseDto;
+import com.swproject.buyeverything.web.dto.UsuarioResponseDto;
 import com.swproject.buyeverything.web.dto.form.EmployeeForm;
-
 
 public class EmployeeMapper {
 
@@ -26,7 +26,6 @@ public class EmployeeMapper {
         map().setId(source.getId());
         map().setName(source.getName());
         map().setBirthDate(source.getBirthDate());
-        map().setUsuario(UsuarioMapper.toDto(source.getUsuario()));
       }
     };
     ModelMapper mapper = new ModelMapper();

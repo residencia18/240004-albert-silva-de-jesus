@@ -1,8 +1,7 @@
 package com.swproject.buyeverything.web.dto;
 
-import com.swproject.buyeverything.entities.AbstractEntity;
 import com.swproject.buyeverything.entities.Usuario;
-import com.swproject.buyeverything.entities.enums.PerfilTipo;
+import com.swproject.buyeverything.entities.Usuario.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,26 +14,16 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioResponseDto extends AbstractEntity {
+public class UsuarioResponseDto {
 
   private Long id;
   private String username;
-  private String perfilTipo;
+  private String role;
 
-  public UsuarioResponseDto(Usuario user, PerfilTipo tipo) {
+  public UsuarioResponseDto(Usuario user, Role tipo) {
     setId(user.getId());
     this.username = user.getUsername();
-    setPerfilTipo(tipo);
-  }
-
-  public PerfilTipo getPerfilTipo() {
-    return PerfilTipo.fromString(perfilTipo);
-  }
-
-  public void setPerfilTipo(PerfilTipo perfilTipo) {
-    if (perfilTipo != null) {
-      this.perfilTipo = perfilTipo.getCodigo();
-    }
+    this.role = tipo.toString();
   }
 
 }

@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.swproject.buyeverything.entities.enums.PerfilTipo;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,9 +27,9 @@ public class Usuario extends AbstractEntity {
   private String username;
   @Column(name = "password", nullable = false, length = 200)
   private String password;
-
-  @Column(name = "perfil_tipo", nullable = false, length = 20)  
-  private String perfilTipo;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "role", nullable = false, length = 25)
+  private Role role = Role.ROLE_COMUM;
 
   @OneToMany(mappedBy = "usuario")
   private List<Employee> employees = new ArrayList<>();
@@ -49,20 +49,13 @@ public class Usuario extends AbstractEntity {
     this.password = password;
   }
 
-  public Usuario(Long id, String username, String password, PerfilTipo tipo) {
+  public Usuario(String username, String password) {
     this.username = username;
     this.password = password;
-    setPerfilTipo(tipo);
   }
 
-  public PerfilTipo getPerfilTipo() {
-    return PerfilTipo.fromString(perfilTipo);
-  }
-
-  public void setPerfilTipo(PerfilTipo perfilTipo) {
-    if (perfilTipo != null) {
-      this.perfilTipo = perfilTipo.getCodigo();
-    }
+  public enum Role {
+    ROLE_ADMIN, ROLE_COMUM
   }
 
 }

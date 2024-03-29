@@ -2,7 +2,6 @@ package com.swproject.buyeverything.web.dto;
 
 import java.util.Set;
 
-import com.swproject.buyeverything.entities.AbstractEntity;
 import com.swproject.buyeverything.entities.Category;
 import com.swproject.buyeverything.entities.Product;
 
@@ -17,7 +16,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CategoryResponseDto extends AbstractEntity {
+public class CategoryResponseDto {
 
   private Long id;
   private String name;

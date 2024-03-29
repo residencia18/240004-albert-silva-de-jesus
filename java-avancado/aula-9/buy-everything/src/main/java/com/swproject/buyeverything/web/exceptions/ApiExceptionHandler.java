@@ -14,8 +14,6 @@ import com.swproject.buyeverything.exception.EntityNotFoundException;
 import com.swproject.buyeverything.exception.PasswordInvalidException;
 import com.swproject.buyeverything.exception.UsernameUniqueViolationException;
 
-
-
 @Slf4j
 @RestControllerAdvice
 public class ApiExceptionHandler {

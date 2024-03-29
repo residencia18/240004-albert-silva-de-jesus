@@ -8,5 +8,5 @@ import com.swproject.buyeverything.entities.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-  boolean existsByPerfilTipo(String perfilTipo);
+  boolean existsByRole(Usuario.Role role);
 }

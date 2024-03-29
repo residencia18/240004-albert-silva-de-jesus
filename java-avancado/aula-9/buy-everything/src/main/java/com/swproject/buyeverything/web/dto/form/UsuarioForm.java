@@ -3,7 +3,6 @@ package com.swproject.buyeverything.web.dto.form;
 import java.util.List;
 
 import com.swproject.buyeverything.entities.Employee;
-import com.swproject.buyeverything.entities.enums.PerfilTipo;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -28,17 +27,11 @@ public class UsuarioForm {
   @NotBlank
   @Size(min = 6, max = 6)
   private String password;
-  private String perfilTipo;
   private List<Employee> employees;
 
-  public PerfilTipo getPerfilTipo() {
-    return PerfilTipo.fromString(perfilTipo);
-  }
-
-  public void setPerfilTipo(PerfilTipo perfilTipo) {
-    if (perfilTipo != null) {
-      this.perfilTipo = perfilTipo.getCodigo();
-    }
+  public UsuarioForm(String username, String password) {
+    this.username = username;
+    this.password = password;
   }
 
 }

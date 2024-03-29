@@ -12,26 +12,28 @@ import com.swproject.buyeverything.web.dto.form.UsuarioForm;
 
 public class UsuarioMapper {
 
-  public static Usuario toUser(UsuarioForm createDto) {
+  public static Usuario toUsuario(UsuarioForm createDto) {
     return new ModelMapper().map(createDto, Usuario.class);
 
   }
 
-  public static UsuarioResponseDto toDto(Usuario user) {
+  public static UsuarioResponseDto toDto(Usuario usuario) {
+    String role = usuario.getRole().name().substring("ROLE_".length());
+
     PropertyMap<Usuario, UsuarioResponseDto> props = new PropertyMap<Usuario, UsuarioResponseDto>() {
       @Override
       protected void configure() {
         map().setId(source.getId());
         map().setUsername(source.getUsername());
-        map().setPerfilTipo(source.getPerfilTipo());
+        map().setRole(role);
       }
     };
     ModelMapper mapper = new ModelMapper();
     mapper.addMappings(props);
-    return mapper.map(user, UsuarioResponseDto.class);
+    return mapper.map(usuario, UsuarioResponseDto.class);
   }
 
-  public static List<UsuarioResponseDto> toListDto(List<Usuario> users) {
-    return users.stream().map(user -> toDto(user)).collect(Collectors.toList());
+  public static List<UsuarioResponseDto> toListDto(List<Usuario> usuarios) {
+    return usuarios.stream().map(user -> toDto(user)).collect(Collectors.toList());
   }
 }

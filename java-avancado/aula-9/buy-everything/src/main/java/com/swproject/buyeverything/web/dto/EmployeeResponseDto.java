@@ -9,11 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class EmployeeResponseDto {
 
   private Long id;
@@ -23,7 +25,7 @@ public class EmployeeResponseDto {
   private UsuarioResponseDto usuario;
 
   public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario) {
-    setId(id);
+    setId(employee.getId());
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();
     this.usuario = usuario;
