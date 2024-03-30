@@ -34,4 +34,5 @@ public class ProductResponseDto {
     this.imgUrl = product.getImgUrl();
     this.categories = product.getCategories();
   }
+
 }

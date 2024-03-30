@@ -1,9 +1,6 @@
 package com.swproject.buyeverything.web.dto;
 
-import java.util.Set;
-
 import com.swproject.buyeverything.entities.Category;
-import com.swproject.buyeverything.entities.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,11 +17,9 @@ public class CategoryResponseDto {
 
   private Long id;
   private String name;
-  private Set<Product> products;
 
-  public CategoryResponseDto(String name, Category category, Set<Product> products) {
+  public CategoryResponseDto(String name, Category category) {
     setId(category.getId());
     this.name = category.getName();
-    this.products = category.getProducts();
   }
 }

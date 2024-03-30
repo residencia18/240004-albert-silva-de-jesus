@@ -1,11 +1,15 @@
 package com.swproject.buyeverything.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swproject.buyeverything.entities.Product;
+import com.swproject.buyeverything.exception.EntityNotFoundException;
 import com.swproject.buyeverything.repositories.ProductRepository;
 
 @Service
@@ -22,6 +26,17 @@ public class ProductService {
     }
 
     return productRepository.save(product);
+  }
+
+  @Transactional(readOnly = true)
+  public Product findById(@NonNull Long id) {
+    return productRepository.findById(id).orElseThrow(
+        () -> new EntityNotFoundException(String.format("Product id=%s não encontrado", id)));
+  }
+
+  @Transactional(readOnly = true)
+  public List<Product> findAll() {
+    return productRepository.findAll();
   }
 
 }

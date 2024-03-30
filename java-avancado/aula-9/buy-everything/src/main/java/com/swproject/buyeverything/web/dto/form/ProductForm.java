@@ -1,6 +1,5 @@
 package com.swproject.buyeverything.web.dto.form;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import com.swproject.buyeverything.entities.Category;
@@ -34,5 +33,5 @@ public class ProductForm {
 
     private String imgUrl;
 
-    private Set<Category> categories = new HashSet<>();
+    private Set<Category> categories;
 }

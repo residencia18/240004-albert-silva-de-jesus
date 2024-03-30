@@ -23,7 +23,6 @@ public class CategoryMapper {
       protected void configure() {
         map().setId(source.getId());
         map().setName(source.getName());
-        map().setProducts(source.getProducts());
       }
     };
     ModelMapper mapper = new ModelMapper();

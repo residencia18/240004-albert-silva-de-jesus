@@ -31,7 +31,7 @@ public class CategoryService {
   @Transactional(readOnly = true)
   public Category findById(@NonNull Long id) {
     return categoryRepository.findById(id).orElseThrow(
-        () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
+        () -> new EntityNotFoundException(String.format("Category id=%s não encontrado", id)));
   }
 
   @Transactional(readOnly = true)
