@@ -3,8 +3,6 @@ package com.swproject.buyeverything.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -84,7 +82,7 @@ public class EmployeeServiceTest {
     employeeForm.setBirthDate(updatedEmployee.getBirthDate());
 
     Employee result = employeeService.update(employee.getId(), employeeForm);
- 
+
     // Assert
     assertNotNull(result, "O funcionário atualizado não deve ser nulo");
     assertEquals(updatedEmployee.getName(), result.getName(),
