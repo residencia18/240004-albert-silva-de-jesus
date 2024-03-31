@@ -3,7 +3,6 @@ package com.swproject.buyeverything.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Mockito.verify;
 
 import java.util.Locale;
 
@@ -56,7 +55,7 @@ public class CategoryServiceTest {
 
     // verifica as propriedades do funcionario retornado para assegurar que elas
     // correspondem ao esperado
-    assertNotNull(savedCategory, "A categoria salvo não deve ser nulo");
+    assertNotNull(savedCategory, "A categoria salva não deve ser nulo");
     assertEquals(category.getName(), savedCategory.getName(), "O nome da categoria não corresponde ao esperado");
 
   }

@@ -63,6 +63,7 @@ public class TestConfig implements CommandLineRunner {
       product.setName(faker.commerce().productName());
       product.setDescription(faker.commerce().material());
       product.setPrice(faker.number().randomDouble(2, 10, 1000));
+      product.setImgUrl(faker.internet().image());
 
       // Atribuindo a categoria ao produto e salvando o produto
       product.getCategories().add(category);
