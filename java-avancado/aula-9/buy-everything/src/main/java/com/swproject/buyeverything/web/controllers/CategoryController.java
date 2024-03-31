@@ -25,7 +25,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Categorys", description = "Contém todas as operações aos recursos para cadastro, edição e leitura de um categoria.")
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/categorys")
 public class CategoryController {

@@ -26,7 +26,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 
+@Tag(name = "Products", description = "Contém todas as operações aos recursos para cadastro, edição e leitura de um produto.")
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
