@@ -24,6 +24,7 @@ import com.swproject.buyeverything.web.dto.mapper.EmployeeMapper;
 import com.swproject.buyeverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -46,17 +47,16 @@ public class EmployeeController {
   @PostMapping
   public ResponseEntity<EmployeeResponseDto> create(@RequestBody EmployeeForm createDto) {
 
-    Long userId = createDto.getUsuarioId();
+    Long usuarioId = createDto.getUsuarioId();
 
-    if (userId == null) {
+    if (usuarioId == null) {
       throw new IllegalArgumentException("O parâmetro 'usuarioId' não pode ser nulo.");
     }
 
-    Usuario usuario = usuarioService.findById(userId);
+    Usuario usuario = usuarioService.findById(usuarioId);
     Employee employee = employeeService.save(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));
-
   }
 
   @Operation(summary = "Recuperar um funcionário pelo id", description = "Recurso para recuperar um funcionário pelo id.", responses = {
@@ -69,6 +69,9 @@ public class EmployeeController {
     return ResponseEntity.ok(EmployeeMapper.toDto(employee));
   }
 
+  @Operation(summary = "Listar todos os funcionários", description = "Listar todos os funcionários cadastrados", responses = {
+      @ApiResponse(responseCode = "200", description = "Lista com todos os funcionarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EmployeeResponseDto.class))))
+  })
   @GetMapping("/")
   public ResponseEntity<List<EmployeeResponseDto>> getAll() {
     List<EmployeeResponseDto> employees = EmployeeMapper.toListDto(employeeService.findAll());

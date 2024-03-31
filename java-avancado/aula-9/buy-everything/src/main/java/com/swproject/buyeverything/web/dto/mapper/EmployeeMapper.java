@@ -9,14 +9,13 @@ import org.modelmapper.PropertyMap;
 import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.entities.Usuario;
 import com.swproject.buyeverything.web.dto.EmployeeResponseDto;
-import com.swproject.buyeverything.web.dto.UsuarioResponseDto;
 import com.swproject.buyeverything.web.dto.form.EmployeeForm;
 
 public class EmployeeMapper {
 
   public static Employee toEmployee(EmployeeForm createDto, Usuario usuario) {
     return new ModelMapper()
-        .map(new Employee(createDto.getName(), createDto.getCpf(), createDto.getBirthDate(), usuario), Employee.class);
+        .map(new EmployeeForm(createDto, usuario), Employee.class);
   }
 
   public static EmployeeResponseDto toDto(Employee employee) {

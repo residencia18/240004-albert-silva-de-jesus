@@ -2,6 +2,7 @@ package com.swproject.buyeverything.web.dto;
 
 import java.time.Instant;
 
+import com.swproject.buyeverything.entities.AbstractEntity;
 import com.swproject.buyeverything.entities.Employee;
 
 import jakarta.persistence.Column;
@@ -16,9 +17,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class EmployeeResponseDto {
+public class EmployeeResponseDto extends AbstractEntity {
 
-  private Long id;
   private String name;
   @Column(unique = true)
   private Instant birthDate;

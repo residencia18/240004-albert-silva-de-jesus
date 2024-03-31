@@ -12,7 +12,6 @@ import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.exception.EntityNotFoundException;
 import com.swproject.buyeverything.repositories.EmployeeRepository;
 
-
 @Service
 public class EmployeeService {
 
@@ -22,7 +21,7 @@ public class EmployeeService {
   public Employee save(@Nullable Employee employee) {
 
     if (employee == null) {
-      throw new IllegalArgumentException("O parâmetro 'user' não pode ser nulo.");
+      throw new IllegalArgumentException("O parâmetro 'employee' não pode ser nulo.");
     }
     return employeeRepository.save(employee);
   }
@@ -30,11 +29,19 @@ public class EmployeeService {
   @Transactional(readOnly = true)
   public Employee findById(@NonNull Long id) {
     return employeeRepository.findById(id).orElseThrow(
-        () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
+        () -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id)));
   }
 
   @Transactional(readOnly = true)
   public List<Employee> findAll() {
     return employeeRepository.findAll();
+  }
+
+  public Boolean isExisteId(@NonNull Long id) {
+    if (employeeRepository.existsById(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
