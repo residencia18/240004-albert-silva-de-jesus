@@ -9,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -76,5 +77,16 @@ public class EmployeeController {
   public ResponseEntity<List<EmployeeResponseDto>> getAll() {
     List<EmployeeResponseDto> employees = EmployeeMapper.toListDto(employeeService.findAll());
     return ResponseEntity.ok().body(employees);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<EmployeeResponseDto> update(@PathVariable @NonNull Long id,
+      @RequestBody EmployeeForm createDto) {
+    try {
+      return ResponseEntity.ok(EmployeeMapper.toDto(employeeService.update(id, createDto)));
+
+    } catch (Exception e) {
+      return ResponseEntity.notFound().build();
+    }
   }
 }

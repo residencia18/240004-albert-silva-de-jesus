@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.exception.EntityNotFoundException;
 import com.swproject.buyeverything.repositories.EmployeeRepository;
+import com.swproject.buyeverything.web.dto.form.EmployeeForm;
 
 @Service
 public class EmployeeService {
@@ -35,6 +36,18 @@ public class EmployeeService {
   @Transactional(readOnly = true)
   public List<Employee> findAll() {
     return employeeRepository.findAll();
+  }
+
+  public Employee update(@NonNull Long id, EmployeeForm employeeForm) {
+    Employee obj = findById(id);
+    obj.setName(employeeForm.getName());
+    obj.setCpf(employeeForm.getCpf());
+    obj.setBirthDate(employeeForm.getBirthDate());
+    return employeeRepository.save(obj);
+  }
+
+  public void delete(@NonNull Long id) {
+    employeeRepository.deleteById(id);
   }
 
   public Boolean isExisteId(@NonNull Long id) {
