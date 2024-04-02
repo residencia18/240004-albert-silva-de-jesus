@@ -1,6 +1,7 @@
 package com.residenciatic18.apileilao.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.residenciatic18.apileilao.entities.Leilao;
 import com.residenciatic18.apileilao.web.dto.LeilaoResponseDto;
@@ -8,7 +9,7 @@ import com.residenciatic18.apileilao.web.dto.form.LeilaoForm;
 
 public interface LeilaoService {
 
-  List<LeilaoResponseDto> buscarTodos(Long id);
+  List<LeilaoResponseDto> findById(Long id);
 
   List<Leilao> findAll();
 
@@ -21,4 +22,6 @@ public interface LeilaoService {
   void delete(Long id);
 
   Boolean isExisteId(Long id);
+
+  Optional<Leilao> vencedorDoLeilaoPorId(Long leilaoId);
 }

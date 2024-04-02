@@ -1,20 +1,22 @@
 package com.residenciatic18.apileilao.web.dto.form;
 
-import com.residenciatic18.apileilao.enums.LeilaoStatus;
+import com.residenciatic18.apileilao.entities.enums.LeilaoStatus;
 
 import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class LeilaoForm {
 
   private String descricrao;
   private Double valorMinimo;
-  private Integer leilaoStatus;
+  private String leilaoStatus;
 
   public LeilaoStatus getLeilaoStatus() {
-    return LeilaoStatus.valueOf(leilaoStatus);
+    return LeilaoStatus.fromString(leilaoStatus);
   }
 
   public void setLeilaoStatus(LeilaoStatus leilaoStatus) {

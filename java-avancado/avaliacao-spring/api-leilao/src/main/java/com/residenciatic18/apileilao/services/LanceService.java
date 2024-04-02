@@ -8,8 +8,6 @@ import com.residenciatic18.apileilao.web.dto.form.LanceForm;
 
 public interface LanceService {
 
-  Lance salvar(Lance lance);
-  
   List<LanceResponseDto> findById(Long id);
 
   List<Lance> findAll();
@@ -18,6 +16,8 @@ public interface LanceService {
 
   List<LanceResponseDto> getByConcorrenteId(Long id);
 
+  Lance salvar(Lance lance);
+
   Lance buscarPorId(Long id);
 
   Lance update(Long id, LanceForm leilaoForm);
@@ -25,4 +25,7 @@ public interface LanceService {
   void delete(Long id);
 
   Boolean isExisteId(Long id);
+
+  Lance findMaiorLancePorLeilaoId(Long leilaoId);
+
 }

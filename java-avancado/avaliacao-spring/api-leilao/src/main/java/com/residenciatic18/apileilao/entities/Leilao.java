@@ -3,8 +3,7 @@ package com.residenciatic18.apileilao.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.residenciatic18.apileilao.enums.LeilaoStatus;
+import com.residenciatic18.apileilao.entities.enums.LeilaoStatus;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -20,9 +19,8 @@ public class Leilao extends AbstractEntity {
 
   private String descricrao;
   private Double valorMinimo;
-  private Integer leilaoStatus;
+  private String leilaoStatus;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "leilao")
   private List<Lance> lances = new ArrayList<>();
 
@@ -37,7 +35,7 @@ public class Leilao extends AbstractEntity {
   }
 
   public LeilaoStatus getLeilaoStatus() {
-    return LeilaoStatus.valueOf(leilaoStatus);
+    return LeilaoStatus.fromString(leilaoStatus);
   }
 
   public void setLeilaoStatus(LeilaoStatus leilaoStatus) {
