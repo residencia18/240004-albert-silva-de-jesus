@@ -1,6 +1,6 @@
 <h1 align="center">ResidenciaTic18</h1>
 
-Bem-vindo à residência de software! Este repositório contém os materiais e atividades para a trilha de aprendizado avançado em Java.
+Este repositório contém os materiais e atividades para a trilha de aprendizado avançado em Java.
 
 ## Organização das Trilhas
 
@@ -23,5 +23,3 @@ As branches do repositório são referentes a cada disciplina da trilha. Atualme
 ## Atualizações
 
 Este README.md estará em constante atualização para refletir quaisquer alterações ou adições nos materiais ou na estrutura da residência de software.
-
-Fique à vontade para explorar os materiais disponíveis e participar ativamente das atividades propostas!
