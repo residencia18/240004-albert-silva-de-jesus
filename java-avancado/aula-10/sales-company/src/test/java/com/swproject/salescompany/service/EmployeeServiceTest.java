@@ -3,9 +3,14 @@ package com.swproject.salescompany.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import com.github.javafaker.Faker;
 import com.swproject.salescompany.entities.Employee;
@@ -29,51 +35,112 @@ public class EmployeeServiceTest {
   @InjectMocks
   private EmployeeService employeeService;
 
-  private Employee employee;
   private Faker faker;
 
   @BeforeEach
   void setUp() {
-    faker = new Faker(new Locale("en-US"));
-    // Gerando dados fictícios com o FAKER
-    employee = new Employee();
-    employee.setId(1L); // Garantindo um ID para os testes de update
+    faker = new Faker();
+  }
+
+  private Employee generateFakeEmployee() {
+    Employee employee = new Employee();
+    employee.setId(faker.number().randomNumber());
     employee.setName(faker.name().fullName());
-    employee.setCpf(faker.idNumber().valid());
-    employee.setBirthDate(faker.date().birthday().toInstant());
+    employee.setActive(faker.bool().bool());
+    employee.setStartDate(faker.date().past(365 * 2, TimeUnit.DAYS));
+    employee.setExperienceYears(faker.number().numberBetween(1, 20));
+    return employee;
   }
 
   @Test
-  void testCreateFakeEmployee() {
-    // Configura o Mockito para retornar o mesmo funcionario quando o repositório
-    // salvar qualquer funcionario
-    given(employeeRepository.save(any(Employee.class))).willReturn(employee);
+  void createEmployee_WithValidData_ReturnsEmployee() {
+    Employee fakeEmployee = generateFakeEmployee();
+    fakeEmployee.setActive(true); // nesse caso queremos um funcionário ativo
+    given(employeeRepository.save(any(Employee.class))).willReturn(fakeEmployee);
 
-    // Ação:
-    Employee savedEmployee = employeeService.save(employee);
+    Employee savedEmployee = employeeService.save(fakeEmployee);
 
-    // Assert
-    // Verifica se o método save do repositório foi chamado
+    assertNotNull(savedEmployee);
+    assertEquals(fakeEmployee.getName(), savedEmployee.getName());
+    assertTrue(savedEmployee.isActive());
     verify(employeeRepository).save(any(Employee.class));
-
-    // verifica as propriedades do funcionario retornado para assegurar que elas
-    // correspondem ao esperado
-    assertNotNull(savedEmployee, "O funcionario salvo não deve ser nulo");
-    assertEquals(employee.getName(), savedEmployee.getName(), "O nome do funcionario não corresponde ao esperado");
-    assertEquals(employee.getCpf(), savedEmployee.getCpf(), "O CPF do funcionario não corresponde ao esperado");
-    assertEquals(employee.getBirthDate(), savedEmployee.getBirthDate(),
-        "A data de nascimento do funcionario não corresponde ao esperado");
   }
+
+  @Test
+  void createEmployee_WithNameAlreadyExists_ThrowsDataIntegrityViolationException() {
+    // Simula a criação de um Employee
+    Employee fakeEmployee = generateFakeEmployee();
+
+    // Configura o repositório para lançar uma exceção específica quando tentarmos
+    // salvar um Employee,
+    // simulando uma violação da restrição de unicidade do campo "name".
+    willThrow(DataIntegrityViolationException.class).given(employeeRepository)
+        .save(argThat(newEmployee -> newEmployee.getName().equals(fakeEmployee.getName())));
+
+    // Tenta criar o Employee, esperando que a exceção seja lançada devido à
+    // violação da unicidade do nome.
+    assertThrows(DataIntegrityViolationException.class, () -> employeeService.save(fakeEmployee));
+
+    // Verifica se o método save foi de fato chamado, indicando que a tentativa de
+    // salvar o Employee foi realizada.
+    then(employeeRepository).should().save(any(Employee.class));
+  }
+
+  @Test
+  void findEmployeeById_WithExistingId_ReturnsEmployee() {
+    Employee fakeEmployee = generateFakeEmployee();
+    given(employeeRepository.findById(fakeEmployee.getId())).willReturn(Optional.of(fakeEmployee));
+
+    Optional<Employee> foundEmployee = employeeService.findById(fakeEmployee.getId());
+
+    assertTrue(foundEmployee.isPresent());
+    assertEquals(fakeEmployee.getId(), foundEmployee.get().getId());
+    verify(employeeRepository).findById(fakeEmployee.getId());
+  }
+
+  @Test
+  void findEmployeeById_WithUnexistingId_ReturnsEmpty() {
+    Long fakeId = faker.number().randomNumber();
+    given(employeeRepository.findById(fakeId)).willReturn(Optional.empty());
+
+    Optional<Employee> result = employeeService.findById(fakeId);
+
+    assertFalse(result.isPresent());
+    verify(employeeRepository).findById(fakeId);
+  }
+
+  // @Test
+  // void findEmployeeByName_WithExistingName_ReturnsEmployee() {
+  // Employee fakeEmployee = generateFakeEmployee();
+  // given(employeeRepository.findByName(fakeEmployee.getName())).willReturn(Optional.of(fakeEmployee));
+
+  // Optional<Employee> result =
+  // employeeService.findByName(fakeEmployee.getName());
+
+  // assertTrue(result.isPresent());
+  // assertEquals(fakeEmployee.getName(), result.get().getName());
+  // verify(employeeRepository).findByName(fakeEmployee.getName());
+  // }
+
+  // @Test
+  // void findEmployeeByName_WithUnexistingName_ReturnsEmpty() {
+  // String fakeName = faker.name().fullName();
+  // given(employeeRepository.findByName(fakeName)).willReturn(Optional.empty());
+
+  // Optional<Employee> result = employeeService.findByName(fakeName);
+
+  // assertFalse(result.isPresent());
+  // verify(employeeRepository).findByName(fakeName);
+  // }
 
   @Test
   void shouldUpdateEmployeeSuccessfully() {
-    Employee updatedEmployee = new Employee();
-    updatedEmployee.setName("Jane Doe");
-    updatedEmployee.setCpf("123.456.789-00");
-    updatedEmployee.setBirthDate(faker.date().birthday().toInstant());
+    Employee originalEmployee = generateFakeEmployee();
+
+    Employee updatedEmployee = generateFakeEmployee();
 
     // Assert
-    when(employeeRepository.findById(employee.getId())).thenReturn(Optional.of(employee));
+    when(employeeRepository.findById(originalEmployee.getId())).thenReturn(Optional.of(originalEmployee));
     when(employeeRepository.save(any(Employee.class))).thenReturn(updatedEmployee);
 
     EmployeeForm employeeForm = new EmployeeForm();
@@ -81,19 +148,42 @@ public class EmployeeServiceTest {
     employeeForm.setCpf(updatedEmployee.getCpf());
     employeeForm.setBirthDate(updatedEmployee.getBirthDate());
 
-    Employee result = employeeService.update(employee.getId(), employeeForm);
+    Optional<Employee> result = employeeService.update(originalEmployee.getId(), employeeForm);
 
-    // Assert
-    assertNotNull(result, "O funcionário atualizado não deve ser nulo");
-    assertEquals(updatedEmployee.getName(), result.getName(),
-        "O nome do funcionário atualizado não corresponde ao esperado");
-    assertEquals(updatedEmployee.getCpf(), result.getCpf(),
-        "O CPF do funcionário atualizado não corresponde ao esperado");
-    assertEquals(updatedEmployee.getBirthDate(), result.getBirthDate(),
-        "A data de nascimento do funcionário atualizado não corresponde ao esperado");
-
-    verify(employeeRepository).findById(employee.getId());
+    assertTrue(result.isPresent());
+    assertEquals(updatedEmployee.getName(), result.get().getName());
+    assertEquals(updatedEmployee.isActive(), result.get().isActive());
+    verify(employeeRepository).findById(originalEmployee.getId());
     verify(employeeRepository).save(any(Employee.class));
   }
 
+  @Test
+  void listAllEmployees_ReturnsAllEmployees() {
+    List<Employee> employees = Collections.singletonList(generateFakeEmployee());
+    given(employeeRepository.findAll()).willReturn(employees);
+
+    List<Employee> foundEmployees = employeeService.findAll();
+
+    assertFalse(foundEmployees.isEmpty());
+    assertEquals(1, foundEmployees.size());
+    verify(employeeRepository).findAll();
+  }
+
+  @Test
+  void deleteEmployee_WithExistingId_DoesNotThrowAnyException() {
+    Long employeeId = faker.number().randomNumber();
+    willDoNothing().given(employeeRepository).deleteById(employeeId);
+
+    assertDoesNotThrow(() -> employeeService.delete(employeeId));
+    verify(employeeRepository).deleteById(employeeId);
+  }
+
+  @Test
+  void deleteEmployee_WithUnexistingId_ThrowsException() {
+    Long fakeId = faker.number().randomNumber();
+    willThrow(new RuntimeException("Employee not found")).given(employeeRepository).deleteById(fakeId);
+
+    assertThrows(RuntimeException.class, () -> employeeService.delete(fakeId), "Employee not found");
+    verify(employeeRepository).deleteById(fakeId);
+  }
 }

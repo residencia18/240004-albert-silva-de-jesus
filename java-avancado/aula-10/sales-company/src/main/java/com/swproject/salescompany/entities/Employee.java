@@ -1,6 +1,7 @@
 package com.swproject.salescompany.entities;
 
 import java.time.Instant;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -13,6 +14,9 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,11 +30,23 @@ import lombok.Setter;
 @Table(name = "tb_employee")
 public class Employee extends AbstractEntity {
 
+  @NotEmpty(message = "O campo nome é obrigatório")
   private String name;
+
   @Column(unique = true)
   private String cpf;
+
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
   private Instant birthDate;
+
+  @Column(nullable = false)
+  private boolean isActive;
+
+  @Temporal(TemporalType.DATE)
+  private Date startDate; // data de início do empregado
+
+  @Column(nullable = false)
+  private Integer experienceYears; // anos de experiência
 
   @ManyToOne
   @JoinColumn(name = "usuario_id")

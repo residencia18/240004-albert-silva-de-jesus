@@ -1,6 +1,7 @@
 package com.swproject.salescompany.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -27,10 +28,15 @@ public class EmployeeService {
     return employeeRepository.save(employee);
   }
 
+  // @Transactional(readOnly = true)
+  // public Employee findById(@NonNull Long id) {
+  //   return employeeRepository.findById(id).orElseThrow(
+  //       () -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id)));
+  // }
+
   @Transactional(readOnly = true)
-  public Employee findById(@NonNull Long id) {
-    return employeeRepository.findById(id).orElseThrow(
-        () -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id)));
+  public Optional<Employee> findById(@NonNull Long id) {
+    return employeeRepository.findById(id);
   }
 
   @Transactional(readOnly = true)
@@ -38,12 +44,21 @@ public class EmployeeService {
     return employeeRepository.findAll();
   }
 
-  public Employee update(@NonNull Long id, EmployeeForm employeeForm) {
-    Employee obj = findById(id);
-    obj.setName(employeeForm.getName());
-    obj.setCpf(employeeForm.getCpf());
-    obj.setBirthDate(employeeForm.getBirthDate());
-    return employeeRepository.save(obj);
+  // public Employee update(@NonNull Long id, EmployeeForm employeeForm) {
+  // Employee obj = findById(id);
+  // obj.setName(employeeForm.getName());
+  // obj.setCpf(employeeForm.getCpf());
+  // obj.setBirthDate(employeeForm.getBirthDate());
+  // return employeeRepository.save(obj);
+  // }
+
+  public Optional<Employee> update(@NonNull Long id, EmployeeForm employeeForm) {
+    return findById(id).map(employee -> {
+      employee.setName(employeeForm.getName());
+      employee.setCpf(employeeForm.getCpf());
+      employee.setBirthDate(employeeForm.getBirthDate());
+      return employeeRepository.save(employee);
+    });
   }
 
   public void delete(@NonNull Long id) {

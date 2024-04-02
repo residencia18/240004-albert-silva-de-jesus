@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.swprojects.tutorial_web_services.entities.User;
@@ -26,14 +27,12 @@ public class UserService {
     return userRepository.findAll();
   }
 
-  public User findById(Long id) {
-    @SuppressWarnings("null")
+  public User findById(@NonNull Long id) {
     Optional<User> obj = userRepository.findById(id);
     return obj.orElseThrow(() -> new ResourceNotFoundException(id));
   }
 
-  @SuppressWarnings("null")
-  public User insert(User obj) {
+  public User insert(@NonNull User obj) {
     return userRepository.save(obj);
   }
 
@@ -49,9 +48,8 @@ public class UserService {
    * DatabaseException(e.getMessage()); } }
    */
 
-  @SuppressWarnings("null")
   @Transactional
-  public void delete(Long id) {
+  public void delete(@NonNull Long id) {
     if (!userRepository.existsById(id)) {
       throw new ResourceNotFoundException(id);
     }
@@ -66,9 +64,8 @@ public class UserService {
     }
   }
 
-  public User update(Long id, User obj) {
+  public User update(@NonNull Long id, User obj) {
     try {
-      @SuppressWarnings("null")
       User entity = userRepository.getReferenceById(id);
       updateData(entity, obj);
       return userRepository.save(entity);

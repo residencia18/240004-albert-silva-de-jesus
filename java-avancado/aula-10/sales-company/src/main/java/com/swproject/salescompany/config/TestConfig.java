@@ -104,6 +104,9 @@ public class TestConfig implements CommandLineRunner {
       employee.setName(faker.name().fullName());
       employee.setCpf(cpfFormatado);
       employee.setBirthDate(randomBirthDate);
+      employee.setActive(true);
+      employee.setStartDate(faker.date().birthday());
+      employee.setExperienceYears(faker.number().numberBetween(1, 10));
 
       // Atribuindo o usuário ao funcionário e salvando o funcionário no banco de
       // dados
