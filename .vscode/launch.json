@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "SalesCompanyApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.salescompany.SalesCompanyApplication",
+      "projectName": "sales-company"
+    },
+    {
+      "type": "java",
+      "name": "TutorialWebServicesApplication",
+      "request": "launch",
+      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
+      "projectName": "com.webservices-tutorial_web_services"
+    },
+    {
+      "type": "java",
+      "name": "BuyEverythingApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.buyeverything.BuyEverythingApplication",
+      "projectName": "com.swproject-buy-everything"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiLeilaoApplication<com.residenciatic18-api-leilao>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
+      "projectName": "com.residenciatic18-api-leilao",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
