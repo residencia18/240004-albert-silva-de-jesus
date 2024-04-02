@@ -44,7 +44,7 @@ public class EmployeeServiceTest {
 
   private Employee generateFakeEmployee() {
     Employee employee = new Employee();
-    employee.setId(faker.number().randomNumber());
+    employee.setId(1L);
     employee.setName(faker.name().fullName());
     employee.setIsActive(faker.bool().bool());
     employee.setStartDate(faker.date().past(365 * 2, TimeUnit.DAYS));

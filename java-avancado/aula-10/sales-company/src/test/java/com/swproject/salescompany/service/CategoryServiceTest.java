@@ -3,6 +3,7 @@ package com.swproject.salescompany.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.*;
+import static org.mockito.Mockito.verify;
 
 import java.util.Locale;
 
@@ -18,7 +19,6 @@ import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.repositories.CategoryRepository;
 import com.swproject.salescompany.services.CategoryService;
 
-
 @ExtendWith(MockitoExtension.class)
 public class CategoryServiceTest {
 
@@ -28,26 +28,30 @@ public class CategoryServiceTest {
   @InjectMocks
   private CategoryService categoryService;
 
-  private Category category;
   private Faker faker;
 
   @BeforeEach
   void setUp() {
-    faker = new Faker(new Locale("en-US"));
-    // Gerando dados fictícios com o FAKER
-    category = new Category();
+    faker = new Faker();
+  }
+
+  private Category generateFakeCategory() {
+    Category category = new Category();
     category.setId(1L); // Garantindo um ID para os testes de update
     category.setName(faker.name().fullName());
+    return category;
   }
 
   @Test
-  void testCreateFakeEmployee() {
+  void createCategory_WithValidData_ReturnsCategory() {
+
+    Category fakeCategory = generateFakeCategory();
     // Configura o Mockito para retornar o mesmo funcionario quando o repositório
     // salvar qualquer funcionario
-    given(categoryRepository.save(any(Category.class))).willReturn(category);
+    given(categoryRepository.save(any(Category.class))).willReturn(fakeCategory);
 
     // Ação:
-    Category savedCategory = categoryService.save(category);
+    Category savedCategory = categoryService.save(fakeCategory);
 
     // Assert
     // Verifica se o método save do repositório foi chamado
@@ -56,7 +60,7 @@ public class CategoryServiceTest {
     // verifica as propriedades do funcionario retornado para assegurar que elas
     // correspondem ao esperado
     assertNotNull(savedCategory, "A categoria salva não deve ser nulo");
-    assertEquals(category.getName(), savedCategory.getName(), "O nome da categoria não corresponde ao esperado");
+    assertEquals(fakeCategory.getName(), savedCategory.getName(), "O nome da categoria não corresponde ao esperado");
 
   }
 }
