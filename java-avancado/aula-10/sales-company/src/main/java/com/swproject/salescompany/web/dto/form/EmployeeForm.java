@@ -2,10 +2,12 @@ package com.swproject.salescompany.web.dto.form;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.Set;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.entities.Usuario;
 
 import jakarta.persistence.Column;
@@ -48,6 +50,8 @@ public class EmployeeForm {
 
     private Usuario usuario;
 
+    private Set<Product> productsSold;
+
     public EmployeeForm(EmployeeForm employeeForm, Usuario usuario) {
         this.name = employeeForm.getName();
         this.cpf = employeeForm.getCpf();
@@ -56,5 +60,6 @@ public class EmployeeForm {
         this.startDate = employeeForm.getStartDate();
         this.experienceYears = employeeForm.getExperienceYears();
         this.usuario = usuario;
+        this.productsSold = employeeForm.getProductsSold();
     }
 }
