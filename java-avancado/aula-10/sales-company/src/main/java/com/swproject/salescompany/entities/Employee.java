@@ -40,7 +40,7 @@ public class Employee extends AbstractEntity {
   private Instant birthDate;
 
   @Column(nullable = false)
-  private boolean isActive;
+  private Boolean isActive;
 
   @Temporal(TemporalType.DATE)
   private Date startDate; // data de início do empregado

@@ -46,7 +46,7 @@ public class EmployeeServiceTest {
     Employee employee = new Employee();
     employee.setId(faker.number().randomNumber());
     employee.setName(faker.name().fullName());
-    employee.setActive(faker.bool().bool());
+    employee.setIsActive(faker.bool().bool());
     employee.setStartDate(faker.date().past(365 * 2, TimeUnit.DAYS));
     employee.setExperienceYears(faker.number().numberBetween(1, 20));
     return employee;
@@ -55,14 +55,14 @@ public class EmployeeServiceTest {
   @Test
   void createEmployee_WithValidData_ReturnsEmployee() {
     Employee fakeEmployee = generateFakeEmployee();
-    fakeEmployee.setActive(true); // nesse caso queremos um funcionário ativo
+    fakeEmployee.setIsActive(true); // nesse caso queremos um funcionário ativo
     given(employeeRepository.save(any(Employee.class))).willReturn(fakeEmployee);
 
     Employee savedEmployee = employeeService.save(fakeEmployee);
 
     assertNotNull(savedEmployee);
     assertEquals(fakeEmployee.getName(), savedEmployee.getName());
-    assertTrue(savedEmployee.isActive());
+    assertTrue(savedEmployee.getIsActive());
     verify(employeeRepository).save(any(Employee.class));
   }
 
@@ -152,7 +152,7 @@ public class EmployeeServiceTest {
 
     assertTrue(result.isPresent());
     assertEquals(updatedEmployee.getName(), result.get().getName());
-    assertEquals(updatedEmployee.isActive(), result.get().isActive());
+    assertEquals(updatedEmployee.getIsActive(), result.get().getIsActive());
     verify(employeeRepository).findById(originalEmployee.getId());
     verify(employeeRepository).save(any(Employee.class));
   }

@@ -1,6 +1,7 @@
 package com.swproject.salescompany.web.dto.form;
 
 import java.time.Instant;
+import java.util.Date;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -8,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.swproject.salescompany.entities.Usuario;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -32,6 +35,15 @@ public class EmployeeForm {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant birthDate;
 
+    @Column(nullable = false)
+    private Boolean isActive;
+
+    @Temporal(TemporalType.DATE)
+    private Date startDate; // data de início do empregado
+
+    @Column(nullable = false)
+    private Integer experienceYears; // anos de experiência
+
     private Long usuarioId;
 
     private Usuario usuario;
@@ -40,6 +52,9 @@ public class EmployeeForm {
         this.name = employeeForm.getName();
         this.cpf = employeeForm.getCpf();
         this.birthDate = employeeForm.getBirthDate();
+        this.isActive = employeeForm.getIsActive();
+        this.startDate = employeeForm.getStartDate();
+        this.experienceYears = employeeForm.getExperienceYears();
         this.usuario = usuario;
     }
 }

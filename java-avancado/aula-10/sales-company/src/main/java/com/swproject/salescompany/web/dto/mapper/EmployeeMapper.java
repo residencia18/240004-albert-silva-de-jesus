@@ -25,6 +25,9 @@ public class EmployeeMapper {
         map().setId(source.getId());
         map().setName(source.getName());
         map().setBirthDate(source.getBirthDate());
+        map().setIsActive(source.getIsActive());
+        map().setStartDate(source.getStartDate());
+        map().setExperienceYears(source.getExperienceYears());
       }
     };
     ModelMapper mapper = new ModelMapper();
