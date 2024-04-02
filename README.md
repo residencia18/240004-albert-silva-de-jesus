@@ -26,4 +26,4 @@ As branches do repositório são referentes a cada disciplina da trilha. Atualme
 
 ## Atualizações
 
-Este README.md estará em constante atualização para refletir quaisquer alterações ou adições nos materiais ou na estrutura da residência de software.
+Este README.md estará em constante atualização para refletir quaisquer alterações ou adições nos materiais ou na estrutura do repository.
