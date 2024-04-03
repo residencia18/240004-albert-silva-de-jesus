@@ -1,0 +1,15 @@
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.csproj.AssemblyReference.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.AssemblyInfoInputs.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.AssemblyInfo.cs
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.csproj.CoreCompileInputs.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/bin/Debug/net7.0/Unicode
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/bin/Debug/net7.0/Unicode.deps.json
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/bin/Debug/net7.0/Unicode.runtimeconfig.json
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/bin/Debug/net7.0/Unicode.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/bin/Debug/net7.0/Unicode.pdb
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/refint/Unicode.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.pdb
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/Unicode.genruntimeconfig.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/Unicode/obj/Debug/net7.0/ref/Unicode.dll

@@ -1,0 +1,15 @@
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.csproj.AssemblyReference.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.AssemblyInfoInputs.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.AssemblyInfo.cs
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.csproj.CoreCompileInputs.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/bin/Debug/net7.0/NumeroAleatorio
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/bin/Debug/net7.0/NumeroAleatorio.deps.json
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/bin/Debug/net7.0/NumeroAleatorio.runtimeconfig.json
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/bin/Debug/net7.0/NumeroAleatorio.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/bin/Debug/net7.0/NumeroAleatorio.pdb
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/refint/NumeroAleatorio.dll
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.pdb
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/NumeroAleatorio.genruntimeconfig.cache
+/home/joao/CEPEDI/dotnet/DOTNET-BASICO/.net-Basico-CEPEDI/Semana4/NumeroAleatorio/obj/Debug/net7.0/ref/NumeroAleatorio.dll

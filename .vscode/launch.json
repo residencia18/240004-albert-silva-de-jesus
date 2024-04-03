@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SalesCompanyApplication",
+      "request": "launch",
+      "mainClass": "com.swproject.salescompany.SalesCompanyApplication",
+      "projectName": "sales-company"
+    },
+    {
+      "type": "java",
       "name": "TutorialWebServicesApplication",
       "request": "launch",
       "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
@@ -9,52 +16,18 @@
     },
     {
       "type": "java",
-      "name": "TradeInApplication",
+      "name": "BuyEverythingApplication",
       "request": "launch",
-      "mainClass": "com.swproject.tradein.TradeInApplication",
-      "projectName": "com.swproject-trade-in"
+      "mainClass": "com.swproject.buyeverything.BuyEverythingApplication",
+      "projectName": "com.swproject-buy-everything"
     },
     {
       "type": "java",
-      "name": "VendaGrocerApplication",
-      "request": "launch",
-      "mainClass": "com.swproject.vendagrocer.VendaGrocerApplication",
-      "projectName": "com.swproject-venda-grocer"
-    },
-    {
-      "type": "java",
-      "name": "SuperSaleApplication",
-      "request": "launch",
-      "mainClass": "com.swproject.supersale.SuperSaleApplication",
-      "projectName": "com.swproject-super-sale"
-    },
-    {
-      "type": "java",
-      "name": "SellGeniusApplication",
-      "request": "launch",
-      "mainClass": "com.swproject.sellgenius.SellGeniusApplication"
-    },
-    {
-      "type": "java",
-      "name": "CrudUserTestApplication",
-      "request": "launch",
-      "mainClass": "com.documentation.crud_user_test.CrudUserTestApplication",
-      "projectName": "com.documentation-crud_user_test"
-    },
-    {
-      "type": "java",
-      "name": "ApiLeilaoApplication",
-      "request": "launch",
-      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
-      "projectName": "com.residenciatic18-api-leilao"
-    },
-    {
-      "type": "java",
-      "name": "Spring Boot-ShopallApplication<shopall>",
+      "name": "Spring Boot-ApiLeilaoApplication<com.residenciatic18-api-leilao>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "mainClass": "com.swproject.shopall.ShopallApplication",
-      "projectName": "shopall",
+      "mainClass": "com.residenciatic18.apileilao.ApiLeilaoApplication",
+      "projectName": "com.residenciatic18-api-leilao",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }

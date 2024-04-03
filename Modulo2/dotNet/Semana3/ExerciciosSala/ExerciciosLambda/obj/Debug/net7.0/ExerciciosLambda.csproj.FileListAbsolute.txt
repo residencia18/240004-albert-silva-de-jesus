@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/bin/Debug/net7.0/ExerciciosLambda
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/bin/Debug/net7.0/ExerciciosLambda.deps.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/bin/Debug/net7.0/ExerciciosLambda.runtimeconfig.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/bin/Debug/net7.0/ExerciciosLambda.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/bin/Debug/net7.0/ExerciciosLambda.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.AssemblyInfo.cs
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/refint/ExerciciosLambda.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ExerciciosLambda.genruntimeconfig.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/ExerciciosLambda/obj/Debug/net7.0/ref/ExerciciosLambda.dll

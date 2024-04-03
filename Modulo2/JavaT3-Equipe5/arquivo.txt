@@ -1,0 +1,71 @@
+commit a4fb084be6108ba8fd071ded5f93f0308911992a
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 21:49:00 2023 -0300
+
+    Construtor, SetUltimaLeitura e Método Cadastrar Alterados
+
+commit 6f56305ce0732047da9ff40c8a92c949b16a6a27
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 20:32:42 2023 -0300
+
+    Atualização do Menu Imovel
+
+commit 5ba0fe10e08297b89ef9c0e9e52540c4ea953aa3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 20:25:57 2023 -0300
+
+    Retirei o Acento da Acinatura do Método
+
+commit f18fce0ac42f4fe951aca11406a08e054c68bdf6
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 20:16:22 2023 -0300
+
+    Alteração de LocalDate para Int e Método obterInteiroValido(String prompt) Acresentado
+
+commit 107b90fe2d1c137c86222a4d96d0fede2bd0f112
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 12:00:37 2023 -0300
+
+    Crud de Imoveis Finalizado
+
+commit 1429f21dce3fab0f18bcc8ed111c0d135b9e3345
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 10:27:08 2023 -0300
+
+    Cadastrando e Listando Imoveis
+
+commit 9ce6e7066ba081e38e011c1377a4cde9f2ec2841
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Wed Dec 6 09:25:48 2023 -0300
+
+    Mudança de nomenclatura de Package
+
+commit f26d329de5c06164e63e9e3b44319112609f142b
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 23:24:39 2023 -0300
+
+    Escopo do Projeto Pronto, Aguardando Equipe com Feedback
+
+commit 61605f13a2cafd02861ce3561fd98fd0dd4f16a9
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 23:21:03 2023 -0300
+
+    Crud de Cliente sem Validações
+
+commit d999444e06388343ec1461a5bee528b16b28169e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 20:57:09 2023 -0300
+
+    Primeira Versão do Escopo
+
+commit 0b47e6b797cc6372a98b265a69864ae797cb095e
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 20:53:58 2023 -0300
+
+    Primeira Versão do Readme.md
+
+commit 5b05b242ab932669c9da808ee6f13e1c2b3b3c4c
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Tue Dec 5 20:50:43 2023 -0300
+
+    Readme.md

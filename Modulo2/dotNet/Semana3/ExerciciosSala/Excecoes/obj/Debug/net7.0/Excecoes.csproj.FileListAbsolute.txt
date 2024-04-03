@@ -1,0 +1,15 @@
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.csproj.AssemblyReference.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.AssemblyInfoInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.AssemblyInfo.cs
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.csproj.CoreCompileInputs.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/bin/Debug/net7.0/Excecoes
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/bin/Debug/net7.0/Excecoes.deps.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/bin/Debug/net7.0/Excecoes.runtimeconfig.json
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/bin/Debug/net7.0/Excecoes.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/bin/Debug/net7.0/Excecoes.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/refint/Excecoes.dll
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.pdb
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/Excecoes.genruntimeconfig.cache
+/home/joao-vitor-ramos/dot/.net-Basico-CEPEDI/Semana3/ExerciciosSala/Excecoes/obj/Debug/net7.0/ref/Excecoes.dll

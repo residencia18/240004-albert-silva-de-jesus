@@ -1,2 +1,8 @@
+### Arquivo do Angular ###  
 node_modules
-vscode
+
+### Arquivo de Log ###
+myapp.log
+
+### VS Code ###
+.vscode/

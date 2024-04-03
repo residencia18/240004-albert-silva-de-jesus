@@ -1,0 +1,11 @@
+commit ed654983c942b6148bf2fa1caee9e3b2531b5355
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Fri Sep 1 21:22:31 2023 -0300
+
+    Albert Start
+
+commit 6c73c3f165e52adbb65a9b8c6177407f49b34d4b
+Author: João Ramos <jvitorsb98@outlook.com>
+Date:   Thu Aug 31 15:24:48 2023 -0300
+
+    primeiro commit

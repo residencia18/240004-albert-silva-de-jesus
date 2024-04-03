@@ -2,6 +2,7 @@ package com.residenciatic18.apileilao.services;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,7 @@ public class LeilaoServiceImpl implements LeilaoService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<LeilaoResponseDto> buscarTodos(Long id) {
+  public List<LeilaoResponseDto> findById(Long id) {
 
     if (id == null) {
       return LeilaoMapper.toListDto(leilaoRepository.findAll());
@@ -80,6 +81,12 @@ public class LeilaoServiceImpl implements LeilaoService {
     leilao.setValorMinimo(leilaoForm.getValorMinimo());
     leilao.setLeilaoStatus(leilaoForm.getLeilaoStatus());
     return salvar(leilao);
+  }
+
+  @Override
+  public Optional<Leilao> vencedorDoLeilaoPorId(Long leilaoId) {
+
+    return leilaoRepository.findLeilaoWithMaiorLanceAndConcorrenteById(leilaoId);
   }
 
 }

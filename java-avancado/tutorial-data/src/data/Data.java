@@ -61,7 +61,7 @@ public class Data {
       opcao = scan.nextInt();
 
       if (opcao > 5 || opcao < 0) {
-        System.out.println("\n\tOps, opção inválida");
+        System.out.println("\n\tOps, opção inválida!");
         pausar(scan);
         limparTela();
       }

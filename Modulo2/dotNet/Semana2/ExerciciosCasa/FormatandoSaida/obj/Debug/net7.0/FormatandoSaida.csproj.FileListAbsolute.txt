@@ -1,0 +1,15 @@
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.csproj.AssemblyReference.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.GeneratedMSBuildEditorConfig.editorconfig
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.AssemblyInfoInputs.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.AssemblyInfo.cs
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.csproj.CoreCompileInputs.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/bin/Debug/net7.0/FormatandoSaida
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/bin/Debug/net7.0/FormatandoSaida.deps.json
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/bin/Debug/net7.0/FormatandoSaida.runtimeconfig.json
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/bin/Debug/net7.0/FormatandoSaida.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/bin/Debug/net7.0/FormatandoSaida.pdb
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/refint/FormatandoSaida.dll
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.pdb
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/FormatandoSaida.genruntimeconfig.cache
+/home/joao/CEPEDI/DOTNET-BASICO/.net-Basico-CEPEDI/Semana2/ExerciciosCasa/FormatandoSaida/obj/Debug/net7.0/ref/FormatandoSaida.dll

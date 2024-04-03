@@ -1,0 +1,11 @@
+commit 3d58b8a275e00a5d01af1a99167510468d4dfd50
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 9 22:49:32 2023 -0300
+
+    Atividade P0013 Finalizada
+
+commit b8382122a9c74ea6ecf0094f330a021847c9cc41
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Sat Sep 9 22:39:22 2023 -0300
+
+    Primeiro Commit
