@@ -1,31 +1,31 @@
 <h1 align="center">ResidenciaFrontRnd</h1>
 
-## Introdução
+Este repositório contém os materiais e atividades da Residência de Software
 
-Este repositório foi criado para armazenar os exercícios e atividades desenvolvidos durante a residência front-end. A estrutura organizacional é projetada para facilitar a navegação e localização específica de atividades.
+## Organização das Trilhas
 
-## Estrutura do Repositório
+As trilhas estão organizadas da seguinte forma:
 
-O repositório está organizado nas seguintes pastas:
+- **Java Avançado**: Esta trilha é dividida em aulas, cada uma com uma atividade diferente.
+  - `aula-1`: Atividades da primeira aula.
+  - `aula-2`: Atividades da segunda aula.
+  - `aula-3`: Atividades da terceira aula.
+  - ...
 
-### [Semana 1 (semana1)](semana1)
+Dentro de cada pasta de aula, você encontrará as atividades correspondentes e uma pasta contendo os slides do exercício e da aula.
 
-- **P001:** Descrição da atividade prática 1 e seus arquivos correspondentes.
-- **Atividades em Sala:** Documentação das atividades realizadas em sala de aula.
+## Branches do Repositório
 
-### [Semana 2 (semana2)](semana2)
+As branches do repositório são referentes a cada disciplina da trilha. Atualmente, as seguintes branches estão disponíveis:
 
-- **P002:** Descrição da atividade prática 2 e seus arquivos correspondentes.
-- **Atividades em Sala:** Documentação das atividades realizadas em sala de aula.
+- `java-basico`: Contém os materiais e atividades para a trilha de Java Básico.
+- `java-avancado`: Contém os materiais e atividades para a trilha de Java Avançado.
+- `front-end`: Contém os materiais e atividades para a trilha de Front-End.
+- `DotNet`: Contém os materiais e atividades para a trilha de DotNet.
+- `Python`: Contém os materiais e atividades para a trilha de Python.
 
-### [Semana 3 (semana3)](semana3)
+## Atualizações
 
-- **P003:** Descrição da atividade prática 3 e seus arquivos correspondentes.
-- **Atividades em Sala:** Documentação das atividades realizadas em sala de aula.
-
-### [Semana 4 (semana4)](semana4)
-
-- **P004:** Descrição da atividade prática 4 e seus arquivos correspondentes.
-- **Atividades em Sala:** Documentação das atividades realizadas em sala de aula.
+Este README.md estará em constante atualização para refletir quaisquer alterações ou adições nos materiais ou na estrutura do repository.
 
 #### Autor: [Albert Silva]
