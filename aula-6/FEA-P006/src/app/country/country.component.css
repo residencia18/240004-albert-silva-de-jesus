@@ -1,71 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap");
 
-form{
-  /* border: 1px solid red; */
+form {
   text-align: center;
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  justify-self: center;
   width: 70%;
 }
 
-.campos_form{
+.campos_form {
   width: 30%;
   padding: 10px;
-  /* border: 1px solid red; */
   margin: 10px;
   display: flex;
   flex-direction: column;
 }
 
-h1{
+h1 {
   text-align: center;
   margin: 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Times New Roman", serif;
+  color: #333;
+  font-size: 24px;
 }
 
-#caixa_form{
+#caixa_form {
   width: 100%;
   justify-content: center;
   display: flex;
-  /* border: 1px solid red; */
 }
 
-#caixa_botao{
+#caixa_botao {
   padding: 10px;
-  /* border: 1px solid red; */
   align-self: flex-end;
   justify-self: flex-end;
   width: 67%;
 }
 
-button{
-  width: 60px;
+button {
+  width: 120px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
-  background-color: chartreuse;
-}
-
-button:hover{
-  color: aliceblue;
-  background-color: darkgreen;
-  border: none;
+  background-color: #add8e6;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave */
 }
 
-input{
-  height: 23px;
-  border-radius: 7px;
-  border: 2px;
-  border-style: ridge;
-  padding: 3px;
-  background-color: white;
-  font-family: "Roboto", sans-serif;
+button:hover {
+  background-color: #87ceeb;
 }
 
-label{
-  font-family: "Roboto", sans-serif;
+input {
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #999;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #666;
 }
