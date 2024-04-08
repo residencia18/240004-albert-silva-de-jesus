@@ -55,7 +55,7 @@ public class EmployeeServiceTest {
     fakeEmployee.setIsActive(true); // nesse caso queremos um funcionário ativo
     given(employeeRepository.save(any(Employee.class))).willReturn(fakeEmployee);
 
-    Employee savedEmployee = employeeService.save(fakeEmployee);
+    Employee savedEmployee = employeeService.create(fakeEmployee);
 
     assertNotNull(savedEmployee);
     assertEquals(fakeEmployee.getName(), savedEmployee.getName());
@@ -76,7 +76,7 @@ public class EmployeeServiceTest {
 
     // Tenta criar o Employee, esperando que a exceção seja lançada devido à
     // violação da unicidade do nome.
-    assertThrows(DataIntegrityViolationException.class, () -> employeeService.save(fakeEmployee));
+    assertThrows(DataIntegrityViolationException.class, () -> employeeService.create(fakeEmployee));
 
     // Verifica se o método save foi de fato chamado, indicando que a tentativa de
     // salvar o Employee foi realizada.
