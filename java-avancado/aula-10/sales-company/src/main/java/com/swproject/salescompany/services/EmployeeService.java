@@ -36,7 +36,9 @@ public class EmployeeService {
 
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
-    return employeeRepository.findById(id);
+    // return employeeRepository.findById(id);
+    return Optional.ofNullable(employeeRepository.findById(id)
+    .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
 
   @Transactional(readOnly = true)
