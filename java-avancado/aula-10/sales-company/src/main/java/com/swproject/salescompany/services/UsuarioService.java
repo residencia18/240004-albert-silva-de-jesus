@@ -75,7 +75,11 @@ public class UsuarioService {
   }
 
   public void delete(@NonNull Long id) {
-    usuarioRepository.deleteById(id);
+    if(usuarioRepository.existsById(id)) {
+      usuarioRepository.deleteById(id);
+    } else {
+      throw new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id));
+    }
   }
 
   public Boolean isExisteId(@NonNull Long id) {
