@@ -20,7 +20,7 @@ public class EmployeeService {
   @Autowired
   private EmployeeRepository employeeRepository;
 
-  public Employee save(@Nullable Employee employee) {
+  public Employee create(@Nullable Employee employee) {
 
     if (employee == null) {
       throw new IllegalArgumentException("O parâmetro 'employee' não pode ser nulo.");

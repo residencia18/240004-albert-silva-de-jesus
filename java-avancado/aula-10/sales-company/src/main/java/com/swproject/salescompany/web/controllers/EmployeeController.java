@@ -53,7 +53,7 @@ public class EmployeeController {
   @PostMapping
   public ResponseEntity<EmployeeResponseDto> create(@RequestBody EmployeeForm createDto) {
     Usuario usuario = usuarioService.findById(createDto.getUsuarioId());
-    Employee employee = employeeService.save(EmployeeMapper.toEmployee(createDto, usuario));
+    Employee employee = employeeService.create(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));
   }
