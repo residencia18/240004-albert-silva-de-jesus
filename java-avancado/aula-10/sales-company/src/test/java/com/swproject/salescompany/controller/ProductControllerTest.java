@@ -1,10 +1,11 @@
 package com.swproject.salescompany.controller;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,16 @@ public class ProductControllerTest {
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isCreated())
         .andExpect(content().json(objectMapper.writeValueAsString(saveProduct)));
+  }
 
+  @Test
+  void getAllProducts_ReturnsProductList() throws Exception {
+    Product product = generateFakeProduct();
+    when(productService.findAll()).thenReturn(Arrays.asList(product));
+
+    mockMvc.perform(get("/api/v1/products/"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(product))));
   }
 }
