@@ -19,9 +19,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
+import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.services.ProductService;
 import com.swproject.salescompany.web.controllers.ProductController;
+import com.swproject.salescompany.web.dto.form.EmployeeForm;
+import com.swproject.salescompany.web.dto.form.ProductForm;
 
 @WebMvcTest(ProductController.class)
 public class ProductControllerTest {
@@ -100,5 +103,21 @@ public class ProductControllerTest {
 
     mockMvc.perform(get("/api/v1/products/{id}", 1))
         .andExpect(status().isNotFound());
+  }
+
+  @Test
+  void updateProduct_WhenProductExists_ReturnsUpdatedProduct() throws Exception {
+    Product updateInfo = generateFakeProduct(); // Usando Faker para gerar dados de atualização
+    Product updatedProduct = generateFakeProduct(); // Supondo que seria outra versão dos dados do empregado
+
+    // Forçando uma mudança para garantir que o empregado foi atualizado
+    updatedProduct.setName("Updated " + updatedProduct.getName());
+    when(productService.update(any(Long.class), any(ProductForm.class))).thenReturn(Optional.of(updatedProduct));
+
+    mockMvc.perform(put("/api/v1/products/{id}", 1)
+        .content(objectMapper.writeValueAsString(updateInfo))
+        .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().json(objectMapper.writeValueAsString(updatedProduct)));
   }
 }

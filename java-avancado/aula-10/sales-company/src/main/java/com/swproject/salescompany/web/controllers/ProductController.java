@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +19,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.services.ProductService;
 import com.swproject.salescompany.web.dto.CategoryResponseDto;
+import com.swproject.salescompany.web.dto.EmployeeResponseDto;
 import com.swproject.salescompany.web.dto.ProductResponseDto;
+import com.swproject.salescompany.web.dto.form.EmployeeForm;
 import com.swproject.salescompany.web.dto.form.ProductForm;
+import com.swproject.salescompany.web.dto.mapper.EmployeeMapper;
 import com.swproject.salescompany.web.dto.mapper.ProductMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
 
@@ -52,13 +57,27 @@ public class ProductController {
   @GetMapping("/{id}")
   public ResponseEntity<ProductResponseDto> getById(@PathVariable @NonNull Long id) {
     return productService.findById(id)
-    .map(product -> ResponseEntity.ok().body(ProductMapper.toDto(product)))
-    .orElseGet(() -> ResponseEntity.notFound().build());
+        .map(product -> ResponseEntity.ok().body(ProductMapper.toDto(product)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
   @GetMapping("/")
   public ResponseEntity<List<ProductResponseDto>> getAll() {
     List<ProductResponseDto> products = ProductMapper.toListDto(productService.findAll());
     return ResponseEntity.ok().body(products);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<ProductResponseDto> update(@PathVariable @NonNull Long id,
+      @RequestBody ProductForm createDto) {
+    return productService.update(id, createDto)
+        .map(product -> ResponseEntity.ok(ProductMapper.toDto(product)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable @NonNull Long id) {
+    productService.delete(id);
+    return ResponseEntity.noContent().build();
   }
 }
