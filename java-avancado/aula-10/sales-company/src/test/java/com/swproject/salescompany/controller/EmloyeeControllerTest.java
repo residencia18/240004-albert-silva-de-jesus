@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.Optional;
 
 import br.com.caelum.stella.tinytype.CPF;
 
@@ -97,6 +98,16 @@ public class EmloyeeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(employee))));
+    }
+
+    @Test
+    void getEmployeeById_WhenEmployeeExists_ReturnsEmployee() throws Exception {
+        Employee employee = generateFakeEmployee();
+        when(employeeService.findById(1L)).thenReturn(Optional.of(employee));
+
+        mockMvc.perform(get("/api/v1/employees/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(employee)));
     }
 
 }
