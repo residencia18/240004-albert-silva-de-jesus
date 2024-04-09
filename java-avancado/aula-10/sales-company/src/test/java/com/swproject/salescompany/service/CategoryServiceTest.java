@@ -48,7 +48,7 @@ public class CategoryServiceTest {
     given(categoryRepository.save(any(Category.class))).willReturn(fakeCategory);
 
     // Ação:
-    Category savedCategory = categoryService.save(fakeCategory);
+    Category savedCategory = categoryService.create(fakeCategory);
 
     // Assert
     // Verifica se o método save do repositório foi chamado

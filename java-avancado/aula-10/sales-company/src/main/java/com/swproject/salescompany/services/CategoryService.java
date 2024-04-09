@@ -19,7 +19,7 @@ public class CategoryService {
   @Autowired
   private CategoryRepository categoryRepository;
 
-  public Category save(@Nullable Category category) {
+  public Category create(@Nullable Category category) {
 
     if (category == null) {
       throw new IllegalArgumentException("O parâmetro 'category' não pode ser nulo.");

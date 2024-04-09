@@ -31,7 +31,7 @@ import lombok.RequiredArgsConstructor;
 @Tag(name = "Categorys", description = "Contém todas as operações aos recursos para cadastro, edição e leitura de um categoria.")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/v1/categorys")
+@RequestMapping("/api/v1/categorys")
 public class CategoryController {
 
   @Autowired
@@ -39,7 +39,7 @@ public class CategoryController {
 
   @PostMapping
   public ResponseEntity<CategoryResponseDto> create(@RequestBody CategoryForm createDto) {
-    Category category = categoryService.save(CategoryMapper.toCategory(createDto));
+    Category category = categoryService.create(CategoryMapper.toCategory(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
     return ResponseEntity.created(uri).body(CategoryMapper.toDto(category));
   }
