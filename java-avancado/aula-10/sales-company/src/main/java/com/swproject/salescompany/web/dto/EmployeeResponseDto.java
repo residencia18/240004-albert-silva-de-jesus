@@ -25,6 +25,7 @@ import lombok.ToString;
 public class EmployeeResponseDto extends AbstractEntity {
 
   private String name;
+  private String cpf;
   @Column(unique = true)
   private Instant birthDate;
   private Boolean isActive;
@@ -37,6 +38,7 @@ public class EmployeeResponseDto extends AbstractEntity {
   public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario) {
     setId(employee.getId());
     this.name = employee.getName();
+    this.cpf = employee.getCpf();
     this.birthDate = employee.getBirthDate();
     this.isActive = employee.getIsActive();
     this.startDate = employee.getStartDate();

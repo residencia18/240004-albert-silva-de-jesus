@@ -1,6 +1,7 @@
 package com.swproject.salescompany.config;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -50,7 +51,7 @@ public class TestConfig implements CommandLineRunner {
     for (int i = 0; i < 5; i++) {
 
       // Gerando uma data de nascimento aleatória
-      Instant randomBirthDate = faker.date().birthday().toInstant();
+      Instant randomBirthDate = faker.date().birthday().toInstant().truncatedTo(ChronoUnit.SECONDS);
 
       // Criando uma nova categoria com os dados aleatórios
       Category category = new Category();

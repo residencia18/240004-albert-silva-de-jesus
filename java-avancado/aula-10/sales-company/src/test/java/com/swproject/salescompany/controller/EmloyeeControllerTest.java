@@ -6,6 +6,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+
 import br.com.caelum.stella.tinytype.CPF;
 
 import org.junit.jupiter.api.Test;
@@ -52,14 +55,14 @@ public class EmloyeeControllerTest {
     }
 
     private Employee generateFakeEmployee() {
-        Instant randomBirthDate = faker.date().birthday().toInstant();
+        Instant instantBirthDate = faker.date().birthday().toInstant().truncatedTo(ChronoUnit.SECONDS);
         String cpfString = faker.number().digits(11);
         String cpfFormatado = new CPF(cpfString).getNumeroFormatado();
         Employee employee = new Employee();
 
         employee.setName(faker.name().fullName());
         employee.setCpf(cpfFormatado);
-        employee.setBirthDate(randomBirthDate);
+        employee.setBirthDate(instantBirthDate);
         employee.setIsActive(faker.bool().bool());
         employee.setStartDate(faker.date().past(365 * 2, java.util.concurrent.TimeUnit.DAYS));
         employee.setExperienceYears(faker.number().numberBetween(1, 20));
@@ -82,7 +85,18 @@ public class EmloyeeControllerTest {
                 .content(objectMapper.writeValueAsString(newEmployee))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(content().json(objectMapper.writeValueAsString(savedEmployee)));
+    }
+
+    @Test
+    void getAllEmployees_ReturnsEmployeeList() throws Exception {
+        Employee employee = generateFakeEmployee();
+        when(employeeService.findAll()).thenReturn(Arrays.asList(employee));
+
+        mockMvc.perform(get("/api/v1/employees/"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(employee))));
     }
 
 }
