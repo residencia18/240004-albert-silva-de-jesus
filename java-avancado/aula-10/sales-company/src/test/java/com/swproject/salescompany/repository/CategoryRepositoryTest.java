@@ -2,15 +2,15 @@ package com.swproject.salescompany.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.github.javafaker.Faker;
 import com.swproject.salescompany.entities.Category;
@@ -78,5 +78,27 @@ public class CategoryRepositoryTest {
 
         // Verifique se uma exceção é lançada ao tentar salvar a segunda categoria
         assertThatThrownBy(() -> categoryRepository.save(category2)).isInstanceOf(Exception.class);
+    }
+
+    @Test
+    void findCategory_ById_ReturnsCategory() {
+        Category category = generateFakeCategory();
+        Category persistedCategory = testEntityManager.persistFlushFind(category);
+
+        Optional<Category> foundCategory = categoryRepository.findById(persistedCategory.getId());
+
+        assertThat(foundCategory).isNotEmpty();
+        assertThat(foundCategory.get().getId()).isEqualTo(persistedCategory.getId());
+    }
+
+    @Test
+    void findCategory_ByName_ReturnsCategory() {
+        Category employee = generateFakeCategory();
+        Category persistedCategory = testEntityManager.persistFlushFind(employee);
+
+        Optional<Category> foundCategory = categoryRepository.findByName(persistedCategory.getName());
+
+        assertThat(foundCategory).isNotEmpty();
+        assertThat(foundCategory.get().getName()).isEqualTo(persistedCategory.getName());
     }
 }
