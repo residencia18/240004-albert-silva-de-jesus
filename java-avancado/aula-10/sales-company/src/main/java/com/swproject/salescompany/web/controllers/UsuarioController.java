@@ -51,7 +51,7 @@ public class UsuarioController {
   })
   @PostMapping
   public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioForm createDto) {
-    Usuario user = userService.save(UsuarioMapper.toUsuario(createDto));
+    Usuario user = userService.create(UsuarioMapper.toUsuario(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
     return ResponseEntity.created(uri).body(UsuarioMapper.toDto(user));
   }
