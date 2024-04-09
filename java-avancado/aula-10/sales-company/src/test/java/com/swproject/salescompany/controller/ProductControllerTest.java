@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +82,23 @@ public class ProductControllerTest {
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(product))));
+  }
+
+  @Test
+  void getProductById_WhenproductExists_Returnsproduct() throws Exception {
+    Product product = generateFakeProduct();
+    when(productService.findById(1L)).thenReturn(Optional.of(product));
+
+    mockMvc.perform(get("/api/v1/products/{id}", 1))
+        .andExpect(status().isOk())
+        .andExpect(content().json(objectMapper.writeValueAsString(product)));
+  }
+
+  @Test
+  void getProductById_WhenProductDoesNotExist_ReturnsNotFound() throws Exception {
+    when(productService.findById(any(Long.class))).thenReturn(Optional.empty());
+
+    mockMvc.perform(get("/api/v1/products/{id}", 1))
+        .andExpect(status().isNotFound());
   }
 }
