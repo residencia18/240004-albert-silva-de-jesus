@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.List;
 import java.util.Optional;
 
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.repositories.ProductRepository;
-
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
 public class ProductRepositoryTest {
