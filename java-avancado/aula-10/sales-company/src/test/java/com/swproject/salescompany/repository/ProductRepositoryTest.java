@@ -91,4 +91,15 @@ public class ProductRepositoryTest {
         assertThatThrownBy(() -> productRepository.save(product2)).isInstanceOf(Exception.class);
     }
 
+    @Test
+    void findProduct_ById_ReturnsProduct() {
+        Product product = generateFakeProduct();
+        Product persistedProduct = testEntityManager.persistFlushFind(product);
+
+        Optional<Product> foundProduct = productRepository.findById(persistedProduct.getId());
+
+        assertThat(foundProduct).isNotEmpty();
+        assertThat(foundProduct.get().getId()).isEqualTo(persistedProduct.getId());
+    }
+
 }
