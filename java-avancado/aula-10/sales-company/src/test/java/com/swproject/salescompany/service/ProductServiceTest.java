@@ -56,7 +56,7 @@ public class ProductServiceTest {
     given(productRepository.save(any(Product.class))).willReturn(fakeProduct);
 
     // Ação:
-    Product savedProduct = productService.save(fakeProduct);
+    Product savedProduct = productService.create(fakeProduct);
 
     // Assert
     // Verifica se o método save do repositório foi chamado

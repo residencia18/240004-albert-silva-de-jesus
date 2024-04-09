@@ -40,7 +40,7 @@ public class ProductController {
 
   @PostMapping
   public ResponseEntity<ProductResponseDto> create(@RequestBody ProductForm createDto) {
-    Product product = productService.save(ProductMapper.toProduct(createDto));
+    Product product = productService.create(ProductMapper.toProduct(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(product.getId()).toUri();
     return ResponseEntity.created(uri).body(ProductMapper.toDto(product));
   }
@@ -51,8 +51,9 @@ public class ProductController {
   })
   @GetMapping("/{id}")
   public ResponseEntity<ProductResponseDto> getById(@PathVariable @NonNull Long id) {
-    Product product = productService.findById(id);
-    return ResponseEntity.ok(ProductMapper.toDto(product));
+    return productService.findById(id)
+    .map(product -> ResponseEntity.ok().body(ProductMapper.toDto(product)))
+    .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
   @GetMapping("/")
