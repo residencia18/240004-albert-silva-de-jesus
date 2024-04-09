@@ -2,6 +2,7 @@ package com.swproject.salescompany.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
 import com.swproject.salescompany.entities.Category;
+import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.repositories.CategoryRepository;
 
 @DataJpaTest
@@ -100,5 +102,28 @@ public class CategoryRepositoryTest {
 
         assertThat(foundCategory).isNotEmpty();
         assertThat(foundCategory.get().getName()).isEqualTo(persistedCategory.getName());
+    }
+
+    @Test
+    void listCategorys_ReturnsAllCategorys() {
+        Category category1 = generateFakeCategory();
+        Category category2 = generateFakeCategory();
+        testEntityManager.persistFlushFind(category1);
+        testEntityManager.persistFlushFind(category2);
+
+        List<Category> categorys = categoryRepository.findAll();
+
+        assertThat(categorys).hasSizeGreaterThanOrEqualTo(2);
+    }
+
+    @Test
+    void deleteCategory_WithExistingId_RemovesCategory() {
+        Category category = generateFakeCategory();
+        Category persistedCategory = testEntityManager.persistFlushFind(category);
+
+        categoryRepository.deleteById(persistedCategory.getId());
+
+        Category deletedCategory = testEntityManager.find(Category.class, persistedCategory.getId());
+        assertThat(deletedCategory).isNull();
     }
 }
