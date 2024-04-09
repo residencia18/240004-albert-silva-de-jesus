@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.services.CategoryService;
 import com.swproject.salescompany.web.dto.CategoryResponseDto;
+import com.swproject.salescompany.web.dto.UsuarioResponseDto;
 import com.swproject.salescompany.web.dto.form.CategoryForm;
 import com.swproject.salescompany.web.dto.mapper.CategoryMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
@@ -37,6 +38,11 @@ public class CategoryController {
   @Autowired
   private CategoryService categoryService;
 
+  @Operation(summary = "Cria uma nova categoria", description = "Recurso para criar uma nova categoria no sistema.", responses = {
+      @ApiResponse(responseCode = "201", description = "categoria criada com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryResponseDto.class))),
+      @ApiResponse(responseCode = "409", description = "categoria nome já cadastrado no sistema.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
+      @ApiResponse(responseCode = "422", description = "Recursos não processados por dados de entrada invalidos.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
+  })
   @PostMapping
   public ResponseEntity<CategoryResponseDto> create(@RequestBody CategoryForm createDto) {
     Category category = categoryService.create(CategoryMapper.toCategory(createDto));
