@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.dto.mapper;
+package com.swprojects.generalsales.web.dto.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import com.swproject.salescompany.entities.Product;
-import com.swproject.salescompany.web.dto.ProductResponseDto;
-import com.swproject.salescompany.web.dto.form.ProductForm;
+import com.swprojects.generalsales.entities.Product;
+import com.swprojects.generalsales.web.dto.ProductResponseDto;
+import com.swprojects.generalsales.web.dto.form.ProductForm;
 
 public class ProductMapper {
 

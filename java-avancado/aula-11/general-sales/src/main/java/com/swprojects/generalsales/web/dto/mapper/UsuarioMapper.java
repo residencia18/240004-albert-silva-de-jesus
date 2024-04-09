@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.dto.mapper;
+package com.swprojects.generalsales.web.dto.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.web.dto.UsuarioResponseDto;
-import com.swproject.salescompany.web.dto.form.UsuarioForm;
+import com.swprojects.generalsales.entities.Usuario;
+import com.swprojects.generalsales.web.dto.UsuarioResponseDto;
+import com.swprojects.generalsales.web.dto.form.UsuarioForm;
 
 public class UsuarioMapper {
 

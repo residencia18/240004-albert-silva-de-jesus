@@ -1,11 +1,11 @@
-package com.swproject.salescompany.web.dto;
+package com.swprojects.generalsales.web.dto;
 
 import java.time.Instant;
 import java.util.Date;
 import java.util.Set;
 
-import com.swproject.salescompany.entities.AbstractEntity;
-import com.swproject.salescompany.entities.Employee;
+import com.swprojects.generalsales.entities.AbstractEntity;
+import com.swprojects.generalsales.entities.Employee;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;

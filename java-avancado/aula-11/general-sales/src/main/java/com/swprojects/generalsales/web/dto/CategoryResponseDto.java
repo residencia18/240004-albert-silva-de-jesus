@@ -1,7 +1,7 @@
-package com.swproject.salescompany.web.dto;
+package com.swprojects.generalsales.web.dto;
 
-import com.swproject.salescompany.entities.AbstractEntity;
-import com.swproject.salescompany.entities.Category;
+import com.swprojects.generalsales.entities.AbstractEntity;
+import com.swprojects.generalsales.entities.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

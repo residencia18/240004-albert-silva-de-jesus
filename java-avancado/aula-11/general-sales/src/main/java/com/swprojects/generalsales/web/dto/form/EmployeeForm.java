@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.dto.form;
+package com.swprojects.generalsales.web.dto.form;
 
 import java.time.Instant;
 import java.util.Date;
@@ -7,9 +7,9 @@ import java.util.Set;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.entities.Product;
-import com.swproject.salescompany.entities.Usuario;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.entities.Product;
+import com.swprojects.generalsales.entities.Usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;

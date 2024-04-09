@@ -44,6 +44,16 @@
       "projectName": "com.residenciatic18-api-leilao",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-GeneralSalesApplication<general-sales>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.swprojects.generalsales.GeneralSalesApplication",
+      "projectName": "general-sales",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

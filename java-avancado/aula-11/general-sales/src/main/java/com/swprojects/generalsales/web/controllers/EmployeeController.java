@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swproject.salescompany.entities.Employee;
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.services.EmployeeService;
-import com.swproject.salescompany.services.UsuarioService;
-import com.swproject.salescompany.web.dto.EmployeeResponseDto;
-import com.swproject.salescompany.web.dto.form.EmployeeForm;
-import com.swproject.salescompany.web.dto.mapper.EmployeeMapper;
-import com.swproject.salescompany.web.exceptions.ErrorMessage;
+import com.swprojects.generalsales.entities.Employee;
+import com.swprojects.generalsales.entities.Usuario;
+import com.swprojects.generalsales.services.EmployeeService;
+import com.swprojects.generalsales.services.UsuarioService;
+import com.swprojects.generalsales.web.dto.EmployeeResponseDto;
+import com.swprojects.generalsales.web.dto.form.EmployeeForm;
+import com.swprojects.generalsales.web.dto.mapper.EmployeeMapper;
+import com.swprojects.generalsales.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

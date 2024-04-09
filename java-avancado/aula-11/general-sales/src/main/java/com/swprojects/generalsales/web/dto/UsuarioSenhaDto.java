@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.dto;
+package com.swprojects.generalsales.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -3,16 +3,16 @@ package com.swprojects.generalsales.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojects.generalsales.entities.Product;
-import com.swprojects.generalsales.exception.EntityNotFoundException;
-import com.swprojects.generalsales.repositories.ProductRepository;
 import com.swprojects.generalsales.web.dto.form.ProductForm;
+import com.swprojects.generalsales.repositories.ProductRepository;
+import com.swprojects.generalsales.exception.EntityNotFoundException;
 
 @Service
 @Transactional(readOnly = false)

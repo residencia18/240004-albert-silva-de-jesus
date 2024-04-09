@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.swprojects.generalsales.entities.Category;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.repositories.CategoryRepository;
-import com.swprojects.generalsales.services.forms.CategoryForm;
+import com.swprojects.generalsales.web.dto.form.CategoryForm;
 
 @Service
 public class CategoryService {

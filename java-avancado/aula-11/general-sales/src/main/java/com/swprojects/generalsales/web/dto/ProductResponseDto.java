@@ -1,10 +1,10 @@
-package com.swproject.salescompany.web.dto;
+package com.swprojects.generalsales.web.dto;
 
 import java.util.Set;
 
-import com.swproject.salescompany.entities.AbstractEntity;
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.entities.Product;
+import com.swprojects.generalsales.entities.AbstractEntity;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.entities.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

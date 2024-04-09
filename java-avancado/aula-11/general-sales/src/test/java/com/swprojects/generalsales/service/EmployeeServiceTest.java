@@ -1,4 +1,4 @@
-package com.swproject.salescompany.service;
+package com.swprojects.generalsales.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -18,10 +18,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Employee;
-import com.swproject.salescompany.repositories.EmployeeRepository;
-import com.swproject.salescompany.services.EmployeeService;
-import com.swproject.salescompany.web.dto.form.EmployeeForm;
+import com.swprojects.generalsales.entities.Employee;
+import com.swprojects.generalsales.repositories.EmployeeRepository;
+import com.swprojects.generalsales.services.EmployeeService;
+import com.swprojects.generalsales.web.dto.form.EmployeeForm;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {

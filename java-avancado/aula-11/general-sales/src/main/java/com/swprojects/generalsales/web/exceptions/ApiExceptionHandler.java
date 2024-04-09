@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.exceptions;
+package com.swprojects.generalsales.web.exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.swproject.salescompany.exception.EntityNotFoundException;
-import com.swproject.salescompany.exception.PasswordInvalidException;
-import com.swproject.salescompany.exception.UsernameUniqueViolationException;
+import com.swprojects.generalsales.exception.EntityNotFoundException;
+import com.swprojects.generalsales.exception.PasswordInvalidException;
+import com.swprojects.generalsales.exception.UsernameUniqueViolationException;
 
 @Slf4j
 @RestControllerAdvice

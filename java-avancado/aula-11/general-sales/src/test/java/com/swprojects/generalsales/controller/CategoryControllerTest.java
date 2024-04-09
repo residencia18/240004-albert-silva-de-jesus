@@ -1,4 +1,4 @@
-package com.swproject.salescompany.controller;
+package com.swprojects.generalsales.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -19,9 +19,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.services.CategoryService;
-import com.swproject.salescompany.web.controllers.CategoryController;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.services.CategoryService;
+import com.swprojects.generalsales.web.controllers.CategoryController;
 
 @WebMvcTest(CategoryController.class)
 public class CategoryControllerTest {

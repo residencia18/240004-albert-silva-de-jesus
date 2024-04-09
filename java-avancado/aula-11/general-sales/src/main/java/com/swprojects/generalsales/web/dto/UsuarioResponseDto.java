@@ -1,8 +1,8 @@
-package com.swproject.salescompany.web.dto;
+package com.swprojects.generalsales.web.dto;
 
-import com.swproject.salescompany.entities.AbstractEntity;
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.entities.Usuario.Role;
+import com.swprojects.generalsales.entities.AbstractEntity;
+import com.swprojects.generalsales.entities.Usuario;
+import com.swprojects.generalsales.entities.Usuario.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

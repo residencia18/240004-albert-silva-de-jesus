@@ -1,4 +1,4 @@
-package com.swproject.salescompany.controller;
+package com.swprojects.generalsales.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -23,10 +23,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Employee;
-import com.swproject.salescompany.services.EmployeeService;
-import com.swproject.salescompany.web.controllers.EmployeeController;
-import com.swproject.salescompany.web.dto.form.EmployeeForm;
+import com.swprojects.generalsales.entities.Employee;
+import com.swprojects.generalsales.services.EmployeeService;
+import com.swprojects.generalsales.web.controllers.EmployeeController;
+import com.swprojects.generalsales.web.dto.form.EmployeeForm;
 
 @WebMvcTest(EmployeeController.class)
 public class EmloyeeControllerTest {

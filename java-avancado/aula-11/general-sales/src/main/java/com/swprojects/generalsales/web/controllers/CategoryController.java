@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.services.CategoryService;
-import com.swproject.salescompany.web.dto.CategoryResponseDto;
-import com.swproject.salescompany.web.dto.form.CategoryForm;
-import com.swproject.salescompany.web.dto.mapper.CategoryMapper;
-import com.swproject.salescompany.web.exceptions.ErrorMessage;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.services.CategoryService;
+import com.swprojects.generalsales.web.dto.CategoryResponseDto;
+import com.swprojects.generalsales.web.dto.form.CategoryForm;
+import com.swprojects.generalsales.web.dto.mapper.CategoryMapper;
+import com.swprojects.generalsales.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

@@ -1,9 +1,4 @@
-package com.swproject.salescompany.web.dto.form;
-
-import java.util.Set;
-
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.entities.Employee;
+package com.swprojects.generalsales.web.dto.form;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;

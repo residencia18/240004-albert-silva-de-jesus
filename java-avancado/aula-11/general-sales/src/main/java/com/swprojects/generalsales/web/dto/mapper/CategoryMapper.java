@@ -1,4 +1,4 @@
-package com.swproject.salescompany.web.dto.mapper;
+package com.swprojects.generalsales.web.dto.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.web.dto.CategoryResponseDto;
-import com.swproject.salescompany.web.dto.form.CategoryForm;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.web.dto.CategoryResponseDto;
+import com.swprojects.generalsales.web.dto.form.CategoryForm;
 
 public class CategoryMapper {
 

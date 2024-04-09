@@ -1,7 +1,7 @@
-package com.swproject.salescompany.testes;
+package com.swprojects.generalsales.testes;
 
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.entities.Product;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.entities.Product;
 
 public class Factory {
 

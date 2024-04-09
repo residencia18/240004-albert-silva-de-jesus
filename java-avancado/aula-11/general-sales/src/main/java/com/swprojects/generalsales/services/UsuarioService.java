@@ -2,25 +2,26 @@ package com.swprojects.generalsales.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojects.generalsales.entities.Usuario;
+import com.swprojects.generalsales.web.dto.form.UsuarioForm;
+import com.swprojects.generalsales.repositories.UsuarioRepository;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.exception.PasswordInvalidException;
 import com.swprojects.generalsales.exception.UsernameUniqueViolationException;
-import com.swprojects.generalsales.repositories.UsuarioRepository;
-import com.swprojects.generalsales.web.dto.form.UsuarioForm;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
-public class Usuar
+public class UsuarioService {
+  
   @Autowired
   private UsuarioRepository usuarioRepository;
 
@@ -74,7 +75,7 @@ public class Usuar
   }
 
   public void delete(@NonNull Long id) {
-    if(usuarioRepository.existsById(id)) {
+    if (usuarioRepository.existsById(id)) {
       usuarioRepository.deleteById(id);
     } else {
       throw new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id));

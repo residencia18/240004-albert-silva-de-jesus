@@ -1,4 +1,4 @@
-package com.swproject.salescompany.service;
+package com.swprojects.generalsales.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -21,13 +21,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.repositories.UsuarioRepository;
-import com.swproject.salescompany.services.UsuarioService;
-import com.swproject.salescompany.web.dto.UsuarioResponseDto;
-import com.swproject.salescompany.web.dto.UsuarioSenhaDto;
-import com.swproject.salescompany.web.dto.form.UsuarioForm;
-import com.swproject.salescompany.web.exceptions.ErrorMessage;
+import com.swprojects.generalsales.entities.Usuario;
+import com.swprojects.generalsales.repositories.UsuarioRepository;
+import com.swprojects.generalsales.services.UsuarioService;
+import com.swprojects.generalsales.web.dto.UsuarioResponseDto;
+import com.swprojects.generalsales.web.dto.UsuarioSenhaDto;
+import com.swprojects.generalsales.web.dto.form.UsuarioForm;
+import com.swprojects.generalsales.web.exceptions.ErrorMessage;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(MockitoExtension.class)

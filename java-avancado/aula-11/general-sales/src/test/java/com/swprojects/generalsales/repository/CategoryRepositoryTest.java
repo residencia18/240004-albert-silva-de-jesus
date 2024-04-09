@@ -1,4 +1,4 @@
-package com.swproject.salescompany.repository;
+package com.swprojects.generalsales.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,8 +14,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.repositories.CategoryRepository;
+import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.repositories.CategoryRepository;
 
 @DataJpaTest
 public class CategoryRepositoryTest {
