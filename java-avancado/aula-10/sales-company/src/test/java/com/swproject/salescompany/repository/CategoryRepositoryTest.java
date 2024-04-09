@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
 import com.swproject.salescompany.entities.Category;
-import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.repositories.CategoryRepository;
 
 @DataJpaTest
