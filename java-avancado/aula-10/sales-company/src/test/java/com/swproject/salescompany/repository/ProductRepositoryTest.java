@@ -77,4 +77,18 @@ public class ProductRepositoryTest {
 
     }
 
+    @Test
+    void createProduct_WithExistingNome_ThrowsException() {
+        // Crie e persista uma categoria com um nome existente
+        Product product1 = generateFakeProduct();
+        testEntityManager.persistFlushFind(product1); // Força a persistência imediata
+
+        // Tente criar outra categoria com o mesmo nome
+        Product product2 = generateFakeProduct();
+        product2.setName(product1.getName());
+
+        // Verifique se uma exceção é lançada ao tentar salvar a segunda categoria
+        assertThatThrownBy(() -> productRepository.save(product2)).isInstanceOf(Exception.class);
+    }
+
 }
