@@ -53,7 +53,7 @@ public class ProductController {
     return ResponseEntity.created(uri).body(ProductMapper.toDto(product));
   }
 
-  @Operation(summary = "Recuperar um product pelo id", description = "Recurso para recuperar um product pelo id.", responses = {
+  @Operation(summary = "Recuperar um produto pelo id", description = "Recurso para recuperar um product pelo id.", responses = {
       @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryResponseDto.class))),
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })

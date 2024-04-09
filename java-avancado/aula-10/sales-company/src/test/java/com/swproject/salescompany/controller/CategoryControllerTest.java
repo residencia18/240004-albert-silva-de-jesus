@@ -5,6 +5,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -46,7 +49,6 @@ public class CategoryControllerTest {
 
     private Category generateFakeCategory() {
         Category category = new Category();
-        category.setId(faker.number().randomNumber());
         category.setName(faker.commerce().department());
         return category;
     }
@@ -68,5 +70,34 @@ public class CategoryControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
                 .andExpect(content().json(objectMapper.writeValueAsString(savedCategory)));
+    }
+
+    @Test
+    void getAllCategorys_ReturnsCategoryList() throws Exception {
+        Category category = generateFakeCategory();
+        when(categoryService.findAll()).thenReturn(Arrays.asList(category));
+
+        mockMvc.perform(get("/api/v1/categorys/"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(category))));
+    }
+
+    @Test
+    void getCategoryById_WhenCategoryExists_ReturnsCategory() throws Exception {
+        Category category = generateFakeCategory();
+        when(categoryService.findById(1L)).thenReturn(Optional.of(category));
+
+        mockMvc.perform(get("/api/v1/categorys/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(category)));
+    }
+
+    @Test
+    void getCategoryById_WhenCategoryDoesNotExist_ReturnsNotFound() throws Exception {
+        when(categoryService.findById(any(Long.class))).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/v1/categorys/{id}", 1))
+                .andExpect(status().isNotFound());
     }
 }
