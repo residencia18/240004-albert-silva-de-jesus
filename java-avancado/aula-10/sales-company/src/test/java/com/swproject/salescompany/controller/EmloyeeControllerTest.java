@@ -110,4 +110,12 @@ public class EmloyeeControllerTest {
                 .andExpect(content().json(objectMapper.writeValueAsString(employee)));
     }
 
+    @Test
+    void getEmployeeById_WhenEmployeeDoesNotExist_ReturnsNotFound() throws Exception {
+        when(employeeService.findById(any(Long.class))).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/v1/employees/{id}", 1))
+                .andExpect(status().isNotFound());
+    }
+
 }
