@@ -102,4 +102,15 @@ public class ProductRepositoryTest {
         assertThat(foundProduct.get().getId()).isEqualTo(persistedProduct.getId());
     }
 
+    @Test
+    void findProduct_ByName_ReturnsProduct() {
+        Product product = generateFakeProduct();
+        Product persistedProduct = testEntityManager.persistFlushFind(product);
+
+        Optional<Product> foundProduct = productRepository.findByName(persistedProduct.getName());
+
+        assertThat(foundProduct).isNotEmpty();
+        assertThat(foundProduct.get().getName()).isEqualTo(persistedProduct.getName());
+    }
+
 }
