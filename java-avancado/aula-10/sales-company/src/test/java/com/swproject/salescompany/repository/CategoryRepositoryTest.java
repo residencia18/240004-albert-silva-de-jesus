@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
+import com.swproject.salescompany.entities.Category;
+import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.repositories.CategoryRepository;
 
 @DataJpaTest
@@ -43,5 +45,23 @@ public class CategoryRepositoryTest {
     void injectedComponentsAreNotNull() {
         assertThat(testEntityManager).isNotNull();
         assertThat(categoryRepository).isNotNull();
+    }
+
+    private Category generateFakeCategory() {
+        Category category = new Category();
+        category.setName(faker.commerce().department());
+        return category;
+    }
+
+    @Test
+    void createCategory_WithValidData_ReturnsCategory() {
+        Category category = generateFakeCategory();
+
+        Category savedCategory = categoryRepository.save(category);
+
+        assertThat(savedCategory).isNotNull();
+        assertThat(savedCategory.getId()).isGreaterThan(0); // Não é muito útil nesse caso
+        assertThat(savedCategory.getName()).isEqualTo(category.getName());
+
     }
 }
