@@ -113,4 +113,16 @@ public class ProductRepositoryTest {
         assertThat(foundProduct.get().getName()).isEqualTo(persistedProduct.getName());
     }
 
+    @Test
+    void listProducts_ReturnsAllProducts() {
+        Product product1 = generateFakeProduct();
+        Product product2 = generateFakeProduct();
+        testEntityManager.persistFlushFind(product1);
+        testEntityManager.persistFlushFind(product2);
+
+        List<Product> products = productRepository.findAll();
+
+        assertThat(products).hasSizeGreaterThanOrEqualTo(2);
+    }
+
 }
