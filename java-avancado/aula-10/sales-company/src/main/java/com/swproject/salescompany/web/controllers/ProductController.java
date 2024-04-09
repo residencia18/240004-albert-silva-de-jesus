@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.services.ProductService;
 import com.swproject.salescompany.web.dto.CategoryResponseDto;
-import com.swproject.salescompany.web.dto.EmployeeResponseDto;
 import com.swproject.salescompany.web.dto.ProductResponseDto;
 import com.swproject.salescompany.web.dto.form.ProductForm;
 import com.swproject.salescompany.web.dto.mapper.ProductMapper;
