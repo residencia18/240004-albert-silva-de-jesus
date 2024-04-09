@@ -27,6 +27,7 @@ import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.services.EmployeeService;
 import com.swproject.salescompany.services.UsuarioService;
 import com.swproject.salescompany.web.controllers.EmployeeController;
+import com.swproject.salescompany.web.dto.form.EmployeeForm;
 
 @WebMvcTest(EmployeeController.class)
 public class EmloyeeControllerTest {
@@ -116,6 +117,22 @@ public class EmloyeeControllerTest {
 
         mockMvc.perform(get("/api/v1/employees/{id}", 1))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void updateEmployee_WhenEmployeeExists_ReturnsUpdatedEmployee() throws Exception {
+        Employee updateInfo = generateFakeEmployee(); // Usando Faker para gerar dados de atualização
+        Employee updatedEmployee = generateFakeEmployee(); // Supondo que seria outra versão dos dados do empregado
+
+        // Forçando uma mudança para garantir que o empregado foi atualizado
+        updatedEmployee.setName("Updated " + updatedEmployee.getName());
+        when(employeeService.update(any(Long.class), any(EmployeeForm.class))).thenReturn(Optional.of(updatedEmployee));
+
+        mockMvc.perform(put("/api/v1/employees/{id}", 1)
+                .content(objectMapper.writeValueAsString(updateInfo))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(updatedEmployee)));
     }
 
 }
