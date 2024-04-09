@@ -125,4 +125,15 @@ public class ProductRepositoryTest {
         assertThat(products).hasSizeGreaterThanOrEqualTo(2);
     }
 
+    @Test
+    void deleteProduct_WithExistingId_RemovesProduct() {
+        Product product = generateFakeProduct();
+        Product persistedProduct = testEntityManager.persistFlushFind(product);
+
+        productRepository.deleteById(persistedProduct.getId());
+
+        Product deletedProduct = testEntityManager.find(Product.class, persistedProduct.getId());
+        assertThat(deletedProduct).isNull();
+    }
+
 }
