@@ -21,13 +21,12 @@ import com.swproject.salescompany.services.ProductService;
 import com.swproject.salescompany.web.dto.CategoryResponseDto;
 import com.swproject.salescompany.web.dto.EmployeeResponseDto;
 import com.swproject.salescompany.web.dto.ProductResponseDto;
-import com.swproject.salescompany.web.dto.form.EmployeeForm;
 import com.swproject.salescompany.web.dto.form.ProductForm;
-import com.swproject.salescompany.web.dto.mapper.EmployeeMapper;
 import com.swproject.salescompany.web.dto.mapper.ProductMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -43,6 +42,11 @@ public class ProductController {
   @Autowired
   private ProductService productService;
 
+  @Operation(summary = "Cria um novo produto", description = "Recurso para criar um novo produto no sistema.", responses = {
+      @ApiResponse(responseCode = "201", description = "produto criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ProductResponseDto.class))),
+      @ApiResponse(responseCode = "409", description = "produto nome já cadastrado no sistema.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
+      @ApiResponse(responseCode = "422", description = "Recursos não processados por dados de entrada invalidos.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
   @PostMapping
   public ResponseEntity<ProductResponseDto> create(@RequestBody ProductForm createDto) {
     Product product = productService.create(ProductMapper.toProduct(createDto));
@@ -61,6 +65,9 @@ public class ProductController {
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
+  @Operation(summary = "Listar todos os produtos", description = "Listar todos os produtos cadastrados", responses = {
+      @ApiResponse(responseCode = "200", description = "Lista com todos os produtos cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ProductResponseDto.class))))
+  })
   @GetMapping("/")
   public ResponseEntity<List<ProductResponseDto>> getAll() {
     List<ProductResponseDto> products = ProductMapper.toListDto(productService.findAll());

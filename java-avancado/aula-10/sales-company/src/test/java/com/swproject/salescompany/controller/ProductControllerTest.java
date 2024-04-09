@@ -19,11 +19,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.services.ProductService;
 import com.swproject.salescompany.web.controllers.ProductController;
-import com.swproject.salescompany.web.dto.form.EmployeeForm;
 import com.swproject.salescompany.web.dto.form.ProductForm;
 
 @WebMvcTest(ProductController.class)
