@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.entities.Product;
 import com.swproject.salescompany.entities.Usuario;
 
@@ -47,10 +48,9 @@ public class EmployeeForm {
     private Integer experienceYears; // anos de experiência
 
     private Long usuarioId;
-
     private Usuario usuario;
-
     private Set<Product> productsSold;
+    private Set<Category> categories;
 
     public EmployeeForm(EmployeeForm employeeForm, Usuario usuario) {
         this.name = employeeForm.getName();
@@ -61,5 +61,6 @@ public class EmployeeForm {
         this.experienceYears = employeeForm.getExperienceYears();
         this.usuario = usuario;
         this.productsSold = employeeForm.getProductsSold();
+        this.categories = employeeForm.getCategories();
     }
 }

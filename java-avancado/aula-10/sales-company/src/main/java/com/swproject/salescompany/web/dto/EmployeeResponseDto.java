@@ -6,7 +6,6 @@ import java.util.Set;
 
 import com.swproject.salescompany.entities.AbstractEntity;
 import com.swproject.salescompany.entities.Employee;
-import com.swproject.salescompany.entities.Product;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
@@ -25,6 +24,7 @@ import lombok.ToString;
 public class EmployeeResponseDto extends AbstractEntity {
 
   private String name;
+  private String cpf;
   @Column(unique = true)
   private Instant birthDate;
   private Boolean isActive;
@@ -32,16 +32,17 @@ public class EmployeeResponseDto extends AbstractEntity {
   private Date startDate;
   private Integer experienceYears;
   private UsuarioResponseDto usuario;
-  private Set<Product> productsSold;
+  private Set<ProductResponseDto> productsSold;
 
-  public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario) {
+  public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario, Set<ProductResponseDto> productsSold) {
     setId(employee.getId());
     this.name = employee.getName();
+    this.cpf = employee.getCpf();
     this.birthDate = employee.getBirthDate();
     this.isActive = employee.getIsActive();
     this.startDate = employee.getStartDate();
     this.experienceYears = employee.getExperienceYears();
     this.usuario = usuario;
-    this.productsSold = employee.getProductsSold();
+    this.productsSold = productsSold;
   }
 }

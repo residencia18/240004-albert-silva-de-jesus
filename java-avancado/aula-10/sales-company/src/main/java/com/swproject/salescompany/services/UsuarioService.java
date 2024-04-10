@@ -26,7 +26,7 @@ public class UsuarioService {
   private UsuarioRepository usuarioRepository;
 
   @Transactional
-  public Usuario save(@Nullable Usuario usuario) {
+  public Usuario create(@Nullable Usuario usuario) {
     if (usuario == null) {
       throw new IllegalArgumentException("O parâmetro 'usuário' não pode ser nulo.");
     }
@@ -75,7 +75,11 @@ public class UsuarioService {
   }
 
   public void delete(@NonNull Long id) {
-    usuarioRepository.deleteById(id);
+    if(usuarioRepository.existsById(id)) {
+      usuarioRepository.deleteById(id);
+    } else {
+      throw new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id));
+    }
   }
 
   public Boolean isExisteId(@NonNull Long id) {

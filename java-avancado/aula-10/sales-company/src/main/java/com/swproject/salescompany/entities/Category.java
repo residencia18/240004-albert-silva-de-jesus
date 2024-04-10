@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
@@ -21,6 +22,7 @@ import lombok.Setter;
 @Table(name = "tb_category")  
 public class Category extends AbstractEntity{
   
+  @Column(unique = true)
   private String name;
 
   // Utilizada para a JPA não mapear a entidade!

@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +27,7 @@ import com.swproject.salescompany.web.dto.mapper.UsuarioMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -51,7 +51,7 @@ public class UsuarioController {
   })
   @PostMapping
   public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioForm createDto) {
-    Usuario user = userService.save(UsuarioMapper.toUsuario(createDto));
+    Usuario user = userService.create(UsuarioMapper.toUsuario(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
     return ResponseEntity.created(uri).body(UsuarioMapper.toDto(user));
   }
@@ -66,6 +66,9 @@ public class UsuarioController {
     return ResponseEntity.ok(UsuarioMapper.toDto(user));
   }
 
+  @Operation(summary = "Listar todos os usuarios", description = "Listar todos os usuarios cadastrados", responses = {
+      @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class))))
+  })
   @GetMapping("/")
   public ResponseEntity<List<UsuarioResponseDto>> getAll() {
     List<UsuarioResponseDto> users = UsuarioMapper.toListDto(userService.findAll());
@@ -74,12 +77,7 @@ public class UsuarioController {
 
   @PutMapping("/{id}")
   public ResponseEntity<UsuarioResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UsuarioForm createDto) {
-    try {
-      return ResponseEntity.ok(UsuarioMapper.toDto(userService.update(id, createDto)));
-
-    } catch (Exception e) {
-      return ResponseEntity.notFound().build();
-    }
+    return ResponseEntity.ok(UsuarioMapper.toDto(userService.update(id, createDto)));
   }
 
   @Operation(summary = "Atualizar senha", description = "Recurso para atualizar a senha do usuário.", responses = {
@@ -95,18 +93,7 @@ public class UsuarioController {
 
   @DeleteMapping("{id}")
   public ResponseEntity<Void> delete(@PathVariable("id") @NonNull Long id) {
-
-    if (userService.isExisteId(id)) {
-
-      try {
-        userService.delete(id);
-        return ResponseEntity.ok().build();
-
-      } catch (Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-      }
-    } else {
-      return ResponseEntity.notFound().build();
-    }
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
   }
 }

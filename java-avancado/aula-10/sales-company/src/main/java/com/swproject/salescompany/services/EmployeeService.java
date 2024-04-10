@@ -20,7 +20,7 @@ public class EmployeeService {
   @Autowired
   private EmployeeRepository employeeRepository;
 
-  public Employee save(@Nullable Employee employee) {
+  public Employee create(@Nullable Employee employee) {
 
     if (employee == null) {
       throw new IllegalArgumentException("O parâmetro 'employee' não pode ser nulo.");
@@ -36,7 +36,9 @@ public class EmployeeService {
 
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
-    return employeeRepository.findById(id);
+    // return employeeRepository.findById(id);
+    return Optional.ofNullable(employeeRepository.findById(id)
+    .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
 
   @Transactional(readOnly = true)
@@ -55,7 +57,7 @@ public class EmployeeService {
   public Optional<Employee> update(@NonNull Long id, EmployeeForm employeeForm) {
     return findById(id).map(employee -> {
       employee.setName(employeeForm.getName());
-      employee.setCpf(employeeForm.getCpf());
+      // employee.setCpf(employeeForm.getCpf());
       employee.setBirthDate(employeeForm.getBirthDate());
       return employeeRepository.save(employee);
     });

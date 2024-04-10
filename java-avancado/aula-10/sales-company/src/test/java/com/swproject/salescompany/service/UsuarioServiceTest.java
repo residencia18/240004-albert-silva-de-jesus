@@ -66,7 +66,7 @@ public class UsuarioServiceTest {
 
     // Ação: Salva o usuário no banco de dados e retorna o usuário salvo (com o ID
     // preenchido) para savedusuario.
-    Usuario savedusuario = usuarioService.save(usuario);
+    Usuario savedusuario = usuarioService.create(usuario);
 
     // Assert Verifica se o método save do repositório foi chamado
     verify(usuarioRepository).save(any(Usuario.class));

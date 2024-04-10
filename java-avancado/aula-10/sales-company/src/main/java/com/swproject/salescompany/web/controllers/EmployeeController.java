@@ -2,11 +2,11 @@ package com.swproject.salescompany.web.controllers;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.exception.EntityNotFoundException;
 import com.swproject.salescompany.services.EmployeeService;
 import com.swproject.salescompany.services.UsuarioService;
 import com.swproject.salescompany.web.dto.EmployeeResponseDto;
@@ -53,15 +52,8 @@ public class EmployeeController {
   })
   @PostMapping
   public ResponseEntity<EmployeeResponseDto> create(@RequestBody EmployeeForm createDto) {
-
-    Long usuarioId = createDto.getUsuarioId();
-
-    if (usuarioId == null) {
-      throw new IllegalArgumentException("O parâmetro 'usuarioId' não pode ser nulo.");
-    }
-
-    Usuario usuario = usuarioService.findById(usuarioId);
-    Employee employee = employeeService.save(EmployeeMapper.toEmployee(createDto, usuario));
+    Usuario usuario = usuarioService.findById(createDto.getUsuarioId());
+    Employee employee = employeeService.create(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));
   }
@@ -72,9 +64,9 @@ public class EmployeeController {
   })
   @GetMapping("/{id}")
   public ResponseEntity<EmployeeResponseDto> getById(@PathVariable @NonNull Long id) {
-    Employee employee = employeeService.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException("Funcionário não encontrado"));
-    return ResponseEntity.ok(EmployeeMapper.toDto(employee));
+    return employeeService.findById(id)
+        .map(employee -> ResponseEntity.ok(EmployeeMapper.toDto(employee)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
   @Operation(summary = "Listar todos os funcionários", description = "Listar todos os funcionários cadastrados", responses = {
@@ -89,13 +81,15 @@ public class EmployeeController {
   @PutMapping("/{id}")
   public ResponseEntity<EmployeeResponseDto> update(@PathVariable @NonNull Long id,
       @RequestBody EmployeeForm createDto) {
-    Optional<Employee> optionalEmployee = employeeService.update(id, createDto);
-    if (optionalEmployee.isPresent()) {
-      return ResponseEntity.ok(EmployeeMapper.toDto(optionalEmployee.get()));
+    return employeeService.update(id, createDto)
+        .map(employee -> ResponseEntity.ok(EmployeeMapper.toDto(employee)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
 
-    } else {
-      return ResponseEntity.notFound().build();
-    }
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable @NonNull Long id) {
+    employeeService.delete(id);
+    return ResponseEntity.noContent().build();
   }
 
 }

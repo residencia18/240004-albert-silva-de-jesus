@@ -1,5 +1,6 @@
 package com.swproject.salescompany.web.dto;
 
+import com.swproject.salescompany.entities.AbstractEntity;
 import com.swproject.salescompany.entities.Usuario;
 import com.swproject.salescompany.entities.Usuario.Role;
 
@@ -14,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioResponseDto {
+public class UsuarioResponseDto extends AbstractEntity{
 
   private Long id;
   private String username;
