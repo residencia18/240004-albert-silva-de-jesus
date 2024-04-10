@@ -1,5 +1,6 @@
 package com.swproject.salescompany.web.dto;
 
+import com.swproject.salescompany.entities.AbstractEntity;
 import com.swproject.salescompany.entities.Category;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CategoryResponseDto {
+public class CategoryResponseDto extends AbstractEntity{
 
   private Long id;
   private String name;

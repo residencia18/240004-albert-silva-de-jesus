@@ -1,5 +1,5 @@
 package com.swproject.salescompany.repository;
 
-public class UserRepositoryTest {
+public class UsuarioRepositoryTest {
     
 }

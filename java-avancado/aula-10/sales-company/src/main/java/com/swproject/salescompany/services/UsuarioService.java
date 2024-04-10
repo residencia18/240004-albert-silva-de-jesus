@@ -26,7 +26,7 @@ public class UsuarioService {
   private UsuarioRepository usuarioRepository;
 
   @Transactional
-  public Usuario save(@Nullable Usuario usuario) {
+  public Usuario create(@Nullable Usuario usuario) {
     if (usuario == null) {
       throw new IllegalArgumentException("O parâmetro 'usuário' não pode ser nulo.");
     }

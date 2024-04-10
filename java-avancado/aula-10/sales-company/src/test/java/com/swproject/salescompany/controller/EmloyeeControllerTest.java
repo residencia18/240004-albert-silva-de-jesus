@@ -6,6 +6,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.Optional;
+
 import br.com.caelum.stella.tinytype.CPF;
 
 import org.junit.jupiter.api.Test;
@@ -23,6 +27,7 @@ import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.services.EmployeeService;
 import com.swproject.salescompany.services.UsuarioService;
 import com.swproject.salescompany.web.controllers.EmployeeController;
+import com.swproject.salescompany.web.dto.form.EmployeeForm;
 
 @WebMvcTest(EmployeeController.class)
 public class EmloyeeControllerTest {
@@ -52,14 +57,14 @@ public class EmloyeeControllerTest {
     }
 
     private Employee generateFakeEmployee() {
-        Instant randomBirthDate = faker.date().birthday().toInstant();
+        Instant instantBirthDate = faker.date().birthday().toInstant().truncatedTo(ChronoUnit.SECONDS);
         String cpfString = faker.number().digits(11);
         String cpfFormatado = new CPF(cpfString).getNumeroFormatado();
         Employee employee = new Employee();
 
         employee.setName(faker.name().fullName());
         employee.setCpf(cpfFormatado);
-        employee.setBirthDate(randomBirthDate);
+        employee.setBirthDate(instantBirthDate);
         employee.setIsActive(faker.bool().bool());
         employee.setStartDate(faker.date().past(365 * 2, java.util.concurrent.TimeUnit.DAYS));
         employee.setExperienceYears(faker.number().numberBetween(1, 20));
@@ -82,7 +87,52 @@ public class EmloyeeControllerTest {
                 .content(objectMapper.writeValueAsString(newEmployee))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(content().json(objectMapper.writeValueAsString(savedEmployee)));
+    }
+
+    @Test
+    void getAllEmployees_ReturnsEmployeeList() throws Exception {
+        Employee employee = generateFakeEmployee();
+        when(employeeService.findAll()).thenReturn(Arrays.asList(employee));
+
+        mockMvc.perform(get("/api/v1/employees/"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(employee))));
+    }
+
+    @Test
+    void getEmployeeById_WhenEmployeeExists_ReturnsEmployee() throws Exception {
+        Employee employee = generateFakeEmployee();
+        when(employeeService.findById(1L)).thenReturn(Optional.of(employee));
+
+        mockMvc.perform(get("/api/v1/employees/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(employee)));
+    }
+
+    @Test
+    void getEmployeeById_WhenEmployeeDoesNotExist_ReturnsNotFound() throws Exception {
+        when(employeeService.findById(any(Long.class))).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/v1/employees/{id}", 1))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void updateEmployee_WhenEmployeeExists_ReturnsUpdatedEmployee() throws Exception {
+        Employee updateInfo = generateFakeEmployee(); // Usando Faker para gerar dados de atualização
+        Employee updatedEmployee = generateFakeEmployee(); // Supondo que seria outra versão dos dados do empregado
+
+        // Forçando uma mudança para garantir que o empregado foi atualizado
+        updatedEmployee.setName("Updated " + updatedEmployee.getName());
+        when(employeeService.update(any(Long.class), any(EmployeeForm.class))).thenReturn(Optional.of(updatedEmployee));
+
+        mockMvc.perform(put("/api/v1/employees/{id}", 1)
+                .content(objectMapper.writeValueAsString(updateInfo))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(updatedEmployee)));
     }
 
 }

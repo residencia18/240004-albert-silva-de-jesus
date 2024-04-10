@@ -2,6 +2,7 @@ package com.swproject.salescompany.web.dto;
 
 import java.util.Set;
 
+import com.swproject.salescompany.entities.AbstractEntity;
 import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.entities.Product;
 
@@ -16,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ProductResponseDto {
+public class ProductResponseDto extends AbstractEntity{
 
   private Long id;
   private String name;
@@ -25,8 +26,7 @@ public class ProductResponseDto {
   private String imgUrl;
   private Set<Category> categories;
 
-  public ProductResponseDto(Product product, String name, String description, Double price, String imgUrl,
-      Set<Category> categories) {
+  public ProductResponseDto(Product product) {
     setId(product.getId());
     this.name = product.getName();
     this.description = product.getDescription();

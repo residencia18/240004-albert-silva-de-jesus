@@ -22,6 +22,7 @@ public class ProductMapper {
       protected void configure() {
         map().setId(source.getId());
         map().setName(source.getName());
+        map().setDescription(source.getDescription());
         map().setPrice(source.getPrice());
         map().setImgUrl(source.getImgUrl());
       }

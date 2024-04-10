@@ -27,6 +27,7 @@ import com.swproject.salescompany.web.dto.mapper.UsuarioMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -50,7 +51,7 @@ public class UsuarioController {
   })
   @PostMapping
   public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioForm createDto) {
-    Usuario user = userService.save(UsuarioMapper.toUsuario(createDto));
+    Usuario user = userService.create(UsuarioMapper.toUsuario(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
     return ResponseEntity.created(uri).body(UsuarioMapper.toDto(user));
   }
@@ -65,6 +66,9 @@ public class UsuarioController {
     return ResponseEntity.ok(UsuarioMapper.toDto(user));
   }
 
+  @Operation(summary = "Listar todos os usuarios", description = "Listar todos os usuarios cadastrados", responses = {
+      @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class))))
+  })
   @GetMapping("/")
   public ResponseEntity<List<UsuarioResponseDto>> getAll() {
     List<UsuarioResponseDto> users = UsuarioMapper.toListDto(userService.findAll());
