@@ -115,4 +115,15 @@ public class UsuarioRepositoryTest {
     assertThat(usuarios).hasSizeGreaterThanOrEqualTo(2);
   }
 
+  @Test
+  void deleteUsuario_WithExistingId_RemovesUsuario() {
+    Usuario usuario = generateFakeUsuario();
+    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+
+    usuarioRepository.deleteById(persistedUsuario.getId());
+
+    Usuario deletedUsuario = testEntityManager.find(Usuario.class, persistedUsuario.getId());
+    assertThat(deletedUsuario).isNull();
+  }
+
 }
