@@ -2,6 +2,7 @@ package com.swprojects.generalsales.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
@@ -100,6 +101,18 @@ public class UsuarioRepositoryTest {
 
     assertThat(foundUsuario).isNotEmpty();
     assertThat(foundUsuario.get().getUsername()).isEqualTo(persistedUsuario.getUsername());
+  }
+
+  @Test
+  void listUsuarios_ReturnsAllUsuarios() {
+    Usuario usuario1 = generateFakeUsuario();
+    Usuario usuario2 = generateFakeUsuario();
+    testEntityManager.persistFlushFind(usuario1);
+    testEntityManager.persistFlushFind(usuario2);
+
+    List<Usuario> usuarios = usuarioRepository.findAll();
+
+    assertThat(usuarios).hasSizeGreaterThanOrEqualTo(2);
   }
 
 }
