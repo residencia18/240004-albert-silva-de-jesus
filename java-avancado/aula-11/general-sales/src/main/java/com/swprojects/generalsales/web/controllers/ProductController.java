@@ -74,8 +74,7 @@ public class ProductController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<ProductResponseDto> update(@PathVariable @NonNull Long id,
-      @RequestBody ProductForm createDto) {
+  public ResponseEntity<ProductResponseDto> update(@PathVariable @NonNull Long id, @RequestBody ProductForm createDto) {
     return productService.update(id, createDto)
         .map(product -> ResponseEntity.ok(ProductMapper.toDto(product)))
         .orElseGet(() -> ResponseEntity.notFound().build());

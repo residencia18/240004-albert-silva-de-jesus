@@ -1,6 +1,7 @@
 package com.swprojects.generalsales.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class UsuarioService {
-  
+
   @Autowired
   private UsuarioRepository usuarioRepository;
 
@@ -43,6 +44,14 @@ public class UsuarioService {
   public Usuario findById(@NonNull Long id) {
     return usuarioRepository.findById(id).orElseThrow(
         () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
+  }
+
+  // Metodo criado para atender ao teste automatizado porque o metodo findById nao
+  // retorna um Optional e sim um Usuario
+  @Transactional(readOnly = true)
+  public Optional<Usuario> searchbyId(@NonNull Long id) {
+    return Optional.ofNullable(usuarioRepository.findById(id).orElseThrow(
+        () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id))));
   }
 
   @Transactional
@@ -72,6 +81,16 @@ public class UsuarioService {
     Usuario obj = findById(id);
     obj.setUsername(userForm.getUsername());
     return usuarioRepository.save(obj);
+  }
+
+  // Metodo criado para atender ao teste automatizado porque o metodo findById nao
+  // retorna um Optional e sim um Usuario
+  public Optional<Usuario> toEdit(@NonNull Long id, UsuarioForm userForm) {
+    return searchbyId(id).map(usuario -> {
+      usuario.setUsername(userForm.getUsername());
+      usuario.setPassword(userForm.getPassword());
+      return usuarioRepository.save(usuario);
+    });
   }
 
   public void delete(@NonNull Long id) {
