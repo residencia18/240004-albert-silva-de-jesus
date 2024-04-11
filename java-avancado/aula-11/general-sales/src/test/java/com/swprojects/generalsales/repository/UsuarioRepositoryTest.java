@@ -2,6 +2,8 @@ package com.swprojects.generalsales.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +78,28 @@ public class UsuarioRepositoryTest {
     usuario2.setUsername(usuario1.getUsername());
 
     assertThatThrownBy(() -> usuarioRepository.save(usuario2)).isInstanceOf(Exception.class);
+  }
+
+  @Test
+  void findUsuario_ById_ReturnsUsuario() {
+    Usuario usuario = generateFakeUsuario();
+    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+
+    Optional<Usuario> foundUsuario = usuarioRepository.findById(persistedUsuario.getId());
+
+    assertThat(foundUsuario).isNotEmpty();
+    assertThat(foundUsuario.get().getId()).isEqualTo(persistedUsuario.getId());
+  }
+
+  @Test
+  void findUsuario_ByUsername_ReturnsUsuario() {
+    Usuario usuario = generateFakeUsuario();
+    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+
+    Optional<Usuario> foundUsuario = usuarioRepository.findByUsername(persistedUsuario.getUsername());
+
+    assertThat(foundUsuario).isNotEmpty();
+    assertThat(foundUsuario.get().getUsername()).isEqualTo(persistedUsuario.getUsername());
   }
 
 }
