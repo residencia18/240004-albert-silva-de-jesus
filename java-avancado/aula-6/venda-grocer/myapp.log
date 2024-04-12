@@ -1,9 +1,0 @@
-2024-03-21T17:49:02.474-03:00  INFO 5996 --- [restartedMain] c.s.vendagrocer.VendaGrocerApplication   : Starting VendaGrocerApplication using Java 17.0.1 with PID 5996 (C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-6\venda-grocer\target\classes started by 78969972587 in C:\Users\78969972587\Documents\ResidenciaJava\java-avancado\aula-6\venda-grocer)
-2024-03-21T17:49:02.475-03:00  INFO 5996 --- [restartedMain] c.s.vendagrocer.VendaGrocerApplication   : The following 1 profile is active: "test"
-2024-03-21T17:49:04.456-03:00  WARN 5996 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-21T17:49:05.626-03:00 DEBUG 5996 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 15 mappings in 'requestMappingHandlerMapping'
-2024-03-21T17:49:05.705-03:00 DEBUG 5996 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2024-03-21T17:49:05.742-03:00 DEBUG 5996 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-03-21T17:49:05.774-03:00 DEBUG 5996 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-03-21T17:49:05.964-03:00  INFO 5996 --- [restartedMain] c.s.vendagrocer.VendaGrocerApplication   : Started VendaGrocerApplication in 3.764 seconds (process running for 4.204)
-2024-03-21T17:49:05.967-03:00  INFO 5996 --- [restartedMain] c.s.vendagrocer.VendaGrocerApplication   : Aplicacao iniciada com sucesso!...
