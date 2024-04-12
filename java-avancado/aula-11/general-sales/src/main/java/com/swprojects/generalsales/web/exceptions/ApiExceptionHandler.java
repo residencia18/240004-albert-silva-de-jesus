@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.swprojects.generalsales.exception.DatabaseException;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.exception.PasswordInvalidException;
 import com.swprojects.generalsales.exception.UsernameUniqueViolationException;
@@ -57,5 +58,15 @@ public class ApiExceptionHandler {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(new ErrorMessage(request, HttpStatus.UNPROCESSABLE_ENTITY, "Campo(s) invalido(s)", result));
 
+    }
+
+    @ExceptionHandler(DatabaseException.class)
+    public ResponseEntity<ErrorMessage> database(DatabaseException ex, HttpServletRequest request) {
+        
+        log.error("Api Error - ", ex);
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new ErrorMessage(request, HttpStatus.BAD_REQUEST, ex.getMessage()));
     }
 }

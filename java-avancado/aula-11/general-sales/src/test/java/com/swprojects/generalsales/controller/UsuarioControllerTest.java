@@ -5,6 +5,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,6 +23,8 @@ import com.swprojects.generalsales.entities.Usuario;
 import com.swprojects.generalsales.entities.Usuario.Role;
 import com.swprojects.generalsales.services.UsuarioService;
 import com.swprojects.generalsales.web.controllers.UsuarioController;
+import com.swprojects.generalsales.web.dto.form.UsuarioForm;
+import com.swprojects.generalsales.web.dto.mapper.UsuarioMapper;
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
@@ -66,7 +71,53 @@ public class UsuarioControllerTest {
                 .content(objectMapper.writeValueAsString(newUsuario))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(objectMapper.writeValueAsString(saveUsuario)));
-
+                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(saveUsuario))));
     }
+
+    @Test
+    void getAllUsuarios_ReturnsUsuarioList() throws Exception {
+        Usuario usuario = generateFakeUsuario();
+        when(usuarioService.findAll()).thenReturn(Arrays.asList(usuario));
+
+        mockMvc.perform(get("/api/v1/usuarios/"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(
+                        content().json(objectMapper.writeValueAsString(Arrays.asList(UsuarioMapper.toDto(usuario)))));
+    }
+
+    @Test
+    void getUsuarioById_WhenUsuarioExists_ReturnsUsuario() throws Exception {
+        Usuario usuario = generateFakeUsuario();
+        when(usuarioService.searchbyId(1L)).thenReturn(Optional.of(usuario));
+
+        mockMvc.perform(get("/api/v1/usuarios/searchbyId/{id}", 1))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(usuario))));
+    }
+
+    @Test
+    void getUsuarioById_WhenUsuarioDoesNotExist_ReturnsNotFound() throws Exception {
+        when(usuarioService.searchbyId(any(Long.class))).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/v1/usuarios/searchbyId/{id}", 1))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void updateUsuario_WhenUsuarioExists_ReturnsUpdatedUsuario() throws Exception {
+        Usuario updateInfo = generateFakeUsuario(); // Usando Faker para gerar dados de atualização
+        Usuario updatedUsuario = generateFakeUsuario(); // Supondo que seria outra versão dos dados do empregado
+
+        // Forçando uma mudança para garantir que o empregado foi atualizado
+        updatedUsuario.setUsername("Updated@gmail.com " + updatedUsuario.getUsername());
+        when(usuarioService.toEdit(any(Long.class), any(UsuarioForm.class))).thenReturn(Optional.of(updatedUsuario));
+
+        mockMvc.perform(put("/api/v1/usuarios/toEdit/{id}", 1)
+                .content(objectMapper.writeValueAsString(updateInfo))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(updatedUsuario))));
+    }
+
 }

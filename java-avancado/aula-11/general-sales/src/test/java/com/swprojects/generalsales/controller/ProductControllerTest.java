@@ -23,6 +23,7 @@ import com.swprojects.generalsales.entities.Product;
 import com.swprojects.generalsales.services.ProductService;
 import com.swprojects.generalsales.web.controllers.ProductController;
 import com.swprojects.generalsales.web.dto.form.ProductForm;
+import com.swprojects.generalsales.web.dto.mapper.ProductMapper;
 
 @WebMvcTest(ProductController.class)
 public class ProductControllerTest {
@@ -71,7 +72,7 @@ public class ProductControllerTest {
         .content(objectMapper.writeValueAsString(newProduct))
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isCreated())
-        .andExpect(content().json(objectMapper.writeValueAsString(saveProduct)));
+        .andExpect(content().json(objectMapper.writeValueAsString(ProductMapper.toDto(saveProduct))));
   }
 
   @Test
@@ -82,7 +83,7 @@ public class ProductControllerTest {
     mockMvc.perform(get("/api/v1/products/"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-        .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(product))));
+        .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(ProductMapper.toDto(product)))));
   }
 
   @Test
@@ -92,7 +93,7 @@ public class ProductControllerTest {
 
     mockMvc.perform(get("/api/v1/products/{id}", 1))
         .andExpect(status().isOk())
-        .andExpect(content().json(objectMapper.writeValueAsString(product)));
+        .andExpect(content().json(objectMapper.writeValueAsString(ProductMapper.toDto(product))));
   }
 
   @Test
@@ -116,6 +117,6 @@ public class ProductControllerTest {
         .content(objectMapper.writeValueAsString(updateInfo))
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
-        .andExpect(content().json(objectMapper.writeValueAsString(updatedProduct)));
+        .andExpect(content().json(objectMapper.writeValueAsString(ProductMapper.toDto(updatedProduct))));
   }
 }

@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ProductSalesApplication",
+      "request": "launch",
+      "mainClass": "com.swprojets.productsales.ProductSalesApplication",
+      "projectName": "com.swprojets-product-sales"
+    },
+    {
+      "type": "java",
       "name": "GeneralSalesApplication",
       "request": "launch",
       "mainClass": "com.swprojects.generalsales.GeneralSalesApplication"
@@ -52,6 +59,16 @@
       "cwd": "${workspaceFolder}",
       "mainClass": "com.swprojects.generalsales.GeneralSalesApplication",
       "projectName": "general-sales",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-GeneralSalesApplication<com.swprojects-general-sales>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.swprojects.generalsales.GeneralSalesApplication",
+      "projectName": "com.swprojects-general-sales",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
     }
