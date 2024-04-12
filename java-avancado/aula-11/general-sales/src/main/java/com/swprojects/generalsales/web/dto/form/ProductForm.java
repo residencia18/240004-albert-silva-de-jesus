@@ -27,16 +27,5 @@ public class ProductForm {
     @Positive(message = "O preço deve ser maior que zero")
     private Double price;
     private String imgUrl;
-    // private Set<Category> categories;
-
-    // private Set<Employee> employeesSoldBy;
-
-    // public ProductForm(ProductForm productForm, Employee employee) {
-    // this.name = productForm.getName();
-    // this.description = productForm.getDescription();
-    // this.price = productForm.getPrice();
-    // this.imgUrl = productForm.getImgUrl();
-    // this.categories = productForm.getCategories();
-    // this.employeesSoldBy = productForm.getEmployeesSoldBy();
-    // }
+   
 }
