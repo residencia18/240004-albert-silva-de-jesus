@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.swprojects.generalsales.entities.Usuario;
 import com.swprojects.generalsales.web.dto.form.UsuarioForm;
 import com.swprojects.generalsales.repositories.UsuarioRepository;
+import com.swprojects.generalsales.exception.DatabaseException;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.exception.PasswordInvalidException;
 import com.swprojects.generalsales.exception.UsernameUniqueViolationException;
@@ -94,11 +95,12 @@ public class UsuarioService {
   }
 
   public void delete(@NonNull Long id) {
-    if (usuarioRepository.existsById(id)) {
+    if (isExisteId(id)) {
       usuarioRepository.deleteById(id);
     } else {
       throw new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id));
     }
+    throw new DatabaseException("Integrity violation");
   }
 
   public Boolean isExisteId(@NonNull Long id) {

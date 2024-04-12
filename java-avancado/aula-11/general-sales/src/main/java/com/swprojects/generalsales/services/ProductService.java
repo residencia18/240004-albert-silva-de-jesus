@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.swprojects.generalsales.entities.Product;
 import com.swprojects.generalsales.web.dto.form.ProductForm;
 import com.swprojects.generalsales.repositories.ProductRepository;
+import com.swprojects.generalsales.exception.DatabaseException;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 
 @Service
@@ -34,7 +35,7 @@ public class ProductService {
   public Optional<Product> findById(@NonNull Long id) {
     return Optional.ofNullable(productRepository.findById(id).orElseThrow(
         () -> new EntityNotFoundException(String.format("Product id=%s não encontrado", id))));
-        
+
   }
 
   public Optional<Product> update(@NonNull Long id, ProductForm productForm) {
@@ -53,7 +54,21 @@ public class ProductService {
   }
 
   public void delete(@NonNull Long id) {
-    productRepository.deleteById(id);
+    if (isExisteId(id)) {
+      productRepository.deleteById(id);
+
+    } else {
+      throw new EntityNotFoundException(String.format("Product id=%s não encontrado", id));
+    }
+    throw new DatabaseException("Integrity violation");
+  }
+
+  public Boolean isExisteId(@NonNull Long id) {
+    if (productRepository.existsById(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

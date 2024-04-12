@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojects.generalsales.entities.Employee;
-import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.repositories.EmployeeRepository;
 import com.swprojects.generalsales.web.dto.form.EmployeeForm;
+import com.swprojects.generalsales.exception.DatabaseException;
+import com.swprojects.generalsales.exception.EntityNotFoundException;
 
 @Service
 public class EmployeeService {
@@ -30,15 +31,16 @@ public class EmployeeService {
 
   // @Transactional(readOnly = true)
   // public Employee findById(@NonNull Long id) {
-  //   return employeeRepository.findById(id).orElseThrow(
-  //       () -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id)));
+  // return employeeRepository.findById(id).orElseThrow(
+  // () -> new EntityNotFoundException(String.format("Employee id=%s não
+  // encontrado", id)));
   // }
 
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
     // return employeeRepository.findById(id);
     return Optional.ofNullable(employeeRepository.findById(id)
-    .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
+        .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
 
   @Transactional(readOnly = true)
@@ -64,7 +66,13 @@ public class EmployeeService {
   }
 
   public void delete(@NonNull Long id) {
-    employeeRepository.deleteById(id);
+    if (isExisteId(id)) {
+      employeeRepository.deleteById(id);
+
+    } else {
+      throw new EntityNotFoundException("Employee id=" + id + " não encontrado");
+    }
+    throw new DatabaseException("Integrity violation");
   }
 
   public Boolean isExisteId(@NonNull Long id) {
