@@ -1,0 +1,23 @@
+commit 7cb14ba0208d3a6a3cae127a425f72af344306e3
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Thu Oct 26 15:11:33 2023 -0300
+
+    ListaSalarios, ListaIdades
+
+commit 09195c28bb96251b7400e8772468da78987078cd
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 23 18:12:50 2023 -0300
+
+    Projeto Atualizado
+
+commit c6efd6e0eb58879c62dc9e24dac8a3afe2d1e860
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 23 15:57:03 2023 -0300
+
+    Escopo do Projeto
+
+commit b66dcfa3606d24c802f9bd40a46ab34100762a53
+Author: Albertinesilva <20191tadssaj0026@ifba.edu.br>
+Date:   Mon Oct 23 15:26:14 2023 -0300
+
+    Readme.md
