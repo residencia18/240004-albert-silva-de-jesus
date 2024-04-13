@@ -25,8 +25,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import com.swprojects.generalsales.entities.Employee;
 import com.swprojects.generalsales.services.EmployeeService;
+import com.swprojects.generalsales.services.UsuarioService;
 import com.swprojects.generalsales.web.controllers.EmployeeController;
 import com.swprojects.generalsales.web.dto.form.EmployeeForm;
+import com.swprojects.generalsales.web.dto.mapper.EmployeeMapper;
 
 @WebMvcTest(EmployeeController.class)
 public class EmloyeeControllerTest {
@@ -39,6 +41,9 @@ public class EmloyeeControllerTest {
 
     @MockBean
     private EmployeeService employeeService;
+
+    @MockBean
+    private UsuarioService usuarioService;
 
     @Autowired
     private Faker faker;
@@ -83,7 +88,7 @@ public class EmloyeeControllerTest {
                 .content(objectMapper.writeValueAsString(newEmployee))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(objectMapper.writeValueAsString(savedEmployee)));
+                .andExpect(content().json(objectMapper.writeValueAsString(EmployeeMapper.toDto(savedEmployee))));
     }
 
     @Test
@@ -94,7 +99,8 @@ public class EmloyeeControllerTest {
         mockMvc.perform(get("/api/v1/employees/"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(employee))));
+                .andExpect(content()
+                        .json(objectMapper.writeValueAsString(EmployeeMapper.toListDto(Arrays.asList(employee)))));
     }
 
     @Test
@@ -104,7 +110,7 @@ public class EmloyeeControllerTest {
 
         mockMvc.perform(get("/api/v1/employees/{id}", 1))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(employee)));
+                .andExpect(content().json(objectMapper.writeValueAsString(EmployeeMapper.toDto(employee))));
     }
 
     @Test
@@ -128,7 +134,7 @@ public class EmloyeeControllerTest {
                 .content(objectMapper.writeValueAsString(updateInfo))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(updatedEmployee)));
+                .andExpect(content().json(objectMapper.writeValueAsString(EmployeeMapper.toDto(updatedEmployee))));
     }
 
 }

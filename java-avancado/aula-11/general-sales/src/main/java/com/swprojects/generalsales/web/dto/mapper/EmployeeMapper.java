@@ -24,7 +24,6 @@ public class EmployeeMapper {
       protected void configure() {
         map().setId(source.getId());
         map().setName(source.getName());
-        map().setCpf(source.getCpf());
         map().setBirthDate(source.getBirthDate());
         map().setIsActive(source.getIsActive());
         map().setStartDate(source.getStartDate());

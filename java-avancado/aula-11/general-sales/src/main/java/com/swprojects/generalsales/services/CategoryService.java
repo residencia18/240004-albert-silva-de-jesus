@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojects.generalsales.entities.Category;
+import com.swprojects.generalsales.exception.DatabaseException;
 import com.swprojects.generalsales.exception.EntityNotFoundException;
 import com.swprojects.generalsales.repositories.CategoryRepository;
 import com.swprojects.generalsales.web.dto.form.CategoryForm;
@@ -48,6 +49,20 @@ public class CategoryService {
   }
 
   public void delete(@NonNull Long id) {
-    categoryRepository.deleteById(id);
+    if (isExisteId(id)) {
+      categoryRepository.deleteById(id);
+
+    } else {
+      throw new EntityNotFoundException(String.format("Category id=%s não encontrado", id));
+    }
+    throw new DatabaseException("Integrity violation");
+  }
+
+  public Boolean isExisteId(@NonNull Long id) {
+    if (categoryRepository.existsById(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

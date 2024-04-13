@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
+import com.swprojects.generalsales.web.dto.form.CategoryForm;
+import com.swprojects.generalsales.web.dto.mapper.CategoryMapper;
 import com.swprojects.generalsales.entities.Category;
 import com.swprojects.generalsales.services.CategoryService;
 import com.swprojects.generalsales.web.controllers.CategoryController;
@@ -69,7 +71,7 @@ public class CategoryControllerTest {
                 .content(objectMapper.writeValueAsString(newCategory))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(objectMapper.writeValueAsString(savedCategory)));
+                .andExpect(content().json(objectMapper.writeValueAsString(CategoryMapper.toDto(savedCategory))));
     }
 
     @Test
@@ -80,7 +82,8 @@ public class CategoryControllerTest {
         mockMvc.perform(get("/api/v1/categorys/"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(category))));
+                .andExpect(
+                        content().json(objectMapper.writeValueAsString(Arrays.asList(CategoryMapper.toDto(category)))));
     }
 
     @Test
@@ -90,7 +93,7 @@ public class CategoryControllerTest {
 
         mockMvc.perform(get("/api/v1/categorys/{id}", 1))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(category)));
+                .andExpect(content().json(objectMapper.writeValueAsString(CategoryMapper.toDto(category))));
     }
 
     @Test
@@ -99,5 +102,21 @@ public class CategoryControllerTest {
 
         mockMvc.perform(get("/api/v1/categorys/{id}", 1))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void updateCategory_WhenCategoryExists_ReturnsUpdatedCategory() throws Exception {
+        Category updateInfo = generateFakeCategory(); // Usando Faker para gerar dados de atualização
+        Category updatedCategory = generateFakeCategory(); // Supondo que seria outra versão dos dados do empregado
+
+        // Forçando uma mudança para garantir que o empregado foi atualizado
+        updatedCategory.setName("Updated " + updatedCategory.getName());
+        when(categoryService.update(any(Long.class), any(CategoryForm.class))).thenReturn(Optional.of(updatedCategory));
+
+        mockMvc.perform(put("/api/v1/categorys/{id}", 1)
+                .content(objectMapper.writeValueAsString(updateInfo))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json(objectMapper.writeValueAsString(CategoryMapper.toDto(updatedCategory))));
     }
 }

@@ -42,19 +42,6 @@ public class Product extends AbstractEntity {
   @ManyToMany(mappedBy = "productsSold")
   private Set<Employee> employeesSoldBy = new LinkedHashSet<>();
 
-  public Product(Product entity, Set<Category> categories) {
-    this(entity);
-    categories.forEach(cat -> this.categories.add(cat));
-  }
-
-  public Product(Product entity) {
-    this.name = entity.getName();
-    this.description = entity.getDescription();
-    this.price = entity.getPrice();
-    this.imgUrl = entity.getImgUrl();
-    this.categories = entity.getCategories();
-  }
-
   public Product(Long id, String name, String description, Double price, String imgUrl) {
     super(id);
     this.name = name;

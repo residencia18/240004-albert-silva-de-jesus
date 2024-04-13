@@ -66,6 +66,15 @@ public class UsuarioController {
     return ResponseEntity.ok(UsuarioMapper.toDto(user));
   }
 
+  // Método criado para atender ao teste automatizado porque o método findById não
+  // retorna um Optional e sim um Usuario
+  @GetMapping("/searchbyId/{id}")
+  public ResponseEntity<UsuarioResponseDto> searchbyId(@PathVariable @NonNull Long id) {
+    return userService.searchbyId(id)
+        .map(usuario -> ResponseEntity.ok().body(UsuarioMapper.toDto(usuario)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
   @Operation(summary = "Listar todos os usuarios", description = "Listar todos os usuarios cadastrados", responses = {
       @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class))))
   })
@@ -80,6 +89,13 @@ public class UsuarioController {
     return ResponseEntity.ok(UsuarioMapper.toDto(userService.update(id, createDto)));
   }
 
+  @PutMapping("/toEdit/{id}")
+  public ResponseEntity<UsuarioResponseDto> toEdit(@PathVariable @NonNull Long id, @RequestBody UsuarioForm createDto) {
+    return userService.toEdit(id, createDto)
+        .map(usuario -> ResponseEntity.ok().body(UsuarioMapper.toDto(usuario)))
+        .orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
   @Operation(summary = "Atualizar senha", description = "Recurso para atualizar a senha do usuário.", responses = {
       @ApiResponse(responseCode = "204", description = "Senha atualizada com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Void.class))),
       @ApiResponse(responseCode = "400", description = "Senha não confere.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
@@ -92,7 +108,7 @@ public class UsuarioController {
   }
 
   @DeleteMapping("{id}")
-  public ResponseEntity<Void> delete(@PathVariable("id") @NonNull Long id) {
+  public ResponseEntity<Void> delete(@PathVariable @NonNull Long id) {
     userService.delete(id);
     return ResponseEntity.noContent().build();
   }
