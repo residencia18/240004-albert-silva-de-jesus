@@ -30,13 +30,6 @@
     },
     {
       "type": "java",
-      "name": "TutorialWebServicesApplication",
-      "request": "launch",
-      "mainClass": "com.swprojects.tutorial_web_services.TutorialWebServicesApplication",
-      "projectName": "com.webservices-tutorial_web_services"
-    },
-    {
-      "type": "java",
       "name": "BuyEverythingApplication",
       "request": "launch",
       "mainClass": "com.swproject.buyeverything.BuyEverythingApplication",
