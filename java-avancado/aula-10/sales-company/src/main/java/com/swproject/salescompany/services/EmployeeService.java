@@ -57,7 +57,7 @@ public class EmployeeService {
   public Optional<Employee> update(@NonNull Long id, EmployeeForm employeeForm) {
     return findById(id).map(employee -> {
       employee.setName(employeeForm.getName());
-      employee.setCpf(employeeForm.getCpf());
+      // employee.setCpf(employeeForm.getCpf());
       employee.setBirthDate(employeeForm.getBirthDate());
       return employeeRepository.save(employee);
     });
