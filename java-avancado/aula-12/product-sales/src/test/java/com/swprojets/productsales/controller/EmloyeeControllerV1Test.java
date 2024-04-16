@@ -31,7 +31,7 @@ import com.swprojets.productsales.web.dto.form.EmployeeForm;
 import com.swprojets.productsales.web.dto.mapper.EmployeeMapper;
 
 @WebMvcTest(EmployeeControllerV1.class)
-public class EmloyeeControllerTest {
+public class EmloyeeControllerV1Test {
 
     @Autowired
     private MockMvc mockMvc;

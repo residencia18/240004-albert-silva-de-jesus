@@ -24,7 +24,7 @@ import com.swprojets.productsales.services.EmployeeServiceV1;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
 
 @ExtendWith(MockitoExtension.class)
-public class EmployeeServiceTest {
+public class EmployeeServiceV1Test {
 
   @Mock
   private EmployeeRepository employeeRepository;
