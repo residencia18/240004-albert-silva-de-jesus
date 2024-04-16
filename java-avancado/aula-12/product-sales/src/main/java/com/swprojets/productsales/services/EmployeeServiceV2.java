@@ -1,5 +1,7 @@
 package com.swprojets.productsales.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -18,26 +22,20 @@ import com.swprojets.productsales.exception.EntityNotFoundException;
 import com.swprojets.productsales.repositories.EmployeeRepository;
 import com.swprojets.productsales.web.dto.EmployeeResponseDto;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
+import com.swprojets.productsales.web.dto.mapper.EmployeeMapper;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Primary //para indicar qual implementação deve ser preferida quando o Spring procura injetar um bean
+@Primary // para indicar qual implementação deve ser preferida quando o Spring procura
+         // injetar um bean
 @Qualifier("v2")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class EmployeeServiceV2 {
-  
+
   @Autowired
   private EmployeeRepository employeeRepository;
-
-  public Employee create(@Nullable Employee employee) {
-
-    if (employee == null) {
-      throw new IllegalArgumentException("O parâmetro 'employee' não pode ser nulo.");
-    }
-    return employeeRepository.save(employee);
-  }
 
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
@@ -47,35 +45,27 @@ public class EmployeeServiceV2 {
   }
 
   @Transactional(readOnly = true)
-	public Page<EmployeeResponseDto> findAllPaged(Pageable pageable) {
-		Page<Employee> list = employeeRepository.findAll(pageable);
-		return list.map(x -> new EmployeeResponseDto(x));
-	}
-
-  public Optional<Employee> update(@NonNull Long id, EmployeeForm employeeForm) {
-    return findById(id).map(employee -> {
-      employee.setName(employeeForm.getName());
-      employee.setCpf(employeeForm.getCpf());
-      employee.setBirthDate(employeeForm.getBirthDate());
-      return employeeRepository.save(employee);
-    });
+  public Page<EmployeeResponseDto> findAllPaged(Pageable pageable) {
+    Page<Employee> list = employeeRepository.findAll(pageable);
+    return list.map(x -> new EmployeeResponseDto(x));
   }
 
-  public void delete(@NonNull Long id) {
-    if (isExisteId(id)) {
-      employeeRepository.deleteById(id);
-
-    } else {
-      throw new EntityNotFoundException("Employee id=" + id + " não encontrado");
+  public List<EmployeeResponseDto> findAllSorted(String[] sort) {
+    List<Order> orders = new ArrayList<>();
+    for (String sortOrder : sort) {
+      String[] _sort = sortOrder.split(",");
+      orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
     }
-    throw new DatabaseException("Integrity violation");
+    List<Employee> employees = employeeRepository.findAll(Sort.by(orders));
+    return EmployeeMapper.toListDto(employees);
   }
 
-  public Boolean isExisteId(@NonNull Long id) {
-    if (employeeRepository.existsById(id)) {
-      return true;
-    } else {
-      return false;
+  private Sort.Direction getSortDirection(String direction) {
+    if ("asc".equals(direction)) {
+      return Sort.Direction.ASC;
+    } else if ("desc".equals(direction)) {
+      return Sort.Direction.DESC;
     }
+    return Sort.Direction.ASC;
   }
 }
