@@ -12,23 +12,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojets.productsales.entities.Employee;
-import com.swprojets.productsales.exception.DatabaseException;
 import com.swprojets.productsales.exception.EntityNotFoundException;
 import com.swprojets.productsales.repositories.EmployeeRepository;
 import com.swprojets.productsales.web.dto.EmployeeResponseDto;
-import com.swprojets.productsales.web.dto.form.EmployeeForm;
 import com.swprojets.productsales.web.dto.mapper.EmployeeMapper;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Primary // para indicar qual implementação deve ser preferida quando o Spring procura
-         // injetar um bean
+@Primary // para indicar qual implementação deve ser preferida quando o Spring procura injetar um bean
 @Qualifier("v2")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
