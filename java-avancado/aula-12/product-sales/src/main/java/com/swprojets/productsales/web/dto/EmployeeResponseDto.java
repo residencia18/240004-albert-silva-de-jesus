@@ -31,6 +31,15 @@ public class EmployeeResponseDto extends AbstractEntity {
   private UsuarioResponseDto usuario;
   private Set<ProductResponseDto> productsSold;
 
+  public EmployeeResponseDto(Employee employee) {
+    setId(employee.getId());
+    this.name = employee.getName();
+    this.birthDate = employee.getBirthDate();
+    this.isActive = employee.getIsActive();
+    this.startDate = employee.getStartDate();
+    this.experienceYears = employee.getExperienceYears();
+  }
+
   public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario, Set<ProductResponseDto> productsSold) {
     setId(employee.getId());
     this.name = employee.getName();

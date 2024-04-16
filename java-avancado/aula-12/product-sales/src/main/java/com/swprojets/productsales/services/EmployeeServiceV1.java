@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,13 @@ import com.swprojets.productsales.exception.EntityNotFoundException;
 import com.swprojets.productsales.repositories.EmployeeRepository;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
-public class EmployeeService {
+@Qualifier("v1")
+@RequiredArgsConstructor
+@Transactional(readOnly = false)
+public class EmployeeServiceV1 {
 
   @Autowired
   private EmployeeRepository employeeRepository;

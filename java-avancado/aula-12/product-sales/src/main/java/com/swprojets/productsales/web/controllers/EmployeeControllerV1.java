@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swprojets.productsales.entities.Employee;
 import com.swprojets.productsales.entities.Usuario;
-import com.swprojets.productsales.services.EmployeeService;
+import com.swprojets.productsales.services.EmployeeServiceV1;
 import com.swprojets.productsales.services.UsuarioService;
 import com.swprojets.productsales.web.dto.EmployeeResponseDto;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
@@ -37,10 +38,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/employees")
-public class EmployeeController {
-
+public class EmployeeControllerV1 {
+  
   @Autowired
-  private EmployeeService employeeService;
+  @Qualifier("v1")
+  private EmployeeServiceV1 employeeService;
 
   @Autowired
   private UsuarioService usuarioService;

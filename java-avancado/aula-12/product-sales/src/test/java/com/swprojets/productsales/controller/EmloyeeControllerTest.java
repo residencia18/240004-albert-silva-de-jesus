@@ -24,13 +24,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import com.swprojets.productsales.entities.Employee;
-import com.swprojets.productsales.services.EmployeeService;
+import com.swprojets.productsales.services.EmployeeServiceV1;
 import com.swprojets.productsales.services.UsuarioService;
-import com.swprojets.productsales.web.controllers.EmployeeController;
+import com.swprojets.productsales.web.controllers.EmployeeControllerV1;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
 import com.swprojets.productsales.web.dto.mapper.EmployeeMapper;
 
-@WebMvcTest(EmployeeController.class)
+@WebMvcTest(EmployeeControllerV1.class)
 public class EmloyeeControllerTest {
 
     @Autowired
@@ -40,7 +40,7 @@ public class EmloyeeControllerTest {
     private ObjectMapper objectMapper;
 
     @MockBean
-    private EmployeeService employeeService;
+    private EmployeeServiceV1 employeeService;
 
     @MockBean
     private UsuarioService usuarioService;

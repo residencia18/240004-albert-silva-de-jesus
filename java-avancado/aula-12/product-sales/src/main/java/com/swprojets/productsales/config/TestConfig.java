@@ -2,7 +2,9 @@ package com.swprojets.productsales.config;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,21 +50,37 @@ public class TestConfig implements CommandLineRunner {
 
     Faker faker = new Faker(new Locale("pt-BR"));
 
-    for (int i = 0; i < 5; i++) {
+    Set<String> usedProductNames = new HashSet<>();
+    Set<String> usedCategoryNames = new HashSet<>();
+    Set<String> usedEmployeeNames = new HashSet<>();
+    Set<String> usedUsernames = new HashSet<>();
 
+    for (int i = 0; i < 20; i++) {
       // Gerando uma data de nascimento aleatória
       Instant randomBirthDate = faker.date().birthday().toInstant().truncatedTo(ChronoUnit.SECONDS);
 
       // Criando uma nova categoria com os dados aleatórios
+      String newCategoryName = faker.commerce().department();
+      while (usedCategoryNames.contains(newCategoryName)) {
+        newCategoryName = faker.commerce().department();
+      }
+      usedCategoryNames.add(newCategoryName);
+
       Category category = new Category();
-      category.setName(faker.commerce().department());
+      category.setName(newCategoryName);
       categoryRepositoy.save(category);
       log.info("Category: {}", category);
 
       // Criando um novo produto aleatório com a biblioteca Faker e salvando o produto
       // no banco de dados
+      String newProductName = faker.commerce().productName();
+      while (usedProductNames.contains(newProductName)) {
+        newProductName = faker.commerce().productName();
+      }
+      usedProductNames.add(newProductName);
+
       Product product = new Product();
-      product.setName(faker.commerce().productName());
+      product.setName(newProductName);
       product.setDescription(faker.commerce().material());
       product.setPrice(faker.number().randomDouble(2, 10, 1000));
       product.setImgUrl(faker.internet().image());
@@ -79,7 +97,13 @@ public class TestConfig implements CommandLineRunner {
       boolean isAdminExists = userRepository.existsByRole(Role.ROLE_ADMIN);
 
       if (!isAdminExists) {
-        usuario.setUsername(faker.internet().emailAddress());
+        String newUsername = faker.internet().emailAddress();
+        while (usedUsernames.contains(newUsername)) {
+          newUsername = faker.internet().emailAddress();
+        }
+        usedUsernames.add(newUsername);
+
+        usuario.setUsername(newUsername);
         usuario.setPassword(faker.number().digits(6));
         usuario.setRole(Role.ROLE_ADMIN);
         userRepository.save(usuario);
@@ -87,7 +111,13 @@ public class TestConfig implements CommandLineRunner {
 
       } else {
         // Se já existir um administrador, cria um funcionário
-        usuario.setUsername(faker.internet().emailAddress());
+        String newUsername = faker.internet().emailAddress();
+        while (usedUsernames.contains(newUsername)) {
+          newUsername = faker.internet().emailAddress();
+        }
+        usedUsernames.add(newUsername);
+
+        usuario.setUsername(newUsername);
         usuario.setPassword(faker.number().digits(6));
         usuario.setRole(Role.ROLE_COMUM);
         userRepository.save(usuario);
@@ -101,8 +131,14 @@ public class TestConfig implements CommandLineRunner {
       String cpfFormatado = new CPF(cpfString).getNumeroFormatado();
 
       // Criando um novo employee aleatório com a biblioteca Faker
+      String newEmployeeName = faker.name().fullName();
+      while (usedEmployeeNames.contains(newEmployeeName)) {
+        newEmployeeName = faker.name().fullName();
+      }
+      usedEmployeeNames.add(newEmployeeName);
+
       Employee employee = new Employee();
-      employee.setName(faker.name().fullName());
+      employee.setName(newEmployeeName);
       employee.setCpf(cpfFormatado);
       employee.setBirthDate(randomBirthDate);
       employee.setIsActive(faker.bool().bool());
@@ -115,7 +151,7 @@ public class TestConfig implements CommandLineRunner {
       employee.setUsuario(usuario);
       employeeRepository.save(employee);
       log.info("Employee: {}", employee);
-
     }
+
   }
 }

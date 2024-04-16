@@ -20,7 +20,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import com.github.javafaker.Faker;
 import com.swprojets.productsales.entities.Employee;
 import com.swprojets.productsales.repositories.EmployeeRepository;
-import com.swprojets.productsales.services.EmployeeService;
+import com.swprojets.productsales.services.EmployeeServiceV1;
 import com.swprojets.productsales.web.dto.form.EmployeeForm;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,7 +30,7 @@ public class EmployeeServiceTest {
   private EmployeeRepository employeeRepository;
 
   @InjectMocks
-  private EmployeeService employeeService;
+  private EmployeeServiceV1 employeeService;
 
   private Faker faker;
 
