@@ -27,7 +27,7 @@ import com.example.crud_user.web.dto.mapper.UserMapper;
 
 @RestController
 @RequestMapping("/users")
-public class UserControler {
+public class UsuarioControler {
 
   @Autowired
   private UserService userService;
