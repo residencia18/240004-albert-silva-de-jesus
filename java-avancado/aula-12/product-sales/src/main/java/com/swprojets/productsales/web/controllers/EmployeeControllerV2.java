@@ -1,10 +1,12 @@
 package com.swprojets.productsales.web.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,14 +38,14 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeControllerV2 {
 
   @Autowired
-  @Qualifier("v2")
+  @Qualifier("employeeServiceV2")
   private EmployeeServiceV2 employeeService;
 
   @Operation(summary = "Recuperar um funcionário pelo id", description = "Recurso para recuperar um funcionário pelo id.", responses = {
       @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EmployeeResponseDto.class))),
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
-  @GetMapping("/{id}")
+  @GetMapping("/{id:\\d+}")
   public ResponseEntity<EmployeeResponseDto> getById(@PathVariable @NonNull Long id) {
     return employeeService.findById(id)
         .map(employee -> ResponseEntity.ok(EmployeeMapper.toDto(employee)))
@@ -60,7 +62,8 @@ public class EmployeeControllerV2 {
   }
 
   @GetMapping("/sortedemployees")
-  public ResponseEntity<List<EmployeeResponseDto>> getAllEmployees(@RequestParam(defaultValue = "id,desc") String[] sort) {
+  public ResponseEntity<List<EmployeeResponseDto>> getAllEmployees(
+      @RequestParam(defaultValue = "id,desc") String[] sort) {
     try {
       List<EmployeeResponseDto> employees = employeeService.findAllSorted(sort);
       if (employees.isEmpty()) {
@@ -69,6 +72,30 @@ public class EmployeeControllerV2 {
       return new ResponseEntity<>(employees, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @GetMapping("/getAllEmployees")
+  public ResponseEntity<Page<Employee>> getAllEmployees(
+      @RequestParam(defaultValue = "0") int page,
+      @RequestParam(defaultValue = "10") int size) {
+    Page<Employee> employeePage = employeeService.findAll(PageRequest.of(page, size));
+    if (employeePage.isEmpty()) {
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    return new ResponseEntity<>(employeePage, HttpStatus.OK);
+  }
+
+  @GetMapping("/employees/active") // findActiveEmployees
+  public ResponseEntity<Map<String, Object>> findActiveEmployees(
+      @RequestParam(defaultValue = "0") int page,
+      @RequestParam(defaultValue = "3") int size) {
+
+    try {
+      Map<String, Object> response = employeeService.findActiveEmployees(page, size);
+      return new ResponseEntity<>(response, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
