@@ -1,13 +1,13 @@
-package com.swprojets.productsales;
+package com.swprojects.salesofeverything;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductSalesApplication {
+public class SalesofEverythingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductSalesApplication.class, args);
+		SpringApplication.run(SalesofEverythingApplication.class, args);
 	}
 
 }
