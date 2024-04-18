@@ -27,8 +27,7 @@ import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Primary // para indicar qual implementação deve ser preferida quando o Spring procura
-         // injetar um bean
+@Primary // para indicar qual implementação deve ser preferida quando o Spring procura injetar um bean
 @Qualifier("employeeServiceV2")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)

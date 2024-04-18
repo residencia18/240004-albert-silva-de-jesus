@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.Optional;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -56,6 +57,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @DisplayName("Criação de uma categoria com dados válidos retorna status 201")
     void createCategory_WithValidData_ReturnsCreated() throws Exception {
         Category newCategory = generateFakeCategory();
 
@@ -75,6 +77,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @DisplayName("Retorna uma lista de categorias quando chamado com sucesso")
     void getAllCategorys_ReturnsCategoryList() throws Exception {
         Category category = generateFakeCategory();
         when(categoryService.findAll()).thenReturn(Arrays.asList(category));
@@ -87,6 +90,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @DisplayName("Retorna uma lista de categorias vazia quando não há categorias")
     void getCategoryById_WhenCategoryExists_ReturnsCategory() throws Exception {
         Category category = generateFakeCategory();
         when(categoryService.findById(1L)).thenReturn(Optional.of(category));

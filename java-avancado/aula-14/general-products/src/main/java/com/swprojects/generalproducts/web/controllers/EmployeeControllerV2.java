@@ -56,9 +56,9 @@ public class EmployeeControllerV2 {
       @ApiResponse(responseCode = "200", description = "Lista com todos os funcionarios cadastrados(Paginado)", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = EmployeeResponseDto.class))))
   })
   @GetMapping
-  public ResponseEntity<Page<EmployeeResponseDto>> findAll(Pageable pageable) {
-    Page<EmployeeResponseDto> list = employeeService.findAllPaged(pageable);
-    return ResponseEntity.ok().body(list);
+  public ResponseEntity<Page<EmployeeResponseDto>> getAll(Pageable pageable) {
+    Page<EmployeeResponseDto> employeePage = employeeService.findAllPaged(pageable);
+    return ResponseEntity.ok().body(employeePage);
   }
 
   @GetMapping("/sortedemployees")
