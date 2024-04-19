@@ -16,13 +16,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swprojects.generalproducts.entities.Employee;
+import com.swprojects.generalproducts.exception.DatabaseException;
 import com.swprojects.generalproducts.exception.EntityNotFoundException;
 import com.swprojects.generalproducts.repositories.EmployeeRepository;
 import com.swprojects.generalproducts.web.dto.EmployeeResponseDto;
+import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
 import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -37,9 +40,16 @@ public class EmployeeServiceV2 {
   @Autowired
   private EmployeeRepository employeeRepository;
 
+  public Employee create(@Nullable Employee employee) {
+
+    if (employee == null) {
+      throw new IllegalArgumentException("O parâmetro 'employee' não pode ser nulo.");
+    }
+    return employeeRepository.save(employee);
+  }
+
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
-    // return employeeRepository.findById(id);
     return Optional.ofNullable(employeeRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
@@ -51,10 +61,14 @@ public class EmployeeServiceV2 {
     return list.map(x -> new EmployeeResponseDto(x));
   }
 
-  public Page<Employee> findAll(Pageable pageable) {
-    return employeeRepository.findAll(pageable);
+  @Cacheable("employees")
+  @Transactional(readOnly = true)
+  public Page<EmployeeResponseDto> findAll(Pageable pageable) {
+    return employeeRepository.findAll(pageable).map(EmployeeResponseDto::new);
   }
 
+  @Cacheable("employees")
+  @Transactional(readOnly = true)
   public List<EmployeeResponseDto> findAllSorted(String[] sort) {
     List<Order> orders = new ArrayList<>();
     for (String sortOrder : sort) {
@@ -65,6 +79,8 @@ public class EmployeeServiceV2 {
     return EmployeeMapper.toListDto(employees);
   }
 
+  @Cacheable("employees")
+  @Transactional(readOnly = true)
   private Sort.Direction getSortDirection(String direction) {
     if ("asc".equals(direction)) {
       return Sort.Direction.ASC;
@@ -74,6 +90,8 @@ public class EmployeeServiceV2 {
     return Sort.Direction.ASC;
   }
 
+  @Cacheable("employees")
+  @Transactional(readOnly = true)
   public Map<String, Object> findActiveEmployees(int page, int size) {
     List<Employee> employees = new ArrayList<>();
     Pageable paging = PageRequest.of(page, size);
@@ -87,5 +105,32 @@ public class EmployeeServiceV2 {
     response.put("totalPages", pageEmployees.getTotalPages());
 
     return response;
+  }
+
+  public Optional<Employee> update(@NonNull Long id, EmployeeForm employeeForm) {
+    return findById(id).map(employee -> {
+      employee.setName(employeeForm.getName());
+      employee.setCpf(employeeForm.getCpf());
+      employee.setBirthDate(employeeForm.getBirthDate());
+      return employeeRepository.save(employee);
+    });
+  }
+
+  public void delete(@NonNull Long id) {
+    if (isExisteId(id)) {
+      employeeRepository.deleteById(id);
+
+    } else {
+      throw new EntityNotFoundException("Employee id=" + id + " não encontrado");
+    }
+    throw new DatabaseException("Integrity violation");
+  }
+
+  public Boolean isExisteId(@NonNull Long id) {
+    if (employeeRepository.existsById(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

@@ -19,7 +19,7 @@ import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Qualifier("v1")
+@Qualifier("employeeServicev1")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class EmployeeServiceV1 {
@@ -44,7 +44,6 @@ public class EmployeeServiceV1 {
 
   @Transactional(readOnly = true)
   public Optional<Employee> findById(@NonNull Long id) {
-    // return employeeRepository.findById(id);
     return Optional.ofNullable(employeeRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
