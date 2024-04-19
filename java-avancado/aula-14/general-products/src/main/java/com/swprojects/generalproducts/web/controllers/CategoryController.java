@@ -72,6 +72,10 @@ public class CategoryController {
     return ResponseEntity.ok().body(categories);
   }
 
+  @Operation(summary = "Atualizar categoria", description = "Atualiza uma categoria existente pelo seu id", responses = {
+      @ApiResponse(responseCode = "200", description = "Categoria atualizada com sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryResponseDto.class))),
+      @ApiResponse(responseCode = "404", description = "Categoria não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
   @PutMapping("/{id}")
   public ResponseEntity<CategoryResponseDto> update(@PathVariable @NonNull Long id,
       @RequestBody CategoryForm createDto) {
@@ -80,6 +84,10 @@ public class CategoryController {
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
+  @Operation(summary = "Excluir categoria", description = "Exclui uma categoria existente pelo seu id", responses = {
+      @ApiResponse(responseCode = "204", description = "Categoria excluída com sucesso"),
+      @ApiResponse(responseCode = "404", description = "Categoria não encontrada", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable @NonNull Long id) {
     categoryService.delete(id);
