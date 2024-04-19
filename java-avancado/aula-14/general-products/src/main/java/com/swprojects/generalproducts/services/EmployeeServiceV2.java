@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
@@ -31,11 +33,14 @@ import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Primary // para indicar qual implementação deve ser preferida quando o Spring procura injetar um bean
+@Primary // para indicar qual implementação deve ser preferida quando o Spring procura
+         // injetar um bean
 @Qualifier("employeeServiceV2")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class EmployeeServiceV2 {
+
+  public static final Logger log = LoggerFactory.getLogger(EmployeeServiceV2.class);
 
   @Autowired
   private EmployeeRepository employeeRepository;
@@ -65,6 +70,8 @@ public class EmployeeServiceV2 {
   @Transactional(readOnly = true)
   public Page<EmployeeResponseDto> findAll(Pageable pageable) {
     return employeeRepository.findAll(pageable).map(EmployeeResponseDto::new);
+    // return employeeRepository.findAll(pageable).map(x -> new
+    // EmployeeResponseDto(x));
   }
 
   @Cacheable("employees")
@@ -73,17 +80,21 @@ public class EmployeeServiceV2 {
     List<Order> orders = new ArrayList<>();
     for (String sortOrder : sort) {
       String[] _sort = sortOrder.split(",");
-      orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
+      if (_sort.length >= 2) {
+        orders.add(new Order(getSortDirection(_sort[1]), _sort[0]));
+      } else {
+        // Lança uma exceção se o critério de ordenação não estiver no formato correto
+        log.warn("Critério de ordenação inválido: {}", sortOrder);
+      }
     }
     List<Employee> employees = employeeRepository.findAll(Sort.by(orders));
     return EmployeeMapper.toListDto(employees);
   }
 
-  @Cacheable("employees")
-  @Transactional(readOnly = true)
   private Sort.Direction getSortDirection(String direction) {
     if ("asc".equals(direction)) {
       return Sort.Direction.ASC;
+
     } else if ("desc".equals(direction)) {
       return Sort.Direction.DESC;
     }

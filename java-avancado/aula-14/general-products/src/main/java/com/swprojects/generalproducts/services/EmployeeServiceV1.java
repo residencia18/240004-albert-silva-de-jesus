@@ -19,7 +19,7 @@ import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@Qualifier("employeeServicev1")
+@Qualifier("employeeServiceV1")
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
 public class EmployeeServiceV1 {

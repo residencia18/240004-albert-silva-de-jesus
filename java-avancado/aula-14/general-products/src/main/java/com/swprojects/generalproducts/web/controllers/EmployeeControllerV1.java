@@ -39,9 +39,9 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/v1/employees")
 public class EmployeeControllerV1 {
-  
+
   @Autowired
-  @Qualifier("v1")
+  @Qualifier("employeeServiceV1")
   private EmployeeServiceV1 employeeService;
 
   @Autowired
@@ -80,6 +80,10 @@ public class EmployeeControllerV1 {
     return ResponseEntity.ok().body(employees);
   }
 
+  @Operation(summary = "Atualizar funcionário", description = "Atualiza um funcionário existente pelo seu ID", responses = {
+      @ApiResponse(responseCode = "200", description = "Funcionário atualizado com sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EmployeeResponseDto.class))),
+      @ApiResponse(responseCode = "404", description = "Funcionário não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
   @PutMapping("/{id}")
   public ResponseEntity<EmployeeResponseDto> update(@PathVariable @NonNull Long id,
       @RequestBody EmployeeForm createDto) {
@@ -88,6 +92,10 @@ public class EmployeeControllerV1 {
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
+  @Operation(summary = "Excluir funcionário", description = "Exclui um funcionário existente pelo seu ID", responses = {
+      @ApiResponse(responseCode = "204", description = "Funcionário excluído com sucesso"),
+      @ApiResponse(responseCode = "404", description = "Funcionário não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable @NonNull Long id) {
     employeeService.delete(id);
