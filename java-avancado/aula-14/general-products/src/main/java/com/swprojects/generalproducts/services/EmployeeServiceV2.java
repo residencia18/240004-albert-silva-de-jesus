@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,6 +44,7 @@ public class EmployeeServiceV2 {
         .orElseThrow(() -> new EntityNotFoundException(String.format("Employee id=%s não encontrado", id))));
   }
 
+  @Cacheable("employees")
   @Transactional(readOnly = true)
   public Page<EmployeeResponseDto> findAllPaged(Pageable pageable) {
     Page<Employee> list = employeeRepository.findAll(pageable);
