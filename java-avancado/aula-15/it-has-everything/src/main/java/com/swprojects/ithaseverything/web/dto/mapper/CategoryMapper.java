@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.dto.mapper;
+package com.swprojects.ithaseverything.web.dto.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.web.dto.CategoryResponseDto;
-import com.swprojects.generalproducts.web.dto.form.CategoryForm;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.web.dto.CategoryResponseDto;
+import com.swprojects.ithaseverything.web.dto.form.CategoryForm;
 
 public class CategoryMapper {
 

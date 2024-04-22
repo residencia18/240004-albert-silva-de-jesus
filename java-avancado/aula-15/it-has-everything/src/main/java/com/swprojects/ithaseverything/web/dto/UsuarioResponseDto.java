@@ -1,8 +1,8 @@
-package com.swprojects.generalproducts.web.dto;
+package com.swprojects.ithaseverything.web.dto;
 
-import com.swprojects.generalproducts.entities.AbstractEntity;
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.entities.Usuario.Role;
+import com.swprojects.ithaseverything.entities.AbstractEntity;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.entities.Usuario.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

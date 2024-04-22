@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.entities;
+package com.swprojects.ithaseverything.entities;
 
 import java.time.Instant;
 import java.util.Date;

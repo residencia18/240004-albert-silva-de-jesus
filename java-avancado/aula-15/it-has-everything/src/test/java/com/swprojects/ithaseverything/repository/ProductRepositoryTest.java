@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.repository;
+package com.swprojects.ithaseverything.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,8 +14,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.repositories.ProductRepository;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.repositories.ProductRepository;
 
 @DataJpaTest
 public class ProductRepositoryTest {

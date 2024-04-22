@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.services;
+package com.swprojects.ithaseverything.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.exception.DatabaseException;
-import com.swprojects.generalproducts.exception.EntityNotFoundException;
-import com.swprojects.generalproducts.repositories.ProductRepository;
-import com.swprojects.generalproducts.web.dto.form.ProductForm;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.exception.DatabaseException;
+import com.swprojects.ithaseverything.exception.EntityNotFoundException;
+import com.swprojects.ithaseverything.repositories.ProductRepository;
+import com.swprojects.ithaseverything.web.dto.form.ProductForm;
 
 @Service
 @Transactional(readOnly = false)

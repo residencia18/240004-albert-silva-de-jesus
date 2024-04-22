@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.exceptions;
+package com.swprojects.ithaseverything.web.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.servlet.http.HttpServletRequest;

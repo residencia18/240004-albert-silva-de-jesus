@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.services;
+package com.swprojects.ithaseverything.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,11 +10,11 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.exception.DatabaseException;
-import com.swprojects.generalproducts.exception.EntityNotFoundException;
-import com.swprojects.generalproducts.repositories.EmployeeRepository;
-import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.exception.DatabaseException;
+import com.swprojects.ithaseverything.exception.EntityNotFoundException;
+import com.swprojects.ithaseverything.repositories.EmployeeRepository;
+import com.swprojects.ithaseverything.web.dto.form.EmployeeForm;
 
 import lombok.RequiredArgsConstructor;
 

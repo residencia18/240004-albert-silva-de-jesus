@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.controller;
+package com.swprojects.ithaseverything.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -19,12 +19,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.entities.Usuario.Role;
-import com.swprojects.generalproducts.services.UsuarioService;
-import com.swprojects.generalproducts.web.controllers.UsuarioController;
-import com.swprojects.generalproducts.web.dto.form.UsuarioForm;
-import com.swprojects.generalproducts.web.dto.mapper.UsuarioMapper;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.entities.Usuario.Role;
+import com.swprojects.ithaseverything.services.UsuarioService;
+import com.swprojects.ithaseverything.web.controllers.UsuarioController;
+import com.swprojects.ithaseverything.web.dto.form.UsuarioForm;
+import com.swprojects.ithaseverything.web.dto.mapper.UsuarioMapper;
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {

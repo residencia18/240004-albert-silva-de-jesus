@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.config;
+package com.swprojects.ithaseverything.config;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -15,15 +15,15 @@ import org.springframework.context.annotation.Profile;
 
 import com.github.javafaker.Faker;
 
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.entities.Usuario.Role;
-import com.swprojects.generalproducts.repositories.CategoryRepository;
-import com.swprojects.generalproducts.repositories.EmployeeRepository;
-import com.swprojects.generalproducts.repositories.ProductRepository;
-import com.swprojects.generalproducts.repositories.UsuarioRepository;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.entities.Usuario.Role;
+import com.swprojects.ithaseverything.repositories.CategoryRepository;
+import com.swprojects.ithaseverything.repositories.EmployeeRepository;
+import com.swprojects.ithaseverything.repositories.ProductRepository;
+import com.swprojects.ithaseverything.repositories.UsuarioRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 

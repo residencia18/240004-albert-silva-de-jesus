@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.config;
+package com.swprojects.ithaseverything.config;
 
 import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;

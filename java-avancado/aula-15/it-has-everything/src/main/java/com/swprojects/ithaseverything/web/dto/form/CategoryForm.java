@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.dto.form;
+package com.swprojects.ithaseverything.web.dto.form;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

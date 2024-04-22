@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.controller;
+package com.swprojects.ithaseverything.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -20,11 +20,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.services.CategoryService;
-import com.swprojects.generalproducts.web.controllers.CategoryController;
-import com.swprojects.generalproducts.web.dto.form.CategoryForm;
-import com.swprojects.generalproducts.web.dto.mapper.CategoryMapper;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.services.CategoryService;
+import com.swprojects.ithaseverything.web.controllers.CategoryController;
+import com.swprojects.ithaseverything.web.dto.form.CategoryForm;
+import com.swprojects.ithaseverything.web.dto.mapper.CategoryMapper;
 
 @WebMvcTest(CategoryController.class)
 public class CategoryControllerTest {

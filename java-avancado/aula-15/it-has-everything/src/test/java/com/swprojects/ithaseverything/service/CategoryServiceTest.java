@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.service;
+package com.swprojects.ithaseverything.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -12,9 +12,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.repositories.CategoryRepository;
-import com.swprojects.generalproducts.services.CategoryService;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.repositories.CategoryRepository;
+import com.swprojects.ithaseverything.services.CategoryService;
 
 @ExtendWith(MockitoExtension.class)
 public class CategoryServiceTest {

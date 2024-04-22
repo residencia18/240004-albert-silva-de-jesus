@@ -1,8 +1,8 @@
-package com.swprojects.generalproducts.web.dto.form;
+package com.swprojects.ithaseverything.web.dto.form;
 
 import java.util.List;
 
-import com.swprojects.generalproducts.entities.Employee;
+import com.swprojects.ithaseverything.entities.Employee;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

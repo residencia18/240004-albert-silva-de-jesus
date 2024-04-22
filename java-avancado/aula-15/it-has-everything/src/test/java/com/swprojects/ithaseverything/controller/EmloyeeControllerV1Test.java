@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.controller;
+package com.swprojects.ithaseverything.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -23,12 +23,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.services.EmployeeServiceV1;
-import com.swprojects.generalproducts.services.UsuarioService;
-import com.swprojects.generalproducts.web.controllers.EmployeeControllerV1;
-import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
-import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.services.EmployeeServiceV1;
+import com.swprojects.ithaseverything.services.UsuarioService;
+import com.swprojects.ithaseverything.web.controllers.EmployeeControllerV1;
+import com.swprojects.ithaseverything.web.dto.form.EmployeeForm;
+import com.swprojects.ithaseverything.web.dto.mapper.EmployeeMapper;
 
 @WebMvcTest(EmployeeControllerV1.class)
 public class EmloyeeControllerV1Test {

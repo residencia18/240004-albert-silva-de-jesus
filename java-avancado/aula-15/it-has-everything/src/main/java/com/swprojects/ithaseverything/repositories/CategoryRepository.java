@@ -1,11 +1,11 @@
-package com.swprojects.generalproducts.repositories;
+package com.swprojects.ithaseverything.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.swprojects.generalproducts.entities.Category;
+import com.swprojects.ithaseverything.entities.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{

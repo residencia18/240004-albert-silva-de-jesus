@@ -1,9 +1,9 @@
-package com.swprojects.generalproducts;
+package com.swprojects.ithaseverything;
 
-import com.swprojects.generalproducts.web.dto.UsuarioResponseDto;
-import com.swprojects.generalproducts.web.dto.UsuarioSenhaDto;
-import com.swprojects.generalproducts.web.dto.form.UsuarioForm;
-import com.swprojects.generalproducts.web.exceptions.ErrorMessage;
+import com.swprojects.ithaseverything.web.dto.UsuarioResponseDto;
+import com.swprojects.ithaseverything.web.dto.UsuarioSenhaDto;
+import com.swprojects.ithaseverything.web.dto.form.UsuarioForm;
+import com.swprojects.ithaseverything.web.exceptions.ErrorMessage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

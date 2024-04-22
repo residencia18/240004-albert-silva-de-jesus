@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.service;
+package com.swprojects.ithaseverything.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -22,13 +22,13 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.repositories.UsuarioRepository;
-import com.swprojects.generalproducts.services.UsuarioService;
-import com.swprojects.generalproducts.web.dto.UsuarioResponseDto;
-import com.swprojects.generalproducts.web.dto.UsuarioSenhaDto;
-import com.swprojects.generalproducts.web.dto.form.UsuarioForm;
-import com.swprojects.generalproducts.web.exceptions.ErrorMessage;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.repositories.UsuarioRepository;
+import com.swprojects.ithaseverything.services.UsuarioService;
+import com.swprojects.ithaseverything.web.dto.UsuarioResponseDto;
+import com.swprojects.ithaseverything.web.dto.UsuarioSenhaDto;
+import com.swprojects.ithaseverything.web.dto.form.UsuarioForm;
+import com.swprojects.ithaseverything.web.exceptions.ErrorMessage;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(scripts = "/sql/usuarios/usuarios-insert.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)

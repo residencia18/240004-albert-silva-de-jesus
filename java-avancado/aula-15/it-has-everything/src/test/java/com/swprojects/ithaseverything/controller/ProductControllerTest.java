@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.controller;
+package com.swprojects.ithaseverything.controller;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -19,11 +19,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.services.ProductService;
-import com.swprojects.generalproducts.web.controllers.ProductController;
-import com.swprojects.generalproducts.web.dto.form.ProductForm;
-import com.swprojects.generalproducts.web.dto.mapper.ProductMapper;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.services.ProductService;
+import com.swprojects.ithaseverything.web.controllers.ProductController;
+import com.swprojects.ithaseverything.web.dto.form.ProductForm;
+import com.swprojects.ithaseverything.web.dto.mapper.ProductMapper;
 
 @WebMvcTest(ProductController.class)
 public class ProductControllerTest {

@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.service;
+package com.swprojects.ithaseverything.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -18,10 +18,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.repositories.EmployeeRepository;
-import com.swprojects.generalproducts.services.EmployeeServiceV1;
-import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.repositories.EmployeeRepository;
+import com.swprojects.ithaseverything.services.EmployeeServiceV1;
+import com.swprojects.ithaseverything.web.dto.form.EmployeeForm;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceV1Test {

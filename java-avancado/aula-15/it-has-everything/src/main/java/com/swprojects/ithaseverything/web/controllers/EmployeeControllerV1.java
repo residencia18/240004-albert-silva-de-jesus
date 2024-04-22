@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.controllers;
+package com.swprojects.ithaseverything.web.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.services.EmployeeServiceV1;
-import com.swprojects.generalproducts.services.UsuarioService;
-import com.swprojects.generalproducts.web.dto.EmployeeResponseDto;
-import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
-import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
-import com.swprojects.generalproducts.web.exceptions.ErrorMessage;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.services.EmployeeServiceV1;
+import com.swprojects.ithaseverything.services.UsuarioService;
+import com.swprojects.ithaseverything.web.dto.EmployeeResponseDto;
+import com.swprojects.ithaseverything.web.dto.form.EmployeeForm;
+import com.swprojects.ithaseverything.web.dto.mapper.EmployeeMapper;
+import com.swprojects.ithaseverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

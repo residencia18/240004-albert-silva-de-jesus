@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.controllers;
+package com.swprojects.ithaseverything.web.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.services.CategoryService;
-import com.swprojects.generalproducts.web.dto.CategoryResponseDto;
-import com.swprojects.generalproducts.web.dto.form.CategoryForm;
-import com.swprojects.generalproducts.web.dto.mapper.CategoryMapper;
-import com.swprojects.generalproducts.web.exceptions.ErrorMessage;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.services.CategoryService;
+import com.swprojects.ithaseverything.web.dto.CategoryResponseDto;
+import com.swprojects.ithaseverything.web.dto.form.CategoryForm;
+import com.swprojects.ithaseverything.web.dto.mapper.CategoryMapper;
+import com.swprojects.ithaseverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

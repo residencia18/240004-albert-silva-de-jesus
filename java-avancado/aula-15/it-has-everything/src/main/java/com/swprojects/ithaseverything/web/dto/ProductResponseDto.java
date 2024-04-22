@@ -1,10 +1,10 @@
-package com.swprojects.generalproducts.web.dto;
+package com.swprojects.ithaseverything.web.dto;
 
 import java.util.Set;
 
-import com.swprojects.generalproducts.entities.AbstractEntity;
-import com.swprojects.generalproducts.entities.Category;
-import com.swprojects.generalproducts.entities.Product;
+import com.swprojects.ithaseverything.entities.AbstractEntity;
+import com.swprojects.ithaseverything.entities.Category;
+import com.swprojects.ithaseverything.entities.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

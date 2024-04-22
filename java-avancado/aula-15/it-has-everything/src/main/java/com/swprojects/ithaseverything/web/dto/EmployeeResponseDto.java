@@ -1,11 +1,11 @@
-package com.swprojects.generalproducts.web.dto;
+package com.swprojects.ithaseverything.web.dto;
 
 import java.time.Instant;
 import java.util.Date;
 import java.util.Set;
 
-import com.swprojects.generalproducts.entities.AbstractEntity;
-import com.swprojects.generalproducts.entities.Employee;
+import com.swprojects.ithaseverything.entities.AbstractEntity;
+import com.swprojects.ithaseverything.entities.Employee;
 
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;

@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.config;
+package com.swprojects.ithaseverything.config;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Configuration;

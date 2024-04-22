@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.controllers;
+package com.swprojects.ithaseverything.web.controllers;
 
 import java.net.URI;
 import java.util.List;
@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.services.ProductService;
-import com.swprojects.generalproducts.web.dto.CategoryResponseDto;
-import com.swprojects.generalproducts.web.dto.ProductResponseDto;
-import com.swprojects.generalproducts.web.dto.form.ProductForm;
-import com.swprojects.generalproducts.web.dto.mapper.ProductMapper;
-import com.swprojects.generalproducts.web.exceptions.ErrorMessage;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.services.ProductService;
+import com.swprojects.ithaseverything.web.dto.CategoryResponseDto;
+import com.swprojects.ithaseverything.web.dto.ProductResponseDto;
+import com.swprojects.ithaseverything.web.dto.form.ProductForm;
+import com.swprojects.ithaseverything.web.dto.mapper.ProductMapper;
+import com.swprojects.ithaseverything.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

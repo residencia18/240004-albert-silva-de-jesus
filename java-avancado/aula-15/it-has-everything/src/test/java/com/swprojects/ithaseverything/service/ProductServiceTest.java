@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.service;
+package com.swprojects.ithaseverything.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -14,9 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Product;
-import com.swprojects.generalproducts.repositories.ProductRepository;
-import com.swprojects.generalproducts.services.ProductService;
+import com.swprojects.ithaseverything.entities.Product;
+import com.swprojects.ithaseverything.repositories.ProductRepository;
+import com.swprojects.ithaseverything.services.ProductService;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {

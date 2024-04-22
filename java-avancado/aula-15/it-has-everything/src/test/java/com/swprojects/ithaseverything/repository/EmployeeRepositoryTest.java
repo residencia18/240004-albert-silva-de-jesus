@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.repository;
+package com.swprojects.ithaseverything.repository;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -16,8 +16,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
-import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.repositories.EmployeeRepository;
+import com.swprojects.ithaseverything.entities.Employee;
+import com.swprojects.ithaseverything.repositories.EmployeeRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 

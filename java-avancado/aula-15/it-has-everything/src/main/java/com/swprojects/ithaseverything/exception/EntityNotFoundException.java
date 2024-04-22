@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.exception;
+package com.swprojects.ithaseverything.exception;
 
 public class EntityNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;

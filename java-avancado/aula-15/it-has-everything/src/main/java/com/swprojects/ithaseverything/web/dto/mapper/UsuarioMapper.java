@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.dto.mapper;
+package com.swprojects.ithaseverything.web.dto.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import com.swprojects.generalproducts.entities.Usuario;
-import com.swprojects.generalproducts.web.dto.form.UsuarioForm;
-import com.swprojects.generalproducts.web.dto.UsuarioResponseDto;
+import com.swprojects.ithaseverything.entities.Usuario;
+import com.swprojects.ithaseverything.web.dto.form.UsuarioForm;
+import com.swprojects.ithaseverything.web.dto.UsuarioResponseDto;
 
 public class UsuarioMapper {
 

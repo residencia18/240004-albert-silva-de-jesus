@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.exception;
+package com.swprojects.ithaseverything.exception;
 
 public class UsernameUniqueViolationException extends RuntimeException {
 

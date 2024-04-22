@@ -1,4 +1,4 @@
-package com.swprojects.generalproducts.web.dto.form;
+package com.swprojects.ithaseverything.web.dto.form;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;

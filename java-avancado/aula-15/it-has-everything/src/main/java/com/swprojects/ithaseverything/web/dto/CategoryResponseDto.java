@@ -1,7 +1,7 @@
-package com.swprojects.generalproducts.web.dto;
+package com.swprojects.ithaseverything.web.dto;
 
-import com.swprojects.generalproducts.entities.AbstractEntity;
-import com.swprojects.generalproducts.entities.Category;
+import com.swprojects.ithaseverything.entities.AbstractEntity;
+import com.swprojects.ithaseverything.entities.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
