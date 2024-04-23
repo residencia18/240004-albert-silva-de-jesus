@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.swprojects</groupId>
 	<artifactId>it-has-everything</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>it-has-everything</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Crud básico para as atividade de java avançado</description>
 	<properties>
 		<java.version>17</java.version>
 		<database.username>sa</database.username>        <!-- flyway.database.username -->
-        <database.password></database.password> <!-- flyway.database.password -->
+		<database.password></database.password> <!-- flyway.database.password -->
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -54,15 +55,15 @@
 		</dependency>
 
 		<dependency> <!-- flyway.dependency -->
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-        </dependency>
-        <!-- <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-database-postgresql</artifactId>
-            <version>10.11.1</version>
-            <scope>runtime</scope>
-        </dependency> -->
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+			<version>10.11.1</version>
+			<scope>runtime</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -76,7 +77,7 @@
 			<scope>test</scope>
 		</dependency>
 
-	<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
@@ -170,16 +171,16 @@
 				</configuration>
 			</plugin>
 			<plugin> <!-- flyway.database.config -->
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>10.11.1</version>
-                <configuration>
-                    <url>jdbc:h2:mem:testdb</url>
-                    <user>${database.username}</user>
-                    <password>${database.password}</password>
-                    <locations>classpath:db/migration</locations>
-                </configuration>
-            </plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>10.11.1</version>
+				<configuration>
+					<url>jdbc:h2:mem:testdb</url>
+					<user>${database.username}</user>
+					<password>${database.password}</password>
+					<locations>classpath:db/migration</locations>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
