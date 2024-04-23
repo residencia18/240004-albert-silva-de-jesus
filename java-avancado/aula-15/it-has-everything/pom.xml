@@ -16,8 +16,8 @@
 	<description>Crud básico para as atividade de java avançado</description>
 	<properties>
 		<java.version>17</java.version>
-		<database.username>sa</database.username>        <!-- flyway.database.username -->
-		<database.password></database.password> <!-- flyway.database.password -->
+		<database.username>postgres</database.username> <!-- flyway.database.username -->
+		<database.password>123456</database.password> <!-- flyway.database.password -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -175,7 +175,7 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>10.11.1</version>
 				<configuration>
-					<url>jdbc:h2:mem:testdb</url>
+					<url>jdbc:postgresql://localhost:5432/sales_api</url>
 					<user>${database.username}</user>
 					<password>${database.password}</password>
 					<locations>classpath:db/migration</locations>
