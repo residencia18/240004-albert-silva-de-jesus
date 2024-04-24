@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="image">
+        <img [src]="item.imageURL" alt="JavaScript: O Guia Definitivo Capa comum – 1 janeiro 2012" width="140" height="140" />
+    </div>
+    <div class="details-container">
+        <div class="details">
+            <div>
+                <div class="title text-medium">
+                    {{item.name}}
+                </div>
+                <ul class="list">
+                    <li>
+                        <span class="text-small" [ngClass]="{'in-stock': item.inStock, 'out-of-stock': !item.inStock}">
+                            {{item.inStock ? 'In Stock' : 'Out of Stock'}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="price">
+                <span class="text-medium text-bold">{{item.price | currency:'USD'}}</span>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="p-fluid"><p-button (click)="addToCart()" icon="pi pi-shopping-cart" label="Add to Cart"></p-button></div>
+        </div>
+    </div>
+</div>

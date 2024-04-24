@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="check">
+        <p-checkbox [binary]="true" [disabled]="true"></p-checkbox>
+    </div>
+    <div class="image">
+        <img [src]="item.imageURL" alt="JavaScript: O Guia Definitivo Capa comum – 1 janeiro 2012" width="150"
+            height="150" />
+    </div>
+    <div class="details">
+        <div>
+            <div class="title text-medium">
+                {{item.name}}
+            </div>
+            <ul class="list">
+                <li>
+                    <span class="text-small" [ngClass]="{'in-stock': item.inStock, 'out-of-stock': !item.inStock}">
+                        {{item.inStock ? 'In Stock' : 'Out of Stock'}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="price">
+            <span class="text-medium text-bold">{{item.price | currency:'USD'}}</span>
+        </div>
+        <div class="actions text-small">
+            <div class="quantity p-fluid">
+                <p-inputNumber [(ngModel)]="item.quantity" (onInput)="quantity()" class="text-small custom-button"
+                    inputId="integeronly" [min]="1" [max]="999" [showButtons]="true" buttonLayout="horizontal"
+                    spinnerMode="horizontal" incrementButtonIcon="pi pi-plus" incrementButtonClass="p-button-secondary"
+                    decrementButtonIcon="pi pi-minus" decrementButtonClass="p-button-secondary"></p-inputNumber>
+            </div>
+            <div class="separator"></div>
+            <div>
+                <a (click)="remove()">Delete</a>
+            </div>
+            <div class="separator"></div>
+            <div>
+                <a>Save for later</a>
+            </div>
+            <div class="separator"></div>
+            <div>
+                <a>Share</a>
+            </div>
+        </div>
+    </div>
+</div>

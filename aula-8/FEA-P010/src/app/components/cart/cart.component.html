@@ -1,0 +1,21 @@
+<div class="container">
+    <div>
+        <h1>Shopping Cart</h1>
+        <a>Uncheck all items</a>
+
+    </div>
+    <div class="header">
+        Price
+    </div>
+    <div class="body">
+        <app-cart-item *ngFor=" let item of service.items()" [item]="item"></app-cart-item>
+    </div>
+    <div class="footer">
+        <div>Subtotal ({{quantity()}} {{quantity() > 1 ? 'products' : 'product'}}): <span
+                class="price text-medium text-bold">{{total() | currency:'USD'}}</span></div>
+        <div class="actions">
+            <p-button label="Continue Shopping" [routerLink]="['/']"></p-button>
+            <p-button label="Complete Purchase" [disabled]="true"></p-button>
+        </div>
+    </div>
+</div>
