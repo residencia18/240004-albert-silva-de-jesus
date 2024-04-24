@@ -1,6 +1,7 @@
 package com.swprojects.makrosales.entities;
 
-import com.swprojects.makrosales.validators.ValidPassword;
+import com.swprojects.makrosales.validation.ValidPassword;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
