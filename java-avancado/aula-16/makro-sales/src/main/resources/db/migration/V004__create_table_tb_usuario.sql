@@ -1,4 +1,4 @@
-create table tb_user (
+create table tb_usuarios (
   data_criacao timestamp(6),
   data_modificacao timestamp(6),
   id bigserial not null,
@@ -10,7 +10,7 @@ create table tb_user (
   primary key (id)
 );
 
-INSERT INTO tb_user (data_criacao, data_modificacao, role, username, password)
+INSERT INTO tb_usuarios (data_criacao, data_modificacao, role, username, password)
 VALUES 
     ('2021-01-01 00:00:00', '2021-01-01 00:00:00', 'ROLE_ADMIN', 'JoaoSilva@gmail.com', '654321'),
     ('2021-01-01 00:00:00', '2021-01-01 00:00:00', 'ROLE_COMUM', 'MariaSilva@gmail.com', '234567'),

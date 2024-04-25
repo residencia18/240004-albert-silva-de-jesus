@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_usuarios")
 public class Usuario extends AbstractEntity {
 
   @Column(name = "username", nullable = false, unique = true, length = 100)

@@ -5,7 +5,7 @@ CREATE SEQUENCE users_id_seq
   NO MAXVALUE
   CACHE 1;
 
-CREATE TABLE IF NOT EXISTS public.users
+CREATE TABLE IF NOT EXISTS public.tb_users
 (
   id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
   username character varying(255) COLLATE pg_catalog."default",
