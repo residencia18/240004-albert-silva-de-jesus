@@ -1,4 +1,4 @@
-create table tb_product (
+create table if not exists tb_product (
   price float(53),
   id bigserial not null,
   description varchar(255),

@@ -1,4 +1,4 @@
-create table tb_usuarios (
+create table if not exists tb_usuarios (
   data_criacao timestamp(6),
   data_modificacao timestamp(6),
   id bigserial not null,

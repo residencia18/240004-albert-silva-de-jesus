@@ -1,4 +1,4 @@
-create table tb_employee (
+create table if not exists tb_employee (
   experience_years integer not null,
   is_active boolean not null,
   start_date date,

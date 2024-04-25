@@ -1,4 +1,4 @@
-create table tb_category (
+create table if not exists tb_category (
   id bigserial not null,
   name varchar(255) unique,
   primary key (id)

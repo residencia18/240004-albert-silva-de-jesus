@@ -1,4 +1,4 @@
-create table tb_employee_product (
+create table if not exists tb_employee_product (
   employee_id bigint not null,
   product_id bigint not null,
   primary key (employee_id, product_id)

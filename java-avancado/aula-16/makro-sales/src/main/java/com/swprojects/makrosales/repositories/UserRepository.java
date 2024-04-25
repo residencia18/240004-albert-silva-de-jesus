@@ -20,7 +20,7 @@ public class UserRepository {
   @Transactional
   public Long saveUser(User user) {
     var insertQuery = """
-        INSERT INTO users(username, password, email, role)
+        INSERT INTO tb_users(username, password, email, role)
         VALUES(?, ?, ?, ?)
         """;
     KeyHolder keyHolder = new GeneratedKeyHolder();
