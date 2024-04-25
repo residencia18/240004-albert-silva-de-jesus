@@ -16,9 +16,7 @@ import jakarta.validation.Payload;
     ElementType.ANNOTATION_TYPE,
     ElementType.CONSTRUCTOR,
     ElementType.PARAMETER,
-    ElementType.TYPE_USE
-})
-
+    ElementType.TYPE_USE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidPassword {
   String message() default "Invalid password";
