@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class DashboardController {
+  
   @GetMapping("/dashboard")
   public String dashboard() {
     String username = "Guest"; // Caso não haja usuário autenticado
