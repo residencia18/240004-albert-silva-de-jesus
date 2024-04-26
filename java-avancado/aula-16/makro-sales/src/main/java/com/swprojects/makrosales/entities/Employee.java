@@ -39,13 +39,13 @@ public class Employee extends AbstractEntity {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
   private Instant birthDate;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private Boolean isActive;
 
   @Temporal(TemporalType.DATE)
   private Date startDate; // data de início do empregado
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private Integer experienceYears; // anos de experiência
 
   @ManyToOne

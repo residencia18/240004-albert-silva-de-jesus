@@ -1,17 +1,17 @@
-package com.swprojects.makrosales.config;
+// package com.swprojects.makrosales.config;
 
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+// import org.springframework.cache.CacheManager;
+// import org.springframework.cache.annotation.EnableCaching;
+// import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+// import org.springframework.context.annotation.Bean;
+// import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@EnableCaching
-public class CacheConfig {
+// @Configuration
+// @EnableCaching
+// public class CacheConfig {
 
-  @Bean
-  public CacheManager cacheManager() {
-    return new ConcurrentMapCacheManager("employees");
-  }
-}
+//   @Bean
+//   public CacheManager cacheManager() {
+//     return new ConcurrentMapCacheManager("employees");
+//   }
+// }
