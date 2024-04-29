@@ -1,4 +1,4 @@
-package com.authentication.user;
+package com.authentication.user.security;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
