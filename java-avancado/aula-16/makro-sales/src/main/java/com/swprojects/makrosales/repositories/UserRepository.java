@@ -35,7 +35,7 @@ public class UserRepository {
 
   @Transactional(readOnly = true)
   public Optional<User> findByUsername(String username) {
-    var findQuery = "SELECT id, username, password, role, email FROM users WHERE username=:username";
+    var findQuery = "SELECT id, username, password, role, email FROM tb_users WHERE username=:username";
     return jdbcClient.sql(findQuery).param("username", username).query(User.class).optional();
   }
 }
