@@ -2,7 +2,6 @@ package com.swprojects.salesforce.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -35,6 +34,14 @@ public class SecurityConfiguration {
 
   private final JwtConfigProperties jwtConfigProperties;
 
+  private static final String[] DOCUMENTATION_OPENAPI = {
+      "/docs/index.html",
+      "/docs-vendas.html", "/docs-vendas/**",
+      "/v3/api-docs/**",
+      "/swagger-ui-custom.html", "/swagger-ui.html", "/swagger-ui/**",
+      "/**.html", "/webjars/**", "/configuration/**", "/swagger-resources/**"
+  };
+
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     return httpSecurity
@@ -42,16 +49,8 @@ public class SecurityConfiguration {
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(authorize -> authorize
             .requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/swagger-ui").permitAll()
-            .requestMatchers("/swagger-ui/**").permitAll()
-            .requestMatchers("/swagger-ui/index.html").permitAll()
-            .requestMatchers("/swagger-ui/index.html/**").permitAll()
-            .requestMatchers("/v3/docs-vendas").permitAll()
-            .requestMatchers("/v3/docs-vendas/**").permitAll()
-            .requestMatchers("/docs-vendas.html").permitAll()
-            .requestMatchers("/docs-vendas.html/**").permitAll()
-            .requestMatchers("/v3/docs-vendas/swagger-config").permitAll())
-            // .anyRequest().authenticated())
+            .requestMatchers(DOCUMENTATION_OPENAPI).permitAll()
+            .anyRequest().authenticated())
         .oauth2ResourceServer(
             oAuth2ResourceServerConfigurer -> oAuth2ResourceServerConfigurer.jwt(Customizer.withDefaults()))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
