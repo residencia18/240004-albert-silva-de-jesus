@@ -37,6 +37,7 @@ public class User {
     @Size(min = 5, max = 15, message = "Username must be between 5 and 15 characters long")
     @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
     private String username;
+    
     @ValidPassword
     private String password;
     private String role;
