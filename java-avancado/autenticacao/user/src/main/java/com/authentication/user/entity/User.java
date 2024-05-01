@@ -1,11 +1,20 @@
 package com.authentication.user.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.authentication.user.validation.ValidPassword;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -18,6 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class User {
 
     @Id
@@ -33,7 +43,13 @@ public class User {
     @Size(min = 5, max = 15, message = "Username must be between 5 and 15 characters long")
     @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
     private String username;
+    
     @ValidPassword
     private String password;
+
     private String role;
+    
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 }
