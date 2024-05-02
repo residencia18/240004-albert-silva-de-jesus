@@ -29,7 +29,7 @@ public class LoggingAspect {
     }
 
     // Exclui AuditService do observado para evitar loop infinito
-    @Before("execution(* com.authentication.user.service.*.*(..)) && !target(com.authentication.user.service.AuditService)")
+    @Before("execution(* com.swprojects.salesforce.services.*.*(..)) && !target(com.swprojects.salesforce.services.AuditService)")
     public void logServiceAccess(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         String description = "Method execution";
