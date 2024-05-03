@@ -15,13 +15,13 @@ public class ParkApiApplication implements CommandLineRunner {
 		SpringApplication.run(ParkApiApplication.class, args);
 	}
 
-	@Autowired
-	EmailService emailService;
+	// @Autowired
+	// EmailService emailService;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		emailService.enviarPedidoDeConfirmacaoDeCadastro("no.reply.smttsaj@gmail.com", "123456");
+		// emailService.enviarPedidoDeConfirmacaoDeCadastro("no.reply.smttsaj@gmail.com", "123456");
 	}
 
 }

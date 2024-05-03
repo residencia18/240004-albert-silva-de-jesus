@@ -14,7 +14,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
 @EntityListeners(AuditingEntityListener.class)
@@ -45,14 +47,30 @@ public class Usuario implements Serializable {
     @Column(name = "modificado_por")
     private String modificadoPor;
 
-    public enum Role{
+    @Column(name = "ativo", nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean ativo;
+
+    @Column(name = "codigo_verificador", length = 200)
+    private String codigoVerificador;
+
+    public boolean hasNotId() {
+        return id == null;
+    }
+
+    public boolean hasId() {
+        return id != null;
+    }
+
+    public enum Role {
         ROLE_ADMIN, ROLE_CLIENTE
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Usuario usuario = (Usuario) o;
         return Objects.equals(id, usuario.id);
     }
