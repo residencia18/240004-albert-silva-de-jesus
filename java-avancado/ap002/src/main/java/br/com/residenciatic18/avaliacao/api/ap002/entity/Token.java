@@ -1,0 +1,52 @@
+package br.com.residenciatic18.avaliacao.api.ap002.entity;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Entity
+@Table(name = "token")
+public class Token implements Serializable {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private Long id;
+
+  private String token;
+
+  @CreatedDate
+  @Column(name = "data_criacao")
+  private LocalDateTime dataCriacao;
+
+  @OneToOne
+  @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+  private Usuario usuario;
+
+  public Token(String token, LocalDateTime dataCriacao, Usuario usuario) {
+    this.token = token;
+    this.dataCriacao = dataCriacao;
+    this.usuario = usuario;
+  }
+
+}
