@@ -68,14 +68,14 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("", "JAVA!@#ResTIc18"))
+        .bodyValue(new UsuarioLoginDto("aaa", "JAVA!@#ResTIc18"))
         .exchange()
-        .expectStatus().isEqualTo(400)
+        .expectStatus().isEqualTo(402)
         .expectBody(ErrorMessage.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
-    org.assertj.core.api.Assertions.assertThat(responseBody.getStatus()).isEqualTo(400);
+    org.assertj.core.api.Assertions.assertThat(responseBody.getStatus()).isEqualTo(402);
 
     responseBody = testClient
         .post()
