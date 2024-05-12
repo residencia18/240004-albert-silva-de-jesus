@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.residenciatic18.avaliacao.api.ap002.entity.Token;
-import br.com.residenciatic18.avaliacao.api.ap002.entity.Usuario;
+import br.com.residenciatic18.avaliacao.api.ap002.entity.UserSystem;
 import br.com.residenciatic18.avaliacao.api.ap002.service.TokenService;
-import br.com.residenciatic18.avaliacao.api.ap002.service.UsuarioService;
+import br.com.residenciatic18.avaliacao.api.ap002.service.UserSystemService;
 import br.com.residenciatic18.avaliacao.api.ap002.web.dto.TokenResponseDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioResponseDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemResponseDto;
 import br.com.residenciatic18.avaliacao.api.ap002.web.dto.mapper.TokenMapper;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,22 +33,22 @@ import lombok.extern.slf4j.Slf4j;
 public class PasswordRecoveryController {
 
   private final TokenService tokenService;
-  private final UsuarioService usuarioService;
+  private final UserSystemService userService;
 
   @Operation(summary = "Redefinir senha pelo username", description = "Recurso para redefinir senha pelo username", responses = {
-      @ApiResponse(responseCode = "204", description = "Pedido de redefinição de senha enviado com sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+      @ApiResponse(responseCode = "204", description = "Pedido de redefinição de senha enviado com sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
       @ApiResponse(responseCode = "401", description = "Usuário não autorizado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @GetMapping
-  public ResponseEntity<TokenResponseDto> redefinirSenha(@RequestParam("username") String username)
+  public ResponseEntity<TokenResponseDto> redefinepassword(@RequestParam("username") String username)
       throws MessagingException {
 
-    Usuario usuario = usuarioService.buscarPorUsername(username);
-    Optional<Token> tokenExistenteOptional = tokenService.findByToken(usuario.getCodigoVerificador());
-    tokenExistenteOptional.ifPresent(token -> tokenService.deletarToken(token));
+    UserSystem user = userService.searchByUsername(username);
+    Optional<Token> tokenExistenteOptional = tokenService.findByToken(user.getCodeverifier());
+    tokenExistenteOptional.ifPresent(token -> tokenService.deleteToken(token));
 
-    Token token = tokenService.pedidoRedefinicaoDeSenha(usuario);
+    Token token = tokenService.requestPasswordReset(user);
     log.info("Token criado para o usuário {}", username);
     return ResponseEntity.ok(TokenMapper.toDto(token));
   }

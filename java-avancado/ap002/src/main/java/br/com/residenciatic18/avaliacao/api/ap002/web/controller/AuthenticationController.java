@@ -2,8 +2,8 @@ package br.com.residenciatic18.avaliacao.api.ap002.web.controller;
 
 import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtToken;
 import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtUserDetailsService;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioLoginDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioResponseDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemLoginDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemResponseDto;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,18 +29,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1")
-public class AutenticacaoController {
+public class AuthenticationController {
 
     private final JwtUserDetailsService detailsService;
     private final AuthenticationManager authenticationManager;
 
     @Operation(summary = "Autenticar na API", description = "Recurso de autenticação na API", responses = {
-            @ApiResponse(responseCode = "200", description = "Autenticação realizada com sucesso e retorno de um bearer token", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+            @ApiResponse(responseCode = "200", description = "Autenticação realizada com sucesso e retorno de um bearer token", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
             @ApiResponse(responseCode = "400", description = "Credenciais inválidas", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
             @ApiResponse(responseCode = "422", description = "Campo(s) Inválido(s)", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
     })
     @PostMapping("/auth")
-    public ResponseEntity<?> autenticar(@RequestBody @Valid UsuarioLoginDto dto, HttpServletRequest request) {
+    public ResponseEntity<?> authenticate(@RequestBody @Valid UserSystemLoginDto dto, HttpServletRequest request) {
 
         log.info("Processo de autenticação pelo login {}", dto.getUsername());
         try {

@@ -36,17 +36,17 @@ public class Token implements Serializable {
   private String token;
 
   @CreatedDate
-  @Column(name = "data_criacao")
-  private LocalDateTime dataCriacao;
+  @Column(name = "date_creation")
+  private LocalDateTime dateCreation;
 
   @OneToOne
-  @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-  private Usuario usuario;
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  private UserSystem user;
 
-  public Token(String token, LocalDateTime dataCriacao, Usuario usuario) {
+  public Token(String token, LocalDateTime dateCreation, UserSystem user) {
     this.token = token;
-    this.dataCriacao = dataCriacao;
-    this.usuario = usuario;
+    this.dateCreation = dateCreation;
+    this.user = user;
   }
 
 }

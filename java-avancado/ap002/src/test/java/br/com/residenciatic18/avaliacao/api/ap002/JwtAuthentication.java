@@ -1,7 +1,7 @@
 package br.com.residenciatic18.avaliacao.api.ap002;
 
 import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtToken;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioLoginDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemLoginDto;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.reactive.server.EntityExchangeResult;
@@ -25,7 +25,7 @@ public class JwtAuthentication {
     EntityExchangeResult<JwtToken> result = client
     .post()
     .uri("/api/v1/auth")
-    .bodyValue(new UsuarioLoginDto(username, password))
+    .bodyValue(new UserSystemLoginDto(username, password))
     .exchange()
     .expectStatus().isOk()
     .expectBody(JwtToken.class)

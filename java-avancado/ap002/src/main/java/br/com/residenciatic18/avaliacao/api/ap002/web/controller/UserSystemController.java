@@ -1,12 +1,12 @@
 package br.com.residenciatic18.avaliacao.api.ap002.web.controller;
 
-import br.com.residenciatic18.avaliacao.api.ap002.entity.Usuario;
+import br.com.residenciatic18.avaliacao.api.ap002.entity.UserSystem;
 import br.com.residenciatic18.avaliacao.api.ap002.service.EmailService;
-import br.com.residenciatic18.avaliacao.api.ap002.service.UsuarioService;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioCreateDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioResponseDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioSenhaDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.mapper.UsuarioMapper;
+import br.com.residenciatic18.avaliacao.api.ap002.service.UserSystemService;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemCreateDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemResponseDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemSenhaDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.mapper.UserSystemMapper;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -31,36 +31,36 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/usuarios")
-public class UsuarioController {
+public class UserSystemController {
 
-        private final UsuarioService usuarioService;
+        private final UserSystemService userService;
         private final EmailService emailService;
 
         @Operation(summary = "Cria um novo usuário", description = "Recurso para criar um novo usuário no sistema.", responses = {
-                        @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+                        @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
                         @ApiResponse(responseCode = "409", description = "Usuário e-mail já cadastrado no sistema.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
                         @ApiResponse(responseCode = "422", description = "Recursos não processados por dados de entrada invalidos.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
         })
         @PostMapping
-        public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioCreateDto createDto) throws MessagingException {
-                Usuario user = usuarioService.salvar(UsuarioMapper.toUsuario(createDto));
-                emailService.enviarPedidoDeConfirmacaoDeCadastro(user.getUsername(), user.getCodigoVerificador());
-                return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioMapper.toDto(user));
+        public ResponseEntity<UserSystemResponseDto> create(@Valid @RequestBody UserSystemCreateDto createDto) throws MessagingException {
+                UserSystem user = userService.save(UserSystemMapper.toUserSystem(createDto));
+                emailService.RegistrationConfirmationEmail(user.getUsername());
+                return ResponseEntity.status(HttpStatus.CREATED).body(UserSystemMapper.toDto(user));
         }
 
         @Operation(summary = "Recuperar um usuário pelo id", description = "Requisição exige um Bearer Token. Acesso restrito a ADMIN OU CLIENTE logado",
         security = @SecurityRequirement(name = "security"), 
                 responses = {
-                        @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+                        @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
                         @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar esse recurso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
                         @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
                         
         })
         @GetMapping("/{id}")
         @PreAuthorize("hasRole('ADMIN') OR ( hasRole('CLIENTE') AND #id == authentication.principal.id )")
-        public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id) {
-                Usuario user = usuarioService.buscarPorId(id);
-                return ResponseEntity.ok(UsuarioMapper.toDto(user));
+        public ResponseEntity<UserSystemResponseDto> getById(@PathVariable Long id) {
+                UserSystem user = userService.searchById(id);
+                return ResponseEntity.ok(UserSystemMapper.toDto(user));
         }
 
         @Operation(summary = "Atualizar senha", description = "Requisição exige um Bearer Token. Acesso restrito a ADMIN OU CLIENTE logado", 
@@ -73,28 +73,28 @@ public class UsuarioController {
         })
         @PatchMapping("/{id}")
         @PreAuthorize("hasAnyRole('ADMIN', 'CLIENTE') AND (#id == authentication.principal.id)")
-        public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UsuarioSenhaDto dto) {
-                usuarioService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
+        public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UserSystemSenhaDto dto) {
+                userService.editPassword(id, dto.getCurrentpassword(), dto.getNewPassword(), dto.getConfirmPassword());
                 return ResponseEntity.noContent().build();
         }
 
         @Operation(summary = "Listar todos os usuarios cadastratos", description = "Requisição exige um Bearer Token. Acesso restrito a ADMIN logado", 
                 security = @SecurityRequirement(name = "security"),
                 responses = {
-                        @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class)))),
+                        @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserSystemResponseDto.class)))),
                         @ApiResponse(responseCode = "403", description = "Usuário sem permissão para acessar esse recurso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
         })
         @GetMapping
         @PreAuthorize("hasRole('ADMIN')")
-        public ResponseEntity<List<UsuarioResponseDto>> getAll() {
-                List<Usuario> users = usuarioService.buscaTodos();
-                return ResponseEntity.ok(UsuarioMapper.toListDto(users));
+        public ResponseEntity<List<UserSystemResponseDto>> getAll() {
+                List<UserSystem> users = userService.searchAll();
+                return ResponseEntity.ok(UserSystemMapper.toListDto(users));
         }
 
         @GetMapping("/confirmacao/cadastro")
         @PreAuthorize("hasRole('ADMIN')")
-        public ResponseEntity<Void> respostaDeConfirmacaoDeCadastro(@RequestParam("codigo") String codigo) {
-                usuarioService.ativarCadastroUsuario(codigo);
+        public ResponseEntity<Void> Registrationconfirmationresponse(@RequestParam("codigo") String codigo) {
+                userService.activateUserRegistration(codigo);
                 return ResponseEntity.noContent().build();
         }
 

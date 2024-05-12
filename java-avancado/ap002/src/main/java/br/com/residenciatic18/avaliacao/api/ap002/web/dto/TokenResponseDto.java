@@ -15,5 +15,5 @@ public class TokenResponseDto {
     
     private Long id;
     private String token;
-    private UsuarioResponseDto usuario;
+    private UserSystemResponseDto userSystem;
 }

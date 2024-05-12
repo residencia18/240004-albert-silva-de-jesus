@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.residenciatic18.avaliacao.api.ap002.entity.Token;
 import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtUtils;
 import br.com.residenciatic18.avaliacao.api.ap002.service.TokenService;
-import br.com.residenciatic18.avaliacao.api.ap002.service.UsuarioService;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioAlterarSenhaDto;
+import br.com.residenciatic18.avaliacao.api.ap002.service.UserSystemService;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemAlterarSenhaDto;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1/password-reset")
 public class PasswordResetController {
 
-  private final UsuarioService usuarioService;
+  private final UserSystemService usuarioService;
   private final TokenService tokenService;
 
   @Operation(summary = "Atualizar senha pelo token", description = "Recurso para atualizar a senha do usuário com token.", responses = {
@@ -42,7 +42,7 @@ public class PasswordResetController {
   })
   @PatchMapping("/{token}")
   public ResponseEntity<Void> confirmacaoDeRedefinicaoDeSenha(@PathVariable String token,
-      @Valid @RequestBody UsuarioAlterarSenhaDto dto) {
+      @Valid @RequestBody UserSystemAlterarSenhaDto dto) {
 
     if (!JwtUtils.isTokenValid(token)) {
       log.error("Token inválido" + token);
@@ -56,13 +56,13 @@ public class PasswordResetController {
     }
 
     Token tokenEncontrado = tokenDoUsuario.get();
-    if (!dto.getCodigoVerificador().equals(tokenEncontrado.getToken())) {
+    if (!dto.getCodeverifier().equals(tokenEncontrado.getToken())) {
       log.error("Código de verificação inválido para o token {}", tokenEncontrado);
       return ResponseEntity.badRequest().build();
     }
 
-    usuarioService.alterarSenha(tokenEncontrado, dto.getNovaSenha(), dto.getConfirmaSenha());
-    tokenService.deletarToken(tokenEncontrado);
+    usuarioService.changePassword(tokenEncontrado, dto.getNewPassword(), dto.getConfirmPassword());
+    tokenService.deleteToken(tokenEncontrado);
     return ResponseEntity.noContent().build();
 
   }

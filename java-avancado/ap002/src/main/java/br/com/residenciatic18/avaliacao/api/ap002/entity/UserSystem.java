@@ -22,7 +22,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuarios")
 @EntityListeners(AuditingEntityListener.class)
-public class Usuario implements Serializable {
+public class UserSystem implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,26 +42,26 @@ public class Usuario implements Serializable {
   private Role role = Role.ROLE_CLIENTE;
 
   @CreatedDate
-  @Column(name = "data_criacao")
-  private LocalDateTime dataCriacao;
+  @Column(name = "date_creation")
+  private LocalDateTime dateCreation;
 
   @LastModifiedDate
-  @Column(name = "data_modificacao")
-  private LocalDateTime dataModificacao;
+  @Column(name = "date_modification")
+  private LocalDateTime dateModification;
 
   @CreatedBy
-  @Column(name = "criado_por")
-  private String criadorPor;
+  @Column(name = "creator_by")
+  private String creatorBy;
 
   @LastModifiedBy
-  @Column(name = "modificado_por")
-  private String modificadoPor;
+  @Column(name = "modified_by")
+  private String modifiedBy;
 
-  @Column(name = "ativo", nullable = false, columnDefinition = "BOOLEAN")
-  private boolean ativo;
+  @Column(name = "active", nullable = false, columnDefinition = "BOOLEAN")
+  private boolean active;
 
-  @Column(name = "codigo_verificador", length = 200)
-  private String codigoVerificador;
+  @Column(name = "code_verifier", length = 200)
+  private String codeverifier;
 
   public boolean hasNotId() {
     return id == null;
@@ -81,7 +81,7 @@ public class Usuario implements Serializable {
       return true;
     if (o == null || getClass() != o.getClass())
       return false;
-    Usuario usuario = (Usuario) o;
+    UserSystem usuario = (UserSystem) o;
     return Objects.equals(id, usuario.id);
   }
 

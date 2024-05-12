@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioLoginDto {
+public class UserSystemLoginDto {
 
     @NotNull
     @Email(message = "Formato do e-mail está inválido")
@@ -20,10 +20,10 @@ public class UsuarioLoginDto {
     @ValidPassword
     private String password;
 
-    @Column(name = "ativo", nullable = false, columnDefinition = "TINYINT(1)")
-    private boolean ativo;
+    @Column(name = "active", nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean active;
 
-    public UsuarioLoginDto(String username, String password) {
+    public UserSystemLoginDto(String username, String password) {
         this.username = username;
         this.password = password;
     }

@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioSenhaDto {
+public class UserSystemSenhaDto {
 
     @NotNull
     @ValidPassword(
@@ -19,7 +19,7 @@ public class UsuarioSenhaDto {
         messageMissingLowerCase = "A senha deve conter pelo menos uma letra minúscula", 
         messageMissingSpecialCharacter = "A senha deve conter pelo menos um caractere especial"
     )
-    private String senhaAtual;
+    private String currentpassword;
 
     @ValidPassword(
         messageMinLength = "A senha deve conter pelo menos {minLength} caracteres",
@@ -28,7 +28,7 @@ public class UsuarioSenhaDto {
         messageMissingLowerCase = "A senha deve conter pelo menos uma letra minúscula", 
         messageMissingSpecialCharacter = "A senha deve conter pelo menos um caractere especial"
     )
-    private String novaSenha;
+    private String newPassword;
 
     @ValidPassword(
         messageMinLength = "A senha deve conter pelo menos {minLength} caracteres",
@@ -37,6 +37,6 @@ public class UsuarioSenhaDto {
         messageMissingLowerCase = "A senha deve conter pelo menos uma letra minúscula", 
         messageMissingSpecialCharacter = "A senha deve conter pelo menos um caractere especial"
     )
-    private String confirmaSenha;
+    private String confirmPassword;
 
 }

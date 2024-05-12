@@ -1,8 +1,8 @@
 package br.com.residenciatic18.avaliacao.api.ap002;
 
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioCreateDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioResponseDto;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioSenhaDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemCreateDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemResponseDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemSenhaDto;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 
 import org.junit.jupiter.api.Test;
@@ -24,14 +24,14 @@ public class UsuarioIT {
 
         @Test
         public void createUsuario_ComUsernameEPasswordValidos_RetornarUsuarioCriadoComStatus201() {
-                UsuarioResponseDto responseBody = testClient
+                UserSystemResponseDto responseBody = testClient
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("joao@Gmail.com", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemCreateDto("joao@Gmail.com", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isCreated()
-                        .expectBody(UsuarioResponseDto.class)
+                        .expectBody(UserSystemResponseDto.class)
                         .returnResult().getResponseBody();
 
                 org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -46,7 +46,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemCreateDto("", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -59,7 +59,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("tody@", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemCreateDto("tody@", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -72,7 +72,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("tody@email", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemCreateDto("tody@email", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -88,7 +88,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("tody@gmail.com", ""))
+                        .bodyValue(new UserSystemCreateDto("tody@gmail.com", ""))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -101,7 +101,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("tody@gmail.com", "123"))
+                        .bodyValue(new UserSystemCreateDto("tody@gmail.com", "123"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -114,7 +114,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("tody@gmail.com", "JAVA!@#ResTIc18fg444"))
+                        .bodyValue(new UserSystemCreateDto("tody@gmail.com", "JAVA!@#ResTIc18fg444"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -130,7 +130,7 @@ public class UsuarioIT {
                         .post()
                         .uri("/api/v1/usuarios")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioCreateDto("ana@email.com", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemCreateDto("ana@email.com", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isEqualTo(409)
                         .expectBody(ErrorMessage.class)
@@ -142,13 +142,13 @@ public class UsuarioIT {
 
         @Test
         public void buscarUsuario_ComIdExistente_RetornarUsuarioComStatus200() {
-                UsuarioResponseDto responseBody = testClient
+                UserSystemResponseDto responseBody = testClient
                         .get()
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isOk()
-                        .expectBody(UsuarioResponseDto.class)
+                        .expectBody(UserSystemResponseDto.class)
                         .returnResult().getResponseBody();
 
                 org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -162,7 +162,7 @@ public class UsuarioIT {
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isOk()
-                        .expectBody(UsuarioResponseDto.class)
+                        .expectBody(UserSystemResponseDto.class)
                         .returnResult().getResponseBody();
 
                 org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -176,7 +176,7 @@ public class UsuarioIT {
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "bia@email.com", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isOk()
-                        .expectBody(UsuarioResponseDto.class)
+                        .expectBody(UserSystemResponseDto.class)
                         .returnResult().getResponseBody();
 
                 org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -222,7 +222,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isNoContent();
 
@@ -231,7 +231,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/101")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "bia@email.com", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isNoContent();
         }
@@ -243,7 +243,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/0")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isForbidden()
                         .expectBody(ErrorMessage.class)
@@ -257,7 +257,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/0")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "bia@email.com", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isForbidden()
                         .expectBody(ErrorMessage.class)
@@ -274,7 +274,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("", "", ""))
+                        .bodyValue(new UserSystemSenhaDto("", "", ""))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -288,7 +288,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#Res", "JAVA!@#Res", "JAVA!@#Res"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#Res", "JAVA!@#Res", "JAVA!@#Res"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -302,7 +302,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18456", "JAVA!@#ResTIc18456", "JAVA!@#ResTIc18456"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18456", "JAVA!@#ResTIc18456", "JAVA!@#ResTIc18456"))
                         .exchange()
                         .expectStatus().isEqualTo(422)
                         .expectBody(ErrorMessage.class)
@@ -319,7 +319,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc1"))
+                        .bodyValue(new UserSystemSenhaDto("JAVA!@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc1"))
                         .exchange()
                         .expectStatus().isEqualTo(400)
                         .expectBody(ErrorMessage.class)
@@ -333,7 +333,7 @@ public class UsuarioIT {
                         .uri("/api/v1/usuarios/100")
                         .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(new UsuarioSenhaDto("@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
+                        .bodyValue(new UserSystemSenhaDto("@#ResTIc18", "JAVA!@#ResTIc18", "JAVA!@#ResTIc18"))
                         .exchange()
                         .expectStatus().isEqualTo(400)
                         .expectBody(ErrorMessage.class)
@@ -345,13 +345,13 @@ public class UsuarioIT {
 
         @Test
         public void listarUsuarios_ComUsuarioComPermissao_RetornarListaDeUsuariosComStatus200() {
-            List<UsuarioResponseDto> responseBody = testClient
+            List<UserSystemResponseDto> responseBody = testClient
                     .get()
                     .uri("/api/v1/usuarios")
                     .headers(JwtAuthentication.getHeaderAuthorization(testClient, "20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
                     .exchange()
                     .expectStatus().isOk()
-                    .expectBodyList(UsuarioResponseDto.class)
+                    .expectBodyList(UserSystemResponseDto.class)
                     .returnResult().getResponseBody();
     
             org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();

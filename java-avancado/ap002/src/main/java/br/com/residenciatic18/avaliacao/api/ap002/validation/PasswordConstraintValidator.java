@@ -82,13 +82,5 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
     // Senha válida
     return true;
-
-    // return value.length() >= minLength &&
-    // value.length() <= maxLength &&
-    // value.matches(".*[A-Z].*") &&
-    // value.matches(".*[a-z].*") &&
-    // value.matches(".*[0-9].*") &&
-    // value.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*") &&
-    // !commonPasswords.contains(value);
   }
 }

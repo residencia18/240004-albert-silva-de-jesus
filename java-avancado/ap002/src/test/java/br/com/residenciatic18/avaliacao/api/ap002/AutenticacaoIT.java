@@ -8,7 +8,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtToken;
-import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UsuarioLoginDto;
+import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemLoginDto;
 import br.com.residenciatic18.avaliacao.api.ap002.web.exceptions.ErrorMessage;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,7 +25,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
+        .bodyValue(new UserSystemLoginDto("20191tadssaj0026@ifba.edu.br", "JAVA!@#ResTIc18"))
         .exchange()
         .expectStatus().isOk()
         .expectBody(JwtToken.class)
@@ -39,7 +39,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("invalido@email.com", "JAVA!@#ResTIc18"))
+        .bodyValue(new UserSystemLoginDto("invalido@email.com", "JAVA!@#ResTIc18"))
         .exchange()
         .expectStatus().isBadRequest()
         .expectBody(ErrorMessage.class)
@@ -52,7 +52,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("invalido@email.com", "JAVA!@#ResTIc18"))
+        .bodyValue(new UserSystemLoginDto("invalido@email.com", "JAVA!@#ResTIc18"))
         .exchange()
         .expectStatus().isBadRequest()
         .expectBody(ErrorMessage.class)
@@ -68,7 +68,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("aaa", "JAVA!@#ResTIc18"))
+        .bodyValue(new UserSystemLoginDto("aaa", "JAVA!@#ResTIc18"))
         .exchange()
         .expectStatus().isEqualTo(402)
         .expectBody(ErrorMessage.class)
@@ -81,7 +81,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("@email.com", "JAVA!@#ResTIc18"))
+        .bodyValue(new UserSystemLoginDto("@email.com", "JAVA!@#ResTIc18"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -97,7 +97,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("ana@email.com", "JAVA!@#ResT"))
+        .bodyValue(new UserSystemLoginDto("ana@email.com", "JAVA!@#ResT"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -110,7 +110,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("ana@email.com", "ResTIc1"))
+        .bodyValue(new UserSystemLoginDto("ana@email.com", "ResTIc1"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -123,7 +123,7 @@ public class AutenticacaoIT {
         .post()
         .uri("/api/v1/auth")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioLoginDto("ana@email.com", "JAVA!@#ResTIc18dhdyf5"))
+        .bodyValue(new UserSystemLoginDto("ana@email.com", "JAVA!@#ResTIc18dhdyf5"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
