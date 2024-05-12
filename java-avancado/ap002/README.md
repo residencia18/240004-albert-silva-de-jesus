@@ -2,7 +2,7 @@
 
 ## Park Manager API
 
-A Park Manager API foi desenvolvida para oferecer uma solução abrangente de gestão de estacionamento. Até o momento, a API oferece uma gama de funcionalidades, incluindo registro de usuários, autenticação, recuperação de senha, gerenciamento de permissões de acesso e documentação no Swagger. Com endpoints simples e seguros, a API facilita operações essenciais de autenticação e gerenciamento de contas de usuário.
+A Park Manager API foi desenvolvida para oferecer uma solução abrangente de gestão de estacionamento. Até o momento, a API oferece algumas funcionalidades, incluindo registro de usuários, autenticação, recuperação de senha, gerenciamento de permissões de acesso e documentação no Swagger. Com endpoints simples e seguros, a API facilita operações essenciais de autenticação e gerenciamento de contas de usuário.
 
 ## Banco de Dados
 
@@ -13,6 +13,8 @@ A Park Manager API foi desenvolvida para oferecer uma solução abrangente de ge
 - **Autenticar Usuário**
   - Endpoint: `/api/v1/auth`
   - Método: `POST`
+
+____________________________________________________________________________________________________________________
 
 ## Usuários
 
