@@ -31,8 +31,8 @@
 ## Recuperação de Senha
 
 - **Redefinir Senha por Username(e-mail)**
-  - Endpoint: `/api/v1/password-recovery?username=`
-  - Método: `GET`
+  - Endpoint: `/api/v1/password-recovery`
+  - Método: `POST`
 
 ![Imagem da requisição GET para envio de e-mail](Get-email.png)
 

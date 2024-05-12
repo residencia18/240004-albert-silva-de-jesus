@@ -41,8 +41,7 @@ public class PasswordResetController {
       @ApiResponse(responseCode = "422", description = "Campos invalidos ou formatados incorretamente.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @PatchMapping("/{token}")
-  public ResponseEntity<Void> confirmacaoDeRedefinicaoDeSenha(@PathVariable String token,
-      @Valid @RequestBody UserSystemAlterarSenhaDto dto) {
+  public ResponseEntity<Void> confirmacaoDeRedefinicaoDeSenha(@PathVariable String token, @Valid @RequestBody UserSystemAlterarSenhaDto dto) {
 
     if (!JwtUtils.isTokenValid(token)) {
       log.error("Token inválido" + token);
