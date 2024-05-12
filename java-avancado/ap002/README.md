@@ -14,7 +14,7 @@ A Park Manager API foi desenvolvida para oferecer uma solução abrangente de ge
   - Endpoint: `/api/v1/auth`
   - Método: `POST`
 
-Payload de Requisição (JSON):
+Requisição (JSON):
 ```json
 {
   "username": "email",
@@ -22,21 +22,38 @@ Payload de Requisição (JSON):
 }
 ```
 
-
 ## Usuários
 
 - **Criar Usuário**
   - Endpoint: `/api/v1/usuarios`
   - Método: `POST`
-  
+
+Requisição (JSON):
+```json
+{
+  "username": "email",
+  "password": "password"
+}
+```
+
 - **Obter Usuário por ID**
+
   - Endpoint: `/api/v1/usuarios/{id}`
   - Método: `GET`
-  
+
 - **Atualizar Senha**
   - Endpoint: `/api/v1/usuarios/{id}`
   - Método: `PATCH`
-  
+
+Requisição (JSON):
+```json
+{
+  "currentpassword": "JAVA!@#ResTIc18",
+  "newPassword": "123456AsJ@",
+  "confirmPassword": "123456AsJ@"
+}
+```
+
 - **Listar Todos os Usuários**
   - Endpoint: `/api/v1/usuarios`
   - Método: `GET`
