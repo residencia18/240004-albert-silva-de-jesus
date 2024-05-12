@@ -14,7 +14,14 @@ A Park Manager API foi desenvolvida para oferecer uma solução abrangente de ge
   - Endpoint: `/api/v1/auth`
   - Método: `POST`
 
-____________________________________________________________________________________________________________________
+Payload de Requisição (JSON):
+```json
+{
+  "username": "email",
+  "password": "password"
+}
+```
+
 
 ## Usuários
 
@@ -40,7 +47,7 @@ ________________________________________________________________________________
   - Endpoint: `/api/v1/password-recovery`
   - Método: `POST`
 
-![Imagem da requisição GET para envio de e-mail](Post.png)
+![Imagem da requisição POST para envio de e-mail](Post.png)
 
 ## Redefinição de Senha
 
@@ -49,3 +56,7 @@ ________________________________________________________________________________
   - Método: `PATCH`
 
 ![Imagem da requisição PATCH para alterar a senha](Patch-alterar-senha.png)
+
+## Documentação da API no Swagger
+
+Para obter mais detalhes sobre os modelos de dados e os endpoints disponíveis, consulte a documentação da API em http://localhost:8080/docs-park.html. Lá você encontrará informações detalhadas sobre como utilizar cada endpoint, os parâmetros necessários e as respostas esperadas.
