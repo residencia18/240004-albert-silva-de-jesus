@@ -34,7 +34,7 @@
   - Endpoint: `/api/v1/password-recovery`
   - Método: `POST`
 
-![Imagem da requisição GET para envio de e-mail](Get-email.png)
+![Imagem da requisição GET para envio de e-mail](Post.png)
 
 ## Redefinição de Senha
 
