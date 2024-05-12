@@ -1,5 +1,9 @@
 <h1 align="center">Documentação da API - ResidenciaTic18</h1>
 
+## Park Manager API
+
+A Park Manager API foi desenvolvida para oferecer uma solução abrangente de gestão de estacionamento. Até o momento, a API oferece uma gama de funcionalidades, incluindo registro de usuários, autenticação, recuperação de senha, gerenciamento de permissões de acesso e documentação no Swagger. Com endpoints simples e seguros, a API facilita operações essenciais de autenticação e gerenciamento de contas de usuário.
+
 ## Banco de Dados
 
 ![Imagem do banco de dados da avaliação](DBA.png)
