@@ -1,7 +1,5 @@
 package br.com.residenciatic18.avaliacao.api.ap002.web.controller;
 
-import java.util.Optional;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.residenciatic18.avaliacao.api.ap002.entity.Token;
-import br.com.residenciatic18.avaliacao.api.ap002.jwt.JwtUtils;
 import br.com.residenciatic18.avaliacao.api.ap002.service.TokenService;
 import br.com.residenciatic18.avaliacao.api.ap002.service.UserSystemService;
 import br.com.residenciatic18.avaliacao.api.ap002.web.dto.UserSystemAlterarSenhaDto;
@@ -48,6 +45,7 @@ public class PasswordResetController {
     }
     Token tokenEncontrado = tokenService.findByToken(token).get();
     usuarioService.changePassword(tokenEncontrado, dto.getNewPassword(), dto.getConfirmPassword());
+    log.info("Senha do usuário alterada com sucesso. Usuário: {}", tokenEncontrado.getUserSystem().getUsername());
     tokenService.deleteToken(tokenEncontrado);
     return ResponseEntity.noContent().build();
 
