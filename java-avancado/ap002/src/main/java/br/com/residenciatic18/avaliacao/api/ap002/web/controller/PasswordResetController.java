@@ -42,24 +42,11 @@ public class PasswordResetController {
   })
   @PatchMapping("/{token}")
   public ResponseEntity<Void> passwordresetconfirmation(@PathVariable String token, @Valid @RequestBody UserSystemAlterarSenhaDto dto) {
-
-    if (!JwtUtils.isTokenValid(token)) {
-      log.error("Token inválido" + token);
-      return ResponseEntity.badRequest().build();
+    ResponseEntity<Void> response = tokenService.validarTokenECodeVerifier(token, dto);
+    if (response != null) {
+      return response;
     }
-
-    Optional<Token> tokenDoUsuario = tokenService.findByToken(token);
-    if (tokenDoUsuario.isEmpty()) {
-      log.error("Token não encontrado para o token {}", token);
-      return ResponseEntity.notFound().build();
-    }
-
-    Token tokenEncontrado = tokenDoUsuario.get();
-    if (!dto.getCodeverifier().equals(tokenEncontrado.getToken())) {
-      log.error("Código de verificação inválido para o token {}", tokenEncontrado);
-      return ResponseEntity.badRequest().build();
-    }
-
+    Token tokenEncontrado = tokenService.findByToken(token).get();
     usuarioService.changePassword(tokenEncontrado, dto.getNewPassword(), dto.getConfirmPassword());
     tokenService.deleteToken(tokenEncontrado);
     return ResponseEntity.noContent().build();
