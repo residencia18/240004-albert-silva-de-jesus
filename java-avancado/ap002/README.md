@@ -8,19 +8,7 @@ A Park Manager API foi desenvolvida para oferecer uma solução abrangente de ge
 
 ![Imagem do banco de dados da avaliação](DBA.png)
 
-## Autenticação
-
-- **Autenticar Usuário**
-  - Endpoint: `/api/v1/auth`
-  - Método: `POST`
-
-Requisição (JSON):
-```json
-{
-  "username": "email",
-  "password": "password"
-}
-```
+Endpoints disponíveis:
 
 ## Usuários
 
@@ -57,6 +45,27 @@ Requisição (JSON):
 - **Listar Todos os Usuários**
   - Endpoint: `/api/v1/usuarios`
   - Método: `GET`
+
+## Autenticação
+
+- **Autenticar Usuário**
+  - Endpoint: `/api/v1/auth`
+  - Método: `POST`
+
+Requisição (JSON):
+```json
+{
+  "username": "email",
+  "password": "password"
+}
+```
+
+Resposta de Sucesso (Código: 200 OK):
+```json
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMDE5MXRhZHNzYWowMDI2QGlmYmEuZWR1LmJyIiwiaWF0IjoxNzE1NTU0NzAwLCJleHAiOjE3MTU1NTUwMDAsInJvbGUiOiJBRE1JTiJ9.koMjMKTz6b1MMWxNnKgoOalkGV8RH017P7K303UE2m4"
+}
+```
 
 ## Recuperação de Senha
 
