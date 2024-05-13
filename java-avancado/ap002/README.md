@@ -39,8 +39,8 @@ Requisição (JSON):
 ```json
 {
   "currentpassword": "JAVA!@#ResTIc18",
-  "newPassword": "123456AsJ@",
-  "confirmPassword": "123456AsJ@"
+  "newPassword": "9758534AsJ@",
+  "confirmPassword": "9758534AsJ@"
 }
 ```
 
