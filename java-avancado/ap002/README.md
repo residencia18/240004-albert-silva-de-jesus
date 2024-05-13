@@ -6,9 +6,7 @@ A Park Manager API foi desenvolvida para oferecer uma solução abrangente de ge
 
 ## Banco de Dados
 
-<p align="center">
-  <img src="DBA.png" alt="Imagem do banco de dados da avaliação">
-</p>
+![Imagem do banco de dados da avaliação](DBA.png)
 
 ## Autenticação
 
