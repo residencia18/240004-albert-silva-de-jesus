@@ -29,7 +29,7 @@ Requisição (JSON):
   - Endpoint: `/api/v1/usuarios/{id}`
   - Método: `GET`
 
--   
+##  
 
 - **Atualizar Senha**
   - Endpoint: `/api/v1/usuarios/{id}`
