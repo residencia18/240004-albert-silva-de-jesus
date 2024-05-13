@@ -19,7 +19,7 @@ Endpoints disponíveis:
 Requisição (JSON):
 ```json
 {
-  "username": "email",
+  "username": "example@gmail.com",
   "password": "password"
 }
 ```
@@ -57,7 +57,7 @@ Requisição (JSON):
 Requisição (JSON):
 ```json
 {
-  "username": "email",
+  "username": "example@gmail.com",
   "password": "password"
 }
 ```
