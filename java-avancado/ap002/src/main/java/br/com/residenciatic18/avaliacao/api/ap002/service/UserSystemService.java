@@ -65,7 +65,7 @@ public class UserSystemService {
             throw new PasswordInvalidException("Nova senha não confere com confirmação de senha.");
         }
 
-        UserSystem user = token.getUser();
+        UserSystem user = token.getUserSystem();
         user.setCodeverifier(null);
         user.setPassword(passwordEncoder.encode(newPassword));
 
