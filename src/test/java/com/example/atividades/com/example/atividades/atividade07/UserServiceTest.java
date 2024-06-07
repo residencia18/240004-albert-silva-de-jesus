@@ -17,7 +17,7 @@ public class UserServiceTest {
   public void setUp() {
     mockDatabase = Mockito.mock(Database.class);
     userService = new UserService(mockDatabase);
-    validUser = new User("John Doe", "john.doe@example.com");
+    validUser = new User("Thanos Silva", "thanos.silva@example.com");
   }
 
   @Test
@@ -30,7 +30,7 @@ public class UserServiceTest {
   @Test
   @DisplayName("Test saveUser with null name")
   public void testSaveUserWithNullName() {
-    User user = new User(null, "john.doe@example.com");
+    User user = new User(null, "thanos.silva@example.com");
     assertThrows(IllegalArgumentException.class, () -> userService.saveUser(user));
     verify(mockDatabase, times(0)).saveUser(any(User.class));
   }
@@ -38,7 +38,7 @@ public class UserServiceTest {
   @Test
   @DisplayName("Test saveUser with empty name")
   public void testSaveUserWithEmptyName() {
-    User user = new User("", "john.doe@example.com");
+    User user = new User("", "thanos.silva@example.com");
     assertThrows(IllegalArgumentException.class, () -> userService.saveUser(user));
     verify(mockDatabase, times(0)).saveUser(any(User.class));
   }
@@ -46,7 +46,7 @@ public class UserServiceTest {
   @Test
   @DisplayName("Test saveUser with null email")
   public void testSaveUserWithNullEmail() {
-    User user = new User("John Doe", null);
+    User user = new User("Thanos Silva", null);
     assertThrows(IllegalArgumentException.class, () -> userService.saveUser(user));
     verify(mockDatabase, times(0)).saveUser(any(User.class));
   }
@@ -54,7 +54,7 @@ public class UserServiceTest {
   @Test
   @DisplayName("Test saveUser with empty email")
   public void testSaveUserWithEmptyEmail() {
-    User user = new User("John Doe", "");
+    User user = new User("Thanos Silva", "");
     assertThrows(IllegalArgumentException.class, () -> userService.saveUser(user));
     verify(mockDatabase, times(0)).saveUser(any(User.class));
   }

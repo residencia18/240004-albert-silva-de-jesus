@@ -16,7 +16,7 @@ public class DatabaseTest {
   @BeforeEach
   public void setUp() {
     database = Mockito.mock(Database.class);
-    user = new User("John", "john@example.com");
+    user = new User("Superman", "superman@example.com");
   }
 
   @Test
@@ -35,4 +35,5 @@ public class DatabaseTest {
       database.saveUser(null);
     });
   }
+
 }
