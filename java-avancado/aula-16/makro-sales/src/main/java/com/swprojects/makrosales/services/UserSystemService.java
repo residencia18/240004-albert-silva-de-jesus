@@ -9,26 +9,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.swprojects.makrosales.entities.Usuario;
+import com.swprojects.makrosales.entities.UserSystem;
 import com.swprojects.makrosales.exception.DatabaseException;
 import com.swprojects.makrosales.exception.EntityNotFoundException;
 import com.swprojects.makrosales.exception.PasswordInvalidException;
 import com.swprojects.makrosales.exception.UsernameUniqueViolationException;
-import com.swprojects.makrosales.repositories.UsuarioRepository;
-import com.swprojects.makrosales.web.dto.form.UsuarioForm;
+import com.swprojects.makrosales.repositories.UserSystemRepository;
+import com.swprojects.makrosales.web.dto.form.UserSystemForm;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
-public class UsuarioService {
+public class UserSystemService {
 
   @Autowired
-  private UsuarioRepository usuarioRepository;
+  private UserSystemRepository usuarioRepository;
 
   @Transactional
-  public Usuario create(@Nullable Usuario usuario) {
+  public UserSystem create(@Nullable UserSystem usuario) {
     if (usuario == null) {
       throw new IllegalArgumentException("O parâmetro 'usuário' não pode ser nulo.");
     }
@@ -42,7 +42,7 @@ public class UsuarioService {
   }
 
   @Transactional(readOnly = true)
-  public Usuario findById(@NonNull Long id) {
+  public UserSystem findById(@NonNull Long id) {
     return usuarioRepository.findById(id).orElseThrow(
         () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
   }
@@ -50,18 +50,18 @@ public class UsuarioService {
   // Metodo criado para atender ao teste automatizado porque o metodo findById nao
   // retorna um Optional e sim um Usuario
   @Transactional(readOnly = true)
-  public Optional<Usuario> searchbyId(@NonNull Long id) {
+  public Optional<UserSystem> searchbyId(@NonNull Long id) {
     return Optional.ofNullable(usuarioRepository.findById(id).orElseThrow(
         () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id))));
   }
 
   @Transactional
-  public Usuario editarSenha(@NonNull Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+  public UserSystem editarSenha(@NonNull Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
     if (!novaSenha.equals(confirmaSenha)) {
       throw new PasswordInvalidException("Nova senha não confere com confirmação de senha.");
     }
 
-    Usuario user = findById(id);
+    UserSystem user = findById(id);
     if (!user.getPassword().equals(senhaAtual)) {
       throw new PasswordInvalidException("Sua senha não confere.");
     }
@@ -74,19 +74,19 @@ public class UsuarioService {
   }
 
   @Transactional(readOnly = true)
-  public List<Usuario> findAll() {
+  public List<UserSystem> findAll() {
     return usuarioRepository.findAll();
   }
 
-  public Usuario update(@NonNull Long id, UsuarioForm userForm) {
-    Usuario obj = findById(id);
+  public UserSystem update(@NonNull Long id, UserSystemForm userForm) {
+    UserSystem obj = findById(id);
     obj.setUsername(userForm.getUsername());
     return usuarioRepository.save(obj);
   }
 
   // Metodo criado para atender ao teste automatizado porque o metodo findById nao
   // retorna um Optional e sim um Usuario
-  public Optional<Usuario> toEdit(@NonNull Long id, UsuarioForm userForm) {
+  public Optional<UserSystem> toEdit(@NonNull Long id, UserSystemForm userForm) {
     return searchbyId(id).map(usuario -> {
       usuario.setUsername(userForm.getUsername());
       usuario.setPassword(userForm.getPassword());

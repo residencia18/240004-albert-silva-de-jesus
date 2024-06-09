@@ -7,13 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.swprojects.makrosales.entities.Employee;
-import com.swprojects.makrosales.entities.Usuario;
+import com.swprojects.makrosales.entities.UserSystem;
 import com.swprojects.makrosales.web.dto.EmployeeResponseDto;
 import com.swprojects.makrosales.web.dto.form.EmployeeForm;
 
 public class EmployeeMapper {
 
-  public static Employee toEmployee(EmployeeForm createDto, Usuario usuario) {
+  public static Employee toEmployee(EmployeeForm createDto, UserSystem usuario) {
     return new ModelMapper()
         .map(new EmployeeForm(createDto, usuario), Employee.class);
   }
