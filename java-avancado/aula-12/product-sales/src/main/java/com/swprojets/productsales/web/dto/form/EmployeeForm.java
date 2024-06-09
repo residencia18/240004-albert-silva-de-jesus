@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.swprojets.productsales.entities.Category;
 import com.swprojets.productsales.entities.Product;
-import com.swprojets.productsales.entities.Usuario;
+import com.swprojets.productsales.entities.UserSystem;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
@@ -48,11 +48,11 @@ public class EmployeeForm {
     private Integer experienceYears; // anos de experiência
     
     private Long usuarioId;
-    private Usuario usuario;
+    private UserSystem usuario;
     private Set<Product> productsSold;
     private Set<Category> categories;
 
-    public EmployeeForm(EmployeeForm employeeForm, Usuario usuario) {
+    public EmployeeForm(EmployeeForm employeeForm, UserSystem usuario) {
         this.name = employeeForm.getName();
         this.cpf = employeeForm.getCpf();
         this.birthDate = employeeForm.getBirthDate();

@@ -18,12 +18,12 @@ import com.github.javafaker.Faker;
 import com.swprojets.productsales.entities.Category;
 import com.swprojets.productsales.entities.Employee;
 import com.swprojets.productsales.entities.Product;
-import com.swprojets.productsales.entities.Usuario;
-import com.swprojets.productsales.entities.Usuario.Role;
+import com.swprojets.productsales.entities.UserSystem;
+import com.swprojets.productsales.entities.UserSystem.Role;
 import com.swprojets.productsales.repositories.CategoryRepository;
 import com.swprojets.productsales.repositories.EmployeeRepository;
 import com.swprojets.productsales.repositories.ProductRepository;
-import com.swprojets.productsales.repositories.UsuarioRepository;
+import com.swprojets.productsales.repositories.UserSystemRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 
@@ -34,7 +34,7 @@ public class TestConfig implements CommandLineRunner {
   public static final Logger log = LoggerFactory.getLogger(TestConfig.class);
 
   @Autowired
-  private UsuarioRepository userRepository;
+  private UserSystemRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -91,7 +91,7 @@ public class TestConfig implements CommandLineRunner {
       log.info("Product: {}", product);
 
       // Se não houver um administrador, cria um novo
-      Usuario usuario = new Usuario();
+      UserSystem usuario = new UserSystem();
 
       // Verifica se já existe pelo menos um administrador no banco de dados
       boolean isAdminExists = userRepository.existsByRole(Role.ROLE_ADMIN);
