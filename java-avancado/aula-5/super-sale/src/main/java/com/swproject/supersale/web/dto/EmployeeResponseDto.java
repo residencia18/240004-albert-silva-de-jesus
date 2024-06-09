@@ -3,7 +3,7 @@ package com.swproject.supersale.web.dto;
 import java.time.Instant;
 
 import com.swproject.supersale.entities.Employee;
-import com.swproject.supersale.entities.Usuario;
+import com.swproject.supersale.entities.UserSystem;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class EmployeeResponseDto {
   @Column(unique = true)
   private Instant birthDate;
 
-  public EmployeeResponseDto(Employee employee, Usuario usuario) {
+  public EmployeeResponseDto(Employee employee, UserSystem usuario) {
     setId(id);
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();
