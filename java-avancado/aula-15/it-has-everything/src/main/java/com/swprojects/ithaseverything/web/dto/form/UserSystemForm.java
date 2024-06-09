@@ -18,7 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioForm {
+public class UserSystemForm {
 
   @NotBlank
   @Email(message = "formato do e-mail está invalido", regexp = "^[a-z0-9.+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")
@@ -30,7 +30,7 @@ public class UsuarioForm {
   
   private List<Employee> employees;
 
-  public UsuarioForm(String username, String password) {
+  public UserSystemForm(String username, String password) {
     this.username = username;
     this.password = password;
   }
