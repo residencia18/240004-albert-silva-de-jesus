@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swprojects.generalproducts.entities.Employee;
-import com.swprojects.generalproducts.entities.Usuario;
+import com.swprojects.generalproducts.entities.UserSystem;
 import com.swprojects.generalproducts.services.EmployeeServiceV2;
-import com.swprojects.generalproducts.services.UsuarioService;
+import com.swprojects.generalproducts.services.UserSystemService;
 import com.swprojects.generalproducts.web.dto.EmployeeResponseDto;
 import com.swprojects.generalproducts.web.dto.form.EmployeeForm;
 import com.swprojects.generalproducts.web.dto.mapper.EmployeeMapper;
@@ -51,7 +51,7 @@ public class EmployeeControllerV2 {
   private EmployeeServiceV2 employeeService;
 
   @Autowired
-  private UsuarioService usuarioService;
+  private UserSystemService usuarioService;
 
   @Operation(summary = "Cria um novo funcionário", description = "Recurso para criar um novo funcionário no sistema.", responses = {
       @ApiResponse(responseCode = "201", description = "Funcionário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EmployeeResponseDto.class))),
@@ -60,7 +60,7 @@ public class EmployeeControllerV2 {
   })
   @PostMapping
   public ResponseEntity<EmployeeResponseDto> create(@RequestBody EmployeeForm createDto) {
-    Usuario usuario = usuarioService.findById(createDto.getUsuarioId());
+    UserSystem usuario = usuarioService.findById(createDto.getUsuarioId());
     Employee employee = employeeService.create(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));
