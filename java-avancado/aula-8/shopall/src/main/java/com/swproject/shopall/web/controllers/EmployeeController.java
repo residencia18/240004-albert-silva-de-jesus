@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swproject.shopall.entities.Employee;
-import com.swproject.shopall.entities.Usuario;
+import com.swproject.shopall.entities.UserSystem;
 import com.swproject.shopall.services.EmployeeService;
-import com.swproject.shopall.services.UsuarioService;
+import com.swproject.shopall.services.UserSystemService;
 import com.swproject.shopall.web.dto.EmployeeResponseDto;
 import com.swproject.shopall.web.dto.form.EmployeeForm;
 import com.swproject.shopall.web.dto.mapper.EmployeeMapper;
@@ -36,7 +36,7 @@ public class EmployeeController {
   private EmployeeService employeeService;
 
   @Autowired
-  private UsuarioService usuarioService;
+  private UserSystemService usuarioService;
 
   @Operation(summary = "Cria um novo funcionário", description = "Recurso para criar um novo funcionário no sistema.", responses = {
       @ApiResponse(responseCode = "201", description = "Funcionário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = EmployeeResponseDto.class))),
@@ -52,7 +52,7 @@ public class EmployeeController {
       throw new IllegalArgumentException("O parâmetro 'usuarioId' não pode ser nulo.");
     }
 
-    Usuario usuario = usuarioService.findById(userId);
+    UserSystem usuario = usuarioService.findById(userId);
     Employee employee = employeeService.save(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));
