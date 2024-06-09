@@ -14,14 +14,14 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.github.javafaker.Faker;
-import com.swprojects.salesofeverything.entities.Usuario;
-import com.swprojects.salesofeverything.repositories.UsuarioRepository;
+import com.swprojects.salesofeverything.entities.UserSystem;
+import com.swprojects.salesofeverything.repositories.UserSystemRepository;
 
 @DataJpaTest
 public class UsuarioRepositoryTest {
 
   @Autowired
-  private UsuarioRepository usuarioRepository;
+  private UserSystemRepository usuarioRepository;
 
   @Autowired
   private TestEntityManager testEntityManager;
@@ -49,19 +49,19 @@ public class UsuarioRepositoryTest {
     assertThat(usuarioRepository).isNotNull();
   }
 
-  private Usuario generateFakeUsuario() {
-    Usuario usuario = new Usuario();
+  private UserSystem generateFakeUsuario() {
+    UserSystem usuario = new UserSystem();
     usuario.setUsername(faker.internet().emailAddress());
     usuario.setPassword(faker.number().digits(6));
-    usuario.setRole(Usuario.Role.ROLE_ADMIN);
+    usuario.setRole(UserSystem.Role.ROLE_ADMIN);
     return usuario;
   }
 
   @Test
   void createUsuario_WithValidData_ReturnsUsuario() {
-    Usuario usuario = generateFakeUsuario();
+    UserSystem usuario = generateFakeUsuario();
 
-    Usuario saveUsuario = usuarioRepository.save(usuario);
+    UserSystem saveUsuario = usuarioRepository.save(usuario);
 
     assertThat(saveUsuario).isNotNull();
     assertThat(saveUsuario.getId()).isNotNull();
@@ -72,10 +72,10 @@ public class UsuarioRepositoryTest {
 
   @Test
   void createUsuario_WithExistingCpf_ThrowsException() {
-    Usuario usuario1 = generateFakeUsuario();
+    UserSystem usuario1 = generateFakeUsuario();
     testEntityManager.persistFlushFind(usuario1); // Força a persistência imediata
 
-    Usuario usuario2 = generateFakeUsuario();
+    UserSystem usuario2 = generateFakeUsuario();
     usuario2.setUsername(usuario1.getUsername());
 
     assertThatThrownBy(() -> usuarioRepository.save(usuario2)).isInstanceOf(Exception.class);
@@ -83,10 +83,10 @@ public class UsuarioRepositoryTest {
 
   @Test
   void findUsuario_ById_ReturnsUsuario() {
-    Usuario usuario = generateFakeUsuario();
-    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+    UserSystem usuario = generateFakeUsuario();
+    UserSystem persistedUsuario = testEntityManager.persistFlushFind(usuario);
 
-    Optional<Usuario> foundUsuario = usuarioRepository.findById(persistedUsuario.getId());
+    Optional<UserSystem> foundUsuario = usuarioRepository.findById(persistedUsuario.getId());
 
     assertThat(foundUsuario).isNotEmpty();
     assertThat(foundUsuario.get().getId()).isEqualTo(persistedUsuario.getId());
@@ -94,10 +94,10 @@ public class UsuarioRepositoryTest {
 
   @Test
   void findUsuario_ByUsername_ReturnsUsuario() {
-    Usuario usuario = generateFakeUsuario();
-    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+    UserSystem usuario = generateFakeUsuario();
+    UserSystem persistedUsuario = testEntityManager.persistFlushFind(usuario);
 
-    Optional<Usuario> foundUsuario = usuarioRepository.findByUsername(persistedUsuario.getUsername());
+    Optional<UserSystem> foundUsuario = usuarioRepository.findByUsername(persistedUsuario.getUsername());
 
     assertThat(foundUsuario).isNotEmpty();
     assertThat(foundUsuario.get().getUsername()).isEqualTo(persistedUsuario.getUsername());
@@ -105,24 +105,24 @@ public class UsuarioRepositoryTest {
 
   @Test
   void listUsuarios_ReturnsAllUsuarios() {
-    Usuario usuario1 = generateFakeUsuario();
-    Usuario usuario2 = generateFakeUsuario();
+    UserSystem usuario1 = generateFakeUsuario();
+    UserSystem usuario2 = generateFakeUsuario();
     testEntityManager.persistFlushFind(usuario1);
     testEntityManager.persistFlushFind(usuario2);
 
-    List<Usuario> usuarios = usuarioRepository.findAll();
+    List<UserSystem> usuarios = usuarioRepository.findAll();
 
     assertThat(usuarios).hasSizeGreaterThanOrEqualTo(2);
   }
 
   @Test
   void deleteUsuario_WithExistingId_RemovesUsuario() {
-    Usuario usuario = generateFakeUsuario();
-    Usuario persistedUsuario = testEntityManager.persistFlushFind(usuario);
+    UserSystem usuario = generateFakeUsuario();
+    UserSystem persistedUsuario = testEntityManager.persistFlushFind(usuario);
 
     usuarioRepository.deleteById(persistedUsuario.getId());
 
-    Usuario deletedUsuario = testEntityManager.find(Usuario.class, persistedUsuario.getId());
+    UserSystem deletedUsuario = testEntityManager.find(UserSystem.class, persistedUsuario.getId());
     assertThat(deletedUsuario).isNull();
   }
 

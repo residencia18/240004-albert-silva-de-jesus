@@ -1,8 +1,8 @@
 package com.swprojects.salesofeverything;
 
-import com.swprojects.salesofeverything.web.dto.UsuarioResponseDto;
-import com.swprojects.salesofeverything.web.dto.UsuarioSenhaDto;
-import com.swprojects.salesofeverything.web.dto.form.UsuarioForm;
+import com.swprojects.salesofeverything.web.dto.UserSystemResponseDto;
+import com.swprojects.salesofeverything.web.dto.UserSystemSenhaDto;
+import com.swprojects.salesofeverything.web.dto.form.UserSystemForm;
 import com.swprojects.salesofeverything.web.exceptions.ErrorMessage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +24,14 @@ public class UsuarioIT {
 
   @Test
   public void _createUsuario_ComUsernameEPasswordValidos_RetornarUsuarioCriadoComStaus201() {
-    UsuarioResponseDto responseBody = testClient
+    UserSystemResponseDto responseBody = testClient
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@email.com", "123456"))
+        .bodyValue(new UserSystemForm("tody@email.com", "123456"))
         .exchange()
         .expectStatus().isCreated()
-        .expectBody(UsuarioResponseDto.class)
+        .expectBody(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -46,7 +46,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("", "123456"))
+        .bodyValue(new UserSystemForm("", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -59,7 +59,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@", "123456"))
+        .bodyValue(new UserSystemForm("tody@", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -72,7 +72,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@email", "123456"))
+        .bodyValue(new UserSystemForm("tody@email", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -88,7 +88,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", ""))
+        .bodyValue(new UserSystemForm("tody@gmail.com", ""))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -101,7 +101,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", "123"))
+        .bodyValue(new UserSystemForm("tody@gmail.com", "123"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -114,7 +114,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", "1234567"))
+        .bodyValue(new UserSystemForm("tody@gmail.com", "1234567"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -130,7 +130,7 @@ public class UsuarioIT {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("ana@email.com", "123456"))
+        .bodyValue(new UserSystemForm("ana@email.com", "123456"))
         .exchange()
         .expectStatus().isEqualTo(409)
         .expectBody(ErrorMessage.class)
@@ -142,12 +142,12 @@ public class UsuarioIT {
 
   @Test
   public void buscarUsuario_ComIdExistente_RetornarUsuarioComStatus200() {
-    UsuarioResponseDto responseBody = testClient
+    UserSystemResponseDto responseBody = testClient
         .get()
         .uri("/api/v1/usuarios/100")
         .exchange()
         .expectStatus().isOk()
-        .expectBody(UsuarioResponseDto.class)
+        .expectBody(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -176,7 +176,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("123456", "123456", "123456"))
+        .bodyValue(new UserSystemSenhaDto("123456", "123456", "123456"))
         .exchange()
         .expectStatus().isNoContent();
   }
@@ -187,7 +187,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("", "", ""))
+        .bodyValue(new UserSystemSenhaDto("", "", ""))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -200,7 +200,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("12345", "12345", "12345"))
+        .bodyValue(new UserSystemSenhaDto("12345", "12345", "12345"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -213,7 +213,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("12345678", "12345678", "12345678"))
+        .bodyValue(new UserSystemSenhaDto("12345678", "12345678", "12345678"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -229,7 +229,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("123456", "123456", "000000"))
+        .bodyValue(new UserSystemSenhaDto("123456", "123456", "000000"))
         .exchange()
         .expectStatus().isEqualTo(400)
         .expectBody(ErrorMessage.class)
@@ -242,7 +242,7 @@ public class UsuarioIT {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("000000", "123456", "123456"))
+        .bodyValue(new UserSystemSenhaDto("000000", "123456", "123456"))
         .exchange()
         .expectStatus().isEqualTo(400)
         .expectBody(ErrorMessage.class)
@@ -254,12 +254,12 @@ public class UsuarioIT {
 
   @Test
   public void listarUsuarios_SemQualquerParametro_RetornarListaDeUsuariosComStatus200() {
-    List<UsuarioResponseDto> responseBody = testClient
+    List<UserSystemResponseDto> responseBody = testClient
         .get()
         .uri("/api/v1/usuarios/")
         .exchange()
         .expectStatus().isOk()
-        .expectBodyList(UsuarioResponseDto.class)
+        .expectBodyList(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
