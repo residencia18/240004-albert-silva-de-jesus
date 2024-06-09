@@ -16,19 +16,19 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.entities.Usuario.Role;
-import com.swproject.salescompany.services.UsuarioService;
-import com.swproject.salescompany.web.controllers.UsuarioController;
+import com.swproject.salescompany.entities.UserSystem;
+import com.swproject.salescompany.entities.UserSystem.Role;
+import com.swproject.salescompany.services.UserSystemService;
+import com.swproject.salescompany.web.controllers.UserSystemController;
 
-@WebMvcTest(UsuarioController.class)
+@WebMvcTest(UserSystemController.class)
 public class UsuarioControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private UsuarioService usuarioService;
+    private UserSystemService usuarioService;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -45,8 +45,8 @@ public class UsuarioControllerTest {
         }
     }
 
-    private Usuario generateFakeUsuario() {
-        Usuario usuario = new Usuario();
+    private UserSystem generateFakeUsuario() {
+        UserSystem usuario = new UserSystem();
         usuario.setUsername(faker.internet().emailAddress());
         usuario.setPassword(faker.number().digits(6));
         usuario.setRole(Role.ROLE_ADMIN);
@@ -55,12 +55,12 @@ public class UsuarioControllerTest {
 
     @Test
     void createUsuario_WithValidData_ReturnsCreated() throws Exception {
-        Usuario newUsuario = generateFakeUsuario();
+        UserSystem newUsuario = generateFakeUsuario();
 
-        Usuario saveUsuario = generateFakeUsuario();
+        UserSystem saveUsuario = generateFakeUsuario();
         saveUsuario.setId(faker.number().randomNumber());
 
-        when(usuarioService.create(any(Usuario.class))).thenReturn(saveUsuario);
+        when(usuarioService.create(any(UserSystem.class))).thenReturn(saveUsuario);
 
         mockMvc.perform(post("/api/v1/usuarios")
                 .content(objectMapper.writeValueAsString(newUsuario))

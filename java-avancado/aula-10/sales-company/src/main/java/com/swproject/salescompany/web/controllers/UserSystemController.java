@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.services.UsuarioService;
-import com.swproject.salescompany.web.dto.UsuarioResponseDto;
-import com.swproject.salescompany.web.dto.UsuarioSenhaDto;
-import com.swproject.salescompany.web.dto.form.UsuarioForm;
+import com.swproject.salescompany.entities.UserSystem;
+import com.swproject.salescompany.services.UserSystemService;
+import com.swproject.salescompany.web.dto.UserSystemResponseDto;
+import com.swproject.salescompany.web.dto.UserSystemSenhaDto;
+import com.swproject.salescompany.web.dto.form.UserSystemForm;
 
-import com.swproject.salescompany.web.dto.mapper.UsuarioMapper;
+import com.swproject.salescompany.web.dto.mapper.UserSystemMapper;
 import com.swproject.salescompany.web.exceptions.ErrorMessage;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,45 +39,45 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/usuarios")
-public class UsuarioController {
+public class UserSystemController {
 
   @Autowired
-  private UsuarioService userService;
+  private UserSystemService userService;
 
   @Operation(summary = "Cria um novo usuário", description = "Recurso para criar um novo usuário no sistema.", responses = {
-      @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+      @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
       @ApiResponse(responseCode = "409", description = "Usuário e-mail já cadastrado no sistema.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
       @ApiResponse(responseCode = "422", description = "Recursos não processados por dados de entrada invalidos.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))),
   })
   @PostMapping
-  public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioForm createDto) {
-    Usuario user = userService.create(UsuarioMapper.toUsuario(createDto));
+  public ResponseEntity<UserSystemResponseDto> create(@Valid @RequestBody UserSystemForm createDto) {
+    UserSystem user = userService.create(UserSystemMapper.toUsuario(createDto));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
-    return ResponseEntity.created(uri).body(UsuarioMapper.toDto(user));
+    return ResponseEntity.created(uri).body(UserSystemMapper.toDto(user));
   }
 
   @Operation(summary = "Recuperar um usuário pelo id", description = "Recurso para recuperar um usuário pelo id.", responses = {
-      @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioResponseDto.class))),
+      @ApiResponse(responseCode = "200", description = "Recurso recuperado com sucesso.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UserSystemResponseDto.class))),
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @GetMapping("/{id}")
-  public ResponseEntity<UsuarioResponseDto> getById(@PathVariable @NonNull Long id) {
-    Usuario user = userService.findById(id);
-    return ResponseEntity.ok(UsuarioMapper.toDto(user));
+  public ResponseEntity<UserSystemResponseDto> getById(@PathVariable @NonNull Long id) {
+    UserSystem user = userService.findById(id);
+    return ResponseEntity.ok(UserSystemMapper.toDto(user));
   }
 
   @Operation(summary = "Listar todos os usuarios", description = "Listar todos os usuarios cadastrados", responses = {
-      @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class))))
+      @ApiResponse(responseCode = "200", description = "Lista com todos os usuarios cadastrados", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserSystemResponseDto.class))))
   })
   @GetMapping("/")
-  public ResponseEntity<List<UsuarioResponseDto>> getAll() {
-    List<UsuarioResponseDto> users = UsuarioMapper.toListDto(userService.findAll());
+  public ResponseEntity<List<UserSystemResponseDto>> getAll() {
+    List<UserSystemResponseDto> users = UserSystemMapper.toListDto(userService.findAll());
     return ResponseEntity.ok().body(users);
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<UsuarioResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UsuarioForm createDto) {
-    return ResponseEntity.ok(UsuarioMapper.toDto(userService.update(id, createDto)));
+  public ResponseEntity<UserSystemResponseDto> update(@PathVariable @NonNull Long id, @RequestBody UserSystemForm createDto) {
+    return ResponseEntity.ok(UserSystemMapper.toDto(userService.update(id, createDto)));
   }
 
   @Operation(summary = "Atualizar senha", description = "Recurso para atualizar a senha do usuário.", responses = {
@@ -86,8 +86,8 @@ public class UsuarioController {
       @ApiResponse(responseCode = "404", description = "Recurso não encontrado.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
   })
   @PatchMapping("/{id}")
-  public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UsuarioSenhaDto dto) {
-    Usuario user = userService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
+  public ResponseEntity<Void> updatePassword(@PathVariable Long id, @Valid @RequestBody UserSystemSenhaDto dto) {
+    UserSystem user = userService.editarSenha(id, dto.getSenhaAtual(), dto.getNovaSenha(), dto.getConfirmaSenha());
     return ResponseEntity.noContent().build();
   }
 

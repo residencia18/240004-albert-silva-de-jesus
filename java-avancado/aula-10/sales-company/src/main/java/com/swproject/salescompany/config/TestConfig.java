@@ -16,12 +16,12 @@ import com.swproject.salescompany.entities.Category;
 import com.swproject.salescompany.entities.Employee;
 import com.swproject.salescompany.entities.Product;
 
-import com.swproject.salescompany.entities.Usuario;
-import com.swproject.salescompany.entities.Usuario.Role;
+import com.swproject.salescompany.entities.UserSystem;
+import com.swproject.salescompany.entities.UserSystem.Role;
 import com.swproject.salescompany.repositories.CategoryRepository;
 import com.swproject.salescompany.repositories.EmployeeRepository;
 import com.swproject.salescompany.repositories.ProductRepository;
-import com.swproject.salescompany.repositories.UsuarioRepository;
+import com.swproject.salescompany.repositories.UserSystemRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 
@@ -32,7 +32,7 @@ public class TestConfig implements CommandLineRunner {
   public static final Logger log = LoggerFactory.getLogger(TestConfig.class);
 
   @Autowired
-  private UsuarioRepository userRepository;
+  private UserSystemRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -73,7 +73,7 @@ public class TestConfig implements CommandLineRunner {
       log.info("Product: {}", product);
 
       // Se não houver um administrador, cria um novo
-      Usuario usuario = new Usuario();
+      UserSystem usuario = new UserSystem();
 
       // Verifica se já existe pelo menos um administrador no banco de dados
       boolean isAdminExists = userRepository.existsByRole(Role.ROLE_ADMIN);
