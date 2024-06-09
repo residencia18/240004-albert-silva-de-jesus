@@ -13,19 +13,19 @@ import org.springframework.context.annotation.Profile;
 import com.swproject.vendagrocer.entities.Category;
 import com.swproject.vendagrocer.entities.Employee;
 import com.swproject.vendagrocer.entities.Product;
-import com.swproject.vendagrocer.entities.Usuario;
+import com.swproject.vendagrocer.entities.UserSystem;
 import com.swproject.vendagrocer.entities.enums.PerfilTipo;
 import com.swproject.vendagrocer.repositories.CategoryRepository;
 import com.swproject.vendagrocer.repositories.EmployeeRepository;
 import com.swproject.vendagrocer.repositories.ProductRepository;
-import com.swproject.vendagrocer.repositories.UsuarioRepository;
+import com.swproject.vendagrocer.repositories.UserSystemRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
   @Autowired
-  private UsuarioRepository userRepository;
+  private UserSystemRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -64,11 +64,11 @@ public class TestConfig implements CommandLineRunner {
 
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    Usuario obj1 = new Usuario(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
-    Usuario obj2 = new Usuario(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
-    Usuario obj3 = new Usuario(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
-    Usuario obj4 = new Usuario(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
-    Usuario obj5 = new Usuario(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
+    UserSystem obj1 = new UserSystem(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
+    UserSystem obj2 = new UserSystem(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
+    UserSystem obj3 = new UserSystem(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
+    UserSystem obj4 = new UserSystem(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
+    UserSystem obj5 = new UserSystem(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 
