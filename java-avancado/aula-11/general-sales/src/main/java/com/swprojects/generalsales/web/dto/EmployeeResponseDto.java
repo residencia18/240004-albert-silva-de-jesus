@@ -28,10 +28,10 @@ public class EmployeeResponseDto extends AbstractEntity {
   @Temporal(TemporalType.DATE)
   private Date startDate;
   private Integer experienceYears;
-  private UsuarioResponseDto usuario;
+  private UserSystemResponseDto usuario;
   private Set<ProductResponseDto> productsSold;
 
-  public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario, Set<ProductResponseDto> productsSold) {
+  public EmployeeResponseDto(Employee employee, UserSystemResponseDto usuario, Set<ProductResponseDto> productsSold) {
     setId(employee.getId());
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();

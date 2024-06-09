@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import com.swprojects.generalsales.entities.Employee;
 import com.swprojects.generalsales.services.EmployeeService;
-import com.swprojects.generalsales.services.UsuarioService;
+import com.swprojects.generalsales.services.UserSystemService;
 import com.swprojects.generalsales.web.controllers.EmployeeController;
 import com.swprojects.generalsales.web.dto.form.EmployeeForm;
 import com.swprojects.generalsales.web.dto.mapper.EmployeeMapper;
@@ -43,7 +43,7 @@ public class EmloyeeControllerTest {
     private EmployeeService employeeService;
 
     @MockBean
-    private UsuarioService usuarioService;
+    private UserSystemService usuarioService;
 
     @Autowired
     private Faker faker;
