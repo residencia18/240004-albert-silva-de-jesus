@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.swproject.tradein.entities.Employee;
-import com.swproject.tradein.entities.Usuario;
+import com.swproject.tradein.entities.UserSystem;
 import com.swproject.tradein.services.EmployeeService;
-import com.swproject.tradein.services.UsuarioService;
+import com.swproject.tradein.services.UserSystemService;
 import com.swproject.tradein.web.dto.EmployeeResponseDto;
 import com.swproject.tradein.web.dto.form.EmployeeForm;
 import com.swproject.tradein.web.dto.mapper.EmployeeMapper;
@@ -26,7 +26,7 @@ public class EmployeeController {
   private EmployeeService employeeService;
 
   @Autowired
-  private UsuarioService usuarioService;
+  private UserSystemService usuarioService;
 
   @PostMapping
   public ResponseEntity<EmployeeResponseDto> create(@RequestBody EmployeeForm createDto) {
@@ -37,7 +37,7 @@ public class EmployeeController {
       throw new IllegalArgumentException("O parâmetro 'usuarioId' não pode ser nulo.");
     }
 
-    Usuario usuario = usuarioService.findById(userId);
+    UserSystem usuario = usuarioService.findById(userId);
     Employee employee = employeeService.save(EmployeeMapper.toEmployee(createDto, usuario));
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(employee.getId()).toUri();
     return ResponseEntity.created(uri).body(EmployeeMapper.toDto(employee));

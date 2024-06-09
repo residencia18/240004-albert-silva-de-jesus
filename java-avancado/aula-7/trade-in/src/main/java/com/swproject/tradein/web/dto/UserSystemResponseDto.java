@@ -1,7 +1,7 @@
 package com.swproject.tradein.web.dto;
 
 import com.swproject.tradein.entities.AbstractEntity;
-import com.swproject.tradein.entities.Usuario;
+import com.swproject.tradein.entities.UserSystem;
 import com.swproject.tradein.entities.enums.PerfilTipo;
 
 import lombok.AllArgsConstructor;
@@ -15,13 +15,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioResponseDto extends AbstractEntity {
+public class UserSystemResponseDto extends AbstractEntity {
 
   private Long id;
   private String username;
   private String perfilTipo;
 
-  public UsuarioResponseDto(Usuario user, PerfilTipo tipo) {
+  public UserSystemResponseDto(UserSystem user, PerfilTipo tipo) {
     setId(user.getId());
     this.username = user.getUsername();
     setPerfilTipo(tipo);

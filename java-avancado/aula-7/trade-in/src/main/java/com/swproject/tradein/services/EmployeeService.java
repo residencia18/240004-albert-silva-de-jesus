@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.swproject.tradein.entities.Employee;
-import com.swproject.tradein.entities.Usuario;
+import com.swproject.tradein.entities.UserSystem;
 import com.swproject.tradein.exception.EntityNotFoundException;
 import com.swproject.tradein.repositories.EmployeeRepository;
 import com.swproject.tradein.web.dto.form.EmployeeForm;

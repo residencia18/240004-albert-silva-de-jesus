@@ -13,19 +13,19 @@ import org.springframework.context.annotation.Profile;
 import com.swproject.tradein.entities.Category;
 import com.swproject.tradein.entities.Employee;
 import com.swproject.tradein.entities.Product;
-import com.swproject.tradein.entities.Usuario;
+import com.swproject.tradein.entities.UserSystem;
 import com.swproject.tradein.entities.enums.PerfilTipo;
 import com.swproject.tradein.repositories.CategoryRepository;
 import com.swproject.tradein.repositories.EmployeeRepository;
 import com.swproject.tradein.repositories.ProductRepository;
-import com.swproject.tradein.repositories.UsuarioRepository;
+import com.swproject.tradein.repositories.UserSystemRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
   @Autowired
-  private UsuarioRepository userRepository;
+  private UserSystemRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -64,11 +64,11 @@ public class TestConfig implements CommandLineRunner {
 
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
-    Usuario obj1 = new Usuario(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
-    Usuario obj2 = new Usuario(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
-    Usuario obj3 = new Usuario(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
-    Usuario obj4 = new Usuario(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
-    Usuario obj5 = new Usuario(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
+    UserSystem obj1 = new UserSystem(null, "maria@gmail.com", "123456", PerfilTipo.ADMIN);
+    UserSystem obj2 = new UserSystem(null, "alex@hotmail.com", "098765", PerfilTipo.FUNCIONARIO);
+    UserSystem obj3 = new UserSystem(null, "bob@gamil.com", "234567", PerfilTipo.FUNCIONARIO);
+    UserSystem obj4 = new UserSystem(null, "ana@gmail.com", "987654", PerfilTipo.FUNCIONARIO);
+    UserSystem obj5 = new UserSystem(null, "carlos@hotmail.com", "192938", PerfilTipo.ADMIN);
 
     userRepository.saveAll(Arrays.asList(obj1, obj2, obj3, obj4, obj5));
 
