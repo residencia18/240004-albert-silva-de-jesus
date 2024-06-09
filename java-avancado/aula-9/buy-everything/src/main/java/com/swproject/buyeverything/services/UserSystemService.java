@@ -8,25 +8,25 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.swproject.buyeverything.entities.Usuario;
+import com.swproject.buyeverything.entities.UserSystem;
 import com.swproject.buyeverything.exception.EntityNotFoundException;
 import com.swproject.buyeverything.exception.PasswordInvalidException;
 import com.swproject.buyeverything.exception.UsernameUniqueViolationException;
-import com.swproject.buyeverything.repositories.UsuarioRepository;
-import com.swproject.buyeverything.web.dto.form.UsuarioForm;
+import com.swproject.buyeverything.repositories.UserSystemRepository;
+import com.swproject.buyeverything.web.dto.form.UserSystemForm;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = false)
-public class UsuarioService {
+public class UserSystemService {
 
   @Autowired
-  private UsuarioRepository usuarioRepository;
+  private UserSystemRepository usuarioRepository;
 
   @Transactional
-  public Usuario save(@Nullable Usuario usuario) {
+  public UserSystem save(@Nullable UserSystem usuario) {
     if (usuario == null) {
       throw new IllegalArgumentException("O parâmetro 'usuário' não pode ser nulo.");
     }
@@ -40,18 +40,18 @@ public class UsuarioService {
   }
 
   @Transactional(readOnly = true)
-  public Usuario findById(@NonNull Long id) {
+  public UserSystem findById(@NonNull Long id) {
     return usuarioRepository.findById(id).orElseThrow(
         () -> new EntityNotFoundException(String.format("Usuário id=%s não encontrado", id)));
   }
 
   @Transactional
-  public Usuario editarSenha(@NonNull Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+  public UserSystem editarSenha(@NonNull Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
     if (!novaSenha.equals(confirmaSenha)) {
       throw new PasswordInvalidException("Nova senha não confere com confirmação de senha.");
     }
 
-    Usuario user = findById(id);
+    UserSystem user = findById(id);
     if (!user.getPassword().equals(senhaAtual)) {
       throw new PasswordInvalidException("Sua senha não confere.");
     }
@@ -64,12 +64,12 @@ public class UsuarioService {
   }
 
   @Transactional(readOnly = true)
-  public List<Usuario> findAll() {
+  public List<UserSystem> findAll() {
     return usuarioRepository.findAll();
   }
 
-  public Usuario update(@NonNull Long id, UsuarioForm userForm) {
-    Usuario obj = findById(id);
+  public UserSystem update(@NonNull Long id, UserSystemForm userForm) {
+    UserSystem obj = findById(id);
     obj.setUsername(userForm.getUsername());
     return usuarioRepository.save(obj);
   }

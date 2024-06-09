@@ -7,13 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.swproject.buyeverything.entities.Employee;
-import com.swproject.buyeverything.entities.Usuario;
+import com.swproject.buyeverything.entities.UserSystem;
 import com.swproject.buyeverything.web.dto.EmployeeResponseDto;
 import com.swproject.buyeverything.web.dto.form.EmployeeForm;
 
 public class EmployeeMapper {
 
-  public static Employee toEmployee(EmployeeForm createDto, Usuario usuario) {
+  public static Employee toEmployee(EmployeeForm createDto, UserSystem usuario) {
     return new ModelMapper()
         .map(new EmployeeForm(createDto, usuario), Employee.class);
   }

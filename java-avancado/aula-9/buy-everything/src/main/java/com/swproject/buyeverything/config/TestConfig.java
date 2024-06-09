@@ -14,12 +14,12 @@ import com.github.javafaker.Faker;
 import com.swproject.buyeverything.entities.Category;
 import com.swproject.buyeverything.entities.Employee;
 import com.swproject.buyeverything.entities.Product;
-import com.swproject.buyeverything.entities.Usuario;
-import com.swproject.buyeverything.entities.Usuario.Role;
+import com.swproject.buyeverything.entities.UserSystem;
+import com.swproject.buyeverything.entities.UserSystem.Role;
 import com.swproject.buyeverything.repositories.CategoryRepository;
 import com.swproject.buyeverything.repositories.EmployeeRepository;
 import com.swproject.buyeverything.repositories.ProductRepository;
-import com.swproject.buyeverything.repositories.UsuarioRepository;
+import com.swproject.buyeverything.repositories.UserSystemRepository;
 
 import br.com.caelum.stella.tinytype.CPF;
 
@@ -30,7 +30,7 @@ public class TestConfig implements CommandLineRunner {
   public static final Logger log = LoggerFactory.getLogger(TestConfig.class);
 
   @Autowired
-  private UsuarioRepository userRepository;
+  private UserSystemRepository userRepository;
 
   @Autowired
   private CategoryRepository categoryRepositoy;
@@ -71,7 +71,7 @@ public class TestConfig implements CommandLineRunner {
       log.info("Product: {}", product);
 
       // Se não houver um administrador, cria um novo
-      Usuario usuario = new Usuario();
+      UserSystem usuario = new UserSystem();
 
       // Verifica se já existe pelo menos um administrador no banco de dados
       boolean isAdminExists = userRepository.existsByRole(Role.ROLE_ADMIN);

@@ -1,7 +1,7 @@
 package com.swproject.buyeverything.web.dto;
 
-import com.swproject.buyeverything.entities.Usuario;
-import com.swproject.buyeverything.entities.Usuario.Role;
+import com.swproject.buyeverything.entities.UserSystem;
+import com.swproject.buyeverything.entities.UserSystem.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,13 +14,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioResponseDto {
+public class UserSystemResponseDto {
 
   private Long id;
   private String username;
   private String role;
 
-  public UsuarioResponseDto(Usuario user, Role tipo) {
+  public UserSystemResponseDto(UserSystem user, Role tipo) {
     setId(user.getId());
     this.username = user.getUsername();
     this.role = tipo.toString();

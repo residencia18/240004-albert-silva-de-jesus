@@ -22,12 +22,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import com.github.javafaker.Faker;
-import com.swproject.buyeverything.entities.Usuario;
-import com.swproject.buyeverything.repositories.UsuarioRepository;
-import com.swproject.buyeverything.services.UsuarioService;
-import com.swproject.buyeverything.web.dto.UsuarioResponseDto;
-import com.swproject.buyeverything.web.dto.UsuarioSenhaDto;
-import com.swproject.buyeverything.web.dto.form.UsuarioForm;
+import com.swproject.buyeverything.entities.UserSystem;
+import com.swproject.buyeverything.repositories.UserSystemRepository;
+import com.swproject.buyeverything.services.UserSystemService;
+import com.swproject.buyeverything.web.dto.UserSystemResponseDto;
+import com.swproject.buyeverything.web.dto.UserSystemSenhaDto;
+import com.swproject.buyeverything.web.dto.form.UserSystemForm;
 import com.swproject.buyeverything.web.exceptions.ErrorMessage;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -37,22 +37,22 @@ public class UsuarioServiceTest {
   public static final Logger log = LoggerFactory.getLogger(UsuarioServiceTest.class);
 
   @Mock
-  private UsuarioRepository usuarioRepository;
+  private UserSystemRepository usuarioRepository;
 
   @InjectMocks
-  private UsuarioService usuarioService;
+  private UserSystemService usuarioService;
 
   @Autowired
   WebTestClient testClient;
 
-  private Usuario usuario;
+  private UserSystem usuario;
   private Faker faker;
 
   @BeforeEach // Atribui valores fictícios utilizando o Faker para o usuário antes de cada teste
   void setUp() {
     faker = new Faker(new Locale("en-US"));
     // Gerando dados fictícios com o FAKER
-    usuario = new Usuario();
+    usuario = new UserSystem();
     usuario.setId(1L); // Garantindo um ID para os testes de update
     usuario.setUsername(faker.internet().emailAddress());
     usuario.setPassword(faker.number().digits(6));
@@ -63,14 +63,14 @@ public class UsuarioServiceTest {
   void _createUsuario_ComUsernameEPasswordValidos_RetornarUsuarioCriadoComStaus201() {
     // Configura o Mockito para retornar o mesmo usuário quando o repositório salvar
     // qualquer usuário for chamado
-    given(usuarioRepository.save(any(Usuario.class))).willReturn(usuario);
+    given(usuarioRepository.save(any(UserSystem.class))).willReturn(usuario);
 
     // Ação: Salva o usuário no banco de dados e retorna o usuário salvo (com o ID
     // preenchido) para savedusuario.
-    Usuario savedusuario = usuarioService.save(usuario);
+    UserSystem savedusuario = usuarioService.save(usuario);
 
     // Assert Verifica se o método save do repositório foi chamado
-    verify(usuarioRepository).save(any(Usuario.class));
+    verify(usuarioRepository).save(any(UserSystem.class));
 
     // verifica as propriedades do funcionario retornado para assegurar que elas
     // correspondem ao esperado
@@ -87,14 +87,14 @@ public class UsuarioServiceTest {
         // retornando um response body com o
   // usuário criado e status 201 (CREATED)
   public void createUsuario_ComUsernameEPasswordValidos_RetornarUsuarioCriadoComStaus201() {
-    UsuarioResponseDto responseBody = testClient
+    UserSystemResponseDto responseBody = testClient
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@email.com", "123456"))
+        .bodyValue(new UserSystemForm("tody@email.com", "123456"))
         .exchange()
         .expectStatus().isCreated()
-        .expectBody(UsuarioResponseDto.class)
+        .expectBody(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -110,7 +110,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("", "123456"))
+        .bodyValue(new UserSystemForm("", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -123,7 +123,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@", "123456"))
+        .bodyValue(new UserSystemForm("tody@", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -136,7 +136,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@email", "123456"))
+        .bodyValue(new UserSystemForm("tody@email", "123456"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -157,7 +157,7 @@ public class UsuarioServiceTest {
           .post()
           .uri("/api/v1/usuarios")
           .contentType(MediaType.APPLICATION_JSON)
-          .bodyValue(new Usuario(null, invalidEmail, "123456"))
+          .bodyValue(new UserSystem(null, invalidEmail, "123456"))
           .exchange()
           .expectStatus().isEqualTo(422)
           .expectBody(ErrorMessage.class)
@@ -175,7 +175,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", ""))
+        .bodyValue(new UserSystemForm("tody@gmail.com", ""))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -188,7 +188,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", "123"))
+        .bodyValue(new UserSystemForm("tody@gmail.com", "123"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -201,7 +201,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("tody@gmail.com", "1234567"))
+        .bodyValue(new UserSystemForm("tody@gmail.com", "1234567"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -217,7 +217,7 @@ public class UsuarioServiceTest {
         .post()
         .uri("/api/v1/usuarios")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioForm("ana@email.com", "123456"))
+        .bodyValue(new UserSystemForm("ana@email.com", "123456"))
         .exchange()
         .expectStatus().isEqualTo(409)
         .expectBody(ErrorMessage.class)
@@ -229,12 +229,12 @@ public class UsuarioServiceTest {
 
   @Test // Teste para verificar se o método save do serviço de usuário retorna um erro 200 (OK) quando o usuário é atualizado com sucesso.
   public void buscarUsuario_ComIdExistente_RetornarUsuarioComStatus200() {
-    UsuarioResponseDto responseBody = testClient
+    UserSystemResponseDto responseBody = testClient
         .get()
         .uri("/api/v1/usuarios/100")
         .exchange()
         .expectStatus().isOk()
-        .expectBody(UsuarioResponseDto.class)
+        .expectBody(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();
@@ -264,7 +264,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("123456", "123456", "123456"))
+        .bodyValue(new UserSystemSenhaDto("123456", "123456", "123456"))
         .exchange()
         .expectStatus().isNoContent();
   }
@@ -276,7 +276,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("", "", ""))
+        .bodyValue(new UserSystemSenhaDto("", "", ""))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -289,7 +289,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("12345", "12345", "12345"))
+        .bodyValue(new UserSystemSenhaDto("12345", "12345", "12345"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -302,7 +302,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("12345678", "12345678", "12345678"))
+        .bodyValue(new UserSystemSenhaDto("12345678", "12345678", "12345678"))
         .exchange()
         .expectStatus().isEqualTo(422)
         .expectBody(ErrorMessage.class)
@@ -318,7 +318,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("123456", "123456", "000000"))
+        .bodyValue(new UserSystemSenhaDto("123456", "123456", "000000"))
         .exchange()
         .expectStatus().isEqualTo(400)
         .expectBody(ErrorMessage.class)
@@ -331,7 +331,7 @@ public class UsuarioServiceTest {
         .patch()
         .uri("/api/v1/usuarios/100")
         .contentType(MediaType.APPLICATION_JSON)
-        .bodyValue(new UsuarioSenhaDto("000000", "123456", "123456"))
+        .bodyValue(new UserSystemSenhaDto("000000", "123456", "123456"))
         .exchange()
         .expectStatus().isEqualTo(400)
         .expectBody(ErrorMessage.class)
@@ -343,12 +343,12 @@ public class UsuarioServiceTest {
 
   @Test // Teste para verificar se o método save do serviço de usuário retorna um erro 200 (OK) quando o usuário é listado com sucesso.
   public void listarUsuarios_SemQualquerParametro_RetornarListaDeUsuariosComStatus200() {
-    List<UsuarioResponseDto> responseBody = testClient
+    List<UserSystemResponseDto> responseBody = testClient
         .get()
         .uri("/api/v1/usuarios")
         .exchange()
         .expectStatus().isOk()
-        .expectBodyList(UsuarioResponseDto.class)
+        .expectBodyList(UserSystemResponseDto.class)
         .returnResult().getResponseBody();
 
     org.assertj.core.api.Assertions.assertThat(responseBody).isNotNull();

@@ -5,7 +5,7 @@ import java.time.Instant;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.swproject.buyeverything.entities.Usuario;
+import com.swproject.buyeverything.entities.UserSystem;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
@@ -34,9 +34,9 @@ public class EmployeeForm {
 
     private Long usuarioId;
 
-    private Usuario usuario;
+    private UserSystem usuario;
 
-    public EmployeeForm(EmployeeForm employeeForm, Usuario usuario) {
+    public EmployeeForm(EmployeeForm employeeForm, UserSystem usuario) {
         this.name = employeeForm.getName();
         this.cpf = employeeForm.getCpf();
         this.birthDate = employeeForm.getBirthDate();

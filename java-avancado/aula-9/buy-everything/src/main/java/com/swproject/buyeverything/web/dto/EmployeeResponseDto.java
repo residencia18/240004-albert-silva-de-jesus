@@ -22,9 +22,9 @@ public class EmployeeResponseDto extends AbstractEntity {
   private String name;
   @Column(unique = true)
   private Instant birthDate;
-  private UsuarioResponseDto usuario;
+  private UserSystemResponseDto usuario;
 
-  public EmployeeResponseDto(Employee employee, UsuarioResponseDto usuario) {
+  public EmployeeResponseDto(Employee employee, UserSystemResponseDto usuario) {
     setId(employee.getId());
     this.name = employee.getName();
     this.birthDate = employee.getBirthDate();
