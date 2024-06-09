@@ -19,12 +19,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import com.swprojects.salesforce.entities.Usuario;
-import com.swprojects.salesforce.entities.Usuario.Role;
-import com.swprojects.salesforce.services.UsuarioService;
+import com.swprojects.salesforce.entities.UserSystem;
+import com.swprojects.salesforce.entities.UserSystem.Role;
+import com.swprojects.salesforce.services.UserSystemService;
 import com.swprojects.salesforce.web.controllers.UsuarioController;
-import com.swprojects.salesforce.web.dto.form.UsuarioForm;
-import com.swprojects.salesforce.web.dto.mapper.UsuarioMapper;
+import com.swprojects.salesforce.web.dto.form.UserSystemForm;
+import com.swprojects.salesforce.web.dto.mapper.UserSystemMapper;
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
@@ -33,7 +33,7 @@ public class UsuarioControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private UsuarioService usuarioService;
+    private UserSystemService usuarioService;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -50,8 +50,8 @@ public class UsuarioControllerTest {
         }
     }
 
-    private Usuario generateFakeUsuario() {
-        Usuario usuario = new Usuario();
+    private UserSystem generateFakeUsuario() {
+        UserSystem usuario = new UserSystem();
         usuario.setUsername(faker.internet().emailAddress());
         usuario.setPassword(faker.number().digits(6));
         usuario.setRole(Role.ROLE_ADMIN);
@@ -60,40 +60,40 @@ public class UsuarioControllerTest {
 
     @Test
     void createUsuario_WithValidData_ReturnsCreated() throws Exception {
-        Usuario newUsuario = generateFakeUsuario();
+        UserSystem newUsuario = generateFakeUsuario();
 
-        Usuario saveUsuario = generateFakeUsuario();
+        UserSystem saveUsuario = generateFakeUsuario();
         saveUsuario.setId(faker.number().randomNumber());
 
-        when(usuarioService.create(any(Usuario.class))).thenReturn(saveUsuario);
+        when(usuarioService.create(any(UserSystem.class))).thenReturn(saveUsuario);
 
         mockMvc.perform(post("/api/v1/usuarios")
                 .content(objectMapper.writeValueAsString(newUsuario))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(saveUsuario))));
+                .andExpect(content().json(objectMapper.writeValueAsString(UserSystemMapper.toDto(saveUsuario))));
     }
 
     @Test
     void getAllUsuarios_ReturnsUsuarioList() throws Exception {
-        Usuario usuario = generateFakeUsuario();
+        UserSystem usuario = generateFakeUsuario();
         when(usuarioService.findAll()).thenReturn(Arrays.asList(usuario));
 
         mockMvc.perform(get("/api/v1/usuarios/"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(
-                        content().json(objectMapper.writeValueAsString(Arrays.asList(UsuarioMapper.toDto(usuario)))));
+                        content().json(objectMapper.writeValueAsString(Arrays.asList(UserSystemMapper.toDto(usuario)))));
     }
 
     @Test
     void getUsuarioById_WhenUsuarioExists_ReturnsUsuario() throws Exception {
-        Usuario usuario = generateFakeUsuario();
+        UserSystem usuario = generateFakeUsuario();
         when(usuarioService.searchbyId(1L)).thenReturn(Optional.of(usuario));
 
         mockMvc.perform(get("/api/v1/usuarios/searchbyId/{id}", 1))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(usuario))));
+                .andExpect(content().json(objectMapper.writeValueAsString(UserSystemMapper.toDto(usuario))));
     }
 
     @Test
@@ -106,18 +106,18 @@ public class UsuarioControllerTest {
 
     @Test
     void updateUsuario_WhenUsuarioExists_ReturnsUpdatedUsuario() throws Exception {
-        Usuario updateInfo = generateFakeUsuario(); // Usando Faker para gerar dados de atualização
-        Usuario updatedUsuario = generateFakeUsuario(); // Supondo que seria outra versão dos dados do empregado
+        UserSystem updateInfo = generateFakeUsuario(); // Usando Faker para gerar dados de atualização
+        UserSystem updatedUsuario = generateFakeUsuario(); // Supondo que seria outra versão dos dados do empregado
 
         // Forçando uma mudança para garantir que o empregado foi atualizado
         updatedUsuario.setUsername("Updated@gmail.com " + updatedUsuario.getUsername());
-        when(usuarioService.toEdit(any(Long.class), any(UsuarioForm.class))).thenReturn(Optional.of(updatedUsuario));
+        when(usuarioService.toEdit(any(Long.class), any(UserSystemForm.class))).thenReturn(Optional.of(updatedUsuario));
 
         mockMvc.perform(put("/api/v1/usuarios/toEdit/{id}", 1)
                 .content(objectMapper.writeValueAsString(updateInfo))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(UsuarioMapper.toDto(updatedUsuario))));
+                .andExpect(content().json(objectMapper.writeValueAsString(UserSystemMapper.toDto(updatedUsuario))));
     }
 
 }

@@ -7,13 +7,13 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
 import com.swprojects.salesforce.entities.Employee;
-import com.swprojects.salesforce.entities.Usuario;
+import com.swprojects.salesforce.entities.UserSystem;
 import com.swprojects.salesforce.web.dto.EmployeeResponseDto;
 import com.swprojects.salesforce.web.dto.form.EmployeeForm;
 
 public class EmployeeMapper {
 
-  public static Employee toEmployee(EmployeeForm createDto, Usuario usuario) {
+  public static Employee toEmployee(EmployeeForm createDto, UserSystem usuario) {
     return new ModelMapper()
         .map(new EmployeeForm(createDto, usuario), Employee.class);
   }
