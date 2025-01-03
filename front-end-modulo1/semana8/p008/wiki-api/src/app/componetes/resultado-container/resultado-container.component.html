@@ -1,0 +1,9 @@
+<div class="container" *ngIf="resultados">
+  
+  <h2 [innerHTML]="resultados.parse.title|boldText:resultados.parse.title">Resultado para {{ resultados.parse.title }}</h2>
+
+  <div class="conteudo" [innerHTML]="resultados.parse.text['*'].split('\n').slice(0, 20).join('\n')"></div>
+  
+  <a [href]="linkWikiPedia()" target="_blank">Ver mais informações</a>
+
+</div>

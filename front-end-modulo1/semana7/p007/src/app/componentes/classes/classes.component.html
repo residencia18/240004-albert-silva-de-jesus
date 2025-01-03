@@ -1,0 +1,8 @@
+<div>
+  <h1 class="conponent_title">Categorias</h1>
+  <ul class="itens_list">
+    <li *ngFor="let categoria of pegarChaves()">
+      <button appCategoria class="itens_list__item" (click)="selecionarCategoria(categoria)">{{categoria}}</button>
+    </li>
+  </ul>
+</div>

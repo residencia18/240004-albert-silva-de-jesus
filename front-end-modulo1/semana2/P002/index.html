@@ -1,0 +1,115 @@
+<!-- Criação de um novo design para a página da web da UESC. A página deve ter dois designs diferentes de acordo com o tamanho da tela 
+do disposiƟvo que a acessa. Para dispositivos com telas maiores que 500px deve ser levado em consideração o croqui da Figura 1. 
+Para disposiƟvos com telas menores que 500px deve ser utilizado o croqui da Figura 2.
+
+Para critério de avaliação da tarefa a ser entregue pelo aluno, será levado em consideração os seguintes itens que devem ser incluídos 
+na elaboração do novo design:
+
+1 Uso da propriedade display:grid;
+2 Uso de pelo menos 3 fontes externas que podem ser pesquisadas no site do google Fonts;
+3 Uso de um arquivo externo para a programação CSS;
+4 Utilização de pelo menos 2 cores;
+5 Utilização do modelo Box para separar os elementos HTML;
+6 Uso da propriedade display: inline-block;
+7 Considerar os espaçamentos descritos nos croquis;
+8 Preencher quando possível a página com texto Lorem Ipsum.
+9 Emprego da técnica de Media query para a criação de design responsivo.-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./img/uesc.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <header>
+    <div id="universidade">UNIVERSIDADE ESTADUAL DE SANTA CRUZ</div>
+  </header>
+  <main>
+    <div class="container-grid-3">
+      <div class="menu">
+        <div class="navbar">
+          Menu
+        </div>
+        <hr>
+        <div>
+          <ul>
+            <li><a href="#">Centros e Grupos de Pesquisa</a></li>
+            <li><a href="#">Núcleos</a></li>
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Mapa da UESC</a></li>
+            <li><a href="#">Laboratórios</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="noticias">
+        <div class="navbar">
+          Notícias
+        </div>
+        <hr>
+        <div class="noticias-int">
+          <li><a href="#">Cursos de Graduação da Uesc entre os Melhores do Brasil</a></li>
+          <li><a href="#">Eleição para Reitor e Vice da Uesc Terá Chapa Única</a></li>
+          <li><a href="#">Uesc Sobe no Ranking</a></li>
+        </div>
+      </div>
+      <div class="destaque">
+        <div class="navbar">
+          Destaques
+        </div>
+        <hr>
+        <div class="destaque-int">
+          <div class="destaque-int-int">
+            <img src="./img/curso-de-programacao-java.jpg" alt="">
+          </div>
+          <div class="destaque-int-int">
+            <img src="./img/java.jpeg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-grid-2">
+      <div class="servicos">
+        <div class="navbar">
+          Serviços
+        </div>
+        <hr>
+        <div class="servicos-int">
+          <div>
+            <ul>
+              <li><a href="#"></a>Protocolo Digital</li>
+              <li><a href="#"></a>Biblioteca</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="resultados">
+        <div class="navbar">
+          Resultados
+        </div>
+        <hr>
+        <div class="resultados-int">
+          <div>
+            <ul>
+              <li><a href="#">Concurso Professor Edital nº044/22</a></li>
+              <li><a href="#">Projetos de Monitoria PID - Edital nº202/23</a></li>
+              <li><a href="#">Professor Formador para Cursos EaD</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2023 UESC. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+</html>

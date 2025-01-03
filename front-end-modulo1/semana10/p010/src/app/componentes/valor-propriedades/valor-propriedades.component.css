@@ -1,0 +1,8 @@
+div{
+  width: max-content;
+  height: 10rem;
+  padding: 1rem;
+  background-color: blueviolet;
+  border-radius: 5px;
+  color: white;
+}

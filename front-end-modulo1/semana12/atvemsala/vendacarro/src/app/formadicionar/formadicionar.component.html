@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Carro</title>
+</head>
+
+<body>
+    <h1>Detalhes do Carro</h1>
+    <form [formGroup]="carroFormulario" (ngSubmit)="enviaFormulario()">
+        <div>
+            <label for="modelo">Nome do Modelo:</label><br>
+            <input type="text" formControlName="modelo" name="modelo" placeholder="Insira o nome do modelo">
+            <div *ngIf="carroFormulario.get('modelo')?.invalid && carroFormulario.get('modelo')?.touched"
+                class="error-message">Modelo é obrigatório</div>
+        </div>
+
+        <div>
+            <label for="marca">Nome da Marca:</label><br>
+            <input type="text" formControlName="marca" name="marca" placeholder="Insira o nome da marca">
+            <div *ngIf="carroFormulario.get('marca')?.invalid && carroFormulario.get('marca')?.touched"
+                class="error-message">Marca é obrigatória</div>
+        </div>
+
+        <div>
+            <label for="ano">Ano de Fabricação:</label><br>
+            <input type="date" formControlName="ano" name="ano" placeholder="Insira o ano de fabricação">
+            <div *ngIf="carroFormulario.get('ano')?.invalid && carroFormulario.get('ano')?.touched"
+                class="error-message">Ano é obrigatório</div>
+        </div>
+
+        <div>
+            <label for="valor">Valor do Carro:</label><br>
+            <input type="number" formControlName="valor" name="valor" placeholder="Insira o valor do carro">
+            <div *ngIf="carroFormulario.get('valor')?.invalid && carroFormulario.get('valor')?.touched"
+                class="error-message">Valor é obrigatório</div>
+        </div>
+
+        <div>
+            <label for="cor">Cor do Carro:</label><br>
+            <input type="text" formControlName="cor" name="cor" placeholder="Insira a cor do carro">
+            <div *ngIf="carroFormulario.get('cor')?.invalid && carroFormulario.get('cor')?.touched"
+                class="error-message">Cor é obrigatória</div>
+        </div>
+
+        <div>
+            <label for="foto">Foto do Carro:</label><br>
+            <input type="file" formControlName="foto" name="foto">
+            <div *ngIf="carroFormulario.get('foto')?.invalid && carroFormulario.get('foto')?.touched"
+                class="error-message">Foto é obrigatória</div>
+        </div>
+
+        <div class="image-container">
+            <img src="https://www.automaistv.com.br/wp-content/uploads/2022/06/milivie-1-front_edited-990x594.jpg"
+                alt="Foto do Fusca" class="car-image">
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+</html>

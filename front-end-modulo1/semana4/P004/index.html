@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Roteiros Turísticos</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-destinos">
+
+        <img class="imagem" src="./assets/imgs/salvador.jpg" alt="">
+
+        <div class="roteiros-viagens">
+            <img src="./assets/imgs/salvador.jpg" alt="postal de salvador">
+            <div class="roteiro-destino">Salvador</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>03 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$670,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar">Comprar</button>
+        </div>
+        <div class="roteiros-viagens">
+            <img src="./assets/imgs/fortaleza.jpg" alt="cidade de fortaleza">
+            <div class="roteiro-destino">Fortaleza</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>06 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$1513,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar">Comprar</button>
+        </div>
+        <div class="roteiros-viagens">
+            <img src="./assets/imgs/campinas.jpg" alt="universidade de campinas">
+            <div class="roteiro-destino">Campinas</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>04 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$900,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar">Comprar</button>
+        </div>
+
+        <div class="container-salvos"></div>
+        <button class="botao-abaixo-imagens" onclick="redirecionarParaPagina()">Cadastrar</button>
+    </div>
+</body>
+
+<script>
+
+    document.querySelector('.roteiro-comprar').addEventListener('click', function (event) {
+        let destino = document.querySelector('.roteiro-destino').innerText;
+        let passagem = document.querySelector('.roteiro-passagem').innerText;
+        let dias = document.querySelector('.roteiro-dias').innerText;
+        let alimentacao = document.querySelector('.roteiro-alimentacao').innerText;
+        let preco = document.querySelector('.roteiro-preco').innerText;
+        let parcelas = document.querySelector('.roteiro-parcelamento').innerText;
+
+        let objeto = {
+            "destino": destino,
+            "passagem": passagem,
+            "dias": dias,
+            "alimentacao": alimentacao,
+            "preco": preco,
+            "parcelas": parcelas,
+            "urlImg": document.querySelector('.postal').src
+        };
+
+        adicionarPacoteAoStorage(objeto);
+        adicionaPacoteDOM(objeto);
+    });
+
+    function adicionarPacoteAoStorage(pacote) {
+        let listaPacotes = recebePacoteDoStorage() || [];
+        listaPacotes.push(pacote);
+        localStorage.setItem("pacotes", JSON.stringify(listaPacotes));
+    }
+
+    function criarDivPacote() {
+        let listaPacotes = recebePacoteDoStorage();
+        listaPacotes && listaPacotes.forEach((pacote) => {
+            adicionaPacoteDOM(pacote);
+        });
+    }
+
+    function atualizarPacotesSalvos() {
+        let listaPacotes = recebePacoteDoStorage();
+        let containerSalvos = document.querySelector('.container-salvos');
+        containerSalvos.innerHTML = "";
+
+        if (listaPacotes) {
+            listaPacotes.forEach(pacote => {
+                adicionaPacoteSalvoDOM(pacote);
+            });
+        }
+    }
+
+    function adicionaPacoteSalvoDOM(pacote) {
+        let containerSalvos = document.querySelector('.container-salvos');
+        var pacoteItem = document.createElement('div');
+
+        pacoteItem.className = "roteiros-viagens";
+
+        pacoteItem.innerHTML = `
+        <img src="${pacote.urlImg}" class="postal">
+        <h2 class="roteiro-destino">${pacote.destino}</h2>
+        <ul class="roteiro-incluso">
+            <li class="roteiro-passagem">Áereo ${pacote.passagem}</li>
+            <li class="roteiro-dias">${pacote.dias} diarias</li>
+            <li class="roteiro-alimentacao">${pacote.alimentacao}</li>
+        </ul>
+        <p class="roteiro-preco">R$ ${pacote.preco}</p>
+        <p class="roteiro-obs">Taxas Inclusas</p>
+        <p class="roteiro-parcelamento">Em até ${pacote.parcelas}x sem Juros</p>
+        <button class="roteiro-comprar" onclick="comprarPacote('${pacote.destino}')">Comprar</button>
+        <button class="botao-excluir" onclick="excluirPacote('${pacote.destino}')">Excluir</button>
+    `;
+
+        containerSalvos.appendChild(pacoteItem);
+    }
+
+    // Chame a função para atualizar os pacotes salvos quando a página carregar
+    window.addEventListener('load', function () {
+        atualizarPacotesSalvos();
+    });
+
+    function excluirPacote(destino) {
+        let listaPacotes = recebePacoteDoStorage();
+        let pacoteIndex = listaPacotes.findIndex(pacote => pacote.destino === destino);
+
+        if (pacoteIndex !== -1) {
+            listaPacotes.splice(pacoteIndex, 1);
+            localStorage.setItem("pacotes", JSON.stringify(listaPacotes));
+            atualizarPacotesNoDOM();
+        }
+    }
+
+    function atualizarPacotesNoDOM() {
+        let listaPacotes = recebePacoteDoStorage();
+        let container = document.querySelector('.container-destinos');
+        container.innerHTML = "";
+
+        if (listaPacotes) {
+            listaPacotes.forEach(pacote => {
+                adicionaPacoteDOM(pacote);
+            });
+        }
+    }
+
+    function recebePacoteDoStorage() {
+        return JSON.parse(localStorage.getItem("pacotes")) || [];
+    }
+
+    criarDivPacote()
+
+    function redirecionarParaPagina() {
+        window.location.href = "./form.html";
+    }
+</script>
+
+</html>

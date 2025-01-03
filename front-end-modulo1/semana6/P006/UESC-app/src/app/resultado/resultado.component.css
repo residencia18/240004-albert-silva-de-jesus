@@ -1,0 +1,24 @@
+.navbar {
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.link-text {
+  font-style: italic;
+  font-size: 15px;
+  color: rgb(13, 13, 232);
+  margin-bottom: 5px;
+}
+
+.resultados {
+  background-color: #9ab1bd;
+  border: 1px solid #0d0d0d;
+  border-radius: 5px;
+}
+
+.resultados-int {
+  text-decoration: none;
+  height: 190px;
+}
