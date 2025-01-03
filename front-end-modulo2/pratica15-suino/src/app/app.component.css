@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100lvh;
+}
+
+.content {
+    height: 100%;
+}
+
+::ng-deep .p-menubar-start {
+    margin-right: 10px;
+}
+
+::ng-deep .p-menubar {
+    border-radius: 0;
+}
