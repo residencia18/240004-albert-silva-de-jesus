@@ -1,0 +1,22 @@
+[
+  {
+    "Motorista": {
+      "Nome": "Marcelo",
+      "Cnh": "12345678910-10"
+    },
+    "Cobrador": {
+      "Matricula": "098765",
+      "Nome": "Maria"
+    },
+    "Veiculo": {
+      "Modelo": "Virtus",
+      "Placa": "1254"
+    },
+    "Trecho": {
+      "IntervaloEstimado": 10,
+      "Destino": "Ilheus",
+      "Pontos": "Guaibim, Itacare",
+      "Origem": "Salvador"
+    }
+  }
+]

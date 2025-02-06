@@ -6,11 +6,26 @@ Este repositório contém os materiais e atividades da Residência de Software
 
 As trilhas estão organizadas da seguinte forma:
 
-- **Java Avançado**: Esta trilha é dividida em aulas, cada uma com uma atividade diferente.
-  - `aula-1`: Atividades da primeira aula.
-  - `aula-2`: Atividades da segunda aula.
-  - `aula-3`: Atividades da terceira aula.
-  - ...
+```
+residenciatic18/  
+├── modulo-01-programacao-imperativa/  
+│   ├── semana1/  
+│   ├── semana2/  
+│   └── semanaN/  
+├── modulo-02-programacao-orientada-objetos/  
+│   ├── java/  
+│   ├── dotnet/  
+│   └── python/  
+├── modulo-03-desenvolvimento-aplicacoes/  
+│   ├── trilha-front-end/  
+│   └── trilha-java/  
+├── modulo-04-desenvolvimento-avancado/  
+│   ├── front-end-avancado/  
+│   └── java-avancado/  
+└── modulo-05-desafio-projeto-real/  
+    └── e-drive/  
+
+```
 
 Dentro de cada pasta de aula, você encontrará as atividades correspondentes e uma pasta contendo os slides do exercício e da aula.
 

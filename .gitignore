@@ -5,4 +5,4 @@ node_modules
 myapp.log
 
 ### VS Code ###
-.vscode
+.vscode.angular/cache/

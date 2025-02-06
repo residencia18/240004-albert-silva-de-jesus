@@ -1,0 +1,14 @@
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\bin\Debug\net7.0\ExemplosAula.exe
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\bin\Debug\net7.0\ExemplosAula.deps.json
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\bin\Debug\net7.0\ExemplosAula.runtimeconfig.json
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\bin\Debug\net7.0\ExemplosAula.dll
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\bin\Debug\net7.0\ExemplosAula.pdb
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.AssemblyInfoInputs.cache
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.AssemblyInfo.cs
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.csproj.CoreCompileInputs.cache
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.dll
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\refint\ExemplosAula.dll
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.pdb
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ExemplosAula.genruntimeconfig.cache
+C:\Users\alber\OneDrive\Documentos\ProjetosResidencia\tic18_dotnet\Semana3\ExemplosAula\obj\Debug\net7.0\ref\ExemplosAula.dll

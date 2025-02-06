@@ -1,0 +1,4 @@
+Marca e modelo: monza
+Ano: 2023
+Preco normal: R$1100.00
+Preco promocional: R$1004.30
