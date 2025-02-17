@@ -9,6 +9,10 @@ Esta é a estrutura de pastas que organiza o conteúdo de cada semana:
 ## dotnet
 
 ```dotnet
+├── Plano-de-Ensino
+    ├──PDF
+├── atividades-aprendizado-aula
+├── comandos-dotnet-basicos
 ├── semana1
 │   ├── InstrucaoPratica_PDF
 │   ├── Solucoes-Praticas
@@ -27,6 +31,7 @@ Esta é a estrutura de pastas que organiza o conteúdo de cada semana:
 ## java
 
 ```java
+├── Plano-de-Ensino
 ├── semana1
 │   ├── InstrucaoPratica_PDF
 │   ├── Solucoes-Praticas
@@ -44,6 +49,8 @@ Esta é a estrutura de pastas que organiza o conteúdo de cada semana:
 ## python
 
 ```python
+├── Plano-de-Ensino
+├── atividades-aprendizado-aula
 ├── semana1
 │   ├── InstrucaoPratica_PDF
 │   ├── Solucoes-Praticas
