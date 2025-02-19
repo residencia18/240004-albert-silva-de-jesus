@@ -1,12 +1,12 @@
-# Residencia-TIC18 - CEPEDI
+<h1 align="center">🏫 Residencia-TIC18 - CEPEDI</h1>
 
 Este repositório contém os projetos, exercícios e desafios desenvolvidos durante a **Residência em Software - TIC18**, oferecida pelo CEPEDI. A organização do repositório reflete a evolução das trilhas e módulos ao longo do programa, com foco em Java, Front-End e boas práticas de desenvolvimento. Abaixo está a estrutura detalhada e a descrição de cada módulo.
 
 ---
 
-## Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
-### **Módulo 1 - Introdução à Programação com C++**
+### **📦Módulo 1 - Introdução à Programação com C++**
 Neste módulo, foram abordados os conceitos fundamentais de programação utilizando **C++**, com foco em lógica de programação, estruturas de controle e manipulação básica de dados. Os arquivos deste módulo estão organizados na pasta:
 
 📁 **modulo-01-programacao-imperativa**  
@@ -18,7 +18,7 @@ Neste módulo, foram abordados os conceitos fundamentais de programação utiliz
 
 ---
 
-### **Módulo 2 - Programação Orientada a Objetos e Trilhas Específicas**
+### **📦Módulo 2 - Programação Orientada a Objetos e Trilhas Específicas**
 No segundo módulo, a residência foi dividida em três trilhas principais: **Java**, **.NET** e **Python**. Além disso, houve uma introdução básica a conceitos de **front-end**. Os exercícios e projetos deste módulo estão organizados nas pastas:
 
 📁 **modulo-02-programacao-orientada-objetos**  
@@ -30,7 +30,7 @@ No segundo módulo, a residência foi dividida em três trilhas principais: **Ja
 
 ---
 
-### **Módulo 3 - Especialização em Java e Front-End Básico**
+### **📦Módulo 3 - Especialização em Java e Front-End Básico**
 Após a escolha da trilha de **Java**, o foco foi direcionado para o aprofundamento em desenvolvimento back-end com Java e introdução a tecnologias front-end. Os arquivos desta etapa estão organizados na pasta:
 
 📁 **modulo-03-desenvolvimento-aplicacoes**  
@@ -40,7 +40,7 @@ Após a escolha da trilha de **Java**, o foco foi direcionado para o aprofundame
 
 ---
 
-### **Módulo 4 - Java Avançado, Front-End Avançado e Testes de Software**
+### 📦 **Módulo 4 - Java Avançado, Front-End Avançado e Testes de Software**
 Neste módulo, os estudos foram voltados para tópicos avançados, incluindo frameworks, desenvolvimento de APIs e testes de software. Os exercícios e projetos estão disponíveis na pasta:
 
 📁 **modulo-04-desenvolvimento-avancado**  
@@ -51,7 +51,7 @@ Neste módulo, os estudos foram voltados para tópicos avançados, incluindo fra
 
 ---
 
-### **Módulo 5 - Desafio Final e Projeto Real**
+### **📦Módulo 5 - Desafio Final e Projeto Real**
 O último módulo foi dedicado ao desenvolvimento de um **projeto real**, consolidando todo o conhecimento adquirido ao longo da residência. O desafio final foi a criação de uma aplicação completa, desde o back-end até a interface do usuário. O projeto pode ser encontrado na pasta:
 
 📁 **modulo-05-desafio-projeto-real**  
@@ -63,7 +63,7 @@ O último módulo foi dedicado ao desenvolvimento de um **projeto real**, consol
 
 ---
 
-### 📌 Branches do Repositório
+### 🔀 Branches do Repositório
 As branches deste repositório representam as diferentes trilhas e disciplinas abordadas ao longo da Residência em Software - TIC18. Cada branch está vinculada ao meu GitHub pessoal, preservando o histórico de commits e demonstrando minha evolução no programa.
 
 ---
@@ -88,7 +88,7 @@ Conceitos e práticas de desenvolvimento utilizando **C# e o ecossistema .NET**.
 🎨 **[Front-End](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Front-End)**  
 Desenvolvimento de interfaces modernas utilizando **HTML, CSS, JavaScript e Angular**.  
 
-📌 **[Front-End_Módulo2](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Front-End_modulo2)**  
+📈 **[Front-End_Módulo2](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Front-End_modulo2)**  
 Aprofundamento em **Front-End**, com foco em tópicos avançados e **integração com APIs**.  
 
 🛠️ **[Testes-Automatizados](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Testes-Automatizados)**  
