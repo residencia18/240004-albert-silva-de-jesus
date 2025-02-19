@@ -92,3 +92,8 @@ Aprofundamento em **Front-End**, com foco em tópicos avançados e **integraçã
 🛠️ **[Testes-Automatizados](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Testes-Automatizados)**  
 Implementação de **testes unitários e de integração**, utilizando **JUnit e Mockito** para garantir a qualidade do código.
 
+## 🚀 Evolução Contínua
+Embora a Residência em Software - TIC18 tenha sido concluída, este repositório continuará sendo atualizado com novos estudos, práticas e projetos. A tecnologia está em constante evolução, e a qualificação contínua é essencial para acompanhar as melhores práticas e inovações do mercado. Aqui, irei documentar meu aprendizado contínuo, aprimorando minhas habilidades e explorando novas ferramentas e metodologias de desenvolvimento.
+
+## 👨‍💻 Autor
+[Albert Silva de Jesus](https://github.com/Albertinesilva)
