@@ -70,28 +70,28 @@ As branches deste repositório representam as diferentes trilhas e disciplinas a
 
 ### 📖 Sumário  
 
-🔹 **[Programação-Imperativa](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Programacao-Imperativa)**  
-Introdução à lógica de programação e paradigmas fundamentais utilizando **C++**.  
+🔹 **[Programação-Imperativa](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-01-programacao-imperativa)**  
+Introdução à lógica de programação e paradigmas fundamentais utilizando **C++**.
 
-☕ **[Trilha-Java](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Trilha-Java)**  
-Fundamentos da linguagem **Java**, incluindo **programação orientada a objetos, coleções e tratamento de exceções**.  
+☕ **[Trilha-Java](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-02-programacao-orientada-objetos)**  
+Fundamentos da linguagem **Java**, incluindo **programação orientada a objetos, coleções e tratamento de exceções**.
 
-🚀 **[Java-Avançado](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Java-Avancado)**  
-Tópicos avançados em **Java**, como **desenvolvimento de APIs REST, Spring Boot, Hibernate e JPA**.  
+🚀 **[Java-Avançado](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-04-desenvolvimento-avancado)**  
+Tópicos avançados em **Java**, como **desenvolvimento de APIs REST, Spring Boot, Hibernate e JPA**.
 
-🐍 **[Trilha-Python](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Trilha-Python)**  
-Exploração da linguagem **Python**, abordando seus fundamentos e aplicações práticas.  
+🐍 **[Trilha-Python](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-02-programacao-orientada-objetos/python)**  
+Exploração da linguagem **Python**, abordando seus fundamentos e aplicações práticas.
 
-💻 **[Trilha-DotNet](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Trilha-DotNet)**  
-Conceitos e práticas de desenvolvimento utilizando **C# e o ecossistema .NET**.  
+💻 **[Trilha-DotNet](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-02-programacao-orientada-objetos/dotnet)**  
+Conceitos e práticas de desenvolvimento utilizando **C# e o ecossistema .NET**.
 
-🎨 **[Front-End](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Front-End)**  
-Desenvolvimento de interfaces modernas utilizando **HTML, CSS, JavaScript e Angular**.  
+🎨 **[Front-End](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-03-desenvolvimento-aplicacoes/trilha-front-end)**  
+Desenvolvimento de interfaces modernas utilizando **HTML, CSS, JavaScript e Angular**.
 
-📈 **[Front-End_Módulo2](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Front-End_modulo2)**  
-Aprofundamento em **Front-End**, com foco em tópicos avançados e **integração com APIs**.  
+📈 **[Front-End_Módulo2](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-04-desenvolvimento-avancado/front-end-avancado)**  
+Aprofundamento em **Front-End**, com foco em tópicos avançados e **integração com APIs**.
 
-🛠️ **[Testes-Automatizados](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/Testes-Automatizados)**  
+🛠️ **[Testes-Automatizados](https://github.com/residencia18/240004-albert-silva-de-jesus/tree/main/modulo-04-desenvolvimento-avancado/testes-automatizados)**  
 Implementação de **testes unitários e de integração**, utilizando **JUnit e Mockito** para garantir a qualidade do código.
 
 ---
